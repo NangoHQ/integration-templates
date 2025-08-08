@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createMeetingSchema } from '../schema.zod.js';
 import type { ZoomCreatedMeeting } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Meeting, CreateMeeting } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Meeting, CreateMeeting } from '../models.js';
 
 const action = createAction({
-    description: "Creates a meeting in Zoom.",
-    version: "1.0.0",
+    description: 'Creates a meeting in Zoom.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/meetings",
-        group: "Meetings"
+        method: 'POST',
+        path: '/meetings',
+        group: 'Meetings'
     },
 
     input: CreateMeeting,
     output: Meeting,
-    scopes: ["meeting:write"],
+    scopes: ['meeting:write'],
 
     exec: async (nango, input): Promise<Meeting> => {
         await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
@@ -68,7 +68,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function determineMeetingType(type: CreateMeeting['type']): number {

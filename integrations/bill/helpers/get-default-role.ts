@@ -1,4 +1,4 @@
-import type { NangoAction } from "nango";
+import type { NangoAction } from 'nango';
 import type { RoleResponse, UserRole } from '../types.js';
 
 export async function getDefaultRoleId(nango: NangoAction, headers: Record<string, string>): Promise<string> {

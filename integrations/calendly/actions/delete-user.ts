@@ -1,26 +1,26 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Executes the delete user action by validating input, constructing the endpoint,
  * and making the API call to Calendly to delete the user from an organization.
  */
 const action = createAction({
-    description: "Deletes a user in Calendly",
-    version: "2.0.0",
+    description: 'Deletes a user in Calendly',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: IdEntity,
     output: SuccessResponse,
-    scopes: ["admin"],
+    scopes: ['admin'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
@@ -39,5 +39,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

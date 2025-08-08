@@ -1,20 +1,22 @@
-import { createSync } from "nango";
-import { LinearMilestone } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { LinearMilestone } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of milesontes from Linear",
-    version: "1.0.0",
-    frequency: "every 6min",
+    description: 'Fetches a list of milesontes from Linear',
+    version: '1.0.0',
+    frequency: 'every 6min',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/milestones",
-        group: "Milestones"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/milestones',
+            group: 'Milestones'
+        }
+    ],
 
     models: {
         LinearMilestone: LinearMilestone
@@ -22,7 +24,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const { lastSyncDate } = nango;
         const pageSize = 50;
         let after = '';
@@ -86,7 +88,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapMilestones(records: LinearMilestone[]): LinearMilestone[] {

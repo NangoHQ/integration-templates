@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { NoteObject} from "../models.js";
-import { AshbyCreateNoteResponse, AshbyCreateNoteInput } from "../models.js";
+import { createAction } from 'nango';
+import type { NoteObject } from '../models.js';
+import { AshbyCreateNoteResponse, AshbyCreateNoteInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a note on a candidate.",
-    version: "1.0.0",
+    description: 'Action to create a note on a candidate.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/notes",
-        group: "Notes"
+        method: 'POST',
+        path: '/notes',
+        group: 'Notes'
     },
 
     input: AshbyCreateNoteInput,
@@ -52,5 +52,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

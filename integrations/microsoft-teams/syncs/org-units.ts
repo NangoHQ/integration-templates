@@ -1,24 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { OrganizationUnitResponse } from '../types.js';
 
-import { OrganizationalUnit } from "../models.js";
-import { z } from "zod";
+import { OrganizationalUnit } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Continuously fetches groups from either Microsoft 365 or Azure Active\nDirectory.\nDetails: full refresh, support deletes, goes back all time, metadata\nis not required.",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description:
+        'Continuously fetches groups from either Microsoft 365 or Azure Active\nDirectory.\nDetails: full refresh, support deletes, goes back all time, metadata\nis not required.',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/org-units",
-        group: "Org Units"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/org-units',
+            group: 'Org Units'
+        }
+    ],
 
-    scopes: ["GroupMember.Read.All"],
+    scopes: ['GroupMember.Read.All'],
 
     models: {
         OrganizationalUnit: OrganizationalUnit
@@ -26,14 +29,14 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         // https://learn.microsoft.com/en-us/graph/api/group-list-memberof?view=graph-rest-1.0&source=recommendations&tabs=http
         await fetchAndUpdateOrgs(nango, 'v1.0/groups');
         await fetchAndUpdateOrgs(nango, 'v1.0/directory/deletedItems/microsoft.graph.group', true);
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchAndUpdateOrgs(nango: NangoSyncLocal, initialEndpoint: string, runDelete = false): Promise<void> {

@@ -1,22 +1,24 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { BoxEntryItem, BoxFile } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { BoxDocument, BoxMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { BoxDocument, BoxMetadata } from '../models.js';
 
 const sync = createSync({
-    description: "Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/files",
-        group: "Files"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files',
+            group: 'Files'
+        }
+    ],
 
     models: {
         BoxDocument: BoxDocument
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: BoxMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const files = metadata?.files ?? [];
         const folders = metadata?.folders ?? [];
@@ -58,7 +60,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFolder(nango: NangoSyncLocal, folderId: string) {

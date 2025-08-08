@@ -1,20 +1,22 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { WildixPbxColleague } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WildixPbxColleague } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of users from PBX",
-    version: "1.0.0",
-    frequency: "every 1 hour",
+    description: 'Fetches a list of users from PBX',
+    version: '1.0.0',
+    frequency: 'every 1 hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/wildix-pbx/colleagues"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/wildix-pbx/colleagues'
+        }
+    ],
 
     models: {
         WildixPbxColleague: WildixPbxColleague
@@ -22,7 +24,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const MAX_IN_PAGE: number = 10;
 
         let page: number = 1;
@@ -74,5 +76,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

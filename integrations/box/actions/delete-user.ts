@@ -1,6 +1,6 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { BoxDeleteUser, SuccessResponse } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { BoxDeleteUser, SuccessResponse } from '../models.js';
 
 /**
  * Validates the input for the delete user action.
@@ -40,13 +40,13 @@ function getEndpoint(input: BoxDeleteUser): string {
  * and making the API call to Box to delete the specified user.
  */
 const action = createAction({
-    description: "Deletes a user in Box. Requires an enterprise account.",
-    version: "2.0.0",
+    description: 'Deletes a user in Box. Requires an enterprise account.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: BoxDeleteUser,
@@ -69,5 +69,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

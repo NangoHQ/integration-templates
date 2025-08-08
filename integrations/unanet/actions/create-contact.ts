@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { UnanetContact } from '../types.js';
 
 import { toContact } from '../mappers/to-contact.js';
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 
-import { Contact } from "../models.js";
+import { Contact } from '../models.js';
 
 type contacts = keyof Contact;
 const required: contacts[] = ['firstName', 'lastName', 'position', 'emailAddress', 'phone', 'fax'];
 
 const action = createAction({
-    description: "Create a contact in the system",
-    version: "2.0.0",
+    description: 'Create a contact in the system',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'POST',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: Contact,
@@ -60,7 +60,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function validate(nango: NangoActionLocal, input: Contact) {

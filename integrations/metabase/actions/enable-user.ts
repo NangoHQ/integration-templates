@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Enables a disabled user.",
-    version: "1.0.0",
+    description: 'Enables a disabled user.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/users/enable",
-        group: "Users"
+        method: 'PUT',
+        path: '/users/enable',
+        group: 'Users'
     },
 
     input: IdEntity,
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

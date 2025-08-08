@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toBook } from '../mappers/to-book.js';
-import type { ProxyConfiguration } from "nango";
-import { BookById, Metadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { BookById, Metadata } from '../models.js';
 
 /**
  * Fetches list of specified books from BrightCrowd API
  */
 const sync = createSync({
-    description: "Fetches a list of specified books from Brightcrowd.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of specified books from Brightcrowd.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/books-by-Id",
-        group: "Books"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/books-by-Id',
+            group: 'Books'
+        }
+    ],
 
-    scopes: ["bcb.partner/book.read"],
+    scopes: ['bcb.partner/book.read'],
 
     models: {
         BookById: BookById
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: Metadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         if (!metadata) {
             await nango.log('No Metadata found.', { level: 'warn' });
@@ -63,5 +65,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

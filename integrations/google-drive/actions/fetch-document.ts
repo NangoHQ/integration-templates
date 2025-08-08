@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GoogleDriveFileResponse } from '../types.js';
 import { mimeTypeMapping } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Anonymous_googledrive_action_fetchdocument_output, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Anonymous_googledrive_action_fetchdocument_output, IdEntity } from '../models.js';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
 
@@ -20,18 +20,19 @@ const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
  * @throws Error if the input is invalid, or if the file metadata or content retrieval fails.
  */
 const action = createAction({
-    description: "Fetches the content of a file given its ID, processes the data using\na response stream, and encodes it into a base64 string. This base64-encoded\nstring can be used to recreate the file in its original format using an external tool.\nIf this is a native google file type then use the fetch-google-sheet or fetch-google-doc\nactions.",
-    version: "3.0.0",
+    description:
+        'Fetches the content of a file given its ID, processes the data using\na response stream, and encodes it into a base64 string. This base64-encoded\nstring can be used to recreate the file in its original format using an external tool.\nIf this is a native google file type then use the fetch-google-sheet or fetch-google-doc\nactions.',
+    version: '3.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-document",
-        group: "Documents"
+        method: 'GET',
+        path: '/fetch-document',
+        group: 'Documents'
     },
 
     input: IdEntity,
     output: Anonymous_googledrive_action_fetchdocument_output,
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<Anonymous_googledrive_action_fetchdocument_output> => {
         if (!input || !input.id) {
@@ -112,5 +113,5 @@ const action = createAction({
     }
 }); // 10MB in bytes
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

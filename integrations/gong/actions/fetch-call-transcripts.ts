@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toCallTranscriptWithCursor } from '../mappers/to-call-transcript.js';
 import { gongCallTranscriptInputSchema } from '../schema.zod.js';
 import type { GongCallTranscriptResponse, FilterFields, AxiosError, GongError } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GongCallTranscriptOutput, GongCallTranscriptInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GongCallTranscriptOutput, GongCallTranscriptInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetches a list of call transcripts from Gong",
-    version: "2.0.0",
+    description: 'Fetches a list of call transcripts from Gong',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-call-transcripts",
-        group: "Calls"
+        method: 'GET',
+        path: '/fetch-call-transcripts',
+        group: 'Calls'
     },
 
     input: GongCallTranscriptInput,
     output: GongCallTranscriptOutput,
-    scopes: ["api:calls:read:transcript"],
+    scopes: ['api:calls:read:transcript'],
 
     exec: async (nango, input): Promise<GongCallTranscriptOutput> => {
         await nango.zodValidateInput({ zodSchema: gongCallTranscriptInputSchema, input });
@@ -59,5 +59,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

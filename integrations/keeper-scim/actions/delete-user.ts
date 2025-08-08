@@ -1,8 +1,8 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes an Keeper user contact.
@@ -22,13 +22,13 @@ import { SuccessResponse, IdEntity } from "../models.js";
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 const action = createAction({
-    description: "Deletes a user in Keeper",
-    version: "1.0.0",
+    description: 'Deletes a user in Keeper',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: IdEntity,
@@ -52,5 +52,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

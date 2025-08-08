@@ -1,23 +1,23 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GithubRepo } from "../models.js";
-import type { Repo } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GithubRepo } from '../models.js';
+import type { Repo } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const action = createAction({
-    description: "List github repos from an organization.",
-    version: "2.0.0",
+    description: 'List github repos from an organization.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/github/list-repos"
+        method: 'GET',
+        path: '/github/list-repos'
     },
 
     input: z.void(),
     output: GithubRepo,
-    scopes: ["read:org"],
+    scopes: ['read:org'],
 
     exec: async (nango): Promise<GithubRepo> => {
         let allRepos: any[] = [];
@@ -50,7 +50,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 async function getAll(nango: NangoActionLocal, endpoint: string) {

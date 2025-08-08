@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { updateUserInputSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UpdateUserInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UpdateUserInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates an existing, active user in Metabase.",
-    version: "1.0.0",
+    description: 'Updates an existing, active user in Metabase.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/users",
-        group: "Users"
+        method: 'PUT',
+        path: '/users',
+        group: 'Users'
     },
 
     input: UpdateUserInput,
@@ -38,5 +38,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,21 +1,23 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { SalesforceArticle } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Article, SalesforceMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Article, SalesforceMetadata } from '../models.js';
 
 const sync = createSync({
-    description: "Fetches a list of articles from salesforce",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of articles from salesforce',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/articles"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/articles'
+        }
+    ],
 
     models: {
         Article: Article
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: SalesforceMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata.customFields) {
@@ -38,7 +40,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function buildQuery(customFields: string[], lastSyncDate?: Date): string {

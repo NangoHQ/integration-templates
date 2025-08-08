@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DropboxFile, DropboxFileList } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Document, DocumentMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Document, DocumentMetadata } from '../models.js';
 
 const batchSize = 100;
 
 const sync = createSync({
-    description: "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/files"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files'
+        }
+    ],
 
-    scopes: ["files.metadata.read"],
+    scopes: ['files.metadata.read'],
 
     models: {
         Document: Document
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: DocumentMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata || (!metadata.files && !metadata.folders)) {
@@ -58,7 +60,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFolder(nango: NangoSyncLocal, path: string): Promise<void> {

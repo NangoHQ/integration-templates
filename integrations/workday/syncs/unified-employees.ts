@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { ResponseGet_WorkersAsync } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
-import { StandardEmployee, SyncConfiguration } from "../models.js";
+import { StandardEmployee, SyncConfiguration } from '../models.js';
 
 const sync = createSync({
-    description: "Fetches a list of current employees from Workday and maps them to the standard HRIS model",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of current employees from Workday and maps them to the standard HRIS model',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees/unified",
-        group: "Unified HRIS API"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Unified HRIS API'
+        }
+    ],
 
     models: {
         StandardEmployee: StandardEmployee
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: SyncConfiguration,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
         const metadata: SyncConfiguration | null = connection.metadata;
         const client = await getSoapClient('Human_Resources', connection);
@@ -91,5 +93,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

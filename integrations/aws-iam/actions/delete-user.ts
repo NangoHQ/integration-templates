@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getAWSAuthHeader } from '../helper/utils.js';
 import type { AWSIAMRequestParams } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UserNamEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UserNamEntity } from '../models.js';
 
 const action = createAction({
-    description: "Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.",
-    version: "1.0.0",
+    description: 'Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: UserNamEntity,
@@ -64,5 +64,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

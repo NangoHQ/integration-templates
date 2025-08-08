@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import { WorkableCreateCandidateResponse, WorkableCreateCandidateInput } from "../models.js";
+import { createAction } from 'nango';
+import { WorkableCreateCandidateResponse, WorkableCreateCandidateInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a candidate at the specified job",
-    version: "2.0.0",
+    description: 'Action to create a candidate at the specified job',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/candidates",
-        group: "Candidates"
+        method: 'POST',
+        path: '/candidates',
+        group: 'Candidates'
     },
 
     input: WorkableCreateCandidateInput,
     output: WorkableCreateCandidateResponse,
-    scopes: ["w_candidates"],
+    scopes: ['w_candidates'],
 
     exec: async (nango, input): Promise<WorkableCreateCandidateResponse> => {
         if (!input.shortcode) {
@@ -97,5 +97,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

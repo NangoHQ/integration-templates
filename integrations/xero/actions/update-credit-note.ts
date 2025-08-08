@@ -1,30 +1,25 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toCreditNote, toFailedCreditNote } from '../mappers/to-credit-note.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    CreditNote,
-    ActionErrorResponse} from "../models.js";
-import {
-    CreditNoteActionResponse,
-    Anonymous_xero_action_updatecreditnote_input
-} from "../models.js";
+import type { CreditNote, ActionErrorResponse } from '../models.js';
+import { CreditNoteActionResponse, Anonymous_xero_action_updatecreditnote_input } from '../models.js';
 
 const action = createAction({
-    description: "Updates one or more credit notes in Xero.",
-    version: "2.0.0",
+    description: 'Updates one or more credit notes in Xero.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/credit-notes",
-        group: "Credit Notes"
+        method: 'PUT',
+        path: '/credit-notes',
+        group: 'Credit Notes'
     },
 
     input: Anonymous_xero_action_updatecreditnote_input,
     output: CreditNoteActionResponse,
-    scopes: ["accounting.transactions"],
+    scopes: ['accounting.transactions'],
 
     exec: async (nango, input): Promise<CreditNoteActionResponse> => {
         const tenant_id = await getTenantId(nango);
@@ -89,7 +84,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapCreditNoteToXero(creditNote: CreditNote) {

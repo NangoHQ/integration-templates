@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { oktaAssignRemoveUserGroupSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, OktaAssignRemoveUserGroup } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, OktaAssignRemoveUserGroup } from '../models.js';
 
 const action = createAction({
-    description: "Unassigns a user from a group with the OKTA_GROUP type",
-    version: "1.0.0",
+    description: 'Unassigns a user from a group with the OKTA_GROUP type',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/user-groups",
-        group: "User Groups"
+        method: 'DELETE',
+        path: '/user-groups',
+        group: 'User Groups'
     },
 
     input: OktaAssignRemoveUserGroup,
     output: SuccessResponse,
-    scopes: ["okta.groups.manage"],
+    scopes: ['okta.groups.manage'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: oktaAssignRemoveUserGroupSchema, input });
@@ -35,5 +35,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

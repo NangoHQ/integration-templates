@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GoogleCalendarSettingsResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { CalendarSetting} from "../models.js";
-import { SettingsResponse } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { CalendarSetting } from '../models.js';
+import { SettingsResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch all user settings from Google Calendar",
-    version: "2.0.0",
+    description: 'Fetch all user settings from Google Calendar',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/settings",
-        group: "Users"
+        method: 'GET',
+        path: '/settings',
+        group: 'Users'
     },
 
     input: z.void(),
     output: SettingsResponse,
-    scopes: ["https://www.googleapis.com/auth/calendar.settings.readonly"],
+    scopes: ['https://www.googleapis.com/auth/calendar.settings.readonly'],
 
     exec: async (nango): Promise<SettingsResponse> => {
         const settings: CalendarSetting[] = [];
@@ -48,5 +48,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

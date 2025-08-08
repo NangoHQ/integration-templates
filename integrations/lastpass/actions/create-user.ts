@@ -1,20 +1,20 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { LastPassBody, LastPassCreateNewUser, LastPassResponse } from '../types.js';
 import { getCredentials } from '../helpers/get-credentials.js';
 import { lastPassCreateUserSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { ActionResponseError } from "../models.js";
-import { User, LastPassCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { ActionResponseError } from '../models.js';
+import { User, LastPassCreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Lastpass.",
-    version: "1.0.0",
+    description: 'Creates a user in Lastpass.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: LastPassCreateUser,
@@ -72,5 +72,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

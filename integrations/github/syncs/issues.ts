@@ -1,24 +1,26 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GithubIssue } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GithubIssue } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches Github issues from all a user's repositories",
-    version: "2.0.0",
-    frequency: "every half hour",
+    version: '2.0.0',
+    frequency: 'every half hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/github/issues"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/github/issues'
+        }
+    ],
 
-    scopes: ["public_repo"],
+    scopes: ['public_repo'],
 
     models: {
         GithubIssue: GithubIssue
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const repos: any[] = await getAllRepositories(nango);
 
         for (const repo of repos) {
@@ -62,7 +64,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function getAllRepositories(nango: NangoSyncLocal) {

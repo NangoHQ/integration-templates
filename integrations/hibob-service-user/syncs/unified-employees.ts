@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import type { HibobEmployeeResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { StandardEmployee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { StandardEmployee } from '../models.js';
+import { z } from 'zod';
 
 interface HibobResponse {
     employees: HibobEmployeeResponse[];
@@ -15,18 +15,20 @@ interface HibobResponse {
  * API Documentation: https://apidocs.hibob.com/reference/people_get_people_search
  */
 const sync = createSync({
-    description: "Fetches a list of all employees and maps them to the standardized HRIS model",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of all employees and maps them to the standardized HRIS model',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees/unified",
-        group: "Unified HRIS API"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Unified HRIS API'
+        }
+    ],
 
     models: {
         StandardEmployee: StandardEmployee
@@ -34,7 +36,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://apidocs.hibob.com/reference/post_people-search
             endpoint: '/v1/people/search',
@@ -66,5 +68,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

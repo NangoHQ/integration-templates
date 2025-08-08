@@ -1,11 +1,11 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { QuickBooksCustomer } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toCustomer } from '../mappers/to-customer.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 
-import { Customer } from "../models.js";
-import { z } from "zod";
+import { Customer } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches customer data from QuickBooks API and saves it in batch.
@@ -17,20 +17,22 @@ import { z } from "zod";
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches all QuickBooks customers. Handles both active and archived customers, saving or deleting them based on their status.",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all QuickBooks customers. Handles both active and archived customers, saving or deleting them based on their status.',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/customers",
-        group: "Customers"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/customers',
+            group: 'Customers'
+        }
+    ],
 
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     models: {
         Customer: Customer
@@ -38,7 +40,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: PaginationParams = {
             model: 'Customer',
             additionalFilter: 'Active IN (true, false)'
@@ -65,5 +67,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,22 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run zero:build:flows
+npm run build:flows
 #npm run generate:tests --pre_commit=true
-git add ./integrations/*/tests/*.test.ts
 git add ./internal/flows.yaml
 git add ./internal/flows.zero.json
-
-# Only compile integrations that changed
-changed_files=$(git diff --cached --name-only | grep "^integrations" || true)
-if [ -n "$changed_files" ]; then
-  # Get unique integration directories
-  integrations=$(echo "$changed_files" | cut -d'/' -f2 | sort -u)
-  for integration in $integrations; do
-    npm run cli -- $integration compile
-    #npm run generate:readme --integration=$integration
-  done
-fi
 
 # update ai rules if any markdown files change
 if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
@@ -27,9 +15,6 @@ if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
   git add .cursor/rules/nango-script-best-practices.mdc
   git add guides/rules-for-custom-nango-integrations/nango-best-practices.mdc
 fi
-
-git add ./integrations/**/.nango
-git add ./integrations/**/*.md
 
 # Only run lint-staged if there are staged files
 staged_files=$(git diff --cached --name-only)

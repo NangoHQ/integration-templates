@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UpdateLinks } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UpdateLinks } from '../models.js';
 
 const action = createAction({
-    description: "Update the links in an opportunity",
-    version: "2.0.0",
+    description: 'Update the links in an opportunity',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/opportunities/links",
-        group: "Opportunities"
+        method: 'POST',
+        path: '/opportunities/links',
+        group: 'Opportunities'
     },
 
     input: UpdateLinks,
@@ -60,5 +60,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

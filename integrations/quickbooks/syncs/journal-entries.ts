@@ -1,11 +1,11 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { PaginationParams } from '../helpers/paginate.js';
 import { paginate } from '../helpers/paginate.js';
 import { toJournalEntry } from '../mappers/to-journal-entry.js';
 import type { QuickBooksJournalEntry } from '../types.js';
 
-import { JournalEntry } from "../models.js";
-import { z } from "zod";
+import { JournalEntry } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches ledger data from QuickBooks API and saves it in batch using a unified general ledger format.
@@ -16,20 +16,22 @@ import { z } from "zod";
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 const sync = createSync({
-    description: "Fetch all journal entries in QuickBooks",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetch all journal entries in QuickBooks',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/journal-entries",
-        group: "Journal Entries"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/journal-entries',
+            group: 'Journal Entries'
+        }
+    ],
 
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     models: {
         JournalEntry: JournalEntry
@@ -37,7 +39,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: PaginationParams = {
             model: 'JournalEntry'
         };
@@ -63,5 +65,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

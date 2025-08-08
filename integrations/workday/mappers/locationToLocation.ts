@@ -1,4 +1,4 @@
-import type { NangoSync } from "nango";
+import type { NangoSync } from 'nango';
 import type { Location } from '../models.js';
 import type { ResponseWorkdayLocation } from '../types.js';
 

@@ -1,4 +1,4 @@
-import type { NangoSync, NangoAction } from "nango";
+import type { NangoSync, NangoAction } from 'nango';
 
 export async function getTenantId(nango: NangoAction | NangoSync) {
     const connection = await nango.getConnection();

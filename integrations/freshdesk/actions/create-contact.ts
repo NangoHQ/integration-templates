@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createContactSchema } from '../schema.zod.js';
 import type { FreshdeskContact } from '../types.js';
 import { toContact } from '../mappers/to-contact.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact, CreateContact } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Contact, CreateContact } from '../models.js';
 
 /**
  * Creates a new user in Freshdesk by validating input data against a schema,
@@ -15,13 +15,13 @@ import { Contact, CreateContact } from "../models.js";
  *
  */
 const action = createAction({
-    description: "Creates a user in FreshDesk",
-    version: "2.0.0",
+    description: 'Creates a user in FreshDesk',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'POST',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: CreateContact,
@@ -55,5 +55,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

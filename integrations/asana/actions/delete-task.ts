@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { NangoActionError } from "../models.js";
-import { Anonymous_asana_action_deletetask_output, Id } from "../models.js";
+import { createAction } from 'nango';
+import type { NangoActionError } from '../models.js';
+import { Anonymous_asana_action_deletetask_output, Id } from '../models.js';
 
 const action = createAction({
-    description: "Delete a task.",
-    version: "2.0.0",
+    description: 'Delete a task.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/tasks",
-        group: "Tasks"
+        method: 'DELETE',
+        path: '/tasks',
+        group: 'Tasks'
     },
 
     input: Id,
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

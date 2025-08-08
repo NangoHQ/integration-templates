@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { EvaluAgentUser } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { EvaluAgentUser } from '../models.js';
+import { z } from 'zod';
 
 interface EvaluAgentUserResponseCustom {
     third_party_id: string;
@@ -13,17 +13,19 @@ interface EvaluAgentUserResponse {
 }
 
 const sync = createSync({
-    description: "Fetches a list of users from evaluagent",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from evaluagent',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users'
+        }
+    ],
 
     models: {
         EvaluAgentUser: EvaluAgentUser
@@ -31,7 +33,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const payload: ProxyConfiguration = {
             // https://docs.evaluagent.com/#operation/fetchUsers
             endpoint: '/v1/org/users',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

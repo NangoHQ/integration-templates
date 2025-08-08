@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { IdEntity, BodyContent } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { IdEntity, BodyContent } from '../models.js';
 import type { SingleEventContent } from '../types.js';
 
 const action = createAction({
-    description: "An action used to fetch the contents of an attachment.",
-    version: "1.0.0",
+    description: 'An action used to fetch the contents of an attachment.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-attachment"
+        method: 'GET',
+        path: '/fetch-attachment'
     },
 
     input: IdEntity,
     output: BodyContent,
-    scopes: ["Mail.Read"],
+    scopes: ['Mail.Read'],
 
     exec: async (nango, input): Promise<BodyContent> => {
         if (!input.id) {
@@ -39,6 +39,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-

@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { PaginationParams } from '../helpers/pagination.js';
 import { paginate } from '../helpers/pagination.js';
 
-import type { InterviewStageListResponse } from "../models.js";
-import { StagesResponse, InterviewStageList } from "../models.js";
+import type { InterviewStageListResponse } from '../models.js';
+import { StagesResponse, InterviewStageList } from '../models.js';
 
 const action = createAction({
-    description: "List all interview stages for an interview plan in order.",
-    version: "1.0.0",
+    description: 'List all interview stages for an interview plan in order.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/interviews/stages",
-        group: "Interviews"
+        method: 'GET',
+        path: '/interviews/stages',
+        group: 'Interviews'
     },
 
     input: InterviewStageList,
     output: StagesResponse,
-    scopes: ["interviewsRead"],
+    scopes: ['interviewsRead'],
 
     exec: async (nango, input): Promise<StagesResponse> => {
         if (!input.interviewPlanId) {
@@ -45,5 +45,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

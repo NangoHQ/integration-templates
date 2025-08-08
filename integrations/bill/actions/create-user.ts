@@ -1,20 +1,20 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { BillCreateUserInput, BillUser } from '../types.js';
 import { billCreateUserSchema } from '../schema.zod.js';
 import { getHeaders } from '../helpers/get-headers.js';
 import { getDefaultRoleId } from '../helpers/get-default-role.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, BillCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, BillCreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Bill.",
-    version: "1.0.0",
+    description: 'Creates a user in Bill.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: BillCreateUser,
@@ -65,5 +65,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GemApplication } from '../types.js';
 import { toApplication } from '../mappers/to-application.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Application, UpdateApplicationInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Application, UpdateApplicationInput } from '../models.js';
 
 const action = createAction({
     description: "Update an application's source",
-    version: "1.0.0",
+    version: '1.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/application",
-        group: "Applications"
+        method: 'PATCH',
+        path: '/application',
+        group: 'Applications'
     },
 
     input: UpdateApplicationInput,
@@ -33,5 +33,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

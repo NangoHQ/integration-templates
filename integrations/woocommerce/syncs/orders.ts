@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { WooCommerceOrder } from '../types.js';
 import { toOrder } from '../mappers/to-order.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Order } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Order } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Retrieves WooCommerce orders from the API, transforms the data into a suitable format,
@@ -18,19 +18,21 @@ import { z } from "zod";
  * @returns A Promise that resolves when all orders have been successfully fetched and saved.
  */
 const sync = createSync({
-    description: "Periodically fetches all the Woo orders.",
-    version: "1.0.0",
-    frequency: "every 5 minutes",
+    description: 'Periodically fetches all the Woo orders.',
+    version: '1.0.0',
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/orders"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/orders'
+        }
+    ],
 
-    scopes: ["read"],
+    scopes: ['read'],
 
     models: {
         Order: Order
@@ -38,7 +40,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders
             endpoint: '/wp-json/wc/v3/orders',
@@ -63,5 +65,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

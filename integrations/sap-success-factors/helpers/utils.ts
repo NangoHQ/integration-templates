@@ -28,7 +28,7 @@ export function parseSapDateToISOString(sapDateString: string | null | undefined
 }
 
 // Pick latest based on the startDate
-export function getMostRecentInfo(infos: any | undefined) {
+export function getMostRecentInfo(infos?: any) {
     if (typeof infos === 'object' && !Array.isArray(infos) && Object.keys(infos).length === 0) {
         return undefined;
     }

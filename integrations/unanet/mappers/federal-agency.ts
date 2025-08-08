@@ -1,4 +1,4 @@
-import type { NangoAction } from "nango";
+import type { NangoAction } from 'nango';
 import type { PotentialClient } from '../types.js';
 import type { Lead } from '../models.js';
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';

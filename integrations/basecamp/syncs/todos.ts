@@ -1,27 +1,30 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { todosMetadataSchema } from '../schema.zod.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { BasecampPerson} from "../models.js";
-import { BasecampTodo, TodosMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { BasecampPerson } from '../models.js';
+import { BasecampTodo, TodosMetadata } from '../models.js';
 
 /**
  * Sync: Todos
  */
 const sync = createSync({
-    description: "Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`",
-    version: "2.0.0",
-    frequency: "every 1 day",
+    description:
+        'Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`',
+    version: '2.0.0',
+    frequency: 'every 1 day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/todos",
-        group: "Todos"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/todos',
+            group: 'Todos'
+        }
+    ],
 
     models: {
         BasecampTodo: BasecampTodo
@@ -29,11 +32,11 @@ const sync = createSync({
 
     metadata: TodosMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();
         const parsed = await nango.zodValidateInput({
-          zodSchema: todosMetadataSchema,
-          input: rawMetadata,
+            zodSchema: todosMetadataSchema,
+            input: rawMetadata
         });
 
         const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
@@ -108,5 +111,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

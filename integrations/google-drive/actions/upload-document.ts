@@ -1,6 +1,6 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GoogleDocument, UploadFileInput } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GoogleDocument, UploadFileInput } from '../models.js';
 
 /**
  * Uploads a file to Google Drive using simple upload.
@@ -11,21 +11,20 @@ import { GoogleDocument, UploadFileInput } from "../models.js";
  * @returns Metadata about the uploaded file.
  */
 const action = createAction({
-    description: "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
-    version: "1.0.0",
+    description:
+        "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/upload-document",
-        group: "Documents"
+        method: 'POST',
+        path: '/upload-document',
+        group: 'Documents'
     },
 
     input: UploadFileInput,
     output: GoogleDocument,
 
-    scopes: [
-        "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
-    ],
+    scopes: ['https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata'],
 
     exec: async (nango, input): Promise<GoogleDocument> => {
         if (!input.content) {
@@ -130,5 +129,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

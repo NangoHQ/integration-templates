@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { IntercomArticle } from '../types.js';
 import { toArticle } from '../mappers/to-article.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Article } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Article } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Retrieves Intercom articles from the API, transforms the data into a suitable format,
@@ -18,17 +18,19 @@ import { z } from "zod";
  * @returns Promise that resolves when all articles are fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches a list of articles from Intercom",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of articles from Intercom',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/articles"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/articles'
+        }
+    ],
 
     models: {
         Article: Article
@@ -36,7 +38,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/articles/listarticles
             endpoint: '/articles',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

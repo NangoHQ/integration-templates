@@ -1,4 +1,4 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants.js';
 import { getPullRequestsQuery } from '../graphql/pull-requests.js';
 import { toPullRequest } from '../mappers/to-pull-request.js';
@@ -7,22 +7,24 @@ import type { PullRequestQueryGraphQLResponse } from '../types.js';
 import { PullRequestState } from '../types.js';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GithubPullRequest, GithubMetadataInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GithubPullRequest, GithubMetadataInput } from '../models.js';
 
 const sync = createSync({
-    description: "Get all pull requests from a Github repository.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Get all pull requests from a Github repository.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/pull-requests",
-        group: "Pull Requests"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/pull-requests',
+            group: 'Pull Requests'
+        }
+    ],
 
     models: {
         GithubPullRequest: GithubPullRequest
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: GithubMetadataInput,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
 
@@ -114,5 +116,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,18 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { JiraCreatedUser } from '../types.js';
 import { jiraCreateUserSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, JiraCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, JiraCreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Jira. Note that this endpoint is marked as experimental and could \nbe deprecated in the future. Products are optional and allowed params are\njira-core, jira-servicedesk, jira-product-discovery, jira-software. Defaults to \njira-software. Note that the last name isn't able to be set via the API and \nthe first name defaults to the email address.",
-    version: "1.0.0",
+    description:
+        "Creates a user in Jira. Note that this endpoint is marked as experimental and could \nbe deprecated in the future. Products are optional and allowed params are\njira-core, jira-servicedesk, jira-product-discovery, jira-software. Defaults to \njira-software. Note that the last name isn't able to be set via the API and \nthe first name defaults to the email address.",
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: JiraCreateUser,
@@ -54,5 +55,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

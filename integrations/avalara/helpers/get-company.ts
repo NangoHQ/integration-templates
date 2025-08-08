@@ -1,5 +1,5 @@
-import type { ProxyConfiguration, NangoAction, NangoSync } from "nango";
-import type { ConnectionMetadata } from "../models.js";
+import type { ProxyConfiguration, NangoAction, NangoSync } from 'nango';
+import type { ConnectionMetadata } from '../models.js';
 import { connectionMetadataSchema } from '../schema.zod.js';
 import type { AvalaraCompany } from '../types.js';
 

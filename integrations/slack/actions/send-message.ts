@@ -1,8 +1,8 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toMessage } from '../mappers/to-message.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SendMessageOutput, SendMessageInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SendMessageOutput, SendMessageInput } from '../models.js';
 
 /**
  * This function handles sending a message to a Slack channel via the Nango action.
@@ -15,18 +15,18 @@ import { SendMessageOutput, SendMessageInput } from "../models.js";
  * @returns {Promise<SendMessageOutput>} - Returns the response object representing the status of the sent message.
  */
 const action = createAction({
-    description: "An action that sends a message to a slack channel.",
-    version: "2.0.0",
+    description: 'An action that sends a message to a slack channel.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/messages",
-        group: "Messages"
+        method: 'POST',
+        path: '/messages',
+        group: 'Messages'
     },
 
     input: SendMessageInput,
     output: SendMessageOutput,
-    scopes: ["chat:write"],
+    scopes: ['chat:write'],
 
     exec: async (nango, input): Promise<SendMessageOutput> => {
         // Validate if input is present
@@ -65,5 +65,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

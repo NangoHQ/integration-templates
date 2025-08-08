@@ -1,22 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { WorkableJob } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableJob } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of jobs from workable",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of jobs from workable',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/workable/jobs"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/jobs'
+        }
+    ],
 
-    scopes: ["r_jobs"],
+    scopes: ['r_jobs'],
 
     models: {
         WorkableJob: WorkableJob
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -50,7 +52,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapJob(job: any): WorkableJob {

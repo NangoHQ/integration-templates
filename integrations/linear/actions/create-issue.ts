@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createIssueSchema } from '../schema.zod.js';
 import { issueFields } from '../fields/issue.js';
 import type { LinearCreatedIssue } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { LinearIssue, CreateIssue } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { LinearIssue, CreateIssue } from '../models.js';
 
 const action = createAction({
-    description: "Create an issue in Linear",
-    version: "2.0.0",
+    description: 'Create an issue in Linear',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/issues",
-        group: "Issues"
+        method: 'POST',
+        path: '/issues',
+        group: 'Issues'
     },
 
     input: CreateIssue,
     output: LinearIssue,
-    scopes: ["issues:create"],
+    scopes: ['issues:create'],
 
     exec: async (nango, input): Promise<LinearIssue> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createIssueSchema, input });
@@ -68,5 +68,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

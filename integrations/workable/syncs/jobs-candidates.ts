@@ -1,25 +1,27 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import type { WorkableCandidate} from "../models.js";
-import { WorkableJobsCandidate } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import type { WorkableCandidate } from '../models.js';
+import { WorkableJobsCandidate } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Fetches a list of candidates for the specified job from workable",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of candidates for the specified job from workable',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/workable/jobs-candidates"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/jobs-candidates'
+        }
+    ],
 
-    scopes: ["r_jobs"],
+    scopes: ['r_jobs'],
 
     models: {
         WorkableJobsCandidate: WorkableJobsCandidate
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const jobs: any[] = await getAllJobs(nango);
@@ -56,7 +58,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function getAllJobs(nango: NangoSyncLocal) {

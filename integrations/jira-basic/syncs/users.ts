@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { JiraUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of users from Jira",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from Jira',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         User: User
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-users/#api-rest-api-3-users-search-get
             endpoint: '/rest/api/3/users/search',
@@ -54,5 +56,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

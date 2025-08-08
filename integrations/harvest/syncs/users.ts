@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import type { HarvestUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches Harvest users, maps them to Nango User objects,
@@ -20,20 +20,22 @@ import { z } from "zod";
  * @returns Promise that resolves when all users are fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches the list of users in Harvest",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches the list of users in Harvest',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["administrator", "manager"],
+    scopes: ['administrator', 'manager'],
 
     models: {
         User: User
@@ -41,7 +43,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
             endpoint: '/v2/users',
@@ -71,5 +73,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

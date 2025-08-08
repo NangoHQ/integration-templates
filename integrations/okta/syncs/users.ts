@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/toUser.js';
 import type { OktaUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches lists users in your org",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches lists users in your org',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["okta.users.read"],
+    scopes: ['okta.users.read'],
 
     models: {
         User: User
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const filters = [];
         if (nango.lastSyncDate) {
             filters.push(`lastUpdated gt "${nango.lastSyncDate.toISOString()}"`);
@@ -58,5 +60,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

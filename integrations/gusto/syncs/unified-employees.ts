@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { EmployeeResponse } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
-import type { ProxyConfiguration } from "nango";
-import { StandardEmployee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { StandardEmployee } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches all employees from Gusto and maps them to the StandardEmployee model
  */
 const sync = createSync({
-    description: "Fetches all employees from Gusto and maps them to the standard HRIS model",
-    version: "1.0.0",
-    frequency: "every 5m",
+    description: 'Fetches all employees from Gusto and maps them to the standard HRIS model',
+    version: '1.0.0',
+    frequency: 'every 5m',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees/unified",
-        group: "Unified HRIS API"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Unified HRIS API'
+        }
+    ],
 
     models: {
         StandardEmployee: StandardEmployee
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
 
         const companyUuid = connection.connection_config['companyUuid'];
@@ -63,5 +65,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,7 +1,7 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { CreatePropertyInputSchema } from '../schema.js';
 
-import { CreatedProperty, CreatePropertyInput } from "../models.js";
+import { CreatedProperty, CreatePropertyInput } from '../models.js';
 
 /**
  * Executes an action to create a custom property in the CRM.
@@ -13,28 +13,28 @@ import { CreatedProperty, CreatePropertyInput } from "../models.js";
  * @throws An ActionError if the input validation fails.
  */
 const action = createAction({
-    description: "Create a property in Hubspot",
-    version: "2.0.0",
+    description: 'Create a property in Hubspot',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/properties",
-        group: "Properties"
+        method: 'POST',
+        path: '/properties',
+        group: 'Properties'
     },
 
     input: CreatePropertyInput,
     output: CreatedProperty,
 
     scopes: [
-        "oauth",
-        "crm.schemas.orders.write",
-        "crm.objects.orders.write",
-        "crm.schemas.contacts.write",
-        "crm.schemas.carts.write",
-        "crm.schemas.deals.write",
-        "crm.objects.users.write",
-        "crm.schemas.companies.write",
-        "crm.objects.carts.write"
+        'oauth',
+        'crm.schemas.orders.write',
+        'crm.objects.orders.write',
+        'crm.schemas.contacts.write',
+        'crm.schemas.carts.write',
+        'crm.schemas.deals.write',
+        'crm.objects.users.write',
+        'crm.schemas.companies.write',
+        'crm.objects.carts.write'
     ],
 
     exec: async (nango, input): Promise<CreatedProperty> => {
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

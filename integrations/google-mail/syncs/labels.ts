@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GoogleMailLabel } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GmailLabel } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { GmailLabel } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of labels from gmail.",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of labels from gmail.',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/labels",
-        group: "Labels"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/labels',
+            group: 'Labels'
+        }
+    ],
 
-    scopes: ["https://www.googleapis.com/auth/gmail.readonly"],
+    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     models: {
         GmailLabel: GmailLabel
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.google.com/gmail/api/reference/rest/v1/users.labels/list
             endpoint: `/gmail/v1/users/me/labels`,
@@ -56,5 +58,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

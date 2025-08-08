@@ -14,7 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout the current repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Log current branch and repository
               run: |
@@ -26,8 +26,8 @@ jobs:
               uses: tj-actions/changed-files@v41
               with:
                   files: |
-                      flows.yaml
-                      flows.zero.json
+                      internal/flows.yaml
+                      internal/flows.zero.json
 
             - name: Debug - Log if files has changed
               run: |
@@ -58,10 +58,10 @@ jobs:
                   echo "Repository cloned."
 
                   echo "Copying flows.yaml into the nango repository."
-                  cp flows.yaml nango/packages/shared/flows.yaml
+                  cp internal/flows.yaml nango/packages/shared/flows.yaml
                   echo "flows.yaml file copied."
 
-                  cp flows.zero.json nango/packages/shared/flows.zero.json
+                  cp internal/flows.zero.json nango/packages/shared/flows.zero.json
 
                   echo "Updating documentation snippets"
                   cd nango

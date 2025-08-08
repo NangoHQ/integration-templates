@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Address, Phone } from "../models.js";
-import { Organisation } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { Address, Phone } from '../models.js';
+import { Organisation } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches organisation details in Xero.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches organisation details in Xero.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/organisations",
-        group: "Organisations"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/organisations',
+            group: 'Organisations'
+        }
+    ],
 
-    scopes: ["accounting.settings", "accounting.settings.read"],
+    scopes: ['accounting.settings', 'accounting.settings.read'],
 
     models: {
         Organisation: Organisation
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const tenant_id = await getTenantId(nango);
 
         const config: ProxyConfiguration = {
@@ -49,7 +51,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapXeroOrganisation(xeroOrganisation: any): Organisation {

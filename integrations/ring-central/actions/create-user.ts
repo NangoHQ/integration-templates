@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { ringCentralCreateUserSchema } from '../schema.zod.js';
 import type { RingCentralUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, RingCentralCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, RingCentralCreateUser } from '../models.js';
 
 /**
  * Creates an RingCentral user.
@@ -24,18 +24,18 @@ import { User, RingCentralCreateUser } from "../models.js";
  * https://developers.ringcentral.com/api-reference/SCIM/scimCreateUser2
  */
 const action = createAction({
-    description: "Creates a user in RingCentral",
-    version: "1.0.0",
+    description: 'Creates a user in RingCentral',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: RingCentralCreateUser,
     output: User,
-    scopes: ["EditAccounts"],
+    scopes: ['EditAccounts'],
 
     exec: async (nango, input): Promise<User> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: ringCentralCreateUserSchema, input });
@@ -69,5 +69,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

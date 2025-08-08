@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { JSONDocument, IdEntity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { JSONDocument, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Fetches the content of a native google document given its ID. Outputs\na JSON reprensentation of a google doc.",
-    version: "1.0.0",
+    description: 'Fetches the content of a native google document given its ID. Outputs\na JSON reprensentation of a google doc.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-google-document",
-        group: "Documents"
+        method: 'GET',
+        path: '/fetch-google-document',
+        group: 'Documents'
     },
 
     input: IdEntity,
     output: JSONDocument,
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<JSONDocument> => {
         if (!input || !input.id) {
@@ -44,5 +44,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

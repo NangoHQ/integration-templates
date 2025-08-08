@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { QuickBooksBill } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toBill } from '../mappers/to-bill.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 
-import { Bill } from "../models.js";
-import { z } from "zod";
+import { Bill } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all QuickBooks bills",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all QuickBooks bills',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/bills",
-        group: "Bills"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/bills',
+            group: 'Bills'
+        }
+    ],
 
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     models: {
         Bill: Bill
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: PaginationParams = {
             model: 'Bill'
         };
@@ -57,5 +59,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

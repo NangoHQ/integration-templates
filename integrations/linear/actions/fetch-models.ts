@@ -1,7 +1,7 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { ModelResponse } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ModelResponse } from '../models.js';
+import { z } from 'zod';
 
 interface TypeResponse {
     __schema: {
@@ -15,13 +15,13 @@ interface TypeResponse {
 const IGNORE_LIST = ['Query', 'Mutation', 'Subscription', '__Schema', '__Type', '__Field', '__InputValue', '__EnumValue', '__Directive', 'PageInfo'];
 
 const action = createAction({
-    description: "Introspection endpoint to fetch the models available",
-    version: "1.0.0",
+    description: 'Introspection endpoint to fetch the models available',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/models",
-        group: "Models"
+        method: 'GET',
+        path: '/models',
+        group: 'Models'
     },
 
     input: z.void(),
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,24 +1,26 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { WorkableCandidateActivity } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableCandidateActivity } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Fetches a list of activity streams of the given candidate",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of activity streams of the given candidate',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/workable/candidates-activities"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/candidates-activities'
+        }
+    ],
 
-    scopes: ["r_candidates"],
+    scopes: ['r_candidates'],
 
     models: {
         WorkableCandidateActivity: WorkableCandidateActivity
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const candidates: any[] = await getAllCandidates(nango);
@@ -55,7 +57,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function getAllCandidates(nango: NangoSyncLocal) {

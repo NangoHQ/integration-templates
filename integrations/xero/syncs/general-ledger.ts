@@ -1,28 +1,30 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types.js';
 import { parseDate } from '../utils.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { LedgerLine, TrackingCategory } from "../models.js";
-import { GeneralLedger } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { LedgerLine, TrackingCategory } from '../models.js';
+import { GeneralLedger } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetch all general ledger entries in Xero",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetch all general ledger entries in Xero',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/general-ledger",
-        group: "General Ledger"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/general-ledger',
+            group: 'General Ledger'
+        }
+    ],
 
-    scopes: ["accounting.journals.read"],
+    scopes: ['accounting.journals.read'],
 
     models: {
         GeneralLedger: GeneralLedger
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const tenant_id = await getTenantId(nango);
 
         const config: ProxyConfiguration = {
@@ -83,7 +85,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {

@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { issueFields } from '../fields/issue.js';
 import type { LinearIssueResponse } from '../types.js';
 
-import { LinearIssue } from "../models.js";
-import { z } from "zod";
+import { LinearIssue } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of issues from Linear",
-    version: "2.0.0",
-    frequency: "every 5min",
+    description: 'Fetches a list of issues from Linear',
+    version: '2.0.0',
+    frequency: 'every 5min',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/issues",
-        group: "Issues"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/issues',
+            group: 'Issues'
+        }
+    ],
 
     models: {
         LinearIssue: LinearIssue
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const { lastSyncDate } = nango;
         const pageSize = 50;
         let after = '';
@@ -73,7 +75,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapIssues(records: LinearIssueResponse[]): LinearIssue[] {

@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { findUserIdByEmail } from '../helpers/find-user.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 import { basecampCreateTodoInputSchema } from '../schema.zod.js';
-import type { ProxyConfiguration } from "nango";
-import type { BasecampPerson } from "../models.js";
-import { BasecampTodoResponse, BasecampCreateTodoInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { BasecampPerson } from '../models.js';
+import { BasecampTodoResponse, BasecampCreateTodoInput } from '../models.js';
 
 /**
  * Action: createBasecampTodo
@@ -15,13 +15,14 @@ import { BasecampTodoResponse, BasecampCreateTodoInput } from "../models.js";
  * 4) POST /buckets/{projectId}/todolists/{todoListId}/todos.json to create the to-do.
  */
 const action = createAction({
-    description: "Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.",
-    version: "2.0.0",
+    description:
+        'Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/todos",
-        group: "Todos"
+        method: 'POST',
+        path: '/todos',
+        group: 'Todos'
     },
 
     input: BasecampCreateTodoInput,
@@ -29,8 +30,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<BasecampTodoResponse> => {
         const parsed = await nango.zodValidateInput({
-          zodSchema: basecampCreateTodoInputSchema,
-          input,
+            zodSchema: basecampCreateTodoInputSchema,
+            input
         });
 
         const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
@@ -101,5 +102,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

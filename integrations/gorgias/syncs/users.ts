@@ -1,9 +1,9 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GorgiasUserResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GorgiasUser } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { GorgiasUser } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches data from the Gorgias API and saves it using NangoSync.
@@ -15,20 +15,22 @@ import { z } from "zod";
  * {@link https://developers.gorgias.com/reference/list-users} for more information on the Gorgias API endpoint.
  */
 const sync = createSync({
-    description: "Fetches the list of users",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches the list of users',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["users:read"],
+    scopes: ['users:read'],
 
     models: {
         GorgiasUser: GorgiasUser
@@ -36,7 +38,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-users
             endpoint: `/api/users`,
@@ -66,5 +68,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

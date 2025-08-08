@@ -1,16 +1,16 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GetUsers } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GetUsers } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Lists all the users in your Lever account. Only active users are included by default.",
-    version: "1.0.0",
+    description: 'Lists all the users in your Lever account. Only active users are included by default.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/users",
-        group: "Users"
+        method: 'GET',
+        path: '/users',
+        group: 'Users'
     },
 
     input: z.void(),
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

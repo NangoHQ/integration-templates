@@ -1,26 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { OutlookEvent } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
-import type { ProxyConfiguration } from "nango";
-import { OutlookCalendarEvent, OptionalBackfillSetting } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { OutlookCalendarEvent, OptionalBackfillSetting } from '../models.js';
 
 const DEFAULT_BACKFILL_MS = 30 * 24 * 60 * 60 * 1000; // 1 month
 
 const sync = createSync({
-    description: "Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.",
-    version: "2.0.0",
-    frequency: "every 5 minutes",
+    description:
+        'Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.',
+    version: '2.0.0',
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/events"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/events'
+        }
+    ],
 
-    scopes: ["Calendars.Read"],
+    scopes: ['Calendars.Read'],
 
     models: {
         OutlookCalendarEvent: OutlookCalendarEvent
@@ -28,7 +31,7 @@ const sync = createSync({
 
     metadata: OptionalBackfillSetting,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
         const backfillDate = new Date(Date.now() - backfillMilliseconds);
@@ -65,5 +68,5 @@ const sync = createSync({
     }
 }); // 1 month
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

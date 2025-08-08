@@ -1,14 +1,14 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { TopicStatusUpdated, TopicStatus } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { TopicStatusUpdated, TopicStatus } from '../models.js';
 
 const action = createAction({
-    description: "Update the status of a topic",
-    version: "2.0.0",
+    description: 'Update the status of a topic',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/topics/status"
+        method: 'PUT',
+        path: '/topics/status'
     },
 
     input: TopicStatus,
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

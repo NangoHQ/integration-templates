@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { ZoomCreatedUser } from '../types.js';
 import { createUserSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, ZoomCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, ZoomCreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Zoom. Requires Pro account or higher",
-    version: "1.0.0",
+    description: 'Creates a user in Zoom. Requires Pro account or higher',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: ZoomCreateUser,
     output: User,
-    scopes: ["user:write", "user:write:admin"],
+    scopes: ['user:write', 'user:write:admin'],
 
     exec: async (nango, input): Promise<User> => {
         await nango.zodValidateInput({ zodSchema: createUserSchema, input });
@@ -54,7 +54,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function determineUserType(type: ZoomCreateUser['type']): number {

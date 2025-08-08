@@ -1,13 +1,13 @@
-import { createAction } from "nango";
-import { FirefliesAddtoLiveResponse, FirefliesAddtoLiveInput } from "../models.js";
+import { createAction } from 'nango';
+import { FirefliesAddtoLiveResponse, FirefliesAddtoLiveInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to add the Fireflies.ai bot to an ongoing meeting",
-    version: "2.0.0",
+    description: 'Action to add the Fireflies.ai bot to an ongoing meeting',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/fireflies/add-to-live"
+        method: 'POST',
+        path: '/fireflies/add-to-live'
     },
 
     input: FirefliesAddtoLiveInput,
@@ -43,5 +43,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

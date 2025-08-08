@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createAccountInputSchema } from '../schema.zod.js';
 import { toSalesForceAccount } from '../mappers/toAccount.js';
 
-import type { ProxyConfiguration } from "nango";
-import { ActionResponse, CreateAccountInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { ActionResponse, CreateAccountInput } from '../models.js';
 
 const action = createAction({
-    description: "Create a single account in salesforce",
-    version: "2.0.0",
+    description: 'Create a single account in salesforce',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/accounts",
-        group: "Accounts"
+        method: 'POST',
+        path: '/accounts',
+        group: 'Accounts'
     },
 
     input: CreateAccountInput,
     output: ActionResponse,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<ActionResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createAccountInputSchema, input });
@@ -35,5 +35,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

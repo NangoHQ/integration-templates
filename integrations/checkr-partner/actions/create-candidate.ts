@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { constructRequest } from '../helpers/construct-request.js';
 
-import type { Location} from "../models.js";
-import { Candidate, CreateCandidate } from "../models.js";
+import type { Location } from '../models.js';
+import { Candidate, CreateCandidate } from '../models.js';
 
 const action = createAction({
-    description: "Create a candidate",
-    version: "2.0.0",
+    description: 'Create a candidate',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/candidates"
+        method: 'POST',
+        path: '/candidates'
     },
 
     input: CreateCandidate,
@@ -54,7 +54,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function validate(nango: NangoActionLocal, input: CreateCandidate): void {

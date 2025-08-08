@@ -1,23 +1,25 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GoogleCalendar } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GoogleCalendar } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync the calendars list of the user",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Sync the calendars list of the user',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/calendars",
-        group: "Calendars"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/calendars',
+            group: 'Calendars'
+        }
+    ],
 
-    scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     models: {
         GoogleCalendar: GoogleCalendar
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const maxResults = '100';
 
         const config: ProxyConfiguration = {
@@ -43,5 +45,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

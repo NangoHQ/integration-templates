@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import { Issue } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { Issue } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches Github issues but up to a maximum of 15",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches Github issues but up to a maximum of 15',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/github/issues-lite"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/github/issues-lite'
+        }
+    ],
 
-    scopes: ["public_repo"],
+    scopes: ['public_repo'],
 
     models: {
         Issue: Issue
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const MAX_ISSUES = 15;
         const reposResponse = await nango.get({
             endpoint: '/user/repos',
@@ -66,5 +68,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

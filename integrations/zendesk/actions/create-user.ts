@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import { createUserSchema } from '../schema.zod.js';
 import type { ZendeskUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, CreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, CreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided",
-    version: "1.0.0",
+    description: 'Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: CreateUser,
     output: User,
-    scopes: ["users:write"],
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<User> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });
@@ -56,5 +56,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

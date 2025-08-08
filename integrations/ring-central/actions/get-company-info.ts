@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { RingCentralCompanyResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CompanyInfo } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { CompanyInfo } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Retrieves information about the current RingCentral account/company.",
-    version: "1.0.0",
+    description: 'Retrieves information about the current RingCentral account/company.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/account/current",
-        group: "Company"
+        method: 'GET',
+        path: '/account/current',
+        group: 'Company'
     },
 
     input: z.void(),
@@ -50,5 +50,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

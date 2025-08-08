@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createUpdateCompany, toHubspotCompany } from '../mappers/toCompany.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreateUpdateCompanyOutput, CreateCompanyInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreateUpdateCompanyOutput, CreateCompanyInput } from '../models.js';
 
 const action = createAction({
-    description: "Create a single company in Hubspot",
-    version: "2.0.0",
+    description: 'Create a single company in Hubspot',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/companies",
-        group: "Companies"
+        method: 'POST',
+        path: '/companies',
+        group: 'Companies'
     },
 
     input: CreateCompanyInput,
     output: CreateUpdateCompanyOutput,
-    scopes: ["crm.objects.companies.write", "oauth"],
+    scopes: ['crm.objects.companies.write', 'oauth'],
 
     exec: async (nango, input): Promise<CreateUpdateCompanyOutput> => {
         const hubSpotCompany = toHubspotCompany(input);
@@ -33,5 +33,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

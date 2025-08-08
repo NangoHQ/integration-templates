@@ -1,24 +1,26 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { AshbyJob, AshbyJobMetadata } from "../models.js";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { AshbyJob, AshbyJobMetadata } from '../models.js';
 
 let nextCursor: string | null = null;
 
 const sync = createSync({
-    description: "Fetches a list of all jobs from your ashby account",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of all jobs from your ashby account',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/jobs",
-        group: "Jobs"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/jobs',
+            group: 'Jobs'
+        }
+    ],
 
-    scopes: ["jobslastsyncToken"],
+    scopes: ['jobslastsyncToken'],
 
     models: {
         AshbyJob: AshbyJob
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: AshbyJobMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = (await nango.getMetadata()) || {};
         const jobslastsyncToken = metadata['jobslastsyncToken'] ? String(metadata['jobslastsyncToken']) : '';
 
@@ -34,7 +36,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string) {

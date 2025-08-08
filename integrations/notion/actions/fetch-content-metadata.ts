@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 
 import { urlOrIdSchema } from '../schema.zod.js';
 
-import { ContentMetadata, UrlOrId } from "../models.js";
+import { ContentMetadata, UrlOrId } from '../models.js';
 
 const action = createAction({
-    description: "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
-    version: "2.0.0",
+    description: 'Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/contents/single",
-        group: "Contents"
+        method: 'GET',
+        path: '/contents/single',
+        group: 'Contents'
     },
 
     input: UrlOrId,
@@ -87,7 +87,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function extractIdFromUrl(url: string): string {

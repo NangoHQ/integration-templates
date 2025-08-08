@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { Field, ListField, Option } from '../types.js';
 
-import type { BamboohrField } from "../models.js";
-import { Anonymous_bamboohrbasic_action_fetchfields_output } from "../models.js";
-import { z } from "zod";
+import type { BamboohrField } from '../models.js';
+import { Anonymous_bamboohrbasic_action_fetchfields_output } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Introspection to retrieve available fields",
-    version: "2.0.0",
+    description: 'Introspection to retrieve available fields',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fields"
+        method: 'GET',
+        path: '/fields'
     },
 
     input: z.void(),
@@ -44,7 +44,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapFields({ fields, listData }: { fields: Field[]; listData: ListField[] }): BamboohrField[] {

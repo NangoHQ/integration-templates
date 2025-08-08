@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DropboxUserResponse, DropboxUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of users from Dropbox. Requires Dropbox Business.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from Dropbox. Requires Dropbox Business.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["members.read"],
+    scopes: ['members.read'],
 
     models: {
         User: User
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://www.dropbox.com/developers/documentation/http/teams#team-members-list
             endpoint: `/2/team/members/list_v2`,
@@ -86,5 +88,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

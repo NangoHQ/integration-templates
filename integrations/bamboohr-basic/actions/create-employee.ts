@@ -1,14 +1,14 @@
-import { createAction } from "nango";
-import { BamboohrCreateEmployeeResponse, BamboohrCreateEmployee } from "../models.js";
+import { createAction } from 'nango';
+import { BamboohrCreateEmployeeResponse, BamboohrCreateEmployee } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a new employee",
-    version: "2.0.0",
+    description: 'Action to create a new employee',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/employees",
-        group: "Employees"
+        method: 'POST',
+        path: '/employees',
+        group: 'Employees'
     },
 
     input: BamboohrCreateEmployee,
@@ -69,5 +69,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

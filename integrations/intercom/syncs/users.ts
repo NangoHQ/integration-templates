@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import type { IntercomAdminUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of admin users from Intercom",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of admin users from Intercom',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users'
+        }
+    ],
 
     models: {
         User: User
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/admins/listadmins
             endpoint: '/admins',
@@ -47,5 +49,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

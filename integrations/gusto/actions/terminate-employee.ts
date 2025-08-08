@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GustoDeleteEmployeeRequest } from '../types.js';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, GustoTerminateEmployee } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, GustoTerminateEmployee } from '../models.js';
 
 const action = createAction({
-    description: "Terminates an employee in Gusto.",
-    version: "1.0.0",
+    description: 'Terminates an employee in Gusto.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/employees",
-        group: "Employees"
+        method: 'DELETE',
+        path: '/employees',
+        group: 'Employees'
     },
 
     input: GustoTerminateEmployee,
     output: SuccessResponse,
-    scopes: ["employments:write"],
+    scopes: ['employments:write'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
@@ -47,5 +47,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

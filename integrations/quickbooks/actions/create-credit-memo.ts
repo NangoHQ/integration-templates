@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreditMemo, CreateCreditMemo } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreditMemo, CreateCreditMemo } from '../models.js';
 
 /**
  * This function handles the creation of a credit memo in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { CreditMemo, CreateCreditMemo } from "../models.js";
  * @returns {Promise<CreditMemo>} - Returns the created credit memo object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single credit memo in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single credit memo in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/credit-memos",
-        group: "Credit Memos"
+        method: 'POST',
+        path: '/credit-memos',
+        group: 'Credit Memos'
     },
 
     input: CreateCreditMemo,
     output: CreditMemo,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<CreditMemo> => {
         // Validate if input is present
@@ -90,5 +90,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,13 +1,13 @@
-import { createAction } from "nango";
-import { AlgoliaContact, AlgoliaCreateContactInput } from "../models.js";
+import { createAction } from 'nango';
+import { AlgoliaContact, AlgoliaCreateContactInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to add a single record contact to an index",
-    version: "1.0.0",
+    description: 'Action to add a single record contact to an index',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contacts"
+        method: 'POST',
+        path: '/contacts'
     },
 
     input: AlgoliaCreateContactInput,
@@ -41,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

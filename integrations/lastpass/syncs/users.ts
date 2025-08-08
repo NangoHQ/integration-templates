@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { paginate } from '../helpers/paginate.js';
 import { getCredentials } from '../helpers/get-credentials.js';
 import type { ReturnedUser } from '../types.js';
 import { toUser } from '../mappers/to-user.js';
 
-import { User } from "../models.js";
-import { z } from "zod";
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of users from Lastpass.",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from Lastpass.',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         User: User
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const credentials = await getCredentials(nango);
         const paginationParams = {
             // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass%2Fapi_get_user_data.html&_LANG=enus
@@ -46,5 +48,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

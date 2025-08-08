@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { DriveResponse } from '../types.js';
 import { toDrive } from '../mappers/to-drive.js';
 
-import { DriveList } from "../models.js";
-import { z } from "zod";
+import { DriveList } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Lists the available drives for the authenticated user.
@@ -11,18 +11,18 @@ import { z } from "zod";
  * @returns A Promise that resolves with the DriveList.
  */
 const action = createAction({
-    description: "Lists the available drives for the authenticated user.",
-    version: "1.0.0",
+    description: 'Lists the available drives for the authenticated user.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/list-drives",
-        group: "Drives"
+        method: 'GET',
+        path: '/list-drives',
+        group: 'Drives'
     },
 
     input: z.void(),
     output: DriveList,
-    scopes: ["Files.Read", "offline_access"],
+    scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango): Promise<DriveList> => {
         const response = await nango.get<DriveResponse>({
@@ -40,5 +40,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

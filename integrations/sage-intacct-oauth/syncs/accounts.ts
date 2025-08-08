@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toAccount } from '../mappers/to-account.js';
 import type { GeneralLedgerAccount, GeneralLedgerAccountResponse, GeneralLedgerAccountSummary } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Account } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Account } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of all accounts from your sage intacct account.",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of all accounts from your sage intacct account.',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/accounts",
-        group: "Accounts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/accounts',
+            group: 'Accounts'
+        }
+    ],
 
     models: {
         Account: Account
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developer.sage.com/intacct/docs/openapi/gl/general-ledger.account/tag/Accounts/#tag/Accounts/operation/list-general-ledger-account
             endpoint: '/v1/objects/general-ledger/account',
@@ -53,7 +55,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchAccountDetails(nango: NangoSyncLocal, accountId: string): Promise<GeneralLedgerAccount> {

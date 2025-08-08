@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { RingCentralContactRecord } from '../types.js';
 import { createContactSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact, CreateContact } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Contact, CreateContact } from '../models.js';
 
 /**
  * Creates a new external contact in RingCentral.
@@ -11,18 +11,18 @@ import { Contact, CreateContact } from "../models.js";
  * API Documentation: https://developers.ringcentral.com/api-reference/External-Contacts/createContact
  */
 const action = createAction({
-    description: "Creates a new external contact in RingCentral.",
-    version: "1.0.0",
+    description: 'Creates a new external contact in RingCentral.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'POST',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: CreateContact,
     output: Contact,
-    scopes: ["Contacts"],
+    scopes: ['Contacts'],
 
     exec: async (nango, input): Promise<Contact> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createContactSchema, input });
@@ -49,5 +49,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

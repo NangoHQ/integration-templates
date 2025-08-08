@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksCustomer, toCustomer } from '../mappers/to-customer.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Customer, UpdateCustomer } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Customer, UpdateCustomer } from '../models.js';
 
 /**
  * This function handles the partial update of a customer in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Customer, UpdateCustomer } from "../models.js";
  * @returns {Promise<Customer>} - Returns the created customer object from QuickBooks.
  */
 const action = createAction({
-    description: "Update a single customer in QuickBooks.",
-    version: "1.0.0",
+    description: 'Update a single customer in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/customers",
-        group: "Customers"
+        method: 'PUT',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: UpdateCustomer,
     output: Customer,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Customer> => {
         // Validate if input is present
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

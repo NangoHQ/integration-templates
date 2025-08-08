@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { mapConversation, mapMessages } from '../mappers/to-conversation.js';
 import type { IntercomConversationMessage, IntercomConversationsResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Conversation, ConversationMessage } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Conversation, ConversationMessage } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches Intercom conversations with all their associated messages and notes.
@@ -21,20 +21,23 @@ import { z } from "zod";
  * @param nango - An instance of NangoSync for handling synchronization tasks.
  */
 const sync = createSync({
-    description: "Fetches a list of conversations from Intercom",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of conversations from Intercom',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/conversations"
-    }, {
-        method: "GET",
-        path: "/conversation-messages"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/conversations'
+        },
+        {
+            method: 'GET',
+            path: '/conversation-messages'
+        }
+    ],
 
     models: {
         Conversation: Conversation,
@@ -43,7 +46,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         // Intercom uses unix timestamp for datetimes.
         // Convert the last sync run date into a unix timestamp for easier comparison.
         const lastSyncDateTimestamp = nango.lastSyncDate ? nango.lastSyncDate.getTime() / 1000 : 0;
@@ -122,5 +125,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,21 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { NotionCompleteDatabase } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { NotionCompleteDatabase } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync a database content with each row as an entry. Store the top level\ndatabase information in the metadata to be able to reconcile the database",
-    version: "2.0.0",
-    frequency: "every 1h",
+    description:
+        'Sync a database content with each row as an entry. Store the top level\ndatabase information in the metadata to be able to reconcile the database',
+    version: '2.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/databases",
-        group: "Databases"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/databases',
+            group: 'Databases'
+        }
+    ],
 
     models: {
         NotionCompleteDatabase: NotionCompleteDatabase
@@ -23,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         for await (const databases of nango.paginate({
             method: 'post',
             // https://developers.notion.com/reference/post-search
@@ -71,5 +74,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

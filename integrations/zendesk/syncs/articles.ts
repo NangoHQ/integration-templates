@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import type { ZendeskArticle } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Article } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Article } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of articles in Help center from Zendesk",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of articles in Help center from Zendesk',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/articles"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/articles'
+        }
+    ],
 
-    scopes: ["hc:read"],
+    scopes: ['hc:read'],
 
     models: {
         Article: Article
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const subdomain = await getSubdomain(nango);
         const metadata = await nango.getMetadata();
         const locale: string = metadata && metadata['locale'] ? String(metadata['locale']) : 'en-us';
@@ -54,7 +56,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapZendeskArticleToArticle(article: ZendeskArticle): Article {

@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 
-import { Company, CreateCompany } from "../models.js";
+import { Company, CreateCompany } from '../models.js';
 
 const action = createAction({
-    description: "Create a company in the system",
-    version: "1.0.0",
+    description: 'Create a company in the system',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/company"
+        method: 'POST',
+        path: '/company'
     },
 
     input: CreateCompany,
@@ -32,5 +32,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

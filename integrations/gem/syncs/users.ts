@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GemTeamUser } from '../types.js';
 import { toUser } from '../mappers/to-user.js';
 
-import type { ProxyConfiguration } from "nango";
-import { TeamMemberUser } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { TeamMemberUser } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Get a list of all users from Gem",
-    version: "1.0.0",
-    frequency: "every 1h",
+    description: 'Get a list of all users from Gem',
+    version: '1.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         TeamMemberUser: TeamMemberUser
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/v0/reference#tag/Users/paths/~1v0~1users/get
             endpoint: '/v0/users',
@@ -47,5 +49,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

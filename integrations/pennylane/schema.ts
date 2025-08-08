@@ -1,14 +1,18 @@
 import { z } from 'zod';
 
-const TransactionsReferenceSchema = z.object({
-    banking_provider: z.string().min(1, 'banking_provider is required'),
-    provider_field_name: z.string().min(1, 'provider_field_name is required')
-}).optional();
+const TransactionsReferenceSchema = z
+    .object({
+        banking_provider: z.string().min(1, 'banking_provider is required'),
+        provider_field_name: z.string().min(1, 'provider_field_name is required')
+    })
+    .optional();
 
-const ImputationDatesSchema = z.object({
-    start_date: z.string().min(1, 'start_date is required'),
-    end_date: z.string().min(1, 'end_date is required')
-}).optional();
+const ImputationDatesSchema = z
+    .object({
+        start_date: z.string().min(1, 'start_date is required'),
+        end_date: z.string().min(1, 'end_date is required')
+    })
+    .optional();
 
 const LineItemWithTaxSchema = z.object({
     label: z.string().min(1, 'label is a required field'),
@@ -48,11 +52,7 @@ const LineItemWithExistingProductSchema = z.object({
     })
 });
 
-const LineItemSchema = z.union([
-    LineItemWithTaxSchema,
-    LineItemWithoutTaxSchema,
-    LineItemWithExistingProductSchema
-]);
+const LineItemSchema = z.union([LineItemWithTaxSchema, LineItemWithoutTaxSchema, LineItemWithExistingProductSchema]);
 
 export const validateInvoiceInputSchema = z.object({
     date: z.string().min(1, 'date is a required field'),
@@ -84,8 +84,5 @@ export const createSupplierSchema = z.object({
     recipient: z.string().optional(),
     vat_number: z.string().optional(),
     source_id: z.string().optional(),
-    emails: z.array(
-        z.string().email('Each email must be a valid email address')
-    ).nonempty('emails must contain at least one email address')
+    emails: z.array(z.string().email('Each email must be a valid email address')).nonempty('emails must contain at least one email address')
 });
-

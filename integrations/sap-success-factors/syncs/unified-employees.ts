@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { SapSuccessFactorsComprehensiveEmployee } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
-import type { ProxyConfiguration } from "nango";
-import { StandardEmployee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { StandardEmployee } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees/unified",
-        group: "Employees"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Employees'
+        }
+    ],
 
     models: {
         StandardEmployee: StandardEmployee
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const lastModifiedDate = nango.lastSyncDate?.toISOString();
 
         const config: ProxyConfiguration = {
@@ -59,5 +61,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

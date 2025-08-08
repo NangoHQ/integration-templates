@@ -1,8 +1,8 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { BrightCrowdBookAnalytics } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { BookAnalytics, Metadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { BookAnalytics, Metadata } from '../models.js';
 
 /**
  * Fetches book analytics data from the BrightCrowd API and saves it.
@@ -11,20 +11,22 @@ import { BookAnalytics, Metadata } from "../models.js";
  * @returns {Promise<void>} - A promise that resolves when the data fetching and saving is complete.
  */
 const sync = createSync({
-    description: "Fetches analytics for a specified list of books from Brightcrowd.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches analytics for a specified list of books from Brightcrowd.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/book-analytics",
-        group: "Books"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/book-analytics',
+            group: 'Books'
+        }
+    ],
 
-    scopes: ["bcb.partner/book.read"],
+    scopes: ['bcb.partner/book.read'],
 
     models: {
         BookAnalytics: BookAnalytics
@@ -32,7 +34,7 @@ const sync = createSync({
 
     metadata: Metadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         if (!metadata) {
             await nango.log('No Metadata found.', { level: 'warn' });
@@ -71,5 +73,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,24 +1,20 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { recruiterFlowCandidateActivityListInputSchema } from '../schema.zod.js';
 import type { RecruiterFlowCandidateFullActivityResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    RecruiterFlowCandidateFullActivity} from "../models.js";
-import {
-    RecruiterFlowCandidateActivityListOutput,
-    RecruiterFlowCandidateActivityListInput,
-} from "../models.js";
+import type { RecruiterFlowCandidateFullActivity } from '../models.js';
+import { RecruiterFlowCandidateActivityListOutput, RecruiterFlowCandidateActivityListInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetches all candidate activities list from RecruiterFlow",
-    version: "3.0.0",
+    description: 'Fetches all candidate activities list from RecruiterFlow',
+    version: '3.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/candidate-activities-list",
-        group: "Candidates"
+        method: 'GET',
+        path: '/candidate-activities-list',
+        group: 'Candidates'
     },
 
     input: RecruiterFlowCandidateActivityListInput,
@@ -55,7 +51,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 const toCandidateActivity = (activity: RecruiterFlowCandidateFullActivityResponse): RecruiterFlowCandidateFullActivity => {

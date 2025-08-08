@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getAdminPolicy } from '../helpers/policies.js';
 import { getCredentials } from '../helpers/credentials.js';
 import { expensifyDisableUserSchema } from '../schema.zod.js';
 
-import { SuccessResponse, ExpensifyDisableUser } from "../models.js";
+import { SuccessResponse, ExpensifyDisableUser } from '../models.js';
 
 const action = createAction({
-    description: "Disables a user in Expensify",
-    version: "2.0.0",
+    description: 'Disables a user in Expensify',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: ExpensifyDisableUser,
@@ -83,5 +83,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

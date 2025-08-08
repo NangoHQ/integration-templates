@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { mapXeroBankTransaction } from '../mappers/to-bank-transaction.js';
 import type { XeroBankTransaction } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { BankTransaction } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { BankTransaction } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.",
-    version: "3.0.0",
-    frequency: "every hour",
+    description: 'Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.',
+    version: '3.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/bank-transactions",
-        group: "Bank Transactions"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/bank-transactions',
+            group: 'Bank Transactions'
+        }
+    ],
 
-    scopes: ["accounting.transactions"],
+    scopes: ['accounting.transactions'],
 
     models: {
         BankTransaction: BankTransaction
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const tenant_id = await getTenantId(nango);
         interface Config extends ProxyConfiguration {
             params: Record<string, string | number>;
@@ -78,5 +80,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

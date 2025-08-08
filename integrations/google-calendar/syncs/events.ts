@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GoogleCalendarEventsResponse } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GoogleCalendarEvent, CalendarMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GoogleCalendarEvent, CalendarMetadata } from '../models.js';
 
 const sync = createSync({
-    description: "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
-    version: "3.0.0",
-    frequency: "every 5 minutes",
+    description: 'Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API',
+    version: '3.0.0',
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/events",
-        group: "Events"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/events',
+            group: 'Events'
+        }
+    ],
 
-    scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     models: {
         GoogleCalendarEvent: GoogleCalendarEvent
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: CalendarMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const params: Record<string, string> = {
             maxResults: '100',
@@ -65,5 +67,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

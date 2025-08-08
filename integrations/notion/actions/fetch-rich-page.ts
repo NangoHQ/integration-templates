@@ -1,17 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { richPageInputSchema } from '../schema.zod.js';
 import { mapPage } from '../mappers/to-page.js';
 
-import { RichPage, RichPageInput } from "../models.js";
+import { RichPage, RichPageInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetch a specific page in Notion by passing a pageId. This action fetches a page,\nand its content and converts it into a full markdown. It transforms images,\ntables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.",
-    version: "2.0.0",
+    description:
+        'Fetch a specific page in Notion by passing a pageId. This action fetches a page,\nand its content and converts it into a full markdown. It transforms images,\ntables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/pages/single",
-        group: "Pages"
+        method: 'GET',
+        path: '/pages/single',
+        group: 'Pages'
     },
 
     input: RichPageInput,
@@ -33,5 +34,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

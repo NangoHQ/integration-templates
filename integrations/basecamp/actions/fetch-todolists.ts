@@ -1,22 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { BasecampTodolist} from "../models.js";
-import { BasecampTodolistsResponse, BasecampFetchTodolistsInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { BasecampTodolist } from '../models.js';
+import { BasecampTodolistsResponse, BasecampFetchTodolistsInput } from '../models.js';
 
 /**
  * Action: fetch-todolists
  * Fetches *all* to-do lists from a Basecamp TodoSet.
  */
 const action = createAction({
-    description: "Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where \"name\": \"todoset\". The id there is your todoSetId.",
-    version: "2.0.0",
+    description:
+        'Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project\'s dock item where "name": "todoset". The id there is your todoSetId.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/todolists",
-        group: "Todolists"
+        method: 'GET',
+        path: '/todolists',
+        group: 'Todolists'
     },
 
     input: BasecampFetchTodolistsInput,
@@ -52,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

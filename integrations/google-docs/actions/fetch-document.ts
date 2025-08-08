@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { Document, DocumentId } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { Document, DocumentId } from '../models.js';
 
 const action = createAction({
-    description: "Fetches the content of a document given its ID.",
-    version: "2.0.0",
+    description: 'Fetches the content of a document given its ID.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-document"
+        method: 'GET',
+        path: '/fetch-document'
     },
 
     input: DocumentId,
     output: Document,
-    scopes: ["https://www.googleapis.com/auth/documents.readonly"],
+    scopes: ['https://www.googleapis.com/auth/documents.readonly'],
 
     exec: async (nango, input): Promise<Document> => {
         if (!input || !input.id) {
@@ -42,5 +42,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { ZendeskArticle } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { ArticleLite} from "../models.js";
-import { ArticleResponse } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { ArticleLite } from '../models.js';
+import { ArticleResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch all help center articles metadata",
-    version: "2.0.0",
+    description: 'Fetch all help center articles metadata',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/all-articles"
+        method: 'GET',
+        path: '/all-articles'
     },
 
     input: z.void(),
     output: ArticleResponse,
-    scopes: ["hc:read"],
+    scopes: ['hc:read'],
 
     exec: async (nango): Promise<ArticleResponse> => {
         const metadata = await nango.getMetadata();
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

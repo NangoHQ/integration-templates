@@ -1,14 +1,14 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toDeal } from '../mappers/toDeal.js';
 import { toTask } from '../mappers/toTask.js';
 import type { HubSpotDealNonUndefined, HubSpotTaskNonUndefined, HubSpotCompanyNonUndefined, HubSpotContactNonUndefined } from '../types.js';
 import { toCompany } from '../mappers/toCompany.js';
 import { toContact } from '../mappers/toContact.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Company, Deal, Contact} from "../models.js";
-import { Task } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { Company, Deal, Contact } from '../models.js';
+import { Task } from '../models.js';
+import { z } from 'zod';
 
 const CACHE = {
     companies: new Map<string, Company>(),
@@ -74,20 +74,22 @@ async function fetchContactById(nango: NangoSyncLocal, contactId: string) {
 }
 
 const sync = createSync({
-    description: "Fetches a list of tasks from Hubspot",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of tasks from Hubspot',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/tasks",
-        group: "Tasks"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tasks',
+            group: 'Tasks'
+        }
+    ],
 
-    scopes: ["crm.objects.contacts.read", "oauth"],
+    scopes: ['crm.objects.contacts.read', 'oauth'],
 
     models: {
         Task: Task
@@ -95,7 +97,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const properties = ['hs_task_type', 'hs_task_subject', 'hs_task_priority', 'hubspot_owner_id', 'hs_timestamp', 'hs_task_body'];
 
         const config: ProxyConfiguration = {
@@ -191,5 +193,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

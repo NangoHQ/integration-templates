@@ -33,19 +33,6 @@ jobs:
             - run: npm ci
             - run: npm run test
 
-            - name: Make sure flows.yaml is compiled
-              run: |
-                  node ./scripts/flows.js
-
-                  REPO_DIRTY=$(git status --short)
-                  if [[ ! -z "$REPO_DIRTY" ]]; then
-                    git diff
-                    echo ""
-                    echo -e "\r⛔️ flows.yaml hasn't been compiled, please run:"
-                    echo -e "node ./scripts/flows.js"
-                    exit 1
-                  fi
-
             - name: Make sure flows.zero.json is compiled
               run: |
                   npm run zero:build:flows
@@ -55,6 +42,6 @@ jobs:
                     git diff
                     echo ""
                     echo -e "\r❌ flows.zero.json hasn't been compiled, please run:"
-                    echo -e "npm run zero:build:flows"
+                    echo -e "npm run build:flows"
                     exit 1
                   fi

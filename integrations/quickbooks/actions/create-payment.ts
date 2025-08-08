@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksPayment, toPayment } from '../mappers/to-payment.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Payment, CreatePayment } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Payment, CreatePayment } from '../models.js';
 
 /**
  * This function handles the creation of an invoice in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Payment, CreatePayment } from "../models.js";
  * @returns {Promise<Payment>} - Returns the created invoice object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single payment in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single payment in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/payments",
-        group: "Payments"
+        method: 'POST',
+        path: '/payments',
+        group: 'Payments'
     },
 
     input: CreatePayment,
     output: Payment,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Payment> => {
         // Validate if input is present
@@ -69,5 +69,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

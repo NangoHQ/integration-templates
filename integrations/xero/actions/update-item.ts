@@ -1,29 +1,25 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toItem, toXeroItem, toFailedItem } from '../mappers/to-item.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    ActionErrorResponse} from "../models.js";
-import {
-    ItemActionResponse,
-    Anonymous_xero_action_updateitem_input
-} from "../models.js";
+import type { ActionErrorResponse } from '../models.js';
+import { ItemActionResponse, Anonymous_xero_action_updateitem_input } from '../models.js';
 
 const action = createAction({
-    description: "Updates one or more items in Xero.",
-    version: "2.0.0",
+    description: 'Updates one or more items in Xero.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/items",
-        group: "Items"
+        method: 'PUT',
+        path: '/items',
+        group: 'Items'
     },
 
     input: Anonymous_xero_action_updateitem_input,
     output: ItemActionResponse,
-    scopes: ["accounting.settings"],
+    scopes: ['accounting.settings'],
 
     exec: async (nango, input): Promise<ItemActionResponse> => {
         const tenant_id = await getTenantId(nango);
@@ -71,5 +67,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

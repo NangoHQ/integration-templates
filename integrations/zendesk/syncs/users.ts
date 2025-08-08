@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { ZendeskUser } from '../types.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of admin or agent users from Zendesk",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of admin or agent users from Zendesk',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users'
+        }
+    ],
 
-    scopes: ["users:read"],
+    scopes: ['users:read'],
 
     models: {
         User: User
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const subdomain = await getSubdomain(nango);
 
         const roles = ['agent', 'admin'];
@@ -66,5 +68,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

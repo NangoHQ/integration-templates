@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { RingCentralContactRecord } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Contact } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches the list of external contacts from RingCentral",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches the list of external contacts from RingCentral',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contacts",
-        group: "Contacts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts',
+            group: 'Contacts'
+        }
+    ],
 
-    scopes: ["ReadContacts"],
+    scopes: ['ReadContacts'],
 
     models: {
         Contact: Contact
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.ringcentral.com/api-reference/External-Contacts/listContacts
             endpoint: '/restapi/v1.0/account/~/extension/~/address-book/contact',
@@ -62,5 +64,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

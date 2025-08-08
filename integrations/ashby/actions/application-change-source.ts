@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { AshbyResponse, ChangeSource } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { AshbyResponse, ChangeSource } from '../models.js';
 
 const action = createAction({
-    description: "Action to change source of application.",
-    version: "1.0.0",
+    description: 'Action to change source of application.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/applications/source",
-        group: "Applications"
+        method: 'POST',
+        path: '/applications/source',
+        group: 'Applications'
     },
 
     input: ChangeSource,
     output: AshbyResponse,
-    scopes: ["candidatesWrite"],
+    scopes: ['candidatesWrite'],
 
     exec: async (nango, input): Promise<AshbyResponse> => {
         if (!input.applicationId) {
@@ -45,5 +45,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

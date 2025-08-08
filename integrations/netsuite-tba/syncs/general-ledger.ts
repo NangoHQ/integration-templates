@@ -1,11 +1,11 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { NS_JournalEntry, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { mapNetSuiteToUnified } from '../mappers/to-general-ledger.js';
 import { formatDate } from '../helpers/utils.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GeneralLedger, NetsuiteMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GeneralLedger, NetsuiteMetadata } from '../models.js';
 
 const retries = 3;
 
@@ -24,17 +24,19 @@ const retries = 3;
  */
 
 const sync = createSync({
-    description: "Fetches all JournalEntries in Netsuite",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches all JournalEntries in Netsuite',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/general-ledger"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/general-ledger'
+        }
+    ],
 
     models: {
         GeneralLedger: GeneralLedger
@@ -42,7 +44,7 @@ const sync = createSync({
 
     metadata: NetsuiteMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
 
         const proxyConfig: ProxyConfiguration = {
@@ -75,5 +77,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import type { KeeperUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches Keeper users, maps them to Nango User objects,
@@ -20,18 +20,20 @@ import { z } from "zod";
  * @returns Promise that resolves when all users are fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches the list of users from Keeper",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches the list of users from Keeper',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         User: User
@@ -39,7 +41,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
             endpoint: '/Users',
@@ -63,5 +65,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

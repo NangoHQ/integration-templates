@@ -1,19 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { DatabricksWarehouseResponse } from '../types.js';
 import { toWarehouse } from '../mappers/to-warehouse.js';
 
-import type { ProxyConfiguration } from "nango";
-import { ListWarehousesResponse } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { ListWarehousesResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "List all SQL warehouses in the workspace",
-    version: "2.0.0",
+    description: 'List all SQL warehouses in the workspace',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/warehouses",
-        group: "Warehouses"
+        method: 'GET',
+        path: '/warehouses',
+        group: 'Warehouses'
     },
 
     input: z.void(),
@@ -40,5 +40,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

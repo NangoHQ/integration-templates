@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { ZoomMeeting } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Meeting } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Meeting } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of meetings from Zoom",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of meetings from Zoom',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/meetings",
-        group: "Meetings"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/meetings',
+            group: 'Meetings'
+        }
+    ],
 
-    scopes: ["meeting:read"],
+    scopes: ['meeting:read'],
 
     models: {
         Meeting: Meeting
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.zoom.us/docs/api/meetings/#tag/meetings/GET/users/{userId}/meetings
             endpoint: '/users/me/meetings',
@@ -59,5 +61,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

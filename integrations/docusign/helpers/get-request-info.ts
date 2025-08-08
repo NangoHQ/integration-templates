@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync } from "nango";
+import type { NangoAction, NangoSync } from 'nango';
 import type { UserInfoResponse, AccountInfo } from '../types.js';
 
 /**

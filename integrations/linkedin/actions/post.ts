@@ -1,31 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { userInfo } from '../helpers/user-info.js';
 import type { LinkedinCreatePost } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreateLinkedInPostWithVideoResponse, LinkedinVideoPost } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreateLinkedInPostWithVideoResponse, LinkedinVideoPost } from '../models.js';
 
 const action = createAction({
-    description: "Create a linkedin post with an optional video",
-    version: "1.0.0",
+    description: 'Create a linkedin post with an optional video',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/videos"
+        method: 'POST',
+        path: '/videos'
     },
 
     input: LinkedinVideoPost,
     output: CreateLinkedInPostWithVideoResponse,
 
-    scopes: [
-        "openid",
-        "profile",
-        "r_basicprofile",
-        "w_member_social",
-        "email",
-        "w_organization_social",
-        "r_organization_social"
-    ],
+    scopes: ['openid', 'profile', 'r_basicprofile', 'w_member_social', 'email', 'w_organization_social', 'r_organization_social'],
 
     exec: async (nango, input): Promise<CreateLinkedInPostWithVideoResponse> => {
         const videoURN = input?.videoURN;
@@ -89,5 +81,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

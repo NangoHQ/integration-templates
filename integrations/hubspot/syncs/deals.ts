@@ -1,13 +1,13 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toDeal } from '../mappers/toDeal.js';
 import type { HubSpotDealNonUndefined, HubSpotCompanyNonUndefined, HubSpotContactNonUndefined } from '../types.js';
 import { toCompany } from '../mappers/toCompany.js';
 import { toContact } from '../mappers/toContact.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Company, Contact, AssociationCompany, AssociationContact } from "../models.js";
-import { Deal } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { Company, Contact, AssociationCompany, AssociationContact } from '../models.js';
+import { Deal } from '../models.js';
+import { z } from 'zod';
 
 const CACHE = {
     companies: new Map<string, Company>(),
@@ -53,25 +53,22 @@ async function fetchContactById(nango: NangoSyncLocal, contactId: string) {
 }
 
 const sync = createSync({
-    description: "Fetches a list of deals from Hubspot with their associated companies and contacts",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of deals from Hubspot with their associated companies and contacts',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/deals",
-        group: "Deals"
-    }],
-
-    scopes: [
-        "crm.objects.deals.read",
-        "oauth",
-        "e-commerce (standard scope)",
-        "crm.objects.line_items.read (granular scope)"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/deals',
+            group: 'Deals'
+        }
     ],
+
+    scopes: ['crm.objects.deals.read', 'oauth', 'e-commerce (standard scope)', 'crm.objects.line_items.read (granular scope)'],
 
     models: {
         Deal: Deal
@@ -79,7 +76,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const properties = ['dealname', 'amount', 'closedate', 'description', 'hubspot_owner_id', 'dealstage', 'hs_deal_stage_probability'];
 
         const config: ProxyConfiguration = {
@@ -157,5 +154,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

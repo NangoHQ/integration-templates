@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toConversation } from '../mappers/toConversation.js';
 import type { FrontConversation } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Conversation } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Conversation } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "List the conversations in the company in reverse chronological order.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'List the conversations in the company in reverse chronological order.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/conversations",
-        group: "Conversations"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/conversations',
+            group: 'Conversations'
+        }
+    ],
 
     models: {
         Conversation: Conversation
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://dev.frontapp.com/reference/list-conversations
             endpoint: '/conversations',
@@ -46,5 +48,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

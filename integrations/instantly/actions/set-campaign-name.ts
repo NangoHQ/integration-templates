@@ -1,13 +1,13 @@
-import { createAction } from "nango";
-import { InstantlySetCampaignNameResponse, InstantlySetCampaignNameInput } from "../models.js";
+import { createAction } from 'nango';
+import { InstantlySetCampaignNameResponse, InstantlySetCampaignNameInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to set a campaign name",
-    version: "1.0.0",
+    description: 'Action to set a campaign name',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/instantly/set-campaign-name"
+        method: 'POST',
+        path: '/instantly/set-campaign-name'
     },
 
     input: InstantlySetCampaignNameInput,
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

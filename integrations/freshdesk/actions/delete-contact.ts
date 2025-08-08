@@ -1,8 +1,8 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes a user in Freshdesk
@@ -11,13 +11,13 @@ import { SuccessResponse, IdEntity } from "../models.js";
  *
  */
 const action = createAction({
-    description: "Deletes a contact in FreshDesk",
-    version: "2.0.0",
+    description: 'Deletes a contact in FreshDesk',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'DELETE',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: IdEntity,
@@ -40,5 +40,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

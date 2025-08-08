@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toContact } from '../mappers/to-contact.js';
 import type { IntercomContact } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Contact } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches Intercom contacts, maps them to IntercomContact objects,
@@ -20,17 +20,19 @@ import { z } from "zod";
  * @returns Promise that resolves when all contacts are fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches a list of contacts from Intercom",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of contacts from Intercom',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contacts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts'
+        }
+    ],
 
     models: {
         Contact: Contact
@@ -38,7 +40,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/listcontacts
             endpoint: '/contacts',
@@ -78,5 +80,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

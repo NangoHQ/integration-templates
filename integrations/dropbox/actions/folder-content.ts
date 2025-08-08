@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { folderContentInputSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Document} from "../models.js";
-import { FolderContentInput, FolderContent } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { Document } from '../models.js';
+import { FolderContentInput, FolderContent } from '../models.js';
 
 /**
  * Fetches the top-level content (files and folders) of a Dropbox folder.
@@ -16,18 +16,19 @@ import { FolderContentInput, FolderContent } from "../models.js";
  * @throws {Error} - Throws an error if the API request fails.
  */
 const action = createAction({
-    description: "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
-    version: "3.0.0",
+    description:
+        'Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.',
+    version: '3.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/folder-content",
-        group: "Folders"
+        method: 'POST',
+        path: '/folder-content',
+        group: 'Folders'
     },
 
     input: FolderContentInput,
     output: FolderContent,
-    scopes: ["files.metadata.read"],
+    scopes: ['files.metadata.read'],
 
     exec: async (nango, input: FolderContentInput = {}): Promise<FolderContent> => {
         await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
@@ -98,5 +99,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,18 +1,15 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { errorToObject } from '../utils.js';
 
-import {
-    TransactionDeletionActionResponse,
-    Anonymous_anrok_action_voidtransaction_input,
-} from "../models.js";
+import { TransactionDeletionActionResponse, Anonymous_anrok_action_voidtransaction_input } from '../models.js';
 
 const action = createAction({
-    description: "Voids a transaction in Anrok.",
-    version: "1.0.0",
+    description: 'Voids a transaction in Anrok.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/transactions/void"
+        method: 'POST',
+        path: '/transactions/void'
     },
 
     input: Anonymous_anrok_action_voidtransaction_input,
@@ -47,5 +44,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

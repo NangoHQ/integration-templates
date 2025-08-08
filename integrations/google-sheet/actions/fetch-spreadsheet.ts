@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { Spreadsheet, SpreadsheetId } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { Spreadsheet, SpreadsheetId } from '../models.js';
 
 const action = createAction({
-    description: "Fetches the content of a spreadsheet given its ID.",
-    version: "2.0.0",
+    description: 'Fetches the content of a spreadsheet given its ID.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/spreadsheet"
+        method: 'GET',
+        path: '/spreadsheet'
     },
 
     input: SpreadsheetId,
     output: Spreadsheet,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 
     exec: async (nango, input): Promise<Spreadsheet> => {
         if (!input || !input.id) {
@@ -43,5 +43,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

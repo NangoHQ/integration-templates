@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getCredentials } from '../helpers/credentials.js';
 import { getAdminPolicy } from '../helpers/policies.js';
 import type { PolicyInfoResponse, ExpensifyEmployee } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { ExpsensifyNullableUser } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { ExpsensifyNullableUser } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of users from Expensify.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from Expensify.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         ExpsensifyNullableUser: ExpsensifyNullableUser
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const credentials = await getCredentials(nango);
         const policy = await getAdminPolicy(nango);
 
@@ -61,7 +63,7 @@ const sync = createSync({
         const users: ExpsensifyNullableUser[] = employees.map((user: ExpensifyEmployee) => {
             const [firstName, lastName] = user.customField2?.split(' ') || [null, null];
             const outputUser: ExpsensifyNullableUser = {
-                id: user.employeeID || "",
+                id: user.employeeID || '',
                 firstName: firstName || null,
                 lastName: lastName || null,
                 email: user.email
@@ -74,5 +76,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 
 import { getCompany } from '../helpers/get-or-create-company.js';
 
-import { Anonymous_unanet_action_getcompany_output, Entity } from "../models.js";
+import { Anonymous_unanet_action_getcompany_output, Entity } from '../models.js';
 
 const action = createAction({
-    description: "Retrieve information about a company",
-    version: "1.0.0",
+    description: 'Retrieve information about a company',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/company"
+        method: 'GET',
+        path: '/company'
     },
 
     input: Entity,
@@ -30,5 +30,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

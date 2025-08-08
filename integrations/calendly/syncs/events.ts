@@ -1,19 +1,21 @@
-import { createSync } from "nango";
-import { Event } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { Event } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieve all events per a user",
-    version: "3.0.0",
-    frequency: "every hour",
+    description: 'Retrieve all events per a user',
+    version: '3.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/events"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/events'
+        }
+    ],
 
     models: {
         Event: Event
@@ -21,7 +23,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
 
         const userId = connection.connection_config['owner'];
@@ -70,5 +72,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

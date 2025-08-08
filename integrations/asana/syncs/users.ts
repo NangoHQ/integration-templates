@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 
-import type { AsanaWorkspace, AsanaUser } from "../models.js";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { AsanaWorkspace, AsanaUser } from '../models.js';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieve all users that exist in the workspace",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Retrieve all users that exist in the workspace',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         User: User
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         for await (const workspaces of nango.paginate<AsanaWorkspace>({
             endpoint: '/api/1.0/workspaces',
             params: {
@@ -55,5 +57,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

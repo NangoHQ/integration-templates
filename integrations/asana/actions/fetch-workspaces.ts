@@ -1,13 +1,13 @@
-import { createAction } from "nango";
-import { Anonymous_asana_action_fetchworkspaces_output, Limit } from "../models.js";
+import { createAction } from 'nango';
+import { Anonymous_asana_action_fetchworkspaces_output, Limit } from '../models.js';
 
 const action = createAction({
-    description: "Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync",
-    version: "2.0.0",
+    description: 'Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/workspaces/limit"
+        method: 'GET',
+        path: '/workspaces/limit'
     },
 
     input: Limit,
@@ -29,5 +29,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

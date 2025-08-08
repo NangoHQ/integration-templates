@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { BoxUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches user data from the Box API and saves it in batches.
  */
 const sync = createSync({
-    description: "Fetches a list of users from Box. Requires an enterprise account.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of users from Box. Requires an enterprise account.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
     models: {
         User: User
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -63,7 +65,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 /**

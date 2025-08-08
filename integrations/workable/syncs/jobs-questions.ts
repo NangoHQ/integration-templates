@@ -1,24 +1,26 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { WorkableJobQuestion } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableJobQuestion } from '../models.js';
+import { z } from 'zod';
 
 const CHUNK_SIZE = 100;
 
 const sync = createSync({
-    description: "Fetches a list of questions for the specified job from workable",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of questions for the specified job from workable',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/workable/jobs-questions"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/jobs-questions'
+        }
+    ],
 
-    scopes: ["r_jobs"],
+    scopes: ['r_jobs'],
 
     models: {
         WorkableJobQuestion: WorkableJobQuestion
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const totalRecords = 0;
 
         const jobs: any[] = await getAllJobs(nango);
@@ -49,7 +51,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function processChunks(nango: NangoSyncLocal, data: WorkableJobQuestion[], shortcode: string, totalRecords: number) {

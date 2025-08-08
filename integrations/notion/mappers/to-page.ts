@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync } from "nango";
+import type { NangoAction, NangoSync } from 'nango';
 import type { RichPage } from '../models.js';
 import type { Page, TitleElement } from '../types.js';
 import { richPageSchema } from '../schema.zod.js';

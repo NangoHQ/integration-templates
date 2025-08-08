@@ -1,16 +1,17 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { Anonymous_box_action_fetchfile_output, IdEntity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { Anonymous_box_action_fetchfile_output, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
-    version: "2.0.0",
+    description:
+        'Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/file",
-        group: "Files"
+        method: 'GET',
+        path: '/file',
+        group: 'Files'
     },
 
     input: IdEntity,
@@ -39,5 +40,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

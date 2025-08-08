@@ -1,16 +1,16 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.",
-    version: "2.0.0",
+    description: 'Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/posts/limited",
-        group: "Posts"
+        method: 'GET',
+        path: '/posts/limited',
+        group: 'Posts'
     },
 
     input: z.void(),
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

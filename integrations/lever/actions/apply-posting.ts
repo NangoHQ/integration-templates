@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { ApplyToPosting, SuccessResponse } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ApplyToPosting, SuccessResponse } from '../models.js';
 
 const action = createAction({
-    description: "Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.",
-    version: "1.0.0",
+    description: 'Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/posts/apply",
-        group: "Posts"
+        method: 'POST',
+        path: '/posts/apply',
+        group: 'Posts'
     },
 
     input: ApplyToPosting,
@@ -47,5 +47,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,20 +1,22 @@
-import { createSync } from "nango";
-import { LinearTeam } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { LinearTeam } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of teams from Linear",
-    version: "2.0.0",
-    frequency: "every 5min",
+    description: 'Fetches a list of teams from Linear',
+    version: '2.0.0',
+    frequency: 'every 5min',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/teams",
-        group: "Teams"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/teams',
+            group: 'Teams'
+        }
+    ],
 
     models: {
         LinearTeam: LinearTeam
@@ -22,7 +24,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const { lastSyncDate } = nango;
         const pageSize = 50;
         let after = '';
@@ -75,7 +77,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapTeams(records: any[]): LinearTeam[] {

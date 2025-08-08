@@ -1,18 +1,18 @@
-import { createAction } from "nango";
-import { ZohoMailAddUserOutput, ZohoMailAddUserInput } from "../models.js";
+import { createAction } from 'nango';
+import { ZohoMailAddUserOutput, ZohoMailAddUserInput } from '../models.js';
 
 const action = createAction({
-    description: "An action to add a user to the organization in zoho mail",
-    version: "1.0.0",
+    description: 'An action to add a user to the organization in zoho mail',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/zoho-mail/add-user"
+        method: 'POST',
+        path: '/zoho-mail/add-user'
     },
 
     input: ZohoMailAddUserInput,
     output: ZohoMailAddUserOutput,
-    scopes: ["ZohoMail.organization.accounts.CREATE"],
+    scopes: ['ZohoMail.organization.accounts.CREATE'],
 
     exec: async (nango, input): Promise<ZohoMailAddUserOutput> => {
         //zoid is shorter in this 847300000
@@ -57,5 +57,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,6 +1,6 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { FolderContent, FolderContentInput } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { FolderContent, FolderContentInput } from '../models.js';
 
 /**
  * Fetches the top-level content (files and folders) of a Box folder.
@@ -13,13 +13,14 @@ import { FolderContent, FolderContentInput } from "../models.js";
  * @throws {Error} - Throws an error if the API request fails.
  */
 const action = createAction({
-    description: "Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.",
-    version: "2.0.0",
+    description:
+        'Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/folder-content",
-        group: "Folders"
+        method: 'GET',
+        path: '/folder-content',
+        group: 'Folders'
     },
 
     input: FolderContentInput,
@@ -82,5 +83,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

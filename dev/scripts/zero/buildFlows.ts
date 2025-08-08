@@ -13,7 +13,7 @@ import chalk from 'chalk';
 import { errorToString } from './utils.js';
 import type { ZeroFlow } from './types.js';
 
-const root = join(import.meta.dirname, '..', '..');
+const root = join(import.meta.dirname, '..', '..', '..');
 
 async function main(): Promise<void> {
     console.log('Building all templates flows');
@@ -96,7 +96,7 @@ async function main(): Promise<void> {
     const outputPath = join(root, 'internal/flows.zero.json');
     await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 4), 'utf8');
 
-    execSync('prettier -w flows.zero.json', {
+    execSync('prettier -w internal/flows.zero.json', {
         stdio: 'pipe',
         cwd: root
     });

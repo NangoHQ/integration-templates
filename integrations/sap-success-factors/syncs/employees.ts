@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { SapSuccessFactorsPerPerson } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Employee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Employee } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of current employees from sap success factors",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of current employees from sap success factors',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees",
-        group: "Employees"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Employees'
+        }
+    ],
 
     models: {
         Employee: Employee
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/perperson
             endpoint: '/odata/v2/PerPerson',
@@ -56,5 +58,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,17 +1,17 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import type { Repository} from "../models.js";
-import { RepoResponse } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import type { Repository } from '../models.js';
+import { RepoResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "List all repositories accessible to this Github App",
-    version: "2.0.0",
+    description: 'List all repositories accessible to this Github App',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/repositories",
-        group: "Repositories"
+        method: 'GET',
+        path: '/repositories',
+        group: 'Repositories'
     },
 
     input: z.void(),
@@ -41,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

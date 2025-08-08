@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, SinglePost } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, SinglePost } from '../models.js';
 
 const action = createAction({
-    description: "Get single post for your account in Lever",
-    version: "2.0.0",
+    description: 'Get single post for your account in Lever',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/posts/single",
-        group: "Posts"
+        method: 'GET',
+        path: '/posts/single',
+        group: 'Posts'
     },
 
     input: SinglePost,
@@ -30,5 +30,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksInvoice, toInvoice } from '../mappers/to-invoice.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Invoice, UpdateInvoice } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Invoice, UpdateInvoice } from '../models.js';
 
 /**
  * This function handles the partial update of a invoice in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Invoice, UpdateInvoice } from "../models.js";
  * @returns {Promise<Invoice>} - Returns the created invoice object from QuickBooks.
  */
 const action = createAction({
-    description: "Updates a single invoice in QuickBooks.",
-    version: "1.0.0",
+    description: 'Updates a single invoice in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/invoices",
-        group: "Invoices"
+        method: 'PUT',
+        path: '/invoices',
+        group: 'Invoices'
     },
 
     input: UpdateInvoice,
     output: Invoice,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Invoice> => {
         // Validate if input is present
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

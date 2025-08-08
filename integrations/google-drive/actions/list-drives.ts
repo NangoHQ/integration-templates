@@ -1,7 +1,7 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 
-import type { ProxyConfiguration } from "nango";
-import { DriveListResponse, ListDrivesInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { DriveListResponse, ListDrivesInput } from '../models.js';
 
 /**
  * Lists all shared drives the user has access to.
@@ -13,18 +13,18 @@ import { DriveListResponse, ListDrivesInput } from "../models.js";
  * @returns A promise that resolves to a DriveListResponse containing an array of drives and optional cursor
  */
 const action = createAction({
-    description: "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
-    version: "2.0.0",
+    description: 'Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/drives",
-        group: "Drives"
+        method: 'GET',
+        path: '/drives',
+        group: 'Drives'
     },
 
     input: ListDrivesInput,
     output: DriveListResponse,
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<DriveListResponse> => {
         const config: ProxyConfiguration = {
@@ -43,11 +43,11 @@ const action = createAction({
 
         return {
             drives: response.data.drives || [],
-            next_cursor: response.data.nextPageToken ?? "",
+            next_cursor: response.data.nextPageToken ?? '',
             kind: response.data.kind
         };
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

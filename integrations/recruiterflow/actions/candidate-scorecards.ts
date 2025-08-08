@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { recruiterFlowCandidateScorecardInputSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { RecruiterFlowCandidateScorecard, RecruiterFlowCandidateScorecardInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowCandidateScorecard, RecruiterFlowCandidateScorecardInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetches all candidate scorecards from RecruiterFlow",
-    version: "2.0.0",
+    description: 'Fetches all candidate scorecards from RecruiterFlow',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/candidate-scorecards",
-        group: "Candidates"
+        method: 'GET',
+        path: '/candidate-scorecards',
+        group: 'Candidates'
     },
 
     input: RecruiterFlowCandidateScorecardInput,
@@ -36,5 +36,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DirectoryUsersResponse } from '../types.js';
 
-import { User, Metadata } from "../models.js";
+import { User, Metadata } from '../models.js';
 
 const sync = createSync({
-    description: "Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["User.Read.All"],
+    scopes: ['User.Read.All'],
 
     models: {
         User: User
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: Metadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const { orgsToSync } = metadata;
 
@@ -52,7 +54,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 async function fetchAndUpdateUsers(nango: NangoSyncLocal, endpoint: string, runDelete = false): Promise<void> {
     const selects = [

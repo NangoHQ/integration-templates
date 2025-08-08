@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { ZendeskTicket } from '../types.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 import { paginate } from '../helpers/paginate.js';
 
-import { Ticket } from "../models.js";
-import { z } from "zod";
+import { Ticket } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of tickets from Zendesk",
-    version: "2.0.0",
-    frequency: "every 1 hour",
+    description: 'Fetches a list of tickets from Zendesk',
+    version: '2.0.0',
+    frequency: 'every 1 hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/tickets",
-        group: "Tickets"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tickets',
+            group: 'Tickets'
+        }
+    ],
 
-    scopes: ["tickets:read"],
+    scopes: ['tickets:read'],
 
     models: {
         Ticket: Ticket
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const ticketCache = new Set<string>();
         const config: PaginationParams = {
             // https://developer.zendesk.com/documentation/ticketing/managing-tickets/using-the-incremental-export-api/#time-based-incremental-exports
@@ -58,7 +60,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 export function mapTickets(tickets: ZendeskTicket[]): Ticket[] {

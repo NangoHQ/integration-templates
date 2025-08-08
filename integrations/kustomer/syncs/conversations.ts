@@ -1,22 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { KustomerConversation } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { KustomerConversation } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieves a paginated list of conversations for the organization",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Retrieves a paginated list of conversations for the organization',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/kustomer/conversations"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/kustomer/conversations'
+        }
+    ],
 
-    scopes: ["org.user.conversation.read", "org.permission.conversation.read"],
+    scopes: ['org.user.conversation.read', 'org.permission.conversation.read'],
 
     models: {
         KustomerConversation: KustomerConversation
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://developer.kustomer.com/kustomer-api-docs/reference/getconversations
             endpoint: '/v1/conversations',
@@ -43,7 +45,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapConversation(conversation: any): KustomerConversation {

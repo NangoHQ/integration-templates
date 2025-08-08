@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toJournalEntry, toQuickBooksJournalEntriesCreate } from '../mappers/to-journal-entry.js';
 import { getCompany } from '../utils/get-company.js';
 
-import type { ProxyConfiguration } from "nango";
-import { JournalEntry, CreateJournalEntry } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { JournalEntry, CreateJournalEntry } from '../models.js';
 
 /**
  * This function handles the creation of a journal entry in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { JournalEntry, CreateJournalEntry } from "../models.js";
  * @returns {Promise<JournalEntry>} - Returns the created journal entry object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single journal entry in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single journal entry in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/journal-entries",
-        group: "Journal Entries"
+        method: 'POST',
+        path: '/journal-entries',
+        group: 'Journal Entries'
     },
 
     input: CreateJournalEntry,
     output: JournalEntry,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<JournalEntry> => {
         // Validate that we have both credit and debit entries
@@ -65,5 +65,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

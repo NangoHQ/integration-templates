@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toTask } from '../mappers/to-task.js';
 
-import type { AsanaTask, NangoActionError } from "../models.js";
-import { Task, AsanaUpdateTask } from "../models.js";
+import type { AsanaTask, NangoActionError } from '../models.js';
+import { Task, AsanaUpdateTask } from '../models.js';
 
 const action = createAction({
-    description: "Update a task and be able to assign the task to a specific user",
-    version: "2.0.0",
+    description: 'Update a task and be able to assign the task to a specific user',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/tasks",
-        group: "Tasks"
+        method: 'PATCH',
+        path: '/tasks',
+        group: 'Tasks'
     },
 
     input: AsanaUpdateTask,
@@ -41,7 +41,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function normalizeDates(input: AsanaUpdateTask): AsanaUpdateTask {

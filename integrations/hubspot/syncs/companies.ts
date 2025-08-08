@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toCompany } from '../mappers/toCompany.js';
 import type { HubSpotCompanyNonUndefined } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Company } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Company } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of companies from Hubspot",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of companies from Hubspot',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/companies",
-        group: "Companies"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/companies',
+            group: 'Companies'
+        }
+    ],
 
-    scopes: ["crm.objects.companies.read", "oauth"],
+    scopes: ['crm.objects.companies.read', 'oauth'],
 
     models: {
         Company: Company
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const properties = [
             'name',
             'industry',
@@ -65,5 +67,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

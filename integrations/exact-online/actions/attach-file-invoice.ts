@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { E0_SalesInvoice, EO_Document, EO_DocumentAttachment, ResponsePostBody } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceAttachFileInputSchema } from '../schema.zod.js';
 
-import { ExactInvoiceAttachFileOutput, ExactInvoiceAttachFileInput } from "../models.js";
+import { ExactInvoiceAttachFileOutput, ExactInvoiceAttachFileInput } from '../models.js';
 
 const action = createAction({
-    description: "Uploads a file to ExactOnline and link it to an invoice",
-    version: "2.0.0",
+    description: 'Uploads a file to ExactOnline and link it to an invoice',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/invoices/attach-file"
+        method: 'POST',
+        path: '/invoices/attach-file'
     },
 
     input: ExactInvoiceAttachFileInput,
@@ -64,5 +64,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

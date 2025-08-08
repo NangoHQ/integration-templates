@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { CustomObject } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { CustomObject } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch custom objects in Hubspot. Requires Hubspot enterprise",
-    version: "1.0.0",
+    description: 'Fetch custom objects in Hubspot. Requires Hubspot enterprise',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/custom-objects"
+        method: 'GET',
+        path: '/custom-objects'
     },
 
     input: z.void(),
     output: CustomObject,
-    scopes: ["oauth", "crm.schemas.custom.read"],
+    scopes: ['oauth', 'crm.schemas.custom.read'],
 
     exec: async (nango): Promise<CustomObject> => {
         const config: ProxyConfiguration = {
@@ -29,5 +29,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

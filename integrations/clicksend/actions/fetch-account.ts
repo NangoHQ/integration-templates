@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { ClickSendAccount } from '../types.js';
 import { toAccount } from '../mappers/to-account.js';
 
-import { Account } from "../models.js";
-import { z } from "zod";
+import { Account } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetches basic information about the ClickSend account.",
-    version: "2.0.0",
+    description: 'Fetches basic information about the ClickSend account.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/account",
-        group: "Account"
+        method: 'GET',
+        path: '/account',
+        group: 'Account'
     },
 
     input: z.void(),
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { EvaluAgentGroup } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { EvaluAgentGroup } from '../models.js';
+import { z } from 'zod';
 
 interface EvaluAgentGroupResponseCustom {
     is_custom_reporting_group: boolean;
@@ -14,17 +14,19 @@ interface EvaluAgentGroupResponse {
 }
 
 const sync = createSync({
-    description: "Fetches a list of groups from evaluagent",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of groups from evaluagent',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/groups"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/groups'
+        }
+    ],
 
     models: {
         EvaluAgentGroup: EvaluAgentGroup
@@ -32,7 +34,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const payload: ProxyConfiguration = {
             // https://docs.evaluagent.com/#operation/fetchGroups
             endpoint: '/v1/org/groups',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

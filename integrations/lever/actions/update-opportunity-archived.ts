@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, ArchiveOpportunity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, ArchiveOpportunity } from '../models.js';
 
 const action = createAction({
-    description: "Update the archived state of an opportunity",
-    version: "2.0.0",
+    description: 'Update the archived state of an opportunity',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/opportunities/archived",
-        group: "Opportunities"
+        method: 'PUT',
+        path: '/opportunities/archived',
+        group: 'Opportunities'
     },
 
     input: ArchiveOpportunity,
@@ -58,5 +58,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

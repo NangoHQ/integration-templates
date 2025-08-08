@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getRequestInfo } from '../helpers/get-request-info.js';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Deletes a user in DocuSign",
-    version: "2.0.0",
+    description: 'Deletes a user in DocuSign',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: IdEntity,
     output: SuccessResponse,
-    scopes: ["openid", "signature"],
+    scopes: ['openid', 'signature'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
@@ -42,5 +42,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

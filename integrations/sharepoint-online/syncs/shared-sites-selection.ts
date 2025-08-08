@@ -1,9 +1,9 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-import type { ProxyConfiguration } from "nango";
-import { FileMetadata, SharepointMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { FileMetadata, SharepointMetadata } from '../models.js';
 
 /**
  * Fetches data from SharePoint sites and processes list items for synchronization.
@@ -12,26 +12,21 @@ import { FileMetadata, SharepointMetadata } from "../models.js";
  * @returns Promise<void>
  */
 const sync = createSync({
-    description: "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
-    version: "3.0.0",
-    frequency: "every 1 hour",
+    description: 'This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.',
+    version: '3.0.0',
+    frequency: 'every 1 hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/shared-files/selected"
-    }],
-
-    scopes: [
-        "Sites.Read.All",
-        "Sites.Selected",
-        "MyFiles.Read",
-        "Files.Read.All",
-        "Files.Read.Selected",
-        "offline_access"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/shared-files/selected'
+        }
     ],
+
+    scopes: ['Sites.Read.All', 'Sites.Selected', 'MyFiles.Read', 'Files.Read.All', 'Files.Read.Selected', 'offline_access'],
 
     models: {
         FileMetadata: FileMetadata
@@ -39,7 +34,7 @@ const sync = createSync({
 
     metadata: SharepointMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata || !Array.isArray(metadata.sharedSites) || metadata.sharedSites.length === 0) {
@@ -56,7 +51,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 /**

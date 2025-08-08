@@ -1,18 +1,18 @@
-import { createAction } from "nango";
-import { WorkableCreateCommentResponse, WorkableCreateCommentInput } from "../models.js";
+import { createAction } from 'nango';
+import { WorkableCreateCommentResponse, WorkableCreateCommentInput } from '../models.js';
 
 const action = createAction({
     description: "Action to create a comment on the applicant's timeline",
-    version: "1.0.0",
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/workable/create-comment"
+        method: 'POST',
+        path: '/workable/create-comment'
     },
 
     input: WorkableCreateCommentInput,
     output: WorkableCreateCommentResponse,
-    scopes: ["w_candidates or w_comments"],
+    scopes: ['w_candidates or w_comments'],
 
     exec: async (nango, input): Promise<WorkableCreateCommentResponse> => {
         if (!input.id) {
@@ -56,5 +56,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

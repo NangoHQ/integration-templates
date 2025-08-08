@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GemJob } from '../types.js';
 import { toJob } from '../mappers/to-job.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Job } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Job } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Get a list of all jobs from Gem ATS",
-    version: "1.0.0",
-    frequency: "every 1h",
+    description: 'Get a list of all jobs from Gem ATS',
+    version: '1.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/jobs",
-        group: "Jobs"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/jobs',
+            group: 'Jobs'
+        }
+    ],
 
     models: {
         Job: Job
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/ats/v0/reference#tag/Job/paths/~1ats~1v0~1jobs~1/get
             endpoint: '/ats/v0/jobs',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import { LeverOpportunityNote, LeverCreateNoteInput } from "../models.js";
+import { createAction } from 'nango';
+import { LeverOpportunityNote, LeverCreateNoteInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a note and add it to an opportunity.",
-    version: "2.0.0",
+    description: 'Action to create a note and add it to an opportunity.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/notes",
-        group: "Notes"
+        method: 'POST',
+        path: '/notes',
+        group: 'Notes'
     },
 
     input: LeverCreateNoteInput,
     output: LeverOpportunityNote,
-    scopes: ["notes:write:admin"],
+    scopes: ['notes:write:admin'],
 
     exec: async (nango, input): Promise<LeverOpportunityNote> => {
         if (!input.opportunityId) {
@@ -64,5 +64,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

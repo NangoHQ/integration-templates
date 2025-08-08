@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getPolicies } from '../helpers/policies.js';
 import type { ExpensifyPolicy } from '../types.js';
 
-import type { Policy} from "../models.js";
-import { ExpensifyListPolicyOutput } from "../models.js";
-import { z } from "zod";
+import type { Policy } from '../models.js';
+import { ExpensifyListPolicyOutput } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Action to fetch a list of policies with some relevant information about them",
-    version: "3.0.0",
+    description: 'Action to fetch a list of policies with some relevant information about them',
+    version: '3.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/policies"
+        method: 'POST',
+        path: '/policies'
     },
 
     input: z.void(),
@@ -56,5 +56,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

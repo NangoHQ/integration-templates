@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import type { ZendeskSection } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Section, SectionCreate } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Section, SectionCreate } from '../models.js';
 
 const action = createAction({
-    description: "Create a section within a category in the help center",
-    version: "1.0.0",
+    description: 'Create a section within a category in the help center',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/sections",
-        group: "Sections"
+        method: 'POST',
+        path: '/sections',
+        group: 'Sections'
     },
 
     input: SectionCreate,
     output: Section,
-    scopes: ["hc:write"],
+    scopes: ['hc:write'],
 
     exec: async (nango, input): Promise<Section> => {
         if (!input.section || !input.category_id) {
@@ -57,5 +57,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

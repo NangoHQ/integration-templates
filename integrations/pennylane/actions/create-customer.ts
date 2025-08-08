@@ -1,21 +1,17 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    IndividualCustomerResponse} from "../models.js";
-import {
-    PennylaneSuccessResponse,
-    PennylaneIndividualCustomer
-} from "../models.js";
+import type { IndividualCustomerResponse } from '../models.js';
+import { PennylaneSuccessResponse, PennylaneIndividualCustomer } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a customer in pennylane",
-    version: "2.0.0",
+    description: 'Action to create a customer in pennylane',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/customers",
-        group: "Customers"
+        method: 'POST',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: PennylaneIndividualCustomer,
@@ -57,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

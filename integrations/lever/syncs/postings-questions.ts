@@ -1,25 +1,27 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { LeverPostingApply } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { LeverPostingApply } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Fetches a list of all questions included in a posting’s application form in Lever",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of all questions included in a posting’s application form in Lever',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/postings/questions",
-        group: "Postings"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/postings/questions',
+            group: 'Postings'
+        }
+    ],
 
-    scopes: ["postings:read:admin"],
+    scopes: ['postings:read:admin'],
 
     models: {
         LeverPostingApply: LeverPostingApply
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const postings: any[] = await getAllPostings(nango);
@@ -45,7 +47,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function getAllPostings(nango: NangoSyncLocal) {

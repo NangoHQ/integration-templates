@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import { ZohoCRMAccount } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { ZohoCRMAccount } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of accounts from zoho crm",
-    version: "1.0.0",
-    frequency: "every half hour",
+    description: 'Fetches a list of accounts from zoho crm',
+    version: '1.0.0',
+    frequency: 'every half hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/zoho-crm/accounts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/zoho-crm/accounts'
+        }
+    ],
 
-    scopes: ["ZohoCRM.modules.accounts.READ"],
+    scopes: ['ZohoCRM.modules.accounts.READ'],
 
     models: {
         ZohoCRMAccount: ZohoCRMAccount
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
         const fields = ''; // Define your fields to retrieve specific field values
 
@@ -58,7 +60,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapAccounts(account: any): ZohoCRMAccount {

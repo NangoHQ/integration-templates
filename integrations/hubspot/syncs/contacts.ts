@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toContact } from '../mappers/toContact.js';
 import type { HubSpotContactNonUndefined } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Contact } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of contacts from Hubspot",
-    version: "3.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of contacts from Hubspot',
+    version: '3.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contacts",
-        group: "Contacts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts',
+            group: 'Contacts'
+        }
+    ],
 
-    scopes: ["crm.objects.contacts.read", "oauth"],
+    scopes: ['crm.objects.contacts.read', 'oauth'],
 
     models: {
         Contact: Contact
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const properties = [
             'firstname',
             'lastname',
@@ -67,5 +69,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

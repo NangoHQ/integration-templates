@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { HubspotAccountInformation } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Account } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Account } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch the account information from Hubspot",
-    version: "1.0.0",
+    description: 'Fetch the account information from Hubspot',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/account-information"
+        method: 'GET',
+        path: '/account-information'
     },
 
     input: z.void(),
     output: Account,
-    scopes: ["oauth"],
+    scopes: ['oauth'],
 
     exec: async (nango): Promise<Account> => {
         const config: ProxyConfiguration = {
@@ -41,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

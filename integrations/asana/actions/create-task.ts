@@ -1,17 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toTask } from '../mappers/to-task.js';
 
-import type { NangoActionError, AsanaTask } from "../models.js";
-import { Task, CreateAsanaTask } from "../models.js";
+import type { NangoActionError, AsanaTask } from '../models.js';
+import { Task, CreateAsanaTask } from '../models.js';
 
 const action = createAction({
-    description: "Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields",
-    version: "2.0.0",
+    description:
+        'Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/tasks",
-        group: "Tasks"
+        method: 'POST',
+        path: '/tasks',
+        group: 'Tasks'
     },
 
     input: CreateAsanaTask,
@@ -40,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getCompany } from '../helpers/get-company.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Transaction, ConnectionMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Transaction, ConnectionMetadata } from '../models.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
 const sync = createSync({
-    description: "List all transactions with a default backfill date of one year.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'List all transactions with a default backfill date of one year.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/transactions",
-        group: "Transactions"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/transactions',
+            group: 'Transactions'
+        }
+    ],
 
     models: {
         Transaction: Transaction
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: ConnectionMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const company = await getCompany(nango);
 
         let dateFilter: string | undefined = '';
@@ -67,5 +69,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toArticle } from '../mappers/to-article.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Article, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Article, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Fetch a single article from Intercom",
-    version: "2.0.0",
+    description: 'Fetch a single article from Intercom',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/single-article"
+        method: 'GET',
+        path: '/single-article'
     },
 
     input: IdEntity,
@@ -35,5 +35,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

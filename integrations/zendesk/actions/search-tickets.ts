@@ -1,23 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toTicket } from '../mappers/toTicket.js';
 import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { SearchTicket} from "../models.js";
-import { SearchTicketOutput, SearchTicketInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { SearchTicket } from '../models.js';
+import { SearchTicketOutput, SearchTicketInput } from '../models.js';
 
 const action = createAction({
-    description: "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
-    version: "2.0.0",
+    description:
+        "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/search-tickets"
+        method: 'GET',
+        path: '/search-tickets'
     },
 
     input: SearchTicketInput,
     output: SearchTicketOutput,
-    scopes: ["read"],
+    scopes: ['read'],
 
     exec: async (nango, input): Promise<SearchTicketOutput> => {
         if (!input.query) {
@@ -50,7 +51,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 async function* paginate(

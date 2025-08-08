@@ -1,19 +1,21 @@
-import { createSync } from "nango";
-import { NextCloudUser } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { NextCloudUser } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
     description: "Fetches a list of all users' details from NextCloud account",
-    version: "1.0.0",
-    frequency: "every hour",
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/next-cloud-ocs/next-cloud-users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/next-cloud-ocs/next-cloud-users'
+        }
+    ],
 
     models: {
         NextCloudUser: NextCloudUser
@@ -21,7 +23,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const userIDs: string[] = await getAllUsers(nango);
@@ -39,7 +41,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function getAllUsers(nango: NangoSyncLocal) {

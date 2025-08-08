@@ -1,14 +1,14 @@
-import { createAction } from "nango";
-import type { Schema} from "../models.js";
-import { Anonymous_unanet_action_getschema_output, Entity } from "../models.js";
+import { createAction } from 'nango';
+import type { Schema } from '../models.js';
+import { Anonymous_unanet_action_getschema_output, Entity } from '../models.js';
 
 const action = createAction({
-    description: "Get the schema of any entity. Useful to know the properties of any object that exists in the system.",
-    version: "1.0.0",
+    description: 'Get the schema of any entity. Useful to know the properties of any object that exists in the system.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/schema"
+        method: 'GET',
+        path: '/schema'
     },
 
     input: Entity,
@@ -33,5 +33,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

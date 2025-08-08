@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GoogleMailFile } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Anonymous_googlemail_action_fetchattachment_output, DocumentInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Anonymous_googlemail_action_fetchattachment_output, DocumentInput } from '../models.js';
 
 //Fetch attachment content
 const action = createAction({
-    description: "An action used to fetch the contents of an attachment.",
-    version: "2.0.0",
+    description: 'An action used to fetch the contents of an attachment.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/attachment"
+        method: 'GET',
+        path: '/attachment'
     },
 
     input: DocumentInput,
     output: Anonymous_googlemail_action_fetchattachment_output,
-    scopes: ["https://www.googleapis.com/auth/gmail.readonly"],
+    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     exec: async (nango, input): Promise<Anonymous_googlemail_action_fetchattachment_output> => {
         const { threadId, attachmentId } = input;
@@ -33,5 +33,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

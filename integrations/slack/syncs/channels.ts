@@ -1,21 +1,24 @@
-import { createSync } from "nango";
-import { SlackChannel } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { SlackChannel } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
-    version: "2.0.0",
-    frequency: "every hour",
+    description:
+        'Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/channels"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/channels'
+        }
+    ],
 
-    scopes: ["channels:read", "channels:join"],
+    scopes: ['channels:read', 'channels:join'],
 
     models: {
         SlackChannel: SlackChannel
@@ -23,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const responses = await getAllPages(nango, 'conversations.list');
 
         const metadata = (await nango.getMetadata()) || {};
@@ -59,7 +62,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 // Checks for public channels where the bot is not a member yet and joins them

@@ -1,18 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { UnanetLead } from '../types.js';
 import { toLead } from '../mappers/to-lead.js';
 import { optionalsToPotentialClient } from '../mappers/federal-agency.js';
 
-import { Lead, UpdateLead } from "../models.js";
+import { Lead, UpdateLead } from '../models.js';
 
 const action = createAction({
-    description: "Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
-    version: "2.0.0",
+    description:
+        'Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/leads",
-        group: "Leads"
+        method: 'PUT',
+        path: '/leads',
+        group: 'Leads'
     },
 
     input: UpdateLead,
@@ -76,5 +77,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { SlackUserResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SlackUser } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { SlackUser } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Syncs information about all Users on the Slack workspace",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Syncs information about all Users on the Slack workspace',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users'
+        }
+    ],
 
-    scopes: ["users:read", "users:read.email"],
+    scopes: ['users:read', 'users:read.email'],
 
     models: {
         SlackUser: SlackUser
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://api.slack.com/methods/users.list
             endpoint: 'users.list',
@@ -74,5 +76,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

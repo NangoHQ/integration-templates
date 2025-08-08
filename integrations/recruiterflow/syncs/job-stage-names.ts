@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { RecruiterFlowLeanJobStageName } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowLeanJobStageName } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Syncs all job stage names from RecruiterFlow",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Syncs all job stage names from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/job-stage-names",
-        group: "Jobs"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/job-stage-names',
+            group: 'Jobs'
+        }
+    ],
 
     models: {
         RecruiterFlowLeanJobStageName: RecruiterFlowLeanJobStageName
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_stage_names
             endpoint: '/api/external/job/stage_names',
@@ -37,7 +39,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function toJobStageName(record: string): RecruiterFlowLeanJobStageName {

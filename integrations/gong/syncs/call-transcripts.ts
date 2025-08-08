@@ -1,33 +1,32 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { FilterFields, GongCallTranscript, AxiosError, GongError } from '../types.js';
 import { toCallTranscript } from '../mappers/to-call-transcript.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import {
-    GongCallTranscriptSyncOutput,
-    GongCallTranscriptMetadata,
-} from "../models.js";
+import { GongCallTranscriptSyncOutput, GongCallTranscriptMetadata } from '../models.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 const DEFAULT_BACKFILL_DAYS = 14;
 const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 const sync = createSync({
-    description: "Fetches a list of call transcripts from Gong",
-    version: "2.0.0",
-    frequency: "every 1h",
+    description: 'Fetches a list of call transcripts from Gong',
+    version: '2.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/call-transcripts",
-        group: "Calls"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/call-transcripts',
+            group: 'Calls'
+        }
+    ],
 
-    scopes: ["api:calls:read:transcript"],
+    scopes: ['api:calls:read:transcript'],
 
     models: {
         GongCallTranscriptSyncOutput: GongCallTranscriptSyncOutput
@@ -35,7 +34,7 @@ const sync = createSync({
 
     metadata: GongCallTranscriptMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         let fetchSince: Date;
         const metadata = await nango.getMetadata();
         if (nango.lastSyncDate) {
@@ -105,5 +104,5 @@ const sync = createSync({
     }
 }); //just incase gong fails to honour the 100 records per page limit
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

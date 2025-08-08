@@ -1,22 +1,24 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { SalesforceTicket, CaseComment } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Ticket } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Ticket } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of tickets from salesforce",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of tickets from salesforce',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/tickets"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tickets'
+        }
+    ],
 
     models: {
         Ticket: Ticket
@@ -24,14 +26,14 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const query = buildQuery(nango.lastSyncDate);
 
         await fetchAndSaveTickets(nango, query);
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function buildQuery(lastSyncDate?: Date): string {

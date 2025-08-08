@@ -434,17 +434,16 @@ export const fetchFieldsInputSchema = z.object({
 });
 
 export const fetchFieldsOutputSchema = z.object({
-  id: z.string().optional(),
-  schema: z.string().optional(),
-  title: z.string().optional(),
-  description: z.string().optional(),
-  type: z.union([z.string(), z.array(z.string())]).optional(),
-  properties: z.record(z.string(), z.any()).optional(),
-  required: z.array(z.string()).optional(),
-  items: z.unknown().optional(),
-  enum: z.array(z.any()).optional(),
-  definitions: z.record(z.string(), z.any()).optional(),
-  additionalProperties: z.union([z.boolean(), z.unknown()]).optional(),
-  default: z.any().optional()
+    id: z.string().optional(),
+    schema: z.string().optional(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    type: z.union([z.string(), z.array(z.string())]).optional(),
+    properties: z.record(z.string(), z.any()).optional(),
+    required: z.array(z.string()).optional(),
+    items: z.unknown().optional(),
+    enum: z.array(z.any()).optional(),
+    definitions: z.record(z.string(), z.any()).optional(),
+    additionalProperties: z.union([z.boolean(), z.unknown()]).optional(),
+    default: z.any().optional()
 });
-

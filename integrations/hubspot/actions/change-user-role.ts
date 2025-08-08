@@ -1,25 +1,21 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { ChangedRoleResponse, UserRoleInput } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ChangedRoleResponse, UserRoleInput } from '../models.js';
 
 const action = createAction({
-    description: "Change a user role. Requires an enterprise account.",
-    version: "1.0.0",
+    description: 'Change a user role. Requires an enterprise account.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/roles",
-        group: "Roles"
+        method: 'PUT',
+        path: '/roles',
+        group: 'Roles'
     },
 
     input: UserRoleInput,
     output: ChangedRoleResponse,
 
-    scopes: [
-        "oauth",
-        "settings.users.write (standard scope)",
-        "crm.objects.users.write (granular scope)"
-    ],
+    scopes: ['oauth', 'settings.users.write (standard scope)', 'crm.objects.users.write (granular scope)'],
 
     exec: async (nango, input): Promise<ChangedRoleResponse> => {
         if (!input.id) {
@@ -42,5 +38,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

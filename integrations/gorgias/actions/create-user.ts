@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { gorgiasCreateUserSchema } from '../schema.zod.js';
 import type { GorgiasCreateUserReq, GorgiasUserResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GorgiasUser, GorgiasCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GorgiasUser, GorgiasCreateUser } from '../models.js';
 
 /**
  * Creates a new user in Gorgias.
@@ -14,18 +14,18 @@ import { GorgiasUser, GorgiasCreateUser } from "../models.js";
  * @throws {nango.ActionError} - Throws an error if the input validation fails.
  */
 const action = createAction({
-    description: "Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided",
-    version: "2.0.0",
+    description: 'Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: GorgiasCreateUser,
     output: GorgiasUser,
-    scopes: ["users:write"],
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<GorgiasUser> => {
         await nango.zodValidateInput({ zodSchema: gorgiasCreateUserSchema, input });
@@ -60,5 +60,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

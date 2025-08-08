@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { fetchTeamsInputSchema } from '../schema.zod.js';
 import type { LinearTeamsResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { LinearTeamBase} from "../models.js";
-import { FetchTeamsInput, TeamsPaginatedResponse } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { LinearTeamBase } from '../models.js';
+import { FetchTeamsInput, TeamsPaginatedResponse } from '../models.js';
 
 /**
  * Action to fetch teams from Linear with pagination support.
@@ -18,13 +18,13 @@ import { FetchTeamsInput, TeamsPaginatedResponse } from "../models.js";
  * - `pageSize` (optional): Number of teams to fetch per page (default: 50)
  */
 const action = createAction({
-    description: "Fetch the teams from Linear",
-    version: "1.0.0",
+    description: 'Fetch the teams from Linear',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/teams/list",
-        group: "Teams"
+        method: 'GET',
+        path: '/teams/list',
+        group: 'Teams'
     },
 
     input: FetchTeamsInput,
@@ -81,5 +81,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

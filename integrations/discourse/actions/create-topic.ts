@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { Post as DiscourseTopic } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Topic, CreateTopic } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Topic, CreateTopic } from '../models.js';
 
 const action = createAction({
-    description: "Create a new topic in discourse",
-    version: "2.0.0",
+    description: 'Create a new topic in discourse',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/topics"
+        method: 'POST',
+        path: '/topics'
     },
 
     input: CreateTopic,
@@ -42,5 +42,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

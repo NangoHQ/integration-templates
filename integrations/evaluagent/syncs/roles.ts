@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { EvaluAgentRole } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { EvaluAgentRole } from '../models.js';
+import { z } from 'zod';
 
 interface EvaluAgentRoleResponse {
     id: string;
@@ -9,17 +9,19 @@ interface EvaluAgentRoleResponse {
 }
 
 const sync = createSync({
-    description: "Fetches a list of roles from evaluagent",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of roles from evaluagent',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/roles"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/roles'
+        }
+    ],
 
     models: {
         EvaluAgentRole: EvaluAgentRole
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const payload: ProxyConfiguration = {
             // https://docs.evaluagent.com/#operation/fetchRoles
             endpoint: '/v1/org/roles',
@@ -51,5 +53,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

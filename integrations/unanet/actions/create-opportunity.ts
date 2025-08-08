@@ -1,19 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { CreateUnanetOpportunity } from '../types.js';
 
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 import { findStage } from '../helpers/find-stage.js';
 import { toOpportunity } from '../mappers/to-opportunity.js';
 
-import { Opportunity } from "../models.js";
+import { Opportunity } from '../models.js';
 
 const action = createAction({
-    description: "Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.",
-    version: "1.0.0",
+    description: 'Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/opportunity"
+        method: 'POST',
+        path: '/opportunity'
     },
 
     input: Opportunity,
@@ -77,5 +77,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

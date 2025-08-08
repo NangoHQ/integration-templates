@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { NS_Customer, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { formatDate } from '../helpers/utils.js';
 
-import type { ProxyConfiguration } from "nango";
-import { NetsuiteCustomer, NetsuiteMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { NetsuiteCustomer, NetsuiteMetadata } from '../models.js';
 
 const retries = 3;
 
 const sync = createSync({
-    description: "Fetches all customers in Netsuite",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches all customers in Netsuite',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/customers",
-        group: "Customers"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/customers',
+            group: 'Customers'
+        }
+    ],
 
     models: {
         NetsuiteCustomer: NetsuiteCustomer
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: NetsuiteMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
 
         const proxyConfig: ProxyConfiguration = {
@@ -75,5 +77,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

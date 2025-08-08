@@ -1,24 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { OperationConfig, OperationType } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    LeverOpportunity,
-    ArchiveObject} from "../models.js";
-import {
-    ReturnObjUpdateOpportunity,
-    UpdateOpportunity,
-} from "../models.js";
+import type { LeverOpportunity, ArchiveObject } from '../models.js';
+import { ReturnObjUpdateOpportunity, UpdateOpportunity } from '../models.js';
 
 const action = createAction({
-    description: "Update an opportunity",
-    version: "1.0.0",
+    description: 'Update an opportunity',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/opportunities",
-        group: "Opportunities"
+        method: 'PATCH',
+        path: '/opportunities',
+        group: 'Opportunities'
     },
 
     input: UpdateOpportunity,
@@ -56,7 +51,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function buildOperations(input: UpdateOpportunity): OperationConfig[] {

@@ -1,18 +1,18 @@
-import { createAction } from "nango";
-import { HackerRankWorkCreateInterviewInput, HackerRankWorkInterview } from "../models.js";
+import { createAction } from 'nango';
+import { HackerRankWorkCreateInterviewInput, HackerRankWorkInterview } from '../models.js';
 
 const mapInputToPostData = (input: HackerRankWorkCreateInterviewInput): Record<string, any> => {
     return { ...input };
 };
 
 const action = createAction({
-    description: "Action to create an interview on hackerrank work",
-    version: "2.0.0",
+    description: 'Action to create an interview on hackerrank work',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/interviews",
-        group: "Interviews"
+        method: 'POST',
+        path: '/interviews',
+        group: 'Interviews'
     },
 
     input: HackerRankWorkCreateInterviewInput,
@@ -66,5 +66,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

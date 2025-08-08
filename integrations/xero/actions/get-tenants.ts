@@ -1,16 +1,16 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { TenantResponse } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { TenantResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
-    version: "1.0.0",
+    description: 'Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/tenants",
-        group: "Tenants"
+        method: 'GET',
+        path: '/tenants',
+        group: 'Tenants'
     },
 
     input: z.void(),
@@ -28,5 +28,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

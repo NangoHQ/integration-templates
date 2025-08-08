@@ -1,4 +1,4 @@
-name: Nango Integration Flows Compile
+name: Compile Templates
 
 on:
     push:
@@ -25,14 +25,9 @@ jobs:
                   cache: 'npm'
                   node-version-file: '.nvmrc'
 
-            - name: Install nango CLI
+            - name: Install dependencies
               run: |
-                  # Build, install CLI and verify it can run
                   npm ci
-                  NANGO_CLI_UPGRADE_MODE=ignore npx nango version --debug
-
-            - name: Resolve Aliases
-              run: npm run resolve:aliases
 
             - name: Compile
-              run: npm run compile
+              run: npm run build:flows -- --rebuild-all

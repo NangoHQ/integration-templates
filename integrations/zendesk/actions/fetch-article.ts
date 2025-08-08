@@ -1,21 +1,21 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { ZendeskArticle } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SingleArticleResponse, ArticleInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SingleArticleResponse, ArticleInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetch a single full help center article",
-    version: "1.0.0",
+    description: 'Fetch a single full help center article',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/single-article"
+        method: 'GET',
+        path: '/single-article'
     },
 
     input: ArticleInput,
     output: SingleArticleResponse,
-    scopes: ["hc:read"],
+    scopes: ['hc:read'],
 
     exec: async (nango, input): Promise<SingleArticleResponse> => {
         if (!input.id) {
@@ -41,9 +41,9 @@ const action = createAction({
                 ...response.data.article,
                 id: response.data.article.id.toString()
             }
-        }
+        };
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

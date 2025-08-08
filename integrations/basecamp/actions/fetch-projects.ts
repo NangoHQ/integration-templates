@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { BasecampProject} from "../models.js";
-import { BasecampProjectsResponse } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { BasecampProject } from '../models.js';
+import { BasecampProjectsResponse } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Action: fetch-projects
  * Fetches *all* projects from Basecamp's /projects.json endpoint.
  */
 const action = createAction({
-    description: "Fetch all projects from Basecamp",
-    version: "2.0.0",
+    description: 'Fetch all projects from Basecamp',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/projects",
-        group: "Projects"
+        method: 'GET',
+        path: '/projects',
+        group: 'Projects'
     },
 
     input: z.void(),
@@ -51,5 +51,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

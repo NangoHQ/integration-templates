@@ -102,15 +102,7 @@ export const entitySchema = z.object({
     name: z.string()
 });
 
-export const fieldSchema: z.ZodType<any> = z.lazy(() =>
-  z.record(
-    z.string(),
-    z.union([
-      z.lazy(() => fieldSchema),
-      z.string()
-    ])
-  )
-);
+export const fieldSchema: z.ZodType<any> = z.lazy(() => z.record(z.string(), z.union([z.lazy(() => fieldSchema), z.string()])));
 
 export const fieldResponseSchema = z.object({
     fields: z.array(fieldSchema)

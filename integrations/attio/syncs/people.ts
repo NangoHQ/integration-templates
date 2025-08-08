@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { AttioPersonResponse } from '../types.js';
 import { toPerson } from '../mappers/to-person.js';
 
-import type { ProxyConfiguration } from "nango";
-import { AttioPerson } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { AttioPerson } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all person records from Attio",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all person records from Attio',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/people",
-        group: "People"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/people',
+            group: 'People'
+        }
+    ],
 
-    scopes: ["record_permission:read", "object_configuration:read"],
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
     models: {
         AttioPerson: AttioPerson
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/people/list-person-records
             endpoint: '/v2/objects/people/records/query',
@@ -54,5 +56,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

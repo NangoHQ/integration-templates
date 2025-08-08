@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import { Anonymous_unanet_action_getleads_output } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import { Anonymous_unanet_action_getleads_output } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch all leads",
-    version: "1.0.0",
+    description: 'Fetch all leads',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/leads",
-        group: "Leads"
+        method: 'GET',
+        path: '/leads',
+        group: 'Leads'
     },
 
     input: z.void(),
@@ -25,5 +25,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

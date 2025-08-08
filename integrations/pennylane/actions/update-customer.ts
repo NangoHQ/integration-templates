@@ -1,15 +1,15 @@
-import { createAction } from "nango";
-import type { PennylaneIndividualCustomer } from "../models.js";
-import { UpdatePennylaneCustomer, PennylaneSuccessResponse } from "../models.js";
+import { createAction } from 'nango';
+import type { PennylaneIndividualCustomer } from '../models.js';
+import { UpdatePennylaneCustomer, PennylaneSuccessResponse } from '../models.js';
 
 const action = createAction({
-    description: "Action to update a supplier in pennylane",
-    version: "2.0.0",
+    description: 'Action to update a supplier in pennylane',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/customers",
-        group: "Customers"
+        method: 'PATCH',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: UpdatePennylaneCustomer,
@@ -45,5 +45,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

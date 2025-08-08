@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, Id } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, Id } from '../models.js';
 
 const action = createAction({
-    description: "Deletes a company in Hubspot",
-    version: "2.0.0",
+    description: 'Deletes a company in Hubspot',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/companies",
-        group: "Companies"
+        method: 'DELETE',
+        path: '/companies',
+        group: 'Companies'
     },
 
     input: Id,
     output: SuccessResponse,
-    scopes: ["crm.objects.companies.write", "oauth"],
+    scopes: ['crm.objects.companies.write', 'oauth'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const config: ProxyConfiguration = {
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { EmployeeResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GustoEmployee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { GustoEmployee } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches all employees from Gusto and maps them to the GustoEmployee model
  */
 const sync = createSync({
-    description: "Fetches all employees from Gusto",
-    version: "1.0.0",
-    frequency: "every 5m",
+    description: 'Fetches all employees from Gusto',
+    version: '1.0.0',
+    frequency: 'every 5m',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees",
-        group: "Employees"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Employees'
+        }
+    ],
 
     models: {
         GustoEmployee: GustoEmployee
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
 
         const companyUuid = connection.connection_config['companyUuid'];
@@ -70,16 +72,17 @@ const sync = createSync({
                 two_percent_shareholder: employee.two_percent_shareholder,
                 onboarded: employee.onboarded,
                 onboarding_status: employee.onboarding_status,
-                jobs: employee.jobs.map(job => ({
+                jobs: employee.jobs.map((job) => ({
                     id: job.uuid,
-                    ...job,
+                    ...job
                 })),
                 eligible_paid_time_off: employee.eligible_paid_time_off,
                 terminations: employee.terminations,
-                custom_fields: employee.custom_fields?.map(field => ({
-                    ...field,
-                    selection_options: field.selection_options ?? undefined
-                })) || [],
+                custom_fields:
+                    employee.custom_fields?.map((field) => ({
+                        ...field,
+                        selection_options: field.selection_options ?? undefined
+                    })) || [],
                 garnishments: employee.garnishments,
                 date_of_birth: employee.date_of_birth,
                 has_ssn: employee.has_ssn,
@@ -95,5 +98,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

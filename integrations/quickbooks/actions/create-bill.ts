@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toBill, toCreateQuickBooksBill } from '../mappers/to-bill.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Bill, CreateBill } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Bill, CreateBill } from '../models.js';
 
 /**
  * This function handles the creation of a bill in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Bill, CreateBill } from "../models.js";
  * @returns {Promise<Bill>} - Returns the created bill object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single bill in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single bill in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/bills",
-        group: "Bills"
+        method: 'POST',
+        path: '/bills',
+        group: 'Bills'
     },
 
     input: CreateBill,
     output: Bill,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Bill> => {
         // Validate if input is present
@@ -90,5 +90,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

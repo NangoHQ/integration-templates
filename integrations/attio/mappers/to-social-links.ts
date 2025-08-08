@@ -1,4 +1,4 @@
-import type { AttioSocialLink } from "../models.js";
+import type { AttioSocialLink } from '../models.js';
 import type { AttioCompanyResponse, AttioPersonResponse } from '../types.js';
 
 export function toSocialLinks<T extends AttioPersonResponse['values'] | AttioCompanyResponse['values']>(values: T): AttioSocialLink {

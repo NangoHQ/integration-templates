@@ -18,6 +18,4 @@ integrations/gong-oauth
 integrations/gorgias-basic
 integrations/*-demo
 integrations/lever-basic
-dev/scripts/*.ts
-dev/scripts/**/*.ts
-!dev/scripts/zero/**.ts
+dev/scripts

@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_CreditNote, NS_Item } from '../types.js';
 import { netsuiteCreditNoteUpdateInputSchema } from '../schema.js';
 
-import { NetsuiteCreditNoteUpdateOutput, NetsuiteCreditNoteUpdateInput } from "../models.js";
+import { NetsuiteCreditNoteUpdateOutput, NetsuiteCreditNoteUpdateInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates a credit note in Netsuite",
-    version: "2.0.0",
+    description: 'Updates a credit note in Netsuite',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/credit-notes",
-        group: "Credit Notes"
+        method: 'PUT',
+        path: '/credit-notes',
+        group: 'Credit Notes'
     },
 
     input: NetsuiteCreditNoteUpdateInput,
@@ -59,5 +59,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

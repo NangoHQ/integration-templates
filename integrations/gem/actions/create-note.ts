@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GemNote } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Note, CreateNoteParams } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Note, CreateNoteParams } from '../models.js';
 
 const action = createAction({
-    description: "Create a note for a candidate",
-    version: "1.0.0",
+    description: 'Create a note for a candidate',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/candidate-notes",
-        group: "Candidates"
+        method: 'POST',
+        path: '/candidate-notes',
+        group: 'Candidates'
     },
 
     input: CreateNoteParams,
@@ -32,5 +32,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

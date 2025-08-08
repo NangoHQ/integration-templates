@@ -1,8 +1,8 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GoogleDriveFileResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Document, DocumentMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Document, DocumentMetadata } from '../models.js';
 
 /**
  * Fetches and processes documents from Google Drive, saving their metadata in batches.
@@ -14,20 +14,23 @@ import { Document, DocumentMetadata } from "../models.js";
  * @throws Error if metadata is missing or if there is an issue during the fetching or saving of documents.
  */
 const sync = createSync({
-    description: "Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{\"files\": [\"<some-id>\"]}` OR\n`{\"folders\": [\"<some-id>\"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)",
-    version: "4.0.0",
-    frequency: "every day",
+    description:
+        'Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{"files": ["<some-id>"]}` OR\n`{"folders": ["<some-id>"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)',
+    version: '4.0.0',
+    frequency: 'every day',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/documents",
-        group: "Documents"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/documents',
+            group: 'Documents'
+        }
+    ],
 
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     models: {
         Document: Document
@@ -35,7 +38,7 @@ const sync = createSync({
 
     metadata: DocumentMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata || (!metadata.files && !metadata.folders)) {
@@ -147,5 +150,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

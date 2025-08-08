@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import type { ZendeskTicket } from '../types.js';
 import { TicketCreateSchema } from '../schema.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreatedTicket, TicketCreate } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreatedTicket, TicketCreate } from '../models.js';
 
 const action = createAction({
-    description: "Create a Zendesk ticket",
-    version: "2.0.0",
+    description: 'Create a Zendesk ticket',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/tickets",
-        group: "Tickets"
+        method: 'POST',
+        path: '/tickets',
+        group: 'Tickets'
     },
 
     input: TicketCreate,
     output: CreatedTicket,
-    scopes: ["tickets:write"],
+    scopes: ['tickets:write'],
 
     exec: async (nango, input): Promise<CreatedTicket> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: TicketCreateSchema, input });
@@ -52,5 +52,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

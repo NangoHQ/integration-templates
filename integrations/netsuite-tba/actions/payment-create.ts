@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_Payment } from '../types.js';
 import { netsuitePaymentCreateInputSchema } from '../schema.js';
 
-import { NetsuitePaymentCreateOutput, NetsuitePaymentCreateInput } from "../models.js";
+import { NetsuitePaymentCreateOutput, NetsuitePaymentCreateInput } from '../models.js';
 
 const action = createAction({
-    description: "Creates a payment in Netsuite",
-    version: "2.0.0",
+    description: 'Creates a payment in Netsuite',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/payments",
-        group: "Payments"
+        method: 'POST',
+        path: '/payments',
+        group: 'Payments'
     },
 
     input: NetsuitePaymentCreateInput,
@@ -50,5 +50,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

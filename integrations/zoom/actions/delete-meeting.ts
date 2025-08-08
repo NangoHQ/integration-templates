@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Deletes a meeting in Zoom",
-    version: "1.0.0",
+    description: 'Deletes a meeting in Zoom',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/meetings",
-        group: "Meetings"
+        method: 'DELETE',
+        path: '/meetings',
+        group: 'Meetings'
     },
 
     input: IdEntity,
     output: SuccessResponse,
-    scopes: ["meeting:write"],
+    scopes: ['meeting:write'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         if (!input.id) {
@@ -37,5 +37,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

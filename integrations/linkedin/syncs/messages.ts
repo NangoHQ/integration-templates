@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { LinkedInMessage } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { LinkedInMessage } from '../models.js';
+import { z } from 'zod';
 
 /**
  * LinkedIn Messages Sync
@@ -9,20 +9,22 @@ import { z } from "zod";
  * This sync captures all LinkedIn messages for archiving purposes,
  */
 const sync = createSync({
-    description: "This sync captures all LinkedIn messages for a Linkedin member for archiving purposes",
-    version: "1.0.0",
-    frequency: "every 1h",
+    description: 'This sync captures all LinkedIn messages for a Linkedin member for archiving purposes',
+    version: '1.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/messages",
-        group: "messages"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/messages',
+            group: 'messages'
+        }
+    ],
 
-    scopes: ["r_dma_portability_3rd_party"],
+    scopes: ['r_dma_portability_3rd_party'],
 
     models: {
         LinkedInMessage: LinkedInMessage
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
         const lastProcessedAt = nango.lastSyncDate ?? twentyEightDaysAgo;
 
@@ -128,5 +130,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

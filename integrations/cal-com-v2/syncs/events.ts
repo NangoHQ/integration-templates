@@ -1,19 +1,21 @@
-import { createSync } from "nango";
-import { Event } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { Event } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieve all upcoming events per a user",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Retrieve all upcoming events per a user',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/events"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/events'
+        }
+    ],
 
     models: {
         Event: Event
@@ -21,7 +23,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         for await (const eventResponse of nango.paginate<Event>({
             endpoint: '/bookings',
             params: {
@@ -37,5 +39,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

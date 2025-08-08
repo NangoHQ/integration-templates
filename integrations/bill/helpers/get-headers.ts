@@ -1,4 +1,4 @@
-import type { NangoSync, NangoAction } from "nango";
+import type { NangoSync, NangoAction } from 'nango';
 
 function hasSessionAndDevKey(credentials: any): credentials is { session_id: string; dev_key: string } {
     return 'session_id' in credentials && 'dev_key' in credentials;

@@ -1,13 +1,13 @@
-import { createAction } from "nango";
-import { BackgroundCheckParameterResponse, BackgroundCheckParametersInput } from "../models.js";
+import { createAction } from 'nango';
+import { BackgroundCheckParameterResponse, BackgroundCheckParametersInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetch the parameters required to trigger a background check",
-    version: "2.0.0",
+    description: 'Fetch the parameters required to trigger a background check',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/background-check/service-parameters"
+        method: 'GET',
+        path: '/background-check/service-parameters'
     },
 
     input: BackgroundCheckParametersInput,
@@ -19,7 +19,13 @@ const action = createAction({
 
         let parameters = [
             { key: 'service_key', type: 'string', title: 'Service Key', description: 'Slug of the associated service_key.', required: true },
-            { key: 'candidate_id', type: 'string', title: 'Candidate ID', description: 'Id of the candidate to trigger the background check for.', required: true },
+            {
+                key: 'candidate_id',
+                type: 'string',
+                title: 'Candidate ID',
+                description: 'Id of the candidate to trigger the background check for.',
+                required: true
+            },
             { key: 'tags', type: 'string[]', title: 'Tags', description: 'Array of tags for the report.', required: false },
             {
                 key: 'country',
@@ -55,5 +61,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

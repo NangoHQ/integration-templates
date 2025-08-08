@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types.js';
 import { netsuiteBillCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
-import { NetsuiteBillCreateOutput, NetsuiteBillCreateInput } from "../models.js";
+import { NetsuiteBillCreateOutput, NetsuiteBillCreateInput } from '../models.js';
 
 const action = createAction({
-    description: "Creates a vendor bill in Netsuite.",
-    version: "2.0.0",
+    description: 'Creates a vendor bill in Netsuite.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/bills",
-        group: "Bills"
+        method: 'POST',
+        path: '/bills',
+        group: 'Bills'
     },
 
     input: NetsuiteBillCreateInput,
@@ -198,5 +198,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

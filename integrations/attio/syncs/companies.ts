@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { AttioCompanyResponse } from '../types.js';
 import { toCompany } from '../mappers/to-company.js';
 
-import type { ProxyConfiguration } from "nango";
-import { AttioCompany } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { AttioCompany } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all company records from Attio",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all company records from Attio',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/companies",
-        group: "Companies"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/companies',
+            group: 'Companies'
+        }
+    ],
 
-    scopes: ["record_permission:read", "object_configuration:read"],
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
     models: {
         AttioCompany: AttioCompany
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/companies/list-company-records
             endpoint: '/v2/objects/companies/records/query',
@@ -54,5 +56,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

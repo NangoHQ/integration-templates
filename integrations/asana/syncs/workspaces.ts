@@ -1,20 +1,22 @@
-import { createSync } from "nango";
-import { AsanaWorkspace } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { AsanaWorkspace } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieve all workspaces for a user",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Retrieve all workspaces for a user',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/workspaces",
-        group: "Workspaces"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workspaces',
+            group: 'Workspaces'
+        }
+    ],
 
     models: {
         AsanaWorkspace: AsanaWorkspace
@@ -22,7 +24,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const params: Record<string, string> = {
             limit: '100',
             opt_fields: ['gid', 'name', 'resource_type', 'is_organization'].join(',')
@@ -40,5 +42,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

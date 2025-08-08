@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import { GithubWriteFileActionResult, GithubWriteFileInput } from "../models.js";
+import { createAction } from 'nango';
+import { GithubWriteFileActionResult, GithubWriteFileInput } from '../models.js';
 
 const action = createAction({
     description: "Write content to a particular github file within a repo. If\nthe file doesn't exist it creates and then writes to it",
-    version: "2.0.0",
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/files",
-        group: "Files"
+        method: 'PUT',
+        path: '/files',
+        group: 'Files'
     },
 
     input: GithubWriteFileInput,
     output: GithubWriteFileActionResult,
-    scopes: ["repo"],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<GithubWriteFileActionResult> => {
         const endpoint = `/repos/${input.owner}/${input.repo}/contents/${input.path}`;
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

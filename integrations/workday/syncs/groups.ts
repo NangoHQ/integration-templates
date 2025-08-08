@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { jobFamilyToDepartment } from '../mappers/jobFamilyToGroup.js';
 import type { ResponseGet_Job_FamiliesAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 
-import { Group } from "../models.js";
-import { z } from "zod";
+import { Group } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches Company groups",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches Company groups',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/groups",
-        group: "Groups"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/groups',
+            group: 'Groups'
+        }
+    ],
 
     models: {
         Group: Group
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
 
         const client = await getSoapClient('Human_Resources', connection);
@@ -67,5 +69,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,22 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { OutlookCalendar } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { OutlookCalendar } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync the calendars list of the user",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Sync the calendars list of the user',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/calendars"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/calendars'
+        }
+    ],
 
-    scopes: ["Calendars.Read"],
+    scopes: ['Calendars.Read'],
 
     models: {
         OutlookCalendar: OutlookCalendar
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/user-list-calendars?view=graph-rest-1.0&tabs=http
             endpoint: '/v1.0/me/calendars',
@@ -57,5 +59,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

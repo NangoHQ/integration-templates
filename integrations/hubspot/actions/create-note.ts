@@ -1,21 +1,21 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toNote, toHubspotNote } from '../mappers/toNote.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Note } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Note } from '../models.js';
 
 const action = createAction({
-    description: "Creates a single note in Hubspot",
-    version: "1.0.0",
+    description: 'Creates a single note in Hubspot',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/note"
+        method: 'POST',
+        path: '/note'
     },
 
     input: Note,
     output: Note,
-    scopes: ["crm.objects.contacts.write", "oauth"],
+    scopes: ['crm.objects.contacts.write', 'oauth'],
 
     exec: async (nango, input): Promise<Note> => {
         const hubSpotNote = toHubspotNote(input);
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

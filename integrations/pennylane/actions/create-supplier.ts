@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createSupplierSchema } from '../schema.js';
 
-import { PennylaneSuccessResponse, CreateSupplier } from "../models.js";
+import { PennylaneSuccessResponse, CreateSupplier } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a supplier in pennylane",
-    version: "2.0.0",
+    description: 'Action to create a supplier in pennylane',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/suppliers",
-        group: "Suppliers"
+        method: 'POST',
+        path: '/suppliers',
+        group: 'Suppliers'
     },
 
     input: CreateSupplier,
@@ -39,5 +39,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

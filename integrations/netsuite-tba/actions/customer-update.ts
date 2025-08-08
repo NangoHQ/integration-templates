@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_Customer, NS_Address } from '../types.js';
 import { netsuiteCustomerUpdateInputSchema } from '../schema.js';
 
-import { NetsuiteCustomerUpdateOutput, NetsuiteCustomerUpdateInput } from "../models.js";
+import { NetsuiteCustomerUpdateOutput, NetsuiteCustomerUpdateInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates a customer in Netsuite",
-    version: "2.0.0",
+    description: 'Updates a customer in Netsuite',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/customers",
-        group: "Customers"
+        method: 'PUT',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: NetsuiteCustomerUpdateInput,
@@ -72,5 +72,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

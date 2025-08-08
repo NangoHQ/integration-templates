@@ -1,8 +1,8 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { OutlookFolderResponse } from '../types.js';
 
-import { OutlookFolder } from "../models.js";
-import { z } from "zod";
+import { OutlookFolder } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches all Outlook mail folders and their children
@@ -10,19 +10,21 @@ import { z } from "zod";
  * @returns A Map of folder IDs to folder objects
  */
 const sync = createSync({
-    description: "Fetches a list of folders from outlook.",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of folders from outlook.',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/folders"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/folders'
+        }
+    ],
 
-    scopes: ["Mail.Read"],
+    scopes: ['Mail.Read'],
 
     models: {
         OutlookFolder: OutlookFolder
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         await nango.log('Fetching Outlook folders', { level: 'debug' });
 
         const folders: OutlookFolder[] = [];
@@ -66,7 +68,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 /**

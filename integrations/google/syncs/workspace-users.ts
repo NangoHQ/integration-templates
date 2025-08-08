@@ -1,21 +1,23 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DirectoryUsersResponse } from '../types.js';
 
-import type { OrgToSync} from "../models.js";
-import { User, Metadata } from "../models.js";
+import type { OrgToSync } from '../models.js';
+import { User, Metadata } from '../models.js';
 
 const sync = createSync({
-    description: "Sync all workspace users",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Sync all workspace users',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/google/workspace-users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/google/workspace-users'
+        }
+    ],
 
     models: {
         User: User
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: Metadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const { orgsToSync } = metadata;
 
@@ -45,7 +47,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchAndUpdateUsers(nango: NangoSyncLocal, orgUnit: OrgToSync | null, runDelete = false): Promise<void> {

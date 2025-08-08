@@ -1,6 +1,6 @@
-import { createSync } from "nango";
-import { OrganizationalUnit } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { OrganizationalUnit } from '../models.js';
+import { z } from 'zod';
 
 interface OrganizationUnit {
     kind: string;
@@ -19,22 +19,21 @@ interface OrganizationUnitResponse {
 }
 
 const sync = createSync({
-    description: "Sync all workspace org units",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Sync all workspace org units',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/google/workspace-org-unit"
-    }],
-
-    scopes: [
-        "https://www.googleapis.com/auth/admin.directory.orgunit.readonly",
-        "https://www.googleapis.com/auth/admin.directory.user.readonly"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/google/workspace-org-unit'
+        }
     ],
+
+    scopes: ['https://www.googleapis.com/auth/admin.directory.orgunit.readonly', 'https://www.googleapis.com/auth/admin.directory.user.readonly'],
 
     models: {
         OrganizationalUnit: OrganizationalUnit
@@ -42,7 +41,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const endpoint = '/admin/directory/v1/customer/my_customer/orgunits';
         let pageToken: string | undefined;
 
@@ -109,5 +108,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

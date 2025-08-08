@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toUser, createUser } from '../mappers/toUser.js';
 import { oktaCreateUserSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { OktaCreateUser, User } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { OktaCreateUser, User } from '../models.js';
 
 const action = createAction({
-    description: "Creates a new user in your Okta org without credentials.",
-    version: "2.0.0",
+    description: 'Creates a new user in your Okta org without credentials.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: OktaCreateUser,
     output: User,
-    scopes: ["okta.users.manage"],
+    scopes: ['okta.users.manage'],
 
     exec: async (nango, input): Promise<User> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: oktaCreateUserSchema, input });
@@ -44,5 +44,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

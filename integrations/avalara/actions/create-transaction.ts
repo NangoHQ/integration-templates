@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toTransaction } from '../mappers/to-transaction.js';
 import type { AvalaraTransaction } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { IdEntity, CreateTransaction } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { IdEntity, CreateTransaction } from '../models.js';
 
 /**
  * Executes the action to create a transaction in Avalara using the provided input data.
@@ -17,29 +17,29 @@ import { IdEntity, CreateTransaction } from "../models.js";
  * @returns A promise that resolves to an object containing the transaction ID in string format.
  */
 const action = createAction({
-    description: "Creates a new transaction",
-    version: "2.0.0",
+    description: 'Creates a new transaction',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/transactions",
-        group: "Transactions"
+        method: 'POST',
+        path: '/transactions',
+        group: 'Transactions'
     },
 
     input: CreateTransaction,
     output: IdEntity,
 
     scopes: [
-        "AccountAdmin",
-        " AccountOperator",
-        " AccountUser",
-        " BatchServiceAdmin",
-        " CompanyAdmin",
-        " CompanyUser",
-        " CSPTester",
-        " SSTAdmin",
-        " TechnicalSupportAdmin",
-        " TechnicalSupportUser"
+        'AccountAdmin',
+        ' AccountOperator',
+        ' AccountUser',
+        ' BatchServiceAdmin',
+        ' CompanyAdmin',
+        ' CompanyUser',
+        ' CSPTester',
+        ' SSTAdmin',
+        ' TechnicalSupportAdmin',
+        ' TechnicalSupportUser'
     ],
 
     exec: async (nango, input): Promise<IdEntity> => {
@@ -60,5 +60,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

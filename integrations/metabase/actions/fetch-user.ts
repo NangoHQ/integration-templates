@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { MetabaseUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Fetches details of a specific user by ID.",
-    version: "1.0.0",
+    description: 'Fetches details of a specific user by ID.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/users/single",
-        group: "Users"
+        method: 'GET',
+        path: '/users/single',
+        group: 'Users'
     },
 
     input: IdEntity,
@@ -42,5 +42,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

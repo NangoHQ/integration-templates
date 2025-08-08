@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { UpdateCompanyInputSchema } from '../schema.js';
 import { createUpdateCompany, toHubspotCompany } from '../mappers/toCompany.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreateUpdateCompanyOutput, UpdateCompanyInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreateUpdateCompanyOutput, UpdateCompanyInput } from '../models.js';
 
 const action = createAction({
-    description: "Update a single company in Hubspot",
-    version: "1.0.0",
+    description: 'Update a single company in Hubspot',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/companies",
-        group: "Companies"
+        method: 'PATCH',
+        path: '/companies',
+        group: 'Companies'
     },
 
     input: UpdateCompanyInput,
     output: CreateUpdateCompanyOutput,
-    scopes: ["crm.objects.companies.write", "oauth"],
+    scopes: ['crm.objects.companies.write', 'oauth'],
 
     exec: async (nango, input): Promise<CreateUpdateCompanyOutput> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: UpdateCompanyInputSchema, input });
@@ -36,5 +36,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

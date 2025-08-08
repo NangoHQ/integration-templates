@@ -1,16 +1,16 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { validateCreateProductSchema } from '../schema.js';
 
-import { PennylaneSuccessResponse, CreateProduct } from "../models.js";
+import { PennylaneSuccessResponse, CreateProduct } from '../models.js';
 
 const action = createAction({
-    description: "Action to create a product in pennylane",
-    version: "2.0.0",
+    description: 'Action to create a product in pennylane',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/products",
-        group: "Products"
+        method: 'POST',
+        path: '/products',
+        group: 'Products'
     },
 
     input: CreateProduct,
@@ -39,5 +39,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

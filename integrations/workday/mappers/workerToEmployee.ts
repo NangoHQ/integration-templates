@@ -1,4 +1,4 @@
-import type { NangoSync } from "nango";
+import type { NangoSync } from 'nango';
 import type { Employee } from '../models.js';
 import type { ResponseWorkdayWorker } from '../types.js';
 

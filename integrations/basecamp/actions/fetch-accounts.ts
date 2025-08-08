@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { BasecampAuthorizationResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UserInformation } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { UserInformation } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch account list and user information from Basecamp",
-    version: "1.0.0",
+    description: 'Fetch account list and user information from Basecamp',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/accounts",
-        group: "Accounts"
+        method: 'GET',
+        path: '/accounts',
+        group: 'Accounts'
     },
 
     input: z.void(),
@@ -41,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

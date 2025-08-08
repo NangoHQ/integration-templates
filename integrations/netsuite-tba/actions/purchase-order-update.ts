@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types.js';
 import { netsuitePurchaseOrderUpdateInputSchema } from '../schema.zod.js';
 
-import { NetsuitePurchaseOrderUpdateOutput, NetsuitePurchaseOrderUpdateInput } from "../models.js";
+import { NetsuitePurchaseOrderUpdateOutput, NetsuitePurchaseOrderUpdateInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates an existing purchase order in Netsuite.",
-    version: "2.0.0",
+    description: 'Updates an existing purchase order in Netsuite.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/purchase-orders",
-        group: "Purchase Orders"
+        method: 'PUT',
+        path: '/purchase-orders',
+        group: 'Purchase Orders'
     },
 
     input: NetsuitePurchaseOrderUpdateInput,
@@ -111,5 +111,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Item, CreateItem } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Item, CreateItem } from '../models.js';
 
 /**
  * This function handles the creation of an item in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Item, CreateItem } from "../models.js";
  * @returns {Promise<Item>} - Returns the created item object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single item in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single item in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/items",
-        group: "Items"
+        method: 'POST',
+        path: '/items',
+        group: 'Items'
     },
 
     input: CreateItem,
     output: Item,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Item> => {
         // Validate if input is present
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

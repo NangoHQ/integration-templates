@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { updateAccountInputSchema } from '../schema.zod.js';
 import { toSalesForceAccount } from '../mappers/toAccount.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UpdateAccountInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UpdateAccountInput } from '../models.js';
 
 const action = createAction({
-    description: "Update a single account in salesforce",
-    version: "2.0.0",
+    description: 'Update a single account in salesforce',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/accounts",
-        group: "Accounts"
+        method: 'PATCH',
+        path: '/accounts',
+        group: 'Accounts'
     },
 
     input: UpdateAccountInput,
     output: SuccessResponse,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: updateAccountInputSchema, input });
@@ -38,5 +38,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

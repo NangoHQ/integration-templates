@@ -1,25 +1,27 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { LeverOpportunity } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { LeverOpportunity } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Fetches all opportunities",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches all opportunities',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/opportunities",
-        group: "Opportunities"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/opportunities',
+            group: 'Opportunities'
+        }
+    ],
 
-    scopes: ["opportunities:read:admin"],
+    scopes: ['opportunities:read:admin'],
 
     models: {
         LeverOpportunity: LeverOpportunity
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -54,7 +56,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapOpportunity(opportunity: any): LeverOpportunity {

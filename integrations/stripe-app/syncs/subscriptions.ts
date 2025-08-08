@@ -1,28 +1,30 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { StripeResponse, StripeItem, StripeSubscription } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Item } from "../models.js";
-import { Subscription } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { Item } from '../models.js';
+import { Subscription } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Fetches a list of subscriptions",
-    version: "1.0.0",
-    frequency: "every 2h",
+    description: 'Fetches a list of subscriptions',
+    version: '1.0.0',
+    frequency: 'every 2h',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/subscriptions",
-        group: "Subscriptions"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/subscriptions',
+            group: 'Subscriptions'
+        }
+    ],
 
-    scopes: ["subscription_read"],
+    scopes: ['subscription_read'],
 
     models: {
         Subscription: Subscription
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const params: Record<string, string | number> = {
             limit: LIMIT
         };
@@ -80,7 +82,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapSubscriptions(subscription: StripeSubscription): Omit<Subscription, 'items'> {

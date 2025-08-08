@@ -1,18 +1,18 @@
-import { createAction } from "nango";
-import { ZohoMailSendEmailOutput, ZohoMailSendEmailInput } from "../models.js";
+import { createAction } from 'nango';
+import { ZohoMailSendEmailOutput, ZohoMailSendEmailInput } from '../models.js';
 
 const action = createAction({
-    description: "An action to send an email in zoho mail",
-    version: "1.0.0",
+    description: 'An action to send an email in zoho mail',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/zoho-mail/send-email"
+        method: 'POST',
+        path: '/zoho-mail/send-email'
     },
 
     input: ZohoMailSendEmailInput,
     output: ZohoMailSendEmailOutput,
-    scopes: ["ZohoMail.messages.CREATE"],
+    scopes: ['ZohoMail.messages.CREATE'],
 
     exec: async (nango, input): Promise<ZohoMailSendEmailOutput> => {
         //we need to enforce accountId to be of type string since accountId contains bigint values 6984040000000000000
@@ -56,5 +56,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

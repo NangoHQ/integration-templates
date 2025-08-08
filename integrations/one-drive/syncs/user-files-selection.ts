@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-import type { ProxyConfiguration } from "nango";
-import { OneDriveFileSelection, OneDriveMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { OneDriveFileSelection, OneDriveMetadata } from '../models.js';
 
 const sync = createSync({
     description: "Fetch selected files from a user's OneDrive based on provided metadata.",
-    version: "1.0.0",
-    frequency: "every hour",
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/user-files/selected",
-        group: "Files"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/user-files/selected',
+            group: 'Files'
+        }
+    ],
 
-    scopes: ["Files.Read", "Files.Read.All", "offline_access"],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     models: {
         OneDriveFileSelection: OneDriveFileSelection
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: OneDriveMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata || !metadata.pickedFiles || !metadata.pickedFiles.length) {
@@ -71,7 +73,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFolderContents(nango: NangoSyncLocal, driveId: string, folderId: string, files: any[], depth = 3) {

@@ -1,19 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { mapInvoice } from '../mappers/to-create-invoice.js';
 import { validateInvoiceInputSchema } from '../schema.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { InvoiceResponse } from "../models.js";
-import { PennylaneSuccessResponse, CreateInvoice } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { InvoiceResponse } from '../models.js';
+import { PennylaneSuccessResponse, CreateInvoice } from '../models.js';
 
 const action = createAction({
-    description: "Action to create an invoice in pennylane",
-    version: "2.0.0",
+    description: 'Action to create an invoice in pennylane',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/invoices",
-        group: "Invoices"
+        method: 'POST',
+        path: '/invoices',
+        group: 'Invoices'
     },
 
     input: CreateInvoice,
@@ -41,5 +41,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

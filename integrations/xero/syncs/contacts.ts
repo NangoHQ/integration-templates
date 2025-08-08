@@ -1,30 +1,32 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toContact } from '../mappers/to-contact.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Contact } from '../models.js';
+import { z } from 'zod';
 
 interface Config extends ProxyConfiguration {
     params: Record<string, string | number>;
 }
 
 const sync = createSync({
-    description: "Fetches all Xero contacts.\nDetails: incremental sync, detects deletes, metadata is not required.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches all Xero contacts.\nDetails: incremental sync, detects deletes, metadata is not required.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contacts",
-        group: "Contacts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts',
+            group: 'Contacts'
+        }
+    ],
 
-    scopes: ["accounting.contacts"],
+    scopes: ['accounting.contacts'],
 
     models: {
         Contact: Contact
@@ -32,7 +34,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const tenant_id = await getTenantId(nango);
 
         const config: Config = {
@@ -80,5 +82,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

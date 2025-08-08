@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { HubSpotProduct } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Product } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Product } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of products from Hubspot",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of products from Hubspot',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/products",
-        group: "Products"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/products',
+            group: 'Products'
+        }
+    ],
 
-    scopes: ["e-commerce"],
+    scopes: ['e-commerce'],
 
     models: {
         Product: Product
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const properties = ['amount', 'description', 'discount', 'hs_sku', 'hs_url', 'name', 'price', 'quantity', 'recurringbillingfrequency', 'tax'];
 
         const config: ProxyConfiguration = {
@@ -65,5 +67,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

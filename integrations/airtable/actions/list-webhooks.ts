@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import type { AirtableWebhook, AirtableWebhookResponse } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
-import type { Webhook} from '../models.js';
+import type { Webhook } from '../models.js';
 import { WebhookResponse, BaseId } from '../models.js';
 
 const action = createAction({

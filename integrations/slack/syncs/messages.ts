@@ -1,8 +1,8 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { createHash } from 'crypto';
 
-import type { ProxyConfiguration } from "nango";
-import { SlackMessage, SlackMessageReply, SlackMessageReaction, SlackMessageMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SlackMessage, SlackMessageReply, SlackMessageReaction, SlackMessageMetadata } from '../models.js';
 
 interface Metadata {
     [key: string]: unknown;
@@ -14,26 +14,31 @@ interface Channel {
 }
 
 const sync = createSync({
-    description: "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
-    version: "2.0.0",
-    frequency: "every hour",
+    description:
+        'Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/messages",
-        group: "Messages"
-    }, {
-        method: "GET",
-        path: "/messages-reply"
-    }, {
-        method: "GET",
-        path: "/messages-reaction"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/messages',
+            group: 'Messages'
+        },
+        {
+            method: 'GET',
+            path: '/messages-reply'
+        },
+        {
+            method: 'GET',
+            path: '/messages-reaction'
+        }
+    ],
 
-    scopes: ["channels:read", "channels:history"],
+    scopes: ['channels:read', 'channels:history'],
 
     models: {
         SlackMessage: SlackMessage,
@@ -43,7 +48,7 @@ const sync = createSync({
 
     metadata: SlackMessageMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         let metadata: Metadata = (await nango.getMetadata()) || {};
         const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
         const unseenChannels: string[] = Object.keys(channelsLastSyncDate);
@@ -65,7 +70,9 @@ const sync = createSync({
 
         // For every channel read messages, replies & reactions
         for await (const currentChannel of getEntries(nango.paginate<Channel>(channelsRequestConfig))) {
-            const channelSyncTimestamp = channelsLastSyncDate[currentChannel.id] ? new Date(new Date().setDate(new Date().getDate() - 10)).getTime() / 1000 : '';
+            const channelSyncTimestamp = channelsLastSyncDate[currentChannel.id]
+                ? new Date(new Date().setDate(new Date().getDate() - 10)).getTime() / 1000
+                : '';
             channelsLastSyncDate[currentChannel.id] = new Date().toString();
 
             // Keep track of channels we no longer saw in the API
@@ -209,7 +216,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, message: any) {

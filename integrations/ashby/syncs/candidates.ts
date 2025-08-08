@@ -1,24 +1,26 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { AshbyCandidate, AshbyCandidateMetadata } from "../models.js";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { AshbyCandidate, AshbyCandidateMetadata } from '../models.js';
 
 let nextCursor: string | null = null;
 
 const sync = createSync({
-    description: "Fetches a list of all candidates from your ashby account",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of all candidates from your ashby account',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/candidates",
-        group: "Candidates"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/candidates',
+            group: 'Candidates'
+        }
+    ],
 
-    scopes: ["candidatelastsyncToken"],
+    scopes: ['candidatelastsyncToken'],
 
     models: {
         AshbyCandidate: AshbyCandidate
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: AshbyCandidateMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = (await nango.getMetadata()) || {};
         const candidatelastsyncToken = metadata['candidatelastsyncToken'] ? String(metadata['candidatelastsyncToken']) : '';
 
@@ -34,7 +36,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: string) {

@@ -1,29 +1,31 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toBook } from '../mappers/to-book.js';
 import type { BrightCrowdBook } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Book } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Book } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches books from BrightCrowd API
  */
 const sync = createSync({
-    description: "Fetches a list of all books in an account from Brightcrowd.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of all books in an account from Brightcrowd.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/books",
-        group: "Books"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/books',
+            group: 'Books'
+        }
+    ],
 
-    scopes: ["bcb.partner/book.read"],
+    scopes: ['bcb.partner/book.read'],
 
     models: {
         Book: Book
@@ -31,7 +33,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://brightcrowd.com/partner-api#/operations/listBooks
             endpoint: '/books',
@@ -51,5 +53,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { updateOpportunityInputSchema } from '../schema.zod.js';
 import { toSalesForceOpportunity } from '../mappers/toOpportunity.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UpdateOpportunityInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UpdateOpportunityInput } from '../models.js';
 
 const action = createAction({
-    description: "Update a single opportunity in salesforce",
-    version: "2.0.0",
+    description: 'Update a single opportunity in salesforce',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/opportunities",
-        group: "Opportunities"
+        method: 'PATCH',
+        path: '/opportunities',
+        group: 'Opportunities'
     },
 
     input: UpdateOpportunityInput,
     output: SuccessResponse,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: updateOpportunityInputSchema, input });
@@ -38,5 +38,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

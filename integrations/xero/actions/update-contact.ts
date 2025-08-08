@@ -1,30 +1,26 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toXeroContact, toContact } from '../mappers/to-contact.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    FailedContact,
-    ActionErrorResponse} from "../models.js";
-import {
-    ContactActionResponse,
-    Anonymous_xero_action_updatecontact_input
-} from "../models.js";
+import type { FailedContact, ActionErrorResponse } from '../models.js';
+import { ContactActionResponse, Anonymous_xero_action_updatecontact_input } from '../models.js';
 
 const action = createAction({
-    description: "Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.",
-    version: "2.0.0",
+    description:
+        'Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'PUT',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: Anonymous_xero_action_updatecontact_input,
     output: ContactActionResponse,
-    scopes: ["accounting.contacts"],
+    scopes: ['accounting.contacts'],
 
     exec: async (nango, input): Promise<ContactActionResponse> => {
         const tenant_id = await getTenantId(nango);
@@ -86,7 +82,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapFailedXeroContact(xeroContact: any): FailedContact {

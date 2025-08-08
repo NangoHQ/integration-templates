@@ -1,19 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { BitdefenderCompanyResponse } from '../types.js';
 import { toCompany } from '../mappers/to-company.js';
 
-import type { ProxyConfiguration } from "nango";
-import { BitdefenderCompany } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { BitdefenderCompany } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Retrieves detailed information about the current company in Bitdefender GravityZone.",
-    version: "1.0.0",
+    description: 'Retrieves detailed information about the current company in Bitdefender GravityZone.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/company-details",
-        group: "Company"
+        method: 'GET',
+        path: '/company-details',
+        group: 'Company'
     },
 
     input: z.void(),
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

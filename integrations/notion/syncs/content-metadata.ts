@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { Page, Database, BlockPage } from '../types.js';
 import { fetchBlocks } from '../utils.js';
 
-import { ContentMetadata } from "../models.js";
-import { z } from "zod";
+import { ContentMetadata } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync pages and databases metadata to further fetch the content\nusing a dedicated action",
-    version: "2.0.0",
-    frequency: "every 1h",
+    description: 'Sync pages and databases metadata to further fetch the content\nusing a dedicated action',
+    version: '2.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contents",
-        group: "Contents"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contents',
+            group: 'Contents'
+        }
+    ],
 
     models: {
         ContentMetadata: ContentMetadata
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         for await (const pages of nango.paginate({
             method: 'post',
             endpoint: '/v1/search',
@@ -80,7 +82,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function recursiveFetchSubPages(nango: NangoSyncLocal, pages: ContentMetadata[]): Promise<void> {

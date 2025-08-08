@@ -1,20 +1,22 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { CheckrPartnerStagingAccount } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { CheckrPartnerStagingAccount } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches account details for the authenticated account.",
-    version: "2.0.0",
-    frequency: "every half hour",
+    description: 'Fetches account details for the authenticated account.',
+    version: '2.0.0',
+    frequency: 'every half hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/checkr-partner-staging/account"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/checkr-partner-staging/account'
+        }
+    ],
 
     models: {
         CheckrPartnerStagingAccount: CheckrPartnerStagingAccount
@@ -22,7 +24,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
         let access_token: string;
         if ('access_token' in connection.credentials) {
@@ -48,7 +50,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapUser(account: any): CheckrPartnerStagingAccount {

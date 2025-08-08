@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { entitySchema } from '../schema.zod.js';
 import type { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Field} from "../models.js";
-import { FieldResponse, Entity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { Field } from '../models.js';
+import { FieldResponse, Entity } from '../models.js';
 
 interface ResolvedField {
     name?: string;
@@ -15,13 +15,13 @@ interface ResolvedField {
 }
 
 const action = createAction({
-    description: "Introspection endpoint to fetch the fields available per a model",
-    version: "1.0.0",
+    description: 'Introspection endpoint to fetch the fields available per a model',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fields",
-        group: "Fields"
+        method: 'GET',
+        path: '/fields',
+        group: 'Fields'
     },
 
     input: Entity,
@@ -57,7 +57,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 /**
@@ -94,11 +94,11 @@ query {
 `;
 
 interface EditedField {
-  name: string;
-  label: string;
-  type: string;
-  [key: string]: string | Field | undefined;
-};
+    name: string;
+    label: string;
+    type: string;
+    [key: string]: string | Field | undefined;
+}
 
 function convertResolvedFieldToField(r: ResolvedField): Field {
     // Decide which type to use: if there's a `ref`,

@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GongUser, AxiosError, GongError } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 const BATCH_SIZE = 100;
 
 const sync = createSync({
-    description: "Fetches the list of gong users",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches the list of gong users',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users",
-        group: "Users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
 
-    scopes: ["api:users:read"],
+    scopes: ['api:users:read'],
 
     models: {
         User: User
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://gong.app.gong.io/settings/api/documentation#post-/v2/users/extensive
             endpoint: `/v2/users/extensive`,
@@ -85,5 +87,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

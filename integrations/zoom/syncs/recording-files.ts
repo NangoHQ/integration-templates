@@ -1,27 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { ZoomRecordingMeeting } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { RecordingFile, OptionalBackfillSetting } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { RecordingFile, OptionalBackfillSetting } from '../models.js';
 
 const sync = createSync({
-    description: "Fetches a list of recordings from Zoom",
-    version: "1.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of recordings from Zoom',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/recording-files",
-        group: "Cloud Recordings"
-    }],
-
-    scopes: [
-        "cloud_recording:read:list_user_recordings",
-        "cloud_recording:read:list_recording_files"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/recording-files',
+            group: 'Cloud Recordings'
+        }
     ],
+
+    scopes: ['cloud_recording:read:list_user_recordings', 'cloud_recording:read:list_recording_files'],
 
     models: {
         RecordingFile: RecordingFile
@@ -29,7 +28,7 @@ const sync = createSync({
 
     metadata: OptionalBackfillSetting,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const today = new Date();
         let start = new Date(new Date().setMonth(today.getMonth() - 1));
 
@@ -90,5 +89,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

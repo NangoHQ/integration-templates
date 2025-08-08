@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { CreateCandidate } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreateCandidateOutput, CreateCandidateInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreateCandidateOutput, CreateCandidateInput } from '../models.js';
 
 const action = createAction({
-    description: "Create a new candidate in Gem",
-    version: "1.0.0",
+    description: 'Create a new candidate in Gem',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/candidates",
-        group: "Candidates"
+        method: 'POST',
+        path: '/candidates',
+        group: 'Candidates'
     },
 
     input: CreateCandidateInput,
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

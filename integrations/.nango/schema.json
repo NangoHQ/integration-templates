@@ -1,104 +1,151 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_airtable_tables": {
+    "SyncMetadata_hubspot_servicetickets": {
       "type": "object",
       "additionalProperties": false
     },
-    "Table": {
-      "type": "object",
-      "properties": {
-        "baseId": {
-          "type": "string"
-        },
-        "baseName": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "views": {
-          "type": "array",
-          "items": {
-            "type": [
-              "string"
-            ]
-          }
-        },
-        "fields": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false
-              }
-            ]
-          }
-        },
-        "primaryFieldId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "baseId",
-        "baseName",
-        "id",
-        "name",
-        "views",
-        "fields",
-        "primaryFieldId"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_airtable_bases": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Base": {
+    "HubspotServiceTicket": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
-        "permissionLevel": {
+        "createdAt": {
           "type": "string",
-          "enum": [
-            "none",
-            "read",
-            "comment",
-            "edit",
-            "create"
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isArchived": {
+          "type": "boolean"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "number"
+        },
+        "ownerId": {
+          "type": "number"
+        },
+        "pipeline": {
+          "type": "number"
+        },
+        "pipelineStage": {
+          "type": "number"
+        },
+        "ticketCategory": {
+          "type": [
+            "string",
+            "null"
           ]
+        },
+        "ticketPriority": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "name",
-        "permissionLevel"
+        "createdAt",
+        "updatedAt",
+        "isArchived",
+        "subject",
+        "content",
+        "objectId",
+        "ownerId",
+        "pipeline",
+        "pipelineStage",
+        "ticketCategory",
+        "ticketPriority"
       ],
       "additionalProperties": false
     },
-    "ActionInput_airtable_whoami": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+    "SyncMetadata_hubspot_contacts": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "ActionOutput_airtable_whoami": {
+    "Contact": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "job_title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_contacted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_activity_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lead_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lifecycle_stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "salutation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mobile_phone_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
           "type": [
             "string",
             "null"
@@ -107,187 +154,589 @@
       },
       "required": [
         "id",
-        "email"
+        "created_date",
+        "first_name",
+        "last_name",
+        "email",
+        "job_title",
+        "last_contacted",
+        "last_activity_date",
+        "lead_status",
+        "lifecycle_stage",
+        "salutation",
+        "mobile_phone_number",
+        "website_url",
+        "owner"
       ],
       "additionalProperties": false
     },
-    "ActionInput_airtable_createwebhook": {
+    "SyncMetadata_hubspot_companies": {
       "type": "object",
-      "properties": {
-        "baseId": {
-          "type": "string"
-        },
-        "specification": {
-          "type": "object",
-          "properties": {
-            "options": {
-              "type": "object",
-              "properties": {
-                "filters": {
-                  "type": "object",
-                  "properties": {
-                    "recordChangeScope": {
-                      "type": "string"
-                    },
-                    "dataTypes": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "changeTypes": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "fromSources": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "sourceOptions": {
-                      "type": "object",
-                      "properties": {
-                        "formPageSubmission": {
-                          "type": "object",
-                          "properties": {
-                            "pageId": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "pageId"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "formSubmission": {
-                          "type": "object",
-                          "properties": {
-                            "viewId": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "viewId"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "formPageSubmission",
-                        "formSubmission"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "watchDataInFieldIds": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "watchSchemasOfFieldIds": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "required": [
-                    "recordChangeScope",
-                    "dataTypes",
-                    "changeTypes",
-                    "fromSources",
-                    "sourceOptions",
-                    "watchDataInFieldIds",
-                    "watchSchemasOfFieldIds"
-                  ],
-                  "additionalProperties": false
-                },
-                "includes": {
-                  "type": "object",
-                  "properties": {
-                    "includeCellValuesInFieldIds": {
-                      "anyOf": [
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        {
-                          "type": "string",
-                          "const": "all"
-                        }
-                      ]
-                    },
-                    "includePreviousCellValues:": {
-                      "type": "boolean"
-                    },
-                    "includePreviousFieldDefinitions": {
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "includeCellValuesInFieldIds",
-                    "includePreviousCellValues:",
-                    "includePreviousFieldDefinitions"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "filters",
-                "includes"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "options"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "baseId",
-        "specification"
-      ],
       "additionalProperties": false
     },
-    "ActionOutput_airtable_createwebhook": {
+    "Company": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "expirationTime": {
+        "created_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lead_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lifecycle_stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "year_founded": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "created_date",
+        "name",
+        "industry",
+        "description",
+        "country",
+        "city",
+        "lead_status",
+        "lifecycle_stage",
+        "owner",
+        "year_founded",
+        "website_url"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_deals": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Deal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "close_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deal_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deal_stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deal_probability": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "returned_associations": {
+          "type": "object",
+          "properties": {
+            "companies": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "contacts": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "deals": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "required": [
+            "companies",
+            "contacts",
+            "deals"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "amount",
+        "close_date",
+        "deal_description",
+        "owner",
+        "deal_stage",
+        "deal_probability",
+        "returned_associations"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_products": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "updatedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "discount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sku": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "recurringBillingFrequency": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "tax": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "updatedAt",
+        "createdAt",
+        "id",
+        "amount",
+        "description",
+        "discount",
+        "sku",
+        "url",
+        "name",
+        "price",
+        "quantity",
+        "recurringBillingFrequency",
+        "tax"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_owners": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "HubspotOwner": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName",
+        "userId",
+        "createdAt",
+        "updatedAt",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "roleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primaryTeamId": {
+          "type": "string"
+        },
+        "superAdmin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName",
+        "roleIds",
+        "primaryTeamId",
+        "superAdmin"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_knowledgebase": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "HubspotKnowledgeBase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "publishDate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "category",
+        "content",
+        "publishDate"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_tasks": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assigned_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "returned_associations": {
+          "type": "object",
+          "properties": {
+            "companies": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "contacts": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "deals": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "required": [
+            "companies",
+            "contacts",
+            "deals"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "task_type",
+        "title",
+        "priority",
+        "assigned_to",
+        "due_date",
+        "notes",
+        "returned_associations"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_currencycodes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "CurrencyCode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "expirationTime"
+        "code",
+        "description"
       ],
       "additionalProperties": false
     },
-    "ActionInput_airtable_listwebhooks": {
+    "ActionInput_hubspot_whoami": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_hubspot_whoami": {
       "type": "object",
       "properties": {
-        "baseId": {
+        "id": {
+          "type": "number"
+        },
+        "email": {
           "type": "string"
         }
       },
       "required": [
-        "baseId"
+        "id",
+        "email"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_airtable_listwebhooks": {
+    "ActionInput_hubspot_fetchproperties": {
       "type": "object",
       "properties": {
-        "webhooks": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchproperties": {
+      "type": "object",
+      "properties": {
+        "results": {
           "type": "array",
           "items": {
             "anyOf": [
@@ -295,184 +744,36 @@
                 "type": "string"
               },
               {
-                "type": "boolean"
+                "type": "array",
+                "items": {}
               },
               {
                 "type": "number"
               },
               {
-                "type": "null"
+                "type": "boolean"
               },
               {
                 "type": "object",
                 "properties": {
-                  "options": {
-                    "type": "object",
-                    "properties": {
-                      "filters": {
-                        "type": "object",
-                        "properties": {
-                          "recordChangeScope": {
-                            "type": "string"
-                          },
-                          "dataTypes": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "changeTypes": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "fromSources": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "sourceOptions": {
-                            "type": "object",
-                            "properties": {
-                              "formPageSubmission": {
-                                "type": "object",
-                                "properties": {
-                                  "pageId": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "pageId"
-                                ],
-                                "additionalProperties": false
-                              },
-                              "formSubmission": {
-                                "type": "object",
-                                "properties": {
-                                  "viewId": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "viewId"
-                                ],
-                                "additionalProperties": false
-                              }
-                            },
-                            "required": [
-                              "formPageSubmission",
-                              "formSubmission"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "watchDataInFieldIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "watchSchemasOfFieldIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "required": [
-                          "recordChangeScope",
-                          "dataTypes",
-                          "changeTypes",
-                          "fromSources",
-                          "sourceOptions",
-                          "watchDataInFieldIds",
-                          "watchSchemasOfFieldIds"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "includes": {
-                        "type": "object",
-                        "properties": {
-                          "includeCellValuesInFieldIds": {
-                            "anyOf": [
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              {
-                                "type": "string",
-                                "const": "all"
-                              }
-                            ]
-                          },
-                          "includePreviousCellValues:": {
-                            "type": "boolean"
-                          },
-                          "includePreviousFieldDefinitions": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "includeCellValuesInFieldIds",
-                          "includePreviousCellValues:",
-                          "includePreviousFieldDefinitions"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "filters",
-                      "includes"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "options"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "success": {
+                  "archivable": {
                     "type": "boolean"
                   },
-                  "error": {
-                    "type": "object",
-                    "properties": {
-                      "message": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "message"
-                    ],
-                    "additionalProperties": false
+                  "readOnlyDefinition": {
+                    "type": "boolean"
                   },
-                  "completionTimestamp": {
-                    "type": "string"
+                  "readOnlyValue": {
+                    "type": "boolean"
                   },
-                  "durationMs": {
-                    "type": "number"
-                  },
-                  "retryNumber": {
-                    "type": "number"
-                  },
-                  "willBeRetried": {
+                  "readOnlyOptions": {
                     "type": "boolean"
                   }
                 },
                 "required": [
-                  "success",
-                  "error",
-                  "completionTimestamp",
-                  "durationMs",
-                  "retryNumber",
-                  "willBeRetried"
+                  "archivable",
+                  "readOnlyDefinition",
+                  "readOnlyValue",
+                  "readOnlyOptions"
                 ],
                 "additionalProperties": false
               }
@@ -481,27 +782,439 @@
         }
       },
       "required": [
-        "webhooks"
+        "results"
       ],
       "additionalProperties": false
     },
-    "ActionInput_airtable_deletewebhook": {
+    "ActionInput_hubspot_createproperty": {
       "type": "object",
       "properties": {
-        "baseId": {
+        "objectType": {
           "type": "string"
         },
-        "webhookId": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "hidden": {
+              "type": "boolean"
+            },
+            "displayOrder": {
+              "type": "number"
+            },
+            "description": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "formField": {
+              "type": "boolean"
+            },
+            "groupName": {
+              "type": "string"
+            },
+            "referencedObjectType": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "boolean",
+                  "number",
+                  "string"
+                ]
+              }
+            },
+            "calculationFormula": {
+              "type": "string"
+            },
+            "hasUniqueValue": {
+              "type": "boolean"
+            },
+            "fieldType": {
+              "type": "string"
+            },
+            "externalOptions": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "hidden",
+            "displayOrder",
+            "description",
+            "label",
+            "type",
+            "formField",
+            "groupName",
+            "referencedObjectType",
+            "name",
+            "options",
+            "calculationFormula",
+            "hasUniqueValue",
+            "fieldType",
+            "externalOptions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "objectType",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createproperty": {
+      "type": "object",
+      "properties": {
+        "createdUserId": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "modificationMetadata": {
+          "type": "object",
+          "properties": {
+            "readOnlyOptions": {
+              "type": "boolean"
+            },
+            "readOnlyValue": {
+              "type": "boolean"
+            },
+            "readOnlyDefinition": {
+              "type": "boolean"
+            },
+            "archivable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "readOnlyOptions",
+            "readOnlyValue",
+            "readOnlyDefinition",
+            "archivable"
+          ],
+          "additionalProperties": false
+        },
+        "displayOrder": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "showCurrencySymbol": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "hubspotDefined": {
+          "type": "boolean"
+        },
+        "formField": {
+          "type": "boolean"
+        },
+        "dataSensitivity": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "referencedObjectType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": [
+              "boolean",
+              "number",
+              "string"
+            ]
+          }
+        },
+        "calculationFormula": {
+          "type": "string"
+        },
+        "hasUniqueValue": {
+          "type": "boolean"
+        },
+        "fieldType": {
+          "type": "string"
+        },
+        "updatedUserId": {
+          "type": "string"
+        },
+        "calculated": {
+          "type": "boolean"
+        },
+        "externalOptions": {
+          "type": "boolean"
+        },
+        "updatedAt": {
           "type": "string"
         }
       },
       "required": [
-        "baseId",
-        "webhookId"
+        "createdUserId",
+        "hidden",
+        "modificationMetadata",
+        "displayOrder",
+        "description",
+        "showCurrencySymbol",
+        "label",
+        "type",
+        "hubspotDefined",
+        "formField",
+        "dataSensitivity",
+        "createdAt",
+        "archivedAt",
+        "archived",
+        "groupName",
+        "referencedObjectType",
+        "name",
+        "options",
+        "calculationFormula",
+        "hasUniqueValue",
+        "fieldType",
+        "updatedUserId",
+        "calculated",
+        "externalOptions",
+        "updatedAt"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_airtable_deletewebhook": {
+    "ActionInput_hubspot_createdeal": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "deal_description": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "deal_stage": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "amount",
+        "close_date",
+        "deal_description",
+        "owner",
+        "deal_stage",
+        "deal_probability",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createdeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "deal_description": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "deal_stage": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "amount",
+        "close_date",
+        "deal_description",
+        "owner",
+        "deal_stage",
+        "deal_probability"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_updatedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "deal_description": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "deal_stage": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "amount",
+        "close_date",
+        "deal_description",
+        "owner",
+        "deal_stage",
+        "deal_probability",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_updatedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "deal_description": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "deal_stage": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "amount",
+        "close_date",
+        "deal_description",
+        "owner",
+        "deal_stage",
+        "deal_probability"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_deletedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_deletedeal": {
       "type": "object",
       "properties": {
         "success": {
@@ -510,6 +1223,1187 @@
       },
       "required": [
         "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchpipelines": {
+      "type": "object",
+      "properties": {
+        "objectType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "objectType"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchpipelines": {
+      "type": "object",
+      "properties": {
+        "pipelines": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "isClosed": {
+                          "type": "boolean"
+                        },
+                        "probability": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "isClosed",
+                        "probability"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "pipelines"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "primaryTeamId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "sendWelcomeEmail": {
+          "type": "boolean"
+        },
+        "roleId": {
+          "type": "string"
+        },
+        "secondaryTeamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "primaryTeamId",
+        "email",
+        "sendWelcomeEmail",
+        "roleId",
+        "secondaryTeamIds"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "primaryTeamId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "sendWelcomeEmail": {
+          "type": "boolean"
+        },
+        "roleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondaryTeamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "superAdmin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "primaryTeamId",
+        "email",
+        "sendWelcomeEmail",
+        "roleIds",
+        "secondaryTeamIds",
+        "superAdmin"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchroles": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_hubspot_fetchroles": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": [
+              "boolean",
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_changeuserrole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "primaryTeamId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "primaryTeamId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_changeuserrole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "primaryTeamId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "sendWelcomeEmail": {
+          "type": "boolean"
+        },
+        "roleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondaryTeamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "superAdmin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "primaryTeamId",
+        "email",
+        "sendWelcomeEmail",
+        "roleIds",
+        "secondaryTeamIds",
+        "superAdmin"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchaccountinformation": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_hubspot_fetchaccountinformation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "companyCurrency": {
+          "type": "string"
+        },
+        "additionalCurrencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "utcOffset": {
+          "type": "string"
+        },
+        "utcOffsetMilliseconds": {
+          "type": "number"
+        },
+        "uiDomain": {
+          "type": "string"
+        },
+        "dataHostingLocation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "timeZone",
+        "companyCurrency",
+        "additionalCurrencies",
+        "utcOffset",
+        "utcOffsetMilliseconds",
+        "uiDomain",
+        "dataHostingLocation"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchcustomobjects": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_hubspot_fetchcustomobjects": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_createcontact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "mobile_phone_number": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "email",
+        "job_title",
+        "lead_status",
+        "lifecycle_stage",
+        "salutation",
+        "mobile_phone_number",
+        "website_url",
+        "owner"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "last_contacted": {
+          "type": "string"
+        },
+        "last_activity_date": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "mobile_phone_number": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_date",
+        "first_name",
+        "last_name",
+        "email",
+        "job_title",
+        "last_contacted",
+        "last_activity_date",
+        "lead_status",
+        "lifecycle_stage",
+        "salutation",
+        "mobile_phone_number",
+        "website_url",
+        "owner"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_updatecontact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "mobile_phone_number": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "email",
+        "job_title",
+        "lead_status",
+        "lifecycle_stage",
+        "salutation",
+        "mobile_phone_number",
+        "website_url",
+        "owner",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_updatecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "last_contacted": {
+          "type": "string"
+        },
+        "last_activity_date": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "mobile_phone_number": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_date",
+        "first_name",
+        "last_name",
+        "email",
+        "job_title",
+        "last_contacted",
+        "last_activity_date",
+        "lead_status",
+        "lifecycle_stage",
+        "salutation",
+        "mobile_phone_number",
+        "website_url",
+        "owner"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_deletecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_deletecontact": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_createcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "year_founded": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "industry",
+        "description",
+        "country",
+        "city",
+        "lead_status",
+        "lifecycle_stage",
+        "owner",
+        "year_founded",
+        "website_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createcompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "year_founded": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_date",
+        "name",
+        "industry",
+        "description",
+        "country",
+        "city",
+        "lead_status",
+        "lifecycle_stage",
+        "owner",
+        "year_founded",
+        "website_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_updatecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "year_founded": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "industry",
+        "description",
+        "country",
+        "city",
+        "lead_status",
+        "lifecycle_stage",
+        "owner",
+        "year_founded",
+        "website_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_updatecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "lead_status": {
+          "type": "string"
+        },
+        "lifecycle_stage": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "year_founded": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_date",
+        "name",
+        "industry",
+        "description",
+        "country",
+        "city",
+        "lead_status",
+        "lifecycle_stage",
+        "owner",
+        "year_founded",
+        "website_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_deletecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_deletecompany": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_createtask": {
+      "type": "object",
+      "properties": {
+        "task_type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "task_type",
+        "title",
+        "priority",
+        "assigned_to",
+        "due_date",
+        "notes",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createtask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "task_type",
+        "title",
+        "priority",
+        "assigned_to",
+        "due_date",
+        "notes",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_updatetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "task_type",
+        "title",
+        "priority",
+        "assigned_to",
+        "due_date",
+        "notes",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_updatetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "task_type",
+        "title",
+        "priority",
+        "assigned_to",
+        "due_date",
+        "notes",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_deletetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_deletetask": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "time_stamp": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "attachment_ids": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "time_stamp",
+        "created_date",
+        "body",
+        "attachment_ids",
+        "owner",
+        "associations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "time_stamp": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "attachment_ids": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "time_stamp",
+        "created_date",
+        "body",
+        "attachment_ids",
+        "owner",
+        "associations"
       ],
       "additionalProperties": false
     }

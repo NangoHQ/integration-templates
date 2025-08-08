@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GemCandidate } from '../types.js';
 import { toCandidate } from '../mappers/to-candidate.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Candidate } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Candidate } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Get all candidates from Gem ATS",
-    version: "1.0.0",
-    frequency: "every 1h",
+    description: 'Get all candidates from Gem ATS',
+    version: '1.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/candidates",
-        group: "Candidates"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/candidates',
+            group: 'Candidates'
+        }
+    ],
 
     models: {
         Candidate: Candidate
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/ats/v0/reference#tag/Candidate/paths/~1ats~1v0~1candidates~1/get
             endpoint: '/ats/v0/candidates',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

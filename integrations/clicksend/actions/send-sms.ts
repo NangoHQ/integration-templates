@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toSms } from '../mappers/to-sms.js';
 import type { ClickSendSms } from '../types.js';
 import { clickSendSendSmsInputSchema } from '../schema.zod.js';
 
-import { Sms, ClickSendSendSmsInput } from "../models.js";
+import { Sms, ClickSendSendSmsInput } from '../models.js';
 
 const action = createAction({
     description: "Sends an SMS message via ClickSend's API.",
-    version: "2.0.0",
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/sms/send",
-        group: "SMS"
+        method: 'POST',
+        path: '/sms/send',
+        group: 'SMS'
     },
 
     input: ClickSendSendSmsInput,
@@ -49,5 +49,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

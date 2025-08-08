@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DiscourseUser } from '../types.js';
 import { toUser } from '../mappers/toUser.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { User } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches user data from an API and saves it in batch.
@@ -19,17 +19,19 @@ import { z } from "zod";
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 const sync = createSync({
-    description: "Fetches a list of active users from Discourse.",
-    version: "2.0.0",
-    frequency: "every 1 hour",
+    description: 'Fetches a list of active users from Discourse.',
+    version: '2.0.0',
+    frequency: 'every 1 hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/users"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users'
+        }
+    ],
 
     models: {
         User: User
@@ -37,7 +39,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.discourse.org/#tag/Users/operation/adminListUsers
             endpoint: '/admin/users/list/active',
@@ -60,5 +62,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { harvestCreateUserSchema } from '../schema.zod.js';
 import type { HarvestUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, HarvestCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, HarvestCreateUser } from '../models.js';
 
 /**
  * Creates a Haverst user.
@@ -24,18 +24,18 @@ import { User, HarvestCreateUser } from "../models.js";
  * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
  */
 const action = createAction({
-    description: "Creates a user in Harvest",
-    version: "1.0.0",
+    description: 'Creates a user in Harvest',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: HarvestCreateUser,
     output: User,
-    scopes: ["administrator", "manager"],
+    scopes: ['administrator', 'manager'],
 
     exec: async (nango, input): Promise<User> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

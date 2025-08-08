@@ -1,10 +1,10 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 import type { LumaEvent } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
-import { Event } from "../models.js";
-import { z } from "zod";
+import { Event } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches events from a specified endpoint and processes them for synchronization.
@@ -15,17 +15,20 @@ import { z } from "zod";
  * @returns Promise that resolves when all events are fetched and saved.
  */
 const sync = createSync({
-    description: "This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.",
-    version: "1.0.0",
-    frequency: "every day",
+    description:
+        'This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.',
+    version: '1.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/luma/list-events"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/luma/list-events'
+        }
+    ],
 
     models: {
         Event: Event
@@ -33,7 +36,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.lu.ma/reference/get_public-v1-calendar-list-events
             endpoint: '/public/v1/calendar/list-events',
@@ -57,5 +60,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

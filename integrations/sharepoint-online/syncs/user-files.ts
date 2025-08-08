@@ -1,32 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DriveResponse, DriveItemFromItemResponse, ItemResponse } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UserFileMetadata } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { UserFileMetadata } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
     description: "Fetch all files from the user's drive and sync the metadata for each file.",
-    version: "1.0.0",
-    frequency: "every hour",
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/user-files"
-    }],
-
-    scopes: [
-        "Sites.Read.All",
-        "Sites.Selected",
-        "MyFiles.Read",
-        "Files.Read.All",
-        "Files.Read.Selected",
-        "offline_access"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/user-files'
+        }
     ],
+
+    scopes: ['Sites.Read.All', 'Sites.Selected', 'MyFiles.Read', 'Files.Read.All', 'Files.Read.Selected', 'offline_access'],
 
     models: {
         UserFileMetadata: UserFileMetadata
@@ -34,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const driveConfiguration: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http#list-the-current-users-drives
             endpoint: '/v1.0/me/drives',
@@ -67,7 +62,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFilesRecursive(nango: NangoSyncLocal, driveId: string, item: DriveItemFromItemResponse, files: UserFileMetadata[], depth = 3) {

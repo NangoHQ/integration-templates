@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { HubspotServiceTicket } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { HubspotServiceTicket } from '../models.js';
+import { z } from 'zod';
 
 interface PayloadData {
     properties: string[];
@@ -26,17 +26,19 @@ interface Payload extends ProxyConfiguration {
 }
 
 const sync = createSync({
-    description: "Fetches a list of service tickets from Hubspot",
-    version: "2.0.0",
-    frequency: "every half hour",
+    description: 'Fetches a list of service tickets from Hubspot',
+    version: '2.0.0',
+    frequency: 'every half hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/service-tickets"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/service-tickets'
+        }
+    ],
 
     models: {
         HubspotServiceTicket: HubspotServiceTicket
@@ -44,7 +46,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const MAX_PAGE = 100;
         const TICKET_PROPERTIES = ['hubspot_owner_id', 'hs_pipeline', 'hs_pipeline_stage', 'hs_ticket_priority', 'hs_ticket_category', 'subject', 'content'];
 
@@ -104,5 +106,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

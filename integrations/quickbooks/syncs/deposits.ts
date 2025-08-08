@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { QuickBooksDeposit } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toDeposit } from '../mappers/to-deposit.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 
-import { Deposit } from "../models.js";
-import { z } from "zod";
+import { Deposit } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all QuickBooks deposits",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all QuickBooks deposits',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/deposits",
-        group: "Deposits"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/deposits',
+            group: 'Deposits'
+        }
+    ],
 
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     models: {
         Deposit: Deposit
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: PaginationParams = {
             model: 'Deposit'
         };
@@ -55,5 +57,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

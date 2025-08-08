@@ -1,24 +1,21 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
-import {
-    AshbyResponse,
-    Anonymous_ashby_action_applicationupdate_input,
-} from "../models.js";
+import { AshbyResponse, Anonymous_ashby_action_applicationupdate_input } from '../models.js';
 
 const action = createAction({
-    description: "Action to update an application.",
-    version: "2.0.0",
+    description: 'Action to update an application.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/applications",
-        group: "Applications"
+        method: 'PATCH',
+        path: '/applications',
+        group: 'Applications'
     },
 
     input: Anonymous_ashby_action_applicationupdate_input,
     output: AshbyResponse,
-    scopes: ["candidatesWrite"],
+    scopes: ['candidatesWrite'],
 
     exec: async (nango, input): Promise<AshbyResponse> => {
         let config: ProxyConfiguration;
@@ -83,5 +80,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

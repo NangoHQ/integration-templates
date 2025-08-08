@@ -1,24 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 
 import type { AnrokResponse } from '../types.js';
 import { mapFees } from '../mappers/fees.js';
 import { errorToObject } from '../utils.js';
 
-import type {
-    AnrokTransactionData,
-    SuccessTransaction} from "../models.js";
-import {
-    TransactionActionResponse,
-    Anonymous_anrok_action_createorupdatetransaction_input,
-} from "../models.js";
+import type { AnrokTransactionData, SuccessTransaction } from '../models.js';
+import { TransactionActionResponse, Anonymous_anrok_action_createorupdatetransaction_input } from '../models.js';
 
 const action = createAction({
-    description: "Creates or updates a transaction in Anrok.",
-    version: "1.0.0",
+    description: 'Creates or updates a transaction in Anrok.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/transactions"
+        method: 'POST',
+        path: '/transactions'
     },
 
     input: Anonymous_anrok_action_createorupdatetransaction_input,
@@ -88,5 +83,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

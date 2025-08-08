@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksAccount, toAccount } from '../mappers/to-account.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Account, UpdateAccount } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Account, UpdateAccount } from '../models.js';
 
 /**
  * This function handles the partial update of a account in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Account, UpdateAccount } from "../models.js";
  * @returns {Promise<Account>} - Returns the created account object from QuickBooks.
  */
 const action = createAction({
-    description: "Updates a single account in QuickBooks.",
-    version: "1.0.0",
+    description: 'Updates a single account in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/accounts",
-        group: "Accounts"
+        method: 'PUT',
+        path: '/accounts',
+        group: 'Accounts'
     },
 
     input: UpdateAccount,
     output: Account,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Account> => {
         // Validate if input is present
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

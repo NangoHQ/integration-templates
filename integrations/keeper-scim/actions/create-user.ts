@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { keeperCreateUserSchema } from '../schema.zod.js';
 import type { KeeperUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, KeeperCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, KeeperCreateUser } from '../models.js';
 
 /**
  * Creates a Keeper user.
@@ -24,13 +24,13 @@ import { User, KeeperCreateUser } from "../models.js";
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 const action = createAction({
-    description: "Creates a user in Keeper",
-    version: "1.0.0",
+    description: 'Creates a user in Keeper',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: KeeperCreateUser,
@@ -68,5 +68,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

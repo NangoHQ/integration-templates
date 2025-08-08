@@ -1,6 +1,6 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { GithubRepoFile, GithubIssueRepoInput } from "../models.js";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { GithubRepoFile, GithubIssueRepoInput } from '../models.js';
 
 enum Models {
     GithubRepoFile = 'GithubRepoFile'
@@ -9,20 +9,22 @@ enum Models {
 const LIMIT = 100;
 
 const sync = createSync({
-    description: "Lists all the files of a Github repo given a specific branch",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Lists all the files of a Github repo given a specific branch',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/files",
-        group: "Files"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files',
+            group: 'Files'
+        }
+    ],
 
-    scopes: ["repo"],
+    scopes: ['repo'],
 
     models: {
         GithubRepoFile: GithubRepoFile
@@ -30,7 +32,7 @@ const sync = createSync({
 
     metadata: GithubIssueRepoInput,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const { owner, repo, branch } = await nango.getMetadata();
 
         // On the first run, fetch all files. On subsequent runs, fetch only updated files.
@@ -42,7 +44,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function saveAllRepositoryFiles(nango: NangoSyncLocal, owner: string, repo: string, branch: string) {

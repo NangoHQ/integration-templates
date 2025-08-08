@@ -1,23 +1,19 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { recruiterFlowCandidateActivityStageMovementInputSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    RecruiterFlowJobWithTransitions} from "../models.js";
-import {
-    RecruiterFlowCandidateActivityStageMovementOutput,
-    RecruiterFlowCandidateActivityStageMovementInput,
-} from "../models.js";
+import type { RecruiterFlowJobWithTransitions } from '../models.js';
+import { RecruiterFlowCandidateActivityStageMovementOutput, RecruiterFlowCandidateActivityStageMovementInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetches all candidate activities stage movements from RecruiterFlow",
-    version: "2.0.0",
+    description: 'Fetches all candidate activities stage movements from RecruiterFlow',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/candidate-activities-stage-movements",
-        group: "Candidates"
+        method: 'GET',
+        path: '/candidate-activities-stage-movements',
+        group: 'Candidates'
     },
 
     input: RecruiterFlowCandidateActivityStageMovementInput,
@@ -64,5 +60,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,24 +1,23 @@
-import { createSync } from "nango";
-import { GoogleWorkspaceUserToken } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { GoogleWorkspaceUserToken } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync all workspace users access tokens",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Sync all workspace users access tokens',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/google/workspace-user-access-tokens"
-    }],
-
-    scopes: [
-        "https://www.googleapis.com/auth/admin.directory.user.readonly",
-        "https://www.googleapis.com/auth/admin.directory.user.security"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/google/workspace-user-access-tokens'
+        }
     ],
+
+    scopes: ['https://www.googleapis.com/auth/admin.directory.user.readonly', 'https://www.googleapis.com/auth/admin.directory.user.security'],
 
     models: {
         GoogleWorkspaceUserToken: GoogleWorkspaceUserToken
@@ -26,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         // Get the users in the org
         const params = {
             customer: 'my_customer'
@@ -49,7 +48,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function paginate(nango: NangoSyncLocal, endpoint: string, resultsKey: string, queryParams?: Record<string, string | string[]>) {

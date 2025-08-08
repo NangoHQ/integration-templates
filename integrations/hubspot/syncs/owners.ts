@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { HubspotOwner } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { HubspotOwner } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of owners from Hubspot",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Fetches a list of owners from Hubspot',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/owners",
-        group: "Owners"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/owners',
+            group: 'Owners'
+        }
+    ],
 
     models: {
         HubspotOwner: HubspotOwner
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -49,7 +51,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapOwner(owner: any): HubspotOwner {

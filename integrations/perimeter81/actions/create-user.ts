@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { perimeter81CreateUserSchema } from '../schema.zod.js';
 import type { Perimeter81User } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, Perimeter81CreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, Perimeter81CreateUser } from '../models.js';
 
 /**
  * Creates an Perimeter81 user.
@@ -24,13 +24,13 @@ import { User, Perimeter81CreateUser } from "../models.js";
  * https://support.perimeter81.com/docs/post-new-member
  */
 const action = createAction({
-    description: "Creates a user in Perimeter81",
-    version: "1.0.0",
+    description: 'Creates a user in Perimeter81',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: Perimeter81CreateUser,
@@ -62,5 +62,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

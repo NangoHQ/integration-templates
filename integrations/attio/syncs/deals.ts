@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { AttioDealResponse } from '../types.js';
 import { toDeal } from '../mappers/to-deal.js';
 
-import type { ProxyConfiguration } from "nango";
-import { AttioDeal } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { AttioDeal } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all deal records from Attio",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches all deal records from Attio',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/deals",
-        group: "Deals"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/deals',
+            group: 'Deals'
+        }
+    ],
 
-    scopes: ["record_permission:read", "object_configuration:read"],
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
     models: {
         AttioDeal: AttioDeal
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/deals/list-deal-records
             endpoint: '/v2/objects/deals/records/query',
@@ -54,5 +56,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

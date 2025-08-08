@@ -1,14 +1,14 @@
-import { createAction } from "nango";
-import { BamboohrResponseStatus, BamboohrUpdateEmployee } from "../models.js";
+import { createAction } from 'nango';
+import { BamboohrResponseStatus, BamboohrUpdateEmployee } from '../models.js';
 
 const action = createAction({
-    description: "Update an existing employee in the system",
-    version: "2.0.0",
+    description: 'Update an existing employee in the system',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/employees",
-        group: "Employees"
+        method: 'PUT',
+        path: '/employees',
+        group: 'Employees'
     },
 
     input: BamboohrUpdateEmployee,
@@ -47,5 +47,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { FreshdeskCategory, FreshdeskFolder, FreshdeskArticle } from '../types.js';
 import { toArticle } from '../mappers/to-article.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Article } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Article } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches articles and folders from Freshdesk by first retrieving categories, then folders, and finally articles for each folder.
@@ -15,17 +15,19 @@ import { z } from "zod";
  * @returns Promise that resolves when all articles are fetched and saved.
  */
 const sync = createSync({
-    description: "Recursively fetches a list of solution articles.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Recursively fetches a list of solution articles.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/articles"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/articles'
+        }
+    ],
 
     models: {
         Article: Article
@@ -33,7 +35,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const foldersEndpoint = (categoryId: number) => `/api/v2/solutions/categories/${categoryId}/folders`;
 
         const categoriesConfig: ProxyConfiguration = {
@@ -68,7 +70,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 /**

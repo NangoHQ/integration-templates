@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { PageResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { ConfluencePage } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { ConfluencePage } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of pages from confluence",
-    version: "2.0.0",
-    frequency: "every 4 hours",
+    description: 'Fetches a list of pages from confluence',
+    version: '2.0.0',
+    frequency: 'every 4 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/pages"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/pages'
+        }
+    ],
 
-    scopes: ["read:page:confluence"],
+    scopes: ['read:page:confluence'],
 
     models: {
         ConfluencePage: ConfluencePage
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const cloudId: string = await getCloudId(nango);
@@ -53,7 +55,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapConfluencePages(results: PageResponse[]): ConfluencePage[] {

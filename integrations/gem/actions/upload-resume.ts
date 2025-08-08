@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { GemCandidateUploadResumeResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UploadResumeResponse, UploadResumeInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { UploadResumeResponse, UploadResumeInput } from '../models.js';
 
 const action = createAction({
-    description: "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.",
-    version: "1.0.0",
+    description: 'Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/candidate-upload-resume",
-        group: "Candidates"
+        method: 'POST',
+        path: '/candidate-upload-resume',
+        group: 'Candidates'
     },
 
     input: UploadResumeInput,
@@ -33,5 +33,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

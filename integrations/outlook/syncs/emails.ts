@@ -1,27 +1,30 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { Attachment, OutlookMessage } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Attachments} from "../models.js";
-import { OutlookEmail, OptionalBackfillSetting } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { Attachments } from '../models.js';
+import { OutlookEmail, OptionalBackfillSetting } from '../models.js';
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
 const sync = createSync({
-    description: "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description:
+        'Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/emails"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/emails'
+        }
+    ],
 
-    scopes: ["Mail.Read"],
+    scopes: ['Mail.Read'],
 
     models: {
         OutlookEmail: OutlookEmail
@@ -29,7 +32,7 @@ const sync = createSync({
 
     metadata: OptionalBackfillSetting,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
         const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
@@ -77,7 +80,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function extractHeaders(message: OutlookMessage): Record<string, any> {

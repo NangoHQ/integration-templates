@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toContact } from '../mappers/to-contact.js';
 import { intercomCreateContactSchema } from '../schema.zod.js';
 import type { IntercomContact } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact, IntercomCreateContact } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Contact, IntercomCreateContact } from '../models.js';
 
 /**
  * Creates an Intercom user contact.
@@ -24,12 +24,12 @@ import { Contact, IntercomCreateContact } from "../models.js";
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
  */
 const action = createAction({
-    description: "Creates a contact in Intercom",
-    version: "2.0.0",
+    description: 'Creates a contact in Intercom',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contact"
+        method: 'POST',
+        path: '/contact'
     },
 
     input: IntercomCreateContact,
@@ -57,5 +57,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

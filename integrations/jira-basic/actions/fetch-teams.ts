@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { JiraTeamResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Team} from "../models.js";
-import { Teams, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { Team } from '../models.js';
+import { Teams, IdEntity } from '../models.js';
 
 /**
  * This function fetches a list of teams in an organisation from Jira.
@@ -17,13 +17,13 @@ import { Teams, IdEntity } from "../models.js";
  * @returns {Promise<Teams>} - Returns the list of teams from Jira.
  */
 const action = createAction({
-    description: "Fetch teams in an organisation in Jira",
-    version: "1.0.0",
+    description: 'Fetch teams in an organisation in Jira',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/teams-list",
-        group: "Teams"
+        method: 'GET',
+        path: '/teams-list',
+        group: 'Teams'
     },
 
     input: IdEntity,
@@ -66,5 +66,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

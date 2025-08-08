@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toSms } from '../mappers/to-sms.js';
 import type { ClickSendSms } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Sms } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Sms } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches the history of SMS messages sent through ClickSend.",
-    version: "2.0.0",
-    frequency: "every half hour",
+    description: 'Fetches the history of SMS messages sent through ClickSend.',
+    version: '2.0.0',
+    frequency: 'every half hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/sms/history",
-        group: "SMS"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/sms/history',
+            group: 'SMS'
+        }
+    ],
 
     models: {
         Sms: Sms
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const params: Record<string, any> = {};
 
         if (nango.lastSyncDate) {
@@ -62,5 +64,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

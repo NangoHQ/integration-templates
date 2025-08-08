@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 import type { IntercomDeleteContactResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes an Intercom contact.
@@ -23,12 +23,12 @@ import { SuccessResponse, IdEntity } from "../models.js";
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
 const action = createAction({
-    description: "Deletes a contact in Intercom",
-    version: "1.0.0",
+    description: 'Deletes a contact in Intercom',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/contact"
+        method: 'DELETE',
+        path: '/contact'
     },
 
     input: IdEntity,
@@ -51,5 +51,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

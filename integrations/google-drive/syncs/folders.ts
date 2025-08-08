@@ -1,9 +1,9 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GoogleDriveFileResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Folder } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Folder } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches and saves only the folders at the root of Google Drive.
@@ -14,20 +14,22 @@ import { z } from "zod";
  * @param nango - An instance of NangoSync used for API interactions.
  */
 const sync = createSync({
-    description: "Sync the folders at the root level of a google drive.",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Sync the folders at the root level of a google drive.',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/root-folders",
-        group: "Folders"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/root-folders',
+            group: 'Folders'
+        }
+    ],
 
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     models: {
         Folder: Folder
@@ -35,7 +37,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const batchSize = 100;
         let batch: Folder[] = [];
 
@@ -83,5 +85,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

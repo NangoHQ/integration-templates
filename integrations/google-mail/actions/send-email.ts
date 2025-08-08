@@ -1,19 +1,19 @@
-import { createAction } from "nango";
-import { GmailEmailSentOutput, GmailEmailInput } from "../models.js";
+import { createAction } from 'nango';
+import { GmailEmailSentOutput, GmailEmailInput } from '../models.js';
 
 const action = createAction({
-    description: "Send an Email using Gmail.",
-    version: "2.0.0",
+    description: 'Send an Email using Gmail.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/emails",
-        group: "Emails"
+        method: 'POST',
+        path: '/emails',
+        group: 'Emails'
     },
 
     input: GmailEmailInput,
     output: GmailEmailSentOutput,
-    scopes: ["https://www.googleapis.com/auth/gmail.send"],
+    scopes: ['https://www.googleapis.com/auth/gmail.send'],
 
     exec: async (nango, input): Promise<GmailEmailSentOutput> => {
         let headerString = '';
@@ -41,7 +41,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapEmail(record: any): GmailEmailSentOutput {

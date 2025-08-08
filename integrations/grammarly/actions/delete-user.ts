@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { emailEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, EmailEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, EmailEntity } from '../models.js';
 
 const action = createAction({
-    description: "Deletes a user in Grammarly",
-    version: "1.0.0",
+    description: 'Deletes a user in Grammarly',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: EmailEntity,
@@ -34,5 +34,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

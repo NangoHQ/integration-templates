@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { CalendlyCurrentUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UserInformation } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { UserInformation } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch current user information",
-    version: "2.0.0",
+    description: 'Fetch current user information',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/whoami",
-        group: "Users"
+        method: 'GET',
+        path: '/whoami',
+        group: 'Users'
     },
 
     input: z.void(),
@@ -45,5 +45,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

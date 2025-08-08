@@ -1,23 +1,25 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { BoxEntryItem } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Folder } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Folder } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Sync the folders at the root level from Box",
-    version: "2.0.0",
-    frequency: "every day",
+    description: 'Sync the folders at the root level from Box',
+    version: '2.0.0',
+    frequency: 'every day',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/root-folders",
-        group: "Folders"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/root-folders',
+            group: 'Folders'
+        }
+    ],
 
     models: {
         Folder: Folder
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxy: ProxyConfiguration = {
             // https://developer.box.com/reference/get-folders-id-items/
             endpoint: `/2.0/folders/0/items`,
@@ -58,5 +60,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

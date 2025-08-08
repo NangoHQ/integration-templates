@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createUserSchema } from '../schema.zod.js';
 import type { DatadogCreateUserResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, CreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, CreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Datadog.",
-    version: "2.0.0",
+    description: 'Creates a user in Datadog.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: CreateUser,
     output: User,
-    scopes: ["user_access_invite"],
+    scopes: ['user_access_invite'],
 
     exec: async (nango, input): Promise<User> => {
         await nango.zodValidateInput({ zodSchema: createUserSchema, input });
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

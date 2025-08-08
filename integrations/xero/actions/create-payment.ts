@@ -1,32 +1,25 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    CreatePayment,
-    FailedPayment,
-    Payment,
-    ActionErrorResponse} from "../models.js";
-import {
-    PaymentActionResponse,
-    Anonymous_xero_action_createpayment_input
-} from "../models.js";
+import type { CreatePayment, FailedPayment, Payment, ActionErrorResponse } from '../models.js';
+import { PaymentActionResponse, Anonymous_xero_action_createpayment_input } from '../models.js';
 
 const action = createAction({
-    description: "Creates one or more payments in Xero.\nNote: Does NOT check if the payment already exists.",
-    version: "2.0.0",
+    description: 'Creates one or more payments in Xero.\nNote: Does NOT check if the payment already exists.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/payments",
-        group: "Payments"
+        method: 'POST',
+        path: '/payments',
+        group: 'Payments'
     },
 
     input: Anonymous_xero_action_createpayment_input,
     output: PaymentActionResponse,
-    scopes: ["accounting.transactions"],
+    scopes: ['accounting.transactions'],
 
     exec: async (nango, input): Promise<PaymentActionResponse> => {
         const tenant_id = await getTenantId(nango);
@@ -89,7 +82,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapPaymentToXero(payment: CreatePayment) {

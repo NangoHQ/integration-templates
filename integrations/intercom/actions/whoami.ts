@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { WhoAmIResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UserInformation } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { UserInformation } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Fetch current user information",
-    version: "1.0.0",
+    description: 'Fetch current user information',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/whoami",
-        group: "Users"
+        method: 'GET',
+        path: '/whoami',
+        group: 'Users'
     },
 
     input: z.void(),
     output: UserInformation,
-    scopes: ["Read admins"],
+    scopes: ['Read admins'],
 
     exec: async (nango): Promise<UserInformation> => {
         const config: ProxyConfiguration = {
@@ -37,5 +37,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,25 +1,21 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { CreatedUser, CreateUser } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { CreatedUser, CreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a single user in Hubspot",
-    version: "1.0.0",
+    description: 'Creates a single user in Hubspot',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: CreateUser,
     output: CreatedUser,
 
-    scopes: [
-        "oauth",
-        "settings.users.write (standard scope)",
-        "crm.objects.users.write (granular)"
-    ],
+    scopes: ['oauth', 'settings.users.write (standard scope)', 'crm.objects.users.write (granular)'],
 
     exec: async (nango, input): Promise<CreatedUser> => {
         if (!input.email) {
@@ -40,5 +36,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

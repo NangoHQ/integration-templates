@@ -1,27 +1,27 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { SmartsheetCreatedUser } from '../types.js';
 import { createUserSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, CreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, CreateUser } from '../models.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the Smartsheet API call to create a new user.
  */
 const action = createAction({
-    description: "Creates a user in Smartsheet",
-    version: "1.0.0",
+    description: 'Creates a user in Smartsheet',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: CreateUser,
     output: User,
-    scopes: ["ADMIN_USERS"],
+    scopes: ['ADMIN_USERS'],
 
     exec: async (nango, input): Promise<User> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

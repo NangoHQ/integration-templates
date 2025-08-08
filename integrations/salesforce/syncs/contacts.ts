@@ -1,27 +1,29 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { buildQuery } from '../utils.js';
 import type { SalesforceContact } from '../types.js';
 import { toContact } from '../mappers/toContact.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Contact } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Contact } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of contacts from salesforce",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of contacts from salesforce',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/contacts",
-        group: "Contacts"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts',
+            group: 'Contacts'
+        }
+    ],
 
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     models: {
         Contact: Contact
@@ -29,7 +31,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const fields = [
             'Id',
             'FirstName',
@@ -51,7 +53,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchAndSaveRecords(nango: NangoSyncLocal, query: string) {

@@ -1,4 +1,4 @@
-import type { NangoSync, NangoAction } from "nango";
+import type { NangoSync, NangoAction } from 'nango';
 import crypto from 'crypto';
 
 interface AWSAuthHeader {
@@ -38,10 +38,7 @@ export async function getAWSAuthHeader(
         };
 
         const signingKey = getSignatureKey(secretAccessKey, date.substr(0, 8), region, service);
-        const signature = crypto
-          .createHmac('sha256', Uint8Array.from(signingKey))
-          .update(stringToSign)
-          .digest('hex');
+        const signature = crypto.createHmac('sha256', Uint8Array.from(signingKey)).update(stringToSign).digest('hex');
 
         const authorizationHeader = `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
 

@@ -1,23 +1,25 @@
-import { createSync } from "nango";
-import { ZohoMailEmail } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import { ZohoMailEmail } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches a list of all your account's emails in Zoho mail",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/zoho-mail/emails"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/zoho-mail/emails'
+        }
+    ],
 
-    scopes: ["ZohoMail.messages.READ"],
+    scopes: ['ZohoMail.messages.READ'],
 
     models: {
         ZohoMailEmail: ZohoMailEmail
@@ -25,7 +27,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
         let offset = 1;
 
@@ -67,7 +69,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapEmail(email: any): ZohoMailEmail {

@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { FrontMessages } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { FrontMessageOutput, SingleConversation } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { FrontMessageOutput, SingleConversation } from '../models.js';
 
 const action = createAction({
-    description: "List the messages in a conversation in reverse chronological order (newest first).",
-    version: "2.0.0",
+    description: 'List the messages in a conversation in reverse chronological order (newest first).',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/conversations/all",
-        group: "Conversations"
+        method: 'GET',
+        path: '/conversations/all',
+        group: 'Conversations'
     },
 
     input: SingleConversation,
@@ -44,5 +44,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

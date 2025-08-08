@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { EO_Account, ResponsePostBody } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactCustomerUpdateInputSchema } from '../schema.zod.js';
 
-import { ExactCustomerUpdateOutput, ExactCustomerUpdateInput } from "../models.js";
+import { ExactCustomerUpdateOutput, ExactCustomerUpdateInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates a customer in ExactOnline",
-    version: "2.0.0",
+    description: 'Updates a customer in ExactOnline',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/customers",
-        group: "Customers"
+        method: 'PUT',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: ExactCustomerUpdateInput,
@@ -67,5 +67,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

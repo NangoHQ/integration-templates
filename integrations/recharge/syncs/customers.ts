@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toCustomer } from '../mappers/to-customer.js';
 import type { RechargeCustomer, RechargeSubscription } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Customer } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Customer } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Incrementally fetch all Recharge customers and their subscription details.",
-    version: "2.0.0",
-    frequency: "every 1 hour",
+    description: 'Incrementally fetch all Recharge customers and their subscription details.',
+    version: '2.0.0',
+    frequency: 'every 1 hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/customers",
-        group: "Customers"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/customers',
+            group: 'Customers'
+        }
+    ],
 
-    scopes: ["read_customers", " read_subscriptions"],
+    scopes: ['read_customers', ' read_subscriptions'],
 
     models: {
         Customer: Customer
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const customerConfig: ProxyConfiguration = {
             // https://developer.rechargepayments.com/2021-11/customers/customers_list
             endpoint: '/customers',
@@ -61,7 +63,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchSubscriptions(customerId: number, nango: NangoSyncLocal): Promise<any[]> {

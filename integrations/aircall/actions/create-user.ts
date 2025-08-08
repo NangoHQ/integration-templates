@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createUserSchema } from '../schema.zod.js';
 import type { AircallUser } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, CreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, CreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in Aircall.",
-    version: "2.0.0",
+    description: 'Creates a user in Aircall.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: CreateUser,
@@ -50,5 +50,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createContactInputSchema } from '../schema.zod.js';
 import { toSalesForceContact } from '../mappers/toContact.js';
 
-import type { ProxyConfiguration } from "nango";
-import { ActionResponse, CreateContactInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { ActionResponse, CreateContactInput } from '../models.js';
 
 const action = createAction({
-    description: "Create a single contact in salesforce",
-    version: "2.0.0",
+    description: 'Create a single contact in salesforce',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/contacts",
-        group: "Contacts"
+        method: 'POST',
+        path: '/contacts',
+        group: 'Contacts'
     },
 
     input: CreateContactInput,
     output: ActionResponse,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<ActionResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createContactInputSchema, input });
@@ -35,5 +35,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

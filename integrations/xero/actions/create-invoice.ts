@@ -1,30 +1,25 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toInvoice, toXeroInvoice } from '../mappers/to-invoice.js';
 
-import type { ProxyConfiguration } from "nango";
+import type { ProxyConfiguration } from 'nango';
 
-import type {
-    FailedInvoice,
-    ActionErrorResponse} from "../models.js";
-import {
-    InvoiceActionResponse,
-    Anonymous_xero_action_createinvoice_input
-} from "../models.js";
+import type { FailedInvoice, ActionErrorResponse } from '../models.js';
+import { InvoiceActionResponse, Anonymous_xero_action_createinvoice_input } from '../models.js';
 
 const action = createAction({
-    description: "Creates one or more invoices in Xero.\nNote: Does NOT check if the invoice already exists.",
-    version: "2.0.0",
+    description: 'Creates one or more invoices in Xero.\nNote: Does NOT check if the invoice already exists.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/invoices",
-        group: "Invoices"
+        method: 'POST',
+        path: '/invoices',
+        group: 'Invoices'
     },
 
     input: Anonymous_xero_action_createinvoice_input,
     output: InvoiceActionResponse,
-    scopes: ["accounting.transactions"],
+    scopes: ['accounting.transactions'],
 
     exec: async (nango, input): Promise<InvoiceActionResponse> => {
         const tenant_id = await getTenantId(nango);
@@ -94,7 +89,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function mapFailedXeroInvoice(xeroInvoice: any): FailedInvoice {

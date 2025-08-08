@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { createTicketInputSchema } from '../schema.zod.js';
 import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignmentData, GorgiasCustomersResponse, GorgiasTicketResponse } from '../types.js';
 import { toTicket } from '../mappers/to-ticket.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Ticket, CreateTicketInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Ticket, CreateTicketInput } from '../models.js';
 
 const action = createAction({
-    description: "Creates a new ticket",
-    version: "1.0.0",
+    description: 'Creates a new ticket',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/ticket",
-        group: "Tickets"
+        method: 'POST',
+        path: '/ticket',
+        group: 'Tickets'
     },
 
     input: CreateTicketInput,
     output: Ticket,
-    scopes: ["tickets:write", "account:read", "customers:write", "customers:read"],
+    scopes: ['tickets:write', 'account:read', 'customers:write', 'customers:read'],
 
     exec: async (nango, input): Promise<Ticket> => {
         await nango.zodValidateInput({ zodSchema: createTicketInputSchema, input });
@@ -59,7 +59,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 /**

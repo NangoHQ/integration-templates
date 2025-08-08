@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { freshdeskCreateUserSchema } from '../schema.zod.js';
 import type { FreshdeskAgent } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { User, FreshdeskCreateUser } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { User, FreshdeskCreateUser } from '../models.js';
 
 const action = createAction({
-    description: "Creates a user in FreshDesk",
-    version: "2.0.0",
+    description: 'Creates a user in FreshDesk',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/users",
-        group: "Users"
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
     },
 
     input: FreshdeskCreateUser,
@@ -56,7 +56,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 function categorizeTicketScope(ticketScope: string): number {

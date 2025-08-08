@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { toTask } from '../mappers/to-task.js';
 
-import type { BaseAsanaModel, AsanaTask } from "../models.js";
-import { Task } from "../models.js";
-import { z } from "zod";
+import type { BaseAsanaModel, AsanaTask } from '../models.js';
+import { Task } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieve all tasks that exist in the workspace",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Retrieve all tasks that exist in the workspace',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/tasks",
-        group: "Tasks"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tasks',
+            group: 'Tasks'
+        }
+    ],
 
     models: {
         Task: Task
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const lastSyncDate = nango.lastSyncDate;
 
         for await (const workspaces of nango.paginate<BaseAsanaModel>({ endpoint: '/api/1.0/workspaces', params: { limit: 100 }, retries: 10 })) {
@@ -75,5 +77,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

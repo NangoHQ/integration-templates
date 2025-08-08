@@ -1,19 +1,20 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { RowEntry} from "../models.js";
-import { Database, DatabaseInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { RowEntry } from '../models.js';
+import { Database, DatabaseInput } from '../models.js';
 
 const action = createAction({
-    description: "Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.",
-    version: "2.0.0",
+    description:
+        'Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/databases/single",
-        group: "Databases"
+        method: 'GET',
+        path: '/databases/single',
+        group: 'Databases'
     },
 
     input: DatabaseInput,
@@ -60,5 +61,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,8 +1,8 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes a RingCentral user.
@@ -22,18 +22,18 @@ import { SuccessResponse, IdEntity } from "../models.js";
  * https://developers.ringcentral.com/api-reference/SCIM/scimDeleteUser2
  */
 const action = createAction({
-    description: "Deletes a user in RingCentral",
-    version: "1.0.0",
+    description: 'Deletes a user in RingCentral',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: IdEntity,
     output: SuccessResponse,
-    scopes: ["EditAccounts"],
+    scopes: ['EditAccounts'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
@@ -53,5 +53,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

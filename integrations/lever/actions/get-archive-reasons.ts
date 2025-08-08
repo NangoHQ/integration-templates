@@ -1,16 +1,16 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse } from "../models.js";
-import { z } from "zod";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse } from '../models.js';
+import { z } from 'zod';
 
 const action = createAction({
-    description: "Get all archived reasons",
-    version: "1.0.0",
+    description: 'Get all archived reasons',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/archived/reasons",
-        group: "Archived"
+        method: 'GET',
+        path: '/archived/reasons',
+        group: 'Archived'
     },
 
     input: z.void(),
@@ -31,5 +31,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,14 +1,14 @@
-import { createAction } from "nango";
-import { AshbyCreateApplicationResponse, AshbyCreateCandidateInput } from "../models.js";
+import { createAction } from 'nango';
+import { AshbyCreateApplicationResponse, AshbyCreateCandidateInput } from '../models.js';
 
 const action = createAction({
-    description: "Action to consider a candidate for a job",
-    version: "1.0.0",
+    description: 'Action to consider a candidate for a job',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/applications",
-        group: "Applications"
+        method: 'POST',
+        path: '/applications',
+        group: 'Applications'
     },
 
     input: AshbyCreateCandidateInput,
@@ -74,5 +74,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

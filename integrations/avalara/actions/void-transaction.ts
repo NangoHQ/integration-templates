@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { transactionCodeSchema } from '../schema.zod.js';
 import { getCompany } from '../helpers/get-company.js';
 import type { AvalaraTransaction } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { IdEntity, TransactionCode } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { IdEntity, TransactionCode } from '../models.js';
 
 /**
  * Executes the action to void a transaction , cancelling the transation in Avalara using the provided transactionCode.
@@ -17,27 +17,27 @@ import { IdEntity, TransactionCode } from "../models.js";
  * @returns A promise that resolves to an object containing the transaction ID in string format.
  */
 const action = createAction({
-    description: "Voids the current transaction uniquely identified by the transactionCode",
-    version: "2.0.0",
+    description: 'Voids the current transaction uniquely identified by the transactionCode',
+    version: '2.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/transactions",
-        group: "Transactions"
+        method: 'DELETE',
+        path: '/transactions',
+        group: 'Transactions'
     },
 
     input: TransactionCode,
     output: IdEntity,
 
     scopes: [
-        "AccountAdmin",
-        " AccountOperator",
-        " BatchServiceAdmin",
-        " CompanyAdmin",
-        " CSPTester",
-        " ProStoresOperator",
-        " SSTAdmin",
-        " TechnicalSupportAdmin"
+        'AccountAdmin',
+        ' AccountOperator',
+        ' BatchServiceAdmin',
+        ' CompanyAdmin',
+        ' CSPTester',
+        ' ProStoresOperator',
+        ' SSTAdmin',
+        ' TechnicalSupportAdmin'
     ],
 
     exec: async (nango, input): Promise<IdEntity> => {
@@ -66,5 +66,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

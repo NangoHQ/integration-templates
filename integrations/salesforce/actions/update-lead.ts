@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { updateLeadInputSchema } from '../schema.zod.js';
 import { toSalesForceLead } from '../mappers/toLead.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, UpdateLeadInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, UpdateLeadInput } from '../models.js';
 
 const action = createAction({
-    description: "Update a single lead in salesforce",
-    version: "2.0.0",
+    description: 'Update a single lead in salesforce',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PATCH",
-        path: "/leads",
-        group: "Leads"
+        method: 'PATCH',
+        path: '/leads',
+        group: 'Leads'
     },
 
     input: UpdateLeadInput,
     output: SuccessResponse,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: updateLeadInputSchema, input });
@@ -38,5 +38,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

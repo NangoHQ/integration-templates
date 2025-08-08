@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { LeverOpportunity, LeverCreateOpportunityInput } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { LeverOpportunity, LeverCreateOpportunityInput } from '../models.js';
 
 const action = createAction({
-    description: "Create an opportunity and optionally candidates associated with the opportunity",
-    version: "2.0.0",
+    description: 'Create an opportunity and optionally candidates associated with the opportunity',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/opportunities",
-        group: "Opportunities"
+        method: 'POST',
+        path: '/opportunities',
+        group: 'Opportunities'
     },
 
     input: LeverCreateOpportunityInput,
     output: LeverOpportunity,
-    scopes: ["opportunities:write:admin"],
+    scopes: ['opportunities:write:admin'],
 
     exec: async (nango, input): Promise<LeverOpportunity> => {
         if (!input.perform_as) {
@@ -99,5 +99,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

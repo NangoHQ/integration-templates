@@ -136,7 +136,7 @@ export interface RecruiterFlowCandidateResponse {
     added_time: string;
     angellist_profile: string | null;
     behance_profile: string | null;
-    client: any | null;
+    client: any;
     client_company_id: number | null;
     current_designation: string | null;
     current_organization: string | null;

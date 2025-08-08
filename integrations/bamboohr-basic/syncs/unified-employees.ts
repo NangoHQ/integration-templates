@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { BamboohrEmployeeResponse } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
-import type { ProxyConfiguration } from "nango";
-import { StandardEmployee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { StandardEmployee } from '../models.js';
+import { z } from 'zod';
 
 interface CustomReportData {
     title: string;
@@ -18,18 +18,20 @@ interface CustomReportData {
 }
 
 const sync = createSync({
-    description: "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of current employees from bamboohr and maps them to the standard HRIS model',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees/unified",
-        group: "Unified HRIS API"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Unified HRIS API'
+        }
+    ],
 
     models: {
         StandardEmployee: StandardEmployee
@@ -37,7 +39,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const customReportData: CustomReportData = {
             title: 'Current Employees',
             filters: {
@@ -106,5 +108,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,22 +1,22 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Delete a user in Zendesk",
-    version: "1.0.0",
+    description: 'Delete a user in Zendesk',
+    version: '1.0.0',
 
     endpoint: {
-        method: "DELETE",
-        path: "/users",
-        group: "Users"
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
     },
 
     input: IdEntity,
     output: SuccessResponse,
-    scopes: ["users:write"],
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         if (!input.id) {
@@ -42,5 +42,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

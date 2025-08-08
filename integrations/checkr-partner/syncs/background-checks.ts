@@ -1,22 +1,24 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { constructRequest } from '../helpers/construct-request.js';
 import { toBackgroundCheck } from '../mappers/to-background-check.js';
 
-import { BackgroundCheck } from "../models.js";
-import { z } from "zod";
+import { BackgroundCheck } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetch all the background checks",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetch all the background checks',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/background-checks"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/background-checks'
+        }
+    ],
 
     models: {
         BackgroundCheck: BackgroundCheck
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config = await constructRequest(nango, '/v1/invitations');
 
         for await (const invitations of nango.paginate(config)) {
@@ -36,5 +38,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

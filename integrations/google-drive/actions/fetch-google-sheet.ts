@@ -1,20 +1,20 @@
-import { createAction } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { JSONSpreadsheet, IdEntity } from "../models.js";
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { JSONSpreadsheet, IdEntity } from '../models.js';
 
 const action = createAction({
-    description: "Fetches the content of a native google spreadsheet given its ID. Outputs\na JSON representation of a google sheet.",
-    version: "1.0.0",
+    description: 'Fetches the content of a native google spreadsheet given its ID. Outputs\na JSON representation of a google sheet.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fetch-google-sheet",
-        group: "Documents"
+        method: 'GET',
+        path: '/fetch-google-sheet',
+        group: 'Documents'
     },
 
     input: IdEntity,
     output: JSONSpreadsheet,
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<JSONSpreadsheet> => {
         if (!input || !input.id) {
@@ -45,5 +45,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { toJiraIssue } from '../mappers/toJiraIssue.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 
-import type { ProxyConfiguration } from "nango";
-import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from '../models.js';
 
 /**
  * This function handles the creation of an issue in Jira via the Nango action.
@@ -17,18 +17,18 @@ import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from "../model
  * @returns {Promise<CreateIssueOutput>} - Returns the created issue object from Jira.
  */
 const action = createAction({
-    description: "An action that creates an Issue on Jira",
-    version: "2.0.0",
+    description: 'An action that creates an Issue on Jira',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/issues",
-        group: "Issues"
+        method: 'POST',
+        path: '/issues',
+        group: 'Issues'
     },
 
     input: CreateIssueInput,
     output: CreateIssueOutput,
-    scopes: ["write:jira-work"],
+    scopes: ['write:jira-work'],
     metadata: JiraIssueMetadata,
 
     exec: async (nango, input): Promise<CreateIssueOutput> => {
@@ -59,5 +59,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

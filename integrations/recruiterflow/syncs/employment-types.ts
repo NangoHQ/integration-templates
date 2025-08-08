@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { RecruiterFlowEmploymentType } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowEmploymentType } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Syncs all employment types from RecruiterFlow",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Syncs all employment types from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employment-types",
-        group: "Employments"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employment-types',
+            group: 'Employments'
+        }
+    ],
 
     models: {
         RecruiterFlowEmploymentType: RecruiterFlowEmploymentType
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Other%20APIs/get_api_external_organization_employment_type_list
             endpoint: '/api/external/organization/employment-type/list',
@@ -33,7 +35,7 @@ const sync = createSync({
         const response = await nango.get<{ data: RecruiterFlowEmploymentType[] }>(proxyConfig);
         const employmentTypes = response.data.data;
 
-        const updatedEmploymentTypes = employmentTypes.map(employmentType => ({
+        const updatedEmploymentTypes = employmentTypes.map((employmentType) => ({
             ...employmentType,
             id: employmentType.id.toString()
         }));
@@ -42,5 +44,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

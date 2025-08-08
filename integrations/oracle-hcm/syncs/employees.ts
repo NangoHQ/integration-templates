@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { OracleHcmEmployeeResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Employee } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Employee } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches all employees from Oracle HCM and saves them in the lowerCamelCase Oracle data model.
@@ -13,18 +13,20 @@ import { z } from "zod";
  * Incremental: Uses nango.lastSyncDate and exits if a record is older than lastSyncDate.
  */
 const sync = createSync({
-    description: "Fetch all employees from Oracle HCM in the native Oracle data model",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetch all employees from Oracle HCM in the native Oracle data model',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees",
-        group: "Oracle HCM API"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Oracle HCM API'
+        }
+    ],
 
     models: {
         Employee: Employee
@@ -32,7 +34,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const expand = 'names,addresses,emails,phones';
         const limit = 100;
         let total = 0;
@@ -96,5 +98,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

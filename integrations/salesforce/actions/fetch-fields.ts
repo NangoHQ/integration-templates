@@ -1,10 +1,10 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.zod.js';
 import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { Field, ChildField, ValidationRule} from "../models.js";
-import { SalesforceFieldSchema, SalesforceEntity } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { Field, ChildField, ValidationRule } from '../models.js';
+import { SalesforceFieldSchema, SalesforceEntity } from '../models.js';
 
 /**
  * This action retrieves the available properties of a custom object, including fields, child relationships, and validation rules, for a given organization in Salesforce.
@@ -16,17 +16,18 @@ import { SalesforceFieldSchema, SalesforceEntity } from "../models.js";
  * @returns A promise that resolves to a SalesforceFieldSchema object containing: fields, child relationships, and validation rules for the object
  */
 const action = createAction({
-    description: "Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to \"Task\"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.",
-    version: "2.0.0",
+    description:
+        'Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to "Task"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/fields"
+        method: 'GET',
+        path: '/fields'
     },
 
     input: SalesforceEntity,
     output: SalesforceFieldSchema,
-    scopes: ["offline_access", "api"],
+    scopes: ['offline_access', 'api'],
 
     exec: async (nango, input): Promise<SalesforceFieldSchema> => {
         const entity = input?.name || 'Task';
@@ -69,7 +70,7 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
 
 /**

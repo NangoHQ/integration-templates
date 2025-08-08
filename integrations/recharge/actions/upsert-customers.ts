@@ -1,23 +1,23 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { RechargeCustomer } from '../types.js';
 import { upsertRechargeCustomerInputSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from "nango";
-import { UpsertRechargeCustomerOutput, UpsertRechargeCustomerInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { UpsertRechargeCustomerOutput, UpsertRechargeCustomerInput } from '../models.js';
 
 const action = createAction({
-    description: "Upsert a customer in Recharge",
-    version: "1.0.0",
+    description: 'Upsert a customer in Recharge',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/customers",
-        group: "Customers"
+        method: 'POST',
+        path: '/customers',
+        group: 'Customers'
     },
 
     input: UpsertRechargeCustomerInput,
     output: UpsertRechargeCustomerOutput,
-    scopes: ["read_customers", " write_customers", " write_payment_methods"],
+    scopes: ['read_customers', ' write_customers', ' write_payment_methods'],
 
     exec: async (nango, input): Promise<UpsertRechargeCustomerOutput> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: upsertRechargeCustomerInputSchema, input });
@@ -99,5 +99,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,22 +1,24 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { EO_Payment } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 
-import { ExactPayment } from "../models.js";
-import { z } from "zod";
+import { ExactPayment } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches all payments in Exact Online",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches all payments in Exact Online',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/payments"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/payments'
+        }
+    ],
 
     models: {
         ExactPayment: ExactPayment
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const { division } = await getUser(nango);
 
         // List the accounts inside the user's Division
@@ -58,5 +60,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

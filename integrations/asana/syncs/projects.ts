@@ -1,21 +1,23 @@
-import { createSync } from "nango";
-import type { BaseAsanaModel } from "../models.js";
-import { AsanaProject } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { BaseAsanaModel } from '../models.js';
+import { AsanaProject } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Retrieves all projects for a user",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Retrieves all projects for a user',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/projects",
-        group: "Projects"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/projects',
+            group: 'Projects'
+        }
+    ],
 
     models: {
         AsanaProject: AsanaProject
@@ -23,7 +25,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         for await (const workspaces of nango.paginate<BaseAsanaModel>({ endpoint: '/api/1.0/workspaces', params: { limit: 100 }, retries: 10 })) {
             for (const workspace of workspaces) {
                 for await (const projects of nango.paginate<BaseAsanaModel>({
@@ -47,5 +49,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toCustomer } from '../mappers/to-customer.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { PennylaneIndividualCustomer } from "../models.js";
-import { PennylaneCustomer } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import type { PennylaneIndividualCustomer } from '../models.js';
+import { PennylaneCustomer } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of customers from pennylane",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of customers from pennylane',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/customers",
-        group: "Customers"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/customers',
+            group: 'Customers'
+        }
+    ],
 
-    scopes: ["accounting"],
+    scopes: ['accounting'],
 
     models: {
         PennylaneCustomer: PennylaneCustomer
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/customers-get-1
             endpoint: `/api/external/v1/customers`,
@@ -59,5 +61,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

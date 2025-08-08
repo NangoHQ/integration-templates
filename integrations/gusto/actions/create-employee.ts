@@ -1,24 +1,24 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { GustoCreateEmployeeSchema } from '../schema.js';
 import type { GustoCreateEmployeeRequest } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import type { GustoEmployee } from "../models.js";
-import { GustoCreateEmployeeResponse, GustoCreateEmployee } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import type { GustoEmployee } from '../models.js';
+import { GustoCreateEmployeeResponse, GustoCreateEmployee } from '../models.js';
 
 const action = createAction({
-    description: "Creates an employee in Gusto.",
-    version: "1.0.0",
+    description: 'Creates an employee in Gusto.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/employees",
-        group: "Employees"
+        method: 'POST',
+        path: '/employees',
+        group: 'Employees'
     },
 
     input: GustoCreateEmployee,
     output: GustoCreateEmployeeResponse,
-    scopes: ["employees:manage"],
+    scopes: ['employees:manage'],
 
     exec: async (nango, input): Promise<GustoCreateEmployeeResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: GustoCreateEmployeeSchema, input });
@@ -80,5 +80,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

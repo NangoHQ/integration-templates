@@ -1,31 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DriveItemFromItemResponse } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-import type { ProxyConfiguration } from "nango";
-import { SelectedUserFileMetadata, SharepointMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { SelectedUserFileMetadata, SharepointMetadata } from '../models.js';
 
 const sync = createSync({
     description: "Fetch all selected files from a user's drive",
-    version: "1.0.0",
-    frequency: "every hour",
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/user-files/selected"
-    }],
-
-    scopes: [
-        "Sites.Read.All",
-        "Sites.Selected",
-        "MyFiles.Read",
-        "Files.Read.All",
-        "Files.Read.Selected",
-        "offline_access"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/user-files/selected'
+        }
     ],
+
+    scopes: ['Sites.Read.All', 'Sites.Selected', 'MyFiles.Read', 'Files.Read.All', 'Files.Read.Selected', 'offline_access'],
 
     models: {
         SelectedUserFileMetadata: SelectedUserFileMetadata
@@ -33,7 +28,7 @@ const sync = createSync({
 
     metadata: SharepointMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
 
         if (!metadata || !Array.isArray(metadata.pickedFiles) || metadata.pickedFiles.length === 0) {
@@ -63,5 +58,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

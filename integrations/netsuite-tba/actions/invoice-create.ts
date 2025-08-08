@@ -1,17 +1,17 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_Invoice } from '../types.js';
 import { netsuiteInvoiceCreateInputSchema } from '../schema.js';
 
-import { NetsuiteInvoiceCreateOutput, NetsuiteInvoiceCreateInput } from "../models.js";
+import { NetsuiteInvoiceCreateOutput, NetsuiteInvoiceCreateInput } from '../models.js';
 
 const action = createAction({
-    description: "Creates an invoice in Netsuite",
-    version: "3.0.0",
+    description: 'Creates an invoice in Netsuite',
+    version: '3.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/invoices",
-        group: "Invoices"
+        method: 'POST',
+        path: '/invoices',
+        group: 'Invoices'
     },
 
     input: NetsuiteInvoiceCreateInput,
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

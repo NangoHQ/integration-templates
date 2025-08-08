@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { JiraIssueResponse } from '../types.js';
 import { toIssues } from '../mappers/toIssues.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Issue, JiraIssueMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Issue, JiraIssueMetadata } from '../models.js';
 
 /**
  * Fetches and processes Jira issues data.
@@ -14,20 +14,22 @@ import { Issue, JiraIssueMetadata } from "../models.js";
  * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
  */
 const sync = createSync({
-    description: "Fetches a list of issues from Jira",
-    version: "2.0.0",
-    frequency: "every 5mins",
+    description: 'Fetches a list of issues from Jira',
+    version: '2.0.0',
+    frequency: 'every 5mins',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/issues",
-        group: "Issues"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/issues',
+            group: 'Issues'
+        }
+    ],
 
-    scopes: ["read:jira-work"],
+    scopes: ['read:jira-work'],
 
     models: {
         Issue: Issue
@@ -35,7 +37,7 @@ const sync = createSync({
 
     metadata: JiraIssueMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata<JiraIssueMetadata>();
         let jql = '';
         if (nango.lastSyncDate) {
@@ -109,5 +111,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

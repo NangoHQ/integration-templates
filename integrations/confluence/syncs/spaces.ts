@@ -1,7 +1,7 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { ConfluenceSpace } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ConfluenceSpace } from '../models.js';
+import { z } from 'zod';
 
 async function getCloudId(nango: NangoSyncLocal): Promise<string> {
     const response = await nango.get({
@@ -13,19 +13,21 @@ async function getCloudId(nango: NangoSyncLocal): Promise<string> {
 }
 
 const sync = createSync({
-    description: "Fetches a list of spaces from confluence",
-    version: "2.0.0",
-    frequency: "every 4 hours",
+    description: 'Fetches a list of spaces from confluence',
+    version: '2.0.0',
+    frequency: 'every 4 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/spaces"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/spaces'
+        }
+    ],
 
-    scopes: ["read:space:confluence"],
+    scopes: ['read:space:confluence'],
 
     models: {
         ConfluenceSpace: ConfluenceSpace
@@ -33,7 +35,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const cloudId = await getCloudId(nango);
         let totalRecords = 0;
 
@@ -57,7 +59,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapConfluenceSpaces(spaces: any[]): ConfluenceSpace[] {

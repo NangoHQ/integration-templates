@@ -1,22 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { PipeDrivePerson } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { PipeDrivePerson } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches persons from pipedrive",
-    version: "1.0.0",
-    frequency: "every half hour",
+    description: 'Fetches persons from pipedrive',
+    version: '1.0.0',
+    frequency: 'every half hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/pipedrive/persons"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/pipedrive/persons'
+        }
+    ],
 
-    scopes: ["contacts:read"],
+    scopes: ['contacts:read'],
 
     models: {
         PipeDrivePerson: PipeDrivePerson
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -51,7 +53,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapPerson(person: any): PipeDrivePerson {

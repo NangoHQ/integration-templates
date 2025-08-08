@@ -1,10 +1,10 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { GorgiasTicketResponse } from '../types.js';
 import { toTicket } from '../mappers/to-ticket.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Ticket } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { Ticket } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches and processes Gorgias tickets and their associated messages data.
@@ -16,20 +16,22 @@ import { z } from "zod";
  */
 
 const sync = createSync({
-    description: "Fetches a list of tickets with their associated messages",
-    version: "2.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of tickets with their associated messages',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/tickets",
-        group: "Tickets"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tickets',
+            group: 'Tickets'
+        }
+    ],
 
-    scopes: ["tickets:read"],
+    scopes: ['tickets:read'],
 
     models: {
         Ticket: Ticket
@@ -37,7 +39,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const ticketsConfig: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-tickets
             endpoint: '/api/tickets',
@@ -72,5 +74,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

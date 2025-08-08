@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { constructRequestWithConnectionConfig } from '../helpers/construct-request.js';
 
-import type { CheckrService} from "../models.js";
-import { CheckrServicesResponse } from "../models.js";
-import { z } from "zod";
+import type { CheckrService } from '../models.js';
+import { CheckrServicesResponse } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Background Check Services
@@ -18,12 +18,12 @@ import { z } from "zod";
  * attach them to the node
  */
 const action = createAction({
-    description: "Fetch the possible services that Checkr offers for a background check",
-    version: "2.0.0",
+    description: 'Fetch the possible services that Checkr offers for a background check',
+    version: '2.0.0',
 
     endpoint: {
-        method: "GET",
-        path: "/background-check/service-list"
+        method: 'GET',
+        path: '/background-check/service-list'
     },
 
     input: z.void(),
@@ -68,5 +68,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

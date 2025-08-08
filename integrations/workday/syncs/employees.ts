@@ -1,24 +1,26 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { workerToEmployee } from '../mappers/workerToEmployee.js';
 import type { ResponseGet_WorkersAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
-import { Employee, SyncConfiguration } from "../models.js";
+import { Employee, SyncConfiguration } from '../models.js';
 
 const sync = createSync({
-    description: "Fetches a list of current employees from Workday",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of current employees from Workday',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/employees",
-        group: "Employees"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Employees'
+        }
+    ],
 
     models: {
         Employee: Employee
@@ -26,7 +28,7 @@ const sync = createSync({
 
     metadata: SyncConfiguration,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const connection = await nango.getConnection();
         const metadata: SyncConfiguration | null = connection.metadata;
         const client = await getSoapClient('Staffing', connection);
@@ -86,5 +88,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

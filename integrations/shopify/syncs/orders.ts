@@ -1,25 +1,27 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { paginate } from '../helpers/paginate.js';
 import { toOrder } from '../mappers/to-order.js';
 
-import { Order } from "../models.js";
-import { z } from "zod";
+import { Order } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of orders from Shopify.",
-    version: "1.0.0",
-    frequency: "every hour",
+    description: 'Fetches a list of orders from Shopify.',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/orders",
-        group: "Orders"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/orders',
+            group: 'Orders'
+        }
+    ],
 
-    scopes: ["read_customers", "read_orders"],
+    scopes: ['read_customers', 'read_orders'],
 
     models: {
         Order: Order
@@ -27,7 +29,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         const tableName = 'orders';
         const topLevelFields = [
             'id',
@@ -117,5 +119,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types.js';
 import { netsuiteBillUpdateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
-import { NetsuiteBillUpdateOutput, NetsuiteBillUpdateInput } from "../models.js";
+import { NetsuiteBillUpdateOutput, NetsuiteBillUpdateInput } from '../models.js';
 
 const action = createAction({
-    description: "Updates an existing vendor bill in Netsuite.",
-    version: "2.0.0",
+    description: 'Updates an existing vendor bill in Netsuite.',
+    version: '2.0.0',
 
     endpoint: {
-        method: "PUT",
-        path: "/bills",
-        group: "Bills"
+        method: 'PUT',
+        path: '/bills',
+        group: 'Bills'
     },
 
     input: NetsuiteBillUpdateInput,
@@ -217,5 +217,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

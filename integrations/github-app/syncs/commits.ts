@@ -1,4 +1,4 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 
 import { RETRIES, DEFAULT_SYNC_WINDOW } from '../constants.js';
 import { commitsQuery } from '../graphql/commits.js';
@@ -7,8 +7,8 @@ import { githubMetadataInputSchema } from '../schema.zod.js';
 import type { CommitGraphQLResponse, CommitsQueryGraphQLResponse } from '../types.js';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GithubCommit, GithubMetadataInput } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GithubCommit, GithubMetadataInput } from '../models.js';
 
 interface CommitQueryVariables {
     owner: string;
@@ -19,18 +19,20 @@ interface CommitQueryVariables {
 }
 
 const sync = createSync({
-    description: "Get all pull commits from a Github repository.",
-    version: "2.0.0",
-    frequency: "every hour",
+    description: 'Get all pull commits from a Github repository.',
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: false,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/commits",
-        group: "Commits"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/commits',
+            group: 'Commits'
+        }
+    ],
 
     models: {
         GithubCommit: GithubCommit
@@ -38,7 +40,7 @@ const sync = createSync({
 
     metadata: GithubMetadataInput,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
 
@@ -125,5 +127,5 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

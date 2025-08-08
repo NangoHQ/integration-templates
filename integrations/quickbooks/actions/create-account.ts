@@ -1,9 +1,9 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksAccount, toAccount } from '../mappers/to-account.js';
 
-import type { ProxyConfiguration } from "nango";
-import { Account, CreateAccount } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { Account, CreateAccount } from '../models.js';
 
 /**
  * This function handles the creation of a account in QuickBooks via the Nango action.
@@ -18,18 +18,18 @@ import { Account, CreateAccount } from "../models.js";
  * @returns {Promise<Account>} - Returns the created account object from QuickBooks.
  */
 const action = createAction({
-    description: "Creates a single account in QuickBooks.",
-    version: "1.0.0",
+    description: 'Creates a single account in QuickBooks.',
+    version: '1.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/accounts",
-        group: "Accounts"
+        method: 'POST',
+        path: '/accounts',
+        group: 'Accounts'
     },
 
     input: CreateAccount,
     output: Account,
-    scopes: ["com.intuit.quickbooks.accounting"],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<Account> => {
         // Validate if input is present
@@ -63,5 +63,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

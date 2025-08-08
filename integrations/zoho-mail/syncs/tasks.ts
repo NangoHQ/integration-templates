@@ -1,22 +1,24 @@
-import { createSync } from "nango";
-import type { ProxyConfiguration } from "nango";
-import { ZohoMailTask } from "../models.js";
-import { z } from "zod";
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ZohoMailTask } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
-    description: "Fetches a list of all your personal tasks in Zoho mail",
-    version: "1.0.0",
-    frequency: "every 6 hours",
+    description: 'Fetches a list of all your personal tasks in Zoho mail',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/zoho-mail/tasks"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/zoho-mail/tasks'
+        }
+    ],
 
-    scopes: ["ZohoMail.tasks.READ"],
+    scopes: ['ZohoMail.tasks.READ'],
 
     models: {
         ZohoMailTask: ZohoMailTask
@@ -24,7 +26,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -49,7 +51,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 function mapTask(task: any): ZohoMailTask {

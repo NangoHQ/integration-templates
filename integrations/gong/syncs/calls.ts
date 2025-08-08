@@ -1,34 +1,32 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import { toCall } from '../mappers/to-call.js';
 import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from '../types.js';
 import { ExposedFieldsKeys } from '../types.js';
 
-import type { ProxyConfiguration } from "nango";
-import { GongCallOutput, GongConnectionMetadata } from "../models.js";
+import type { ProxyConfiguration } from 'nango';
+import { GongCallOutput, GongConnectionMetadata } from '../models.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 const DEFAULT_BACKFILL_DAYS = 14;
 const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 const sync = createSync({
-    description: "Fetches a list of calls from Gong",
-    version: "2.0.0",
-    frequency: "every 1h",
+    description: 'Fetches a list of calls from Gong',
+    version: '2.0.0',
+    frequency: 'every 1h',
     autoStart: true,
-    syncType: "incremental",
+    syncType: 'incremental',
     trackDeletes: false,
 
-    endpoints: [{
-        method: "GET",
-        path: "/calls",
-        group: "Calls"
-    }],
-
-    scopes: [
-        "api:calls:read:basic",
-        "api:calls:read:media-url",
-        "api:calls:read:extensive"
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/calls',
+            group: 'Calls'
+        }
     ],
+
+    scopes: ['api:calls:read:basic', 'api:calls:read:media-url', 'api:calls:read:extensive'],
 
     models: {
         GongCallOutput: GongCallOutput
@@ -36,7 +34,7 @@ const sync = createSync({
 
     metadata: GongConnectionMetadata,
 
-    exec: async nango => {
+    exec: async (nango) => {
         const metadata = await nango.getMetadata();
         let fetchSince: Date;
         if (nango.lastSyncDate) {
@@ -101,7 +99,7 @@ const sync = createSync({
     }
 }); //just incase gong fails to honour the 100 records per page limit
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchExtensiveDetails(nango: NangoSyncLocal, callIds: string[]): Promise<GongCallExtensive[]> {

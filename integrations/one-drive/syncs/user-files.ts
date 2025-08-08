@@ -1,26 +1,28 @@
-import { createSync } from "nango";
+import { createSync } from 'nango';
 import type { DriveResponse, DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-import type { ProxyConfiguration } from "nango";
-import { OneDriveFile } from "../models.js";
-import { z } from "zod";
+import type { ProxyConfiguration } from 'nango';
+import { OneDriveFile } from '../models.js';
+import { z } from 'zod';
 
 const sync = createSync({
     description: "Fetch all files from the user's OneDrive and sync the metadata for each file.",
-    version: "2.0.0",
-    frequency: "every hour",
+    version: '2.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: "full",
+    syncType: 'full',
     trackDeletes: true,
 
-    endpoints: [{
-        method: "GET",
-        path: "/user-files",
-        group: "Files"
-    }],
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/user-files',
+            group: 'Files'
+        }
+    ],
 
-    scopes: ["Files.Read", "Files.Read.All", "offline_access"],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     models: {
         OneDriveFile: OneDriveFile
@@ -28,7 +30,7 @@ const sync = createSync({
 
     metadata: z.object({}),
 
-    exec: async nango => {
+    exec: async (nango) => {
         // Get the user's drives
         // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         const driveConfiguration: ProxyConfiguration = {
@@ -92,7 +94,7 @@ const sync = createSync({
     }
 });
 
-export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFilesRecursive(nango: NangoSyncLocal, driveId: string, item: DriveItem, files: any[], depth = 3) {

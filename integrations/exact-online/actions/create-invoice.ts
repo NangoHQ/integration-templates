@@ -1,18 +1,18 @@
-import { createAction } from "nango";
+import { createAction } from 'nango';
 import type { ResponsePostBody, E0_SalesInvoice, EO_SalesInvoiceLine } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceCreateInputSchema } from '../schema.zod.js';
 
-import { ExactInvoiceCreateOutput, ExactInvoiceCreateInput } from "../models.js";
+import { ExactInvoiceCreateOutput, ExactInvoiceCreateInput } from '../models.js';
 
 const action = createAction({
-    description: "Creates an invoice in ExactOnline",
-    version: "2.0.0",
+    description: 'Creates an invoice in ExactOnline',
+    version: '2.0.0',
 
     endpoint: {
-        method: "POST",
-        path: "/invoices",
-        group: "Invoices"
+        method: 'POST',
+        path: '/invoices',
+        group: 'Invoices'
     },
 
     input: ExactInvoiceCreateInput,
@@ -54,5 +54,5 @@ const action = createAction({
     }
 });
 
-export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
