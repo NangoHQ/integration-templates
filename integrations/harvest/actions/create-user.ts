@@ -1,7 +1,10 @@
-import type { NangoAction, ProxyConfiguration, User, HarvestCreateUser } from '../../models.js';
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { harvestCreateUserSchema } from '../schema.zod.js';
 import type { HarvestUser } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { User, HarvestCreateUser } from '../models.js';
 
 /**
  * Creates a Haverst user.
@@ -20,18 +23,36 @@ import type { HarvestUser } from '../types.js';
  * For detailed endpoint documentation, refer to:
  * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
  */
-export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
+const action = createAction({
+    description: 'Creates a user in Harvest',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
-        endpoint: `/v2/users`,
-        data: parsedInput.data,
-        retries: 3
-    };
+    endpoint: {
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
+    },
 
-    const response = await nango.post<HarvestUser>(config);
-    const { data } = response;
+    input: HarvestCreateUser,
+    output: User,
+    scopes: ['administrator', 'manager'],
 
-    return toUser(data);
-}
+    exec: async (nango, input): Promise<User> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
+
+        const config: ProxyConfiguration = {
+            // https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
+            endpoint: `/v2/users`,
+            data: parsedInput.data,
+            retries: 3
+        };
+
+        const response = await nango.post<HarvestUser>(config);
+        const { data } = response;
+
+        return toUser(data);
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

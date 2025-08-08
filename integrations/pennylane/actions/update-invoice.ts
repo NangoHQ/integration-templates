@@ -1,31 +1,50 @@
-import type { NangoAction, PennylaneSuccessResponse, UpdateInvoice, UpdateInvoiceResponse } from '../../models.js';
+import { createAction } from 'nango';
+import type { UpdateInvoiceResponse } from '../models.js';
+import { UpdateInvoice, PennylaneSuccessResponse } from '../models.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateInvoice): Promise<PennylaneSuccessResponse> {
-    if (!input.id) {
-        throw new nango.ActionError({
-            message: 'id (invoice source_id) is a required field'
-        });
-    }
+const action = createAction({
+    description: 'Action to update an invoice in pennylane',
+    version: '2.0.0',
 
-    type invoiceUpdate = Omit<UpdateInvoice, 'id'>;
-    const { id, ...rest } = input;
-    const invoiceData: invoiceUpdate = { ...rest };
+    endpoint: {
+        method: 'PATCH',
+        path: '/invoices',
+        group: 'Invoices'
+    },
 
-    const postData = {
-        invoice: {
-            ...invoiceData
+    input: UpdateInvoice,
+    output: PennylaneSuccessResponse,
+
+    exec: async (nango, input): Promise<PennylaneSuccessResponse> => {
+        if (!input.id) {
+            throw new nango.ActionError({
+                message: 'id (invoice source_id) is a required field'
+            });
         }
-    };
 
-    const { data } = await nango.put<UpdateInvoiceResponse>({
-        // https://pennylane.readme.io/reference/putexternalapiv1customerinvoices-1
-        endpoint: `/api/external/v1/customer_invoices/${id}`,
-        data: postData,
-        retries: 3
-    });
+        type invoiceUpdate = Omit<UpdateInvoice, 'id'>;
+        const { id, ...rest } = input;
+        const invoiceData: invoiceUpdate = { ...rest };
 
-    return {
-        success: true,
-        source_id: data.invoice.id
-    };
-}
+        const postData = {
+            invoice: {
+                ...invoiceData
+            }
+        };
+
+        const { data } = await nango.put<UpdateInvoiceResponse>({
+            // https://pennylane.readme.io/reference/putexternalapiv1customerinvoices-1
+            endpoint: `/api/external/v1/customer_invoices/${id}`,
+            data: postData,
+            retries: 3
+        });
+
+        return {
+            success: true,
+            source_id: data.invoice.id
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

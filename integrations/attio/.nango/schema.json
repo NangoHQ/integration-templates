@@ -1,361 +1,465 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "AttioEmailAddress": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "domain": {
-                    "type": "string"
-                }
-            },
-            "required": ["email", "domain"],
-            "additionalProperties": false
-        },
-        "AttioPhoneNumber": {
-            "type": "object",
-            "properties": {
-                "number": {
-                    "type": "string"
-                },
-                "country_code": {
-                    "type": "string"
-                }
-            },
-            "required": ["number", "country_code"],
-            "additionalProperties": false
-        },
-        "AttioPersonLocation": {
-            "type": "object",
-            "properties": {
-                "line_1": {
-                    "type": "string"
-                },
-                "line_2": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "postal_code": {
-                    "type": "string"
-                },
-                "country_code": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "AttioSocialLink": {
-            "type": "object",
-            "properties": {
-                "linkedin": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "twitter": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "facebook": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "instagram": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "angellist": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "additionalProperties": false
-        },
-        "AttioAttribute": {
-            "type": "object",
-            "properties": {
-                "active_from": {
-                    "type": "string"
-                },
-                "active_until": {
-                    "type": ["string", "null"]
-                },
-                "created_by_actor": {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["type", "id"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["active_from", "active_until", "created_by_actor"],
-            "additionalProperties": false
-        },
-        "AttioAttributeWithValue": {
-            "type": "object",
-            "properties": {
-                "active_from": {
-                    "type": "string"
-                },
-                "active_until": {
-                    "type": ["string", "null"]
-                },
-                "created_by_actor": {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["type", "id"],
-                    "additionalProperties": false
-                },
-                "value": {
-                    "type": "string"
-                },
-                "attribute_type": {
-                    "type": "string"
-                }
-            },
-            "required": ["active_from", "active_until", "created_by_actor", "value", "attribute_type"],
-            "additionalProperties": false
-        },
-        "AttioPerson": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "workspace_id": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "web_url": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "full_name": {
-                    "type": "string"
-                },
-                "email_addresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioEmailAddress"
-                    }
-                },
-                "phone_numbers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioPhoneNumber"
-                    }
-                },
-                "job_title": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioAttributeWithValue"
-                    }
-                },
-                "company_id": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioAttribute"
-                    }
-                },
-                "avatar_url": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioAttribute"
-                    }
-                },
-                "social_links": {
-                    "$ref": "#/definitions/AttioSocialLink"
-                },
-                "location": {
-                    "$ref": "#/definitions/AttioPersonLocation"
-                }
-            },
-            "required": ["id", "workspace_id", "created_at", "web_url"],
-            "additionalProperties": false
-        },
-        "AttioDomain": {
-            "type": "object",
-            "properties": {
-                "domain": {
-                    "type": "string"
-                },
-                "root_domain": {
-                    "type": "string"
-                }
-            },
-            "required": ["domain", "root_domain"],
-            "additionalProperties": false
-        },
-        "AttioCompanyLocation": {
-            "type": "object",
-            "properties": {
-                "country_code": {
-                    "type": "string"
-                },
-                "line_1": {
-                    "type": ["string", "null"]
-                },
-                "line_2": {
-                    "type": ["string", "null"]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "postal_code": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "AttioCompany": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "workspace_id": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "web_url": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "domains": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioDomain"
-                    }
-                },
-                "description": {
-                    "type": "string"
-                },
-                "team_member_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "location": {
-                    "$ref": "#/definitions/AttioCompanyLocation"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "logo_url": {
-                    "type": "string"
-                },
-                "twitter_follower_count": {
-                    "type": "number"
-                },
-                "foundation_date": {
-                    "type": "string"
-                },
-                "estimated_arr_usd": {
-                    "type": "number"
-                },
-                "social_links": {
-                    "$ref": "#/definitions/AttioSocialLink"
-                }
-            },
-            "required": ["id", "workspace_id", "created_at", "web_url"],
-            "additionalProperties": false
-        },
-        "AttioDeal": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "workspace_id": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "web_url": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "stage": {
-                    "type": "string"
-                },
-                "stage_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "number"
-                },
-                "currency": {
-                    "type": "string"
-                },
-                "associated_people_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "associated_company_id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "workspace_id", "created_at", "web_url"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_attio_people": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "AttioPerson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "job_title": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "avatar_url": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "social_links": {
+          "type": "object",
+          "properties": {
+            "linkedin": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "twitter": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "facebook": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "instagram": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "angellist": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "linkedin",
+            "twitter",
+            "facebook",
+            "instagram",
+            "angellist"
+          ],
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "line_1": {
+              "type": "string"
+            },
+            "line_2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "line_1",
+            "line_2",
+            "city",
+            "state",
+            "postal_code",
+            "country_code"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "created_at",
+        "web_url",
+        "first_name",
+        "last_name",
+        "full_name",
+        "email_addresses",
+        "phone_numbers",
+        "job_title",
+        "company_id",
+        "description",
+        "avatar_url",
+        "social_links",
+        "location"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_attio_companies": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "AttioCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "team_member_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "country_code": {
+              "type": "string"
+            },
+            "line_1": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "line_2": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "country_code",
+            "line_1",
+            "line_2",
+            "city",
+            "state",
+            "postal_code"
+          ],
+          "additionalProperties": false
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "twitter_follower_count": {
+          "type": "number"
+        },
+        "foundation_date": {
+          "type": "string"
+        },
+        "estimated_arr_usd": {
+          "type": "number"
+        },
+        "social_links": {
+          "type": "object",
+          "properties": {
+            "linkedin": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "twitter": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "facebook": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "instagram": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "angellist": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "linkedin",
+            "twitter",
+            "facebook",
+            "instagram",
+            "angellist"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "created_at",
+        "web_url",
+        "name",
+        "domains",
+        "description",
+        "team_member_ids",
+        "location",
+        "categories",
+        "logo_url",
+        "twitter_follower_count",
+        "foundation_date",
+        "estimated_arr_usd",
+        "social_links"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_attio_deals": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "AttioDeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "stage_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "associated_people_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "associated_company_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "created_at",
+        "web_url",
+        "name",
+        "stage",
+        "stage_id",
+        "owner_id",
+        "value",
+        "currency",
+        "associated_people_ids",
+        "associated_company_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

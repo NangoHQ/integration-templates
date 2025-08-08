@@ -1,9 +1,0 @@
-{
-    "topic": "Project Kick-off Meeting",
-    "type": "scheduled",
-    "agenda": "Discuss project milestones and team assignments",
-    "duration": 60,
-    "pre_schedule": false,
-    "start_time": "2024-11-01T09:00:00Z",
-    "timezone": "Europe/Paris"
-}

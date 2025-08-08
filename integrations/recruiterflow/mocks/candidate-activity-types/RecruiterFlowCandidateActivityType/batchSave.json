@@ -2,7 +2,7 @@
     {
         "associate_recent_job": false,
         "category": "Task-related",
-        "id": 28,
+        "id": "28",
         "is_archived": false,
         "is_custom": false,
         "name": "Task created",
@@ -13,7 +13,7 @@
     {
         "associate_recent_job": false,
         "category": "Task-related",
-        "id": 29,
+        "id": "29",
         "is_archived": false,
         "is_custom": false,
         "name": "Task updated",
@@ -24,7 +24,7 @@
     {
         "associate_recent_job": false,
         "category": "Task-related",
-        "id": 30,
+        "id": "30",
         "is_archived": false,
         "is_custom": false,
         "name": "Task marked as done",
@@ -35,7 +35,7 @@
     {
         "associate_recent_job": false,
         "category": "Task-related",
-        "id": 31,
+        "id": "31",
         "is_archived": false,
         "is_custom": false,
         "name": "Task marked as open",
@@ -46,7 +46,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 1,
+        "id": "1",
         "is_archived": false,
         "is_custom": false,
         "name": "Note",
@@ -57,7 +57,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 2,
+        "id": "2",
         "is_archived": false,
         "is_custom": false,
         "name": "Email",
@@ -68,7 +68,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 16,
+        "id": "16",
         "is_archived": false,
         "is_custom": false,
         "name": "Message",
@@ -79,7 +79,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 17,
+        "id": "17",
         "is_archived": false,
         "is_custom": false,
         "name": "Message sent",
@@ -90,7 +90,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 18,
+        "id": "18",
         "is_archived": false,
         "is_custom": false,
         "name": "Message received",
@@ -101,7 +101,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 44,
+        "id": "44",
         "is_archived": false,
         "is_custom": false,
         "name": "Call",
@@ -112,7 +112,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 54,
+        "id": "54",
         "is_archived": false,
         "is_custom": false,
         "name": "Added to campaign",
@@ -123,7 +123,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 55,
+        "id": "55",
         "is_archived": false,
         "is_custom": false,
         "name": "Removed from campaign",
@@ -134,7 +134,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 3,
+        "id": "3",
         "is_archived": false,
         "is_custom": false,
         "name": "Scorecard",
@@ -145,7 +145,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 59,
+        "id": "59",
         "is_archived": false,
         "is_custom": false,
         "name": "Scorecard Modified",
@@ -156,7 +156,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 4,
+        "id": "4",
         "is_archived": false,
         "is_custom": false,
         "name": "Interview",
@@ -167,7 +167,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 5,
+        "id": "5",
         "is_archived": false,
         "is_custom": false,
         "name": "Add candidate",
@@ -178,7 +178,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 7,
+        "id": "7",
         "is_archived": false,
         "is_custom": false,
         "name": "Stage changed",
@@ -189,7 +189,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 9,
+        "id": "9",
         "is_archived": false,
         "is_custom": false,
         "name": "Added to job",
@@ -200,7 +200,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 15,
+        "id": "15",
         "is_archived": false,
         "is_custom": false,
         "name": "Removed from job",
@@ -211,7 +211,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 6,
+        "id": "6",
         "is_archived": false,
         "is_custom": false,
         "name": "File uploaded",
@@ -222,7 +222,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 8,
+        "id": "8",
         "is_archived": false,
         "is_custom": false,
         "name": "Profile updated",
@@ -233,7 +233,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 12,
+        "id": "12",
         "is_archived": false,
         "is_custom": false,
         "name": "Email subscription",
@@ -244,7 +244,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 13,
+        "id": "13",
         "is_archived": false,
         "is_custom": false,
         "name": "GDPR opt-in mail sent",
@@ -255,7 +255,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 14,
+        "id": "14",
         "is_archived": false,
         "is_custom": false,
         "name": "GDPR opt-in received",
@@ -266,7 +266,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 56,
+        "id": "56",
         "is_archived": false,
         "is_custom": false,
         "name": "GDPR opt-out mail sent",
@@ -277,7 +277,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 57,
+        "id": "57",
         "is_archived": false,
         "is_custom": false,
         "name": "GDPR opt-out received",
@@ -288,7 +288,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 19,
+        "id": "19",
         "is_archived": false,
         "is_custom": false,
         "name": "Lead owner changed",
@@ -299,7 +299,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 32,
+        "id": "32",
         "is_archived": false,
         "is_custom": false,
         "name": "File deleted",
@@ -310,7 +310,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 50,
+        "id": "50",
         "is_archived": false,
         "is_custom": false,
         "name": "Profile snoozed",
@@ -321,7 +321,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 51,
+        "id": "51",
         "is_archived": false,
         "is_custom": false,
         "name": "Profile un-snoozed",
@@ -332,7 +332,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 52,
+        "id": "52",
         "is_archived": false,
         "is_custom": false,
         "name": "Profile locked",
@@ -343,7 +343,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 53,
+        "id": "53",
         "is_archived": false,
         "is_custom": false,
         "name": "Profile unlocked",
@@ -354,7 +354,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 60,
+        "id": "60",
         "is_archived": false,
         "is_custom": false,
         "name": "Contact feedback - Thumbs up",
@@ -365,7 +365,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 61,
+        "id": "61",
         "is_archived": false,
         "is_custom": false,
         "name": "Contact feedback - Thumbs down",
@@ -376,7 +376,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 62,
+        "id": "62",
         "is_archived": false,
         "is_custom": false,
         "name": "Campaign status updated",
@@ -387,7 +387,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 63,
+        "id": "63",
         "is_archived": false,
         "is_custom": false,
         "name": "Recipe Action",
@@ -398,7 +398,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 64,
+        "id": "64",
         "is_archived": false,
         "is_custom": false,
         "name": "Campaign Action",
@@ -409,7 +409,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 65,
+        "id": "65",
         "is_archived": false,
         "is_custom": false,
         "name": "Candidate Liked",
@@ -420,7 +420,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 66,
+        "id": "66",
         "is_archived": false,
         "is_custom": false,
         "name": "Candidate Dropped",
@@ -431,7 +431,7 @@
     {
         "associate_recent_job": false,
         "category": "Profile",
-        "id": 67,
+        "id": "67",
         "is_archived": false,
         "is_custom": false,
         "name": "Custom Field Updated",
@@ -442,7 +442,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 71,
+        "id": "71",
         "is_archived": false,
         "is_custom": false,
         "name": "LinkedIn Message",
@@ -453,7 +453,7 @@
     {
         "associate_recent_job": false,
         "category": "Communication",
-        "id": 72,
+        "id": "72",
         "is_archived": false,
         "is_custom": false,
         "name": "LinkedIn Inmail",
@@ -464,7 +464,7 @@
     {
         "associate_recent_job": false,
         "category": "Job-related",
-        "id": 73,
+        "id": "73",
         "is_archived": false,
         "is_custom": false,
         "name": "Scorecard Deleted",
@@ -475,7 +475,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 74,
+        "id": "74",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement status changed",
@@ -486,7 +486,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 75,
+        "id": "75",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement start date changed",
@@ -497,7 +497,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 76,
+        "id": "76",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement end date changed",
@@ -508,7 +508,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 78,
+        "id": "78",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement converted to permanent",
@@ -519,7 +519,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 79,
+        "id": "79",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement contract extended",
@@ -530,7 +530,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 80,
+        "id": "80",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement contract ended",
@@ -541,7 +541,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 81,
+        "id": "81",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement contract cancelled",
@@ -552,7 +552,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 83,
+        "id": "83",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement added",
@@ -563,7 +563,7 @@
     {
         "associate_recent_job": false,
         "category": "CRM-related",
-        "id": 84,
+        "id": "84",
         "is_archived": false,
         "is_custom": false,
         "name": "Placement record deleted",

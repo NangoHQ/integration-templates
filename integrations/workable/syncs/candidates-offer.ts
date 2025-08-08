@@ -1,26 +1,56 @@
-import type { WorkableCandidateOffer, NangoSync, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableCandidateOffer } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches candidate's latest offer from workable",
+    version: '1.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
 
-    const candidates: any[] = await getAllCandidates(nango);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/candidates-offer'
+        }
+    ],
 
-    for (const candidate of candidates) {
-        const offer = await getCandidateOffer(nango, candidate.id);
+    scopes: ['r_candidates'],
 
-        if (offer) {
-            const mappedOffer: WorkableCandidateOffer = mapOffer(offer);
+    models: {
+        WorkableCandidateOffer: WorkableCandidateOffer
+    },
 
-            totalRecords++;
-            await nango.log(`Saving offer for candidate ${candidate.id} (total offers: ${totalRecords})`);
-            await nango.batchSave([mappedOffer], 'WorkableCandidateOffer');
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const candidates: any[] = await getAllCandidates(nango);
+
+        for (const candidate of candidates) {
+            const offer = await getCandidateOffer(nango, candidate.id);
+
+            if (offer) {
+                const mappedOffer: WorkableCandidateOffer = mapOffer(offer);
+
+                totalRecords++;
+                await nango.log(`Saving offer for candidate ${candidate.id} (total offers: ${totalRecords})`);
+                await nango.batchSave([mappedOffer], 'WorkableCandidateOffer');
+            }
         }
     }
-}
+});
 
-async function getAllCandidates(nango: NangoSync) {
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function getAllCandidates(nango: NangoSyncLocal) {
     const records: any[] = [];
     const proxyConfig: ProxyConfiguration = {
         // https://workable.readme.io/reference/job-candidates-index
@@ -41,7 +71,7 @@ async function getAllCandidates(nango: NangoSync) {
     return records;
 }
 
-async function getCandidateOffer(nango: NangoSync, candidateId: string) {
+async function getCandidateOffer(nango: NangoSyncLocal, candidateId: string) {
     const endpoint = `/spi/v3/candidates/${candidateId}/offer`;
 
     //candidate's latest offer

@@ -1,4 +1,4 @@
-import type { Candidate } from '../../models.js';
+import type { Candidate } from '../models.js';
 import type { GemCandidate } from '../types.js';
 import { toApplication } from './to-application.js';
 

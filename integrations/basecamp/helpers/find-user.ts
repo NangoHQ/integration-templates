@@ -1,4 +1,4 @@
-import type { BasecampPerson } from '../../models.js';
+import type { BasecampPerson } from '../models.js';
 
 /**
  * Finds a user's ID by their email address within a list of project people.

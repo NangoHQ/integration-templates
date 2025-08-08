@@ -1,7 +1,10 @@
-import type { NangoSync, JiraIssueMetadata, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import type { JiraIssueResponse } from '../types.js';
 import { toIssues } from '../mappers/toIssues.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Issue, JiraIssueMetadata } from '../models.js';
 
 /**
  * Fetches and processes Jira issues data.
@@ -10,75 +13,103 @@ import { getCloudData } from '../helpers/get-cloud-data.js';
  *
  * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
  */
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<JiraIssueMetadata>();
-    let jql = '';
-    if (nango.lastSyncDate) {
-        if (metadata?.timeZone) {
-            // @allowTryCatch
-            try {
-                // Validate timezone
-                Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
+const sync = createSync({
+    description: 'Fetches a list of issues from Jira',
+    version: '2.0.0',
+    frequency: 'every 5mins',
+    autoStart: false,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-                // Format date in the specified timezone
-                const formatter = new Intl.DateTimeFormat('sv-SE', {
-                    timeZone: metadata.timeZone,
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
-                jql = `updated >= "${formattedDate}"`;
-            } catch {
-                await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/issues',
+            group: 'Issues'
+        }
+    ],
+
+    scopes: ['read:jira-work'],
+
+    models: {
+        Issue: Issue
+    },
+
+    metadata: JiraIssueMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata<JiraIssueMetadata>();
+        let jql = '';
+        if (nango.lastSyncDate) {
+            if (metadata?.timeZone) {
+                // @allowTryCatch
+                try {
+                    // Validate timezone
+                    Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
+
+                    // Format date in the specified timezone
+                    const formatter = new Intl.DateTimeFormat('sv-SE', {
+                        timeZone: metadata.timeZone,
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
+                    jql = `updated >= "${formattedDate}"`;
+                } catch {
+                    await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
+                    jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+                }
+            } else {
                 jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
             }
+        }
+
+        const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
+        const cloud = await getCloudData(nango);
+
+        let projectJql = '';
+        if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
+            const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
+            projectJql = `project in (${projectIdsString})`;
         } else {
-            jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+            if (!metadata) {
+                throw new Error('Required metadata not found for issues sync');
+            } else if (!metadata.projectIdsToSync || metadata.projectIdsToSync.length === 0) {
+                throw new Error('No projects configured for issues sync');
+            }
+        }
+
+        const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
+        const config: ProxyConfiguration = {
+            // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
+            endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search`,
+            params: {
+                jql: finalJql,
+                fields: fields
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'startAt',
+                response_path: 'issues',
+                limit_name_in_request: 'maxResults',
+                limit: 50
+            },
+            headers: {
+                'X-Atlassian-Token': 'no-check'
+            },
+            retries: 10
+        };
+
+        //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
+        for await (const issues of nango.paginate<JiraIssueResponse>(config)) {
+            const issuesToSave = toIssues(issues, cloud.baseUrl);
+            await nango.batchSave(issuesToSave, 'Issue');
         }
     }
+});
 
-    const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
-    const cloud = await getCloudData(nango);
-
-    let projectJql = '';
-    if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
-        const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
-        projectJql = `project in (${projectIdsString})`;
-    } else {
-        if (!metadata) {
-            throw new Error('Required metadata not found for issues sync');
-        } else if (!metadata.projectIdsToSync || metadata.projectIdsToSync.length === 0) {
-            throw new Error('No projects configured for issues sync');
-        }
-    }
-
-    const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
-    const config: ProxyConfiguration = {
-        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
-        endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search`,
-        params: {
-            jql: finalJql,
-            fields: fields
-        },
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'startAt',
-            response_path: 'issues',
-            limit_name_in_request: 'maxResults',
-            limit: 50
-        },
-        headers: {
-            'X-Atlassian-Token': 'no-check'
-        },
-        retries: 10
-    };
-
-    //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
-    for await (const issues of nango.paginate<JiraIssueResponse>(config)) {
-        const issuesToSave = toIssues(issues, cloud.baseUrl);
-        await nango.batchSave(issuesToSave, 'Issue');
-    }
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

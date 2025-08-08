@@ -104,7 +104,7 @@ describe('Calendly Events Pagination Tests', () => {
         const nango = new MockNango();
         const events = await import('../syncs/events');
 
-        await events.default(nango as any);
+        await events.default.exec(nango as any);
 
         const savedEvents = nango.getSavedEvents();
         expect(savedEvents).toHaveLength(1);
@@ -117,7 +117,7 @@ describe('Calendly Events Pagination Tests', () => {
         const nango = new MockNango();
         const events = await import('../syncs/events');
 
-        await events.default(nango as any);
+        await events.default.exec(nango as any);
 
         // Should only have events from first page
         const savedEvents = nango.getSavedEvents();
@@ -134,6 +134,6 @@ describe('Calendly Events Pagination Tests', () => {
 
         const events = await import('../syncs/events');
 
-        await expect(events.default(nango as any)).rejects.toThrow('Pagination failed');
+        await expect(events.default.exec(nango as any)).rejects.toThrow('Pagination failed');
     });
 });

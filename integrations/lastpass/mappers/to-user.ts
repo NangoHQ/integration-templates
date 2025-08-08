@@ -1,5 +1,5 @@
 import type { ReturnedUser } from '../types.js';
-import type { User } from '../../models.js';
+import type { User } from '../models.js';
 
 export function toUser(users: ReturnedUser[]): User[] {
     return users.map((user) => ({

@@ -1,6 +1,7 @@
-import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types';
+import type { NangoSync } from 'nango';
+import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types.js';
 import { parseSapDateToISOString, getMostRecentInfo, getEmployeeLastModifiedWithPath } from '../helpers/utils.js';
-import type { StandardEmployee, Email, Phone, Address, NangoSync } from '../../models';
+import type { StandardEmployee, Email, Phone, Address } from '../models.js';
 
 const EMAIL_TYPES = {
     WORK: 'B', // Business email

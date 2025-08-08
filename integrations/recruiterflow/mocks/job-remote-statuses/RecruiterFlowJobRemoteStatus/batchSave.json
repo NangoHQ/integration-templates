@@ -1,14 +1,14 @@
 [
     {
-        "id": 3,
+        "id": "3",
         "name": "Hybrid"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Not Remote"
     },
     {
-        "id": 1,
+        "id": "1",
         "name": "Remote"
     }
 ]

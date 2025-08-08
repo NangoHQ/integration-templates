@@ -1,6 +1,9 @@
-import type { NangoAction, CreateInvoice, Invoice, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksInvoice, toInvoice } from '../mappers/to-invoice.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Invoice, CreateInvoice } from '../models.js';
 
 /**
  * This function handles the creation of an invoice in QuickBooks via the Nango action.
@@ -14,59 +17,77 @@ import { toQuickBooksInvoice, toInvoice } from '../mappers/to-invoice.js';
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<Invoice>} - Returns the created invoice object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<Invoice> {
-    // Validate if input is present
-    if (!input) {
-        throw new nango.ActionError({
-            message: `Input invoice object is required. Received: ${JSON.stringify(input)}`
-        });
-    }
+const action = createAction({
+    description: 'Creates a single invoice in QuickBooks.',
+    version: '1.0.0',
 
-    // Validate required fields
-    if (!input.customer_ref || !input.customer_ref.value) {
-        throw new nango.ActionError({
-            message: `CustomerRef is required and must include a value. Received: ${JSON.stringify(input.customer_ref)}`
-        });
-    }
+    endpoint: {
+        method: 'POST',
+        path: '/invoices',
+        group: 'Invoices'
+    },
 
-    if (!input.line || input.line.length === 0) {
-        throw new nango.ActionError({
-            message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
-        });
-    }
+    input: CreateInvoice,
+    output: Invoice,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
-    // Validate each line item
-    for (const line of input.line) {
-        if (!line.detail_type) {
+    exec: async (nango, input): Promise<Invoice> => {
+        // Validate if input is present
+        if (!input) {
             throw new nango.ActionError({
-                message: `DetailType is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `Input invoice object is required. Received: ${JSON.stringify(input)}`
             });
         }
 
-        if (line.amount_cents === undefined) {
+        // Validate required fields
+        if (!input.customer_ref || !input.customer_ref.value) {
             throw new nango.ActionError({
-                message: `Amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `CustomerRef is required and must include a value. Received: ${JSON.stringify(input.customer_ref)}`
             });
         }
 
-        if (!line.sales_item_line_detail || !line.sales_item_line_detail.item_ref) {
+        if (!input.line || input.line.length === 0) {
             throw new nango.ActionError({
-                message: `SalesItemLineDetail with item_ref is required for each line item. Received: ${JSON.stringify(line.sales_item_line_detail)}`
+                message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
             });
         }
+
+        // Validate each line item
+        for (const line of input.line) {
+            if (!line.detail_type) {
+                throw new nango.ActionError({
+                    message: `DetailType is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (line.amount_cents === undefined) {
+                throw new nango.ActionError({
+                    message: `Amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (!line.sales_item_line_detail || !line.sales_item_line_detail.item_ref) {
+                throw new nango.ActionError({
+                    message: `SalesItemLineDetail with item_ref is required for each line item. Received: ${JSON.stringify(line.sales_item_line_detail)}`
+                });
+            }
+        }
+
+        const companyId = await getCompany(nango);
+        // Map the invoice input to the QuickBooks invoice structure
+        const quickBooksInvoice = toQuickBooksInvoice(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice
+            endpoint: `/v3/company/${companyId}/invoice`,
+            data: quickBooksInvoice,
+            retries: 3
+        };
+        const response = await nango.post(config);
+
+        return toInvoice(response.data['Invoice']);
     }
+});
 
-    const companyId = await getCompany(nango);
-    // Map the invoice input to the QuickBooks invoice structure
-    const quickBooksInvoice = toQuickBooksInvoice(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice
-        endpoint: `/v3/company/${companyId}/invoice`,
-        data: quickBooksInvoice,
-        retries: 3
-    };
-    const response = await nango.post(config);
-
-    return toInvoice(response.data['Invoice']);
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

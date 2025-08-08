@@ -1,17 +1,36 @@
-import type { NangoAction, OptionalObjectType, PipelineOutput } from '../../models.js';
+import { createAction } from 'nango';
+import { PipelineOutput, OptionalObjectType } from '../models.js';
 
-export default async function runAction(nango: NangoAction, input: OptionalObjectType): Promise<PipelineOutput> {
-    const objectType = input?.objectType || 'deal';
+const action = createAction({
+    description: 'Fetch all pipelines for an object type. Defaults to deals',
+    version: '1.0.0',
 
-    const response = await nango.get({
-        // https://developers.hubspot.com/docs/api/crm/pipelines
-        endpoint: `/crm/v3/pipelines/${objectType}`,
-        retries: 3
-    });
+    endpoint: {
+        method: 'GET',
+        path: '/pipelines',
+        group: 'Pipelines'
+    },
 
-    const { data } = response;
+    input: OptionalObjectType,
+    output: PipelineOutput,
+    scopes: ['oauth', 'crm.objects.deals.read'],
 
-    return {
-        pipelines: data.results
-    };
-}
+    exec: async (nango, input): Promise<PipelineOutput> => {
+        const objectType = input?.objectType || 'deal';
+
+        const response = await nango.get({
+            // https://developers.hubspot.com/docs/api/crm/pipelines
+            endpoint: `/crm/v3/pipelines/${objectType}`,
+            retries: 3
+        });
+
+        const { data } = response;
+
+        return {
+            pipelines: data.results
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

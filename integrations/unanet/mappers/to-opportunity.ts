@@ -1,4 +1,4 @@
-import type { Opportunity } from '../../models.js';
+import type { Opportunity } from '../models.js';
 import type { UnanetOpportunity } from '../types.js';
 
 export function toOpportunity(opportunity: UnanetOpportunity, input: Opportunity): Opportunity {

@@ -1,1 +1,0 @@
-../stripe-app/schema.zod.ts

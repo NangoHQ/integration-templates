@@ -2,7 +2,7 @@ dist/
 components.d.ts
 www/
 node_modules
-templates
+integrations
 **/node_modules/**
 config/events/*.json
 docs-v2/**

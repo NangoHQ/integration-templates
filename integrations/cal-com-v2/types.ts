@@ -1,4 +1,4 @@
-import type { EventType } from '../models.js';
+import type { EventType } from './models.js';
 
 export interface EventTypeResponse {
     status: boolean;

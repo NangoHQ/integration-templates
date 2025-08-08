@@ -1,8 +1,11 @@
-import type { NangoSync, Item } from '../../models.js';
+import { createSync } from 'nango';
 import type { QuickBooksItem } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toItem } from '../mappers/to-item.js';
 import type { PaginationParams } from '../helpers/paginate.js';
+
+import { Item } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Fetches item data from QuickBooks API and saves it in batch.
@@ -13,24 +16,52 @@ import type { PaginationParams } from '../helpers/paginate.js';
  * @param nango The NangoSync instance used for making API calls and saving data.
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: PaginationParams = {
-        model: 'Item',
-        additionalFilter: 'Active IN (true, false)'
-    };
+const sync = createSync({
+    description: 'Fetches all items in QuickBooks. Handles both active and archived items, saving or deleting them based on their status.',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    // Fetch all items with pagination
-    for await (const qItems of paginate<QuickBooksItem>(nango, config)) {
-        // Filter and process active items
-        const activeItems = qItems.filter((item) => item.Active);
-        const mappedActiveItems = activeItems.map(toItem);
-        await nango.batchSave<Item>(mappedActiveItems, 'Item');
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/items',
+            group: 'Items'
+        }
+    ],
 
-        // Handle archived items only if it's an incremental refresh
-        if (nango.lastSyncDate) {
-            const archivedItems = qItems.filter((item) => !item.Active);
-            const mappedArchivedItems = archivedItems.map(toItem);
-            await nango.batchDelete<Item>(mappedArchivedItems, 'Item');
+    scopes: ['com.intuit.quickbooks.accounting'],
+
+    models: {
+        Item: Item
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const config: PaginationParams = {
+            model: 'Item',
+            additionalFilter: 'Active IN (true, false)'
+        };
+
+        // Fetch all items with pagination
+        for await (const qItems of paginate<QuickBooksItem>(nango, config)) {
+            // Filter and process active items
+            const activeItems = qItems.filter((item) => item.Active);
+            const mappedActiveItems = activeItems.map(toItem);
+            await nango.batchSave(mappedActiveItems, 'Item');
+
+            // Handle archived items only if it's an incremental refresh
+            if (nango.lastSyncDate) {
+                const archivedItems = qItems.filter((item) => !item.Active);
+                const mappedArchivedItems = archivedItems.map(toItem);
+                await nango.batchDelete(mappedArchivedItems, 'Item');
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

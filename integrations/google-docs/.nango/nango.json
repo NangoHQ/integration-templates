@@ -1,26 +1,33 @@
 [
-    {
-        "providerConfigKey": "google-docs",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "fetch-document",
-                "type": "action",
-                "description": "Fetches the content of a document given its ID.",
-                "version": "1.0.0",
-                "scopes": ["https://www.googleapis.com/auth/documents.readonly"],
-                "input": "DocumentId",
-                "output": ["Document"],
-                "usedModels": ["Document", "DocumentId"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-document"
-                }
-            }
+  {
+    "providerConfigKey": "google-docs",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetches the content of a document given its ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-document"
+        },
+        "input": "ActionInput_google_docs_fetchdocument",
+        "name": "fetch-document",
+        "output": [
+          "ActionOutput_google_docs_fetchdocument"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [
+          "https://www.googleapis.com/auth/documents.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_docs_fetchdocument",
+          "ActionOutput_google_docs_fetchdocument"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

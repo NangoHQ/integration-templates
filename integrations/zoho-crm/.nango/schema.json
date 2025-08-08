@@ -1,920 +1,1016 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "ZohoCRMAccount": {
-            "type": "object",
-            "properties": {
-                "Owner": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$currency_symbol": {
-                    "type": "string"
-                },
-                "$field_states": {
-                    "type": "string"
-                },
-                "Account_Type": {
-                    "type": "string"
-                },
-                "SIC_Code": {
-                    "type": "string"
-                },
-                "Last_Activity_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Industry": {
-                    "type": "string"
-                },
-                "Account_Site": {
-                    "type": "string"
-                },
-                "$state": {
-                    "type": "string"
-                },
-                "$process_flow": {
-                    "type": "boolean"
-                },
-                "Billing_Country": {
-                    "type": "string"
-                },
-                "$locked_for_me": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "$approved": {
-                    "type": "boolean"
-                },
-                "$approval": {
-                    "type": "object",
-                    "properties": {
-                        "delegate": {
-                            "type": "boolean"
-                        },
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["delegate", "approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Billing_Street": {
-                    "type": "string"
-                },
-                "Created_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "$editable": {
-                    "type": "boolean"
-                },
-                "Billing_Code": {
-                    "type": "string"
-                },
-                "Shipping_City": {
-                    "type": "string"
-                },
-                "Shipping_Country": {
-                    "type": "string"
-                },
-                "Shipping_Code": {
-                    "type": "string"
-                },
-                "Billing_City": {
-                    "type": "string"
-                },
-                "Created_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$zia_owner_assignment": {
-                    "type": "string"
-                },
-                "Annual_Revenue": {
-                    "type": "number"
-                },
-                "Shipping_Street": {
-                    "type": "string"
-                },
-                "Ownership": {
-                    "type": "string"
-                },
-                "Description": {
-                    "type": "string"
-                },
-                "Rating": {
-                    "type": "number"
-                },
-                "Shipping_State": {
-                    "type": "string"
-                },
-                "$review_process": {
-                    "type": "object",
-                    "properties": {
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Website": {
-                    "type": "string"
-                },
-                "Employees": {
-                    "type": "number"
-                },
-                "Record_Image": {
-                    "type": "string"
-                },
-                "Modified_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$review": {
-                    "type": "string"
-                },
-                "Phone": {
-                    "type": "string"
-                },
-                "Account_Name": {
-                    "type": "string"
-                },
-                "Account_Number": {
-                    "type": "string"
-                },
-                "Ticker_Symbol": {
-                    "type": "string"
-                },
-                "Modified_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "$orchestration": {
-                    "type": "boolean"
-                },
-                "Parent_Account": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "$in_merge": {
-                    "type": "boolean"
-                },
-                "Locked__s": {
-                    "type": "boolean"
-                },
-                "Billing_State": {
-                    "type": "string"
-                },
-                "Tag": {
-                    "type": "array",
-                    "items": {}
-                },
-                "Fax": {
-                    "type": "string"
-                },
-                "$approval_state": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Owner",
-                "$currency_symbol",
-                "$field_states",
-                "Account_Type",
-                "SIC_Code",
-                "Last_Activity_Time",
-                "Industry",
-                "Account_Site",
-                "$state",
-                "$process_flow",
-                "Billing_Country",
-                "$locked_for_me",
-                "id",
-                "$approved",
-                "$approval",
-                "Billing_Street",
-                "Created_Time",
-                "$editable",
-                "Billing_Code",
-                "Shipping_City",
-                "Shipping_Country",
-                "Shipping_Code",
-                "Billing_City",
-                "Created_By",
-                "$zia_owner_assignment",
-                "Annual_Revenue",
-                "Shipping_Street",
-                "Ownership",
-                "Description",
-                "Rating",
-                "Shipping_State",
-                "$review_process",
-                "Website",
-                "Employees",
-                "Record_Image",
-                "Modified_By",
-                "$review",
-                "Phone",
-                "Account_Name",
-                "Account_Number",
-                "Ticker_Symbol",
-                "Modified_Time",
-                "$orchestration",
-                "Parent_Account",
-                "$in_merge",
-                "Locked__s",
-                "Billing_State",
-                "Tag",
-                "Fax",
-                "$approval_state"
-            ],
-            "additionalProperties": false
-        },
-        "ZohoCRMContact": {
-            "type": "object",
-            "properties": {
-                "Owner": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "Email": {
-                    "type": "string"
-                },
-                "$currency_symbol": {
-                    "type": "string"
-                },
-                "$field_states": {
-                    "type": "string"
-                },
-                "Other_Phone": {
-                    "type": "string"
-                },
-                "Mailing_State": {
-                    "type": "string"
-                },
-                "Other_State": {
-                    "type": "string"
-                },
-                "Other_Country": {
-                    "type": "string"
-                },
-                "Last_Activity_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Department": {
-                    "type": "string"
-                },
-                "$state": {
-                    "type": "string"
-                },
-                "Unsubscribed_Mode": {
-                    "type": "string"
-                },
-                "$process_flow": {
-                    "type": "boolean"
-                },
-                "Assistant": {
-                    "type": "string"
-                },
-                "Mailing_Country": {
-                    "type": "string"
-                },
-                "$locked_for_me": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "$approved": {
-                    "type": "boolean"
-                },
-                "Reporting_To": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "$approval": {
-                    "type": "object",
-                    "properties": {
-                        "delegate": {
-                            "type": "boolean"
-                        },
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["delegate", "approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Other_City": {
-                    "type": "string"
-                },
-                "Created_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "$editable": {
-                    "type": "boolean"
-                },
-                "Home_Phone": {
-                    "type": "string"
-                },
-                "Created_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$zia_owner_assignment": {
-                    "type": "string"
-                },
-                "Secondary_Email": {
-                    "type": "string"
-                },
-                "Description": {
-                    "type": "string"
-                },
-                "Vendor_Name": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "Mailing_Zip": {
-                    "type": "string"
-                },
-                "$review_process": {
-                    "type": "object",
-                    "properties": {
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Twitter": {
-                    "type": "string"
-                },
-                "Other_Zip": {
-                    "type": "string"
-                },
-                "Mailing_Street": {
-                    "type": "string"
-                },
-                "Salutation": {
-                    "type": "string"
-                },
-                "First_Name": {
-                    "type": "string"
-                },
-                "Full_Name": {
-                    "type": "string"
-                },
-                "Asst_Phone": {
-                    "type": "string"
-                },
-                "Record_Image": {
-                    "type": "string"
-                },
-                "Modified_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$review": {
-                    "type": "boolean"
-                },
-                "Skype_ID": {
-                    "type": "string"
-                },
-                "Phone": {
-                    "type": "string"
-                },
-                "Account_Name": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "Email_Opt_Out": {
-                    "type": "boolean"
-                },
-                "Modified_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Date_of_Birth": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Mailing_City": {
-                    "type": "string"
-                },
-                "Unsubscribed_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Title": {
-                    "type": "string"
-                },
-                "Other_Street": {
-                    "type": "string"
-                },
-                "Mobile": {
-                    "type": "string"
-                },
-                "$orchestration": {
-                    "type": "boolean"
-                },
-                "Last_Name": {
-                    "type": "string"
-                },
-                "$in_merge": {
-                    "type": "boolean"
-                },
-                "Locked__s": {
-                    "type": "boolean"
-                },
-                "Lead_Source": {
-                    "type": "string"
-                },
-                "Tag": {
-                    "type": "array",
-                    "items": {}
-                },
-                "Fax": {
-                    "type": "string"
-                },
-                "$approval_state": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Owner",
-                "Email",
-                "$currency_symbol",
-                "$field_states",
-                "Other_Phone",
-                "Mailing_State",
-                "Other_State",
-                "Other_Country",
-                "Last_Activity_Time",
-                "Department",
-                "$state",
-                "Unsubscribed_Mode",
-                "$process_flow",
-                "Assistant",
-                "Mailing_Country",
-                "$locked_for_me",
-                "id",
-                "$approved",
-                "Reporting_To",
-                "$approval",
-                "Other_City",
-                "Created_Time",
-                "$editable",
-                "Home_Phone",
-                "Created_By",
-                "$zia_owner_assignment",
-                "Secondary_Email",
-                "Description",
-                "Vendor_Name",
-                "Mailing_Zip",
-                "$review_process",
-                "Twitter",
-                "Other_Zip",
-                "Mailing_Street",
-                "Salutation",
-                "First_Name",
-                "Full_Name",
-                "Asst_Phone",
-                "Record_Image",
-                "Modified_By",
-                "$review",
-                "Skype_ID",
-                "Phone",
-                "Account_Name",
-                "Email_Opt_Out",
-                "Modified_Time",
-                "Date_of_Birth",
-                "Mailing_City",
-                "Unsubscribed_Time",
-                "Title",
-                "Other_Street",
-                "Mobile",
-                "$orchestration",
-                "Last_Name",
-                "$in_merge",
-                "Locked__s",
-                "Lead_Source",
-                "Tag",
-                "Fax",
-                "$approval_state"
-            ],
-            "additionalProperties": false
-        },
-        "ZohoCRMDeal": {
-            "type": "object",
-            "properties": {
-                "Owner": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "Description": {
-                    "type": "string"
-                },
-                "$currency_symbol": {
-                    "type": "string"
-                },
-                "Campaign_Source": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "$field_states": {
-                    "type": "string"
-                },
-                "$review_process": {
-                    "type": "object",
-                    "properties": {
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Closing_Date": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Reason_For_Loss__s": {
-                    "type": "string"
-                },
-                "Last_Activity_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Modified_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "$review": {
-                    "type": "string"
-                },
-                "Lead_Conversion_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "$state": {
-                    "type": "string"
-                },
-                "$process_flow": {
-                    "type": "boolean"
-                },
-                "Deal_Name": {
-                    "type": "string"
-                },
-                "Expected_Revenue": {
-                    "type": "number"
-                },
-                "Overall_Sales_Duration": {
-                    "type": "number"
-                },
-                "Stage": {
-                    "type": "string"
-                },
-                "$locked_for_me": {
-                    "type": "boolean"
-                },
-                "Account_Name": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "id": {
-                    "type": "string"
-                },
-                "$approved": {
-                    "type": "boolean"
-                },
-                "$approval": {
-                    "type": "object",
-                    "properties": {
-                        "delegate": {
-                            "type": "boolean"
-                        },
-                        "approve": {
-                            "type": "boolean"
-                        },
-                        "reject": {
-                            "type": "boolean"
-                        },
-                        "resubmit": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["delegate", "approve", "reject", "resubmit"],
-                    "additionalProperties": false
-                },
-                "Modified_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Created_Time": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Amount": {
-                    "type": "number"
-                },
-                "Next_Step": {
-                    "type": "string"
-                },
-                "Probability": {
-                    "type": "number"
-                },
-                "$editable": {
-                    "type": "boolean"
-                },
-                "$orchestration": {
-                    "type": "boolean"
-                },
-                "Contact_Name": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id"],
-                    "additionalProperties": false
-                },
-                "Sales_Cycle_Duration": {
-                    "type": "number"
-                },
-                "Type": {
-                    "type": "string"
-                },
-                "$in_merge": {
-                    "type": "boolean"
-                },
-                "Locked__s": {
-                    "type": "boolean"
-                },
-                "Lead_Source": {
-                    "type": "string"
-                },
-                "Created_By": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "id", "email"],
-                    "additionalProperties": false
-                },
-                "Tag": {
-                    "type": "array",
-                    "items": {}
-                },
-                "$zia_owner_assignment": {
-                    "type": "string"
-                },
-                "$approval_state": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Owner",
-                "Description",
-                "$currency_symbol",
-                "Campaign_Source",
-                "$field_states",
-                "$review_process",
-                "Closing_Date",
-                "Reason_For_Loss__s",
-                "Last_Activity_Time",
-                "Modified_By",
-                "$review",
-                "Lead_Conversion_Time",
-                "$state",
-                "$process_flow",
-                "Deal_Name",
-                "Expected_Revenue",
-                "Overall_Sales_Duration",
-                "Stage",
-                "$locked_for_me",
-                "Account_Name",
-                "id",
-                "$approved",
-                "$approval",
-                "Modified_Time",
-                "Created_Time",
-                "Amount",
-                "Next_Step",
-                "Probability",
-                "$editable",
-                "$orchestration",
-                "Contact_Name",
-                "Sales_Cycle_Duration",
-                "Type",
-                "$in_merge",
-                "Locked__s",
-                "Lead_Source",
-                "Created_By",
-                "Tag",
-                "$zia_owner_assignment",
-                "$approval_state"
-            ],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_zoho_crm_accounts": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "ZohoCRMAccount": {
+      "type": "object",
+      "properties": {
+        "Owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$currency_symbol": {
+          "type": "string"
+        },
+        "$field_states": {
+          "type": "string"
+        },
+        "Account_Type": {
+          "type": "string"
+        },
+        "SIC_Code": {
+          "type": "string"
+        },
+        "Last_Activity_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Industry": {
+          "type": "string"
+        },
+        "Account_Site": {
+          "type": "string"
+        },
+        "$state": {
+          "type": "string"
+        },
+        "$process_flow": {
+          "type": "boolean"
+        },
+        "Billing_Country": {
+          "type": "string"
+        },
+        "$locked_for_me": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "$approved": {
+          "type": "boolean"
+        },
+        "$approval": {
+          "type": "object",
+          "properties": {
+            "delegate": {
+              "type": "boolean"
+            },
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "delegate",
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Billing_Street": {
+          "type": "string"
+        },
+        "Created_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "$editable": {
+          "type": "boolean"
+        },
+        "Billing_Code": {
+          "type": "string"
+        },
+        "Shipping_City": {
+          "type": "string"
+        },
+        "Shipping_Country": {
+          "type": "string"
+        },
+        "Shipping_Code": {
+          "type": "string"
+        },
+        "Billing_City": {
+          "type": "string"
+        },
+        "Created_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$zia_owner_assignment": {
+          "type": "string"
+        },
+        "Annual_Revenue": {
+          "type": "number"
+        },
+        "Shipping_Street": {
+          "type": "string"
+        },
+        "Ownership": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Rating": {
+          "type": "number"
+        },
+        "Shipping_State": {
+          "type": "string"
+        },
+        "$review_process": {
+          "type": "object",
+          "properties": {
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Website": {
+          "type": "string"
+        },
+        "Employees": {
+          "type": "number"
+        },
+        "Record_Image": {
+          "type": "string"
+        },
+        "Modified_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$review": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "Account_Name": {
+          "type": "string"
+        },
+        "Account_Number": {
+          "type": "string"
+        },
+        "Ticker_Symbol": {
+          "type": "string"
+        },
+        "Modified_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "$orchestration": {
+          "type": "boolean"
+        },
+        "Parent_Account": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "$in_merge": {
+          "type": "boolean"
+        },
+        "Locked__s": {
+          "type": "boolean"
+        },
+        "Billing_State": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "array",
+          "items": {}
+        },
+        "Fax": {
+          "type": "string"
+        },
+        "$approval_state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Owner",
+        "$currency_symbol",
+        "$field_states",
+        "Account_Type",
+        "SIC_Code",
+        "Last_Activity_Time",
+        "Industry",
+        "Account_Site",
+        "$state",
+        "$process_flow",
+        "Billing_Country",
+        "$locked_for_me",
+        "id",
+        "$approved",
+        "$approval",
+        "Billing_Street",
+        "Created_Time",
+        "$editable",
+        "Billing_Code",
+        "Shipping_City",
+        "Shipping_Country",
+        "Shipping_Code",
+        "Billing_City",
+        "Created_By",
+        "$zia_owner_assignment",
+        "Annual_Revenue",
+        "Shipping_Street",
+        "Ownership",
+        "Description",
+        "Rating",
+        "Shipping_State",
+        "$review_process",
+        "Website",
+        "Employees",
+        "Record_Image",
+        "Modified_By",
+        "$review",
+        "Phone",
+        "Account_Name",
+        "Account_Number",
+        "Ticker_Symbol",
+        "Modified_Time",
+        "$orchestration",
+        "Parent_Account",
+        "$in_merge",
+        "Locked__s",
+        "Billing_State",
+        "Tag",
+        "Fax",
+        "$approval_state"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoho_crm_contacts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ZohoCRMContact": {
+      "type": "object",
+      "properties": {
+        "Owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "Email": {
+          "type": "string"
+        },
+        "$currency_symbol": {
+          "type": "string"
+        },
+        "$field_states": {
+          "type": "string"
+        },
+        "Other_Phone": {
+          "type": "string"
+        },
+        "Mailing_State": {
+          "type": "string"
+        },
+        "Other_State": {
+          "type": "string"
+        },
+        "Other_Country": {
+          "type": "string"
+        },
+        "Last_Activity_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Department": {
+          "type": "string"
+        },
+        "$state": {
+          "type": "string"
+        },
+        "Unsubscribed_Mode": {
+          "type": "string"
+        },
+        "$process_flow": {
+          "type": "boolean"
+        },
+        "Assistant": {
+          "type": "string"
+        },
+        "Mailing_Country": {
+          "type": "string"
+        },
+        "$locked_for_me": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "$approved": {
+          "type": "boolean"
+        },
+        "Reporting_To": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "$approval": {
+          "type": "object",
+          "properties": {
+            "delegate": {
+              "type": "boolean"
+            },
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "delegate",
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Other_City": {
+          "type": "string"
+        },
+        "Created_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "$editable": {
+          "type": "boolean"
+        },
+        "Home_Phone": {
+          "type": "string"
+        },
+        "Created_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$zia_owner_assignment": {
+          "type": "string"
+        },
+        "Secondary_Email": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Vendor_Name": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "Mailing_Zip": {
+          "type": "string"
+        },
+        "$review_process": {
+          "type": "object",
+          "properties": {
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Twitter": {
+          "type": "string"
+        },
+        "Other_Zip": {
+          "type": "string"
+        },
+        "Mailing_Street": {
+          "type": "string"
+        },
+        "Salutation": {
+          "type": "string"
+        },
+        "First_Name": {
+          "type": "string"
+        },
+        "Full_Name": {
+          "type": "string"
+        },
+        "Asst_Phone": {
+          "type": "string"
+        },
+        "Record_Image": {
+          "type": "string"
+        },
+        "Modified_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$review": {
+          "type": "boolean"
+        },
+        "Skype_ID": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "Account_Name": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "Email_Opt_Out": {
+          "type": "boolean"
+        },
+        "Modified_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Date_of_Birth": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Mailing_City": {
+          "type": "string"
+        },
+        "Unsubscribed_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Other_Street": {
+          "type": "string"
+        },
+        "Mobile": {
+          "type": "string"
+        },
+        "$orchestration": {
+          "type": "boolean"
+        },
+        "Last_Name": {
+          "type": "string"
+        },
+        "$in_merge": {
+          "type": "boolean"
+        },
+        "Locked__s": {
+          "type": "boolean"
+        },
+        "Lead_Source": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "array",
+          "items": {}
+        },
+        "Fax": {
+          "type": "string"
+        },
+        "$approval_state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Owner",
+        "Email",
+        "$currency_symbol",
+        "$field_states",
+        "Other_Phone",
+        "Mailing_State",
+        "Other_State",
+        "Other_Country",
+        "Last_Activity_Time",
+        "Department",
+        "$state",
+        "Unsubscribed_Mode",
+        "$process_flow",
+        "Assistant",
+        "Mailing_Country",
+        "$locked_for_me",
+        "id",
+        "$approved",
+        "Reporting_To",
+        "$approval",
+        "Other_City",
+        "Created_Time",
+        "$editable",
+        "Home_Phone",
+        "Created_By",
+        "$zia_owner_assignment",
+        "Secondary_Email",
+        "Description",
+        "Vendor_Name",
+        "Mailing_Zip",
+        "$review_process",
+        "Twitter",
+        "Other_Zip",
+        "Mailing_Street",
+        "Salutation",
+        "First_Name",
+        "Full_Name",
+        "Asst_Phone",
+        "Record_Image",
+        "Modified_By",
+        "$review",
+        "Skype_ID",
+        "Phone",
+        "Account_Name",
+        "Email_Opt_Out",
+        "Modified_Time",
+        "Date_of_Birth",
+        "Mailing_City",
+        "Unsubscribed_Time",
+        "Title",
+        "Other_Street",
+        "Mobile",
+        "$orchestration",
+        "Last_Name",
+        "$in_merge",
+        "Locked__s",
+        "Lead_Source",
+        "Tag",
+        "Fax",
+        "$approval_state"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoho_crm_deals": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ZohoCRMDeal": {
+      "type": "object",
+      "properties": {
+        "Owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "Description": {
+          "type": "string"
+        },
+        "$currency_symbol": {
+          "type": "string"
+        },
+        "Campaign_Source": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "$field_states": {
+          "type": "string"
+        },
+        "$review_process": {
+          "type": "object",
+          "properties": {
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Closing_Date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Reason_For_Loss__s": {
+          "type": "string"
+        },
+        "Last_Activity_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Modified_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "$review": {
+          "type": "string"
+        },
+        "Lead_Conversion_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "$state": {
+          "type": "string"
+        },
+        "$process_flow": {
+          "type": "boolean"
+        },
+        "Deal_Name": {
+          "type": "string"
+        },
+        "Expected_Revenue": {
+          "type": "number"
+        },
+        "Overall_Sales_Duration": {
+          "type": "number"
+        },
+        "Stage": {
+          "type": "string"
+        },
+        "$locked_for_me": {
+          "type": "boolean"
+        },
+        "Account_Name": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "id": {
+          "type": "string"
+        },
+        "$approved": {
+          "type": "boolean"
+        },
+        "$approval": {
+          "type": "object",
+          "properties": {
+            "delegate": {
+              "type": "boolean"
+            },
+            "approve": {
+              "type": "boolean"
+            },
+            "reject": {
+              "type": "boolean"
+            },
+            "resubmit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "delegate",
+            "approve",
+            "reject",
+            "resubmit"
+          ],
+          "additionalProperties": false
+        },
+        "Modified_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Created_Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Amount": {
+          "type": "number"
+        },
+        "Next_Step": {
+          "type": "string"
+        },
+        "Probability": {
+          "type": "number"
+        },
+        "$editable": {
+          "type": "boolean"
+        },
+        "$orchestration": {
+          "type": "boolean"
+        },
+        "Contact_Name": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "Sales_Cycle_Duration": {
+          "type": "number"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "$in_merge": {
+          "type": "boolean"
+        },
+        "Locked__s": {
+          "type": "boolean"
+        },
+        "Lead_Source": {
+          "type": "string"
+        },
+        "Created_By": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "Tag": {
+          "type": "array",
+          "items": {}
+        },
+        "$zia_owner_assignment": {
+          "type": "string"
+        },
+        "$approval_state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Owner",
+        "Description",
+        "$currency_symbol",
+        "Campaign_Source",
+        "$field_states",
+        "$review_process",
+        "Closing_Date",
+        "Reason_For_Loss__s",
+        "Last_Activity_Time",
+        "Modified_By",
+        "$review",
+        "Lead_Conversion_Time",
+        "$state",
+        "$process_flow",
+        "Deal_Name",
+        "Expected_Revenue",
+        "Overall_Sales_Duration",
+        "Stage",
+        "$locked_for_me",
+        "Account_Name",
+        "id",
+        "$approved",
+        "$approval",
+        "Modified_Time",
+        "Created_Time",
+        "Amount",
+        "Next_Step",
+        "Probability",
+        "$editable",
+        "$orchestration",
+        "Contact_Name",
+        "Sales_Cycle_Duration",
+        "Type",
+        "$in_merge",
+        "Locked__s",
+        "Lead_Source",
+        "Created_By",
+        "Tag",
+        "$zia_owner_assignment",
+        "$approval_state"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

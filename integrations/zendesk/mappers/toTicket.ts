@@ -1,5 +1,5 @@
 import type { ZendeskUser, ZendeskTicket } from '../types.js';
-import type { SearchTicket } from '../../models.js';
+import type { SearchTicket } from '../models.js';
 
 export function toTicket(ticket: ZendeskTicket, users: ZendeskUser[]): SearchTicket {
     const requester = users.find((user) => user.id === ticket.requester_id);

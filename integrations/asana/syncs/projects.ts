@@ -1,24 +1,53 @@
-import type { NangoSync, BaseAsanaModel, AsanaProject } from '../../models.js';
+import { createSync } from 'nango';
+import type { BaseAsanaModel } from '../models.js';
+import { AsanaProject } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    for await (const workspaces of nango.paginate<BaseAsanaModel>({ endpoint: '/api/1.0/workspaces', params: { limit: 100 }, retries: 10 })) {
-        for (const workspace of workspaces) {
-            for await (const projects of nango.paginate<BaseAsanaModel>({
-                endpoint: '/api/1.0/projects',
-                params: {
-                    workspace: workspace.gid,
-                    limit: 100
-                },
-                retries: 10
-            })) {
-                const projectsWithId = projects.map((project) => {
-                    return {
-                        ...project,
-                        id: project.gid
-                    };
-                });
-                await nango.batchSave<AsanaProject>(projectsWithId, 'AsanaProject');
+const sync = createSync({
+    description: 'Retrieves all projects for a user',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/projects',
+            group: 'Projects'
+        }
+    ],
+
+    models: {
+        AsanaProject: AsanaProject
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        for await (const workspaces of nango.paginate<BaseAsanaModel>({ endpoint: '/api/1.0/workspaces', params: { limit: 100 }, retries: 10 })) {
+            for (const workspace of workspaces) {
+                for await (const projects of nango.paginate<BaseAsanaModel>({
+                    endpoint: '/api/1.0/projects',
+                    params: {
+                        workspace: workspace.gid,
+                        limit: 100
+                    },
+                    retries: 10
+                })) {
+                    const projectsWithId = projects.map((project) => {
+                        return {
+                            ...project,
+                            id: project.gid
+                        };
+                    });
+                    await nango.batchSave(projectsWithId, 'AsanaProject');
+                }
             }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

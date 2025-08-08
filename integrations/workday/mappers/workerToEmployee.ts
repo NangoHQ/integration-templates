@@ -1,4 +1,5 @@
-import type { NangoSync, Employee } from '../../models.js';
+import type { NangoSync } from 'nango';
+import type { Employee } from '../models.js';
 import type { ResponseWorkdayWorker } from '../types.js';
 
 export async function workerToEmployee(worker: ResponseWorkdayWorker, nango: NangoSync): Promise<Employee | null> {

@@ -1,14 +1,48 @@
-import type { NangoSync, RecruiterFlowCandidateActivityType, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowCandidateActivityType } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activity_type_list
-        endpoint: '/api/external/candidate/activity-type/list',
-        retries: 10
-    };
+const sync = createSync({
+    description: 'Syncs all candidate activity types from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const response = await nango.get<{ data: RecruiterFlowCandidateActivityType[] }>(proxyConfig);
-    const activityTypes = response.data.data;
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/candidate-activity-types',
+            group: 'Candidates'
+        }
+    ],
 
-    await nango.batchSave(activityTypes, 'RecruiterFlowCandidateActivityType');
-}
+    models: {
+        RecruiterFlowCandidateActivityType: RecruiterFlowCandidateActivityType
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activity_type_list
+            endpoint: '/api/external/candidate/activity-type/list',
+            retries: 10
+        };
+
+        const response = await nango.get<{ data: RecruiterFlowCandidateActivityType[] }>(proxyConfig);
+        const activityTypes = response.data.data;
+
+        const updatedActivityTypes = activityTypes.map((activityType) => ({
+            ...activityType,
+            id: activityType.id.toString()
+        }));
+
+        await nango.batchSave(updatedActivityTypes, 'RecruiterFlowCandidateActivityType');
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

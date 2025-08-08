@@ -1,5 +1,8 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes a Haverst user.
@@ -18,18 +21,36 @@ import { idEntitySchema } from '../schema.zod.js';
  * For detailed endpoint documentation, refer to:
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+const action = createAction({
+    description: 'Deletes a user in Harvest',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
-        endpoint: `/v2/users/${parsedInput.data.id}`,
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
+    },
 
-    await nango.delete(config);
+    input: IdEntity,
+    output: SuccessResponse,
+    scopes: ['administrator'],
 
-    return {
-        success: true
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+        const config: ProxyConfiguration = {
+            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
+            endpoint: `/v2/users/${parsedInput.data.id}`,
+            retries: 3
+        };
+
+        await nango.delete(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

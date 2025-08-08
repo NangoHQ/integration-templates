@@ -1,597 +1,849 @@
 [
-    {
-        "providerConfigKey": "hubspot",
-        "syncs": [
-            {
-                "name": "service-tickets",
-                "type": "sync",
-                "description": "Fetches a list of service tickets from Hubspot",
-                "sync_type": "incremental",
-                "usedModels": ["HubspotServiceTicket"],
-                "runs": "every half hour",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["HubspotServiceTicket"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/service-tickets"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "contacts",
-                "type": "sync",
-                "description": "Fetches a list of contacts from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["Contact"],
-                "runs": "every day",
-                "version": "2.0.2",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Contact"],
-                "scopes": ["crm.objects.contacts.read", "oauth"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/contacts",
-                        "group": "Contacts"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "companies",
-                "type": "sync",
-                "description": "Fetches a list of companies from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["Company"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Company"],
-                "scopes": ["crm.objects.companies.read", "oauth"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/companies",
-                        "group": "Companies"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "deals",
-                "type": "sync",
-                "description": "Fetches a list of deals from Hubspot with their associated companies and contacts",
-                "sync_type": "full",
-                "usedModels": ["Deal", "ReturnedAssociations", "AssociationCompany", "AssociationContact", "AssociationDeal"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Deal"],
-                "scopes": ["crm.objects.deals.read", "oauth", "e-commerce (standard scope)", "crm.objects.line_items.read (granular scope)"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/deals",
-                        "group": "Deals"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "products",
-                "type": "sync",
-                "description": "Fetches a list of products from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["Product"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Product"],
-                "scopes": ["e-commerce"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/products",
-                        "group": "Products"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "owners",
-                "type": "sync",
-                "description": "Fetches a list of owners from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["HubspotOwner"],
-                "runs": "every day",
-                "version": "1.0.1",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["HubspotOwner"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/owners",
-                        "group": "Owners"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "1.0.3",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["oauth", "settings.users.read (standard scope)", "crm.objects.users.read (granular scope)"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "knowledge-base",
-                "type": "sync",
-                "description": "Fetches a list of knowledge base from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["HubspotKnowledgeBase"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["HubspotKnowledgeBase"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/knowledge-base"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "tasks",
-                "type": "sync",
-                "description": "Fetches a list of tasks from Hubspot",
-                "sync_type": "full",
-                "usedModels": ["Task", "ReturnedAssociations", "AssociationCompany", "AssociationContact", "AssociationDeal"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Task"],
-                "scopes": ["crm.objects.contacts.read", "oauth"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/tasks",
-                        "group": "Tasks"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "currency-codes",
-                "type": "sync",
-                "description": "Fetch hubspot deals",
-                "sync_type": "full",
-                "usedModels": ["CurrencyCode"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["CurrencyCode"],
-                "scopes": ["oauth", "settings.currencies.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/currency-codes"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "hubspot",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetch current user information",
+        "endpoint": {
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
+        },
+        "input": "ActionInput_hubspot_whoami",
+        "name": "whoami",
+        "output": [
+          "ActionOutput_hubspot_whoami"
         ],
-        "actions": [
-            {
-                "name": "whoami",
-                "type": "action",
-                "description": "Fetch current user information",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": null,
-                "output": ["UserInformation"],
-                "usedModels": ["UserInformation"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/whoami",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "fetch-properties",
-                "type": "action",
-                "description": "Fetch the properties of a specified object",
-                "version": "1.0.2",
-                "scopes": [
-                    "oauth",
-                    "media_bridge.read",
-                    "crm.objects.marketing_events.write",
-                    "crm.schemas.custom.read",
-                    "crm.pipelines.orders.read",
-                    "tickets",
-                    "crm.objects.feedback_submissions.read",
-                    "crm.objects.goals.read",
-                    "crm.objects.custom.write",
-                    "crm.objects.custom.read",
-                    "crm.objects.marketing_events.read",
-                    "timeline",
-                    "e-commerce",
-                    "automation"
-                ],
-                "input": "InputProperty",
-                "output": ["PropertyResponse"],
-                "usedModels": ["PropertyResponse", "Property", "InputProperty"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/properties",
-                    "group": "Properties"
-                }
-            },
-            {
-                "name": "create-property",
-                "type": "action",
-                "description": "Create a property in Hubspot",
-                "version": "1.0.0",
-                "scopes": [
-                    "oauth",
-                    "crm.schemas.orders.write",
-                    "crm.objects.orders.write",
-                    "crm.schemas.contacts.write",
-                    "crm.schemas.carts.write",
-                    "crm.schemas.deals.write",
-                    "crm.objects.users.write",
-                    "crm.schemas.companies.write",
-                    "crm.objects.carts.write"
-                ],
-                "input": "CreatePropertyInput",
-                "output": ["CreatedProperty"],
-                "usedModels": ["CreatedProperty", "CreatePropertyInput", "CustomProperty", "CustomPropertyOption"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/properties",
-                    "group": "Properties"
-                }
-            },
-            {
-                "name": "create-deal",
-                "type": "action",
-                "description": "Creates a single deal in Hubspot",
-                "version": "1.0.0",
-                "scopes": ["oauth", "crm.objects.deals.write", "oauth"],
-                "input": "CreateDealInput",
-                "output": ["CreateUpdateDealOutput"],
-                "usedModels": ["CreateUpdateDealOutput", "CreateDealInput", "Association", "AssociationTypes"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/deals",
-                    "group": "Deals"
-                }
-            },
-            {
-                "name": "update-deal",
-                "type": "action",
-                "description": "Updates a single deal in Hubspot",
-                "version": "1.0.0",
-                "scopes": ["crm.objects.deals.write", "oauth"],
-                "input": "UpdateDealInput",
-                "output": ["CreateUpdateDealOutput"],
-                "usedModels": ["CreateUpdateDealOutput", "UpdateDealInput", "Association", "AssociationTypes"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/deal",
-                    "group": "Deals"
-                }
-            },
-            {
-                "name": "delete-deal",
-                "type": "action",
-                "description": "Deletes a deal in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.deals.write", "oauth"],
-                "input": "Id",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "Id"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/deal",
-                    "group": "Deals"
-                }
-            },
-            {
-                "name": "fetch-pipelines",
-                "type": "action",
-                "description": "Fetch all pipelines for an object type. Defaults to deals",
-                "version": "",
-                "scopes": ["oauth", "crm.objects.deals.read"],
-                "input": "OptionalObjectType",
-                "output": ["PipelineOutput"],
-                "usedModels": ["PipelineOutput", "Pipeline", "Stage", "OptionalObjectType"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/pipelines",
-                    "group": "Pipelines"
-                }
-            },
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a single user in Hubspot",
-                "version": "",
-                "scopes": ["oauth", "settings.users.write (standard scope)", "crm.objects.users.write (granular)"],
-                "input": "CreateUser",
-                "output": ["CreatedUser"],
-                "usedModels": ["CreatedUser", "CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Hubspot",
-                "version": "",
-                "scopes": ["oauth", "settings.users.write (standard scope)", "crm.objects.users.write (granular)"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "fetch-roles",
-                "type": "action",
-                "description": "Fetch the roles on an account. Requires an enterprise account.",
-                "version": "",
-                "scopes": ["oauth", "settings.users.read (standard scope)", "crm.objects.users.read (granular scope)"],
-                "input": null,
-                "output": ["RoleResponse"],
-                "usedModels": ["RoleResponse", "Role"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/roles",
-                    "group": "Roles"
-                }
-            },
-            {
-                "name": "change-user-role",
-                "type": "action",
-                "description": "Change a user role. Requires an enterprise account.",
-                "version": "",
-                "scopes": ["oauth", "settings.users.write (standard scope)", "crm.objects.users.write (granular scope)"],
-                "input": "UserRoleInput",
-                "output": ["ChangedRoleResponse"],
-                "usedModels": ["ChangedRoleResponse", "UserRoleInput"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/roles",
-                    "group": "Roles"
-                }
-            },
-            {
-                "name": "fetch-account-information",
-                "type": "action",
-                "description": "Fetch the account information from Hubspot",
-                "version": "",
-                "scopes": ["oauth"],
-                "input": null,
-                "output": ["Account"],
-                "usedModels": ["Account"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/account-information"
-                }
-            },
-            {
-                "name": "fetch-custom-objects",
-                "type": "action",
-                "description": "Fetch custom objects in Hubspot. Requires Hubspot enterprise",
-                "version": "",
-                "scopes": ["oauth", "crm.schemas.custom.read"],
-                "input": null,
-                "output": ["CustomObject"],
-                "usedModels": ["CustomObject"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/custom-objects"
-                }
-            },
-            {
-                "name": "create-contact",
-                "type": "action",
-                "description": "Create a single contact in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "CreateContactInput",
-                "output": ["CreateUpdateContactOutput"],
-                "usedModels": ["CreateUpdateContactOutput", "CreateContactInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/contact",
-                    "group": "Contacts"
-                }
-            },
-            {
-                "name": "update-contact",
-                "type": "action",
-                "description": "Updates a single contact in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "UpdateContactInput",
-                "output": ["CreateUpdateContactOutput"],
-                "usedModels": ["CreateUpdateContactOutput", "UpdateContactInput"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/contact",
-                    "group": "Contacts"
-                }
-            },
-            {
-                "name": "delete-contact",
-                "type": "action",
-                "description": "Deletes a contact in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "Id",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "Id"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/contact",
-                    "group": "Contacts"
-                }
-            },
-            {
-                "name": "create-company",
-                "type": "action",
-                "description": "Create a single company in Hubspot",
-                "version": "1.0.1",
-                "scopes": ["crm.objects.companies.write", "oauth"],
-                "input": "CreateCompanyInput",
-                "output": ["CreateUpdateCompanyOutput"],
-                "usedModels": ["CreateUpdateCompanyOutput", "CreateCompanyInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/companies",
-                    "group": "Companies"
-                }
-            },
-            {
-                "name": "update-company",
-                "type": "action",
-                "description": "Update a single company in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.companies.write", "oauth"],
-                "input": "UpdateCompanyInput",
-                "output": ["CreateUpdateCompanyOutput"],
-                "usedModels": ["CreateUpdateCompanyOutput", "UpdateCompanyInput"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/companies",
-                    "group": "Companies"
-                }
-            },
-            {
-                "name": "delete-company",
-                "type": "action",
-                "description": "Deletes a company in Hubspot",
-                "version": "1.0.2",
-                "scopes": ["crm.objects.companies.write", "oauth"],
-                "input": "Id",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "Id"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/companies",
-                    "group": "Companies"
-                }
-            },
-            {
-                "name": "create-task",
-                "type": "action",
-                "description": "Creates a single task in Hubspot",
-                "version": "1.0.1",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "CreateTaskInput",
-                "output": ["CreateUpdateTaskOutput"],
-                "usedModels": ["CreateUpdateTaskOutput", "Association", "AssociationTypes", "CreateTaskInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/tasks",
-                    "group": "Tasks"
-                }
-            },
-            {
-                "name": "update-task",
-                "type": "action",
-                "description": "Updates a single company in Hubspot",
-                "version": "1.0.1",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "CreateUpdateTaskOutput",
-                "output": ["UpdateTaskInput"],
-                "usedModels": ["UpdateTaskInput", "Association", "AssociationTypes", "CreateUpdateTaskOutput"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/tasks",
-                    "group": "Tasks"
-                }
-            },
-            {
-                "name": "delete-task",
-                "type": "action",
-                "description": "Deletes a task in Hubspot",
-                "version": "1.0.1",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "Id",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "Id"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/tasks",
-                    "group": "Tasks"
-                }
-            },
-            {
-                "name": "create-note",
-                "type": "action",
-                "description": "Creates a single note in Hubspot",
-                "version": "",
-                "scopes": ["crm.objects.contacts.write", "oauth"],
-                "input": "Note",
-                "output": ["Note"],
-                "usedModels": ["Note", "Association", "AssociationTypes"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/note"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_hubspot_whoami",
+          "ActionOutput_hubspot_whoami"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch the properties of a specified object",
+        "endpoint": {
+          "method": "GET",
+          "path": "/properties",
+          "group": "Properties"
+        },
+        "input": "ActionInput_hubspot_fetchproperties",
+        "name": "fetch-properties",
+        "output": [
+          "ActionOutput_hubspot_fetchproperties"
+        ],
+        "scopes": [
+          "oauth",
+          "media_bridge.read",
+          "crm.objects.marketing_events.write",
+          "crm.schemas.custom.read",
+          "crm.pipelines.orders.read",
+          "tickets",
+          "crm.objects.feedback_submissions.read",
+          "crm.objects.goals.read",
+          "crm.objects.custom.write",
+          "crm.objects.custom.read",
+          "crm.objects.marketing_events.read",
+          "timeline",
+          "e-commerce",
+          "automation"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchproperties",
+          "ActionOutput_hubspot_fetchproperties"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a property in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/properties",
+          "group": "Properties"
+        },
+        "input": "ActionInput_hubspot_createproperty",
+        "name": "create-property",
+        "output": [
+          "ActionOutput_hubspot_createproperty"
+        ],
+        "scopes": [
+          "oauth",
+          "crm.schemas.orders.write",
+          "crm.objects.orders.write",
+          "crm.schemas.contacts.write",
+          "crm.schemas.carts.write",
+          "crm.schemas.deals.write",
+          "crm.objects.users.write",
+          "crm.schemas.companies.write",
+          "crm.objects.carts.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createproperty",
+          "ActionOutput_hubspot_createproperty"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single deal in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/deals",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_createdeal",
+        "name": "create-deal",
+        "output": [
+          "ActionOutput_hubspot_createdeal"
+        ],
+        "scopes": [
+          "oauth",
+          "crm.objects.deals.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createdeal",
+          "ActionOutput_hubspot_createdeal"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single deal in Hubspot",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/deal",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_updatedeal",
+        "name": "update-deal",
+        "output": [
+          "ActionOutput_hubspot_updatedeal"
+        ],
+        "scopes": [
+          "crm.objects.deals.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updatedeal",
+          "ActionOutput_hubspot_updatedeal"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a deal in Hubspot",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/deal",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_deletedeal",
+        "name": "delete-deal",
+        "output": [
+          "ActionOutput_hubspot_deletedeal"
+        ],
+        "scopes": [
+          "crm.objects.deals.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deletedeal",
+          "ActionOutput_hubspot_deletedeal"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all pipelines for an object type. Defaults to deals",
+        "endpoint": {
+          "method": "GET",
+          "path": "/pipelines",
+          "group": "Pipelines"
+        },
+        "input": "ActionInput_hubspot_fetchpipelines",
+        "name": "fetch-pipelines",
+        "output": [
+          "ActionOutput_hubspot_fetchpipelines"
+        ],
+        "scopes": [
+          "oauth",
+          "crm.objects.deals.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchpipelines",
+          "ActionOutput_hubspot_fetchpipelines"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single user in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_hubspot_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_hubspot_createuser"
+        ],
+        "scopes": [
+          "oauth",
+          "settings.users.write (standard scope)",
+          "crm.objects.users.write (granular)"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createuser",
+          "ActionOutput_hubspot_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Hubspot",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_hubspot_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_hubspot_deleteuser"
+        ],
+        "scopes": [
+          "oauth",
+          "settings.users.write (standard scope)",
+          "crm.objects.users.write (granular)"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deleteuser",
+          "ActionOutput_hubspot_deleteuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch the roles on an account. Requires an enterprise account.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/roles",
+          "group": "Roles"
+        },
+        "input": "ActionInput_hubspot_fetchroles",
+        "name": "fetch-roles",
+        "output": [
+          "ActionOutput_hubspot_fetchroles"
+        ],
+        "scopes": [
+          "oauth",
+          "settings.users.read (standard scope)",
+          "crm.objects.users.read (granular scope)"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchroles",
+          "ActionOutput_hubspot_fetchroles"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Change a user role. Requires an enterprise account.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/roles",
+          "group": "Roles"
+        },
+        "input": "ActionInput_hubspot_changeuserrole",
+        "name": "change-user-role",
+        "output": [
+          "ActionOutput_hubspot_changeuserrole"
+        ],
+        "scopes": [
+          "oauth",
+          "settings.users.write (standard scope)",
+          "crm.objects.users.write (granular scope)"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_changeuserrole",
+          "ActionOutput_hubspot_changeuserrole"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch the account information from Hubspot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/account-information"
+        },
+        "input": "ActionInput_hubspot_fetchaccountinformation",
+        "name": "fetch-account-information",
+        "output": [
+          "ActionOutput_hubspot_fetchaccountinformation"
+        ],
+        "scopes": [
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchaccountinformation",
+          "ActionOutput_hubspot_fetchaccountinformation"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch custom objects in Hubspot. Requires Hubspot enterprise",
+        "endpoint": {
+          "method": "GET",
+          "path": "/custom-objects"
+        },
+        "input": "ActionInput_hubspot_fetchcustomobjects",
+        "name": "fetch-custom-objects",
+        "output": [
+          "ActionOutput_hubspot_fetchcustomobjects"
+        ],
+        "scopes": [
+          "oauth",
+          "crm.schemas.custom.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchcustomobjects",
+          "ActionOutput_hubspot_fetchcustomobjects"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a single contact in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contact",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_hubspot_createcontact"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createcontact",
+          "ActionOutput_hubspot_createcontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single contact in Hubspot",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/contact",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_updatecontact",
+        "name": "update-contact",
+        "output": [
+          "ActionOutput_hubspot_updatecontact"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updatecontact",
+          "ActionOutput_hubspot_updatecontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a contact in Hubspot",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/contact",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_deletecontact",
+        "name": "delete-contact",
+        "output": [
+          "ActionOutput_hubspot_deletecontact"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deletecontact",
+          "ActionOutput_hubspot_deletecontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a single company in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_createcompany",
+        "name": "create-company",
+        "output": [
+          "ActionOutput_hubspot_createcompany"
+        ],
+        "scopes": [
+          "crm.objects.companies.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createcompany",
+          "ActionOutput_hubspot_createcompany"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single company in Hubspot",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_updatecompany",
+        "name": "update-company",
+        "output": [
+          "ActionOutput_hubspot_updatecompany"
+        ],
+        "scopes": [
+          "crm.objects.companies.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updatecompany",
+          "ActionOutput_hubspot_updatecompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a company in Hubspot",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_deletecompany",
+        "name": "delete-company",
+        "output": [
+          "ActionOutput_hubspot_deletecompany"
+        ],
+        "scopes": [
+          "crm.objects.companies.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deletecompany",
+          "ActionOutput_hubspot_deletecompany"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single task in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_hubspot_createtask",
+        "name": "create-task",
+        "output": [
+          "ActionOutput_hubspot_createtask"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createtask",
+          "ActionOutput_hubspot_createtask"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single company in Hubspot",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_hubspot_updatetask",
+        "name": "update-task",
+        "output": [
+          "ActionOutput_hubspot_updatetask"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updatetask",
+          "ActionOutput_hubspot_updatetask"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a task in Hubspot",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_hubspot_deletetask",
+        "name": "delete-task",
+        "output": [
+          "ActionOutput_hubspot_deletetask"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deletetask",
+          "ActionOutput_hubspot_deletetask"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single note in Hubspot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/note"
+        },
+        "input": "ActionInput_hubspot_createnote",
+        "name": "create-note",
+        "output": [
+          "ActionOutput_hubspot_createnote"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createnote",
+          "ActionOutput_hubspot_createnote"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of service tickets from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/service-tickets"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_servicetickets",
+        "name": "service-tickets",
+        "output": [
+          "HubspotServiceTicket"
+        ],
+        "runs": "every half hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "HubspotServiceTicket",
+          "SyncMetadata_hubspot_servicetickets"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of contacts from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/contacts",
+            "group": "Contacts"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_contacts",
+        "name": "contacts",
+        "output": [
+          "Contact"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "crm.objects.contacts.read",
+          "oauth"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Contact",
+          "SyncMetadata_hubspot_contacts"
+        ],
+        "version": "3.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of companies from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/companies",
+            "group": "Companies"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_companies",
+        "name": "companies",
+        "output": [
+          "Company"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "crm.objects.companies.read",
+          "oauth"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Company",
+          "SyncMetadata_hubspot_companies"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of deals from Hubspot with their associated companies and contacts",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/deals",
+            "group": "Deals"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_deals",
+        "name": "deals",
+        "output": [
+          "Deal"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "crm.objects.deals.read",
+          "oauth",
+          "e-commerce (standard scope)",
+          "crm.objects.line_items.read (granular scope)"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Deal",
+          "SyncMetadata_hubspot_deals"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of products from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/products",
+            "group": "Products"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_products",
+        "name": "products",
+        "output": [
+          "Product"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "e-commerce"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Product",
+          "SyncMetadata_hubspot_products"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of owners from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/owners",
+            "group": "Owners"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_owners",
+        "name": "owners",
+        "output": [
+          "HubspotOwner"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "HubspotOwner",
+          "SyncMetadata_hubspot_owners"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "oauth",
+          "settings.users.read (standard scope)",
+          "crm.objects.users.read (granular scope)"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_hubspot_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of knowledge base from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/knowledge-base"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_knowledgebase",
+        "name": "knowledge-base",
+        "output": [
+          "HubspotKnowledgeBase"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "HubspotKnowledgeBase",
+          "SyncMetadata_hubspot_knowledgebase"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of tasks from Hubspot",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tasks",
+            "group": "Tasks"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_tasks",
+        "name": "tasks",
+        "output": [
+          "Task"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "crm.objects.contacts.read",
+          "oauth"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Task",
+          "SyncMetadata_hubspot_tasks"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch hubspot deals",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/currency-codes"
+          }
+        ],
+        "input": "SyncMetadata_hubspot_currencycodes",
+        "name": "currency-codes",
+        "output": [
+          "CurrencyCode"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "oauth",
+          "settings.currencies.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "CurrencyCode",
+          "SyncMetadata_hubspot_currencycodes"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

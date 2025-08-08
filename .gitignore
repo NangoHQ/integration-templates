@@ -2,7 +2,6 @@ node_modules/*
 .DS_Store
 .idea/*
 .env
-nango-integrations/*
 tsconfig.tsbuildinfo
 node_modules
 integrations/models.ts
@@ -11,4 +10,4 @@ integrations/**/nango-integrations
 tmp-run-integration-template
 build/
 dist/
-templates/.nango
+integrations/.nango

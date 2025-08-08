@@ -1,49 +1,69 @@
 [
-    {
-        "providerConfigKey": "linkedin",
-        "syncs": [
-            {
-                "name": "messages",
-                "type": "sync",
-                "description": "This sync captures all LinkedIn messages for a Linkedin member for archiving purposes",
-                "sync_type": "incremental",
-                "usedModels": ["LinkedInMessage", "LinkedInActivityData", "LinkedInMessageContent", "ContentClassification"],
-                "runs": "every 1h",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LinkedInMessage"],
-                "scopes": ["r_dma_portability_3rd_party"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/messages",
-                        "group": "messages"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "linkedin",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Create a linkedin post with an optional video",
+        "endpoint": {
+          "method": "POST",
+          "path": "/videos"
+        },
+        "input": "ActionInput_linkedin_post",
+        "name": "post",
+        "output": [
+          "ActionOutput_linkedin_post"
         ],
-        "actions": [
-            {
-                "name": "post",
-                "type": "action",
-                "description": "Create a linkedin post with an optional video",
-                "version": "",
-                "scopes": ["openid", "profile", "r_basicprofile", "w_member_social", "email", "w_organization_social", "r_organization_social"],
-                "input": "LinkedinVideoPost",
-                "output": ["CreateLinkedInPostWithVideoResponse"],
-                "usedModels": ["CreateLinkedInPostWithVideoResponse", "LinkedinVideoPost"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/videos"
-                }
-            }
+        "scopes": [
+          "openid",
+          "profile",
+          "r_basicprofile",
+          "w_member_social",
+          "email",
+          "w_organization_social",
+          "r_organization_social"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_linkedin_post",
+          "ActionOutput_linkedin_post"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "This sync captures all LinkedIn messages for a Linkedin member for archiving purposes",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/messages",
+            "group": "messages"
+          }
+        ],
+        "input": "SyncMetadata_linkedin_messages",
+        "name": "messages",
+        "output": [
+          "LinkedInMessage"
+        ],
+        "runs": "every 1h",
+        "scopes": [
+          "r_dma_portability_3rd_party"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "LinkedInMessage",
+          "SyncMetadata_linkedin_messages"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

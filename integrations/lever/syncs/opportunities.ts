@@ -1,31 +1,63 @@
-import type { LeverOpportunity, NangoSync } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { LeverOpportunity } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches all opportunities',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const endpoint = '/v1/opportunities';
-    const config = {
-        ...(nango.lastSyncDate ? { params: { created_at_start: nango.lastSyncDate.getTime() } } : {}),
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next',
-            cursor_name_in_request: 'offset',
-            limit_name_in_request: 'limit',
-            response_path: 'data',
-            limit: LIMIT
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/opportunities',
+            group: 'Opportunities'
         }
-    };
-    for await (const opportunity of nango.paginate({ ...config, endpoint })) {
-        const mappedOpportunity: LeverOpportunity[] = opportunity.map(mapOpportunity) || [];
+    ],
 
-        const batchSize: number = mappedOpportunity.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} opportunities (total opportunities: ${totalRecords})`);
-        await nango.batchSave(mappedOpportunity, 'LeverOpportunity');
+    scopes: ['opportunities:read:admin'],
+
+    models: {
+        LeverOpportunity: LeverOpportunity
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            ...(nango.lastSyncDate ? { params: { created_at_start: nango.lastSyncDate.getTime() } } : {}),
+            // https://hire.lever.co/developer/documentation#list-all-opportunities
+            endpoint: '/v1/opportunities',
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'next',
+                cursor_name_in_request: 'offset',
+                limit_name_in_request: 'limit',
+                response_path: 'data',
+                limit: LIMIT
+            }
+        };
+        for await (const opportunity of nango.paginate(config)) {
+            const mappedOpportunity: LeverOpportunity[] = opportunity.map(mapOpportunity) || [];
+
+            const batchSize: number = mappedOpportunity.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} opportunities (total opportunities: ${totalRecords})`);
+            await nango.batchSave(mappedOpportunity, 'LeverOpportunity');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapOpportunity(opportunity: any): LeverOpportunity {
     return {

@@ -1,54 +1,64 @@
 [
-    {
-        "providerConfigKey": "cal-com-v2",
-        "syncs": [
-            {
-                "name": "events",
-                "type": "sync",
-                "description": "Retrieve all upcoming events per a user",
-                "sync_type": "full",
-                "usedModels": ["Event", "Attendee", "User"],
-                "runs": "every hour",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Event"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/events"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "event-types",
-                "type": "sync",
-                "description": "Retrieve all event types per a user",
-                "sync_type": "full",
-                "usedModels": ["EventType"],
-                "runs": "every hour",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["EventType"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/event/types"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "cal-com-v2",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Retrieve all upcoming events per a user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/events"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_cal_com_v2_events",
+        "name": "events",
+        "output": [
+          "Event"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Event",
+          "SyncMetadata_cal_com_v2_events"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Retrieve all event types per a user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/event/types"
+          }
+        ],
+        "input": "SyncMetadata_cal_com_v2_eventtypes",
+        "name": "event-types",
+        "output": [
+          "EventType"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "EventType",
+          "SyncMetadata_cal_com_v2_eventtypes"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

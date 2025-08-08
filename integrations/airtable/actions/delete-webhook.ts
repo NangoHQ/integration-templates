@@ -1,32 +1,55 @@
-import type { NangoAction, ProxyConfiguration, DeleteWebhook, SuccessResponse } from '../../models.js';
+import { createAction } from 'nango';
 import { deleteWebhookSchema } from '../schema.zod.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, DeleteWebhook } from '../models.js';
+import { z } from 'zod';
 
 interface WebhookMetadata {
     webhooks: Record<string, string>;
 }
 
-export default async function runAction(nango: NangoAction, input: DeleteWebhook): Promise<SuccessResponse> {
-    await nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
+const action = createAction({
+    description: 'Delete a webhook',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://airtable.com/developers/web/api/delete-a-webhook
-        endpoint: `/v0/bases/${input.baseId}/webhooks/${input.webhookId}`,
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/webhooks',
+        group: 'Webhooks'
+    },
 
-    await nango.delete(config);
+    input: DeleteWebhook,
+    output: SuccessResponse,
+    scopes: ['webhook:manage'],
+    metadata: z.object({ webhooks: z.record(z.string(), z.any()) }),
 
-    const metadata = await nango.getMetadata<WebhookMetadata>();
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        await nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
 
-    if (metadata?.['webhooks']) {
-        const { [input.webhookId]: _, ...rest } = metadata['webhooks'];
+        const config: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/delete-a-webhook
+            endpoint: `/v0/bases/${input.baseId}/webhooks/${input.webhookId}`,
+            retries: 3
+        };
 
-        await nango.updateMetadata({
-            webhooks: rest
-        });
+        await nango.delete(config);
+
+        const metadata = await nango.getMetadata<WebhookMetadata>();
+
+        if (metadata?.['webhooks']) {
+            const { [input.webhookId]: _, ...rest } = metadata['webhooks'];
+
+            await nango.updateMetadata({
+                webhooks: rest
+            });
+        }
+
+        return {
+            success: true
+        };
     }
+});
 
-    return {
-        success: true
-    };
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

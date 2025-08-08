@@ -36,7 +36,7 @@ export const leverOpportunitySchema = z.object({
         list: z.string(),
         show: z.string()
     }),
-    dataProtection: z.record(z.string(), z.any()),
+    dataProtection: z.record(z.any()),
     isAnonymized: z.boolean(),
     opportunityLocation: z.string()
 });

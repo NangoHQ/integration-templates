@@ -1,65 +1,86 @@
 [
-    {
-        "providerConfigKey": "ramp",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Ramp",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["users:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "ramp",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Ramp",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_ramp_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_ramp_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Ramp",
-                "version": "",
-                "scopes": ["users:write"],
-                "input": "RampCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "RampCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Deletes a user in Ramp by id",
-                "version": "",
-                "scopes": ["users:write"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [
+          "users:write"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_ramp_createuser",
+          "ActionOutput_ramp_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Ramp by id",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_ramp_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_ramp_disableuser"
+        ],
+        "scopes": [
+          "users:write"
+        ],
+        "usedModels": [
+          "ActionInput_ramp_disableuser",
+          "ActionOutput_ramp_disableuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Ramp",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_ramp_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "users:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_ramp_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

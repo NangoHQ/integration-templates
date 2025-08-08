@@ -1,4 +1,4 @@
-import type { GithubComment, GithubPullRequest, GithubUser } from '../../models.js';
+import type { GithubComment, GithubPullRequest, GithubUser } from '../models.js';
 import type { PullRequestGraphQLResponse } from '../types.js';
 import { toUser } from './to-user.js';
 

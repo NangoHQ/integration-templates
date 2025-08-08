@@ -1,71 +1,108 @@
-## Configuration - nango.yaml
+## Configuration - Inline Script Configuration
 
-- If `sync_type: full`, then the sync should also have `track_deletes: true`
-- If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
-- Scopes should be documented
-- For optional properties in models, use the `?` suffix after the property name
+- If `syncType: 'full'`, then the sync should also have `trackDeletes: true`
+- If the sync requires metadata, then the sync should be set to `autoStart: false`. The metadata should be defined as a Zod schema in the sync configuration
+- Scopes should be documented in the sync/action configuration
+- For optional properties in models, use the `.optional()` method in Zod schemas
 - Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
 - Model names and endpoint paths should not be duplicated within an integration
-- When adding a new integration, take care to not remove unrelated entries in the nango.yaml
-- For enum values in models, do not use quotes around the values
+- When adding a new integration, take care to not remove unrelated entries in the index.ts file
+- For enum values in models, use Zod's `.enum()` method
 
 ### Endpoint Naming Guidelines
 
 Keep endpoint definitions simple and consistent:
 
-```yaml
-# ✅ Good: Simple, clear endpoint definition
-endpoint:
-    method: PATCH
-    path: /events
-    group: Events
+```typescript
+// ✅ Good: Simple, clear endpoint definition
+endpoints: [
+    {
+        method: 'PATCH',
+        path: '/events',
+        group: 'Events'
+    }
+]
 
-# ❌ Bad: Overly specific, redundant path
-endpoint:
-    method: PATCH
-    path: /google-calendars/custom/events/{id}
-    group: Events
+// ❌ Bad: Overly specific, redundant path
+endpoints: [
+    {
+        method: 'PATCH',
+        path: '/google-calendars/custom/events/{id}',
+        group: 'Events'
+    }
+]
 
-# ✅ Good: Clear resource identification
-endpoint:
-    method: GET
-    path: /users
-    group: Users
+// ✅ Good: Clear resource identification
+endpoints: [
+    {
+        method: 'GET',
+        path: '/users',
+        group: 'Users'
+    }
+]
 
-# ❌ Bad: Redundant provider name and verbose path
-endpoint:
-    method: GET
-    path: /salesforce/v2/users/list/all
-    group: Users
+// ❌ Bad: Redundant provider name and verbose path
+endpoints: [
+    {
+        method: 'GET',
+        path: '/salesforce/v2/users/list/all',
+        group: 'Users'
+    }
+]
 ```
 
-```yaml
-integrations:
-    hubspot:
-        contacts:
-            runs: every 5m
-            sync_type: full
-            track_deletes: true
-            input: ContactMetadata
-            auto_start: false
-            scopes:
-                - crm.objects.contacts.read
-            description: A super informative and helpful description that tells us what the sync does.
-            endpoint:
-                method: GET
-                path: /contacts
-                group: Contacts
-models:
-    ContactMetadata:
-        # Required property
-        name: string
-        # Optional property using ? suffix
-        cursor?: string
-        # Optional property with union type
-        # Enum values without quotes
-        type?: user | admin
-        status: ACTIVE | INACTIVE
-        employmentType: FULL_TIME | PART_TIME | INTERN | OTHER
+```typescript
+// Example sync configuration
+import { createSync } from 'nango';
+import { z } from 'zod';
+
+const ContactMetadata = z.object({
+    // Required property
+    name: z.string(),
+    // Optional property using .optional()
+    cursor: z.string().optional(),
+    // Optional property with union type
+    // Enum values using .enum()
+    type: z.enum(['user', 'admin']).optional(),
+    status: z.enum(['ACTIVE', 'INACTIVE']),
+    employmentType: z.enum(['FULL_TIME', 'PART_TIME', 'INTERN', 'OTHER'])
+});
+
+const Contact = z.object({
+    id: z.string(),
+    name: z.string(),
+    email: z.string(),
+    created_at: z.string()
+});
+
+const sync = createSync({
+    description: 'A super informative and helpful description that tells us what the sync does.',
+    version: '1.0.0',
+    frequency: 'every 5m',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/contacts',
+            group: 'Contacts'
+        }
+    ],
+
+    scopes: ['crm.objects.contacts.read'],
+
+    models: {
+        Contact: Contact
+    },
+
+    metadata: ContactMetadata,
+
+    exec: async (nango) => {
+        // Sync implementation
+    }
+});
 ```
 
 ## Scripts
@@ -103,8 +140,8 @@ const proxyConfig: ProxyConfiguration = {
 
 - Add a `types.ts` file which contains typed third party API responses
   - Types in `types.ts` should be prefixed with the integration name (e.g., `GoogleUserResponse`, `AsanaTaskResponse`) as they represent the raw API responses
-  - This helps avoid naming conflicts with the user-facing types defined in `nango.yaml`
-- Models defined in `nango.yaml` are automatically generated into a `models.ts` file
+  - This helps avoid naming conflicts with the user-facing types defined in your Zod models
+- Models defined in your sync/action configuration using Zod are available in your `models.ts` file
   - Always import these types from the models file instead of redefining them in your scripts
 - For non-type imports (functions, classes, etc.), always include the `.js` extension:
 
@@ -116,19 +153,19 @@ import { toEmployee } from '../mappers/to-employee';
 import { toEmployee } from '../mappers/to-employee.js';
 
 // ✅ Type imports don't need .js extension
-import type { TaskResponse } from '../../models';
+import type { TaskResponse } from '../models';
 ```
 
 - Follow proper type naming and importing conventions:
 
 ```typescript
-// ❌ Don't define interfaces that match nango.yaml models
+// ❌ Don't define interfaces that match your Zod models
 interface TaskResponse {
     tasks: Task[];
 }
 
-// ✅ Do import types from the auto-generated models file
-import type { TaskResponse } from '../../models';
+// ✅ Do import types from your models file
+import type { TaskResponse } from '../models';
 
 // ❌ Don't use generic names for API response types
 interface UserResponse {
@@ -201,7 +238,7 @@ const parseResult = await nango.zodValidateInput({
 
 ## Syncs
 
-- `fetchData` must be the default export at the top of the file
+- Use `createSync()` to define syncs with inline configuration
 - Always paginate requests to retrieve all records
 - Avoid parallelizing requests (defeats retry policy and rate limiting)
 - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
@@ -211,15 +248,43 @@ const parseResult = await nango.zodValidateInput({
   - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
 
 ```typescript
+import { createSync } from 'nango';
 import { toEmployee } from '../mappers/to-employee.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const proxyConfig: ProxyConfiguration = {
-        endpoint: '/employees'
-    };
-    const allData = await nango.get(proxyConfig);
-    return toEmployee(allData);
-}
+const sync = createSync({
+    description: 'Fetch employees from the API',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Employees'
+        }
+    ],
+
+    models: {
+        Employee: Employee
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const proxyConfig: ProxyConfiguration = {
+            endpoint: '/employees',
+            retries: 10
+        };
+        const allData = await nango.get(proxyConfig);
+        const mappedData = allData.map(toEmployee);
+        await nango.batchSave(mappedData, 'Employee');
+    }
+});
+
+export default sync;
 ```
 
 - Avoid type casting to leverage TypeScript benefits:
@@ -244,7 +309,7 @@ if (isHumanUser(userResult.records[0])) {
 
 ## Actions
 
-- `runAction` must be the default export at the top of the file
+- Use `createAction()` to define actions with inline configuration
 - Only use `ActionError` for specific error messages:
 
 ```typescript
@@ -261,96 +326,111 @@ throw new nango.ActionError({
 - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:
 
 ```typescript
-// ❌ Don't make API calls without a ProxyConfiguration
-const { data } = await nango.get({
-    endpoint: '/some-endpoint',
-    params: { key: 'value' }
+import { createAction } from 'nango';
+
+const action = createAction({
+    description: 'Create a new user',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
+    },
+
+    input: CreateUserInput,
+    output: User,
+
+    exec: async (nango, input) => {
+        const proxyConfig: ProxyConfiguration = {
+            endpoint: '/users',
+            data: input,
+            retries: 3
+        };
+        
+        const { data } = await nango.post(proxyConfig);
+        return data;
+    }
 });
 
-// ❌ Don't make API calls without setting retries for actions
-const proxyConfig: ProxyConfiguration = {
-    endpoint: '/some-endpoint',
-    params: { key: 'value' }
-};
-
-// ✅ Do use ProxyConfiguration with retries set to 3 for actions
-const proxyConfig: ProxyConfiguration = {
-    endpoint: '/some-endpoint',
-    params: { key: 'value' },
-    retries: 3 // Default for actions is 3 retries
-};
-const { data } = await nango.get(proxyConfig);
+export default action;
 ```
 
 - When implementing pagination in actions, always return a cursor-based response to allow users to paginate through results:
 
 ```typescript
+import { createAction } from 'nango';
+import { z } from 'zod';
+
 // ✅ Define input type with optional cursor
-interface ListUsersInput {
-    cursor?: string;
-    limit?: number;
-}
+const ListUsersInput = z.object({
+    cursor: z.string().optional(),
+    limit: z.number().optional()
+});
 
 // ✅ Define response type with next_cursor
-interface ListUsersResponse {
-    users: User[];
-    next_cursor?: string; // undefined means no more results
-}
+const ListUsersResponse = z.object({
+    users: z.array(User),
+    next_cursor: z.string().optional() // undefined means no more results
+});
 
 // ✅ Example action implementation with pagination
-export default async function runAction(
-    nango: NangoAction,
-    input: ListUsersInput
-): Promise<ListUsersResponse> {
-    const proxyConfig: ProxyConfiguration = {
-        endpoint: '/users',
-        params: {
-            limit: input.limit || 50,
-            cursor: input.cursor
-        },
-        retries: 3
-    };
-    
-    const { data } = await nango.get(proxyConfig);
-    
-    return {
-        users: data.users,
-        next_cursor: data.next_cursor // Pass through the API's cursor if available
-    };
-}
+const action = createAction({
+    description: 'List users with pagination',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'GET',
+        path: '/users',
+        group: 'Users'
+    },
+
+    input: ListUsersInput,
+    output: ListUsersResponse,
+
+    exec: async (nango, input) => {
+        const proxyConfig: ProxyConfiguration = {
+            endpoint: '/users',
+            params: {
+                limit: input.limit || 50,
+                cursor: input.cursor
+            },
+            retries: 3
+        };
+        
+        const { data } = await nango.get(proxyConfig);
+        
+        return {
+            users: data.users,
+            next_cursor: data.next_cursor // Pass through the API's cursor if available
+        };
+    }
+});
+
+export default action;
 
 // ❌ Don't paginate without returning a cursor
-export default async function runAction(
-    nango: NangoAction,
-    input: ListUsersInput
-): Promise<User[]> { // Wrong: Returns array without pagination info
-    const { data } = await nango.get({
-        endpoint: '/users',
-        params: { cursor: input.cursor }
-    });
-    return data.users;
-}
-```
+const badAction = createAction({
+    description: 'List users without pagination info',
+    version: '1.0.0',
 
-```typescript
-// Complete action example:
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent } from '../../models';
-import { folderContentInputSchema } from '../schema.zod.js';
+    endpoint: {
+        method: 'GET',
+        path: '/users',
+        group: 'Users'
+    },
 
-export default async function runAction(
-    nango: NangoAction,
-    input: FolderContentInput
-): Promise<FolderContent> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://api.example.com/docs/endpoint
-        endpoint: '/some-endpoint',
-        params: { key: 'value' },
-        retries: 3 // Default for actions is 3 retries
-    };
-    
-    const { data } = await nango.get(proxyConfig);
-    return { result: data };
-}
+    input: ListUsersInput,
+    output: z.array(User), // Wrong: Returns array without pagination info
+
+    exec: async (nango, input) => {
+        const { data } = await nango.get({
+            endpoint: '/users',
+            params: { cursor: input.cursor }
+        });
+        return data.users; // Wrong: Returns array without pagination context
+    }
+});
 ```
 
 ## Testing

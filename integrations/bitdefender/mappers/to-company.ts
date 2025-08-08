@@ -1,4 +1,4 @@
-import type { BitdefenderCompany } from '../../models.js';
+import type { BitdefenderCompany } from '../models.js';
 import type { BitdefenderCompanyResponse } from '../types.js';
 
 export function toCompany(result: BitdefenderCompanyResponse['result']): BitdefenderCompany {

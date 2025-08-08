@@ -1,4 +1,6 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, BoxDeleteUser } from '../../models.js';
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { BoxDeleteUser, SuccessResponse } from '../models.js';
 
 /**
  * Validates the input for the delete user action.
@@ -7,7 +9,7 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, BoxDeleteUser } 
  * For more info about required fields, check the documentation:
  * https://developer.box.com/reference/delete-users-id/
  */
-function validateInput(nango: NangoAction, input: BoxDeleteUser): void {
+function validateInput(nango: NangoActionLocal, input: BoxDeleteUser): void {
     if (!input || !input.id) {
         throw new nango.ActionError({
             message: 'Id is required'
@@ -37,18 +39,35 @@ function getEndpoint(input: BoxDeleteUser): string {
  * Executes the delete user action by validating input, constructing the endpoint,
  * and making the API call to Box to delete the specified user.
  */
-export default async function runAction(nango: NangoAction, input: BoxDeleteUser): Promise<SuccessResponse> {
-    validateInput(nango, input);
+const action = createAction({
+    description: 'Deletes a user in Box. Requires an enterprise account.',
+    version: '2.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://developer.box.com/reference/delete-users-id/
-        endpoint: getEndpoint(input),
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
+    },
 
-    await nango.delete(config);
+    input: BoxDeleteUser,
+    output: SuccessResponse,
 
-    return {
-        success: true
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        validateInput(nango, input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.box.com/reference/delete-users-id/
+            endpoint: getEndpoint(input),
+            retries: 3
+        };
+
+        await nango.delete(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

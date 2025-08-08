@@ -1,6 +1,6 @@
+import { NangoSync, ProxyConfiguration } from "nango";
 /// <reference types="vitest" />
 import type { AxiosResponse } from 'axios';
-import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { z } from 'zod';
 import { linearIssueSchema } from '../schema.zod';
 import fetchData from '../syncs/issues.js';
@@ -103,7 +103,7 @@ describe('Linear Issues Pagination', () => {
     });
 
     test('should configure GraphQL cursor-based pagination correctly', async () => {
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         const postCalls = vi.mocked(nango.post).mock.calls;
         expect(postCalls).toHaveLength(2);
@@ -143,7 +143,7 @@ describe('Linear Issues Pagination', () => {
         const lastSyncDate = new Date('2024-01-01');
         nango.lastSyncDate = lastSyncDate;
 
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         const postCalls = vi.mocked(nango.post).mock.calls;
         const firstCall = postCalls[0]?.[0] as ProxyConfiguration;
@@ -171,7 +171,7 @@ describe('Linear Issues Pagination', () => {
             })
         );
 
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         expect(savedIssues).toHaveLength(0);
         expect(nango.post).toHaveBeenCalledTimes(1);
@@ -182,6 +182,6 @@ describe('Linear Issues Pagination', () => {
             throw new Error('GraphQL query failed');
         });
 
-        await expect(fetchData(nango)).rejects.toThrow('GraphQL query failed');
+        await expect(fetchData.exec(nango)).rejects.toThrow('GraphQL query failed');
     });
 });

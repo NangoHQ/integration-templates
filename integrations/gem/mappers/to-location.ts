@@ -1,4 +1,4 @@
-import type { Location } from '../../models.js';
+import type { Location } from '../models.js';
 import type { GemLocation } from '../types.js';
 
 export function toLocation(response: GemLocation): Location {

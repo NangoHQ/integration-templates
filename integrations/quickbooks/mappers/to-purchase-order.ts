@@ -8,7 +8,7 @@ import type {
     PurchaseOrderLine,
     Reference,
     TxnTaxDetail
-} from '../../models';
+} from '../models.js';
 import type {
     QuickBooksPurchaseOrder,
     QuickBooksPurchaseOrderLine,
@@ -18,7 +18,7 @@ import type {
     QuickBooksCustomField,
     ReferenceType,
     TxnTaxDetail as QuickBooksTxnTaxDetail
-} from '../types';
+} from '../types.js';
 import { mapReference } from '../utils/map-reference.js';
 
 /**

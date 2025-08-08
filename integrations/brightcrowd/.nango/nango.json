@@ -1,100 +1,128 @@
 [
-    {
-        "providerConfigKey": "brightcrowd",
-        "syncs": [
-            {
-                "name": "books",
-                "type": "sync",
-                "description": "Fetches a list of all books in an account from Brightcrowd.",
-                "sync_type": "full",
-                "usedModels": ["Book", "Affiliation", "Question", "QuestionField", "FrontMatter", "FrontMatterSection", "Preface"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Book"],
-                "scopes": ["bcb.partner/book.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/books",
-                        "group": "Books"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "books-by-id",
-                "type": "sync",
-                "description": "Fetches a list of specified books from Brightcrowd.",
-                "sync_type": "full",
-                "usedModels": ["BookById", "Affiliation", "Question", "QuestionField", "FrontMatter", "FrontMatterSection", "Preface", "Metadata"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": false,
-                "input": "Metadata",
-                "output": ["BookById"],
-                "scopes": ["bcb.partner/book.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/books-by-Id",
-                        "group": "Books"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "book-analytics",
-                "type": "sync",
-                "description": "Fetches analytics for a specified list of books from Brightcrowd.",
-                "sync_type": "full",
-                "usedModels": ["BookAnalytics", "EmailStats", "Notification", "Invitations", "WebStats", "BookStats", "Metadata"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": false,
-                "input": "Metadata",
-                "output": ["BookAnalytics"],
-                "scopes": ["bcb.partner/book.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/book-analytics",
-                        "group": "Books"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "pages",
-                "type": "sync",
-                "description": "Fetches a list of all pages in a book from Brightcrowd.",
-                "sync_type": "full",
-                "usedModels": ["Page", "Picture", "Video", "Affiliation", "Metadata"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": false,
-                "input": "Metadata",
-                "output": ["Page"],
-                "scopes": ["bcb.partner/page.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/pages",
-                        "group": "Books"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "brightcrowd",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all books in an account from Brightcrowd.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/books",
+            "group": "Books"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_brightcrowd_books",
+        "name": "books",
+        "output": [
+          "Book"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Book",
+          "SyncMetadata_brightcrowd_books"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of specified books from Brightcrowd.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/books-by-Id",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_booksbyid",
+        "name": "books-by-id",
+        "output": [
+          "BookById"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "BookById",
+          "SyncMetadata_brightcrowd_booksbyid"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches analytics for a specified list of books from Brightcrowd.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/book-analytics",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_bookanalytics",
+        "name": "book-analytics",
+        "output": [
+          "BookAnalytics"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "BookAnalytics",
+          "SyncMetadata_brightcrowd_bookanalytics"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all pages in a book from Brightcrowd.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pages",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_pages",
+        "name": "pages",
+        "output": [
+          "Page"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/page.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Page",
+          "SyncMetadata_brightcrowd_pages"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

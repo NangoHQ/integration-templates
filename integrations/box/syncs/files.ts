@@ -1,41 +1,69 @@
-/* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
-import type { BoxDocument, BoxMetadata, NangoSync, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import type { BoxEntryItem, BoxFile } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<BoxMetadata>();
-    const files = metadata?.files ?? [];
-    const folders = metadata?.folders ?? [];
-    const batchSize = 100;
+import type { ProxyConfiguration } from 'nango';
+import { BoxDocument, BoxMetadata } from '../models.js';
 
-    if (files.length === 0 && folders.length === 0) {
-        throw new Error('Metadata for files or folders is required.');
-    }
+const sync = createSync({
+    description: 'Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
 
-    for (const folder of folders) {
-        await fetchFolder(nango, folder);
-    }
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files',
+            group: 'Files'
+        }
+    ],
 
-    let batch: BoxDocument[] = [];
-    for (const file of files) {
-        const metadata = await getFileMetadata(nango, file);
-        batch.push({
-            id: metadata.id,
-            name: metadata.name,
-            modified_at: metadata.modified_at,
-            download_url: metadata.shared_link?.download_url
-        });
-        if (batch.length >= batchSize) {
+    models: {
+        BoxDocument: BoxDocument
+    },
+
+    metadata: BoxMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+        const files = metadata?.files ?? [];
+        const folders = metadata?.folders ?? [];
+        const batchSize = 100;
+
+        if (files.length === 0 && folders.length === 0) {
+            throw new Error('Metadata for files or folders is required.');
+        }
+
+        for (const folder of folders) {
+            await fetchFolder(nango, folder);
+        }
+
+        let batch: BoxDocument[] = [];
+        for (const file of files) {
+            const metadata = await getFileMetadata(nango, file);
+            batch.push({
+                id: metadata.id,
+                name: metadata.name,
+                modified_at: metadata.modified_at,
+                download_url: metadata.shared_link?.download_url
+            });
+            if (batch.length >= batchSize) {
+                await nango.batchSave(batch, 'BoxDocument');
+                batch = [];
+            }
+        }
+        if (batch.length > 0) {
             await nango.batchSave(batch, 'BoxDocument');
-            batch = [];
         }
     }
-    if (batch.length > 0) {
-        await nango.batchSave(batch, 'BoxDocument');
-    }
-}
+});
 
-async function fetchFolder(nango: NangoSync, folderId: string) {
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function fetchFolder(nango: NangoSyncLocal, folderId: string) {
     const proxy: ProxyConfiguration = {
         // https://developer.box.com/reference/get-folders-id-items/
         endpoint: `/2.0/folders/${folderId}/items`,
@@ -89,7 +117,7 @@ async function fetchFolder(nango: NangoSync, folderId: string) {
     }
 }
 
-async function getFileMetadata(nango: NangoSync, fileId: string) {
+async function getFileMetadata(nango: NangoSyncLocal, fileId: string) {
     const proxy: ProxyConfiguration = {
         // https://developer.box.com/reference/get-files-id/
         endpoint: `/2.0/files/${fileId}`,

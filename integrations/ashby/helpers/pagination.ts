@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync, ProxyConfiguration } from '../../models.js';
+import type { NangoAction, NangoSync, ProxyConfiguration } from 'nango';
 
 export interface PaginationParams {
     endpoint: string;
@@ -28,7 +28,7 @@ export interface PaginationResponse<T> {
  * @param data Additional data to include in the API request payload (optional).
  * @returns An async generator that yields batches of results.
  */
-async function* paginate<T>(
+export async function* paginate<T>(
     nango: NangoSync | NangoAction,
     { endpoint, initialCursor, data }: PaginationParams
 ): AsyncGenerator<PaginationResponse<T>, void, undefined> {
@@ -74,5 +74,3 @@ async function* paginate<T>(
         nextCursor = responseData.nextCursor || null;
     }
 }
-
-export default paginate;

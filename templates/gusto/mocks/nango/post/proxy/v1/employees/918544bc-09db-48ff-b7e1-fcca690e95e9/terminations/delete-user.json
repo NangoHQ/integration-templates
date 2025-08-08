@@ -1,9 +1,0 @@
-{
-    "uuid": "918544bc-09db-48ff-b7e1-fcca690e95e9",
-    "employee_uuid": "918544bc-09db-48ff-b7e1-fcca690e95e9",
-    "active": false,
-    "effective_date": "2024-10-17",
-    "run_termination_payroll": false,
-    "cancelable": true,
-    "version": "e6c865df784842196d411c1466b01686"
-}

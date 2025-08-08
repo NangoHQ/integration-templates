@@ -1,39 +1,61 @@
-import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import { toTicket } from '../mappers/toTicket.js';
 import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: SearchTicketInput): Promise<SearchTicketOutput> {
-    if (!input.query) {
-        throw new nango.ActionError({
-            message: 'Search query is required'
-        });
+import type { ProxyConfiguration } from 'nango';
+import type { SearchTicket } from '../models.js';
+import { SearchTicketOutput, SearchTicketInput } from '../models.js';
+
+const action = createAction({
+    description:
+        "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
+    version: '2.0.0',
+
+    endpoint: {
+        method: 'GET',
+        path: '/search-tickets'
+    },
+
+    input: SearchTicketInput,
+    output: SearchTicketOutput,
+    scopes: ['read'],
+
+    exec: async (nango, input): Promise<SearchTicketOutput> => {
+        if (!input.query) {
+            throw new nango.ActionError({
+                message: 'Search query is required'
+            });
+        }
+
+        const config = {
+            // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/
+            endpoint: `/api/v2/search`,
+            params: {
+                query: input.query,
+                include: 'tickets(users)'
+            },
+            page_size: 100
+        };
+
+        const tickets: SearchTicket[] = [];
+
+        // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/#query-basics
+        for await (const { tickets: pagedTickets, users: pagedUsers } of paginate(nango, config)) {
+            const mappedTickets = await Promise.all(pagedTickets.map((ticket) => toTicket(ticket, pagedUsers)));
+            tickets.push(...mappedTickets);
+        }
+
+        return {
+            tickets
+        };
     }
+});
 
-    const config = {
-        // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/
-        endpoint: `/api/v2/search`,
-        params: {
-            query: input.query,
-            include: 'tickets(users)'
-        },
-        page_size: 100
-    };
-
-    const tickets: SearchTicket[] = [];
-
-    // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/#query-basics
-    for await (const { tickets: pagedTickets, users: pagedUsers } of paginate(nango, config)) {
-        const mappedTickets = await Promise.all(pagedTickets.map((ticket) => toTicket(ticket, pagedUsers)));
-        tickets.push(...mappedTickets);
-    }
-
-    return {
-        tickets
-    };
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
 
 async function* paginate(
-    nango: NangoAction,
+    nango: NangoActionLocal,
     { endpoint, params, page_size }: ZendeskPaginationParams
 ): AsyncGenerator<{ tickets: ZendeskTicket[]; users: ZendeskUser[] }, void, undefined> {
     let nextPageLink: string | null = endpoint;

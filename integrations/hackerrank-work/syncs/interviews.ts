@@ -1,31 +1,61 @@
-import type { HackerRankWorkInterview, NangoSync } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { HackerRankWorkInterview } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of interviews from hackerrank work',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const now = new Date();
-    const endpoint = '/x/api/v3/interviews';
-    const config = {
-        //datetime filter is offered
-        ...(nango.lastSyncDate ? { params: { updated_at: nango.lastSyncDate?.toISOString() + '..' + now.toISOString() } } : {}),
-
-        paginate: {
-            type: 'link',
-            limit_name_in_request: 'limit',
-            link_path_in_response_body: 'next',
-            response_path: 'data',
-            limit: 100
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/interviews',
+            group: 'Interviews'
         }
-    };
-    for await (const interview of nango.paginate({ ...config, endpoint })) {
-        const mappedInterview: HackerRankWorkInterview[] = interview.map(mapInterview) || [];
-        // Save Interviews
-        const batchSize: number = mappedInterview.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} interview(s) (total interview(s): ${totalRecords})`);
-        await nango.batchSave(mappedInterview, 'HackerRankWorkInterview');
+    ],
+
+    models: {
+        HackerRankWorkInterview: HackerRankWorkInterview
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const now = new Date();
+        const config: ProxyConfiguration = {
+            // https://www.hackerrank.com/work/apidocs#!/Interviews/get_x_api_v3_interviews
+            endpoint: '/x/api/v3/interviews',
+            //datetime filter is offered
+            ...(nango.lastSyncDate ? { params: { updated_at: nango.lastSyncDate?.toISOString() + '..' + now.toISOString() } } : {}),
+
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'limit',
+                link_path_in_response_body: 'next',
+                response_path: 'data',
+                limit: 100
+            }
+        };
+        for await (const interview of nango.paginate(config)) {
+            const mappedInterview: HackerRankWorkInterview[] = interview.map(mapInterview) || [];
+            // Save Interviews
+            const batchSize: number = mappedInterview.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} interview(s) (total interview(s): ${totalRecords})`);
+            await nango.batchSave(mappedInterview, 'HackerRankWorkInterview');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapInterview(interview: any): HackerRankWorkInterview {
     return {

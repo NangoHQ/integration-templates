@@ -1,220 +1,141 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "ActionResponseError": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                }
-            },
-            "required": ["message"],
-            "additionalProperties": false
-        },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "ExpensifyDisableUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email"],
-            "additionalProperties": false
-        },
-        "ExpsensifyNullableUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": ["string", "null"]
-                },
-                "firstName": {
-                    "type": ["string", "null"]
-                },
-                "lastName": {
-                    "type": ["string", "null"]
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "Policy": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "shouldShowAutoApprovalOptions": {
-                    "type": "boolean"
-                },
-                "role": {
-                    "type": "string"
-                },
-                "areCompanyCardsEnabled": {
-                    "type": "boolean"
-                },
-                "shouldShowCustomReportTitleOption": {
-                    "type": "boolean"
-                },
-                "areExpensifyCardsEnabled": {
-                    "type": "boolean"
-                },
-                "areRulesEnabled": {
-                    "type": "boolean"
-                },
-                "areConnectionsEnabled": {
-                    "type": "boolean"
-                },
-                "approvalMode": {
-                    "type": "string"
-                },
-                "areCategoriesEnabled": {
-                    "type": "boolean"
-                },
-                "areReportFieldsEnabled": {
-                    "type": "boolean"
-                },
-                "areWorkflowsEnabled": {
-                    "type": "boolean"
-                },
-                "outputCurrency": {
-                    "type": "string"
-                },
-                "owner": {
-                    "type": "string"
-                },
-                "areInvoicesEnabled": {
-                    "type": "boolean"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "eReceipts": {
-                    "type": "boolean"
-                },
-                "shouldShowAutoReimbursementLimitOption": {
-                    "type": "boolean"
-                },
-                "areDistanceRatesEnabled": {
-                    "type": "boolean"
-                },
-                "isPolicyExpenseChatEnabled": {
-                    "type": "string"
-                },
-                "ownerAccountID": {
-                    "type": "number"
-                },
-                "areTagsEnabled": {
-                    "type": "boolean"
-                }
-            },
-            "required": [
-                "id",
-                "type",
-                "name",
-                "shouldShowAutoApprovalOptions",
-                "role",
-                "areCompanyCardsEnabled",
-                "shouldShowCustomReportTitleOption",
-                "areExpensifyCardsEnabled",
-                "areRulesEnabled",
-                "areConnectionsEnabled",
-                "approvalMode",
-                "areCategoriesEnabled",
-                "areReportFieldsEnabled",
-                "areWorkflowsEnabled",
-                "outputCurrency",
-                "owner",
-                "areInvoicesEnabled",
-                "createdAt",
-                "eReceipts",
-                "shouldShowAutoReimbursementLimitOption",
-                "areDistanceRatesEnabled",
-                "isPolicyExpenseChatEnabled",
-                "ownerAccountID",
-                "areTagsEnabled"
-            ],
-            "additionalProperties": false
-        },
-        "ExpensifyListPolicyOutput": {
-            "type": "object",
-            "properties": {
-                "policies": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Policy"
-                    }
-                }
-            },
-            "required": ["policies"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_expensify_users": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "ExpsensifyNullableUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_expensify_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_expensify_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_expensify_disableuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_expensify_disableuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_expensify_listpolicies": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_expensify_listpolicies": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "boolean",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "policies"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

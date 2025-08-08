@@ -1,401 +1,327 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email", "firstName", "lastName"],
-            "additionalProperties": false
-        },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "TrackingCode": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "const": "tracking_code"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "BoxCreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "can_see_managed_users": {
-                    "type": "boolean"
-                },
-                "external_app_user_id": {
-                    "type": "string"
-                },
-                "is_exempt_from_device_limits": {
-                    "type": "boolean"
-                },
-                "is_exempt_from_login_verification": {
-                    "type": "boolean"
-                },
-                "is_external_collab_restricted": {
-                    "type": "boolean"
-                },
-                "is_platform_access_only": {
-                    "type": "boolean"
-                },
-                "is_sync_enabled": {
-                    "type": "boolean"
-                },
-                "job_title": {
-                    "type": "string"
-                },
-                "language": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string",
-                    "enum": ["coadmin", "user"]
-                },
-                "space_amount": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string",
-                    "enum": ["active", "inactive", "cannot_delete_edit", "cannot_delete_edit_upload"]
-                },
-                "timezone": {
-                    "type": "string"
-                },
-                "tracking_codes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TrackingCode"
-                    }
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "Enterprise": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "type", "name"],
-            "additionalProperties": false
-        },
-        "NotificationEmail": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "is_confirmed": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["email", "is_confirmed"],
-            "additionalProperties": false
-        },
-        "CreatedUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "avatar_url": {
-                    "type": "string"
-                },
-                "can_see_managed_users": {
-                    "type": "boolean"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "enterprise": {
-                    "$ref": "#/definitions/Enterprise"
-                },
-                "external_app_user_id": {
-                    "type": "string"
-                },
-                "hostname": {
-                    "type": "string"
-                },
-                "is_exempt_from_device_limits": {
-                    "type": "boolean"
-                },
-                "is_exempt_from_login_verification": {
-                    "type": "boolean"
-                },
-                "is_external_collab_restricted": {
-                    "type": "boolean"
-                },
-                "is_platform_access_only": {
-                    "type": "boolean"
-                },
-                "is_sync_enabled": {
-                    "type": "boolean"
-                },
-                "job_title": {
-                    "type": "string"
-                },
-                "language": {
-                    "type": "string"
-                },
-                "login": {
-                    "type": "string"
-                },
-                "max_upload_size": {
-                    "type": "number"
-                },
-                "modified_at": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "notification_email": {
-                    "$ref": "#/definitions/NotificationEmail"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string"
-                },
-                "space_amount": {
-                    "type": "number"
-                },
-                "space_used": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timezone": {
-                    "type": "string"
-                },
-                "tracking_codes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TrackingCode"
-                    }
-                }
-            },
-            "required": [
-                "id",
-                "type",
-                "can_see_managed_users",
-                "created_at",
-                "enterprise",
-                "hostname",
-                "is_exempt_from_device_limits",
-                "is_exempt_from_login_verification",
-                "is_external_collab_restricted",
-                "is_platform_access_only",
-                "is_sync_enabled",
-                "login",
-                "max_upload_size",
-                "modified_at",
-                "name",
-                "notification_email",
-                "role",
-                "space_amount",
-                "space_used",
-                "status"
-            ],
-            "additionalProperties": false
-        },
-        "BoxDeleteUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "force": {
-                    "type": "boolean"
-                },
-                "notify": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "BoxMetadata": {
-            "type": "object",
-            "properties": {
-                "files": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "folders": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["files", "folders"],
-            "additionalProperties": false
-        },
-        "BoxDocument": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": "string"
-                },
-                "modified_at": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "download_url", "modified_at"],
-            "additionalProperties": false
-        },
-        "Folder": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "modified_at": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "name", "modified_at", "url"],
-            "additionalProperties": false
-        },
-        "FolderContentInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "marker": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "FolderContent": {
-            "type": "object",
-            "properties": {
-                "files": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BoxDocument"
-                    }
-                },
-                "folders": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Folder"
-                    }
-                },
-                "next_marker": {
-                    "type": "string"
-                }
-            },
-            "required": ["files", "folders"],
-            "additionalProperties": false
-        },
-        "Anonymous_box_action_fetchfile_output": {
-            "type": "string",
-            "deprecated": "It is recommended to use a Model"
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_box_users": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_box_folders": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Folder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "modified_at",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_box_files": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "files",
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "BoxDocument": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "download_url",
+        "modified_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "can_see_managed_users": {
+          "type": "boolean"
+        },
+        "external_app_user_id": {
+          "type": "string"
+        },
+        "is_exempt_from_device_limits": {
+          "type": "boolean"
+        },
+        "is_exempt_from_login_verification": {
+          "type": "boolean"
+        },
+        "is_external_collab_restricted": {
+          "type": "boolean"
+        },
+        "is_platform_access_only": {
+          "type": "boolean"
+        },
+        "is_sync_enabled": {
+          "type": "boolean"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "coadmin",
+            "user"
+          ]
+        },
+        "space_amount": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "inactive",
+            "cannot_delete_edit",
+            "cannot_delete_edit_upload"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "tracking_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "address",
+        "can_see_managed_users",
+        "external_app_user_id",
+        "is_exempt_from_device_limits",
+        "is_exempt_from_login_verification",
+        "is_external_collab_restricted",
+        "is_platform_access_only",
+        "is_sync_enabled",
+        "job_title",
+        "language",
+        "phone",
+        "role",
+        "space_amount",
+        "status",
+        "timezone",
+        "tracking_codes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "force": {
+          "type": "boolean"
+        },
+        "notify": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "force",
+        "notify"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_fetchfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_fetchfile": {
+      "type": "string",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionInput_box_foldercontent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "marker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "marker"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_foldercontent": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "next_marker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "files",
+        "folders",
+        "next_marker"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

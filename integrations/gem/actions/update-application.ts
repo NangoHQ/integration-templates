@@ -1,17 +1,37 @@
-import type { NangoAction, UpdateApplicationInput, Application, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import type { GemApplication } from '../types.js';
 import { toApplication } from '../mappers/to-application.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateApplicationInput): Promise<Application> {
-    const { application_id, ...data } = input;
+import type { ProxyConfiguration } from 'nango';
+import { Application, UpdateApplicationInput } from '../models.js';
 
-    const proxyConfig: ProxyConfiguration = {
-        // https://api.gem.com/ats/v0/reference#tag/Application/paths/~1ats~1v0~1applications~1%7Bapplication_id%7D/patch
-        endpoint: `ats/v0/applications/${application_id}`,
-        data,
-        retries: 3
-    };
+const action = createAction({
+    description: "Update an application's source",
+    version: '1.0.0',
 
-    const { data: responseData } = await nango.patch<GemApplication>(proxyConfig);
-    return toApplication(responseData);
-}
+    endpoint: {
+        method: 'PATCH',
+        path: '/application',
+        group: 'Applications'
+    },
+
+    input: UpdateApplicationInput,
+    output: Application,
+
+    exec: async (nango, input): Promise<Application> => {
+        const { application_id, ...data } = input;
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://api.gem.com/ats/v0/reference#tag/Application/paths/~1ats~1v0~1applications~1%7Bapplication_id%7D/patch
+            endpoint: `ats/v0/applications/${application_id}`,
+            data,
+            retries: 3
+        };
+
+        const { data: responseData } = await nango.patch<GemApplication>(proxyConfig);
+        return toApplication(responseData);
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

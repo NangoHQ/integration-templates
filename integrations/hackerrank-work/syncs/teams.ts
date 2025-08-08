@@ -1,38 +1,67 @@
-import type { HackerRankWorkTeam, NangoSync } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { HackerRankWorkTeam } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of teams from hackerrank work',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const endpoint = '/x/api/v3/teams';
-    const config = {
-        paginate: {
-            type: 'link',
-            limit_name_in_request: 'limit',
-            link_path_in_response_body: 'next',
-            response_path: 'data',
-            limit: 100
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/teams'
         }
-    };
+    ],
 
-    const lastSyncDate = nango.lastSyncDate;
-    for await (const team of nango.paginate({ ...config, endpoint })) {
-        const teamsToSave = [];
-        for (const item of team) {
-            if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                continue; // Skip teams created before lastSyncDate
+    models: {
+        HackerRankWorkTeam: HackerRankWorkTeam
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            // https://www.hackerrank.com/work/apidocs#!/Teams/get_x_api_v3_teams_limit_limit_offset_offset
+            endpoint: '/x/api/v3/teams',
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'limit',
+                link_path_in_response_body: 'next',
+                response_path: 'data',
+                limit: 100
             }
-            const mappedTeam: HackerRankWorkTeam = mapTeam(item);
+        };
 
-            totalRecords++;
-            teamsToSave.push(mappedTeam);
-        }
+        const lastSyncDate = nango.lastSyncDate;
+        for await (const team of nango.paginate(config)) {
+            const teamsToSave = [];
+            for (const item of team) {
+                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
+                    continue; // Skip teams created before lastSyncDate
+                }
+                const mappedTeam: HackerRankWorkTeam = mapTeam(item);
 
-        if (teamsToSave.length > 0) {
-            await nango.batchSave(teamsToSave, 'HackerRankWorkTeam');
-            await nango.log(`Saving batch of ${teamsToSave.length} team(s) (total team(s): ${totalRecords})`);
+                totalRecords++;
+                teamsToSave.push(mappedTeam);
+            }
+
+            if (teamsToSave.length > 0) {
+                await nango.batchSave(teamsToSave, 'HackerRankWorkTeam');
+                await nango.log(`Saving batch of ${teamsToSave.length} team(s) (total team(s): ${totalRecords})`);
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapTeam(team: any): HackerRankWorkTeam {
     return {

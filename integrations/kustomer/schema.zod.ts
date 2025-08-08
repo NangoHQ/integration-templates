@@ -4,7 +4,7 @@ import { z } from 'zod';
 export const kustomerConversationSchema = z.object({
     type: z.string(),
     id: z.string(),
-    attributes: z.record(z.string(), z.any()),
-    relationships: z.record(z.string(), z.any()),
-    links: z.record(z.string(), z.any())
+    attributes: z.record(z.any()),
+    relationships: z.record(z.any()),
+    links: z.record(z.any())
 });

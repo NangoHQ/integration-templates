@@ -1,5 +1,9 @@
-import type { NangoAction, CheckrServicesResponse, CheckrService } from '../../models.js';
+import { createAction } from 'nango';
 import { constructRequestWithConnectionConfig } from '../helpers/construct-request.js';
+
+import type { CheckrService } from '../models.js';
+import { CheckrServicesResponse } from '../models.js';
+import { z } from 'zod';
 
 /**
  * Background Check Services
@@ -13,40 +17,56 @@ import { constructRequestWithConnectionConfig } from '../helpers/construct-reque
  * and there are nodes with packages we need to grab them from the packages to
  * attach them to the node
  */
-export default async function runAction(nango: NangoAction): Promise<CheckrServicesResponse> {
-    const { config, connection_config } = await constructRequestWithConnectionConfig(nango, '/v1/packages');
+const action = createAction({
+    description: 'Fetch the possible services that Checkr offers for a background check',
+    version: '2.0.0',
 
-    let services: CheckrService[] = [];
+    endpoint: {
+        method: 'GET',
+        path: '/background-check/service-list'
+    },
 
-    for await (const checkrServices of nango.paginate({ ...config, endpoint: '/v1/packages' })) {
-        services.push(...checkrServices);
-    }
+    input: z.void(),
+    output: CheckrServicesResponse,
 
-    const accountHierarchyEnabled = connection_config['accountHierarchyEnabled'] || false;
+    exec: async (nango): Promise<CheckrServicesResponse> => {
+        const { config, connection_config } = await constructRequestWithConnectionConfig(nango, '/v1/packages');
 
-    if (accountHierarchyEnabled) {
-        config.endpoint = '/v1/nodes?include=packages';
+        let services: CheckrService[] = [];
 
-        for await (const checkrServices of nango.paginate(config)) {
-            if (checkrServices.length > 0) {
-                const nodePackages = checkrServices.map((node) => {
-                    if (node.packages.length === 0) {
-                        return node.packages;
-                    }
-                    const nodePackages = node.packages.map((pkg: string) => {
-                        const fullPackageInfo = services.find((service) => service.slug === pkg);
-                        return {
-                            ...fullPackageInfo,
-                            node: node.custom_id
-                        };
+        for await (const checkrServices of nango.paginate({ ...config, endpoint: '/v1/packages' })) {
+            services.push(...checkrServices);
+        }
+
+        const accountHierarchyEnabled = connection_config['accountHierarchyEnabled'] || false;
+
+        if (accountHierarchyEnabled) {
+            config.endpoint = '/v1/nodes?include=packages';
+
+            for await (const checkrServices of nango.paginate(config)) {
+                if (checkrServices.length > 0) {
+                    const nodePackages = checkrServices.map((node) => {
+                        if (node.packages.length === 0) {
+                            return node.packages;
+                        }
+                        const nodePackages = node.packages.map((pkg: string) => {
+                            const fullPackageInfo = services.find((service) => service.slug === pkg);
+                            return {
+                                ...fullPackageInfo,
+                                node: node.custom_id
+                            };
+                        });
+
+                        return nodePackages;
                     });
-
-                    return nodePackages;
-                });
-                services = nodePackages.flat();
+                    services = nodePackages.flat();
+                }
             }
         }
-    }
 
-    return { services };
-}
+        return { services };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

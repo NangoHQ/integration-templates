@@ -1,6 +1,6 @@
+import { NangoSync } from "nango";
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models.js';
 
 interface OutlookCalendarEvent {
     id: string;
@@ -210,7 +210,7 @@ describe('Outlook Events Pagination Tests', () => {
 
     it('should handle link-based pagination correctly', async () => {
         const fetchData = (await import('../syncs/events')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedEvents = nango.getSavedEvents();
         expect(savedEvents).toHaveLength(2); // Two pages of events
@@ -238,7 +238,7 @@ describe('Outlook Events Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/events')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedEvents = nango.getSavedEvents();
         expect(savedEvents).toHaveLength(0);
@@ -251,6 +251,6 @@ describe('Outlook Events Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/events')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

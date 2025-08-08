@@ -1,26 +1,33 @@
 [
-    {
-        "providerConfigKey": "google-sheet",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "fetch-spreadsheet",
-                "type": "action",
-                "description": "Fetches the content of a spreadsheet given its ID.",
-                "version": "1.0.1",
-                "scopes": ["https://www.googleapis.com/auth/spreadsheets.readonly"],
-                "input": "SpreadsheetId",
-                "output": ["Spreadsheet"],
-                "usedModels": ["Spreadsheet", "SpreadsheetId"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/spreadsheet"
-                }
-            }
+  {
+    "providerConfigKey": "google-sheet",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetches the content of a spreadsheet given its ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/spreadsheet"
+        },
+        "input": "ActionInput_google_sheet_fetchspreadsheet",
+        "name": "fetch-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_fetchspreadsheet"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_fetchspreadsheet",
+          "ActionOutput_google_sheet_fetchspreadsheet"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

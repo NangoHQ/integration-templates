@@ -1,5 +1,5 @@
 import type { IntercomArticle } from '../types.js';
-import type { Article } from '../../models.js';
+import type { Article } from '../models.js';
 /**
  * Maps an IntercomArticle object to an Article object
  *

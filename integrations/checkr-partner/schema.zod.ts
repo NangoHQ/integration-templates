@@ -6,7 +6,7 @@ export const timestampsSchema = z.object({
     updated_at: z.string()
 });
 
-export const utilityAnyTypeSchema = z.record(z.string(), z.any());
+export const utilityAnyTypeSchema = z.record(z.any());
 
 export const locationSchema = z.object({
     city: z.string().optional(),

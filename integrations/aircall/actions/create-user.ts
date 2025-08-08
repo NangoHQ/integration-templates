@@ -1,34 +1,54 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models.js';
+import { createAction } from 'nango';
 import { createUserSchema } from '../schema.zod.js';
 import type { AircallUser } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { User, CreateUser } from '../models.js';
 
-    const aInput = {
-        email: input.email,
-        first_name: input.firstName,
-        last_name: input.lastName
-    };
+const action = createAction({
+    description: 'Creates a user in Aircall.',
+    version: '2.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://developer.aircall.io/api-references/#create-a-user
-        endpoint: '/v1/users',
-        data: aInput,
-        retries: 3
-    };
+    endpoint: {
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
+    },
 
-    const response = await nango.post<{ user: AircallUser }>(config);
+    input: CreateUser,
+    output: User,
 
-    const { data } = response;
+    exec: async (nango, input): Promise<User> => {
+        await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
-    const [firstName, lastName] = data.user.name.split(' ');
-    const user: User = {
-        id: data.user.id.toString(),
-        email: data.user.email,
-        firstName: firstName || '',
-        lastName: lastName || ''
-    };
+        const aInput = {
+            email: input.email,
+            first_name: input.firstName,
+            last_name: input.lastName
+        };
 
-    return user;
-}
+        const config: ProxyConfiguration = {
+            // https://developer.aircall.io/api-references/#create-a-user
+            endpoint: '/v1/users',
+            data: aInput,
+            retries: 3
+        };
+
+        const response = await nango.post<{ user: AircallUser }>(config);
+
+        const { data } = response;
+
+        const [firstName, lastName] = data.user.name.split(' ');
+        const user: User = {
+            id: data.user.id.toString(),
+            email: data.user.email,
+            firstName: firstName || '',
+            lastName: lastName || ''
+        };
+
+        return user;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

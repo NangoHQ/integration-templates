@@ -1,197 +1,253 @@
 [
-    {
-        "providerConfigKey": "workable",
-        "syncs": [
-            {
-                "name": "candidates",
-                "type": "sync",
-                "description": "Fetches a list of candidates from workable",
-                "sync_type": "incremental",
-                "usedModels": ["WorkableCandidate"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableCandidate"],
-                "scopes": ["r_candidates"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/candidates",
-                        "group": "Candidates"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "candidates-activities",
-                "type": "sync",
-                "description": "Fetches a list of activity streams of the given candidate",
-                "sync_type": "full",
-                "usedModels": ["WorkableCandidateActivity"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableCandidateActivity"],
-                "scopes": ["r_candidates"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/candidates-activities"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "candidates-offer",
-                "type": "sync",
-                "description": "Fetches candidate's latest offer from workable",
-                "sync_type": "full",
-                "usedModels": ["WorkableCandidateOffer"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableCandidateOffer"],
-                "scopes": ["r_candidates"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/candidates-offer"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "jobs",
-                "type": "sync",
-                "description": "Fetches a list of jobs from workable",
-                "sync_type": "incremental",
-                "usedModels": ["WorkableJob"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableJob"],
-                "scopes": ["r_jobs"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/jobs"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "jobs-candidates",
-                "type": "sync",
-                "description": "Fetches a list of candidates for the specified job from workable",
-                "sync_type": "full",
-                "usedModels": ["WorkableJobsCandidate"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableJobsCandidate"],
-                "scopes": ["r_jobs"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/jobs-candidates"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "jobs-questions",
-                "type": "sync",
-                "description": "Fetches a list of questions for the specified job from workable",
-                "sync_type": "full",
-                "usedModels": ["WorkableJobQuestion"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableJobQuestion"],
-                "scopes": ["r_jobs"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/jobs-questions"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "members",
-                "type": "sync",
-                "description": "Fetches a list of account members from workable",
-                "sync_type": "full",
-                "usedModels": ["WorkableMember"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WorkableMember"],
-                "scopes": ["r_jobs"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/workable/members"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "workable",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a candidate at the specified job",
+        "endpoint": {
+          "method": "POST",
+          "path": "/candidates",
+          "group": "Candidates"
+        },
+        "input": "ActionInput_workable_createcandidate",
+        "name": "create-candidate",
+        "output": [
+          "ActionOutput_workable_createcandidate"
         ],
-        "actions": [
-            {
-                "name": "create-candidate",
-                "type": "action",
-                "description": "Action to create a candidate at the specified job",
-                "version": "1.0.1",
-                "scopes": ["w_candidates"],
-                "input": "WorkableCreateCandidateInput",
-                "output": ["WorkableCreateCandidateResponse"],
-                "usedModels": [
-                    "WorkableCreateCandidateResponse",
-                    "WorkableCreateCandidateInput",
-                    "EducationEntry",
-                    "ExperienceEntry",
-                    "Answer",
-                    "SocialProfile"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/candidates",
-                    "group": "Candidates"
-                }
-            },
-            {
-                "name": "create-comment",
-                "type": "action",
-                "description": "Action to create a comment on the applicant's timeline",
-                "version": "",
-                "scopes": ["w_candidates or w_comments"],
-                "input": null,
-                "output": ["WorkableCreateCommentResponse"],
-                "usedModels": ["WorkableCreateCommentResponse"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/workable/create-comment"
-                }
-            }
+        "scopes": [
+          "w_candidates"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_workable_createcandidate",
+          "ActionOutput_workable_createcandidate"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a comment on the applicant's timeline",
+        "endpoint": {
+          "method": "POST",
+          "path": "/workable/create-comment"
+        },
+        "input": "ActionInput_workable_createcomment",
+        "name": "create-comment",
+        "output": [
+          "ActionOutput_workable_createcomment"
+        ],
+        "scopes": [
+          "w_candidates or w_comments"
+        ],
+        "usedModels": [
+          "ActionInput_workable_createcomment",
+          "ActionOutput_workable_createcomment"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of candidates from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/candidates",
+            "group": "Candidates"
+          }
+        ],
+        "input": "SyncMetadata_workable_candidates",
+        "name": "candidates",
+        "output": [
+          "WorkableCandidate"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_candidates"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableCandidate",
+          "SyncMetadata_workable_candidates"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of activity streams of the given candidate",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/candidates-activities"
+          }
+        ],
+        "input": "SyncMetadata_workable_candidatesactivities",
+        "name": "candidates-activities",
+        "output": [
+          "WorkableCandidateActivity"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_candidates"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableCandidateActivity",
+          "SyncMetadata_workable_candidatesactivities"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches candidate's latest offer from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/candidates-offer"
+          }
+        ],
+        "input": "SyncMetadata_workable_candidatesoffer",
+        "name": "candidates-offer",
+        "output": [
+          "WorkableCandidateOffer"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_candidates"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableCandidateOffer",
+          "SyncMetadata_workable_candidatesoffer"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of jobs from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/jobs"
+          }
+        ],
+        "input": "SyncMetadata_workable_jobs",
+        "name": "jobs",
+        "output": [
+          "WorkableJob"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_jobs"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableJob",
+          "SyncMetadata_workable_jobs"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of candidates for the specified job from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/jobs-candidates"
+          }
+        ],
+        "input": "SyncMetadata_workable_jobscandidates",
+        "name": "jobs-candidates",
+        "output": [
+          "WorkableJobsCandidate"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_jobs"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableJobsCandidate",
+          "SyncMetadata_workable_jobscandidates"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of questions for the specified job from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/jobs-questions"
+          }
+        ],
+        "input": "SyncMetadata_workable_jobsquestions",
+        "name": "jobs-questions",
+        "output": [
+          "WorkableJobQuestion"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_jobs"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableJobQuestion",
+          "SyncMetadata_workable_jobsquestions"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of account members from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/members"
+          }
+        ],
+        "input": "SyncMetadata_workable_members",
+        "name": "members",
+        "output": [
+          "WorkableMember"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_jobs"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableMember",
+          "SyncMetadata_workable_members"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

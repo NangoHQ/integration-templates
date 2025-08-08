@@ -1,4 +1,4 @@
-import type { Purchase } from '../../models.js';
+import type { Purchase } from '../models.js';
 import type { QuickBooksPurchase } from '../types.js';
 
 export function toPurchase(purchase: QuickBooksPurchase): Purchase {

@@ -1,5 +1,5 @@
 import type { OktaUserGroupProfile, OktaActiveDirectoryGroupProfile, OktaGroup, CreateOktaGroup } from '../types.js';
-import type { Group, OktaAddGroup } from '../../models.js';
+import type { Group, OktaAddGroup } from '../models.js';
 
 export function toGroup(group: OktaGroup): Group {
     let profile: OktaUserGroupProfile | OktaActiveDirectoryGroupProfile | null = null;

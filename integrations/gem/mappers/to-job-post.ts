@@ -1,4 +1,4 @@
-import type { JobPost } from '../../models.js';
+import type { JobPost } from '../models.js';
 import type { GemJobPost } from '../types.js';
 
 export function toJobPost(response: GemJobPost): JobPost {

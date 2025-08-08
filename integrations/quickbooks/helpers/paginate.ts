@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { NangoSync, ProxyConfiguration } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { cdcPaginate } from './cdc-paginate.js';
 

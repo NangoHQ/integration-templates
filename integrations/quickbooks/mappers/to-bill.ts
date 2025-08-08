@@ -1,4 +1,4 @@
-import type { Bill, BillLine, CreateBill } from '../../models.js';
+import type { Bill, BillLine, CreateBill } from '../models.js';
 import type { CreateQuickBooksBill, QuickBooksBill, QuickBooksBillLine, ReferenceType } from '../types.js';
 
 /**

@@ -1,9 +1,0 @@
-{
-    "id": 18,
-    "email": "john.dimathl@example.com",
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "is_group_manager": true,
-    "locale": "en_US",
-    "is_superuser": false
-}

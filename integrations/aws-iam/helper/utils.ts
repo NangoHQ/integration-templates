@@ -1,5 +1,5 @@
+import type { NangoSync, NangoAction } from 'nango';
 import crypto from 'crypto';
-import type { NangoSync, NangoAction } from '../../models.js';
 
 interface AWSAuthHeader {
     authorizationHeader: string;
@@ -32,13 +32,13 @@ export async function getAWSAuthHeader(
 
         const getSignatureKey = (key: string, dateStamp: string, regionName: string, serviceName: string) => {
             const kDate = crypto.createHmac('sha256', `AWS4${key}`).update(dateStamp).digest();
-            const kRegion = crypto.createHmac('sha256', kDate).update(regionName).digest();
-            const kService = crypto.createHmac('sha256', kRegion).update(serviceName).digest();
-            return crypto.createHmac('sha256', kService).update('aws4_request').digest();
+            const kRegion = crypto.createHmac('sha256', Uint8Array.from(kDate)).update(regionName).digest();
+            const kService = crypto.createHmac('sha256', Uint8Array.from(kRegion)).update(serviceName).digest();
+            return crypto.createHmac('sha256', Uint8Array.from(kService)).update('aws4_request').digest();
         };
 
         const signingKey = getSignatureKey(secretAccessKey, date.substr(0, 8), region, service);
-        const signature = crypto.createHmac('sha256', signingKey).update(stringToSign).digest('hex');
+        const signature = crypto.createHmac('sha256', Uint8Array.from(signingKey)).update(stringToSign).digest('hex');
 
         const authorizationHeader = `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
 

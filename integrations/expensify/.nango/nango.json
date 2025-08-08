@@ -1,79 +1,99 @@
 [
-    {
-        "providerConfigKey": "expensify",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Expensify.",
-                "sync_type": "full",
-                "usedModels": ["ExpsensifyNullableUser"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["ExpsensifyNullableUser"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "expensify",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Create a user in the account",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_expensify_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_expensify_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Create a user in the account",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "CreateUser",
-                "output": ["ExpsensifyNullableUser"],
-                "usedModels": ["ExpsensifyNullableUser", "CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Disables a user in Expensify",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "ExpensifyDisableUser",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "ExpensifyDisableUser"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "list-policies",
-                "type": "action",
-                "description": "Action to fetch a list of policies with some relevant information about them",
-                "version": "2.0.1",
-                "scopes": [],
-                "input": null,
-                "output": ["ExpensifyListPolicyOutput"],
-                "usedModels": ["ExpensifyListPolicyOutput", "Policy"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/policies"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_expensify_createuser",
+          "ActionOutput_expensify_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Disables a user in Expensify",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_expensify_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_expensify_disableuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_expensify_disableuser",
+          "ActionOutput_expensify_disableuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to fetch a list of policies with some relevant information about them",
+        "endpoint": {
+          "method": "POST",
+          "path": "/policies"
+        },
+        "input": "ActionInput_expensify_listpolicies",
+        "name": "list-policies",
+        "output": [
+          "ActionOutput_expensify_listpolicies"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_expensify_listpolicies",
+          "ActionOutput_expensify_listpolicies"
+        ],
+        "version": "3.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Expensify.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_expensify_users",
+        "name": "users",
+        "output": [
+          "ExpsensifyNullableUser"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "ExpsensifyNullableUser",
+          "SyncMetadata_expensify_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

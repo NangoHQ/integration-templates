@@ -1,8 +1,11 @@
-import type { NangoSync, GeneralLedger, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import type { NS_JournalEntry, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { mapNetSuiteToUnified } from '../mappers/to-general-ledger.js';
 import { formatDate } from '../helpers/utils.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { GeneralLedger, NetsuiteMetadata } from '../models.js';
 
 const retries = 3;
 
@@ -20,34 +23,59 @@ const retries = 3;
  * detailed information, maps it to a unified format, and saves the mapped entries in batches.
  */
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+const sync = createSync({
+    description: 'Fetches all JournalEntries in Netsuite',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: false,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const proxyConfig: ProxyConfiguration = {
-        // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-journalEntry
-        endpoint: '/journalEntry',
-        retries,
-        ...(lastModifiedDateQuery ? { params: { q: lastModifiedDateQuery } } : {})
-    };
-    for await (const entries of paginate<{ id: string }>({ nango, proxyConfig })) {
-        await nango.log('Listed journalEntries', { total: entries.length });
-
-        const mappedEntries: GeneralLedger[] = [];
-        for (const entryLink of entries) {
-            const nsJournalEntry: NSAPI_GetResponse<NS_JournalEntry> = await nango.get({
-                endpoint: `/journalentry/${entryLink.id}`,
-                params: {
-                    expandSubResources: 'true'
-                },
-                retries
-            });
-            if (!nsJournalEntry.data) {
-                await nango.log('Journal not found', { id: entryLink.id });
-                continue;
-            }
-            const mappedEntry: GeneralLedger = mapNetSuiteToUnified(nsJournalEntry.data);
-            mappedEntries.push(mappedEntry);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/general-ledger'
         }
-        await nango.batchSave<GeneralLedger>(mappedEntries, 'GeneralLedger');
+    ],
+
+    models: {
+        GeneralLedger: GeneralLedger
+    },
+
+    metadata: NetsuiteMetadata,
+
+    exec: async (nango) => {
+        const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-journalEntry
+            endpoint: '/journalEntry',
+            retries,
+            ...(lastModifiedDateQuery ? { params: { q: lastModifiedDateQuery } } : {})
+        };
+        for await (const entries of paginate<{ id: string }>({ nango, proxyConfig })) {
+            await nango.log('Listed journalEntries', { total: entries.length });
+
+            const mappedEntries: GeneralLedger[] = [];
+            for (const entryLink of entries) {
+                const nsJournalEntry: NSAPI_GetResponse<NS_JournalEntry> = await nango.get({
+                    endpoint: `/journalentry/${entryLink.id}`,
+                    params: {
+                        expandSubResources: 'true'
+                    },
+                    retries
+                });
+                if (!nsJournalEntry.data) {
+                    await nango.log('Journal not found', { id: entryLink.id });
+                    continue;
+                }
+                const mappedEntry: GeneralLedger = mapNetSuiteToUnified(nsJournalEntry.data);
+                mappedEntries.push(mappedEntry);
+            }
+            await nango.batchSave(mappedEntries, 'GeneralLedger');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

@@ -1,5 +1,0 @@
-{
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.listItem)",
-    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/sites/fake-sharepoint.sharepoint.com,70b9cf1d-5b16-432a-bb77-8bc691f316c8,b7d38764-5b57-4e4e-8f18-c76a59f76f38/lists/bb6281e1-0108-443e-8b8e-bed9ee1c8626/items/delta?$top=100&token=NDslMjM0OyUyMzE7MztiYjYyODFlMS0wMTA4LTQ0M2UtOGI4ZS1iZWQ5ZWUxYzg2MjY7NjM4NjU0NTUyMjU1OTAwMDAwOzk1MjQ5OTYzMDslMjM7JTIzOyUyMzA7JTIz",
-    "value": []
-}

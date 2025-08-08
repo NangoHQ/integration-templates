@@ -14,13 +14,13 @@ This guide covers advanced patterns for implementing different types of Nango in
 ## Configuration Based Sync
 
 ### Overview
-A configuration-based sync allows customization of the sync behavior through metadata provided in the nango.yaml file. This pattern is useful when you need to:
+A configuration-based sync allows customization of the sync behavior through metadata provided in the sync configuration. This pattern is useful when you need to:
 - Configure specific fields to sync
 - Set custom endpoints or parameters
 - Define filtering rules
 
 ### Key Characteristics
-- Uses metadata in nango.yaml for configuration
+- Uses metadata in sync configuration for customization
 - Allows runtime customization of sync behavior
 - Supports flexible data mapping
 - Can handle provider-specific requirements
@@ -32,96 +32,134 @@ This pattern leverages metadata to define a dynamic schema that drives the sync.
 1. An action to fetch available fields using the provider's introspection endpoint
 2. A sync that uses the configured fields to fetch data
 
-Example configuration in `nango.yaml`:
+Example configuration in sync file:
 
-```yaml
-integrations:
-    salesforce:
-        configuration-based-sync:
-            sync_type: full
-            track_deletes: true
-            endpoint: GET /dynamic
-            description: Fetch all fields of a dynamic model
-            input: DynamicFieldMetadata
-            auto_start: false
-            runs: every 1h
-            output: OutputData
+```typescript
+import { createSync } from 'nango';
+import { z } from 'zod';
 
-models:
-    DynamicFieldMetadata:
-        configurations: Configuration[]
-    Configuration:
-        model: string
-        fields: Field[]
-    Field:
-        id: string
-        name: string
-        type: string
-    OutputData:
-        id: string
-        model: string
-        data:
-            __string: any
+const DynamicFieldMetadata = z.object({
+    configurations: z.array(z.object({
+        model: z.string(),
+        fields: z.array(z.object({
+            id: z.string(),
+            name: z.string(),
+            type: z.string()
+        }))
+    }))
+});
+
+const OutputData = z.object({
+    id: z.string(),
+    model: z.string(),
+    data: z.record(z.any())
+});
+
+const sync = createSync({
+    description: 'Fetch all fields of a dynamic model',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/dynamic',
+            group: 'Dynamic Data'
+        }
+    ],
+
+    models: {
+        OutputData: OutputData
+    },
+
+    metadata: DynamicFieldMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof DynamicFieldMetadata>>();
+        
+        // Process each model configuration
+        for (const config of metadata.configurations) {
+            const { model, fields } = config;
+            
+            // Construct SOQL query with field selection
+            const fieldNames = fields.map(f => f.name).join(',');
+            const soqlQuery = `SELECT ${fieldNames} FROM ${model}`;
+            
+            // Query Salesforce API using SOQL
+            const response = await nango.get({
+                endpoint: `/services/data/v59.0/query`,
+                params: {
+                    q: soqlQuery
+                }
+            });
+
+            // Map response to OutputData format and save
+            const mappedData = response.data.records.map(record => ({
+                id: record.Id,
+                model: model,
+                data: fields.reduce((acc, field) => {
+                    acc[field.name] = record[field.name];
+                    return acc;
+                }, {} as Record<string, any>)
+            }));
+
+            // Save the batch of records
+            await nango.batchSave(mappedData, 'OutputData');
+        }
+    }
+});
 ```
 
 Example field introspection action:
 
 ```typescript
-export default async function runAction(
-    nango: NangoAction,
+import { createAction } from 'nango';
+import { z } from 'zod';
+
+const Entity = z.object({
+    name: z.string()
+});
+
+const GetSchemaResponse = z.object({
+    fields: z.array(z.object({
+        name: z.string(),
+        type: z.string()
+    }))
+});
+
+const action = createAction({
+    description: 'Get available fields for an entity',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'GET',
+        path: '/schema',
+        group: 'Schema'
+    },
+
     input: Entity,
-): Promise<GetSchemaResponse> {
-    const entity = input.name;
-    
-    // Query the API's introspection endpoint
-    const response = await nango.get({
-        endpoint: `/services/data/v51.0/sobjects/${entity}/describe`,
-    });
-    // ... process and return field schema
-}
-```
+    output: GetSchemaResponse,
 
-Example sync implementation:
-
-```typescript
-import type { NangoSync, DynamicFieldMetadata, OutputData } from '../models.js';
-
-const SF_VERSION = 'v59.0';
-
-export default async function fetchData(
-    nango: NangoSync,
-    metadata: DynamicFieldMetadata
-): Promise<void> {
-    // Process each model configuration
-    for (const config of metadata.configurations) {
-        const { model, fields } = config;
+    exec: async (nango, input) => {
+        const entity = input.name;
         
-        // Construct SOQL query with field selection
-        const fieldNames = fields.map(f => f.name).join(',');
-        const soqlQuery = `SELECT ${fieldNames} FROM ${model}`;
-        
-        // Query Salesforce API using SOQL
+        // Query the API's introspection endpoint
         const response = await nango.get({
-            endpoint: `/services/data/${SF_VERSION}/query`,
-            params: {
-                q: soqlQuery
-            }
+            endpoint: `/services/data/v51.0/sobjects/${entity}/describe`,
         });
-
-        // Map response to OutputData format and save
-        const mappedData = response.data.records.map(record => ({
-            id: record.Id,
-            model: model,
-            data: fields.reduce((acc, field) => {
-                acc[field.name] = record[field.name];
-                return acc;
-            }, {} as Record<string, any>)
-        }));
-
-        // Save the batch of records
-        await nango.batchSave(mappedData);
+        
+        // Process and return field schema
+        return {
+            fields: response.data.fields.map(field => ({
+                name: field.name,
+                type: field.type
+            }))
+        };
     }
-}
+});
 ```
 
 Key implementation aspects:
@@ -130,7 +168,7 @@ Key implementation aspects:
 - Supports multiple models from the third party API in a single sync
 - Maps responses to a consistent output format
 - Requires complementary action for field introspection
-- Supports flexible schema configuration through nango.yaml
+- Supports flexible schema configuration through Zod models
 
 ## Selection Based Sync
 
@@ -168,63 +206,82 @@ graph TD
 
 Here's how this pattern is implemented in a Box files sync:
 
-```yaml
-# nango.yaml configuration
-files:
-    description: Sync files from specific folders or individual files
-    input: BoxMetadata
-    auto_start: false
-    sync_type: full
-
-models:
-    BoxMetadata:
-        files: string[]
-        folders: string[]
-    BoxDocument:
-        id: string
-        name: string
-        modified_at: string
-        download_url: string
-```
-
 ```typescript
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<BoxMetadata>();
-    const files = metadata?.files ?? [];
-    const folders = metadata?.folders ?? [];
-    const batchSize = 100;
+import { createSync } from 'nango';
+import { z } from 'zod';
 
-    if (files.length === 0 && folders.length === 0) {
-        throw new Error('Metadata for files or folders is required.');
-    }
+const BoxMetadata = z.object({
+    files: z.array(z.string()),
+    folders: z.array(z.string())
+});
 
-    // Process folders first
-    for (const folder of folders) {
-        await fetchFolder(nango, folder);
-    }
+const BoxDocument = z.object({
+    id: z.string(),
+    name: z.string(),
+    modified_at: z.string(),
+    download_url: z.string().optional()
+});
 
-    // Then process individual files
-    let batch: BoxDocument[] = [];
-    for (const file of files) {
-        const metadata = await getFileMetadata(nango, file);
-        batch.push({
-            id: metadata.id,
-            name: metadata.name,
-            modified_at: metadata.modified_at,
-            download_url: metadata.shared_link?.download_url
-        });
-        if (batch.length >= batchSize) {
+const sync = createSync({
+    description: 'Sync files from specific folders or individual files',
+    version: '1.0.0',
+    frequency: 'every day',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files',
+            group: 'Files'
+        }
+    ],
+
+    models: {
+        BoxDocument: BoxDocument
+    },
+
+    metadata: BoxMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof BoxMetadata>>();
+        const files = metadata?.files ?? [];
+        const folders = metadata?.folders ?? [];
+        const batchSize = 100;
+
+        if (files.length === 0 && folders.length === 0) {
+            throw new Error('Metadata for files or folders is required.');
+        }
+
+        // Process folders first
+        for (const folder of folders) {
+            await fetchFolder(nango, folder);
+        }
+
+        // Then process individual files
+        let batch: z.infer<typeof BoxDocument>[] = [];
+        for (const file of files) {
+            const metadata = await getFileMetadata(nango, file);
+            batch.push({
+                id: metadata.id,
+                name: metadata.name,
+                modified_at: metadata.modified_at,
+                download_url: metadata.shared_link?.download_url
+            });
+            if (batch.length >= batchSize) {
+                await nango.batchSave(batch, 'BoxDocument');
+                batch = [];
+            }
+        }
+        if (batch.length > 0) {
             await nango.batchSave(batch, 'BoxDocument');
-            batch = [];
         }
     }
-    if (batch.length > 0) {
-        await nango.batchSave(batch, 'BoxDocument');
-    }
-}
+});
 
-async function fetchFolder(nango: NangoSync, folderId: string) {
-    const proxy: ProxyConfiguration = {
+async function fetchFolder(nango: any, folderId: string) {
+    const proxy = {
         endpoint: `/2.0/folders/${folderId}/items`,
         params: {
             fields: 'id,name,modified_at,shared_link'
@@ -235,7 +292,7 @@ async function fetchFolder(nango: NangoSync, folderId: string) {
         }
     };
 
-    let batch: BoxDocument[] = [];
+    let batch: z.infer<typeof BoxDocument>[] = [];
     const batchSize = 100;
 
     for await (const items of nango.paginate(proxy)) {
@@ -322,50 +379,86 @@ graph TD
 Here's a simplified example of the window time based sync pattern, focusing on the window selection and iteration logic:
 
 ```typescript
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    // 1. Load metadata and determine the overall date range
-    const metadata = await nango.getMetadata();
-    const lookBackPeriodInYears = 5;
-    const { startDate, endDate } = calculateDateRange(metadata, lookBackPeriodInYears);
-    let currentStartDate = new Date(startDate);
+import { createSync } from 'nango';
+import { z } from 'zod';
 
-    // 2. Iterate over each time window (e.g., month)
-    while (currentStartDate < endDate) {
-        let currentEndDate = new Date(currentStartDate);
-        currentEndDate.setMonth(currentEndDate.getMonth() + 1);
-        currentEndDate.setDate(1);
+const WindowMetadata = z.object({
+    fromDate: z.string().optional(),
+    toDate: z.string().optional(),
+    useMetadata: z.boolean().optional()
+});
 
-        if (currentEndDate > endDate) {
-            currentEndDate = new Date(endDate);
+const sync = createSync({
+    description: 'Window time based sync for large datasets',
+    version: '1.0.0',
+    frequency: 'every day',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/data',
+            group: 'Data'
         }
+    ],
 
-        // 3. Fetch and process data for the current window
-        const data = await fetchDataForWindow(currentStartDate, currentEndDate);
-        await processAndSaveData(data);
+    models: {
+        DataRecord: z.object({
+            id: z.string(),
+            created_at: z.string(),
+            data: z.any()
+        })
+    },
 
-        // 4. Update metadata to track progress
-        await nango.updateMetadata({
-            fromDate: currentEndDate.toISOString().split("T")[0],
-            toDate: endDate.toISOString().split("T")[0],
-            useMetadata: currentEndDate < endDate,
-        });
+    metadata: WindowMetadata,
 
-        currentStartDate = new Date(currentEndDate.getTime());
-        if (currentStartDate >= endDate) {
+    exec: async (nango) => {
+        // 1. Load metadata and determine the overall date range
+        const metadata = await nango.getMetadata<z.infer<typeof WindowMetadata>>();
+        const lookBackPeriodInYears = 5;
+        const { startDate, endDate } = calculateDateRange(metadata, lookBackPeriodInYears);
+        let currentStartDate = new Date(startDate);
+
+        // 2. Iterate over each time window (e.g., month)
+        while (currentStartDate < endDate) {
+            let currentEndDate = new Date(currentStartDate);
+            currentEndDate.setMonth(currentEndDate.getMonth() + 1);
+            currentEndDate.setDate(1);
+
+            if (currentEndDate > endDate) {
+                currentEndDate = new Date(endDate);
+            }
+
+            // 3. Fetch and process data for the current window
+            const data = await fetchDataForWindow(currentStartDate, currentEndDate);
+            await processAndSaveData(data);
+
+            // 4. Update metadata to track progress
             await nango.updateMetadata({
-                fromDate: endDate.toISOString().split("T")[0],
+                fromDate: currentEndDate.toISOString().split("T")[0],
                 toDate: endDate.toISOString().split("T")[0],
-                useMetadata: false,
+                useMetadata: currentEndDate < endDate,
             });
-            break;
+
+            currentStartDate = new Date(currentEndDate.getTime());
+            if (currentStartDate >= endDate) {
+                await nango.updateMetadata({
+                    fromDate: endDate.toISOString().split("T")[0],
+                    toDate: endDate.toISOString().split("T")[0],
+                    useMetadata: false,
+                });
+                break;
+            }
+        }
+
+        // 5. Optionally, handle incremental updates after the full windowed sync
+        if (!metadata.useMetadata) {
+            // ... (incremental sync logic)
         }
     }
-
-    // 5. Optionally, handle incremental updates after the full windowed sync
-    if (!metadata.useMetadata) {
-        // ... (incremental sync logic)
-    }
-}
+});
 
 async function fetchDataForWindow(start: Date, end: Date) {
     // Implement provider-specific logic to fetch data for the window
@@ -435,32 +528,52 @@ graph TD
 Here's a generic example of this pattern:
 
 ```typescript
-/**
- * Fetch all entities for an action, preferring previously synced data.
- * 1) Try using previously synced data (Entity).
- * 2) If none found, fallback to fetch from API.
- * 3) Return transformed entities.
- */
-export default async function runAction(nango: NangoAction) {
-  const syncedEntities: Entity[] = await getSyncedEntities(nango);
+import { createAction } from 'nango';
+import { z } from 'zod';
 
-  if (syncedEntities.length > 0) {
-    return {
-      entities: syncedEntities.map(({ id, name, ...rest }) => ({
-        id,
-        name,
-        ...rest,
-      })),
-    };
-  }
+const Entity = z.object({
+    id: z.string(),
+    name: z.string()
+});
 
-  // Fallback: fetch from API (not shown)
-  return { entities: [] };
-}
+const EntityList = z.object({
+    entities: z.array(Entity)
+});
 
-async function getSyncedEntities(nango: NangoAction): Promise<Entity[]> {
-  // Implement logic to retrieve entities from previously synced data
-  return [];
+const action = createAction({
+    description: 'Fetch all entities for an action, preferring previously synced data',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'GET',
+        path: '/entities',
+        group: 'Entities'
+    },
+
+    input: z.void(),
+    output: EntityList,
+
+    exec: async (nango) => {
+        const syncedEntities: z.infer<typeof Entity>[] = await getSyncedEntities(nango);
+
+        if (syncedEntities.length > 0) {
+            return {
+                entities: syncedEntities.map(({ id, name, ...rest }) => ({
+                    id,
+                    name,
+                    ...rest,
+                })),
+            };
+        }
+
+        // Fallback: fetch from API (not shown)
+        return { entities: [] };
+    }
+});
+
+async function getSyncedEntities(nango: any): Promise<z.infer<typeof Entity>[]> {
+    // Implement logic to retrieve entities from previously synced data
+    return [];
 }
 ```
 
@@ -540,59 +653,96 @@ graph TD
 This pattern uses metadata to track sync progress and implements time-aware cursor-based pagination. Here's a typical implementation:
 
 ```typescript
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const START_TIME = Date.now();
-    const MAX_RUNTIME_MS = 23.5 * 60 * 60 * 1000; // 23.5 hours in milliseconds
-    
-    // Get or initialize sync metadata
-    let metadata = await nango.getMetadata<SyncCursor>();
-    
-    // Initialize sync window if first run
-    if (!metadata?.currentStartTime) {
-        await nango.updateMetadata({ 
-            currentStartTime: new Date(),
-            lastProcessedId: null,
-            totalProcessed: 0
-        });
-        metadata = await nango.getMetadata<SyncCursor>();
-    }
-    
-    let shouldContinue = true;
-    
-    while (shouldContinue) {
-        // Check if we're approaching the 24h limit
-        const timeElapsed = Date.now() - START_TIME;
-        if (timeElapsed >= MAX_RUNTIME_MS) {
-            // Save progress and exit gracefully
-            await nango.log('Approaching 24h limit, saving progress and exiting');
-            return;
+import { createSync } from 'nango';
+import { z } from 'zod';
+
+const SyncCursor = z.object({
+    currentStartTime: z.string().optional(),
+    lastProcessedId: z.string().optional(),
+    totalProcessed: z.number().optional()
+});
+
+const DataRecord = z.object({
+    id: z.string(),
+    data: z.any()
+});
+
+const sync = createSync({
+    description: '24-hour extended sync for large datasets',
+    version: '1.0.0',
+    frequency: 'every day',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/data',
+            group: 'Data'
         }
+    ],
+
+    models: {
+        DataRecord: DataRecord
+    },
+
+    metadata: SyncCursor,
+
+    exec: async (nango) => {
+        const START_TIME = Date.now();
+        const MAX_RUNTIME_MS = 23.5 * 60 * 60 * 1000; // 23.5 hours in milliseconds
         
-        // Fetch and process data batch
-        const response = await fetchDataBatch(metadata.lastProcessedId);
-        await processAndSaveData(response.data);
+        // Get or initialize sync metadata
+        let metadata = await nango.getMetadata<z.infer<typeof SyncCursor>>();
         
-        // Update progress
-        await nango.updateMetadata({
-            lastProcessedId: response.lastId,
-            totalProcessed: metadata.totalProcessed + response.data.length
-        });
-        
-        // Check if we're done
-        if (response.isLastPage) {
-            // Reset metadata for fresh start
-            await nango.updateMetadata({
-                currentStartTime: null,
+        // Initialize sync window if first run
+        if (!metadata?.currentStartTime) {
+            await nango.updateMetadata({ 
+                currentStartTime: new Date().toISOString(),
                 lastProcessedId: null,
                 totalProcessed: 0
             });
-            shouldContinue = false;
+            metadata = await nango.getMetadata<z.infer<typeof SyncCursor>>();
+        }
+        
+        let shouldContinue = true;
+        
+        while (shouldContinue) {
+            // Check if we're approaching the 24h limit
+            const timeElapsed = Date.now() - START_TIME;
+            if (timeElapsed >= MAX_RUNTIME_MS) {
+                // Save progress and exit gracefully
+                await nango.log('Approaching 24h limit, saving progress and exiting');
+                return;
+            }
+            
+            // Fetch and process data batch
+            const response = await fetchDataBatch(metadata.lastProcessedId);
+            await processAndSaveData(response.data);
+            
+            // Update progress
+            await nango.updateMetadata({
+                lastProcessedId: response.lastId,
+                totalProcessed: (metadata.totalProcessed || 0) + response.data.length
+            });
+            
+            // Check if we're done
+            if (response.isLastPage) {
+                // Reset metadata for fresh start
+                await nango.updateMetadata({
+                    currentStartTime: null,
+                    lastProcessedId: null,
+                    totalProcessed: 0
+                });
+                shouldContinue = false;
+            }
         }
     }
-}
+});
 
-async function fetchDataBatch(lastId: string | null): Promise<DataBatchResponse> {
-    const config: ProxyConfiguration = {
+async function fetchDataBatch(lastId: string | null): Promise<{data: any[], lastId: string, isLastPage: boolean}> {
+    const config = {
         endpoint: '/data',
         params: {
             after: lastId,
@@ -601,7 +751,12 @@ async function fetchDataBatch(lastId: string | null): Promise<DataBatchResponse>
         retries: 10
     };
     
-    return await nango.get(config);
+    const response = await nango.get(config);
+    return {
+        data: response.data.records,
+        lastId: response.data.records[response.data.records.length - 1]?.id,
+        isLastPage: !response.data.nextRecordsUrl
+    };
 }
 ```
 
@@ -650,45 +805,82 @@ A multi-model sync is a pattern where a single sync fetches and saves multiple t
 
 Suppose you want to sync Slack messages, thread replies, and reactions for all channels. These entities are related: replies depend on messages, and reactions can belong to either. By syncing them together, you ensure that all dependencies are resolved in a single run.
 
-#### Simplified nango.yaml
-
-```yaml
-integrations:
-  slack:
-    syncs:
-      messages:
-        description: Syncs messages, replies, and reactions for all channels
-        output:
-          - SlackMessage
-          - SlackMessageReply
-          - SlackMessageReaction
-        sync_type: incremental
-        endpoint:
-          - method: GET
-            path: /messages
-          - method: GET
-            path: /messages-reply
-          - method: GET
-            path: /messages-reaction
-```
-
-#### Simplified Sync Implementation
+#### Simplified sync configuration
 
 ```typescript
-export default async function fetchData(nango: NangoSync) {
-  // Fetch messages
-  for (const message of await fetchMessages()) {
-    await nango.batchSave([message], 'SlackMessage');
-    // Fetch and save replies for each message
-    for (const reply of await fetchReplies(message)) {
-      await nango.batchSave([reply], 'SlackMessageReply');
+import { createSync } from 'nango';
+import { z } from 'zod';
+
+const SlackMessage = z.object({
+    id: z.string(),
+    text: z.string(),
+    channel_id: z.string(),
+    timestamp: z.string()
+});
+
+const SlackMessageReply = z.object({
+    id: z.string(),
+    parent_message_id: z.string(),
+    text: z.string(),
+    timestamp: z.string()
+});
+
+const SlackMessageReaction = z.object({
+    id: z.string(),
+    message_id: z.string(),
+    emoji: z.string(),
+    count: z.number()
+});
+
+const sync = createSync({
+    description: 'Syncs messages, replies, and reactions for all channels',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/messages',
+            group: 'Messages'
+        },
+        {
+            method: 'GET',
+            path: '/messages-reply',
+            group: 'Messages'
+        },
+        {
+            method: 'GET',
+            path: '/messages-reaction',
+            group: 'Messages'
+        }
+    ],
+
+    models: {
+        SlackMessage: SlackMessage,
+        SlackMessageReply: SlackMessageReply,
+        SlackMessageReaction: SlackMessageReaction
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        // Fetch messages
+        for (const message of await fetchMessages()) {
+            await nango.batchSave([message], 'SlackMessage');
+            // Fetch and save replies for each message
+            for (const reply of await fetchReplies(message)) {
+                await nango.batchSave([reply], 'SlackMessageReply');
+            }
+            // Fetch and save reactions for each message
+            for (const reaction of await fetchReactions(message)) {
+                await nango.batchSave([reaction], 'SlackMessageReaction');
+            }
+        }
     }
-    // Fetch and save reactions for each message
-    for (const reaction of await fetchReactions(message)) {
-      await nango.batchSave([reaction], 'SlackMessageReaction');
-    }
-  }
-}
+});
 ```
 
 ### Best Practices

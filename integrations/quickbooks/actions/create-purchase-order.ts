@@ -1,6 +1,9 @@
-import type { NangoAction, CreatePurchaseOrder, PurchaseOrder, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksPurchaseOrder, toPurchaseOrder } from '../mappers/to-purchase-order.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { PurchaseOrder, CreatePurchaseOrder } from '../models.js';
 
 /**
  * This function handles the creation of a PurchaseOrder in QuickBooks via the Nango action.
@@ -14,69 +17,87 @@ import { toQuickBooksPurchaseOrder, toPurchaseOrder } from '../mappers/to-purcha
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<PurchaseOrder>} - Returns the created Purchase Order object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: CreatePurchaseOrder): Promise<PurchaseOrder> {
-    // Validate if input is present
-    ///
-    if (!input) {
-        throw new nango.ActionError({
-            message: `Input credit memo object is required. Received: ${JSON.stringify(input)}`
-        });
-    }
+const action = createAction({
+    description: 'Creates a single purchase order in QuickBooks.',
+    version: '1.0.0',
 
-    // Validate required fields
-    if (!input.ap_account_ref?.value) {
-        throw new nango.ActionError({
-            message: `ap_account_ref is required and must include a value. Received: ${JSON.stringify(input.ap_account_ref)}`
-        });
-    }
+    endpoint: {
+        method: 'POST',
+        path: '/purchase-orders',
+        group: 'Purchase Orders'
+    },
 
-    if (!input.vendor_ref?.value) {
-        throw new nango.ActionError({
-            message: `vendor_ref is required and must include a value. Received: ${JSON.stringify(input.vendor_ref)}`
-        });
-    }
+    input: CreatePurchaseOrder,
+    output: PurchaseOrder,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
-    if (!input.line || input.line.length === 0) {
-        throw new nango.ActionError({
-            message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
-        });
-    }
-
-    // Validate each line item
-    for (const line of input.line) {
-        if (!line.detail_type) {
+    exec: async (nango, input): Promise<PurchaseOrder> => {
+        // Validate if input is present
+        ///
+        if (!input) {
             throw new nango.ActionError({
-                message: `detail_type is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `Input credit memo object is required. Received: ${JSON.stringify(input)}`
             });
         }
 
-        if (line.amount_cents === undefined) {
+        // Validate required fields
+        if (!input.ap_account_ref?.value) {
             throw new nango.ActionError({
-                message: `amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `ap_account_ref is required and must include a value. Received: ${JSON.stringify(input.ap_account_ref)}`
             });
         }
 
-        if (!line.item_based_expense_line_detail) {
+        if (!input.vendor_ref?.value) {
             throw new nango.ActionError({
-                message: `item_based_expense_line_detail is required for each line item. Received: ${JSON.stringify(line.item_based_expense_line_detail)}`
+                message: `vendor_ref is required and must include a value. Received: ${JSON.stringify(input.vendor_ref)}`
             });
         }
+
+        if (!input.line || input.line.length === 0) {
+            throw new nango.ActionError({
+                message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
+            });
+        }
+
+        // Validate each line item
+        for (const line of input.line) {
+            if (!line.detail_type) {
+                throw new nango.ActionError({
+                    message: `detail_type is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (line.amount_cents === undefined) {
+                throw new nango.ActionError({
+                    message: `amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (!line.item_based_expense_line_detail) {
+                throw new nango.ActionError({
+                    message: `item_based_expense_line_detail is required for each line item. Received: ${JSON.stringify(line.item_based_expense_line_detail)}`
+                });
+            }
+        }
+
+        ///
+
+        const companyId = await getCompany(nango);
+        // Map the PurchaseOrder input to the QuickBooks PurchaseOrder structure
+        const quickBooksPurchaseOrder = toQuickBooksPurchaseOrder(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder#create-a-purchase-order
+            endpoint: `/v3/company/${companyId}/purchaseorder`,
+            data: quickBooksPurchaseOrder,
+            retries: 3
+        };
+
+        const response = await nango.post(config);
+
+        return toPurchaseOrder(response.data['PurchaseOrder']);
     }
+});
 
-    ///
-
-    const companyId = await getCompany(nango);
-    // Map the PurchaseOrder input to the QuickBooks PurchaseOrder structure
-    const quickBooksPurchaseOrder = toQuickBooksPurchaseOrder(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder#create-a-purchase-order
-        endpoint: `/v3/company/${companyId}/purchaseorder`,
-        data: quickBooksPurchaseOrder,
-        retries: 3
-    };
-
-    const response = await nango.post(config);
-
-    return toPurchaseOrder(response.data['PurchaseOrder']);
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { BamboohrEmployee } from '../../models.js';
+import type { BamboohrEmployee } from '../models.js';
 import type { BamboohrEmployeeResponse } from '../types.js';
 
 /**
