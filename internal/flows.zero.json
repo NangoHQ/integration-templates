@@ -59470,7 +59470,7 @@
                 "output": ["ActionOutput_xero_createcontact"],
                 "scopes": ["accounting.contacts"],
                 "usedModels": ["ActionInput_xero_createcontact", "ActionOutput_xero_createcontact"],
-                "version": "2.0.0"
+                "version": "1.0.3"
             },
             {
                 "type": "action",
@@ -59485,7 +59485,7 @@
                 "output": ["ActionOutput_xero_updatecontact"],
                 "scopes": ["accounting.contacts"],
                 "usedModels": ["ActionInput_xero_updatecontact", "ActionOutput_xero_updatecontact"],
-                "version": "2.0.0"
+                "version": "1.0.3"
             },
             {
                 "type": "action",
@@ -59500,7 +59500,7 @@
                 "output": ["ActionOutput_xero_createinvoice"],
                 "scopes": ["accounting.transactions"],
                 "usedModels": ["ActionInput_xero_createinvoice", "ActionOutput_xero_createinvoice"],
-                "version": "2.0.0"
+                "version": "1.0.4"
             },
             {
                 "type": "action",
@@ -59515,7 +59515,7 @@
                 "output": ["ActionOutput_xero_updateinvoice"],
                 "scopes": ["accounting.transactions"],
                 "usedModels": ["ActionInput_xero_updateinvoice", "ActionOutput_xero_updateinvoice"],
-                "version": "2.0.0"
+                "version": "1.0.4"
             },
             {
                 "type": "action",
@@ -59530,7 +59530,7 @@
                 "output": ["ActionOutput_xero_createcreditnote"],
                 "scopes": ["accounting.transactions"],
                 "usedModels": ["ActionInput_xero_createcreditnote", "ActionOutput_xero_createcreditnote"],
-                "version": "2.0.0"
+                "version": "1.0.4"
             },
             {
                 "type": "action",
@@ -59545,7 +59545,7 @@
                 "output": ["ActionOutput_xero_updatecreditnote"],
                 "scopes": ["accounting.transactions"],
                 "usedModels": ["ActionInput_xero_updatecreditnote", "ActionOutput_xero_updatecreditnote"],
-                "version": "2.0.0"
+                "version": "1.0.4"
             },
             {
                 "type": "action",
@@ -59560,7 +59560,7 @@
                 "output": ["ActionOutput_xero_createpayment"],
                 "scopes": ["accounting.transactions"],
                 "usedModels": ["ActionInput_xero_createpayment", "ActionOutput_xero_createpayment"],
-                "version": "2.0.0"
+                "version": "1.0.3"
             },
             {
                 "type": "action",
@@ -59575,7 +59575,7 @@
                 "output": ["ActionOutput_xero_createitem"],
                 "scopes": ["accounting.settings"],
                 "usedModels": ["ActionInput_xero_createitem", "ActionOutput_xero_createitem"],
-                "version": "2.0.0"
+                "version": "1.0.3"
             },
             {
                 "type": "action",
@@ -59590,7 +59590,7 @@
                 "output": ["ActionOutput_xero_gettenants"],
                 "scopes": [],
                 "usedModels": ["ActionInput_xero_gettenants", "ActionOutput_xero_gettenants"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -59605,7 +59605,7 @@
                 "output": ["ActionOutput_xero_updateitem"],
                 "scopes": ["accounting.settings"],
                 "usedModels": ["ActionInput_xero_updateitem", "ActionOutput_xero_updateitem"],
-                "version": "2.0.0"
+                "version": "1.0.3"
             }
         ],
         "syncs": [
@@ -59628,7 +59628,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Contact", "SyncMetadata_xero_contacts"],
-                "version": "2.0.0",
+                "version": "1.0.3",
                 "webhookSubscriptions": []
             },
             {
@@ -59650,7 +59650,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Account", "SyncMetadata_xero_accounts"],
-                "version": "2.0.0",
+                "version": "1.0.5",
                 "webhookSubscriptions": []
             },
             {
@@ -59672,7 +59672,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Item", "SyncMetadata_xero_items"],
-                "version": "2.0.0",
+                "version": "1.0.3",
                 "webhookSubscriptions": []
             },
             {
@@ -59694,7 +59694,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Invoice", "SyncMetadata_xero_invoices"],
-                "version": "2.0.0",
+                "version": "1.0.3",
                 "webhookSubscriptions": []
             },
             {
@@ -59716,7 +59716,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["BankTransaction", "SyncMetadata_xero_banktransactions"],
-                "version": "3.0.0",
+                "version": "2.0.0",
                 "webhookSubscriptions": []
             },
             {
@@ -59738,7 +59738,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["GeneralLedger", "SyncMetadata_xero_generalledger"],
-                "version": "2.0.0",
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -59760,7 +59760,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["Organisation", "SyncMetadata_xero_organisations"],
-                "version": "2.0.0",
+                "version": "1.0.0",
                 "webhookSubscriptions": []
             },
             {
@@ -59782,7 +59782,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Payment", "SyncMetadata_xero_payments"],
-                "version": "2.0.0",
+                "version": "1.0.3",
                 "webhookSubscriptions": []
             },
             {
@@ -59804,7 +59804,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["CreditNote", "SyncMetadata_xero_creditnotes"],
-                "version": "2.0.0",
+                "version": "1.0.0",
                 "webhookSubscriptions": []
             }
         ],
@@ -61343,7 +61343,7 @@
                 "output": ["ActionOutput_zendesk_fetcharticles"],
                 "scopes": ["hc:read"],
                 "usedModels": ["ActionInput_zendesk_fetcharticles", "ActionOutput_zendesk_fetcharticles"],
-                "version": "2.0.0"
+                "version": "1.0.1"
             },
             {
                 "type": "action",
@@ -61357,7 +61357,7 @@
                 "output": ["ActionOutput_zendesk_fetcharticle"],
                 "scopes": ["hc:read"],
                 "usedModels": ["ActionInput_zendesk_fetcharticle", "ActionOutput_zendesk_fetcharticle"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -61372,7 +61372,7 @@
                 "output": ["ActionOutput_zendesk_createsection"],
                 "scopes": ["hc:write"],
                 "usedModels": ["ActionInput_zendesk_createsection", "ActionOutput_zendesk_createsection"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -61387,7 +61387,7 @@
                 "output": ["ActionOutput_zendesk_createcategory"],
                 "scopes": ["hc:write"],
                 "usedModels": ["ActionInput_zendesk_createcategory", "ActionOutput_zendesk_createcategory"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -61402,7 +61402,7 @@
                 "output": ["ActionOutput_zendesk_createticket"],
                 "scopes": ["tickets:write"],
                 "usedModels": ["ActionInput_zendesk_createticket", "ActionOutput_zendesk_createticket"],
-                "version": "2.0.0"
+                "version": "1.0.2"
             },
             {
                 "type": "action",
@@ -61417,7 +61417,7 @@
                 "output": ["ActionOutput_zendesk_deleteuser"],
                 "scopes": ["users:write"],
                 "usedModels": ["ActionInput_zendesk_deleteuser", "ActionOutput_zendesk_deleteuser"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -61432,7 +61432,7 @@
                 "output": ["ActionOutput_zendesk_createuser"],
                 "scopes": ["users:write"],
                 "usedModels": ["ActionInput_zendesk_createuser", "ActionOutput_zendesk_createuser"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -61446,7 +61446,7 @@
                 "output": ["ActionOutput_zendesk_searchtickets"],
                 "scopes": ["read"],
                 "usedModels": ["ActionInput_zendesk_searchtickets", "ActionOutput_zendesk_searchtickets"],
-                "version": "2.0.0"
+                "version": "1.0.2"
             }
         ],
         "syncs": [
@@ -61469,7 +61469,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["Ticket", "SyncMetadata_zendesk_tickets"],
-                "version": "2.0.0",
+                "version": "1.0.2",
                 "webhookSubscriptions": []
             },
             {
@@ -61490,7 +61490,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["Article", "SyncMetadata_zendesk_articles"],
-                "version": "2.0.0",
+                "version": "1.0.2",
                 "webhookSubscriptions": []
             },
             {
@@ -61512,7 +61512,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["Category", "SyncMetadata_zendesk_categories"],
-                "version": "2.0.0",
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -61534,7 +61534,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["Section", "SyncMetadata_zendesk_sections"],
-                "version": "2.0.0",
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -61555,7 +61555,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["User", "SyncMetadata_zendesk_users"],
-                "version": "2.0.0",
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             }
         ],
@@ -62478,7 +62478,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["ZohoCRMAccount", "SyncMetadata_zoho_crm_accounts"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -62499,7 +62499,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["ZohoCRMContact", "SyncMetadata_zoho_crm_contacts"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -62520,7 +62520,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["ZohoCRMDeal", "SyncMetadata_zoho_crm_deals"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             }
         ],
@@ -63477,7 +63477,7 @@
                 "output": ["ActionOutput_zoho_mail_sendemail"],
                 "scopes": ["ZohoMail.messages.CREATE"],
                 "usedModels": ["ActionInput_zoho_mail_sendemail", "ActionOutput_zoho_mail_sendemail"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -63491,7 +63491,7 @@
                 "output": ["ActionOutput_zoho_mail_adduser"],
                 "scopes": ["ZohoMail.organization.accounts.CREATE"],
                 "usedModels": ["ActionInput_zoho_mail_adduser", "ActionOutput_zoho_mail_adduser"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             }
         ],
         "syncs": [
@@ -63513,7 +63513,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["ZohoMailTask", "SyncMetadata_zoho_mail_tasks"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -63534,7 +63534,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["ZohoMailEmail", "SyncMetadata_zoho_mail_emails"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             }
         ],
@@ -63936,7 +63936,7 @@
                 "output": ["ActionOutput_zoom_createuser"],
                 "scopes": ["user:write", "user:write:admin"],
                 "usedModels": ["ActionInput_zoom_createuser", "ActionOutput_zoom_createuser"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -63951,7 +63951,7 @@
                 "output": ["ActionOutput_zoom_whoami"],
                 "scopes": ["user:read:user"],
                 "usedModels": ["ActionInput_zoom_whoami", "ActionOutput_zoom_whoami"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -63966,7 +63966,7 @@
                 "output": ["ActionOutput_zoom_deleteuser"],
                 "scopes": ["user:write", "user:write:admin"],
                 "usedModels": ["ActionInput_zoom_deleteuser", "ActionOutput_zoom_deleteuser"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -63981,7 +63981,7 @@
                 "output": ["ActionOutput_zoom_createmeeting"],
                 "scopes": ["meeting:write"],
                 "usedModels": ["ActionInput_zoom_createmeeting", "ActionOutput_zoom_createmeeting"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             },
             {
                 "type": "action",
@@ -63996,7 +63996,7 @@
                 "output": ["ActionOutput_zoom_deletemeeting"],
                 "scopes": ["meeting:write"],
                 "usedModels": ["ActionInput_zoom_deletemeeting", "ActionOutput_zoom_deletemeeting"],
-                "version": "1.0.0"
+                "version": "0.0.1"
             }
         ],
         "syncs": [
@@ -64019,7 +64019,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["User", "SyncMetadata_zoom_users"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -64041,7 +64041,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["Meeting", "SyncMetadata_zoom_meetings"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
@@ -64063,7 +64063,7 @@
                 "sync_type": "full",
                 "track_deletes": true,
                 "usedModels": ["RecordingFile", "SyncMetadata_zoom_recordingfiles"],
-                "version": "1.0.0",
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             }
         ],
