@@ -6,6 +6,19 @@ npm run build:flows
 git add ./internal/flows.yaml
 git add ./internal/flows.zero.json
 
+changed_files=$(git diff --cached --name-only | grep "^integrations" || true)
+if [ -n "$changed_files" ]; then
+  # Get unique integration directories
+  integrations=$(echo "$changed_files" | cut -d'/' -f2 | sort -u)
+  for integration in $integrations; do
+    if [ -f "integrations/$integration" ]; then
+      continue
+    fi
+    npm run cli -- $integration compile
+    npm run cli -- $integration generate:docs
+  done
+fi
+
 # update ai rules if any markdown files change
 if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
   npx tsx internal/scripts/code-rabbit-yaml.ts

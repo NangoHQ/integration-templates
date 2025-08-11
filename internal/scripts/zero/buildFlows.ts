@@ -65,8 +65,8 @@ async function main(): Promise<void> {
                 });
 
                 // also rebuild the docs
-                const docsCommand = `npm run cli -- ${name} generate:docs`;
-                console.log(`  Running: ${command}`);
+                const docsCommand = `npm run cli -- ${name} generate:docs --integration-templates`;
+                console.log(`  Running: ${docsCommand}`);
 
                 execSync(command, {
                     stdio: 'pipe',

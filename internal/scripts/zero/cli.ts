@@ -106,7 +106,7 @@ async function swapIndexFile({ integrationFile, indexPath }: { integrationFile: 
 }
 
 async function executeNangoCommand({ command, additionalArgs, workingDir }: { command: string; additionalArgs: string[]; workingDir: string }) {
-    const validCommands = ['dryrun', 'compile', 'generate:docs'];
+    const validCommands = ['dryrun', 'compile', 'generate:docs', 'cli'];
 
     if (!validCommands.includes(command)) {
         throw new Error(`Invalid command '${command}'. Valid commands: ${validCommands.join(', ')}`);
