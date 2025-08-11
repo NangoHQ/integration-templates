@@ -63,10 +63,10 @@ jobs:
 
                   cp internal/flows.zero.json nango/packages/shared/flows.zero.json
 
-                  echo "Updating documentation snippets"
-                  cd nango
-                  npm ci
-                  npm run docs:generate
+                  #echo "Updating documentation snippets"
+                  #cd nango
+                  #npm ci
+                  #npm run docs:generate
 
             - name: Debug - status on nango after copying
               if: steps.changes.outputs.any_changed == 'true'

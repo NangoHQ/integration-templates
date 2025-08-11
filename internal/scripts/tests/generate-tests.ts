@@ -2,32 +2,24 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import ejs from 'ejs';
-import yaml from 'js-yaml';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const integrationPath = process.cwd();
-const configPath = path.resolve(integrationPath, `nango.yaml`);
-const config: any = yaml.load(fs.readFileSync(configPath, 'utf8'));
-const { integrations } = config;
 
-for (const integration in integrations) {
-    const { syncs, actions } = integrations[integration];
-    for (const syncName in syncs) {
-        const sync = syncs[syncName];
-        // only create the test if it has a corresponding mock directory
-        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${syncName}`))) {
-            generateSyncTest(integration, syncName, sync.output);
-        }
-    }
-    for (const actionName in actions) {
-        const action = actions[actionName];
-        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${actionName}`))) {
-            generateActionTest(integration, actionName, action.output);
-        }
-    }
-}
+// Since we've moved to inline configuration, this script needs to be updated
+// to work with the new approach. For now, we'll log that this script
+// needs to be refactored for the new inline configuration approach.
+
+console.log('⚠️  This script needs to be updated for the new inline configuration approach.');
+console.log('The old nango.yaml approach has been replaced with inline TypeScript configuration.');
+console.log('Test generation should now be based on the actual sync and action files.');
+
+// TODO: Refactor this script to:
+// 1. Scan for sync and action files in the integration
+// 2. Parse the inline configuration from createSync() and createAction() calls
+// 3. Generate tests based on the actual configuration
 
 function generateSyncTest(integration: string, syncName: string, modelName: string | string[]) {
     const data: {
@@ -83,3 +75,6 @@ function generateActionTest(integration: string, actionName: string, output: str
 
     console.log(`Test file 'tests/${data['integration']}-${data['actionName']}.test.ts' created successfully.`);
 }
+
+// Placeholder for future implementation
+console.log('This script will need to be completely refactored for the new inline configuration approach.');

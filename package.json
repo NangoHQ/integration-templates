@@ -4,19 +4,15 @@
     "type": "module",
     "description": "",
     "scripts": {
-        "cli": "npx tsx dev/scripts/zero/cli.ts",
-        "build:flows": "npx tsx dev/scripts/zero/buildFlows.ts",
+        "cli": "npx tsx internal/scripts/zero/cli.ts",
+        "build:flows": "npx tsx internal/scripts/zero/buildFlows.ts",
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
-        "dryrun": "bash scripts/run-integration-template.bash --dryrun",
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
-        "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
-        "migrate": "bash scripts/migrate.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest --run",
-        "test:watch": "vitest",
-        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
+        "test:watch": "vitest"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",

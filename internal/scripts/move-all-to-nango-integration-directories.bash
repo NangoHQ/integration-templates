@@ -48,23 +48,23 @@ for d in "${integrations[@]}" ; do
 
     pushd "$integration/nango-integrations"
 
-    cp "$integration/nango.yaml" .
-
-    DYNAMIC_PWD=false
-    if grep -q "\${PWD}:" nango.yaml; then
-        eval "$SED_CMD 's|\${PWD}|$integration|' nango.yaml"
-        DYNAMIC_PWD=true
+    # Since we've moved to inline configuration, we no longer need to copy nango.yaml
+    # Instead, we need to ensure the index.ts file is properly set up
+    if [ -f "$integration/index.ts" ]; then
+        cp "$integration/index.ts" .
+        echo "Copied index.ts for $integration"
+    else
+        echo "Warning: No index.ts found for $integration"
     fi
 
-    # Generate nango integration
+    # Generate nango integration (this may need to be updated for the new approach)
     npx nango generate
-
-    if [ "$DYNAMIC_PWD" = true ]; then
-        eval "$SED_CMD '0,/$integration/s|$integration|${PWD}|' nango.yaml"
-    fi
 
     popd
 
     # Delete everything except the nango-integrations directory
     find "$integration"/* -maxdepth 0 -name 'nango-integrations' -prune -o -exec rm -rf {} +
 done
+
+echo "⚠️  This script has been updated for the new inline configuration approach."
+echo "The old nango.yaml approach has been replaced with inline TypeScript configuration."

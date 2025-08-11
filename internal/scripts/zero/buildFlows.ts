@@ -63,6 +63,15 @@ async function main(): Promise<void> {
                     stdio: 'pipe',
                     cwd: root
                 });
+
+                // also rebuild the docs
+                const docsCommand = `npm run cli -- ${name} generate:docs`;
+                console.log(`  Running: ${command}`);
+
+                execSync(command, {
+                    stdio: 'pipe',
+                    cwd: root
+                });
             }
 
             // Read the generated nango.json file

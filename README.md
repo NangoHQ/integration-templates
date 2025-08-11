@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="/assets/nango-logo.png?raw=true" width="350">
+<img src="/internal/assets/nango-logo.png?raw=true" width="350">
 
 </div>
 
