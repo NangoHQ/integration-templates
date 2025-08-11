@@ -96,8 +96,7 @@
       "additionalProperties": false
     },
     "ActionOutput_google_drive_fetchdocument": {
-      "type": "string",
-      "deprecated": "It is recommended to use a Model"
+      "type": "string"
     },
     "ActionInput_google_drive_fetchgooglesheet": {
       "type": "object",
@@ -122,22 +121,42 @@
           "additionalProperties": false
         },
         "sheets": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "namedRanges": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "spreadsheetUrl": {
           "type": "string"
         },
         "developerMetadata": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "dataSources": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "dataSourceSchedules": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -177,7 +196,11 @@
           "type": "string"
         },
         "tabs": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "revisionId": {
           "type": "string"
@@ -272,10 +295,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "id",
-        "cursor"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_google_drive_foldercontent": {
@@ -284,33 +303,85 @@
         "files": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "parents": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "modifiedTime": {
+                "type": "string"
+              },
+              "createdTime": {
+                "type": "string"
+              },
+              "webViewLink": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "mimeType",
+              "parents"
+            ],
+            "additionalProperties": false
           }
         },
         "folders": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "parents": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "modifiedTime": {
+                "type": "string"
+              },
+              "createdTime": {
+                "type": "string"
+              },
+              "webViewLink": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "mimeType",
+              "parents"
+            ],
+            "additionalProperties": false
           }
         },
         "next_cursor": {
@@ -319,8 +390,7 @@
       },
       "required": [
         "files",
-        "folders",
-        "next_cursor"
+        "folders"
       ],
       "additionalProperties": false
     },
@@ -349,10 +419,7 @@
       "required": [
         "content",
         "name",
-        "mimeType",
-        "folderId",
-        "description",
-        "isBase64"
+        "mimeType"
       ],
       "additionalProperties": false
     },
@@ -391,11 +458,7 @@
         "id",
         "name",
         "mimeType",
-        "parents",
-        "modifiedTime",
-        "createdTime",
-        "webViewLink",
-        "kind"
+        "parents"
       ],
       "additionalProperties": false
     },
@@ -417,14 +480,24 @@
         "drives": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "createdTime": {
+                "type": "string"
+              },
+              "hidden": {
                 "type": "boolean"
               },
-              {
+              "capabilities": {
                 "type": "object",
                 "properties": {
                   "canAddChildren": {
@@ -512,7 +585,7 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "restrictions": {
                 "type": "object",
                 "properties": {
                   "adminManagedRestrictions": {
@@ -544,7 +617,17 @@
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "kind",
+              "createdTime",
+              "hidden",
+              "capabilities",
+              "restrictions"
+            ],
+            "additionalProperties": false
           }
         },
         "next_cursor": {
@@ -562,5 +645,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

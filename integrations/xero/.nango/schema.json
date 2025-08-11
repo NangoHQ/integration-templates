@@ -87,14 +87,11 @@
         "external_id",
         "email",
         "tax_number",
-        "address_line_1",
-        "address_line_2",
         "city",
         "zip",
         "country",
         "state",
-        "phone",
-        "subsidiary"
+        "phone"
       ],
       "additionalProperties": false
     },
@@ -144,7 +141,6 @@
       },
       "required": [
         "id",
-        "code",
         "name",
         "type",
         "tax_type",
@@ -152,8 +148,7 @@
         "class",
         "bank_account_type",
         "reporting_code",
-        "reporting_code_name",
-        "currency_code"
+        "reporting_code_name"
       ],
       "additionalProperties": false
     },
@@ -251,23 +246,88 @@
         "fees": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "account_code": {
+                "type": "string"
+              },
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "discount_amount_cents": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "discount_rate": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "item_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "units": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "precise_unit_amount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "amount_cents": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "taxes_amount_cents": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "item_id",
+              "description",
+              "units",
+              "precise_unit_amount",
+              "amount_cents",
+              "taxes_amount_cents"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
         "type",
         "external_contact_id",
-        "url",
         "id",
         "issuing_date",
         "payment_due_date",
         "status",
-        "number",
         "currency",
         "purchase_order",
         "fees"
@@ -344,33 +404,96 @@
         "line_items": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "description": {
                 "type": "string"
               },
-              {
+              "quantity": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "unit_amount": {
+                "type": "number"
               },
-              {
-                "type": "array",
-                "items": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+              "account_code": {
+                "type": "string"
+              },
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "line_item_id": {
+                "type": "string"
+              },
+              "tax_type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tax_amount": {
+                "type": "number"
+              },
+              "line_amount": {
+                "type": "number"
+              },
+              "tracking": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "option": {
+                          "type": "string"
+                        },
+                        "trackingCategoryId": {
+                          "type": "string"
+                        },
+                        "trackingOptionId": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "option",
+                        "trackingCategoryId",
+                        "trackingOptionId",
+                        "options"
+                      ],
+                      "additionalProperties": false
                     }
-                  ]
-                }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               }
-            ]
+            },
+            "required": [
+              "description",
+              "quantity",
+              "unit_amount",
+              "account_code",
+              "item_code",
+              "line_item_id",
+              "tax_type",
+              "tax_amount",
+              "line_amount",
+              "tracking"
+            ],
+            "additionalProperties": false
           }
         },
         "updated_date": {
@@ -460,30 +583,84 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "journalLineId": {
                 "type": "string"
               },
-              {
+              "accountId": {
+                "type": "string"
+              },
+              "accountCode": {
+                "type": "string"
+              },
+              "accountName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "netAmount": {
                 "type": "number"
               },
-              {
+              "grossAmount": {
+                "type": "number"
+              },
+              "taxAmount": {
+                "type": "number"
+              },
+              "taxType": {
+                "type": "string"
+              },
+              "taxName": {
+                "type": "string"
+              },
+              "trackingCategories": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
+                  "type": "object",
+                  "properties": {
+                    "name": {
                       "type": "string"
                     },
-                    {
+                    "option": {
+                      "type": "string"
+                    },
+                    "trackingCategoryId": {
+                      "type": "string"
+                    },
+                    "trackingOptionId": {
+                      "type": "string"
+                    },
+                    "options": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
                     }
-                  ]
+                  },
+                  "required": [
+                    "name",
+                    "option",
+                    "trackingCategoryId",
+                    "trackingOptionId",
+                    "options"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "journalLineId",
+              "accountId",
+              "accountCode",
+              "accountName",
+              "netAmount",
+              "grossAmount",
+              "taxAmount",
+              "trackingCategories"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -596,25 +773,76 @@
         "addresses": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "addressType": {
+                "type": "string"
+              },
+              "addressLine1": {
+                "type": "string"
+              },
+              "addressLine2": {
+                "type": "string"
+              },
+              "addressLine3": {
+                "type": "string"
+              },
+              "addressLine4": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "attentionTo": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "phoneType": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "phoneAreaCode": {
+                "type": "string"
+              },
+              "phoneCountryCode": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "externalLinks": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "linkType": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "paymentTerms": {
@@ -630,10 +858,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "day",
-                "type"
-              ],
               "additionalProperties": false
             },
             "sales": {
@@ -646,10 +870,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "day",
-                "type"
-              ],
               "additionalProperties": false
             }
           },
@@ -662,7 +882,6 @@
       },
       "required": [
         "id",
-        "apiKey",
         "name",
         "legalName",
         "paysTax",
@@ -672,24 +891,6 @@
         "countryCode",
         "isDemoCompany",
         "organisationStatus",
-        "registrationNumber",
-        "employerIdentificationNumber",
-        "taxNumber",
-        "financialYearEndDay",
-        "financialYearEndMonth",
-        "salesTaxBasis",
-        "salesTaxPeriod",
-        "defaultSalesTax",
-        "defaultPurchasesTax",
-        "periodLockDate",
-        "endOfYearLockDate",
-        "createdDateUTC",
-        "timezone",
-        "organisationEntityType",
-        "shortCode",
-        "edition",
-        "class",
-        "lineOfBusiness",
         "addresses",
         "phones",
         "externalLinks",
@@ -744,9 +945,6 @@
       "required": [
         "date",
         "amount_cents",
-        "external_contact_id",
-        "account_code",
-        "account_id",
         "id",
         "status",
         "invoice_id",
@@ -800,11 +998,64 @@
         "fees": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "type": "string"
+              },
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "units": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "precise_unit_amount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "account_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount_cents": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "taxes_amount_cents": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "item_id"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -814,9 +1065,6 @@
         "external_contact_id",
         "status",
         "number",
-        "is_taxable",
-        "tax_rate_id",
-        "tax_rate",
         "currency",
         "reference",
         "issuing_date",
@@ -827,52 +1075,51 @@
     "ActionInput_xero_createcontact": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "external_id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "tax_number": {
-          "type": "string"
-        },
-        "address_line_1": {
-          "type": "string"
-        },
-        "address_line_2": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
+        "0": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "tax_number": {
+              "type": "string"
+            },
+            "address_line_1": {
+              "type": "string"
+            },
+            "address_line_2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "name",
-        "external_id",
-        "email",
-        "tax_number",
-        "address_line_1",
-        "address_line_2",
-        "city",
-        "zip",
-        "country",
-        "state",
-        "phone"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -882,27 +1129,192 @@
         "succeededContacts": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tax_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "zip": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subsidiary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "id",
+              "external_id",
+              "email",
+              "tax_number",
+              "city",
+              "zip",
+              "country",
+              "state",
+              "phone"
+            ],
+            "additionalProperties": false
           }
         },
         "failedContacts": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "name": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "id": {
+                "type": "string"
               },
-              {
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tax_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "zip": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subsidiary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "name",
+              "id",
+              "external_id",
+              "email",
+              "tax_number",
+              "city",
+              "zip",
+              "country",
+              "state",
+              "phone",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -915,93 +1327,99 @@
     "ActionInput_xero_updatecontact": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "external_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "email": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "tax_number": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "address_line_1": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "address_line_2": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "city": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "zip": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "country": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "state": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "phone": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "subsidiary": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "0": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "external_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "tax_number": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "address_line_1": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "address_line_2": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "city": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "zip": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "country": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "state": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "phone": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "subsidiary": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "external_id",
+            "email",
+            "tax_number",
+            "city",
+            "zip",
+            "country",
+            "state",
+            "phone"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "name",
-        "id",
-        "external_id",
-        "email",
-        "tax_number",
-        "address_line_1",
-        "address_line_2",
-        "city",
-        "zip",
-        "country",
-        "state",
-        "phone",
-        "subsidiary"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1011,27 +1429,192 @@
         "succeededContacts": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tax_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "zip": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subsidiary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "id",
+              "external_id",
+              "email",
+              "tax_number",
+              "city",
+              "zip",
+              "country",
+              "state",
+              "phone"
+            ],
+            "additionalProperties": false
           }
         },
         "failedContacts": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "name": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "id": {
+                "type": "string"
               },
-              {
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tax_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "address_line_2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "zip": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subsidiary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "name",
+              "id",
+              "external_id",
+              "email",
+              "tax_number",
+              "city",
+              "zip",
+              "country",
+              "state",
+              "phone",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1044,71 +1627,129 @@
     "ActionInput_xero_createinvoice": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "ACCPAY",
-            "ACCREC"
-          ]
-        },
-        "external_contact_id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "fees": {
-          "type": "array",
-          "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
-          }
-        },
-        "issuing_date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "payment_due_date": {
-          "anyOf": [
-            {
+        "0": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "ACCPAY",
+                "ACCREC"
+              ]
+            },
+            "external_contact_id": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "fees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "account_code": {
+                    "type": "string"
+                  },
+                  "item_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "account_external_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "discount_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "discount_rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "units": {
+                    "type": "number"
+                  },
+                  "precise_unit_amount": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "taxes_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "issuing_date": {
               "type": "string",
               "format": "date-time"
             },
-            {
-              "type": "null"
+            "payment_due_date": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "purchase_order": {
+              "type": [
+                "string",
+                "null"
+              ]
             }
-          ]
-        },
-        "status": {
-          "type": "string"
-        },
-        "number": {
-          "type": "string"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "purchase_order": {
-          "type": [
-            "string",
-            "null"
-          ]
+          },
+          "required": [
+            "type",
+            "external_contact_id",
+            "fees"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "type",
-        "external_contact_id",
-        "url",
-        "fees",
-        "issuing_date",
-        "payment_due_date",
-        "status",
-        "number",
-        "currency",
-        "purchase_order"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1118,67 +1759,286 @@
         "succeededInvoices": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "type": {
                 "type": "string",
-                "const": "ACCPAY"
+                "enum": [
+                  "ACCPAY",
+                  "ACCREC"
+                ]
               },
-              {
-                "type": "string",
-                "const": "ACCREC"
-              },
-              {
+              "external_contact_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "url": {
+                "type": "string"
               },
-              {
+              "id": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "payment_due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "purchase_order": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "account_code": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "discount_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "discount_rate": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "description",
+                    "units",
+                    "precise_unit_amount",
+                    "amount_cents",
+                    "taxes_amount_cents"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "type",
+              "external_contact_id",
+              "id",
+              "issuing_date",
+              "payment_due_date",
+              "status",
+              "currency",
+              "purchase_order",
+              "fees"
+            ],
+            "additionalProperties": false
           }
         },
         "failedInvoices": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "type": {
                 "type": "string",
-                "const": "ACCPAY"
+                "enum": [
+                  "ACCPAY",
+                  "ACCREC"
+                ]
               },
-              {
-                "type": "string",
-                "const": "ACCREC"
-              },
-              {
+              "external_contact_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "url": {
+                "type": "string"
               },
-              {
+              "id": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "payment_due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "purchase_order": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "account_code": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "discount_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "discount_rate": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "description",
+                    "units",
+                    "precise_unit_amount",
+                    "amount_cents",
+                    "taxes_amount_cents"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "type",
+              "external_contact_id",
+              "id",
+              "issuing_date",
+              "payment_due_date",
+              "status",
+              "currency",
+              "purchase_order",
+              "fees",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1191,72 +2051,131 @@
     "ActionInput_xero_updateinvoice": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "ACCPAY",
-            "ACCREC"
-          ]
-        },
-        "external_contact_id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "issuing_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "payment_due_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "status": {
-          "type": "string"
-        },
-        "number": {
-          "type": "string"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "purchase_order": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "fees": {
-          "type": "array",
-          "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
-          }
+        "0": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "ACCPAY",
+                "ACCREC"
+              ]
+            },
+            "external_contact_id": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "issuing_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payment_due_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "purchase_order": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "account_code": {
+                    "type": "string"
+                  },
+                  "item_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "account_external_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "discount_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "discount_rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "units": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "precise_unit_amount": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "taxes_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "fees"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "type",
-        "external_contact_id",
-        "url",
-        "id",
-        "issuing_date",
-        "payment_due_date",
-        "status",
-        "number",
-        "currency",
-        "purchase_order",
-        "fees"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1266,67 +2185,286 @@
         "succeededInvoices": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "type": {
                 "type": "string",
-                "const": "ACCPAY"
+                "enum": [
+                  "ACCPAY",
+                  "ACCREC"
+                ]
               },
-              {
-                "type": "string",
-                "const": "ACCREC"
-              },
-              {
+              "external_contact_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "url": {
+                "type": "string"
               },
-              {
+              "id": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "payment_due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "purchase_order": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "account_code": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "discount_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "discount_rate": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "description",
+                    "units",
+                    "precise_unit_amount",
+                    "amount_cents",
+                    "taxes_amount_cents"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "type",
+              "external_contact_id",
+              "id",
+              "issuing_date",
+              "payment_due_date",
+              "status",
+              "currency",
+              "purchase_order",
+              "fees"
+            ],
+            "additionalProperties": false
           }
         },
         "failedInvoices": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "type": {
                 "type": "string",
-                "const": "ACCPAY"
+                "enum": [
+                  "ACCPAY",
+                  "ACCREC"
+                ]
               },
-              {
-                "type": "string",
-                "const": "ACCREC"
-              },
-              {
+              "external_contact_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "url": {
+                "type": "string"
               },
-              {
+              "id": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "payment_due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "purchase_order": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "account_code": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "discount_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "discount_rate": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "description",
+                    "units",
+                    "precise_unit_amount",
+                    "amount_cents",
+                    "taxes_amount_cents"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "type",
+              "external_contact_id",
+              "id",
+              "issuing_date",
+              "payment_due_date",
+              "status",
+              "currency",
+              "purchase_order",
+              "fees",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1339,66 +2477,125 @@
     "ActionInput_xero_createcreditnote": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "external_contact_id": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "number": {
-          "type": "string"
-        },
-        "is_taxable": {
-          "type": "boolean"
-        },
-        "tax_rate_id": {
-          "type": "string"
-        },
-        "tax_rate": {
-          "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "reference": {
-          "type": "string"
-        },
-        "issuing_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "fees": {
-          "type": "array",
-          "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
-          }
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "external_contact_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "is_taxable": {
+              "type": "boolean"
+            },
+            "tax_rate_id": {
+              "type": "string"
+            },
+            "tax_rate": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "reference": {
+              "type": "string"
+            },
+            "issuing_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "item_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "units": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "precise_unit_amount": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "account_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "account_external_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "taxes_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "item_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "external_contact_id",
+            "status",
+            "number",
+            "currency",
+            "reference",
+            "issuing_date",
+            "fees"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "type",
-        "external_contact_id",
-        "status",
-        "number",
-        "is_taxable",
-        "tax_rate_id",
-        "tax_rate",
-        "currency",
-        "reference",
-        "issuing_date",
-        "fees"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1408,63 +2605,244 @@
         "succeededCreditNotes": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "external_contact_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "is_taxable": {
                 "type": "boolean"
               },
-              {
+              "tax_rate_id": {
+                "type": "string"
+              },
+              "tax_rate": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "currency": {
+                "type": "string"
               },
-              {
+              "reference": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "account_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "external_contact_id",
+              "status",
+              "number",
+              "currency",
+              "reference",
+              "issuing_date",
+              "fees"
+            ],
+            "additionalProperties": false
           }
         },
         "failedCreditNotes": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "external_contact_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "is_taxable": {
                 "type": "boolean"
               },
-              {
+              "tax_rate_id": {
+                "type": "string"
+              },
+              "tax_rate": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "currency": {
+                "type": "string"
               },
-              {
+              "reference": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "account_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "external_contact_id",
+              "status",
+              "number",
+              "currency",
+              "reference",
+              "issuing_date",
+              "fees",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1477,66 +2855,125 @@
     "ActionInput_xero_updatecreditnote": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "external_contact_id": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "number": {
-          "type": "string"
-        },
-        "is_taxable": {
-          "type": "boolean"
-        },
-        "tax_rate_id": {
-          "type": "string"
-        },
-        "tax_rate": {
-          "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "reference": {
-          "type": "string"
-        },
-        "issuing_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "fees": {
-          "type": "array",
-          "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
-          }
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "external_contact_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "is_taxable": {
+              "type": "boolean"
+            },
+            "tax_rate_id": {
+              "type": "string"
+            },
+            "tax_rate": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "reference": {
+              "type": "string"
+            },
+            "issuing_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "item_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "units": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "precise_unit_amount": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "account_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "account_external_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "taxes_amount_cents": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "item_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "external_contact_id",
+            "status",
+            "number",
+            "currency",
+            "reference",
+            "issuing_date",
+            "fees"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "type",
-        "external_contact_id",
-        "status",
-        "number",
-        "is_taxable",
-        "tax_rate_id",
-        "tax_rate",
-        "currency",
-        "reference",
-        "issuing_date",
-        "fees"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1546,63 +2983,244 @@
         "succeededCreditNotes": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "external_contact_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "is_taxable": {
                 "type": "boolean"
               },
-              {
+              "tax_rate_id": {
+                "type": "string"
+              },
+              "tax_rate": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "currency": {
+                "type": "string"
               },
-              {
+              "reference": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "account_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "external_contact_id",
+              "status",
+              "number",
+              "currency",
+              "reference",
+              "issuing_date",
+              "fees"
+            ],
+            "additionalProperties": false
           }
         },
         "failedCreditNotes": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "external_contact_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "is_taxable": {
                 "type": "boolean"
               },
-              {
+              "tax_rate_id": {
+                "type": "string"
+              },
+              "tax_rate": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "currency": {
+                "type": "string"
               },
-              {
+              "reference": {
+                "type": "string"
+              },
+              "issuing_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fees": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "null",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "item_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "units": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "precise_unit_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "account_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "account_external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "taxes_amount_cents": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "item_id"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "external_contact_id",
+              "status",
+              "number",
+              "currency",
+              "reference",
+              "issuing_date",
+              "fees",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1615,43 +3233,46 @@
     "ActionInput_xero_createpayment": {
       "type": "object",
       "properties": {
-        "date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "amount_cents": {
-          "type": "number"
-        },
-        "external_contact_id": {
-          "type": "string"
-        },
-        "account_code": {
-          "type": "string"
-        },
-        "account_id": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "invoice_id": {
-          "type": "string"
-        },
-        "credit_note_id": {
-          "type": "string"
+        "0": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "amount_cents": {
+              "type": "number"
+            },
+            "external_contact_id": {
+              "type": "string"
+            },
+            "account_code": {
+              "type": "string"
+            },
+            "account_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "invoice_id": {
+              "type": "string"
+            },
+            "credit_note_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "amount_cents"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "date",
-        "amount_cents",
-        "external_contact_id",
-        "account_code",
-        "account_id",
-        "status",
-        "invoice_id",
-        "credit_note_id"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1661,31 +3282,112 @@
         "succeededPayment": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount_cents": {
+                "type": "number"
+              },
+              "external_contact_id": {
+                "type": "string"
+              },
+              "account_code": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "invoice_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "credit_note_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "date",
+              "amount_cents",
+              "id",
+              "status",
+              "invoice_id",
+              "credit_note_id"
+            ],
+            "additionalProperties": false
           }
         },
         "failedPayments": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "null"
-              },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "external_contact_id": {
+                "type": "string"
+              },
+              "account_code": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "invoice_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "credit_note_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "date",
+              "amount_cents",
+              "id",
+              "status",
+              "invoice_id",
+              "credit_note_id",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1698,37 +3400,46 @@
     "ActionInput_xero_createitem": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "item_code": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "account_code": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "item_code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "account_code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "item_code",
+            "name",
+            "description",
+            "account_code"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "item_code",
-        "name",
-        "description",
-        "account_code"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1738,27 +3449,86 @@
         "succeededItems": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "item_code",
+              "name",
+              "description",
+              "account_code"
+            ],
+            "additionalProperties": false
           }
         },
         "failedItems": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "id",
+              "item_code",
+              "name",
+              "description",
+              "account_code",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1769,8 +3539,7 @@
       "additionalProperties": false
     },
     "ActionInput_xero_gettenants": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_xero_gettenants": {
       "type": "object",
@@ -1778,9 +3547,40 @@
         "tenants": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "authEventId": {
+                "type": "string"
+              },
+              "tenantId": {
+                "type": "string"
+              },
+              "tenantType": {
+                "type": "string"
+              },
+              "tenantName": {
+                "type": "string"
+              },
+              "createdDateUtc": {
+                "type": "string"
+              },
+              "updatedDateUtc": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "authEventId",
+              "tenantId",
+              "tenantType",
+              "tenantName",
+              "createdDateUtc",
+              "updatedDateUtc"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1792,37 +3592,46 @@
     "ActionInput_xero_updateitem": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "item_code": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "account_code": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "item_code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "account_code": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "item_code",
+            "name",
+            "description",
+            "account_code"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "item_code",
-        "name",
-        "description",
-        "account_code"
+        "0"
       ],
       "additionalProperties": false
     },
@@ -1832,27 +3641,86 @@
         "succeededItems": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "item_code",
+              "name",
+              "description",
+              "account_code"
+            ],
+            "additionalProperties": false
           }
         },
         "failedItems": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "item_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "account_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "validation_errors": {
                 "type": "array",
                 "items": {}
               }
-            ]
+            },
+            "required": [
+              "id",
+              "item_code",
+              "name",
+              "description",
+              "account_code",
+              "validation_errors"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1863,5 +3731,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

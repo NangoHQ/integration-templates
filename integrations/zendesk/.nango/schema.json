@@ -35,10 +35,26 @@
                   "type": "object",
                   "properties": {
                     "from": {
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
                     },
                     "to": {
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
                     },
                     "rel": {
                       "type": [
@@ -243,11 +259,23 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "number",
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -258,7 +286,15 @@
         "satisfaction_rating": {
           "anyOf": [
             {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
             },
             {
               "type": "null"
@@ -289,11 +325,23 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "number",
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -597,8 +645,7 @@
       "additionalProperties": false
     },
     "ActionInput_zendesk_fetcharticles": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_zendesk_fetcharticles": {
       "type": "object",
@@ -606,9 +653,24 @@
         "articles": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "id",
+              "url"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -771,8 +833,7 @@
             }
           },
           "required": [
-            "name",
-            "description"
+            "name"
           ],
           "additionalProperties": false
         }
@@ -825,8 +886,7 @@
             }
           },
           "required": [
-            "name",
-            "description"
+            "name"
           ],
           "additionalProperties": false
         }
@@ -876,10 +936,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "body",
-                "html_body"
-              ],
               "additionalProperties": false
             },
             "assignee_email": {
@@ -920,14 +976,7 @@
             }
           },
           "required": [
-            "comment",
-            "assignee_email",
-            "assignee_id",
-            "brand_id",
-            "due_at",
-            "type",
-            "status",
-            "metadata"
+            "comment"
           ],
           "additionalProperties": false
         }
@@ -1030,8 +1079,7 @@
       "required": [
         "firstName",
         "lastName",
-        "email",
-        "role"
+        "email"
       ],
       "additionalProperties": false
     },
@@ -1077,23 +1125,97 @@
         "tickets": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "url": {
+                "type": "string"
               },
-              {
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "requester_id": {
+                "type": "string"
+              },
+              "requester_name": {
+                "type": "string"
+              },
+              "assignee_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "assignee_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "assignee_avatar": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "is_public": {
                 "type": "boolean"
               },
-              {
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "priority": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tags": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "url",
+              "external_id",
+              "requester_id",
+              "requester_name",
+              "assignee_id",
+              "assignee_name",
+              "assignee_avatar",
+              "status",
+              "created_at",
+              "updated_at",
+              "is_public",
+              "subject",
+              "description",
+              "priority",
+              "tags"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1103,5 +1225,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

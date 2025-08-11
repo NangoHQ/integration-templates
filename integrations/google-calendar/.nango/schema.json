@@ -15,8 +15,7 @@
         }
       },
       "required": [
-        "calendarsToSync",
-        "singleEvents"
+        "calendarsToSync"
       ],
       "additionalProperties": false
     },
@@ -72,12 +71,6 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "id",
-            "email",
-            "displayName",
-            "self"
-          ],
           "additionalProperties": false
         },
         "organizer": {
@@ -96,12 +89,6 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "id",
-            "email",
-            "displayName",
-            "self"
-          ],
           "additionalProperties": false
         },
         "start": {
@@ -117,11 +104,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "date",
-            "dateTime",
-            "timeZone"
-          ],
           "additionalProperties": false
         },
         "end": {
@@ -137,11 +119,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "date",
-            "dateTime",
-            "timeZone"
-          ],
           "additionalProperties": false
         },
         "endTimeUnspecified": {
@@ -169,11 +146,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "date",
-            "dateTime",
-            "timeZone"
-          ],
           "additionalProperties": false
         },
         "transparency": {
@@ -191,11 +163,40 @@
         "attendees": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "organizer": {
+                "type": "boolean"
+              },
+              "self": {
+                "type": "boolean"
+              },
+              "resource": {
+                "type": "boolean"
+              },
+              "optional": {
+                "type": "boolean"
+              },
+              "responseStatus": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "additionalGuests": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "attendeesOmitted": {
@@ -213,10 +214,6 @@
               "additionalProperties": false
             }
           },
-          "required": [
-            "private",
-            "shared"
-          ],
           "additionalProperties": false
         },
         "hangoutLink": {
@@ -266,9 +263,40 @@
             "entryPoints": {
               "type": "array",
               "items": {
-                "type": [
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "entryPointType": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "pin": {
+                    "type": "string"
+                  },
+                  "accessCode": {
+                    "type": "string"
+                  },
+                  "meetingCode": {
+                    "type": "string"
+                  },
+                  "passcode": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "regionCode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "entryPointType"
+                ],
+                "additionalProperties": false
               }
             },
             "conferenceSolution": {
@@ -320,27 +348,12 @@
                       "additionalProperties": false
                     }
                   },
-                  "required": [
-                    "parameters"
-                  ],
                   "additionalProperties": false
                 }
               },
-              "required": [
-                "addOnParameters"
-              ],
               "additionalProperties": false
             }
           },
-          "required": [
-            "createRequest",
-            "entryPoints",
-            "conferenceSolution",
-            "conferenceId",
-            "signature",
-            "notes",
-            "parameters"
-          ],
           "additionalProperties": false
         },
         "gadget": {
@@ -372,16 +385,6 @@
               "additionalProperties": false
             }
           },
-          "required": [
-            "type",
-            "title",
-            "link",
-            "iconLink",
-            "width",
-            "height",
-            "display",
-            "preferences"
-          ],
           "additionalProperties": false
         },
         "anyoneCanAddSelf": {
@@ -411,16 +414,25 @@
             "overrides": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string"
+                  },
+                  "minutes": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "method",
+                  "minutes"
+                ],
+                "additionalProperties": false
               }
             }
           },
           "required": [
-            "useDefault",
-            "overrides"
+            "useDefault"
           ],
           "additionalProperties": false
         },
@@ -434,10 +446,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "autoDeclineMode",
-            "declineMessage"
-          ],
           "additionalProperties": false
         },
         "source": {
@@ -450,10 +458,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "url",
-            "title"
-          ],
           "additionalProperties": false
         },
         "workingLocationProperties": {
@@ -470,9 +474,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "label"
-              ],
               "additionalProperties": false
             },
             "officeLocation": {
@@ -494,29 +495,39 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "buildingId",
-                "floorId",
-                "floorSectionId",
-                "deskId",
-                "label"
-              ],
               "additionalProperties": false
             }
           },
           "required": [
-            "type",
-            "customLocation",
-            "officeLocation"
+            "type"
           ],
           "additionalProperties": false
         },
         "attachments": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "fileUrl": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "iconLink": {
+                "type": "string"
+              },
+              "fileId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fileUrl"
+            ],
+            "additionalProperties": false
           }
         },
         "eventType": {
@@ -532,39 +543,8 @@
         "created",
         "updated",
         "summary",
-        "description",
-        "location",
-        "colorId",
-        "creator",
-        "organizer",
         "start",
-        "end",
-        "endTimeUnspecified",
-        "recurrence",
-        "recurringEventId",
-        "originalStartTime",
-        "transparency",
-        "visibility",
-        "iCalUID",
-        "sequence",
-        "attendees",
-        "attendeesOmitted",
-        "extendedProperties",
-        "hangoutLink",
-        "conferenceData",
-        "gadget",
-        "anyoneCanAddSelf",
-        "guestsCanInviteOthers",
-        "guestsCanModify",
-        "guestsCanSeeOtherGuests",
-        "privateCopy",
-        "locked",
-        "reminders",
-        "outOfOfficeProperties",
-        "source",
-        "workingLocationProperties",
-        "attachments",
-        "eventType"
+        "end"
       ],
       "additionalProperties": false
     },
@@ -620,10 +600,20 @@
         "defaultReminders": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string"
+              },
+              "minutes": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "method",
+              "minutes"
+            ],
+            "additionalProperties": false
           }
         },
         "notificationSettings": {
@@ -632,9 +622,20 @@
             "notifications": {
               "type": "array",
               "items": {
-                "type": [
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "method": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "method"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -689,8 +690,7 @@
       "additionalProperties": false
     },
     "ActionInput_google_calendar_whoami": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_google_calendar_whoami": {
       "type": "object",
@@ -709,8 +709,7 @@
       "additionalProperties": false
     },
     "ActionInput_google_calendar_settings": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_google_calendar_settings": {
       "type": "object",
@@ -718,9 +717,28 @@
         "settings": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "etag": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "etag",
+              "id",
+              "value"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -730,5 +748,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

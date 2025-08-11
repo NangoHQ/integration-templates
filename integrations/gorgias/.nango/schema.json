@@ -28,7 +28,15 @@
                 "meta": {
                   "anyOf": [
                     {
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
                     },
                     {
                       "type": "null"
@@ -129,148 +137,124 @@
         "messages": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "uri": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "message_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
+              "integration_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rule_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ticket_id": {
+                "type": "number"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "via": {
                 "type": "string",
-                "const": "aircall"
+                "enum": [
+                  "aircall",
+                  "api",
+                  "chat",
+                  "contact_form",
+                  "email",
+                  "facebook",
+                  "facebook-mention",
+                  "facebook-messenger",
+                  "facebook-recommendations",
+                  "form",
+                  "gorgias_chat",
+                  "help-center",
+                  "helpdesk",
+                  "instagram",
+                  "instagram-ad-comment",
+                  "instagram-comment",
+                  "instagram-direct-message",
+                  "instagram-mention",
+                  "internal-note",
+                  "offline_capture",
+                  "phone",
+                  "rule",
+                  "self_service",
+                  "shopify",
+                  "sms",
+                  "twilio",
+                  "twitter",
+                  "twitter-direct-message",
+                  "whatsapp",
+                  "yotpo",
+                  "yotpo-review",
+                  "zendesk"
+                ]
               },
-              {
-                "type": "string",
-                "const": "api"
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "chat"
+              "body_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "contact_form"
+              "body_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "email"
+              "stripped_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook"
+              "stripped_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook-mention"
+              "stripped_signature": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook-messenger"
-              },
-              {
-                "type": "string",
-                "const": "facebook-recommendations"
-              },
-              {
-                "type": "string",
-                "const": "help-center"
-              },
-              {
-                "type": "string",
-                "const": "instagram-ad-comment"
-              },
-              {
-                "type": "string",
-                "const": "instagram-comment"
-              },
-              {
-                "type": "string",
-                "const": "instagram-direct-message"
-              },
-              {
-                "type": "string",
-                "const": "instagram-mention"
-              },
-              {
-                "type": "string",
-                "const": "internal-note"
-              },
-              {
-                "type": "string",
-                "const": "phone"
-              },
-              {
-                "type": "string",
-                "const": "sms"
-              },
-              {
-                "type": "string",
-                "const": "twitter"
-              },
-              {
-                "type": "string",
-                "const": "twitter-direct-message"
-              },
-              {
-                "type": "string",
-                "const": "whatsapp"
-              },
-              {
-                "type": "string",
-                "const": "yotpo-review"
-              },
-              {
-                "type": "string",
-                "const": "form"
-              },
-              {
-                "type": "string",
-                "const": "gorgias_chat"
-              },
-              {
-                "type": "string",
-                "const": "helpdesk"
-              },
-              {
-                "type": "string",
-                "const": "instagram"
-              },
-              {
-                "type": "string",
-                "const": "offline_capture"
-              },
-              {
-                "type": "string",
-                "const": "rule"
-              },
-              {
-                "type": "string",
-                "const": "self_service"
-              },
-              {
-                "type": "string",
-                "const": "shopify"
-              },
-              {
-                "type": "string",
-                "const": "twilio"
-              },
-              {
-                "type": "string",
-                "const": "yotpo"
-              },
-              {
-                "type": "string",
-                "const": "zendesk"
-              },
-              {
+              "public": {
                 "type": "boolean"
               },
-              {
+              "from_agent": {
+                "type": "boolean"
+              },
+              "sender": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -285,7 +269,15 @@
                   "meta": {
                     "anyOf": [
                       {
-                        "type": "object"
+                        "type": "object",
+                        "additionalProperties": {
+                          "anyOf": [
+                            {},
+                            {
+                              "not": {}
+                            }
+                          ]
+                        }
                       },
                       {
                         "type": "null"
@@ -315,82 +307,273 @@
                 ],
                 "additionalProperties": false
               },
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "firstname": {
-                    "type": "string"
-                  },
-                  "lastname": {
-                    "type": "string"
-                  },
-                  "meta": {
-                    "anyOf": [
-                      {
-                        "type": "object"
+              "receiver": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
                       },
-                      {
-                        "type": "null"
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "meta": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": {
+                              "anyOf": [
+                                {},
+                                {
+                                  "not": {}
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
-                    ]
+                    },
+                    "required": [
+                      "id",
+                      "firstname",
+                      "lastname",
+                      "meta",
+                      "email",
+                      "name"
+                    ],
+                    "additionalProperties": false
                   },
-                  "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "id",
-                  "firstname",
-                  "lastname",
-                  "meta",
-                  "email",
-                  "name"
-                ],
-                "additionalProperties": false
+                ]
               },
-              {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "string",
-                    "number",
-                    "null",
-                    "boolean"
-                  ]
-                }
+              "attachments": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "content_type": {
+                          "type": "string"
+                        },
+                        "public": {
+                          "type": "boolean"
+                        },
+                        "extra": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type",
+                        "public",
+                        "extra"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "meta": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "headers": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "array",
-                "items": {}
+              "actions": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "macros": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "opened_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "failed_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_sending_error": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "uri",
+              "message_id",
+              "integration_id",
+              "rule_id",
+              "external_id",
+              "ticket_id",
+              "channel",
+              "via",
+              "subject",
+              "body_text",
+              "body_html",
+              "stripped_text",
+              "stripped_html",
+              "stripped_signature",
+              "public",
+              "from_agent",
+              "sender",
+              "receiver",
+              "attachments",
+              "meta",
+              "headers",
+              "actions",
+              "macros",
+              "created_datetime",
+              "opened_datetime",
+              "failed_datetime",
+              "last_sending_error",
+              "deleted_datetime"
+            ],
+            "additionalProperties": false
           }
         },
         "meta": {
           "anyOf": [
             {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
             },
             {
               "type": "null"
@@ -425,20 +608,59 @@
         "tags": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "name": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "uri": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "object"
+              "decoration": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "uri",
+              "decoration",
+              "created_datetime"
+            ],
+            "additionalProperties": false
           }
         },
         "spam": {
@@ -506,15 +728,12 @@
         "channel",
         "closed_datetime",
         "created_datetime",
-        "excerpt",
         "external_id",
         "from_agent",
-        "integrations",
         "is_unread",
         "language",
         "last_message_datetime",
         "last_received_message_datetime",
-        "messages_count",
         "messages",
         "meta",
         "opened_datetime",
@@ -572,8 +791,7 @@
             }
           },
           "required": [
-            "phone_number",
-            "email"
+            "phone_number"
           ],
           "additionalProperties": false
         },
@@ -583,20 +801,52 @@
             "messages": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "attachments": {
                     "type": "array",
                     "items": {
-                      "type": [
-                        "string",
-                        "number"
-                      ]
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": "number"
+                        },
+                        "content_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type"
+                      ],
+                      "additionalProperties": false
                     }
                   },
-                  {
+                  "body_html": {
+                    "type": "string"
+                  },
+                  "body_text": {
+                    "type": "string"
+                  },
+                  "id": {
                     "type": "string"
                   }
-                ]
+                },
+                "required": [
+                  "attachments",
+                  "body_html",
+                  "body_text",
+                  "id"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -635,7 +885,15 @@
                 "meta": {
                   "anyOf": [
                     {
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
                     },
                     {
                       "type": "null"
@@ -736,148 +994,124 @@
         "messages": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "uri": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "message_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
+              "integration_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rule_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ticket_id": {
+                "type": "number"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "via": {
                 "type": "string",
-                "const": "aircall"
+                "enum": [
+                  "aircall",
+                  "api",
+                  "chat",
+                  "contact_form",
+                  "email",
+                  "facebook",
+                  "facebook-mention",
+                  "facebook-messenger",
+                  "facebook-recommendations",
+                  "form",
+                  "gorgias_chat",
+                  "help-center",
+                  "helpdesk",
+                  "instagram",
+                  "instagram-ad-comment",
+                  "instagram-comment",
+                  "instagram-direct-message",
+                  "instagram-mention",
+                  "internal-note",
+                  "offline_capture",
+                  "phone",
+                  "rule",
+                  "self_service",
+                  "shopify",
+                  "sms",
+                  "twilio",
+                  "twitter",
+                  "twitter-direct-message",
+                  "whatsapp",
+                  "yotpo",
+                  "yotpo-review",
+                  "zendesk"
+                ]
               },
-              {
-                "type": "string",
-                "const": "api"
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "chat"
+              "body_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "contact_form"
+              "body_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "email"
+              "stripped_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook"
+              "stripped_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook-mention"
+              "stripped_signature": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "string",
-                "const": "facebook-messenger"
-              },
-              {
-                "type": "string",
-                "const": "facebook-recommendations"
-              },
-              {
-                "type": "string",
-                "const": "help-center"
-              },
-              {
-                "type": "string",
-                "const": "instagram-ad-comment"
-              },
-              {
-                "type": "string",
-                "const": "instagram-comment"
-              },
-              {
-                "type": "string",
-                "const": "instagram-direct-message"
-              },
-              {
-                "type": "string",
-                "const": "instagram-mention"
-              },
-              {
-                "type": "string",
-                "const": "internal-note"
-              },
-              {
-                "type": "string",
-                "const": "phone"
-              },
-              {
-                "type": "string",
-                "const": "sms"
-              },
-              {
-                "type": "string",
-                "const": "twitter"
-              },
-              {
-                "type": "string",
-                "const": "twitter-direct-message"
-              },
-              {
-                "type": "string",
-                "const": "whatsapp"
-              },
-              {
-                "type": "string",
-                "const": "yotpo-review"
-              },
-              {
-                "type": "string",
-                "const": "form"
-              },
-              {
-                "type": "string",
-                "const": "gorgias_chat"
-              },
-              {
-                "type": "string",
-                "const": "helpdesk"
-              },
-              {
-                "type": "string",
-                "const": "instagram"
-              },
-              {
-                "type": "string",
-                "const": "offline_capture"
-              },
-              {
-                "type": "string",
-                "const": "rule"
-              },
-              {
-                "type": "string",
-                "const": "self_service"
-              },
-              {
-                "type": "string",
-                "const": "shopify"
-              },
-              {
-                "type": "string",
-                "const": "twilio"
-              },
-              {
-                "type": "string",
-                "const": "yotpo"
-              },
-              {
-                "type": "string",
-                "const": "zendesk"
-              },
-              {
+              "public": {
                 "type": "boolean"
               },
-              {
+              "from_agent": {
+                "type": "boolean"
+              },
+              "sender": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -892,7 +1126,15 @@
                   "meta": {
                     "anyOf": [
                       {
-                        "type": "object"
+                        "type": "object",
+                        "additionalProperties": {
+                          "anyOf": [
+                            {},
+                            {
+                              "not": {}
+                            }
+                          ]
+                        }
                       },
                       {
                         "type": "null"
@@ -922,82 +1164,273 @@
                 ],
                 "additionalProperties": false
               },
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "firstname": {
-                    "type": "string"
-                  },
-                  "lastname": {
-                    "type": "string"
-                  },
-                  "meta": {
-                    "anyOf": [
-                      {
-                        "type": "object"
+              "receiver": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
                       },
-                      {
-                        "type": "null"
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "meta": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": {
+                              "anyOf": [
+                                {},
+                                {
+                                  "not": {}
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
-                    ]
+                    },
+                    "required": [
+                      "id",
+                      "firstname",
+                      "lastname",
+                      "meta",
+                      "email",
+                      "name"
+                    ],
+                    "additionalProperties": false
                   },
-                  "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "id",
-                  "firstname",
-                  "lastname",
-                  "meta",
-                  "email",
-                  "name"
-                ],
-                "additionalProperties": false
+                ]
               },
-              {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "string",
-                    "number",
-                    "null",
-                    "boolean"
-                  ]
-                }
+              "attachments": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "content_type": {
+                          "type": "string"
+                        },
+                        "public": {
+                          "type": "boolean"
+                        },
+                        "extra": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type",
+                        "public",
+                        "extra"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "meta": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "headers": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "array",
-                "items": {}
+              "actions": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
-              {
-                "type": "object"
+              "macros": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "opened_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "failed_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_sending_error": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "uri",
+              "message_id",
+              "integration_id",
+              "rule_id",
+              "external_id",
+              "ticket_id",
+              "channel",
+              "via",
+              "subject",
+              "body_text",
+              "body_html",
+              "stripped_text",
+              "stripped_html",
+              "stripped_signature",
+              "public",
+              "from_agent",
+              "sender",
+              "receiver",
+              "attachments",
+              "meta",
+              "headers",
+              "actions",
+              "macros",
+              "created_datetime",
+              "opened_datetime",
+              "failed_datetime",
+              "last_sending_error",
+              "deleted_datetime"
+            ],
+            "additionalProperties": false
           }
         },
         "meta": {
           "anyOf": [
             {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
             },
             {
               "type": "null"
@@ -1032,20 +1465,59 @@
         "tags": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "name": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "uri": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
-                "type": "object"
+              "decoration": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "uri",
+              "decoration",
+              "created_datetime"
+            ],
+            "additionalProperties": false
           }
         },
         "spam": {
@@ -1113,15 +1585,12 @@
         "channel",
         "closed_datetime",
         "created_datetime",
-        "excerpt",
         "external_id",
         "from_agent",
-        "integrations",
         "is_unread",
         "language",
         "last_message_datetime",
         "last_received_message_datetime",
-        "messages_count",
         "messages",
         "meta",
         "opened_datetime",
@@ -1163,8 +1632,7 @@
       "required": [
         "firstName",
         "lastName",
-        "email",
-        "role"
+        "email"
       ],
       "additionalProperties": false
     },
@@ -1217,5 +1685,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -32,32 +32,85 @@
         "attachments": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename",
+              "url",
+              "type",
+              "created_at"
+            ],
+            "additionalProperties": false
           }
         },
         "phone_numbers": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "email_addresses": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "is_primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "value",
+              "is_primary"
+            ],
+            "additionalProperties": false
           }
         },
         "social_media_addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "tags": {
@@ -69,17 +122,67 @@
         "educations": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "school_name": {
+                "type": "string"
+              },
+              "degree": {
+                "type": "string"
+              },
+              "discipline": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "end_date": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "school_name",
+              "degree",
+              "discipline",
+              "start_date",
+              "end_date"
+            ],
+            "additionalProperties": false
           }
         },
         "employments": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "company_name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "end_date": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "company_name",
+              "title",
+              "start_date",
+              "end_date"
+            ],
+            "additionalProperties": false
           }
         },
         "linked_user_ids": {
@@ -115,14 +218,27 @@
         "applications": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "candidate_id": {
+                "type": "string"
               },
-              {
+              "applied_at": {
+                "type": "string"
+              },
+              "rejected_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_activity_at": {
+                "type": "string"
+              },
+              "source": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -138,16 +254,12 @@
                 ],
                 "additionalProperties": false
               },
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "type": {
+              "credited_to": {
+                "type": "string"
+              },
+              "rejection_reason": {
+                "anyOf": [
+                  {
                     "type": "object",
                     "properties": {
                       "id": {
@@ -155,31 +267,62 @@
                       },
                       "name": {
                         "type": "string"
+                      },
+                      "type": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "required": [
                       "id",
-                      "name"
+                      "name",
+                      "type"
                     ],
                     "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "id",
-                  "name",
-                  "type"
-                ],
-                "additionalProperties": false
+                ]
               },
-              {
+              "jobs": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "job_post_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "current_stage": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -194,8 +337,30 @@
                   "name"
                 ],
                 "additionalProperties": false
+              },
+              "deleted_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "candidate_id",
+              "applied_at",
+              "rejected_at",
+              "last_activity_at",
+              "source",
+              "credited_to",
+              "rejection_reason",
+              "jobs",
+              "job_post_id",
+              "status",
+              "current_stage",
+              "deleted_at"
+            ],
+            "additionalProperties": false
           }
         },
         "application_ids": {
@@ -324,25 +489,52 @@
         "interviews": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "schedulable": {
                 "type": "boolean"
               },
-              {
+              "estimated_minutes": {
                 "type": "number"
               },
-              {
+              "default_interviewer_users": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "type": "string"
+                    },
+                    "employee_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "first_name",
+                    "last_name",
+                    "employee_id"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "interview_kit": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -354,9 +546,20 @@
                   "questions": {
                     "type": "array",
                     "items": {
-                      "type": [
-                        "string"
-                      ]
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
                     }
                   }
                 },
@@ -367,10 +570,27 @@
                 ],
                 "additionalProperties": false
               },
-              {
-                "type": "null"
+              "deleted_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "job_stage_interview_item_id": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "schedulable",
+              "estimated_minutes",
+              "default_interviewer_users",
+              "interview_kit",
+              "deleted_at",
+              "job_stage_interview_item_id"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -557,9 +777,20 @@
         "jobs": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
           }
         },
         "job_post_id": {
@@ -657,27 +888,60 @@
         "departments": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "parent_id": {
+                "type": "string"
+              },
+              "child_ids": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "parent_department_external_id": {
+                "type": "string"
+              },
+              "child_department_external_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deleted_at": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "parent_id",
+              "child_ids",
+              "parent_department_external_id",
+              "child_department_external_ids",
+              "deleted_at"
+            ],
+            "additionalProperties": false
           }
         },
         "offices": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "location": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -689,13 +953,39 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "parent_id": {
+                "type": "string"
+              },
+              "child_ids": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "parent_office_external_id": {
+                "type": "string"
+              },
+              "child_office_external_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deleted_at": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "location",
+              "parent_id",
+              "child_ids",
+              "parent_office_external_id",
+              "child_office_external_ids",
+              "deleted_at"
+            ],
+            "additionalProperties": false
           }
         },
         "hiring_team": {
@@ -706,9 +996,32 @@
                 {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "employee_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "first_name",
+                      "last_name",
+                      "employee_id"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 {
@@ -721,9 +1034,32 @@
                 {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "employee_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "first_name",
+                      "last_name",
+                      "employee_id"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 {
@@ -736,9 +1072,32 @@
                 {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "employee_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "first_name",
+                      "last_name",
+                      "employee_id"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 {
@@ -751,9 +1110,32 @@
                 {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "employee_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "first_name",
+                      "last_name",
+                      "employee_id"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 {
@@ -818,10 +1200,20 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "boolean"
-                ]
+                "type": "object",
+                "properties": {
+                  "email_address": {
+                    "type": "string"
+                  },
+                  "is_primary": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "email_address",
+                  "is_primary"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -864,10 +1256,74 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "school": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "parsed_university": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "parsed_school": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "start_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "end_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "field_of_study": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "parsed_major_1": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "parsed_major_2": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "degree": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "parsed_university",
+                  "parsed_school",
+                  "start_date",
+                  "end_date",
+                  "field_of_study",
+                  "parsed_major_1",
+                  "parsed_major_2",
+                  "degree"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -880,11 +1336,47 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null",
-                  "boolean"
-                ]
+                "type": "object",
+                "properties": {
+                  "company": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "work_start_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "work_end_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "is_current": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "company",
+                  "title",
+                  "work_start_date",
+                  "work_end_date",
+                  "is_current"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -910,9 +1402,20 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "custom_field_id": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "custom_field_id",
+                  "value"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -1019,10 +1522,20 @@
         "emails": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "email_address": {
+                "type": "string"
+              },
+              "is_primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "email_address",
+              "is_primary"
+            ],
+            "additionalProperties": false
           }
         },
         "phone_number": {
@@ -1046,9 +1559,24 @@
         "profiles": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "network": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "network",
+              "url",
+              "username"
+            ],
+            "additionalProperties": false
           }
         },
         "company": {
@@ -1072,37 +1600,161 @@
         "education_info": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "school": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "parsed_university": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "parsed_school": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "start_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "end_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "field_of_study": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "parsed_major_1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "parsed_major_2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "degree": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "parsed_university",
+              "parsed_school",
+              "start_date",
+              "end_date",
+              "field_of_study",
+              "parsed_major_1",
+              "parsed_major_2",
+              "degree"
+            ],
+            "additionalProperties": false
           }
         },
         "work_info": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "company": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "work_start_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "work_end_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "is_current": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "company",
+              "title",
+              "work_start_date",
+              "work_end_date",
+              "is_current"
+            ],
+            "additionalProperties": false
           }
         },
         "custom_fields": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {},
-              {
+              "name": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "project_id": {
+                "type": "string"
+              },
+              "value": {},
+              "value_type": {
+                "type": "string"
+              },
+              "value_option_ids": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
-              }
-            ]
+              },
+              "custom_field_category": {
+                "type": "string"
+              },
+              "custom_field_value": {}
+            },
+            "required": [
+              "id",
+              "name",
+              "scope",
+              "value_type"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -1429,9 +2081,20 @@
         "jobs": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
           }
         },
         "job_post_id": {
@@ -1481,5 +2144,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -23,7 +23,7 @@
           "ActionInput_zoom_createuser",
           "ActionOutput_zoom_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -45,7 +45,7 @@
           "ActionInput_zoom_whoami",
           "ActionOutput_zoom_whoami"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -68,7 +68,7 @@
           "ActionInput_zoom_deleteuser",
           "ActionOutput_zoom_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -90,7 +90,7 @@
           "ActionInput_zoom_createmeeting",
           "ActionOutput_zoom_createmeeting"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -112,7 +112,7 @@
           "ActionInput_zoom_deletemeeting",
           "ActionOutput_zoom_deletemeeting"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -143,7 +143,7 @@
           "User",
           "SyncMetadata_zoom_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -172,7 +172,7 @@
           "Meeting",
           "SyncMetadata_zoom_meetings"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -202,7 +202,7 @@
           "RecordingFile",
           "SyncMetadata_zoom_recordingfiles"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

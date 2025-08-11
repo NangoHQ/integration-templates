@@ -22,7 +22,7 @@
           "ActionInput_xero_createcontact",
           "ActionOutput_xero_createcontact"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_xero_updatecontact",
           "ActionOutput_xero_updatecontact"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -66,7 +66,7 @@
           "ActionInput_xero_createinvoice",
           "ActionOutput_xero_createinvoice"
         ],
-        "version": "1.0.4"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -88,7 +88,7 @@
           "ActionInput_xero_updateinvoice",
           "ActionOutput_xero_updateinvoice"
         ],
-        "version": "1.0.4"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -110,7 +110,7 @@
           "ActionInput_xero_createcreditnote",
           "ActionOutput_xero_createcreditnote"
         ],
-        "version": "1.0.4"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -132,7 +132,7 @@
           "ActionInput_xero_updatecreditnote",
           "ActionOutput_xero_updatecreditnote"
         ],
-        "version": "1.0.4"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -154,7 +154,7 @@
           "ActionInput_xero_createpayment",
           "ActionOutput_xero_createpayment"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -176,7 +176,7 @@
           "ActionInput_xero_createitem",
           "ActionOutput_xero_createitem"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -196,7 +196,7 @@
           "ActionInput_xero_gettenants",
           "ActionOutput_xero_gettenants"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -218,7 +218,7 @@
           "ActionInput_xero_updateitem",
           "ActionOutput_xero_updateitem"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -248,7 +248,7 @@
           "Contact",
           "SyncMetadata_xero_contacts"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -277,7 +277,7 @@
           "Account",
           "SyncMetadata_xero_accounts"
         ],
-        "version": "1.0.5",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -306,7 +306,7 @@
           "Item",
           "SyncMetadata_xero_items"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -335,7 +335,7 @@
           "Invoice",
           "SyncMetadata_xero_invoices"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -364,7 +364,7 @@
           "BankTransaction",
           "SyncMetadata_xero_banktransactions"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -393,7 +393,7 @@
           "GeneralLedger",
           "SyncMetadata_xero_generalledger"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -423,7 +423,7 @@
           "Organisation",
           "SyncMetadata_xero_organisations"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -452,7 +452,7 @@
           "Payment",
           "SyncMetadata_xero_payments"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -481,7 +481,7 @@
           "CreditNote",
           "SyncMetadata_xero_creditnotes"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

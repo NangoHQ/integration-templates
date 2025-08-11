@@ -59,26 +59,73 @@
         "custom_fields": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "company_custom_field_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "selection_options": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "company_custom_field_id",
+              "name",
+              "description",
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "jobs": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "hire_date": {
+                "type": "string"
+              },
+              "payment_unit": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "hire_date",
+              "payment_unit",
+              "primary"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -191,12 +238,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "firstName",
-            "lastName",
-            "email"
-          ],
           "additionalProperties": false
         },
         "workLocation": {
@@ -240,11 +281,6 @@
                 }
               },
               "required": [
-                "street",
-                "city",
-                "state",
-                "country",
-                "postalCode",
                 "type"
               ],
               "additionalProperties": false
@@ -252,27 +288,89 @@
           },
           "required": [
             "name",
-            "type",
-            "primaryAddress"
+            "type"
           ],
           "additionalProperties": false
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
           }
         },
         "emails": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
           }
         },
         "providerSpecific": {
@@ -292,14 +390,10 @@
         "lastName",
         "email",
         "displayName",
-        "employeeNumber",
-        "title",
         "department",
         "employmentType",
         "employmentStatus",
         "startDate",
-        "terminationDate",
-        "manager",
         "workLocation",
         "addresses",
         "phones",
@@ -342,11 +436,7 @@
         "firstName",
         "lastName",
         "email",
-        "middleInitial",
-        "preferredFirstName",
-        "dateOfBirth",
-        "ssn",
-        "selfOnboarding"
+        "dateOfBirth"
       ],
       "additionalProperties": false
     },
@@ -410,15 +500,7 @@
       },
       "required": [
         "id",
-        "version",
-        "firstName",
-        "lastName",
-        "email",
-        "middleInitial",
-        "preferredFirstName",
-        "dateOfBirth",
-        "ssn",
-        "twoPercentShareholder"
+        "version"
       ],
       "additionalProperties": false
     },
@@ -460,9 +542,7 @@
         }
       },
       "required": [
-        "id",
-        "effectiveDate",
-        "runTerminationPayroll"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -479,5 +559,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

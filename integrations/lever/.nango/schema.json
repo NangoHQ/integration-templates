@@ -801,7 +801,6 @@
         }
       },
       "required": [
-        "perform_as",
         "id",
         "text",
         "createdAt",
@@ -1005,9 +1004,20 @@
         "phones": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "emails": {
@@ -1282,8 +1292,7 @@
       "additionalProperties": false
     },
     "ActionInput_lever_getstages": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_lever_getstages": {
       "type": "object",
@@ -1291,9 +1300,20 @@
         "stages": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1303,8 +1323,7 @@
       "additionalProperties": false
     },
     "ActionInput_lever_users": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_lever_users": {
       "type": "object",
@@ -1312,23 +1331,85 @@
         "users": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "name": {
+                "type": "string"
               },
-              {
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "accessRole": {
+                "type": "string"
+              },
+              "photo": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "createdAt": {
                 "type": "number"
               },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "deactivatedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "externalDirectoryId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "linkedContactIds": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "jobTitle": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "managerId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "username",
+              "email",
+              "accessRole",
+              "photo",
+              "createdAt",
+              "deactivatedAt",
+              "externalDirectoryId",
+              "linkedContactIds",
+              "jobTitle",
+              "managerId"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1338,8 +1419,7 @@
       "additionalProperties": false
     },
     "ActionInput_lever_getpostings": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_lever_getpostings": {
       "type": "object",
@@ -1536,14 +1616,12 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
     },
     "ActionInput_lever_getarchivereasons": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_lever_getarchivereasons": {
       "type": "object",
@@ -1740,7 +1818,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -1952,7 +2029,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -1977,7 +2053,6 @@
         }
       },
       "required": [
-        "perform_as",
         "links",
         "opportunityId",
         "delete"
@@ -2179,7 +2254,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -2205,7 +2279,6 @@
       },
       "required": [
         "opportunityId",
-        "perform_as",
         "sources",
         "delete"
       ],
@@ -2406,7 +2479,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -2425,7 +2497,6 @@
         }
       },
       "required": [
-        "perform_as",
         "stage",
         "opportunityId"
       ],
@@ -2626,7 +2697,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -2652,7 +2722,6 @@
       },
       "required": [
         "opportunityId",
-        "perform_as",
         "tags",
         "delete"
       ],
@@ -2853,7 +2922,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -2878,11 +2946,8 @@
         }
       },
       "required": [
-        "perform_as",
         "reason",
-        "requisitionId",
-        "opportunityId",
-        "cleanInterviews"
+        "opportunityId"
       ],
       "additionalProperties": false
     },
@@ -3081,7 +3146,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -3098,9 +3162,20 @@
         "personalInformation": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "eeoResponses": {
@@ -3110,25 +3185,51 @@
         "urls": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "CustomQuestions": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "fields": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "fields"
+            ],
+            "additionalProperties": false
           }
         },
         "ipAddress": {
@@ -3191,9 +3292,28 @@
             "responses": {
               "type": "array",
               "items": {
-                "type": [
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "questionId": {
+                    "type": "string"
+                  },
+                  "questionText": {
+                    "type": "string"
+                  },
+                  "questionType": {
+                    "type": "string"
+                  },
+                  "answer": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "questionId",
+                  "questionText",
+                  "questionType",
+                  "answer"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -3210,16 +3330,10 @@
       },
       "required": [
         "postId",
-        "send_confirmation_email",
         "personalInformation",
         "eeoResponses",
         "urls",
-        "CustomQuestions",
-        "ipAddress",
-        "source",
-        "consent",
-        "diversitySurvey",
-        "origin"
+        "CustomQuestions"
       ],
       "additionalProperties": false
     },
@@ -3418,7 +3532,6 @@
       },
       "required": [
         "success",
-        "opportunityId",
         "response"
       ],
       "additionalProperties": false
@@ -3468,15 +3581,9 @@
       },
       "required": [
         "opportunityId",
-        "perform_as",
-        "delete",
         "links",
         "sources",
-        "stage",
-        "tags",
-        "reason",
-        "cleanInterviews",
-        "requisitionId"
+        "tags"
       ],
       "additionalProperties": false
     },
@@ -3532,10 +3639,6 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "reason",
-                "archivedAt"
-              ],
               "additionalProperties": false
             },
             "createdAt": {
@@ -3568,8 +3671,9 @@
             "stageChanges": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "0": {
                     "type": "object",
                     "properties": {
                       "toStageId": {
@@ -3593,10 +3697,15 @@
                     ],
                     "additionalProperties": false
                   },
-                  {
+                  "1": {
                     "type": "string"
                   }
-                ]
+                },
+                "required": [
+                  "0",
+                  "1"
+                ],
+                "additionalProperties": false
               }
             },
             "owner": {
@@ -3645,10 +3754,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "list",
-                "show"
-              ],
               "additionalProperties": false
             },
             "dataProtection": {
@@ -3669,39 +3774,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "name",
-            "headline",
-            "contact",
-            "emails",
-            "phones",
-            "confidentiality",
-            "location",
-            "links",
-            "archived",
-            "createdAt",
-            "updatedAt",
-            "lastInteractionAt",
-            "lastAdvancedAt",
-            "snoozedUntil",
-            "archivedAt",
-            "archiveReason",
-            "stage",
-            "stageChanges",
-            "owner",
-            "tags",
-            "sources",
-            "origin",
-            "sourcedBy",
-            "applications",
-            "resume",
-            "followers",
-            "urls",
-            "dataProtection",
-            "isAnonymized",
-            "opportunityLocation"
-          ],
           "additionalProperties": false
         }
       },
@@ -3711,5 +3783,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

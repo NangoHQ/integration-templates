@@ -51,7 +51,25 @@
         "phoneNumbers": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "work",
+                  "mobile",
+                  "other"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "company": {
@@ -65,14 +83,7 @@
         }
       },
       "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "phoneNumbers",
-        "company",
-        "jobTitle",
-        "notes"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -97,19 +108,76 @@
         "phoneNumbers": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "work",
+                  "mobile",
+                  "other"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "photos": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "photo"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "work"
+              },
+              "streetAddress": {
+                "type": "string"
+              },
+              "locality": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "title": {
@@ -132,13 +200,9 @@
         "firstName",
         "lastName",
         "email",
-        "active",
-        "externalId",
         "phoneNumbers",
         "photos",
-        "addresses",
-        "title",
-        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+        "addresses"
       ],
       "additionalProperties": false
     },
@@ -191,8 +255,7 @@
       "additionalProperties": false
     },
     "ActionInput_ring_central_getcompanyinfo": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_ring_central_getcompanyinfo": {
       "type": "object",
@@ -261,10 +324,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "extensionNumber"
-          ],
           "additionalProperties": false
         }
       },
@@ -273,7 +332,6 @@
         "name",
         "status",
         "serviceInfo",
-        "mainNumber",
         "operator"
       ],
       "additionalProperties": false
@@ -293,7 +351,25 @@
         "phoneNumbers": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "work",
+                  "mobile",
+                  "other"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "company": {
@@ -307,13 +383,7 @@
         }
       },
       "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "phoneNumbers",
-        "company",
-        "jobTitle",
-        "notes"
+        "phoneNumbers"
       ],
       "additionalProperties": false
     },
@@ -335,7 +405,25 @@
         "phoneNumbers": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "work",
+                  "mobile",
+                  "other"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "company": {
@@ -349,17 +437,10 @@
         }
       },
       "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "phoneNumbers",
-        "company",
-        "jobTitle",
-        "notes"
+        "id"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

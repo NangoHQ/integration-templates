@@ -8,9 +8,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "NetsuiteCustomer": {
@@ -106,9 +103,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "NetsuitePayment": {
@@ -165,7 +159,6 @@
       },
       "required": [
         "id",
-        "description",
         "customerId",
         "amount",
         "createdAt",
@@ -183,9 +176,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "NetsuiteInvoice": {
@@ -212,10 +202,33 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "total": {
@@ -244,9 +257,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "NetsuiteCreditNote": {
@@ -273,10 +283,33 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "total": {
@@ -305,9 +338,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "NetsuiteLocation": {
@@ -394,7 +424,6 @@
         "lastModifiedDate",
         "address",
         "returnAddress",
-        "timeZone",
         "useBins"
       ],
       "additionalProperties": false
@@ -406,9 +435,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "timezone"
-      ],
       "additionalProperties": false
     },
     "GeneralLedger": {
@@ -460,11 +486,38 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "journalLineId": {
+                "type": "string"
+              },
+              "accountId": {
+                "type": "string"
+              },
+              "accountName": {
+                "type": "string"
+              },
+              "cleared": {
+                "type": "boolean"
+              },
+              "credit": {
+                "type": "number"
+              },
+              "debit": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "journalLineId",
+              "accountId",
+              "accountName",
+              "cleared",
+              "description"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -522,16 +575,7 @@
       },
       "required": [
         "externalId",
-        "name",
-        "email",
-        "taxNumber",
-        "addressLine1",
-        "addressLine2",
-        "city",
-        "zip",
-        "country",
-        "state",
-        "phone"
+        "name"
       ],
       "additionalProperties": false
     },
@@ -588,17 +632,6 @@
         }
       },
       "required": [
-        "externalId",
-        "name",
-        "email",
-        "taxNumber",
-        "addressLine1",
-        "addressLine2",
-        "city",
-        "zip",
-        "country",
-        "state",
-        "phone",
         "id"
       ],
       "additionalProperties": false
@@ -633,17 +666,39 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
         "customerId",
         "currency",
-        "description",
         "status",
         "lines"
       ],
@@ -679,10 +734,33 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "id": {
@@ -693,13 +771,9 @@
         }
       },
       "required": [
-        "customerId",
-        "currency",
-        "description",
         "status",
         "lines",
-        "id",
-        "locationId"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -749,8 +823,7 @@
         "currency",
         "paymentReference",
         "applyTo",
-        "status",
-        "description"
+        "status"
       ],
       "additionalProperties": false
     },
@@ -799,12 +872,6 @@
       },
       "required": [
         "customerId",
-        "amount",
-        "currency",
-        "paymentReference",
-        "applyTo",
-        "status",
-        "description",
         "id"
       ],
       "additionalProperties": false
@@ -839,10 +906,30 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -850,7 +937,6 @@
         "customerId",
         "status",
         "currency",
-        "description",
         "lines"
       ],
       "additionalProperties": false
@@ -885,10 +971,30 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "vatCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "id": {
@@ -899,7 +1005,6 @@
         "customerId",
         "status",
         "currency",
-        "description",
         "lines",
         "id"
       ],
@@ -941,48 +1046,70 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "itemId": {
                 "type": "string"
               },
-              {
+              "quantity": {
                 "type": "number"
               },
-              {
+              "amount": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              },
+              "rate": {
+                "type": "number"
+              },
+              "department": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "createWorkOrder": {
                 "type": "boolean"
               },
-              {
-                "type": "object",
-                "properties": {
-                  "binNumber": {
-                    "type": "string"
+              "inventoryDetail": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "binNumber": {
+                        "type": "string"
+                      },
+                      "expirationDate": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "number"
+                      },
+                      "serialNumber": {
+                        "type": "string"
+                      },
+                      "toBinNumber": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
                   },
-                  "expirationDate": {
-                    "type": "string"
-                  },
-                  "quantity": {
-                    "type": "number"
-                  },
-                  "serialNumber": {
-                    "type": "string"
-                  },
-                  "toBinNumber": {
-                    "type": "string"
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "binNumber",
-                  "expirationDate",
-                  "quantity",
-                  "serialNumber",
-                  "toBinNumber"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "customForm": {
@@ -1012,10 +1139,6 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "taxCode",
-                "taxRate"
-              ],
               "additionalProperties": false
             },
             {
@@ -1048,15 +1171,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "addr1",
-            "addr2",
-            "addr3",
-            "city",
-            "state",
-            "zip",
-            "country"
-          ],
           "additionalProperties": false
         },
         "shippingAddress": {
@@ -1084,32 +1198,13 @@
               "type": "string"
             }
           },
-          "required": [
-            "addr1",
-            "addr2",
-            "addr3",
-            "city",
-            "state",
-            "zip",
-            "country"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
         "vendorId",
-        "currency",
-        "description",
         "status",
-        "tranDate",
-        "dueDate",
         "lines",
-        "customForm",
-        "location",
-        "subsidiary",
-        "department",
-        "class",
-        "taxDetails",
         "billingAddress",
         "shippingAddress"
       ],
@@ -1154,48 +1249,70 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "itemId": {
                 "type": "string"
               },
-              {
+              "quantity": {
                 "type": "number"
               },
-              {
+              "amount": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "locationId": {
+                "type": "string"
+              },
+              "rate": {
+                "type": "number"
+              },
+              "department": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "createWorkOrder": {
                 "type": "boolean"
               },
-              {
-                "type": "object",
-                "properties": {
-                  "binNumber": {
-                    "type": "string"
+              "inventoryDetail": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "binNumber": {
+                        "type": "string"
+                      },
+                      "expirationDate": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "number"
+                      },
+                      "serialNumber": {
+                        "type": "string"
+                      },
+                      "toBinNumber": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
                   },
-                  "expirationDate": {
-                    "type": "string"
-                  },
-                  "quantity": {
-                    "type": "number"
-                  },
-                  "serialNumber": {
-                    "type": "string"
-                  },
-                  "toBinNumber": {
-                    "type": "string"
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "binNumber",
-                  "expirationDate",
-                  "quantity",
-                  "serialNumber",
-                  "toBinNumber"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "null"
+                ]
               }
-            ]
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "customForm": {
@@ -1240,15 +1357,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "addr1",
-                "addr2",
-                "addr3",
-                "city",
-                "state",
-                "zip",
-                "country"
-              ],
               "additionalProperties": false
             },
             {
@@ -1283,15 +1391,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "addr1",
-                "addr2",
-                "addr3",
-                "city",
-                "state",
-                "zip",
-                "country"
-              ],
               "additionalProperties": false
             },
             {
@@ -1311,10 +1410,6 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "taxCode",
-                "taxRate"
-              ],
               "additionalProperties": false
             },
             {
@@ -1325,21 +1420,7 @@
       },
       "required": [
         "id",
-        "vendorId",
-        "currency",
-        "description",
-        "status",
-        "tranDate",
-        "dueDate",
-        "lines",
-        "customForm",
-        "location",
-        "subsidiary",
-        "department",
-        "class",
-        "billingAddress",
-        "shippingAddress",
-        "taxDetails"
+        "lines"
       ],
       "additionalProperties": false
     },
@@ -1397,17 +1478,39 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "itemId": {
                 "type": "string"
               },
-              {
+              "quantity": {
                 "type": "number"
               },
-              {
+              "amount": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "rate": {
+                "type": "number"
+              },
+              "locationId": {
+                "type": "string"
+              },
+              "departmentId": {
+                "type": "string"
+              },
+              "classId": {
+                "type": "string"
+              },
+              "customerId": {
+                "type": "string"
+              },
+              "isBillable": {
                 "type": "boolean"
               },
-              {
+              "taxDetails": {
                 "type": "object",
                 "properties": {
                   "taxCode": {
@@ -1417,13 +1520,9 @@
                     "type": "number"
                   }
                 },
-                "required": [
-                  "taxCode",
-                  "taxRate"
-                ],
                 "additionalProperties": false
               },
-              {
+              "inventoryDetail": {
                 "type": "object",
                 "properties": {
                   "binNumber": {
@@ -1439,15 +1538,15 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "binNumber",
-                  "expirationDate",
-                  "quantity",
-                  "serialNumber"
-                ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "billingAddress": {
@@ -1475,15 +1574,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "addr1",
-            "addr2",
-            "addr3",
-            "city",
-            "state",
-            "zip",
-            "country"
-          ],
           "additionalProperties": false
         },
         "taxDetails": {
@@ -1496,10 +1586,6 @@
               "type": "number"
             }
           },
-          "required": [
-            "taxCode",
-            "taxRate"
-          ],
           "additionalProperties": false
         }
       },
@@ -1507,18 +1593,7 @@
         "vendorId",
         "tranDate",
         "currency",
-        "dueDate",
-        "status",
-        "memo",
-        "externalId",
-        "location",
-        "subsidiary",
-        "department",
-        "class",
-        "terms",
-        "lines",
-        "billingAddress",
-        "taxDetails"
+        "lines"
       ],
       "additionalProperties": false
     },
@@ -1579,17 +1654,39 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "itemId": {
                 "type": "string"
               },
-              {
+              "quantity": {
                 "type": "number"
               },
-              {
+              "amount": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "rate": {
+                "type": "number"
+              },
+              "locationId": {
+                "type": "string"
+              },
+              "departmentId": {
+                "type": "string"
+              },
+              "classId": {
+                "type": "string"
+              },
+              "customerId": {
+                "type": "string"
+              },
+              "isBillable": {
                 "type": "boolean"
               },
-              {
+              "taxDetails": {
                 "type": "object",
                 "properties": {
                   "taxCode": {
@@ -1599,13 +1696,9 @@
                     "type": "number"
                   }
                 },
-                "required": [
-                  "taxCode",
-                  "taxRate"
-                ],
                 "additionalProperties": false
               },
-              {
+              "inventoryDetail": {
                 "type": "object",
                 "properties": {
                   "binNumber": {
@@ -1621,15 +1714,15 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "binNumber",
-                  "expirationDate",
-                  "quantity",
-                  "serialNumber"
-                ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "itemId",
+              "quantity",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "billingAddress": {
@@ -1657,15 +1750,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "addr1",
-            "addr2",
-            "addr3",
-            "city",
-            "state",
-            "zip",
-            "country"
-          ],
           "additionalProperties": false
         },
         "taxDetails": {
@@ -1678,30 +1762,12 @@
               "type": "number"
             }
           },
-          "required": [
-            "taxCode",
-            "taxRate"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
         "id",
-        "vendorId",
-        "tranDate",
-        "currency",
-        "dueDate",
-        "status",
-        "memo",
-        "externalId",
-        "location",
-        "subsidiary",
-        "department",
-        "class",
-        "terms",
-        "lines",
-        "billingAddress",
-        "taxDetails"
+        "lines"
       ],
       "additionalProperties": false
     },
@@ -1820,50 +1886,62 @@
                 },
                 "default": {}
               },
-              "required": [
-                "id",
-                "schema",
-                "title",
-                "description",
-                "type",
-                "properties",
-                "required",
-                "enum",
-                "definitions",
-                "additionalProperties"
-              ],
               "additionalProperties": false
             },
             {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "id": {
                     "type": "string"
                   },
-                  {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "required": {
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
                   },
-                  {
-                    "type": "object",
-                    "additionalProperties": false
-                  },
-                  {
+                  "enum": {
                     "type": "array",
                     "items": {}
                   },
-                  {
+                  "definitions": {
                     "type": "object",
                     "additionalProperties": false
                   },
-                  {
+                  "additionalProperties": {
                     "type": "boolean"
                   },
-                  {}
-                ]
+                  "default": {}
+                },
+                "additionalProperties": false
               }
             }
           ]
@@ -1932,39 +2010,14 @@
                 },
                 "default": {}
               },
-              "required": [
-                "id",
-                "schema",
-                "title",
-                "description",
-                "type",
-                "properties",
-                "required",
-                "enum",
-                "definitions",
-                "additionalProperties"
-              ],
               "additionalProperties": false
             }
           ]
         },
         "default": {}
       },
-      "required": [
-        "id",
-        "schema",
-        "title",
-        "description",
-        "type",
-        "properties",
-        "required",
-        "items",
-        "enum",
-        "definitions",
-        "additionalProperties"
-      ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

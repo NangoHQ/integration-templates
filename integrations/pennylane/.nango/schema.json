@@ -105,12 +105,6 @@
                   ]
                 }
               },
-              "required": [
-                "address",
-                "postal_code",
-                "city",
-                "country_alpha2"
-              ],
               "additionalProperties": false
             },
             {
@@ -156,26 +150,7 @@
         }
       },
       "required": [
-        "id",
-        "first_name",
-        "last_name",
-        "gender",
-        "address",
-        "vat_number",
-        "postal_code",
-        "city",
-        "country_alpha2",
-        "recipient",
-        "source_id",
-        "emails",
-        "billing_iban",
-        "delivery_address",
-        "delivery_postal_code",
-        "delivery_country_alpha2",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -241,20 +216,11 @@
       "required": [
         "name",
         "id",
-        "reg_no",
         "address",
         "postal_code",
         "city",
         "country_alpha2",
-        "recipient",
-        "vat_number",
-        "source_id",
-        "emails",
-        "iban",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes"
+        "emails"
       ],
       "additionalProperties": false
     },
@@ -301,18 +267,55 @@
             {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "source_id": {
                     "type": "string"
                   },
-                  {
-                    "type": "null"
+                  "weight": {
+                    "type": "string"
                   },
-                  {
-                    "type": "string",
-                    "format": "date-time"
+                  "label": {
+                    "type": "string"
+                  },
+                  "direction": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "created_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "updated_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   }
-                ]
+                },
+                "required": [
+                  "source_id",
+                  "weight",
+                  "label",
+                  "direction",
+                  "created_at",
+                  "updated_at"
+                ],
+                "additionalProperties": false
               }
             },
             {
@@ -416,12 +419,6 @@
                       ]
                     }
                   },
-                  "required": [
-                    "address",
-                    "postal_code",
-                    "city",
-                    "country_alpha2"
-                  ],
                   "additionalProperties": false
                 }
               ]
@@ -464,7 +461,6 @@
                 }
               },
               "required": [
-                "provider",
                 "source_id"
               ],
               "additionalProperties": false
@@ -491,40 +487,13 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "number",
-                "label",
-                "enabled",
-                "vat_rate",
-                "country_alpha2",
-                "description"
-              ],
               "additionalProperties": false
             }
           },
           "required": [
-            "customer_type",
             "first_name",
             "last_name",
-            "country_alpha2",
-            "gender",
-            "address",
-            "postal_code",
-            "city",
-            "source_id",
-            "emails",
-            "billing_iban",
-            "delivery_address",
-            "vat_number",
-            "delivery_postal_code",
-            "delivery_city",
-            "delivery_country_alpha2",
-            "payment_conditions",
-            "phone",
-            "reference",
-            "notes",
-            "mandate",
-            "plan_item"
+            "country_alpha2"
           ],
           "additionalProperties": false
         },
@@ -645,45 +614,169 @@
         "line_items": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quantity": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "currency_amount": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "vat_rate": {
+                "type": "string"
+              },
+              "currency_price_before_tax": {
+                "type": "string"
+              },
+              "currency_tax": {
+                "type": "string"
+              },
+              "raw_currency_unit_price": {
+                "type": "string"
+              },
+              "discount": {
+                "type": "string"
+              },
+              "discount_type": {
+                "type": "string"
+              },
+              "section_rank": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "v2_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "product_v2_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
           }
         },
         "line_items_sections_attributes": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rank": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "rank"
+            ],
+            "additionalProperties": false
           }
         },
         "matched_transactions": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "group_uuid": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fee": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currency": {
                 "type": "string"
-              },
-              {
-                "type": "null"
-              },
-              {
-                "type": "string",
-                "format": "date-time"
               }
-            ]
+            },
+            "required": [
+              "label",
+              "amount",
+              "group_uuid",
+              "date",
+              "fee",
+              "currency"
+            ],
+            "additionalProperties": false
           }
         },
         "paid": {
           "type": "boolean"
         },
         "payments": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "pdf_invoice_free_text": {
           "type": "string"
@@ -778,29 +871,18 @@
       "required": [
         "id",
         "amount",
-        "billing_subscription",
-        "categories",
         "currency",
         "currency_amount",
-        "currency_amount_before_tax",
         "currency_tax",
-        "customer",
         "customer_name",
         "customer_validation_needed",
-        "date",
         "deadline",
         "discount",
-        "discount_type",
         "exchange_rate",
         "file_url",
         "filename",
-        "fully_paid_at",
         "imputation_dates",
-        "invoice_number",
         "is_draft",
-        "is_estimate",
-        "label",
-        "language",
         "line_items",
         "line_items_sections_attributes",
         "matched_transactions",
@@ -809,12 +891,10 @@
         "pdf_invoice_free_text",
         "pdf_invoice_subject",
         "public_url",
-        "quote_group_uuid",
         "remaining_amount",
         "source",
         "special_mention",
         "status",
-        "transactions_reference",
         "updated_at"
       ],
       "additionalProperties": false
@@ -870,14 +950,10 @@
         "id",
         "source_id",
         "label",
-        "description",
         "unit",
-        "price_before_tax",
         "price",
         "vat_rate",
-        "currency",
-        "reference",
-        "substance"
+        "currency"
       ],
       "additionalProperties": false
     },
@@ -953,12 +1029,6 @@
                   ]
                 }
               },
-              "required": [
-                "address",
-                "postal_code",
-                "city",
-                "country_alpha2"
-              ],
               "additionalProperties": false
             }
           ]
@@ -1001,7 +1071,6 @@
             }
           },
           "required": [
-            "provider",
             "source_id"
           ],
           "additionalProperties": false
@@ -1028,40 +1097,13 @@
               "type": "string"
             }
           },
-          "required": [
-            "number",
-            "label",
-            "enabled",
-            "vat_rate",
-            "country_alpha2",
-            "description"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
-        "customer_type",
         "first_name",
         "last_name",
-        "country_alpha2",
-        "gender",
-        "address",
-        "postal_code",
-        "city",
-        "source_id",
-        "emails",
-        "billing_iban",
-        "delivery_address",
-        "vat_number",
-        "delivery_postal_code",
-        "delivery_city",
-        "delivery_country_alpha2",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes",
-        "mandate",
-        "plan_item"
+        "country_alpha2"
       ],
       "additionalProperties": false
     },
@@ -1172,23 +1214,110 @@
             {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "section_rank": {
+                    "type": "number"
+                  },
+                  "currency_amount": {
+                    "type": "number"
+                  },
+                  "plan_item_number": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "vat_rate": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "label",
+                  "quantity",
+                  "currency_amount",
+                  "unit",
+                  "vat_rate"
+                ],
+                "additionalProperties": false
               }
             },
             {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "label": {
                     "type": "string"
                   },
-                  {
+                  "quantity": {
                     "type": "number"
                   },
-                  {
+                  "section_rank": {
+                    "type": "number"
+                  },
+                  "currency_amount_before_tax": {
+                    "type": "number"
+                  },
+                  "plan_item_number": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "vat_rate": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "label",
+                  "quantity",
+                  "currency_amount_before_tax",
+                  "unit",
+                  "vat_rate"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "discount": {
+                    "type": "number"
+                  },
+                  "section_rank": {
+                    "type": "number"
+                  },
+                  "plan_item_number": {
+                    "type": "string"
+                  },
+                  "product": {
                     "type": "object",
                     "properties": {
                       "source_id": {
@@ -1205,14 +1334,16 @@
                       }
                     },
                     "required": [
-                      "source_id",
-                      "price",
-                      "vat_rate",
-                      "unit"
+                      "source_id"
                     ],
                     "additionalProperties": false
                   }
-                ]
+                },
+                "required": [
+                  "quantity",
+                  "product"
+                ],
+                "additionalProperties": false
               }
             }
           ]
@@ -1220,21 +1351,57 @@
         "categories": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string"
+              },
+              "weight": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "source_id",
+              "weight",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         },
         "line_items_sections_attributes": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rank": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "rank"
+            ],
+            "additionalProperties": false
           }
         },
         "imputation_dates": {
@@ -1255,25 +1422,13 @@
         }
       },
       "required": [
-        "create_customer",
-        "create_products",
-        "update_customer",
         "date",
         "deadline",
-        "draft",
         "customer_source_id",
-        "external_id",
-        "pdf_invoice_free_text",
-        "pdf_invoice_subject",
-        "currency",
-        "special_mention",
-        "discount",
-        "language",
         "transactions_reference",
         "line_items",
         "categories",
-        "line_items_sections_attributes",
-        "imputation_dates"
+        "line_items_sections_attributes"
       ],
       "additionalProperties": false
     },
@@ -1347,20 +1502,11 @@
       },
       "required": [
         "name",
-        "reg_no",
         "address",
         "postal_code",
         "city",
         "country_alpha2",
-        "recipient",
-        "vat_number",
-        "source_id",
-        "emails",
-        "iban",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes"
+        "emails"
       ],
       "additionalProperties": false
     },
@@ -1480,12 +1626,6 @@
                   ]
                 }
               },
-              "required": [
-                "address",
-                "postal_code",
-                "city",
-                "country_alpha2"
-              ],
               "additionalProperties": false
             },
             {
@@ -1537,27 +1677,7 @@
         }
       },
       "required": [
-        "id",
-        "first_name",
-        "last_name",
-        "gender",
-        "address",
-        "vat_number",
-        "postal_code",
-        "city",
-        "country_alpha2",
-        "recipient",
-        "source_id",
-        "emails",
-        "billing_iban",
-        "delivery_address",
-        "delivery_postal_code",
-        "delivery_country",
-        "delivery_country_alpha2",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1781,12 +1901,6 @@
                       ]
                     }
                   },
-                  "required": [
-                    "address",
-                    "postal_code",
-                    "city",
-                    "country_alpha2"
-                  ],
                   "additionalProperties": false
                 }
               ]
@@ -1829,7 +1943,6 @@
                 }
               },
               "required": [
-                "provider",
                 "source_id"
               ],
               "additionalProperties": false
@@ -1856,78 +1969,170 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "number",
-                "label",
-                "enabled",
-                "vat_rate",
-                "country_alpha2",
-                "description"
-              ],
               "additionalProperties": false
             }
           },
           "required": [
-            "customer_type",
             "first_name",
             "last_name",
-            "country_alpha2",
-            "gender",
-            "address",
-            "postal_code",
-            "city",
-            "source_id",
-            "emails",
-            "billing_iban",
-            "delivery_address",
-            "vat_number",
-            "delivery_postal_code",
-            "delivery_city",
-            "delivery_country_alpha2",
-            "payment_conditions",
-            "phone",
-            "reference",
-            "notes",
-            "mandate",
-            "plan_item"
+            "country_alpha2"
           ],
           "additionalProperties": false
         },
         "line_items_sections_attributes": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rank": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "rank"
+            ],
+            "additionalProperties": false
           }
         },
         "line_items": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string",
-              "null"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quantity": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "currency_amount": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "vat_rate": {
+                "type": "string"
+              },
+              "currency_price_before_tax": {
+                "type": "string"
+              },
+              "currency_tax": {
+                "type": "string"
+              },
+              "raw_currency_unit_price": {
+                "type": "string"
+              },
+              "discount": {
+                "type": "string"
+              },
+              "discount_type": {
+                "type": "string"
+              },
+              "section_rank": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "v2_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "product_v2_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
           }
         },
         "categories": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "source_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "weight": {
+                "type": "string"
               },
-              {
-                "type": "string",
-                "format": "date-time"
+              "label": {
+                "type": "string"
+              },
+              "direction": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "updated_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               }
-            ]
+            },
+            "required": [
+              "source_id",
+              "weight",
+              "label",
+              "direction",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
           }
         },
         "transactions_reference": {
@@ -1962,32 +2167,87 @@
         "payments": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "label": {
                 "type": "string"
               },
-              {
-                "type": "string",
-                "format": "date-time"
+              "created_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "currency_amount": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "label",
+              "created_at",
+              "currency_amount"
+            ],
+            "additionalProperties": false
           }
         },
         "matched_transactions": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "group_uuid": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fee": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currency": {
                 "type": "string"
-              },
-              {
-                "type": "null"
-              },
-              {
-                "type": "string",
-                "format": "date-time"
               }
-            ]
+            },
+            "required": [
+              "label",
+              "amount",
+              "group_uuid",
+              "date",
+              "fee",
+              "currency"
+            ],
+            "additionalProperties": false
           }
         },
         "pdf_invoice_free_text": {
@@ -2021,43 +2281,13 @@
       },
       "required": [
         "id",
-        "label",
-        "invoice_number",
-        "quote_group_uuid",
-        "is_draft",
-        "is_estimate",
-        "currency",
-        "amount",
-        "currency_amount",
-        "currency_amount_before_tax",
-        "exchange_rate",
-        "date",
-        "deadline",
-        "currency_tax",
-        "language",
-        "paid",
-        "fully_paid_at",
-        "status",
-        "discount",
-        "discount_type",
-        "public_url",
-        "file_url",
-        "filename",
-        "remaining_amount",
-        "source",
-        "special_mention",
-        "updated_at",
-        "imputation_dates",
         "customer",
         "line_items_sections_attributes",
         "line_items",
         "categories",
         "transactions_reference",
         "payments",
-        "matched_transactions",
-        "pdf_invoice_free_text",
-        "pdf_invoice_subject",
-        "billing_subscription"
+        "matched_transactions"
       ],
       "additionalProperties": false
     },
@@ -2131,20 +2361,7 @@
       },
       "required": [
         "source_id",
-        "name",
-        "reg_no",
-        "address",
-        "postal_code",
-        "city",
-        "country_alpha2",
-        "recipient",
-        "vat_number",
-        "emails",
-        "iban",
-        "payment_conditions",
-        "phone",
-        "reference",
-        "notes"
+        "emails"
       ],
       "additionalProperties": false
     },
@@ -2207,14 +2424,10 @@
       "required": [
         "source_id",
         "label",
-        "description",
         "unit",
-        "price_before_tax",
         "price",
         "vat_rate",
-        "currency",
-        "reference",
-        "substance"
+        "currency"
       ],
       "additionalProperties": false
     },
@@ -2275,16 +2488,7 @@
         }
       },
       "required": [
-        "source_id",
-        "label",
-        "description",
-        "unit",
-        "price_before_tax",
-        "price",
-        "vat_rate",
-        "currency",
-        "reference",
-        "substance"
+        "source_id"
       ],
       "additionalProperties": false
     },
@@ -2305,5 +2509,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

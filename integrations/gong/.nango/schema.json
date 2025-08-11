@@ -46,10 +46,6 @@
           "type": "number"
         }
       },
-      "required": [
-        "backfillPeriodMs",
-        "lastSyncBackfillPeriod"
-      ],
       "additionalProperties": false
     },
     "GongCallOutput": {
@@ -144,9 +140,20 @@
                 "fields": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false
                   }
                 }
               },
@@ -159,40 +166,58 @@
             }
           },
           "required": [
-            "system",
-            "objects"
+            "system"
           ],
           "additionalProperties": false
         },
         "parties": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "email_address": {
+                "type": "string"
               },
-              {
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "speaker_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "affiliation": {
                 "type": "string",
-                "const": "Internal"
+                "enum": [
+                  "Internal",
+                  "External",
+                  "Unknown"
+                ]
               },
-              {
-                "type": "string",
-                "const": "External"
-              },
-              {
-                "type": "string",
-                "const": "Unknown"
-              },
-              {
+              "methods": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "speaker_id",
+              "affiliation",
+              "methods"
+            ],
+            "additionalProperties": false
           }
         },
         "interaction": {
@@ -201,28 +226,62 @@
             "speakers": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "talkTime": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "user_id",
+                  "talkTime"
+                ],
+                "additionalProperties": false
               }
             },
             "interaction_stats": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
               }
             },
             "video": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "duration": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name",
+                  "duration"
+                ],
+                "additionalProperties": false
               }
             },
             "questions": {
@@ -256,11 +315,40 @@
             "public_comments": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number",
-                  "boolean"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "audio_start_time": {
+                    "type": "number"
+                  },
+                  "audio_end_time": {
+                    "type": "number"
+                  },
+                  "commenter_user_id": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "posted": {
+                    "type": "string"
+                  },
+                  "during_call": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "audio_start_time",
+                  "audio_end_time",
+                  "commenter_user_id",
+                  "comment",
+                  "posted",
+                  "during_call"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -280,8 +368,7 @@
             }
           },
           "required": [
-            "audio_url",
-            "video_url"
+            "audio_url"
           ],
           "additionalProperties": false
         }
@@ -302,7 +389,6 @@
         "meeting_url",
         "is_private",
         "calendar_event_id",
-        "context",
         "parties",
         "interaction",
         "collaboration",
@@ -329,12 +415,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "backfillPeriodMs",
-        "lastSyncBackfillPeriod",
-        "callIds",
-        "workspaceId"
-      ],
       "additionalProperties": false
     },
     "GongCallTranscriptSyncOutput": {
@@ -346,23 +426,47 @@
         "transcript": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "speaker_id": {
                 "type": "string"
               },
-              {
-                "type": "null"
+              "topic": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
-              {
+              "sentences": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "number",
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "number"
+                    },
+                    "end": {
+                      "type": "number"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end",
+                    "text"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "speaker_id",
+              "topic",
+              "sentences"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -394,13 +498,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "from",
-        "to",
-        "workspace_id",
-        "call_id",
-        "cursor"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_gong_fetchcalltranscripts": {
@@ -412,42 +509,71 @@
         "transcript": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "call_id": {
                 "type": "string"
               },
-              {
+              "transcript": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
+                  "type": "object",
+                  "properties": {
+                    "speaker_id": {
                       "type": "string"
                     },
-                    {
-                      "type": "null"
+                    "topic": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
-                    {
+                    "sentences": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "number",
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "number"
+                          },
+                          "end": {
+                            "type": "number"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "start",
+                          "end",
+                          "text"
+                        ],
+                        "additionalProperties": false
                       }
                     }
-                  ]
+                  },
+                  "required": [
+                    "speaker_id",
+                    "topic",
+                    "sentences"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "call_id",
+              "transcript"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "next_cursor",
         "transcript"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

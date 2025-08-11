@@ -14,8 +14,12 @@ if [ -n "$changed_files" ]; then
     if [ -f "integrations/$integration" ]; then
       continue
     fi
+    if [ "$integration" = ".nango" ] || [ "$integration" = "build" ] || [ "$integration" = "node_modules" ]; then
+      continue
+    fi
+
     npm run cli -- $integration compile
-    npm run cli -- $integration generate:docs
+    npm run cli -- $integration generate:docs --integration-templates
   done
 fi
 

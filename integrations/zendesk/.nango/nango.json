@@ -21,7 +21,7 @@
           "ActionInput_zendesk_fetcharticles",
           "ActionOutput_zendesk_fetcharticles"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -42,7 +42,7 @@
           "ActionInput_zendesk_fetcharticle",
           "ActionOutput_zendesk_fetcharticle"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -64,7 +64,7 @@
           "ActionInput_zendesk_createsection",
           "ActionOutput_zendesk_createsection"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -86,7 +86,7 @@
           "ActionInput_zendesk_createcategory",
           "ActionOutput_zendesk_createcategory"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -108,7 +108,7 @@
           "ActionInput_zendesk_createticket",
           "ActionOutput_zendesk_createticket"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -130,7 +130,7 @@
           "ActionInput_zendesk_deleteuser",
           "ActionOutput_zendesk_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -152,7 +152,7 @@
           "ActionInput_zendesk_createuser",
           "ActionOutput_zendesk_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -173,7 +173,7 @@
           "ActionInput_zendesk_searchtickets",
           "ActionOutput_zendesk_searchtickets"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -203,7 +203,7 @@
           "Ticket",
           "SyncMetadata_zendesk_tickets"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -231,7 +231,7 @@
           "Article",
           "SyncMetadata_zendesk_articles"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -260,7 +260,7 @@
           "Category",
           "SyncMetadata_zendesk_categories"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -289,7 +289,7 @@
           "Section",
           "SyncMetadata_zendesk_sections"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -317,7 +317,7 @@
           "User",
           "SyncMetadata_zendesk_users"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

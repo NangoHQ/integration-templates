@@ -21,7 +21,7 @@
           "ActionInput_zoho_mail_sendemail",
           "ActionOutput_zoho_mail_sendemail"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -42,7 +42,7 @@
           "ActionInput_zoho_mail_adduser",
           "ActionOutput_zoho_mail_adduser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -71,7 +71,7 @@
           "ZohoMailTask",
           "SyncMetadata_zoho_mail_tasks"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -99,7 +99,7 @@
           "ZohoMailEmail",
           "SyncMetadata_zoho_mail_emails"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

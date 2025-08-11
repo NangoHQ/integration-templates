@@ -28,7 +28,7 @@
           "ZohoCRMAccount",
           "SyncMetadata_zoho_crm_accounts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -56,7 +56,7 @@
           "ZohoCRMContact",
           "SyncMetadata_zoho_crm_contacts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -84,7 +84,7 @@
           "ZohoCRMDeal",
           "SyncMetadata_zoho_crm_deals"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

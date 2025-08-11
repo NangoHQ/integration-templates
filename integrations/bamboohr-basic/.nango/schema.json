@@ -265,11 +265,6 @@
                 }
               },
               "required": [
-                "street",
-                "city",
-                "state",
-                "country",
-                "postalCode",
                 "type"
               ],
               "additionalProperties": false
@@ -277,27 +272,89 @@
           },
           "required": [
             "name",
-            "type",
-            "primaryAddress"
+            "type"
           ],
           "additionalProperties": false
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
           }
         },
         "emails": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
           }
         },
         "providerSpecific": {
@@ -317,14 +374,10 @@
         "lastName",
         "email",
         "displayName",
-        "employeeNumber",
-        "title",
         "department",
         "employmentType",
         "employmentStatus",
         "startDate",
-        "terminationDate",
-        "manager",
         "workLocation",
         "addresses",
         "phones",
@@ -425,33 +478,7 @@
       },
       "required": [
         "firstName",
-        "lastName",
-        "employeeNumber",
-        "dateOfBirth",
-        "address1",
-        "bestEmail",
-        "workEmail",
-        "jobTitle",
-        "hireDate",
-        "supervisorId",
-        "supervisor",
-        "createdByUserId",
-        "department",
-        "division",
-        "employmentHistoryStatus",
-        "gender",
-        "country",
-        "city",
-        "location",
-        "state",
-        "maritalStatus",
-        "exempt",
-        "payRate",
-        "payType",
-        "payPer",
-        "ssn",
-        "workPhone",
-        "homePhone"
+        "lastName"
       ],
       "additionalProperties": false
     },
@@ -563,35 +590,7 @@
         }
       },
       "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "employeeNumber",
-        "dateOfBirth",
-        "address1",
-        "bestEmail",
-        "workEmail",
-        "jobTitle",
-        "hireDate",
-        "supervisorId",
-        "supervisor",
-        "createdByUserId",
-        "department",
-        "division",
-        "employmentHistoryStatus",
-        "gender",
-        "country",
-        "city",
-        "location",
-        "state",
-        "maritalStatus",
-        "exempt",
-        "payRate",
-        "payType",
-        "payPer",
-        "ssn",
-        "workPhone",
-        "homePhone"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -608,43 +607,59 @@
       "additionalProperties": false
     },
     "ActionInput_bamboohr_basic_fetchfields": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_bamboohr_basic_fetchfields": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "alias": {
-          "type": "string"
-        },
-        "options": {
-          "type": "array",
-          "items": {
-            "type": [
-              "number",
-              "string"
-            ]
-          }
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "alias": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "type",
-        "name",
-        "alias",
-        "options"
+        "0"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

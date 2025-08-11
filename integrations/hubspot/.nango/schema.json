@@ -321,36 +321,77 @@
             "companies": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
               }
             },
             "contacts": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "first_name",
+                  "last_name"
+                ],
+                "additionalProperties": false
               }
             },
             "deals": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
               }
             }
           },
-          "required": [
-            "companies",
-            "contacts",
-            "deals"
-          ],
           "additionalProperties": false
         }
       },
@@ -362,8 +403,7 @@
         "deal_description",
         "owner",
         "deal_stage",
-        "deal_probability",
-        "returned_associations"
+        "deal_probability"
       ],
       "additionalProperties": false
     },
@@ -539,7 +579,6 @@
         "firstName",
         "lastName",
         "roleIds",
-        "primaryTeamId",
         "superAdmin"
       ],
       "additionalProperties": false
@@ -632,36 +671,77 @@
             "companies": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
               }
             },
             "contacts": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "first_name",
+                  "last_name"
+                ],
+                "additionalProperties": false
               }
             },
             "deals": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
               }
             }
           },
-          "required": [
-            "companies",
-            "contacts",
-            "deals"
-          ],
           "additionalProperties": false
         }
       },
@@ -672,8 +752,7 @@
         "priority",
         "assigned_to",
         "due_date",
-        "notes",
-        "returned_associations"
+        "notes"
       ],
       "additionalProperties": false
     },
@@ -702,8 +781,7 @@
       "additionalProperties": false
     },
     "ActionInput_hubspot_whoami": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_hubspot_whoami": {
       "type": "object",
@@ -739,21 +817,58 @@
         "results": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "createdAt": {
                 "type": "string"
               },
-              {
+              "updatedAt": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "fieldType": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "groupName": {
+                "type": "string"
+              },
+              "options": {
                 "type": "array",
                 "items": {}
               },
-              {
+              "displayOrder": {
                 "type": "number"
               },
-              {
+              "calculated": {
                 "type": "boolean"
               },
-              {
+              "externalOptions": {
+                "type": "boolean"
+              },
+              "hasUniqueValue": {
+                "type": "boolean"
+              },
+              "hidden": {
+                "type": "boolean"
+              },
+              "hubspotDefined": {
+                "type": "boolean"
+              },
+              "showCurrencySymbol": {
+                "type": "boolean"
+              },
+              "modificationMetadata": {
                 "type": "object",
                 "properties": {
                   "archivable": {
@@ -769,15 +884,32 @@
                     "type": "boolean"
                   }
                 },
-                "required": [
-                  "archivable",
-                  "readOnlyDefinition",
-                  "readOnlyValue",
-                  "readOnlyOptions"
-                ],
                 "additionalProperties": false
+              },
+              "formField": {
+                "type": "boolean"
+              },
+              "dataSensitivity": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "name",
+              "label",
+              "type",
+              "fieldType",
+              "description",
+              "groupName",
+              "options",
+              "displayOrder",
+              "calculated",
+              "externalOptions",
+              "hasUniqueValue",
+              "hidden",
+              "formField",
+              "dataSensitivity"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -825,11 +957,30 @@
             "options": {
               "type": "array",
               "items": {
-                "type": [
-                  "boolean",
-                  "number",
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "hidden": {
+                    "type": "boolean"
+                  },
+                  "displayOrder": {
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hidden",
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
               }
             },
             "calculationFormula": {
@@ -846,20 +997,12 @@
             }
           },
           "required": [
-            "hidden",
-            "displayOrder",
-            "description",
             "label",
             "type",
-            "formField",
             "groupName",
-            "referencedObjectType",
             "name",
             "options",
-            "calculationFormula",
-            "hasUniqueValue",
-            "fieldType",
-            "externalOptions"
+            "fieldType"
           ],
           "additionalProperties": false
         }
@@ -896,7 +1039,6 @@
             }
           },
           "required": [
-            "readOnlyOptions",
             "readOnlyValue",
             "readOnlyDefinition",
             "archivable"
@@ -948,11 +1090,32 @@
         "options": {
           "type": "array",
           "items": {
-            "type": [
-              "boolean",
-              "number",
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "hidden": {
+                "type": "boolean"
+              },
+              "displayOrder": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hidden",
+              "displayOrder",
+              "description",
+              "label",
+              "value"
+            ],
+            "additionalProperties": false
           }
         },
         "calculationFormula": {
@@ -983,20 +1146,14 @@
         "modificationMetadata",
         "displayOrder",
         "description",
-        "showCurrencySymbol",
         "label",
         "type",
-        "hubspotDefined",
         "formField",
-        "dataSensitivity",
         "createdAt",
-        "archivedAt",
         "archived",
         "groupName",
-        "referencedObjectType",
         "name",
         "options",
-        "calculationFormula",
         "hasUniqueValue",
         "fieldType",
         "updatedUserId",
@@ -1033,33 +1190,39 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
-      "required": [
-        "name",
-        "amount",
-        "close_date",
-        "deal_description",
-        "owner",
-        "deal_stage",
-        "deal_probability",
-        "associations"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_hubspot_createdeal": {
@@ -1091,14 +1254,7 @@
         }
       },
       "required": [
-        "id",
-        "name",
-        "amount",
-        "close_date",
-        "deal_description",
-        "owner",
-        "deal_stage",
-        "deal_probability"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1132,33 +1288,41 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "name",
-        "amount",
-        "close_date",
-        "deal_description",
-        "owner",
-        "deal_stage",
-        "deal_probability",
-        "associations"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1191,14 +1355,7 @@
         }
       },
       "required": [
-        "id",
-        "name",
-        "amount",
-        "close_date",
-        "deal_description",
-        "owner",
-        "deal_stage",
-        "deal_probability"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1233,9 +1390,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "objectType"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_hubspot_fetchpipelines": {
@@ -1244,27 +1398,44 @@
         "pipelines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "updatedAt": {
                 "type": "string"
               },
-              {
+              "createdAt": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "displayOrder": {
                 "type": "number"
               },
-              {
+              "id": {
+                "type": "string"
+              },
+              "archived": {
                 "type": "boolean"
               },
-              {
+              "stages": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
+                  "type": "object",
+                  "properties": {
+                    "updatedAt": {
                       "type": "string"
                     },
-                    {
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "displayOrder": {
                       "type": "number"
                     },
-                    {
+                    "metadata": {
                       "type": "object",
                       "properties": {
                         "isClosed": {
@@ -1280,13 +1451,40 @@
                       ],
                       "additionalProperties": false
                     },
-                    {
+                    "id": {
+                      "type": "string"
+                    },
+                    "archived": {
                       "type": "boolean"
+                    },
+                    "writePermissions": {
+                      "type": "string"
                     }
-                  ]
+                  },
+                  "required": [
+                    "updatedAt",
+                    "createdAt",
+                    "label",
+                    "displayOrder",
+                    "metadata",
+                    "id",
+                    "archived",
+                    "writePermissions"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "updatedAt",
+              "createdAt",
+              "label",
+              "displayOrder",
+              "id",
+              "archived",
+              "stages"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1324,12 +1522,7 @@
         }
       },
       "required": [
-        "firstName",
-        "lastName",
-        "primaryTeamId",
         "email",
-        "sendWelcomeEmail",
-        "roleId",
         "secondaryTeamIds"
       ],
       "additionalProperties": false
@@ -1375,7 +1568,6 @@
         "id",
         "firstName",
         "lastName",
-        "primaryTeamId",
         "email",
         "sendWelcomeEmail",
         "roleIds",
@@ -1409,8 +1601,7 @@
       "additionalProperties": false
     },
     "ActionInput_hubspot_fetchroles": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_hubspot_fetchroles": {
       "type": "object",
@@ -1418,10 +1609,24 @@
         "results": {
           "type": "array",
           "items": {
-            "type": [
-              "boolean",
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "requiresBillingWrite": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "requiresBillingWrite",
+              "name",
+              "id"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1447,10 +1652,7 @@
         }
       },
       "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "primaryTeamId"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1493,11 +1695,7 @@
       },
       "required": [
         "id",
-        "firstName",
-        "lastName",
-        "primaryTeamId",
         "email",
-        "sendWelcomeEmail",
         "roleIds",
         "secondaryTeamIds",
         "superAdmin"
@@ -1505,8 +1703,7 @@
       "additionalProperties": false
     },
     "ActionInput_hubspot_fetchaccountinformation": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_hubspot_fetchaccountinformation": {
       "type": "object",
@@ -1556,8 +1753,7 @@
       "additionalProperties": false
     },
     "ActionInput_hubspot_fetchcustomobjects": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_hubspot_fetchcustomobjects": {
       "type": "object",
@@ -1605,18 +1801,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "first_name",
-        "last_name",
-        "email",
-        "job_title",
-        "lead_status",
-        "lifecycle_stage",
-        "salutation",
-        "mobile_phone_number",
-        "website_url",
-        "owner"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_hubspot_createcontact": {
@@ -1667,19 +1851,7 @@
       },
       "required": [
         "id",
-        "created_date",
-        "first_name",
-        "last_name",
-        "email",
-        "job_title",
-        "last_contacted",
-        "last_activity_date",
-        "lead_status",
-        "lifecycle_stage",
-        "salutation",
-        "mobile_phone_number",
-        "website_url",
-        "owner"
+        "created_date"
       ],
       "additionalProperties": false
     },
@@ -1721,16 +1893,6 @@
         }
       },
       "required": [
-        "first_name",
-        "last_name",
-        "email",
-        "job_title",
-        "lead_status",
-        "lifecycle_stage",
-        "salutation",
-        "mobile_phone_number",
-        "website_url",
-        "owner",
         "id"
       ],
       "additionalProperties": false
@@ -1783,19 +1945,7 @@
       },
       "required": [
         "id",
-        "created_date",
-        "first_name",
-        "last_name",
-        "email",
-        "job_title",
-        "last_contacted",
-        "last_activity_date",
-        "lead_status",
-        "lifecycle_stage",
-        "salutation",
-        "mobile_phone_number",
-        "website_url",
-        "owner"
+        "created_date"
       ],
       "additionalProperties": false
     },
@@ -1857,18 +2007,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "industry",
-        "description",
-        "country",
-        "city",
-        "lead_status",
-        "lifecycle_stage",
-        "owner",
-        "year_founded",
-        "website_url"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_hubspot_createcompany": {
@@ -1913,17 +2051,7 @@
       },
       "required": [
         "id",
-        "created_date",
-        "name",
-        "industry",
-        "description",
-        "country",
-        "city",
-        "lead_status",
-        "lifecycle_stage",
-        "owner",
-        "year_founded",
-        "website_url"
+        "created_date"
       ],
       "additionalProperties": false
     },
@@ -1965,17 +2093,7 @@
         }
       },
       "required": [
-        "id",
-        "name",
-        "industry",
-        "description",
-        "country",
-        "city",
-        "lead_status",
-        "lifecycle_stage",
-        "owner",
-        "year_founded",
-        "website_url"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -2021,17 +2139,7 @@
       },
       "required": [
         "id",
-        "created_date",
-        "name",
-        "industry",
-        "description",
-        "country",
-        "city",
-        "lead_status",
-        "lifecycle_stage",
-        "owner",
-        "year_founded",
-        "website_url"
+        "created_date"
       ],
       "additionalProperties": false
     },
@@ -2083,32 +2191,39 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
-      "required": [
-        "task_type",
-        "title",
-        "priority",
-        "assigned_to",
-        "due_date",
-        "notes",
-        "associations"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_hubspot_createtask": {
@@ -2138,32 +2253,41 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "task_type",
-        "title",
-        "priority",
-        "assigned_to",
-        "due_date",
-        "notes",
-        "associations"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -2194,32 +2318,41 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "task_type",
-        "title",
-        "priority",
-        "assigned_to",
-        "due_date",
-        "notes",
-        "associations"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -2250,32 +2383,41 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "task_type",
-        "title",
-        "priority",
-        "assigned_to",
-        "due_date",
-        "notes",
-        "associations"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -2327,31 +2469,41 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "time_stamp",
-        "created_date",
-        "body",
-        "attachment_ids",
-        "owner",
-        "associations"
+        "time_stamp"
       ],
       "additionalProperties": false
     },
@@ -2379,34 +2531,44 @@
         "associations": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "to": {
                 "type": "number"
               },
-              {
+              "types": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "association_category": {
+                      "type": "string"
+                    },
+                    "association_type_Id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "association_category",
+                    "association_type_Id"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "to",
+              "types"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "time_stamp",
-        "created_date",
-        "body",
-        "attachment_ids",
-        "owner",
-        "associations"
+        "time_stamp"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -120,19 +120,6 @@
               "additionalProperties": false
             }
           },
-          "required": [
-            "title",
-            "department",
-            "employmentType",
-            "status",
-            "startDate",
-            "terminationDate",
-            "reportsTo",
-            "site",
-            "siteType",
-            "address",
-            "customFields"
-          ],
           "additionalProperties": false
         },
         "personal": {
@@ -141,9 +128,36 @@
             "addresses": {
               "type": "array",
               "items": {
-                "type": [
-                  "string"
-                ]
+                "type": "object",
+                "properties": {
+                  "street": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "postalCode": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "street",
+                  "city",
+                  "state",
+                  "country",
+                  "postalCode",
+                  "type"
+                ],
+                "additionalProperties": false
               }
             },
             "workPhone": {
@@ -159,13 +173,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "addresses",
-            "workPhone",
-            "homePhone",
-            "mobilePhone",
-            "email"
-          ],
           "additionalProperties": false
         },
         "about": {
@@ -178,10 +185,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "createdAt",
-            "updatedAt"
-          ],
           "additionalProperties": false
         }
       },
@@ -190,10 +193,7 @@
         "firstName",
         "surname",
         "email",
-        "displayName",
-        "work",
-        "personal",
-        "about"
+        "displayName"
       ],
       "additionalProperties": false
     },
@@ -333,11 +333,6 @@
                 }
               },
               "required": [
-                "street",
-                "city",
-                "state",
-                "country",
-                "postalCode",
                 "type"
               ],
               "additionalProperties": false
@@ -345,27 +340,89 @@
           },
           "required": [
             "name",
-            "type",
-            "primaryAddress"
+            "type"
           ],
           "additionalProperties": false
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
           }
         },
         "emails": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
           }
         },
         "providerSpecific": {
@@ -385,14 +442,10 @@
         "lastName",
         "email",
         "displayName",
-        "employeeNumber",
-        "title",
         "department",
         "employmentType",
         "employmentStatus",
         "startDate",
-        "terminationDate",
-        "manager",
         "workLocation",
         "addresses",
         "phones",
@@ -404,5 +457,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

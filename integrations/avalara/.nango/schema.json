@@ -12,8 +12,7 @@
         }
       },
       "required": [
-        "company",
-        "backfillPeriodMs"
+        "company"
       ],
       "additionalProperties": false
     },
@@ -167,27 +166,348 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "transactionId": {
+                "type": "number"
+              },
+              "lineNumber": {
                 "type": "string"
               },
-              {
+              "boundaryOverrideId": {
+                "type": "number"
+              },
+              "entityUseCode": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "destinationAddressId": {
+                "type": "number"
+              },
+              "originAddressId": {
+                "type": "number"
+              },
+              "discountAmount": {
+                "type": "number"
+              },
+              "discountTypeId": {
+                "type": "number"
+              },
+              "exemptAmount": {
+                "type": "number"
+              },
+              "exemptCertId": {
+                "type": "number"
+              },
+              "exemptNo": {
+                "type": "string"
+              },
+              "isItemTaxable": {
                 "type": "boolean"
               },
-              {
+              "isSSTP": {
+                "type": "boolean"
+              },
+              "itemCode": {
+                "type": "string"
+              },
+              "lineAmount": {
+                "type": "number"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "ref1": {
+                "type": "string"
+              },
+              "reportingDate": {
+                "type": "string"
+              },
+              "revAccount": {
+                "type": "string"
+              },
+              "sourcing": {
+                "type": "string"
+              },
+              "tax": {
+                "type": "number"
+              },
+              "taxableAmount": {
+                "type": "number"
+              },
+              "taxCalculated": {
+                "type": "number"
+              },
+              "taxCode": {
+                "type": "string"
+              },
+              "taxDate": {
+                "type": "string"
+              },
+              "taxEngine": {
+                "type": "string"
+              },
+              "taxOverrideType": {
+                "type": "string"
+              },
+              "taxOverrideAmount": {
+                "type": "number"
+              },
+              "taxOverrideReason": {
+                "type": "string"
+              },
+              "taxIncluded": {
+                "type": "boolean"
+              },
+              "details": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "number",
-                    "string",
-                    "boolean"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "transactionLineId": {
+                      "type": "number"
+                    },
+                    "transactionId": {
+                      "type": "number"
+                    },
+                    "addressId": {
+                      "type": "number"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "region": {
+                      "type": "string"
+                    },
+                    "stateFIPS": {
+                      "type": "string"
+                    },
+                    "exemptAmount": {
+                      "type": "number"
+                    },
+                    "exemptReasonId": {
+                      "type": "number"
+                    },
+                    "exemptRuleId": {
+                      "type": "number"
+                    },
+                    "inState": {
+                      "type": "boolean"
+                    },
+                    "jurisCode": {
+                      "type": "string"
+                    },
+                    "jurisName": {
+                      "type": "string"
+                    },
+                    "jurisdictionId": {
+                      "type": "number"
+                    },
+                    "signatureCode": {
+                      "type": "string"
+                    },
+                    "stateAssignedNo": {
+                      "type": "string"
+                    },
+                    "jurisType": {
+                      "type": "string"
+                    },
+                    "nonTaxableAmount": {
+                      "type": "number"
+                    },
+                    "nonTaxableRuleId": {
+                      "type": "number"
+                    },
+                    "nonTaxableType": {
+                      "type": "string"
+                    },
+                    "rate": {
+                      "type": "number"
+                    },
+                    "rateRuleId": {
+                      "type": "number"
+                    },
+                    "rateSourceId": {
+                      "type": "number"
+                    },
+                    "serCode": {
+                      "type": "string"
+                    },
+                    "sourcing": {
+                      "type": "string"
+                    },
+                    "tax": {
+                      "type": "number"
+                    },
+                    "taxableAmount": {
+                      "type": "number"
+                    },
+                    "taxType": {
+                      "type": "string"
+                    },
+                    "taxName": {
+                      "type": "string"
+                    },
+                    "taxAuthorityTypeId": {
+                      "type": "number"
+                    },
+                    "taxRegionId": {
+                      "type": "number"
+                    },
+                    "taxCalculated": {
+                      "type": "number"
+                    },
+                    "taxOverride": {
+                      "type": "number"
+                    },
+                    "rateType": {
+                      "type": "string"
+                    },
+                    "taxableUnits": {
+                      "type": "number"
+                    },
+                    "nonTaxableUnits": {
+                      "type": "number"
+                    },
+                    "exemptUnits": {
+                      "type": "number"
+                    },
+                    "reportingTaxableUnits": {
+                      "type": "number"
+                    },
+                    "reportingNonTaxableUnits": {
+                      "type": "number"
+                    },
+                    "reportingExemptUnits": {
+                      "type": "number"
+                    },
+                    "reportingTax": {
+                      "type": "number"
+                    },
+                    "reportingTaxCalculated": {
+                      "type": "number"
+                    },
+                    "recoverabilityPercentage": {
+                      "type": "number"
+                    },
+                    "recoverableAmount": {
+                      "type": "number"
+                    },
+                    "nonRecoverableAmount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "transactionLineId",
+                    "transactionId",
+                    "addressId",
+                    "country",
+                    "region",
+                    "stateFIPS",
+                    "exemptAmount",
+                    "exemptReasonId",
+                    "exemptRuleId",
+                    "inState",
+                    "jurisCode",
+                    "jurisName",
+                    "jurisdictionId",
+                    "signatureCode",
+                    "stateAssignedNo",
+                    "jurisType",
+                    "nonTaxableAmount",
+                    "nonTaxableRuleId",
+                    "nonTaxableType",
+                    "rate",
+                    "rateRuleId",
+                    "rateSourceId",
+                    "serCode",
+                    "sourcing",
+                    "tax",
+                    "taxableAmount",
+                    "taxType",
+                    "taxName",
+                    "taxAuthorityTypeId",
+                    "taxRegionId",
+                    "taxCalculated",
+                    "taxOverride",
+                    "rateType",
+                    "taxableUnits",
+                    "nonTaxableUnits",
+                    "exemptUnits",
+                    "reportingTaxableUnits",
+                    "reportingNonTaxableUnits",
+                    "reportingExemptUnits",
+                    "reportingTax",
+                    "reportingTaxCalculated",
+                    "recoverabilityPercentage",
+                    "recoverableAmount",
+                    "nonRecoverableAmount"
+                  ],
+                  "additionalProperties": false
                 }
+              },
+              "vatNumberTypeId": {
+                "type": "number"
+              },
+              "recoverabilityPercentage": {
+                "type": "number"
+              },
+              "recoverableAmount": {
+                "type": "number"
+              },
+              "nonRecoverableAmount": {
+                "type": "number"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "transactionId",
+              "lineNumber",
+              "boundaryOverrideId",
+              "entityUseCode",
+              "description",
+              "destinationAddressId",
+              "originAddressId",
+              "discountAmount",
+              "discountTypeId",
+              "exemptAmount",
+              "exemptCertId",
+              "exemptNo",
+              "isItemTaxable",
+              "isSSTP",
+              "itemCode",
+              "lineAmount",
+              "quantity",
+              "ref1",
+              "reportingDate",
+              "revAccount",
+              "sourcing",
+              "tax",
+              "taxableAmount",
+              "taxCalculated",
+              "taxCode",
+              "taxDate",
+              "taxEngine",
+              "taxOverrideType",
+              "taxOverrideAmount",
+              "taxOverrideReason",
+              "taxIncluded",
+              "details",
+              "vatNumberTypeId",
+              "recoverabilityPercentage",
+              "recoverableAmount",
+              "nonRecoverableAmount"
+            ],
+            "additionalProperties": false
           }
         },
         "locationTypes": {
@@ -209,19 +529,79 @@
         "addresses": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "transactionId": {
+                "type": "number"
+              },
+              "boundaryLevel": {
+                "type": "string"
+              },
+              "line1": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "taxRegionId": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "transactionId",
+              "boundaryLevel",
+              "line1",
+              "city",
+              "region",
+              "postalCode",
+              "country",
+              "taxRegionId"
+            ],
+            "additionalProperties": false
           }
         },
         "taxDetailsByTaxType": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "taxType": {
+                "type": "string"
+              },
+              "totalTaxable": {
+                "type": "number"
+              },
+              "totalExempt": {
+                "type": "number"
+              },
+              "totalNonTaxable": {
+                "type": "number"
+              },
+              "totalTax": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "taxType",
+              "totalTaxable",
+              "totalExempt",
+              "totalNonTaxable",
+              "totalTax"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -322,35 +702,112 @@
             "invoiceLineItems": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "id": {
                     "type": "string"
                   },
-                  {
-                    "type": "null"
+                  "billingItemId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
-                  {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "unitsCount": {
                     "type": "number"
                   },
-                  {
+                  "unitAmount": {
+                    "type": "string"
+                  },
+                  "taxAmount": {
+                    "type": "number"
+                  },
+                  "taxRate": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "amountExcludingTax": {
+                    "type": "number"
+                  },
+                  "periodStart": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "periodEnd": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "invoiceLineItemTiers": {
                     "type": "array",
                     "items": {
-                      "type": [
-                        "string",
-                        "number"
-                      ]
+                      "type": "object",
+                      "properties": {
+                        "unitCount": {
+                          "type": "string"
+                        },
+                        "unitAmount": {
+                          "type": "string"
+                        },
+                        "totalAmount": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "unitCount",
+                        "unitAmount",
+                        "totalAmount"
+                      ],
+                      "additionalProperties": false
                     }
                   }
-                ]
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "unitsCount",
+                  "unitAmount",
+                  "taxAmount",
+                  "taxRate",
+                  "amountExcludingTax",
+                  "periodStart",
+                  "periodEnd",
+                  "invoiceLineItemTiers"
+                ],
+                "additionalProperties": false
               }
             },
             "coupons": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "discountAmount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name",
+                  "discountAmount"
+                ],
+                "additionalProperties": false
               }
             },
             "type": {
@@ -407,13 +864,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "shipFrom": {
@@ -435,13 +885,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "shipTo": {
@@ -463,13 +906,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "pointOfOrderOrigin": {
@@ -491,13 +927,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "pointOfOrderAcceptance": {
@@ -519,13 +948,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "goodsPlaceOrServiceRendered": {
@@ -547,13 +969,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "import": {
@@ -575,13 +990,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             },
             "billTo": {
@@ -603,13 +1011,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "line1",
-                "city",
-                "region",
-                "country",
-                "postalCode"
-              ],
               "additionalProperties": false
             }
           },
@@ -629,7 +1030,6 @@
       "required": [
         "invoice",
         "externalCustomerId",
-        "companyCode",
         "addresses"
       ],
       "additionalProperties": false
@@ -695,5 +1095,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

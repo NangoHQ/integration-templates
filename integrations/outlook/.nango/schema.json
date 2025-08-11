@@ -37,10 +37,28 @@
         "attachments": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "attachmentId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename",
+              "mimeType",
+              "size",
+              "attachmentId"
+            ],
+            "additionalProperties": false
           }
         },
         "threadId": {
@@ -49,8 +67,6 @@
       },
       "required": [
         "id",
-        "sender",
-        "recipients",
         "date",
         "subject",
         "body",
@@ -80,8 +96,9 @@
         "attendees": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
                 "type": "object",
                 "properties": {
                   "address": {
@@ -97,7 +114,7 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "proposedNewTime": {
                 "type": "object",
                 "properties": {
                   "start": {
@@ -139,7 +156,7 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "status": {
                 "type": "object",
                 "properties": {
                   "response": {
@@ -163,19 +180,21 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "type": {
                 "type": "string",
-                "const": "required"
-              },
-              {
-                "type": "string",
-                "const": "optional"
-              },
-              {
-                "type": "string",
-                "const": "resource"
+                "enum": [
+                  "required",
+                  "optional",
+                  "resource"
+                ]
               }
-            ]
+            },
+            "required": [
+              "emailAddress",
+              "status",
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "bodyPreview": {
@@ -236,13 +255,6 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "city",
-                "countryOrRegion",
-                "postalCode",
-                "state",
-                "street"
-              ],
               "additionalProperties": false
             },
             "coordinates": {
@@ -264,13 +276,6 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "accuracy",
-                "altitude",
-                "altitudeAccuracy",
-                "latitude",
-                "longitude"
-              ],
               "additionalProperties": false
             },
             "displayName": {
@@ -304,16 +309,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "address",
-            "coordinates",
-            "displayName",
-            "locationEmailAddress",
-            "locationUri",
-            "locationType",
-            "uniqueId",
-            "uniqueIdType"
-          ],
           "additionalProperties": false
         },
         "onlineMeeting": {
@@ -330,7 +325,32 @@
                 "phones": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                      "number": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "home",
+                          "business",
+                          "mobile",
+                          "other",
+                          "assistant",
+                          "homeFax",
+                          "businessFax",
+                          "otherFax",
+                          "pager",
+                          "radio"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "number",
+                      "type"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "quickDial": {
@@ -347,12 +367,8 @@
                 }
               },
               "required": [
-                "conferenceId",
-                "joinUrl",
                 "phones",
-                "quickDial",
-                "tollFreeNumbers",
-                "tollNumber"
+                "tollFreeNumbers"
               ],
               "additionalProperties": false
             },
@@ -438,12 +454,7 @@
                     }
                   },
                   "required": [
-                    "dayOfMonth",
-                    "daysOfWeek",
-                    "firstDayOfWeek",
-                    "index",
                     "interval",
-                    "month",
                     "type"
                   ],
                   "additionalProperties": false
@@ -473,9 +484,6 @@
                     }
                   },
                   "required": [
-                    "endDate",
-                    "numberOfOccurrences",
-                    "recurrenceTimeZone",
                     "startDate",
                     "type"
                   ],
@@ -483,7 +491,6 @@
                 }
               },
               "required": [
-                "pattern",
                 "range"
               ],
               "additionalProperties": false
@@ -721,9 +728,8 @@
       "additionalProperties": false
     },
     "ActionOutput_outlook_fetchattachment": {
-      "type": "string",
-      "deprecated": "It is recommended to use a Model"
+      "type": "string"
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -8,9 +8,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "candidatelastsyncToken"
-      ],
       "additionalProperties": false
     },
     "AshbyCandidate": {
@@ -249,9 +246,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "jobslastsyncToken"
-      ],
       "additionalProperties": false
     },
     "AshbyJob": {
@@ -821,7 +815,11 @@
                   "type": "string"
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "candidate": {
                   "type": "object",
@@ -856,9 +854,7 @@
                   },
                   "required": [
                     "id",
-                    "name",
-                    "primaryEmailAddress",
-                    "primaryPhoneNumber"
+                    "name"
                   ],
                   "additionalProperties": false
                 },
@@ -889,7 +885,6 @@
                     "title",
                     "type",
                     "orderInInterviewPlan",
-                    "interviewStageGroupId",
                     "interviewPlanId"
                   ],
                   "additionalProperties": false
@@ -1017,7 +1012,6 @@
                     "id",
                     "firstName",
                     "lastName",
-                    "email",
                     "globalRole",
                     "isEnabled",
                     "updatedAt"
@@ -1027,9 +1021,32 @@
                 "hiringTeam": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "firstName",
+                      "lastName",
+                      "role",
+                      "userId"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "appliedViaJobPostingId": {
@@ -1044,13 +1061,8 @@
                 "customFields",
                 "candidate",
                 "currentInterviewStage",
-                "source",
-                "archiveReason",
-                "archivedAt",
                 "job",
-                "creditedToUser",
-                "hiringTeam",
-                "appliedViaJobPostingId"
+                "hiringTeam"
               ],
               "additionalProperties": false
             },
@@ -1094,45 +1106,112 @@
                 "emailAddresses": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "primaryPhoneNumber": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "phoneNumbers": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "socialLinks": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "url"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "tags": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "isArchived": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "isArchived"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "position": {
@@ -1176,13 +1255,32 @@
                 "fileHandles": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "handle": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "handle"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "profileUrl": {
                   "type": "string"
@@ -1223,8 +1321,7 @@
                   "required": [
                     "id",
                     "title",
-                    "isArchived",
-                    "sourceType"
+                    "isArchived"
                   ],
                   "additionalProperties": false
                 },
@@ -1280,9 +1377,20 @@
                     "locationComponents": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -1296,26 +1404,16 @@
               },
               "required": [
                 "id",
-                "createdAt",
-                "updatedAt",
                 "name",
-                "primaryEmailAddress",
                 "emailAddresses",
                 "primaryPhoneNumber",
                 "phoneNumbers",
                 "socialLinks",
                 "tags",
-                "position",
-                "company",
                 "applicationIds",
-                "resumeFileHandle",
                 "fileHandles",
                 "customFields",
-                "profileUrl",
-                "source",
-                "creditedToUser",
-                "timezone",
-                "primaryLocation"
+                "profileUrl"
               ],
               "additionalProperties": false
             },
@@ -1346,7 +1444,6 @@
                 "title",
                 "type",
                 "orderInInterviewPlan",
-                "interviewStageGroupId",
                 "interviewPlanId"
               ],
               "additionalProperties": false
@@ -1359,9 +1456,7 @@
       },
       "required": [
         "success",
-        "errors",
-        "results",
-        "moreDataAvailable"
+        "errors"
       ],
       "additionalProperties": false
     },
@@ -1380,8 +1475,7 @@
       },
       "required": [
         "applicationId",
-        "interviewStageId",
-        "archiveReasonId"
+        "interviewStageId"
       ],
       "additionalProperties": false
     },
@@ -1417,7 +1511,11 @@
                   "type": "string"
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "candidate": {
                   "type": "object",
@@ -1452,9 +1550,7 @@
                   },
                   "required": [
                     "id",
-                    "name",
-                    "primaryEmailAddress",
-                    "primaryPhoneNumber"
+                    "name"
                   ],
                   "additionalProperties": false
                 },
@@ -1485,7 +1581,6 @@
                     "title",
                     "type",
                     "orderInInterviewPlan",
-                    "interviewStageGroupId",
                     "interviewPlanId"
                   ],
                   "additionalProperties": false
@@ -1613,7 +1708,6 @@
                     "id",
                     "firstName",
                     "lastName",
-                    "email",
                     "globalRole",
                     "isEnabled",
                     "updatedAt"
@@ -1623,9 +1717,32 @@
                 "hiringTeam": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "firstName",
+                      "lastName",
+                      "role",
+                      "userId"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "appliedViaJobPostingId": {
@@ -1640,13 +1757,8 @@
                 "customFields",
                 "candidate",
                 "currentInterviewStage",
-                "source",
-                "archiveReason",
-                "archivedAt",
                 "job",
-                "creditedToUser",
-                "hiringTeam",
-                "appliedViaJobPostingId"
+                "hiringTeam"
               ],
               "additionalProperties": false
             },
@@ -1690,45 +1802,112 @@
                 "emailAddresses": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "primaryPhoneNumber": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "phoneNumbers": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "socialLinks": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "url"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "tags": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "isArchived": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "isArchived"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "position": {
@@ -1772,13 +1951,32 @@
                 "fileHandles": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "handle": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "handle"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "profileUrl": {
                   "type": "string"
@@ -1819,8 +2017,7 @@
                   "required": [
                     "id",
                     "title",
-                    "isArchived",
-                    "sourceType"
+                    "isArchived"
                   ],
                   "additionalProperties": false
                 },
@@ -1876,9 +2073,20 @@
                     "locationComponents": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -1892,26 +2100,16 @@
               },
               "required": [
                 "id",
-                "createdAt",
-                "updatedAt",
                 "name",
-                "primaryEmailAddress",
                 "emailAddresses",
                 "primaryPhoneNumber",
                 "phoneNumbers",
                 "socialLinks",
                 "tags",
-                "position",
-                "company",
                 "applicationIds",
-                "resumeFileHandle",
                 "fileHandles",
                 "customFields",
-                "profileUrl",
-                "source",
-                "creditedToUser",
-                "timezone",
-                "primaryLocation"
+                "profileUrl"
               ],
               "additionalProperties": false
             },
@@ -1942,7 +2140,6 @@
                 "title",
                 "type",
                 "orderInInterviewPlan",
-                "interviewStageGroupId",
                 "interviewPlanId"
               ],
               "additionalProperties": false
@@ -1955,9 +2152,7 @@
       },
       "required": [
         "success",
-        "errors",
-        "results",
-        "moreDataAvailable"
+        "errors"
       ],
       "additionalProperties": false
     },
@@ -1995,8 +2190,7 @@
           },
           "required": [
             "applicationId",
-            "interviewStageId",
-            "archiveReasonId"
+            "interviewStageId"
           ],
           "additionalProperties": false
         },
@@ -2009,18 +2203,31 @@
             "applicationHistory": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "stageId": {
                     "type": "string"
                   },
-                  {
+                  "stageNumber": {
                     "type": "number"
                   },
-                  {
+                  "enteredStageAt": {
                     "type": "string",
                     "format": "date-time"
+                  },
+                  "applicationHistoryId": {
+                    "type": "string"
+                  },
+                  "archiveReasonId": {
+                    "type": "string"
                   }
-                ]
+                },
+                "required": [
+                  "stageId",
+                  "stageNumber",
+                  "enteredStageAt"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -2070,7 +2277,11 @@
                   "type": "string"
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "candidate": {
                   "type": "object",
@@ -2105,9 +2316,7 @@
                   },
                   "required": [
                     "id",
-                    "name",
-                    "primaryEmailAddress",
-                    "primaryPhoneNumber"
+                    "name"
                   ],
                   "additionalProperties": false
                 },
@@ -2138,7 +2347,6 @@
                     "title",
                     "type",
                     "orderInInterviewPlan",
-                    "interviewStageGroupId",
                     "interviewPlanId"
                   ],
                   "additionalProperties": false
@@ -2266,7 +2474,6 @@
                     "id",
                     "firstName",
                     "lastName",
-                    "email",
                     "globalRole",
                     "isEnabled",
                     "updatedAt"
@@ -2276,9 +2483,32 @@
                 "hiringTeam": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "firstName",
+                      "lastName",
+                      "role",
+                      "userId"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "appliedViaJobPostingId": {
@@ -2293,13 +2523,8 @@
                 "customFields",
                 "candidate",
                 "currentInterviewStage",
-                "source",
-                "archiveReason",
-                "archivedAt",
                 "job",
-                "creditedToUser",
-                "hiringTeam",
-                "appliedViaJobPostingId"
+                "hiringTeam"
               ],
               "additionalProperties": false
             },
@@ -2343,45 +2568,112 @@
                 "emailAddresses": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "primaryPhoneNumber": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "phoneNumbers": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "socialLinks": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "url"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "tags": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "isArchived": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "isArchived"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "position": {
@@ -2425,13 +2717,32 @@
                 "fileHandles": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "handle": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "handle"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "profileUrl": {
                   "type": "string"
@@ -2472,8 +2783,7 @@
                   "required": [
                     "id",
                     "title",
-                    "isArchived",
-                    "sourceType"
+                    "isArchived"
                   ],
                   "additionalProperties": false
                 },
@@ -2529,9 +2839,20 @@
                     "locationComponents": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -2545,26 +2866,16 @@
               },
               "required": [
                 "id",
-                "createdAt",
-                "updatedAt",
                 "name",
-                "primaryEmailAddress",
                 "emailAddresses",
                 "primaryPhoneNumber",
                 "phoneNumbers",
                 "socialLinks",
                 "tags",
-                "position",
-                "company",
                 "applicationIds",
-                "resumeFileHandle",
                 "fileHandles",
                 "customFields",
-                "profileUrl",
-                "source",
-                "creditedToUser",
-                "timezone",
-                "primaryLocation"
+                "profileUrl"
               ],
               "additionalProperties": false
             },
@@ -2595,7 +2906,6 @@
                 "title",
                 "type",
                 "orderInInterviewPlan",
-                "interviewStageGroupId",
                 "interviewPlanId"
               ],
               "additionalProperties": false
@@ -2608,9 +2918,7 @@
       },
       "required": [
         "success",
-        "errors",
-        "results",
-        "moreDataAvailable"
+        "errors"
       ],
       "additionalProperties": false
     },
@@ -2623,18 +2931,31 @@
         "applicationHistory": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "stageId": {
                 "type": "string"
               },
-              {
+              "stageNumber": {
                 "type": "number"
               },
-              {
+              "enteredStageAt": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "applicationHistoryId": {
+                "type": "string"
+              },
+              "archiveReasonId": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "stageId",
+              "stageNumber",
+              "enteredStageAt"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -2676,7 +2997,11 @@
                   "type": "string"
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "candidate": {
                   "type": "object",
@@ -2711,9 +3036,7 @@
                   },
                   "required": [
                     "id",
-                    "name",
-                    "primaryEmailAddress",
-                    "primaryPhoneNumber"
+                    "name"
                   ],
                   "additionalProperties": false
                 },
@@ -2744,7 +3067,6 @@
                     "title",
                     "type",
                     "orderInInterviewPlan",
-                    "interviewStageGroupId",
                     "interviewPlanId"
                   ],
                   "additionalProperties": false
@@ -2872,7 +3194,6 @@
                     "id",
                     "firstName",
                     "lastName",
-                    "email",
                     "globalRole",
                     "isEnabled",
                     "updatedAt"
@@ -2882,9 +3203,32 @@
                 "hiringTeam": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "firstName",
+                      "lastName",
+                      "role",
+                      "userId"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "appliedViaJobPostingId": {
@@ -2899,13 +3243,8 @@
                 "customFields",
                 "candidate",
                 "currentInterviewStage",
-                "source",
-                "archiveReason",
-                "archivedAt",
                 "job",
-                "creditedToUser",
-                "hiringTeam",
-                "appliedViaJobPostingId"
+                "hiringTeam"
               ],
               "additionalProperties": false
             },
@@ -2949,45 +3288,112 @@
                 "emailAddresses": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "primaryPhoneNumber": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "phoneNumbers": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "socialLinks": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "url"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "tags": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "isArchived": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "isArchived"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "position": {
@@ -3031,13 +3437,32 @@
                 "fileHandles": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "handle": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "handle"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "profileUrl": {
                   "type": "string"
@@ -3078,8 +3503,7 @@
                   "required": [
                     "id",
                     "title",
-                    "isArchived",
-                    "sourceType"
+                    "isArchived"
                   ],
                   "additionalProperties": false
                 },
@@ -3135,9 +3559,20 @@
                     "locationComponents": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -3151,26 +3586,16 @@
               },
               "required": [
                 "id",
-                "createdAt",
-                "updatedAt",
                 "name",
-                "primaryEmailAddress",
                 "emailAddresses",
                 "primaryPhoneNumber",
                 "phoneNumbers",
                 "socialLinks",
                 "tags",
-                "position",
-                "company",
                 "applicationIds",
-                "resumeFileHandle",
                 "fileHandles",
                 "customFields",
-                "profileUrl",
-                "source",
-                "creditedToUser",
-                "timezone",
-                "primaryLocation"
+                "profileUrl"
               ],
               "additionalProperties": false
             },
@@ -3201,7 +3626,6 @@
                 "title",
                 "type",
                 "orderInInterviewPlan",
-                "interviewStageGroupId",
                 "interviewPlanId"
               ],
               "additionalProperties": false
@@ -3214,9 +3638,7 @@
       },
       "required": [
         "success",
-        "errors",
-        "results",
-        "moreDataAvailable"
+        "errors"
       ],
       "additionalProperties": false
     },
@@ -3266,11 +3688,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "city",
-            "region",
-            "country"
-          ],
           "additionalProperties": false
         },
         "createdAt": {
@@ -3280,16 +3697,7 @@
       },
       "required": [
         "name",
-        "email",
-        "phoneNumber",
-        "linkedInUrl",
-        "githubUrl",
-        "website",
-        "alternateEmailAddresses",
-        "sourceId",
-        "creditedToUserId",
-        "location",
-        "createdAt"
+        "alternateEmailAddresses"
       ],
       "additionalProperties": false
     },
@@ -3325,7 +3733,11 @@
                   "type": "string"
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "candidate": {
                   "type": "object",
@@ -3360,9 +3772,7 @@
                   },
                   "required": [
                     "id",
-                    "name",
-                    "primaryEmailAddress",
-                    "primaryPhoneNumber"
+                    "name"
                   ],
                   "additionalProperties": false
                 },
@@ -3393,7 +3803,6 @@
                     "title",
                     "type",
                     "orderInInterviewPlan",
-                    "interviewStageGroupId",
                     "interviewPlanId"
                   ],
                   "additionalProperties": false
@@ -3521,7 +3930,6 @@
                     "id",
                     "firstName",
                     "lastName",
-                    "email",
                     "globalRole",
                     "isEnabled",
                     "updatedAt"
@@ -3531,9 +3939,32 @@
                 "hiringTeam": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "firstName",
+                      "lastName",
+                      "role",
+                      "userId"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "appliedViaJobPostingId": {
@@ -3548,13 +3979,8 @@
                 "customFields",
                 "candidate",
                 "currentInterviewStage",
-                "source",
-                "archiveReason",
-                "archivedAt",
                 "job",
-                "creditedToUser",
-                "hiringTeam",
-                "appliedViaJobPostingId"
+                "hiringTeam"
               ],
               "additionalProperties": false
             },
@@ -3598,45 +4024,112 @@
                 "emailAddresses": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "primaryPhoneNumber": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "phoneNumbers": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "isPrimary": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "type",
+                      "isPrimary"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "socialLinks": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "url"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "tags": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string",
-                      "boolean"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "isArchived": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "isArchived"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "position": {
@@ -3680,13 +4173,32 @@
                 "fileHandles": {
                   "type": "array",
                   "items": {
-                    "type": [
-                      "string"
-                    ]
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "handle": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "handle"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "customFields": {
-                  "$comment": "() =>[]"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
                 },
                 "profileUrl": {
                   "type": "string"
@@ -3727,8 +4239,7 @@
                   "required": [
                     "id",
                     "title",
-                    "isArchived",
-                    "sourceType"
+                    "isArchived"
                   ],
                   "additionalProperties": false
                 },
@@ -3784,9 +4295,20 @@
                     "locationComponents": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "string"
-                        ]
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name"
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -3800,26 +4322,16 @@
               },
               "required": [
                 "id",
-                "createdAt",
-                "updatedAt",
                 "name",
-                "primaryEmailAddress",
                 "emailAddresses",
                 "primaryPhoneNumber",
                 "phoneNumbers",
                 "socialLinks",
                 "tags",
-                "position",
-                "company",
                 "applicationIds",
-                "resumeFileHandle",
                 "fileHandles",
                 "customFields",
-                "profileUrl",
-                "source",
-                "creditedToUser",
-                "timezone",
-                "primaryLocation"
+                "profileUrl"
               ],
               "additionalProperties": false
             },
@@ -3850,7 +4362,6 @@
                 "title",
                 "type",
                 "orderInInterviewPlan",
-                "interviewStageGroupId",
                 "interviewPlanId"
               ],
               "additionalProperties": false
@@ -3863,9 +4374,7 @@
       },
       "required": [
         "success",
-        "errors",
-        "results",
-        "moreDataAvailable"
+        "errors"
       ],
       "additionalProperties": false
     },
@@ -3887,10 +4396,35 @@
         "stages": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "orderInInterviewPlan": {
+                "type": "number"
+              },
+              "interviewStageGroupId": {
+                "type": "string"
+              },
+              "interviewPlanId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "type",
+              "orderInInterviewPlan",
+              "interviewPlanId"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -3900,5 +4434,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

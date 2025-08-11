@@ -120,10 +120,30 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "detail_type": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "detail_type",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -131,15 +151,11 @@
         "created_at",
         "updated_at",
         "id",
-        "sales_term_id",
         "due_date",
         "balance",
         "txn_date",
         "currency",
         "vendor_id",
-        "vendor_name",
-        "ap_account_id",
-        "ap_account_name",
         "total_amount",
         "lines"
       ],
@@ -176,30 +192,44 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "amount": {
                 "type": "number"
               },
-              {
+              "linkedTxn": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "txn_id": {
+                      "type": "string"
+                    },
+                    "txn_type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "txn_id",
+                    "txn_type"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "amount",
+              "linkedTxn"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
         "id",
-        "vendor_id",
-        "vendor_name",
         "txn_date",
         "total_amount",
         "currency",
-        "private_note",
         "lines"
       ],
       "additionalProperties": false
@@ -241,10 +271,28 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "detail_type": {
+                "type": "string"
+              },
+              "deposit_account_id": {
+                "type": "string"
+              },
+              "deposit_account_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -252,12 +300,9 @@
         "created_at",
         "updated_at",
         "id",
-        "account_id",
-        "account_name",
         "txn_date",
         "total_amount",
         "currency",
-        "private_note",
         "lines"
       ],
       "additionalProperties": false
@@ -337,11 +382,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "remaining_credit": {
@@ -603,11 +672,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -731,22 +824,65 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              },
+              "net_amount": {
                 "type": "number"
               },
-              {
+              "posting_type": {
                 "type": "string",
-                "const": "Debit"
+                "enum": [
+                  "Debit",
+                  "Credit"
+                ]
               },
-              {
-                "type": "string",
-                "const": "Credit"
+              "description": {
+                "type": "string"
+              },
+              "entity_type": {
+                "type": "string"
+              },
+              "entity_type_id": {
+                "type": "string"
+              },
+              "entity_type_name": {
+                "type": "string"
+              },
+              "department_id": {
+                "type": "string"
+              },
+              "department_name": {
+                "type": "string"
+              },
+              "class_id": {
+                "type": "string"
+              },
+              "class_name": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "account_id",
+              "account_name",
+              "net_amount",
+              "posting_type",
+              "description"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -756,7 +892,6 @@
         "id",
         "date",
         "currency",
-        "note",
         "lines"
       ],
       "additionalProperties": false
@@ -852,10 +987,39 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "detail_type": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "account_name": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "billable_status": {
+                "type": "string"
+              },
+              "tax_code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "detail_type",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -863,15 +1027,8 @@
         "created_at",
         "updated_at",
         "id",
-        "account_id",
-        "account_name",
         "payment_type",
-        "entity_type",
-        "entity_id",
-        "entity_name",
         "total_amount",
-        "print_status",
-        "doc_number",
         "txn_date",
         "currency",
         "lines"
@@ -923,14 +1080,9 @@
         "created_at",
         "updated_at",
         "id",
-        "from_account_id",
-        "from_account_name",
-        "to_account_id",
-        "to_account_name",
         "amount",
         "currency",
-        "txn_date",
-        "private_note"
+        "txn_date"
       ],
       "additionalProperties": false
     },
@@ -986,15 +1138,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "line1",
-            "line2",
-            "city",
-            "postal_code",
-            "country",
-            "lat",
-            "long"
-          ],
           "additionalProperties": false
         },
         "ship_address": {
@@ -1022,27 +1165,10 @@
               "type": "string"
             }
           },
-          "required": [
-            "line1",
-            "line2",
-            "city",
-            "postal_code",
-            "country",
-            "lat",
-            "long"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
-        "display_name",
-        "suffix",
-        "title",
-        "given_name",
-        "company_name",
-        "notes",
-        "primary_email",
-        "primary_phone",
         "bill_address",
         "ship_address"
       ],
@@ -1256,15 +1382,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "line1",
-            "line2",
-            "city",
-            "postal_code",
-            "country",
-            "lat",
-            "long"
-          ],
           "additionalProperties": false
         },
         "ship_address": {
@@ -1292,15 +1409,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "line1",
-            "line2",
-            "city",
-            "postal_code",
-            "country",
-            "lat",
-            "long"
-          ],
           "additionalProperties": false
         },
         "id": {
@@ -1314,19 +1422,10 @@
         }
       },
       "required": [
-        "display_name",
-        "suffix",
-        "title",
-        "given_name",
-        "company_name",
-        "notes",
-        "primary_email",
-        "primary_phone",
         "bill_address",
         "ship_address",
         "id",
-        "sync_token",
-        "active"
+        "sync_token"
       ],
       "additionalProperties": false
     },
@@ -1492,14 +1591,15 @@
         "line_items": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "detail_type": {
                 "type": "string"
               },
-              {
+              "amount": {
                 "type": "number"
               },
-              {
+              "project_ref": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -1510,12 +1610,17 @@
                   }
                 },
                 "required": [
-                  "name",
                   "value"
                 ],
                 "additionalProperties": false
               },
-              {
+              "description": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "number"
+              },
+              "journal_entry_line_detail": {
                 "type": "object",
                 "properties": {
                   "journal_code_ref": {
@@ -1529,7 +1634,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1552,7 +1656,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1577,14 +1680,12 @@
                           }
                         },
                         "required": [
-                          "name",
                           "value"
                         ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
-                      "type",
                       "entity_ref"
                     ],
                     "additionalProperties": false
@@ -1603,7 +1704,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1619,7 +1719,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1635,7 +1734,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1651,18 +1749,20 @@
                   "journal_code_ref",
                   "posting_type",
                   "account_ref",
-                  "tax_applicable_on",
-                  "entity",
-                  "tax_inclusive_amt",
                   "class_ref",
                   "department_ref",
-                  "tax_code_ref",
-                  "billable_status",
-                  "tax_amount"
+                  "tax_code_ref"
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "amount",
+              "project_ref",
+              "journal_entry_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "journal_code_ref": {
@@ -1676,7 +1776,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -1692,7 +1791,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -1732,22 +1830,65 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              },
+              "net_amount": {
                 "type": "number"
               },
-              {
+              "posting_type": {
                 "type": "string",
-                "const": "Debit"
+                "enum": [
+                  "Debit",
+                  "Credit"
+                ]
               },
-              {
-                "type": "string",
-                "const": "Credit"
+              "description": {
+                "type": "string"
+              },
+              "entity_type": {
+                "type": "string"
+              },
+              "entity_type_id": {
+                "type": "string"
+              },
+              "entity_type_name": {
+                "type": "string"
+              },
+              "department_id": {
+                "type": "string"
+              },
+              "department_name": {
+                "type": "string"
+              },
+              "class_id": {
+                "type": "string"
+              },
+              "class_name": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "account_id",
+              "account_name",
+              "net_amount",
+              "posting_type",
+              "description"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1757,7 +1898,6 @@
         "id",
         "date",
         "currency",
-        "note",
         "lines"
       ],
       "additionalProperties": false
@@ -1777,14 +1917,18 @@
         "line_items": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "detail_type": {
+                "type": "string"
+              },
+              "amount": {
                 "type": "number"
               },
-              {
+              "project_ref": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -1795,12 +1939,17 @@
                   }
                 },
                 "required": [
-                  "name",
                   "value"
                 ],
                 "additionalProperties": false
               },
-              {
+              "description": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "number"
+              },
+              "journal_entry_line_detail": {
                 "type": "object",
                 "properties": {
                   "journal_code_ref": {
@@ -1814,7 +1963,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1837,7 +1985,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1862,14 +2009,12 @@
                           }
                         },
                         "required": [
-                          "name",
                           "value"
                         ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
-                      "type",
                       "entity_ref"
                     ],
                     "additionalProperties": false
@@ -1888,7 +2033,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1904,7 +2048,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1920,7 +2063,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -1936,18 +2078,19 @@
                   "journal_code_ref",
                   "posting_type",
                   "account_ref",
-                  "tax_applicable_on",
-                  "entity",
-                  "tax_inclusive_amt",
                   "class_ref",
                   "department_ref",
-                  "tax_code_ref",
-                  "billable_status",
-                  "tax_amount"
+                  "tax_code_ref"
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "project_ref",
+              "journal_entry_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "currency_ref": {
@@ -1961,7 +2104,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -1995,7 +2137,6 @@
                 }
               },
               "required": [
-                "name",
                 "value"
               ],
               "additionalProperties": false
@@ -2006,11 +2147,12 @@
             "tax_line": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "detail_type": {
                     "type": "string"
                   },
-                  {
+                  "tax_line_detail": {
                     "type": "object",
                     "properties": {
                       "tax_rate_ref": {
@@ -2024,7 +2166,6 @@
                           }
                         },
                         "required": [
-                          "name",
                           "value"
                         ],
                         "additionalProperties": false
@@ -2040,24 +2181,23 @@
                       }
                     },
                     "required": [
-                      "tax_rate_ref",
-                      "net_amount_taxable",
-                      "percent_based",
-                      "tax_percent"
+                      "tax_rate_ref"
                     ],
                     "additionalProperties": false
                   },
-                  {
+                  "amount": {
                     "type": "number"
                   }
-                ]
+                },
+                "required": [
+                  "detail_type"
+                ],
+                "additionalProperties": false
               }
             }
           },
           "required": [
-            "txn_tax_code_ref",
-            "total_tax",
-            "tax_line"
+            "txn_tax_code_ref"
           ],
           "additionalProperties": false
         },
@@ -2068,16 +2208,8 @@
       "required": [
         "id",
         "sync_token",
-        "sparse",
         "line_items",
-        "currency_ref",
-        "global_tax_calculation",
-        "doc_number",
-        "private_note",
-        "exchange_rate",
-        "transaction_location_type",
-        "txn_tax_detail",
-        "adjustment"
+        "currency_ref"
       ],
       "additionalProperties": false
     },
@@ -2108,22 +2240,65 @@
         "lines": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "type": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              },
+              "net_amount": {
                 "type": "number"
               },
-              {
+              "posting_type": {
                 "type": "string",
-                "const": "Debit"
+                "enum": [
+                  "Debit",
+                  "Credit"
+                ]
               },
-              {
-                "type": "string",
-                "const": "Credit"
+              "description": {
+                "type": "string"
+              },
+              "entity_type": {
+                "type": "string"
+              },
+              "entity_type_id": {
+                "type": "string"
+              },
+              "entity_type_name": {
+                "type": "string"
+              },
+              "department_id": {
+                "type": "string"
+              },
+              "department_name": {
+                "type": "string"
+              },
+              "class_id": {
+                "type": "string"
+              },
+              "class_name": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "id",
+              "type",
+              "account_id",
+              "account_name",
+              "net_amount",
+              "posting_type",
+              "description"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -2133,7 +2308,6 @@
         "id",
         "date",
         "currency",
-        "note",
         "lines"
       ],
       "additionalProperties": false
@@ -2161,7 +2335,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2177,7 +2350,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2193,7 +2365,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2212,16 +2383,10 @@
         }
       },
       "required": [
-        "track_qty_onHand",
-        "qty_on_hand",
         "name",
         "expense_accountRef",
         "income_accountRef",
-        "asset_accountRef",
-        "inv_start_date",
-        "unit_price_cents",
-        "purchase_cost_cents",
-        "type"
+        "asset_accountRef"
       ],
       "additionalProperties": false
     },
@@ -2313,7 +2478,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2329,7 +2493,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2345,7 +2508,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2373,19 +2535,12 @@
         }
       },
       "required": [
-        "track_qty_onHand",
-        "qty_on_hand",
         "name",
         "expense_accountRef",
         "income_accountRef",
         "asset_accountRef",
-        "inv_start_date",
-        "unit_price_cents",
-        "purchase_cost_cents",
-        "type",
         "id",
-        "sync_token",
-        "active"
+        "sync_token"
       ],
       "additionalProperties": false
     },
@@ -2474,11 +2629,7 @@
         }
       },
       "required": [
-        "name",
-        "account_type",
-        "account_sub_type",
-        "description",
-        "acct_num"
+        "name"
       ],
       "additionalProperties": false
     },
@@ -2578,13 +2729,8 @@
       },
       "required": [
         "name",
-        "account_type",
-        "account_sub_type",
-        "description",
-        "acct_num",
         "id",
-        "sync_token",
-        "active"
+        "sync_token"
       ],
       "additionalProperties": false
     },
@@ -2668,7 +2814,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2676,14 +2821,15 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "detail_type": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "sales_item_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -2697,7 +2843,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -2707,8 +2852,26 @@
                   "item_ref"
                 ],
                 "additionalProperties": false
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "discount_rate": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "amount_cents",
+              "sales_item_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -2725,7 +2888,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2741,7 +2903,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2750,7 +2911,6 @@
       "required": [
         "customer_ref",
         "line",
-        "due_date",
         "currency_ref",
         "project_ref"
       ],
@@ -2827,11 +2987,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -2869,7 +3053,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2877,14 +3060,15 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "detail_type": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "sales_item_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -2898,7 +3082,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -2908,8 +3091,26 @@
                   "item_ref"
                 ],
                 "additionalProperties": false
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "discount_rate": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "amount_cents",
+              "sales_item_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -2926,7 +3127,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2942,7 +3142,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -2960,12 +3159,10 @@
       "required": [
         "customer_ref",
         "line",
-        "due_date",
         "currency_ref",
         "project_ref",
         "id",
-        "sync_token",
-        "active"
+        "sync_token"
       ],
       "additionalProperties": false
     },
@@ -3040,11 +3237,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -3082,7 +3303,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3090,14 +3310,15 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "detail_type": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "sales_item_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -3111,7 +3332,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3121,8 +3341,26 @@
                   "item_ref"
                 ],
                 "additionalProperties": false
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "discount_rate": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "amount_cents",
+              "sales_item_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -3139,7 +3377,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3155,7 +3392,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3164,7 +3400,6 @@
       "required": [
         "customer_ref",
         "line",
-        "due_date",
         "currency_ref",
         "project_ref"
       ],
@@ -3241,11 +3476,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "remaining_credit": {
@@ -3286,7 +3545,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3294,14 +3552,15 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "detail_type": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "sales_item_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -3315,7 +3574,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3325,8 +3583,26 @@
                   "item_ref"
                 ],
                 "additionalProperties": false
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "discount_rate": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
               }
-            ]
+            },
+            "required": [
+              "detail_type",
+              "amount_cents",
+              "sales_item_line_detail"
+            ],
+            "additionalProperties": false
           }
         },
         "due_date": {
@@ -3343,7 +3619,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3359,7 +3634,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3377,12 +3651,10 @@
       "required": [
         "customer_ref",
         "line",
-        "due_date",
         "currency_ref",
         "project_ref",
         "id",
-        "sync_token",
-        "active"
+        "sync_token"
       ],
       "additionalProperties": false
     },
@@ -3457,11 +3729,35 @@
         "items": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit_price_cents": {
+                "type": "number"
+              },
+              "amount_cents": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "qty",
+              "unit_price_cents",
+              "amount_cents"
+            ],
+            "additionalProperties": false
           }
         },
         "remaining_credit": {
@@ -3505,7 +3801,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3521,7 +3816,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3537,7 +3831,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3600,7 +3893,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3616,7 +3908,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3624,18 +3915,19 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "detail_type": {
                 "type": "string",
                 "const": "ItemBasedExpenseLineDetail"
               },
-              {
+              "item_based_expense_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -3649,7 +3941,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3665,7 +3956,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3690,7 +3980,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3706,7 +3995,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3722,7 +4010,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -3743,7 +4030,6 @@
                               }
                             },
                             "required": [
-                              "name",
                               "value"
                             ],
                             "additionalProperties": false
@@ -3762,17 +4048,11 @@
                               }
                             },
                             "required": [
-                              "name",
                               "value"
                             ],
                             "additionalProperties": false
                           }
                         },
-                        "required": [
-                          "price_level_ref",
-                          "percent",
-                          "mark_up_income_account_ref"
-                        ],
                         "additionalProperties": false
                       },
                       {
@@ -3789,29 +4069,37 @@
                     ]
                   }
                 },
-                "required": [
-                  "item_ref",
-                  "price_level_ref",
-                  "qty",
-                  "unit_price_cents",
-                  "tax_inclusive_amt",
-                  "customer_ref",
-                  "class_ref",
-                  "tax_code_ref",
-                  "markup_info",
-                  "billable_status"
-                ],
                 "additionalProperties": false
               },
-              {
+              "description": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "number"
+              },
+              "linked_txn": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "txn_id": {
+                      "type": "string"
+                    },
+                    "txn_type": {
+                      "type": "string"
+                    },
+                    "txn_line_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "txn_id",
+                    "txn_type"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "project_ref": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -3822,12 +4110,16 @@
                   }
                 },
                 "required": [
-                  "name",
                   "value"
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "amount_cents",
+              "detail_type"
+            ],
+            "additionalProperties": false
           }
         },
         "sync_token": {
@@ -3844,7 +4136,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3863,9 +4154,25 @@
         "custom_field": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "definition_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "string_value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "definition_id"
+            ],
+            "additionalProperties": false
           }
         },
         "po_email": {
@@ -3885,7 +4192,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3901,7 +4207,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3909,9 +4214,23 @@
         "linked_txn": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "txn_id": {
+                "type": "string"
+              },
+              "txn_type": {
+                "type": "string"
+              },
+              "txn_line_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "txn_id",
+              "txn_type"
+            ],
+            "additionalProperties": false
           }
         },
         "memo": {
@@ -3963,7 +4282,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -3982,7 +4300,6 @@
                 }
               },
               "required": [
-                "name",
                 "value"
               ],
               "additionalProperties": false
@@ -3993,25 +4310,30 @@
             "tax_line": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "amount": {
                     "type": "number"
                   },
-                  {
+                  "detail_type": {
                     "type": "string"
                   },
-                  {
+                  "tax_line_detail": {
                     "type": "string",
                     "const": "TaxLineDetail"
                   }
-                ]
+                },
+                "required": [
+                  "amount",
+                  "detail_type",
+                  "tax_line_detail"
+                ],
+                "additionalProperties": false
               }
             }
           },
           "required": [
-            "txn_tax_code_ref",
-            "total_tax_cents",
-            "tax_line"
+            "txn_tax_code_ref"
           ],
           "additionalProperties": false
         },
@@ -4026,7 +4348,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4080,18 +4401,6 @@
                 }
               },
               "required": [
-                "line1",
-                "line2",
-                "line3",
-                "line4",
-                "line5",
-                "city",
-                "sub_division_code",
-                "postal_code",
-                "country",
-                "country_sub_division_code",
-                "lat",
-                "long",
                 "id"
               ],
               "additionalProperties": false
@@ -4147,18 +4456,6 @@
                 }
               },
               "required": [
-                "line1",
-                "line2",
-                "line3",
-                "line4",
-                "line5",
-                "city",
-                "sub_division_code",
-                "postal_code",
-                "country",
-                "country_sub_division_code",
-                "lat",
-                "long",
                 "id"
               ],
               "additionalProperties": false
@@ -4185,7 +4482,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4195,29 +4491,15 @@
         "ap_account_ref",
         "vendor_ref",
         "line",
-        "sync_token",
         "currency_ref",
-        "global_tax_calculation",
-        "txn_date",
         "custom_field",
-        "po_email",
         "class_ref",
         "sales_term_ref",
         "linked_txn",
-        "memo",
-        "po_status",
-        "transaction_location_type",
-        "due_date",
         "metadata",
-        "doc_number",
-        "private_note",
         "ship_method_ref",
         "txn_tax_detail",
         "ship_to",
-        "exchange_rate",
-        "ship_addr",
-        "vendor_addr",
-        "email_status",
         "total_amt_cents",
         "recur_data_ref"
       ],
@@ -4246,7 +4528,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4262,7 +4543,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4270,18 +4550,19 @@
         "line": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "amount_cents": {
                 "type": "number"
               },
-              {
+              "detail_type": {
                 "type": "string",
                 "const": "ItemBasedExpenseLineDetail"
               },
-              {
+              "item_based_expense_line_detail": {
                 "type": "object",
                 "properties": {
                   "item_ref": {
@@ -4295,7 +4576,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -4311,7 +4591,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -4336,7 +4615,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -4352,7 +4630,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -4368,7 +4645,6 @@
                       }
                     },
                     "required": [
-                      "name",
                       "value"
                     ],
                     "additionalProperties": false
@@ -4389,7 +4665,6 @@
                               }
                             },
                             "required": [
-                              "name",
                               "value"
                             ],
                             "additionalProperties": false
@@ -4408,17 +4683,11 @@
                               }
                             },
                             "required": [
-                              "name",
                               "value"
                             ],
                             "additionalProperties": false
                           }
                         },
-                        "required": [
-                          "price_level_ref",
-                          "percent",
-                          "mark_up_income_account_ref"
-                        ],
                         "additionalProperties": false
                       },
                       {
@@ -4435,29 +4704,37 @@
                     ]
                   }
                 },
-                "required": [
-                  "item_ref",
-                  "price_level_ref",
-                  "qty",
-                  "unit_price_cents",
-                  "tax_inclusive_amt",
-                  "customer_ref",
-                  "class_ref",
-                  "tax_code_ref",
-                  "markup_info",
-                  "billable_status"
-                ],
                 "additionalProperties": false
               },
-              {
+              "description": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "number"
+              },
+              "linked_txn": {
                 "type": "array",
                 "items": {
-                  "type": [
-                    "string"
-                  ]
+                  "type": "object",
+                  "properties": {
+                    "txn_id": {
+                      "type": "string"
+                    },
+                    "txn_type": {
+                      "type": "string"
+                    },
+                    "txn_line_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "txn_id",
+                    "txn_type"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              {
+              "project_ref": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -4468,12 +4745,16 @@
                   }
                 },
                 "required": [
-                  "name",
                   "value"
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "amount_cents",
+              "detail_type"
+            ],
+            "additionalProperties": false
           }
         },
         "sync_token": {
@@ -4490,7 +4771,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4509,9 +4789,25 @@
         "custom_field": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "definition_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "string_value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "definition_id"
+            ],
+            "additionalProperties": false
           }
         },
         "po_email": {
@@ -4531,7 +4827,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4547,7 +4842,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4555,9 +4849,23 @@
         "linked_txn": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "txn_id": {
+                "type": "string"
+              },
+              "txn_type": {
+                "type": "string"
+              },
+              "txn_line_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "txn_id",
+              "txn_type"
+            ],
+            "additionalProperties": false
           }
         },
         "memo": {
@@ -4609,7 +4917,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4628,7 +4935,6 @@
                 }
               },
               "required": [
-                "name",
                 "value"
               ],
               "additionalProperties": false
@@ -4639,25 +4945,30 @@
             "tax_line": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
+                "type": "object",
+                "properties": {
+                  "amount": {
                     "type": "number"
                   },
-                  {
+                  "detail_type": {
                     "type": "string"
                   },
-                  {
+                  "tax_line_detail": {
                     "type": "string",
                     "const": "TaxLineDetail"
                   }
-                ]
+                },
+                "required": [
+                  "amount",
+                  "detail_type",
+                  "tax_line_detail"
+                ],
+                "additionalProperties": false
               }
             }
           },
           "required": [
-            "txn_tax_code_ref",
-            "total_tax_cents",
-            "tax_line"
+            "txn_tax_code_ref"
           ],
           "additionalProperties": false
         },
@@ -4672,7 +4983,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4726,18 +5036,6 @@
                 }
               },
               "required": [
-                "line1",
-                "line2",
-                "line3",
-                "line4",
-                "line5",
-                "city",
-                "sub_division_code",
-                "postal_code",
-                "country",
-                "country_sub_division_code",
-                "lat",
-                "long",
                 "id"
               ],
               "additionalProperties": false
@@ -4793,18 +5091,6 @@
                 }
               },
               "required": [
-                "line1",
-                "line2",
-                "line3",
-                "line4",
-                "line5",
-                "city",
-                "sub_division_code",
-                "postal_code",
-                "country",
-                "country_sub_division_code",
-                "lat",
-                "long",
                 "id"
               ],
               "additionalProperties": false
@@ -4831,7 +5117,6 @@
             }
           },
           "required": [
-            "name",
             "value"
           ],
           "additionalProperties": false
@@ -4844,31 +5129,7 @@
         "ap_account_ref",
         "vendor_ref",
         "line",
-        "sync_token",
-        "currency_ref",
-        "global_tax_calculation",
-        "txn_date",
-        "custom_field",
-        "po_email",
-        "class_ref",
-        "sales_term_ref",
-        "linked_txn",
-        "memo",
-        "po_status",
-        "transaction_location_type",
-        "due_date",
-        "metadata",
-        "doc_number",
-        "private_note",
-        "ship_method_ref",
-        "txn_tax_detail",
-        "ship_to",
-        "exchange_rate",
-        "ship_addr",
-        "vendor_addr",
-        "email_status",
-        "total_amt_cents",
-        "recur_data_ref"
+        "total_amt_cents"
       ],
       "additionalProperties": false
     },
@@ -4887,17 +5148,36 @@
         "line": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "detail_type": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "detail_type",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
         "currency",
         "vendor_id",
-        "vendor_name",
         "line"
       ],
       "additionalProperties": false
@@ -4947,10 +5227,30 @@
         "lines": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "number"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "detail_type": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "account_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "detail_type",
+              "amount"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -4958,20 +5258,16 @@
         "created_at",
         "updated_at",
         "id",
-        "sales_term_id",
         "due_date",
         "balance",
         "txn_date",
         "currency",
         "vendor_id",
-        "vendor_name",
-        "ap_account_id",
-        "ap_account_name",
         "total_amount",
         "lines"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

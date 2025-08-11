@@ -23,23 +23,55 @@
         "views": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "fields": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "description": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "options": {
                 "type": "object",
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "id",
+              "description",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "primaryFieldId": {
@@ -89,8 +121,7 @@
       "additionalProperties": false
     },
     "ActionInput_airtable_whoami": {
-      "type": "null",
-      "deprecated": "It is recommended to use a Model"
+      "type": "null"
     },
     "ActionOutput_airtable_whoami": {
       "type": "object",
@@ -175,10 +206,6 @@
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "formPageSubmission",
-                        "formSubmission"
-                      ],
                       "additionalProperties": false
                     },
                     "watchDataInFieldIds": {
@@ -195,11 +222,9 @@
                     }
                   },
                   "required": [
-                    "recordChangeScope",
                     "dataTypes",
                     "changeTypes",
                     "fromSources",
-                    "sourceOptions",
                     "watchDataInFieldIds",
                     "watchSchemasOfFieldIds"
                   ],
@@ -229,17 +254,11 @@
                       "type": "boolean"
                     }
                   },
-                  "required": [
-                    "includeCellValuesInFieldIds",
-                    "includePreviousCellValues:",
-                    "includePreviousFieldDefinitions"
-                  ],
                   "additionalProperties": false
                 }
               },
               "required": [
-                "filters",
-                "includes"
+                "filters"
               ],
               "additionalProperties": false
             }
@@ -290,20 +309,30 @@
         "webhooks": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              {
+              "areNotificationsEnabled": {
                 "type": "boolean"
               },
-              {
+              "cursorForNextPayload": {
                 "type": "number"
               },
-              {
-                "type": "null"
+              "isHookEnabled": {
+                "type": "boolean"
               },
-              {
+              "lastSuccessfulNotificationTime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "expirationTime": {
+                "type": "string"
+              },
+              "specification": {
                 "type": "object",
                 "properties": {
                   "options": {
@@ -361,10 +390,6 @@
                                 "additionalProperties": false
                               }
                             },
-                            "required": [
-                              "formPageSubmission",
-                              "formSubmission"
-                            ],
                             "additionalProperties": false
                           },
                           "watchDataInFieldIds": {
@@ -381,11 +406,9 @@
                           }
                         },
                         "required": [
-                          "recordChangeScope",
                           "dataTypes",
                           "changeTypes",
                           "fromSources",
-                          "sourceOptions",
                           "watchDataInFieldIds",
                           "watchSchemasOfFieldIds"
                         ],
@@ -415,17 +438,11 @@
                             "type": "boolean"
                           }
                         },
-                        "required": [
-                          "includeCellValuesInFieldIds",
-                          "includePreviousCellValues:",
-                          "includePreviousFieldDefinitions"
-                        ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
-                      "filters",
-                      "includes"
+                      "filters"
                     ],
                     "additionalProperties": false
                   }
@@ -435,48 +452,60 @@
                 ],
                 "additionalProperties": false
               },
-              {
-                "type": "object",
-                "properties": {
-                  "success": {
-                    "type": "boolean"
-                  },
-                  "error": {
+              "lastNotificationResult": {
+                "anyOf": [
+                  {
                     "type": "object",
                     "properties": {
-                      "message": {
+                      "success": {
+                        "type": "boolean"
+                      },
+                      "error": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "completionTimestamp": {
                         "type": "string"
+                      },
+                      "durationMs": {
+                        "type": "number"
+                      },
+                      "retryNumber": {
+                        "type": "number"
+                      },
+                      "willBeRetried": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
-                      "message"
+                      "success"
                     ],
                     "additionalProperties": false
                   },
-                  "completionTimestamp": {
-                    "type": "string"
-                  },
-                  "durationMs": {
-                    "type": "number"
-                  },
-                  "retryNumber": {
-                    "type": "number"
-                  },
-                  "willBeRetried": {
-                    "type": "boolean"
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "success",
-                  "error",
-                  "completionTimestamp",
-                  "durationMs",
-                  "retryNumber",
-                  "willBeRetried"
-                ],
-                "additionalProperties": false
+                ]
               }
-            ]
+            },
+            "required": [
+              "id",
+              "areNotificationsEnabled",
+              "cursorForNextPayload",
+              "isHookEnabled",
+              "lastSuccessfulNotificationTime",
+              "specification",
+              "lastNotificationResult"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -514,5 +543,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

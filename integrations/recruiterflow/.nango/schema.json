@@ -38,7 +38,6 @@
         "email",
         "first_name",
         "last_name",
-        "role",
         "img_link"
       ],
       "additionalProperties": false
@@ -143,24 +142,62 @@
         "resume_links": {
           "type": "array",
           "items": {
-            "type": [
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename",
+              "link"
+            ],
+            "additionalProperties": false
           }
         },
         "associated_jobs": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string",
-              "null",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "job_id": {
+                "type": "number"
+              },
+              "job_name": {
+                "type": "string"
+              },
+              "client_company_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "current_stage_name": {
+                "type": "string"
+              },
+              "is_open": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "job_id",
+              "job_name",
+              "client_company_name",
+              "current_stage_name",
+              "is_open"
+            ],
+            "additionalProperties": false
           }
         },
         "custom_fields": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -168,32 +205,12 @@
         "full_name",
         "first_name",
         "last_name",
-        "profile_picture_link",
         "added_by_name",
         "added_by_id",
         "added_time",
-        "latest_activity_time",
-        "last_contacted_time",
         "email_addresses",
         "phone_numbers",
-        "current_designation",
-        "current_organization",
-        "location_city",
-        "location_country",
-        "location_full_string",
-        "source",
-        "status_name",
-        "linkedin_profile_url",
-        "github_profile_url",
-        "twitter_profile_url",
-        "angellist_profile_url",
-        "behance_profile_url",
-        "dribbble_profile_url",
-        "facebook_profile_url",
-        "xing_profile_url",
-        "resume_links",
-        "associated_jobs",
-        "custom_fields"
+        "source"
       ],
       "additionalProperties": false
     },
@@ -269,10 +286,22 @@
         "locations": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "department": {
@@ -399,7 +428,11 @@
           "type": "string"
         },
         "custom_fields": {
-          "$comment": "() =>[]"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         },
         "files_links": {
           "type": "array",
@@ -411,9 +444,6 @@
       "required": [
         "id",
         "title",
-        "apply_link",
-        "company_name",
-        "company_logo_link",
         "locations",
         "department",
         "employment_type",
@@ -422,32 +452,7 @@
         "experience_range_end",
         "is_open",
         "job_status_name",
-        "number_of_openings",
-        "salary_range_end",
-        "salary_range_start",
-        "salary_range_currency",
-        "salary_frequency",
-        "pay_rate_number",
-        "pay_rate_currency",
-        "pay_rate_frequency_display_name",
-        "bill_rate_number",
-        "bill_rate_currency",
-        "bill_rate_frequency_display_name",
-        "contract_start_date",
-        "contract_end_date",
-        "work_quantum_number",
-        "work_quantum_unit_display_name",
-        "work_quantum_frequency_display_name",
-        "work_quantum_is_full_time",
-        "expected_salary_number",
-        "expected_salary_currency",
-        "expected_fee_number",
-        "expected_fee_currency",
-        "commission_rate",
-        "expected_start_date",
-        "expected_end_date",
-        "custom_fields",
-        "files_links"
+        "number_of_openings"
       ],
       "additionalProperties": false
     },
@@ -583,15 +588,8 @@
       "required": [
         "id",
         "name",
-        "city",
-        "country",
-        "details",
-        "iso_3166_1_alpha_2_code",
         "location_type",
-        "location_type_id",
-        "postal_code",
-        "state",
-        "zipcode"
+        "location_type_id"
       ],
       "additionalProperties": false
     },
@@ -646,12 +644,7 @@
       },
       "required": [
         "id",
-        "name",
-        "address",
-        "city",
-        "state",
-        "country",
-        "postal_code"
+        "name"
       ],
       "additionalProperties": false
     },
@@ -689,40 +682,43 @@
           },
           "required": [
             "id",
-            "name",
-            "first_name"
+            "name"
           ],
           "additionalProperties": false
         },
         "job": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "name": {
                 "type": "string"
               },
-              {
+              "stages": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
+                  "type": "object",
+                  "properties": {
+                    "id": {
                       "type": "number"
                     },
-                    {
+                    "name": {
                       "type": "string"
                     },
-                    {
+                    "scorecard": {
                       "type": "array",
                       "items": {
-                        "anyOf": [
-                          {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
                             "type": "array",
                             "items": {
-                              "anyOf": [
-                                {
+                              "type": "object",
+                              "properties": {
+                                "category": {
                                   "type": "object",
                                   "properties": {
                                     "name": {
@@ -734,37 +730,120 @@
                                   ],
                                   "additionalProperties": false
                                 },
-                                {
+                                "name": {
                                   "type": "string"
                                 },
-                                {
+                                "notes": {
+                                  "type": "string"
+                                },
+                                "rank": {
+                                  "type": "number"
+                                },
+                                "rating": {
                                   "type": "number"
                                 }
-                              ]
+                              },
+                              "required": [
+                                "category",
+                                "name",
+                                "notes",
+                                "rank",
+                                "rating"
+                              ],
+                              "additionalProperties": false
                             }
                           },
-                          {
+                          "bottomline": {
                             "type": "string"
                           },
-                          {
+                          "first_name": {
+                            "type": "string"
+                          },
+                          "id": {
                             "type": "number"
                           },
-                          {
+                          "last_name": {
+                            "type": "string"
+                          },
+                          "middle_name": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "notes": {
+                            "type": "string"
+                          },
+                          "questions": {
                             "type": "array",
                             "items": {
-                              "type": [
-                                "string",
-                                "number"
-                              ]
+                              "type": "object",
+                              "properties": {
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "number"
+                                },
+                                "response": {
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "category_name",
+                                "id",
+                                "response",
+                                "text"
+                              ],
+                              "additionalProperties": false
                             }
+                          },
+                          "result_id": {
+                            "type": "number"
+                          },
+                          "submission_time": {
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "type": "number"
                           }
-                        ]
+                        },
+                        "required": [
+                          "attributes",
+                          "bottomline",
+                          "first_name",
+                          "id",
+                          "last_name",
+                          "middle_name",
+                          "name",
+                          "notes",
+                          "questions",
+                          "result_id",
+                          "submission_time",
+                          "user_id"
+                        ],
+                        "additionalProperties": false
                       }
                     }
-                  ]
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "scorecard"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "stages"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -796,10 +875,24 @@
         "summary": {
           "type": "array",
           "items": {
-            "type": [
-              "number",
-              "string"
-            ]
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "count"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -827,68 +920,129 @@
         "data": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "number"
+            "type": "object",
+            "properties": {
+              "activity_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
               },
-              {
-                "type": "null"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "candidates": {
-                    "type": "array",
-                    "items": {
-                      "type": [
-                        "number",
-                        "string"
-                      ]
-                    }
+              "associated_entities": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "candidates": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "first_name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "clients": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "deals": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "jobs": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "placements": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    },
+                    "required": [
+                      "candidates",
+                      "clients",
+                      "contacts",
+                      "deals",
+                      "jobs",
+                      "placements"
+                    ],
+                    "additionalProperties": false
                   },
-                  "clients": {
-                    "type": "array",
-                    "items": {}
-                  },
-                  "contacts": {
-                    "type": "array",
-                    "items": {}
-                  },
-                  "deals": {
-                    "type": "array",
-                    "items": {}
-                  },
-                  "jobs": {
-                    "type": "array",
-                    "items": {
-                      "type": [
-                        "number",
-                        "string"
-                      ]
-                    }
-                  },
-                  "placements": {
-                    "type": "array",
-                    "items": {}
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "candidates",
-                  "clients",
-                  "contacts",
-                  "deals",
-                  "jobs",
-                  "placements"
-                ],
-                "additionalProperties": false
+                ]
               },
-              {
+              "candidate_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "contact_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "interview_plan_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "is_custom": {
                 "type": "boolean"
               },
-              {
+              "job_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "subject": {
                 "type": "string"
               },
-              {
+              "text": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              },
+              "type": {
                 "type": "object",
                 "properties": {
                   "id": {
@@ -907,7 +1061,7 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "user": {
                 "type": "object",
                 "properties": {
                   "email": {
@@ -947,7 +1101,21 @@
                 ],
                 "additionalProperties": false
               }
-            ]
+            },
+            "required": [
+              "activity_id",
+              "candidate_id",
+              "contact_id",
+              "interview_plan_id",
+              "is_custom",
+              "job_id",
+              "subject",
+              "text",
+              "time",
+              "type",
+              "user"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -970,9 +1138,7 @@
         }
       },
       "required": [
-        "id",
-        "after",
-        "before"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -982,14 +1148,15 @@
         "data": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
+            "type": "object",
+            "properties": {
+              "id": {
                 "type": "number"
               },
-              {
+              "name": {
                 "type": "string"
               },
-              {
+              "added_by": {
                 "type": "object",
                 "properties": {
                   "email": {
@@ -1009,17 +1176,27 @@
                 ],
                 "additionalProperties": false
               },
-              {
+              "transitions": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
+                  "type": "object",
+                  "properties": {
+                    "entered": {
                       "type": "string"
                     },
-                    {
-                      "type": "null"
+                    "from": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
-                    {
+                    "left": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "stage_moved_by": {
                       "type": "object",
                       "properties": {
                         "email": {
@@ -1038,11 +1215,29 @@
                         "name"
                       ],
                       "additionalProperties": false
+                    },
+                    "to": {
+                      "type": "string"
                     }
-                  ]
+                  },
+                  "required": [
+                    "entered",
+                    "from",
+                    "left",
+                    "stage_moved_by",
+                    "to"
+                  ],
+                  "additionalProperties": false
                 }
               }
-            ]
+            },
+            "required": [
+              "id",
+              "name",
+              "added_by",
+              "transitions"
+            ],
+            "additionalProperties": false
           }
         }
       },
@@ -1052,5 +1247,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

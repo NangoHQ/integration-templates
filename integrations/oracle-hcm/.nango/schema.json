@@ -88,12 +88,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "firstName",
-            "lastName",
-            "email"
-          ],
           "additionalProperties": false
         },
         "workLocation": {
@@ -137,11 +131,6 @@
                 }
               },
               "required": [
-                "street",
-                "city",
-                "state",
-                "country",
-                "postalCode",
                 "type"
               ],
               "additionalProperties": false
@@ -149,27 +138,89 @@
           },
           "required": [
             "name",
-            "type",
-            "primaryAddress"
+            "type"
           ],
           "additionalProperties": false
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
           }
         },
         "emails": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
           }
         },
         "providerSpecific": {
@@ -189,18 +240,11 @@
         "lastName",
         "email",
         "displayName",
-        "employeeNumber",
-        "title",
         "department",
         "employmentType",
         "employmentStatus",
         "startDate",
-        "terminationDate",
-        "manager",
         "workLocation",
-        "addresses",
-        "phones",
-        "emails",
         "providerSpecific",
         "createdAt",
         "updatedAt"
@@ -365,83 +409,98 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "addressLine1",
-            "addressLine2",
-            "townOrCity",
-            "region2",
-            "country",
-            "postalCode",
-            "addressType",
-            "primaryFlag"
-          ],
           "additionalProperties": false
         },
         "addresses": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "addressLine1": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "addressLine2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "townOrCity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "region2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "addressType": {
+                "type": "string"
+              },
+              "primaryFlag": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "phones": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "phoneType": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "primaryFlag": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "emails": {
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "object",
+            "properties": {
+              "emailType": {
+                "type": "string"
+              },
+              "emailAddress": {
+                "type": "string"
+              },
+              "primaryFlag": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "personNumber",
-        "displayName",
-        "firstName",
-        "lastName",
-        "workEmail",
-        "title",
-        "departmentId",
-        "departmentName",
-        "assignmentStatusType",
-        "startDate",
-        "terminationDate",
-        "managerId",
-        "managerName",
-        "workLocationName",
-        "workLocationType",
-        "correspondenceLanguage",
-        "bloodType",
-        "dateOfBirth",
-        "dateOfDeath",
-        "countryOfBirth",
-        "regionOfBirth",
-        "townOfBirth",
-        "applicantNumber",
-        "createdBy",
-        "lastUpdatedBy",
-        "creationDate",
-        "lastUpdateDate",
-        "workLocationAddress",
-        "addresses",
-        "phones",
-        "emails"
+        "id"
       ],
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.64.1)"
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }
