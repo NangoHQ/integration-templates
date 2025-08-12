@@ -29,5 +29,9 @@ jobs:
               run: |
                   npm ci
 
+            - name: Resolve aliases
+              run: |
+                  npm run resolve:aliases
+
             - name: Compile
               run: npm run build:flows -- --rebuild-all
