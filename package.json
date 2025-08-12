@@ -11,6 +11,7 @@
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
+        "resolve:aliases": "npx tsx internal/scripts/resolve-aliases.ts",
         "test": "vitest --run",
         "test:watch": "vitest"
     },
