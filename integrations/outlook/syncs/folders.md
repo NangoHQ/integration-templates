@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of folders from outlook.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
@@ -43,6 +42,12 @@ _No request body_
   "totalItemCount": "<number>",
   "isHidden": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog
