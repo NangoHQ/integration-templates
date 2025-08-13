@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Send an Email using Gmail.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Emails
 - **Scopes:** `https://www.googleapis.com/auth/gmail.send`
 - **Endpoint Type:** Action
-- **Model:** `GmailEmailSentOutput`
-- **Input Model:** `GmailEmailInput`
+- **Model:** `ActionOutput_google_mail_sendemail`
+- **Input Model:** `ActionInput_google_mail_sendemail`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/send-email.ts)
 
 
@@ -30,7 +29,7 @@ _No request parameters_
 {
   "from": "<string>",
   "to": "<string>",
-  "headers": "<object | undefined>",
+  "headers": {},
   "subject": "<string>",
   "body": "<string>"
 }

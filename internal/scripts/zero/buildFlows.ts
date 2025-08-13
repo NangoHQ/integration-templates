@@ -5,7 +5,7 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
-import { readdir, readFile, writeFile } from 'fs/promises';
+import { readdir, readFile, writeFile, lstat, stat, realpath } from 'fs/promises';
 import { join } from 'path';
 import { execSync } from 'child_process';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
@@ -42,9 +42,19 @@ async function main(): Promise<void> {
 
     // Process each folder
     for (const folder of templatesFolders) {
-        if (!folder.isDirectory()) {
-            continue;
+        const folderPath = join(templatesPath, folder.name);
+        if (!(folder.isDirectory() || folder.isSymbolicLink())) continue;
+        if (folder.isSymbolicLink()) {
+            try {
+                const target = await realpath(folderPath);
+                const targetStat = await stat(target);
+                if (!targetStat.isDirectory()) continue; // skip symlinks that don't point to dirs
+            } catch {
+                console.log(`   ${chalk.red('err')} Broken symlink: ${folderPath}`);
+                continue; // broken symlink; skip
+            }
         }
+
         if (folder.name === '.nango' || folder.name === 'build' || folder.name === 'node_modules') {
             continue;
         }
@@ -58,6 +68,14 @@ async function main(): Promise<void> {
                 // Run the compile command
                 const command = `npm run cli -- ${name} compile`;
                 console.log(`  Running: ${command}`);
+
+                execSync(command, {
+                    stdio: 'pipe',
+                    cwd: root
+                });
+
+                const docsCommand = `npm run cli -- ${name} generate:docs --integration-templates`;
+                console.log(`  Running: ${docsCommand}`);
 
                 execSync(command, {
                     stdio: 'pipe',
