@@ -68,10 +68,18 @@ async function main(): Promise<void> {
                 console.log(`  Running: ${command}`);
 
                 try {
+                    // Add additional environment variables that might help with the Zod processing
+                    const env = {
+                        ...process.env,
+                        FORCE_COLOR: '1',
+                        NODE_OPTIONS: '--max-old-space-size=4096',
+                        TSX_NODE_PROJECT: join(root, 'tsconfig.json')
+                    };
+
                     execSync(command, {
                         stdio: 'inherit',
                         cwd: root,
-                        env: { ...process.env, FORCE_COLOR: '1' },
+                        env,
                         timeout: 300000 // 5 minute timeout per integration
                     });
                 } catch (compileError) {
@@ -86,10 +94,17 @@ async function main(): Promise<void> {
                 console.log(`  Running: ${docsCommand}`);
 
                 try {
+                    const env = {
+                        ...process.env,
+                        FORCE_COLOR: '1',
+                        NODE_OPTIONS: '--max-old-space-size=4096',
+                        TSX_NODE_PROJECT: join(root, 'tsconfig.json')
+                    };
+
                     execSync(docsCommand, {
                         stdio: 'inherit',
                         cwd: root,
-                        env: { ...process.env, FORCE_COLOR: '1' },
+                        env,
                         timeout: 120000 // 2 minute timeout for docs
                     });
                 } catch (docsError) {

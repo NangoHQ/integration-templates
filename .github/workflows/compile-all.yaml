@@ -29,5 +29,8 @@ jobs:
               run: |
                   npm ci
 
+            - name: Fix Zod union types
+              run: npm run fix:zod-unions
+
             - name: Compile
               run: npm run build:flows -- --rebuild-all
