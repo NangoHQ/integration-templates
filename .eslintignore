@@ -10,8 +10,12 @@ vite.config.ts
 vitest.setup.ts
 globals.d.ts
 integrations/linkedin/proxy/video-upload.ts
-integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
-scripts/*.ts
-scripts/**/*.ts
-!scripts/zero/**.ts
+integrations/*-pat
+integrations/*-preview
+integrations/github-app-oauth
+integrations/gong-oauth
+integrations/gorgias-basic
+integrations/*-demo
+integrations/lever-basic
+internal/scripts

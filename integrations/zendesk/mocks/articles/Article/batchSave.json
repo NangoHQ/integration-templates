@@ -1,6 +1,6 @@
 [
     {
-        "id": 36508642313361,
+        "id": "36508642313361",
         "title": "What are these sections and articles doing here?",
         "locale": "en-us",
         "user_segment_id": null,
@@ -26,7 +26,7 @@
         "vote_sum": 0
     },
     {
-        "id": 36508632936849,
+        "id": "36508632936849",
         "title": "How can agents leverage knowledge to help customers?",
         "locale": "en-us",
         "user_segment_id": null,
@@ -52,7 +52,7 @@
         "vote_sum": 0
     },
     {
-        "id": 36508632933137,
+        "id": "36508632933137",
         "title": "How do I publish my content in other languages?",
         "locale": "en-us",
         "user_segment_id": null,
@@ -78,7 +78,7 @@
         "vote_sum": 0
     },
     {
-        "id": 36508632923921,
+        "id": "36508632923921",
         "title": "How do I customize my Help Center?",
         "locale": "en-us",
         "user_segment_id": null,
@@ -104,7 +104,7 @@
         "vote_sum": 0
     },
     {
-        "id": 36508642298641,
+        "id": "36508642298641",
         "title": "Sample article: Stellar Skyonomy refund policies",
         "locale": "en-us",
         "user_segment_id": null,
@@ -130,7 +130,7 @@
         "vote_sum": 0
     },
     {
-        "id": 36508632894865,
+        "id": "36508632894865",
         "title": "Welcome to your Help Center!",
         "locale": "en-us",
         "user_segment_id": null,

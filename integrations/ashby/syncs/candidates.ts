@@ -1,15 +1,45 @@
-import type { AshbyCandidate, NangoSync, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { AshbyCandidate, AshbyCandidateMetadata } from '../models.js';
 
 let nextCursor: string | null = null;
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = (await nango.getMetadata()) || {};
-    const candidatelastsyncToken = metadata['candidatelastsyncToken'] ? String(metadata['candidatelastsyncToken']) : '';
+const sync = createSync({
+    description: 'Fetches a list of all candidates from your ashby account',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    await saveAllCandidates(nango, candidatelastsyncToken);
-}
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/candidates',
+            group: 'Candidates'
+        }
+    ],
 
-async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: string) {
+    scopes: ['candidatelastsyncToken'],
+
+    models: {
+        AshbyCandidate: AshbyCandidate
+    },
+
+    metadata: AshbyCandidateMetadata,
+
+    exec: async (nango) => {
+        const metadata = (await nango.getMetadata()) || {};
+        const candidatelastsyncToken = metadata['candidatelastsyncToken'] ? String(metadata['candidatelastsyncToken']) : '';
+
+        await saveAllCandidates(nango, candidatelastsyncToken);
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: string) {
     let totalRecords = 0;
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
@@ -30,7 +60,7 @@ async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: strin
         if (mappedCandidates.length > 0) {
             const batchSize: number = mappedCandidates.length;
             totalRecords += batchSize;
-            await nango.batchSave<AshbyCandidate>(mappedCandidates, 'AshbyCandidate');
+            await nango.batchSave(mappedCandidates, 'AshbyCandidate');
             await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
         }
         if (response.data.moreDataAvailable) {

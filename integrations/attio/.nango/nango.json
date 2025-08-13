@@ -1,0 +1,102 @@
+[
+  {
+    "providerConfigKey": "attio",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all person records from Attio",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/people",
+            "group": "People"
+          }
+        ],
+        "input": "SyncMetadata_attio_people",
+        "name": "people",
+        "output": [
+          "AttioPerson"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "record_permission:read",
+          "object_configuration:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "AttioPerson",
+          "SyncMetadata_attio_people"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all company records from Attio",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/companies",
+            "group": "Companies"
+          }
+        ],
+        "input": "SyncMetadata_attio_companies",
+        "name": "companies",
+        "output": [
+          "AttioCompany"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "record_permission:read",
+          "object_configuration:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "AttioCompany",
+          "SyncMetadata_attio_companies"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all deal records from Attio",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/deals",
+            "group": "Deals"
+          }
+        ],
+        "input": "SyncMetadata_attio_deals",
+        "name": "deals",
+        "output": [
+          "AttioDeal"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "record_permission:read",
+          "object_configuration:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "AttioDeal",
+          "SyncMetadata_attio_deals"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

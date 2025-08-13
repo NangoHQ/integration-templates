@@ -1,41 +1,61 @@
-import type { NangoAction, CreateLead, Lead } from '../../models';
-import type { UnanetLead } from '../types';
+import { createAction } from 'nango';
+import type { UnanetLead } from '../types.js';
 import { toLead } from '../mappers/to-lead.js';
 import { optionalsToPotentialClient } from '../mappers/federal-agency.js';
 
-export default async function runAction(nango: NangoAction, input: CreateLead): Promise<Lead> {
-    validate(nango, input);
+import { Lead, CreateLead } from '../models.js';
 
-    const data: UnanetLead = {
-        Name: input.name,
-        BidDate: input.dueDate,
-        CreateDate: input.postedDate,
-        SolicitationNumber: input.solicitationNumber,
-        Naics: Array.isArray(input.naicsCategory) ? input.naicsCategory : [input.naicsCategory],
-        City: input.city,
-        State: input.state,
-        Country: input.country,
-        Description: input.description
-    };
+const action = createAction({
+    description:
+        'Create a lead with with information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.',
+    version: '2.0.0',
 
-    const potentialClient = await optionalsToPotentialClient(nango, input.federalAgency);
+    endpoint: {
+        method: 'POST',
+        path: '/leads',
+        group: 'Leads'
+    },
 
-    data.PotentialClient = potentialClient;
+    input: CreateLead,
+    output: Lead,
 
-    const response = await nango.post({
-        endpoint: '/api/leads',
-        data: [data],
-        retries: 3
-    });
+    exec: async (nango, input): Promise<Lead> => {
+        validate(nango, input);
 
-    const mapped = toLead(response.data[0], input);
+        const data: UnanetLead = {
+            Name: input.name,
+            BidDate: input.dueDate,
+            CreateDate: input.postedDate,
+            SolicitationNumber: input.solicitationNumber,
+            Naics: Array.isArray(input.naicsCategory) ? input.naicsCategory : [input.naicsCategory],
+            City: input.city,
+            State: input.state,
+            Country: input.country,
+            Description: input.description
+        };
 
-    mapped.federalAgency = input.federalAgency;
+        const potentialClient = await optionalsToPotentialClient(nango, input.federalAgency);
 
-    return mapped;
-}
+        data.PotentialClient = potentialClient;
 
-function validate(nango: NangoAction, input: CreateLead) {
+        const response = await nango.post({
+            endpoint: '/api/leads',
+            data: [data],
+            retries: 3
+        });
+
+        const mapped = toLead(response.data[0], input);
+
+        mapped.federalAgency = input.federalAgency;
+
+        return mapped;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
+
+function validate(nango: NangoActionLocal, input: CreateLead) {
     type leads = keyof CreateLead;
     const required: leads[] = ['name', 'dueDate', 'postedDate', 'solicitationNumber', 'naicsCategory', 'city', 'state', 'country', 'description'];
 

@@ -1,5 +1,5 @@
-import type { Account, CreateAccount, UpdateAccount } from '../../models';
-import type { QuickBooksAccount } from '../types';
+import type { Account, CreateAccount, UpdateAccount } from '../models.js';
+import type { QuickBooksAccount } from '../types.js';
 
 /**
  * Converts a QuickBooksAccount object to an Account object.

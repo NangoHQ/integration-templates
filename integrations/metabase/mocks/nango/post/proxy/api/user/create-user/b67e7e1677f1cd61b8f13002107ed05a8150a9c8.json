@@ -1,12 +1,12 @@
 {
     "method": "post",
     "endpoint": "api/user",
-    "requestIdentityHash": "b67e7e1677f1cd61b8f13002107ed05a8150a9c8",
+    "requestIdentityHash": "6bfc6fdd7efd5e64289dcf5889b638d46b35e5e7",
     "requestIdentity": {
         "method": "post",
         "endpoint": "api/user",
         "params": [],
-        "headers": [["Content-Length", "62"]],
+        "headers": [],
         "data": "{\"first_name\":\"asd\",\"last_name\":\"yo\",\"email\":\"aoole@mail.com\"}"
     },
     "response": {

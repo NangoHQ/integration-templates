@@ -1,5 +1,5 @@
-import type { Invoice, UpdateInvoice, CreateInvoice, InvoiceFee } from '../../models';
-import type { Invoice as XeroInvoice, LineItem as XeroLineItem } from '../types';
+import type { Invoice, UpdateInvoice, CreateInvoice, InvoiceFee } from '../models.js';
+import type { Invoice as XeroInvoice, LineItem as XeroLineItem } from '../types.js';
 import { parseDate } from '../utils.js';
 
 export function toInvoice(xeroInvoice: XeroInvoice): Invoice {

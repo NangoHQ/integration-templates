@@ -1,28 +1,56 @@
-import type { NangoSync, User, Metadata, OrgToSync } from '../../models';
-import type { DirectoryUsersResponse } from '../types';
+import { createSync } from 'nango';
+import type { DirectoryUsersResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<Metadata>();
-    const { orgsToSync } = metadata;
+import type { OrgToSync } from '../models.js';
+import { User, Metadata } from '../models.js';
 
-    if (!metadata) {
-        throw new Error('No metadata');
+const sync = createSync({
+    description: 'Sync all workspace users',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/google/workspace-users'
+        }
+    ],
+
+    models: {
+        User: User
+    },
+
+    metadata: Metadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+        const { orgsToSync } = metadata;
+
+        if (!metadata) {
+            throw new Error('No metadata');
+        }
+
+        if (!orgsToSync || !orgsToSync.length) {
+            throw new Error('No orgs to sync');
+        }
+
+        for (const orgUnit of orgsToSync) {
+            await nango.log(`Fetching users for org unit ID: ${orgUnit.id} at the path: ${orgUnit.path}`);
+            await fetchAndUpdateUsers(nango, orgUnit);
+        }
+
+        await nango.log('Detecting deleted users');
+        await fetchAndUpdateUsers(nango, null, true);
     }
+});
 
-    if (!orgsToSync || !orgsToSync.length) {
-        throw new Error('No orgs to sync');
-    }
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
-    for (const orgUnit of orgsToSync) {
-        await nango.log(`Fetching users for org unit ID: ${orgUnit.id} at the path: ${orgUnit.path}`);
-        await fetchAndUpdateUsers(nango, orgUnit);
-    }
-
-    await nango.log('Detecting deleted users');
-    await fetchAndUpdateUsers(nango, null, true);
-}
-
-async function fetchAndUpdateUsers(nango: NangoSync, orgUnit: OrgToSync | null, runDelete = false): Promise<void> {
+async function fetchAndUpdateUsers(nango: NangoSyncLocal, orgUnit: OrgToSync | null, runDelete = false): Promise<void> {
     const baseUrlOverride = 'https://admin.googleapis.com';
     const endpoint = '/admin/directory/v1/users';
 
@@ -89,12 +117,12 @@ async function fetchAndUpdateUsers(nango: NangoSync, orgUnit: OrgToSync | null, 
         }
 
         if (runDelete) {
-            await nango.batchDelete<User>(users, 'User');
+            await nango.batchDelete(users, 'User');
         } else {
-            await nango.batchSave<User>(users, 'User');
+            await nango.batchSave(users, 'User');
 
             if (suspendedUsers.length) {
-                await nango.batchDelete<User>(suspendedUsers, 'User');
+                await nango.batchDelete(suspendedUsers, 'User');
             }
         }
         if (data.nextPageToken) {

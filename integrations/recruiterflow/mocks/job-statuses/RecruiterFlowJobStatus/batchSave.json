@@ -1,41 +1,41 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "Active",
         "color": "#28A745"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Submitted",
         "color": "#17A2B8"
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Interviewing",
         "color": "#FD7E14"
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Awaiting Feedback",
         "color": "#FFC107"
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Offer Negotiation",
         "color": "#6F42C1"
     },
     {
-        "id": 6,
+        "id": "6",
         "name": "Won",
         "color": "#218838"
     },
     {
-        "id": 7,
+        "id": "7",
         "name": "Lost",
         "color": "#DC3545"
     },
     {
-        "id": 8,
+        "id": "8",
         "name": "On Hold",
         "color": "#6C757D"
     }

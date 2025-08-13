@@ -1,7 +1,8 @@
+import { NangoSync, ProxyConfiguration } from "nango";
 /// <reference types="vitest" />
 import type { AxiosResponse } from 'axios';
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { ZoomUser } from '../types';
+import type { User } from '../models.js';
+import type { ZoomUser } from '../types.js';
 import fetchData from '../syncs/users.js';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 
@@ -70,7 +71,7 @@ describe('Zoom Users Pagination', () => {
     });
 
     test('should configure cursor-based pagination correctly', async () => {
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         const paginateCalls = vi.mocked(nango.paginate).mock.calls;
         expect(paginateCalls).toHaveLength(1);
@@ -104,7 +105,7 @@ describe('Zoom Users Pagination', () => {
             yield [] as T[];
         });
 
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         expect(savedUsers).toHaveLength(0);
         expect(nango.paginate).toHaveBeenCalledTimes(1);
@@ -115,6 +116,6 @@ describe('Zoom Users Pagination', () => {
             throw new Error('Pagination failed');
         });
 
-        await expect(fetchData(nango)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango)).rejects.toThrow('Pagination failed');
     });
 });

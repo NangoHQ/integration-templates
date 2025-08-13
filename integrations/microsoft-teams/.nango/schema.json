@@ -1,332 +1,521 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Metadata": {
-            "type": "object",
-            "properties": {
-                "orgsToSync": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "channelsLastSyncDate": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                },
-                "chatsLastSyncDate": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["orgsToSync"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_microsoft_teams_orgunits": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "OrganizationalUnit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "OrganizationalUnit": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": ["string", "null"]
-                },
-                "deletedAt": {
-                    "type": ["string", "null"]
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": ["string", "null"]
-                },
-                "parentPath": {
-                    "type": ["string", "null"]
-                },
-                "parentId": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "name", "createdAt", "deletedAt", "description", "path", "parentPath", "parentId"],
-            "additionalProperties": false
+        "name": {
+          "type": "string"
         },
-        "User": {
-            "type": "object",
-            "properties": {
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deletedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "createdAt",
+        "deletedAt",
+        "description",
+        "path",
+        "parentPath",
+        "parentId"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_microsoft_teams_users": {
+      "type": "object",
+      "properties": {
+        "orgsToSync": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channelsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "chatsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "orgsToSync"
+      ],
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "givenName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "familyName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "picture": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deletedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "organizationId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "organizationPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAdmin": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "department": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "displayName",
+        "givenName",
+        "familyName",
+        "picture",
+        "type",
+        "createdAt",
+        "deletedAt",
+        "phone",
+        "organizationId",
+        "organizationPath",
+        "isAdmin",
+        "department"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_microsoft_teams_messages": {
+      "type": "object",
+      "properties": {
+        "orgsToSync": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channelsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "chatsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "orgsToSync"
+      ],
+      "additionalProperties": false
+    },
+    "TeamsMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chatId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deletedDateTime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
                 "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "displayName": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
-                "givenName": {
-                    "type": ["string", "null"]
-                },
-                "familyName": {
-                    "type": ["string", "null"]
-                },
-                "picture": {
-                    "type": ["string", "null"]
-                },
-                "type": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": ["string", "null"]
-                },
-                "deletedAt": {
-                    "type": ["string", "null"]
-                },
-                "phone": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": ["string", "null"]
-                        },
-                        "type": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "organizationId": {
-                    "type": ["string", "null"]
-                },
-                "organizationPath": {
-                    "type": ["string", "null"]
-                },
-                "isAdmin": {
-                    "type": ["boolean", "null"]
-                },
-                "department": {
-                    "type": ["string", "null"]
+                "email": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
-            },
-            "required": ["id", "email", "displayName", "givenName", "familyName", "type", "createdAt", "deletedAt", "phone", "isAdmin", "department"],
-            "additionalProperties": false
-        },
-        "TeamsMessageAttachment": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "contentType": {
-                    "type": "string"
-                },
-                "contentUrl": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "thumbnailUrl": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "contentType", "contentUrl", "name", "thumbnailUrl"],
-            "additionalProperties": false
-        },
-        "TeamsMessageReaction": {
-            "type": "object",
-            "properties": {
-                "reactionType": {
-                    "type": "string"
-                },
-                "createdDateTime": {
-                    "type": "string"
-                },
-                "user": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "displayName": {
-                            "type": ["string", "null"]
-                        },
-                        "email": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["id", "displayName", "email"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["reactionType", "createdDateTime", "user"],
-            "additionalProperties": false
-        },
-        "TeamsMessageReply": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": ["string", "null"]
-                },
-                "createdDateTime": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "object",
-                    "properties": {
-                        "user": {
-                            "type": "object",
-                            "properties": {
-                                "id": {
-                                    "type": ["string", "null"]
-                                },
-                                "displayName": {
-                                    "type": ["string", "null"]
-                                },
-                                "email": {
-                                    "type": ["string", "null"]
-                                }
-                            },
-                            "required": ["id", "displayName", "email"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["user"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["id", "content", "createdDateTime", "from"],
-            "additionalProperties": false
-        },
-        "TeamsMessage": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "channelId": {
-                    "type": ["string", "null"]
-                },
-                "chatId": {
-                    "type": ["string", "null"]
-                },
-                "content": {
-                    "type": ["string", "null"]
-                },
-                "createdDateTime": {
-                    "type": "string"
-                },
-                "lastModifiedDateTime": {
-                    "type": ["string", "null"]
-                },
-                "deletedDateTime": {
-                    "type": ["string", "null"]
-                },
-                "from": {
-                    "type": "object",
-                    "properties": {
-                        "user": {
-                            "type": "object",
-                            "properties": {
-                                "id": {
-                                    "type": ["string", "null"]
-                                },
-                                "displayName": {
-                                    "type": ["string", "null"]
-                                },
-                                "email": {
-                                    "type": ["string", "null"]
-                                }
-                            },
-                            "required": ["id", "displayName", "email"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["user"],
-                    "additionalProperties": false
-                },
-                "importance": {
-                    "type": ["string", "null"]
-                },
-                "messageType": {
-                    "type": "string"
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "webUrl": {
-                    "type": ["string", "null"]
-                },
-                "attachments": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/TeamsMessageAttachment"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "reactions": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/TeamsMessageReaction"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "replies": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/TeamsMessageReply"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "raw_json": {
-                    "type": "string"
-                }
-            },
-            "required": [
+              },
+              "required": [
                 "id",
-                "channelId",
-                "chatId",
-                "content",
-                "createdDateTime",
-                "lastModifiedDateTime",
-                "deletedDateTime",
-                "from",
-                "importance",
-                "messageType",
-                "subject",
-                "webUrl",
-                "attachments",
-                "reactions",
-                "replies",
-                "raw_json"
-            ],
-            "additionalProperties": false
+                "displayName",
+                "email"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "user"
+          ],
+          "additionalProperties": false
+        },
+        "importance": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "messageType": {
+          "type": "string"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "webUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attachments": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "contentType": {
+                    "type": "string"
+                  },
+                  "contentUrl": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "thumbnailUrl": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "contentType",
+                  "contentUrl",
+                  "name",
+                  "thumbnailUrl"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reactions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "reactionType": {
+                    "type": "string"
+                  },
+                  "createdDateTime": {
+                    "type": "string"
+                  },
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "displayName",
+                      "email"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "reactionType",
+                  "createdDateTime",
+                  "user"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "replies": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "createdDateTime": {
+                    "type": "string"
+                  },
+                  "from": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "displayName": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "displayName",
+                          "email"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "user"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "content",
+                  "createdDateTime",
+                  "from"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "raw_json": {
+          "type": "string"
         }
-    },
-    "$comment": "This file was generated by Nango (v0.58.7)"
+      },
+      "required": [
+        "id",
+        "channelId",
+        "chatId",
+        "content",
+        "createdDateTime",
+        "lastModifiedDateTime",
+        "deletedDateTime",
+        "from",
+        "importance",
+        "messageType",
+        "subject",
+        "webUrl",
+        "attachments",
+        "reactions",
+        "replies",
+        "raw_json"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

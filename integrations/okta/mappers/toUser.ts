@@ -1,5 +1,5 @@
-import type { OktaUser, CreateOktaUser } from '../types';
-import type { User, OktaCreateUser } from '../../models';
+import type { OktaUser, CreateOktaUser } from '../types.js';
+import type { User, OktaCreateUser } from '../models.js';
 
 export function toUser(user: OktaUser): User {
     return {

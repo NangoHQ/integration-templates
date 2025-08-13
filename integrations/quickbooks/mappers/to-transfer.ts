@@ -1,5 +1,5 @@
-import type { Transfer } from '../../models';
-import type { QuickBooksTransfer } from '../types';
+import type { Transfer } from '../models.js';
+import type { QuickBooksTransfer } from '../types.js';
 
 export function toTransfer(transfer: QuickBooksTransfer): Transfer {
     if (!transfer.TxnDate || !transfer.MetaData?.CreateTime || !transfer.MetaData?.LastUpdatedTime) {

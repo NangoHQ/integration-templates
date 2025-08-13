@@ -1,11 +1,40 @@
-import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
-import type { SalesforceTicket, CaseComment } from '../types';
+import { createSync } from 'nango';
+import type { SalesforceTicket, CaseComment } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const query = buildQuery(nango.lastSyncDate);
+import type { ProxyConfiguration } from 'nango';
+import { Ticket } from '../models.js';
+import { z } from 'zod';
 
-    await fetchAndSaveTickets(nango, query);
-}
+const sync = createSync({
+    description: 'Fetches a list of tickets from salesforce',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/tickets'
+        }
+    ],
+
+    models: {
+        Ticket: Ticket
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const query = buildQuery(nango.lastSyncDate);
+
+        await fetchAndSaveTickets(nango, query);
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function buildQuery(lastSyncDate?: Date): string {
     let baseQuery = `
@@ -40,7 +69,7 @@ function buildQuery(lastSyncDate?: Date): string {
     return baseQuery;
 }
 
-async function fetchAndSaveTickets(nango: NangoSync, query: string) {
+async function fetchAndSaveTickets(nango: NangoSyncLocal, query: string) {
     const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {

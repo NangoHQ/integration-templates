@@ -1,25 +1,46 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import { createAction } from 'nango';
 import { getRequestInfo } from '../helpers/get-request-info.js';
 import { idEntitySchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
-    const { baseUri, accountId } = await getRequestInfo(nango);
+const action = createAction({
+    description: 'Deletes a user in DocuSign',
+    version: '2.0.0',
 
-    const config: ProxyConfiguration = {
-        baseUrlOverride: baseUri,
-        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
-        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
-        data: {
-            users: [{ userId: input.id }]
-        },
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
+    },
 
-    await nango.delete(config);
+    input: IdEntity,
+    output: SuccessResponse,
+    scopes: ['openid', 'signature'],
 
-    return {
-        success: true
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+        const { baseUri, accountId } = await getRequestInfo(nango);
+
+        const config: ProxyConfiguration = {
+            baseUrlOverride: baseUri,
+            // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
+            endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
+            data: {
+                users: [{ userId: input.id }]
+            },
+            retries: 3
+        };
+
+        await nango.delete(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

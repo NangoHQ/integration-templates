@@ -1,6 +1,7 @@
+import { NangoSync, ProxyConfiguration } from "nango";
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync, RecordingFile, OptionalBackfillSetting, ProxyConfiguration } from '../../models';
-import type { ZoomRecordingMeeting, ZoomRecordingFile } from '../types';
+import type { RecordingFile, OptionalBackfillSetting } from '../models.js';
+import type { ZoomRecordingMeeting, ZoomRecordingFile } from '../types.js';
 
 class MockNango {
     private mockMetadata: OptionalBackfillSetting | undefined;
@@ -105,7 +106,7 @@ describe('Zoom Recording Files Pagination Tests', () => {
 
     it('should handle pagination and map fields correctly', async () => {
         const fetchData = (await import('../syncs/recording-files')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedRecordings = nango.getSavedRecordings();
         expect(savedRecordings).toHaveLength(2);
@@ -157,7 +158,7 @@ describe('Zoom Recording Files Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/recording-files')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedRecordings = nango.getSavedRecordings();
         expect(savedRecordings).toHaveLength(0);
@@ -170,7 +171,7 @@ describe('Zoom Recording Files Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/recording-files')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 
     it('should validate backfill period in metadata', async () => {
@@ -179,23 +180,23 @@ describe('Zoom Recording Files Pagination Tests', () => {
         // Test backfill period > 30 days
         nango = new MockNango(); // Reset mock state
         nango.setMockMetadata({ backfillPeriodDays: 31 });
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Backfill period cannot be greater than 30 days');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Backfill period cannot be greater than 30 days');
 
         // Test backfill period < 1 day
         nango = new MockNango(); // Reset mock state
         nango.setMockMetadata({ backfillPeriodDays: 0 });
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Backfill period cannot be less than 1 day');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Backfill period cannot be less than 1 day');
 
         // Test valid backfill period
         nango = new MockNango(); // Reset mock state
         nango.setMockMetadata({ backfillPeriodDays: 7 });
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
         expect(nango.getCurrentEndpoint()).toBe('/users/me/recordings');
 
         // Test undefined metadata
         nango = new MockNango(); // Reset mock state
         nango.setMockMetadata(undefined);
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
         expect(nango.getCurrentEndpoint()).toBe('/users/me/recordings');
     });
 });

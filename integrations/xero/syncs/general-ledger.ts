@@ -1,59 +1,92 @@
-import type { GeneralLedger, LedgerLine, NangoSync, ProxyConfiguration, TrackingCategory } from '../../models';
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
-import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types';
+import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types.js';
 import { parseDate } from '../utils.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const tenant_id = await getTenantId(nango);
+import type { ProxyConfiguration } from 'nango';
+import type { LedgerLine, TrackingCategory } from '../models.js';
+import { GeneralLedger } from '../models.js';
+import { z } from 'zod';
 
-    const config: ProxyConfiguration = {
-        // https://developer.xero.com/documentation/api/accounting/journals
-        endpoint: 'api.xro/2.0/Journals',
-        headers: {
-            'xero-tenant-id': tenant_id,
-            'If-Modified-Since': ''
-        },
-        params: {
-            offset: 0
-        },
-        retries: 10
-    };
+const sync = createSync({
+    description: 'Fetch all general ledger entries in Xero',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    if (nango.lastSyncDate && config.headers) {
-        config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/general-ledger',
+            group: 'General Ledger'
+        }
+    ],
+
+    scopes: ['accounting.journals.read'],
+
+    models: {
+        GeneralLedger: GeneralLedger
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const tenant_id = await getTenantId(nango);
+
+        const config: ProxyConfiguration = {
+            // https://developer.xero.com/documentation/api/accounting/journals
+            endpoint: 'api.xro/2.0/Journals',
+            headers: {
+                'xero-tenant-id': tenant_id,
+                'If-Modified-Since': ''
+            },
+            params: {
+                offset: 0
+            },
+            retries: 10
+        };
+
+        if (nango.lastSyncDate && config.headers) {
+            config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
+        }
+
+        let hasMoreRecords = true;
+        let highestJournalNumber = 0;
+
+        do {
+            const response = await nango.get<{ Journals: XeroJournal[] }>(config);
+            const journals = response.data.Journals;
+
+            if (!journals || journals.length === 0) {
+                hasMoreRecords = false;
+                continue;
+            }
+
+            // Map and save the journals
+            const generalLedger = journals.map(mapXeroJournal);
+            await nango.batchSave(generalLedger, 'GeneralLedger');
+
+            // Find the highest journal number in the current batch
+            const maxJournalNumber = Math.max(...journals.map((journal: XeroJournal) => journal.JournalNumber));
+
+            if (maxJournalNumber <= highestJournalNumber) {
+                hasMoreRecords = false;
+                continue;
+            }
+
+            // Update the highest journal number and offset for next request
+            highestJournalNumber = maxJournalNumber;
+            if (config.params && typeof config.params === 'object') {
+                config.params['offset'] = maxJournalNumber;
+            }
+        } while (hasMoreRecords);
     }
+});
 
-    let hasMoreRecords = true;
-    let highestJournalNumber = 0;
-
-    do {
-        const response = await nango.get<{ Journals: XeroJournal[] }>(config);
-        const journals = response.data.Journals;
-
-        if (!journals || journals.length === 0) {
-            hasMoreRecords = false;
-            continue;
-        }
-
-        // Map and save the journals
-        const generalLedger = journals.map(mapXeroJournal);
-        await nango.batchSave<GeneralLedger>(generalLedger, 'GeneralLedger');
-
-        // Find the highest journal number in the current batch
-        const maxJournalNumber = Math.max(...journals.map((journal: XeroJournal) => journal.JournalNumber));
-
-        if (maxJournalNumber <= highestJournalNumber) {
-            hasMoreRecords = false;
-            continue;
-        }
-
-        // Update the highest journal number and offset for next request
-        highestJournalNumber = maxJournalNumber;
-        if (config.params && typeof config.params === 'object') {
-            config.params['offset'] = maxJournalNumber;
-        }
-    } while (hasMoreRecords);
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {
     return {

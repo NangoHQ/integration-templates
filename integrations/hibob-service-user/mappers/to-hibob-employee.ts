@@ -1,5 +1,5 @@
-import type { HibobEmployee } from '../../models.js';
-import type { HibobEmployeeResponse } from '../types';
+import type { HibobEmployee } from '../models.js';
+import type { HibobEmployeeResponse } from '../types.js';
 
 /**
  * Maps raw HiBob employee data to our standardized HibobEmployee model

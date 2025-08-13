@@ -1,5 +1,5 @@
-import type { Sms } from '../../models';
-import type { ClickSendSms } from '../types';
+import type { Sms } from '../models.js';
+import type { ClickSendSms } from '../types.js';
 
 /**
  * Converts a ClickSendSms object from ClickSend's API into the standardized internal Sms model.

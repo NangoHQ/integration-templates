@@ -1,20 +1,48 @@
-import type { NangoSync, EventType } from '../../models';
-import type { EventTypeResponse } from '../types';
+import { createSync } from 'nango';
+import type { EventTypeResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const response = await nango.get<EventTypeResponse>({
-        endpoint: '/event-types',
-        retries: 10
-    });
+import { EventType } from '../models.js';
+import { z } from 'zod';
 
-    const { data } = response.data;
-    const { eventTypeGroups } = data;
-    const eventTypes: EventType[] = [];
-    for (const group of eventTypeGroups) {
-        eventTypes.push(...group.eventTypes);
+const sync = createSync({
+    description: 'Retrieve all event types per a user',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/event/types'
+        }
+    ],
+
+    models: {
+        EventType: EventType
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const response = await nango.get<EventTypeResponse>({
+            endpoint: '/event-types',
+            retries: 10
+        });
+
+        const { data } = response.data;
+        const { eventTypeGroups } = data;
+        const eventTypes: EventType[] = [];
+        for (const group of eventTypeGroups) {
+            eventTypes.push(...group.eventTypes);
+        }
+
+        if (eventTypes.length) {
+            await nango.batchSave(eventTypes, 'EventType');
+        }
     }
+});
 
-    if (eventTypes.length) {
-        await nango.batchSave<EventType>(eventTypes, 'EventType');
-    }
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

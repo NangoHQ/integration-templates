@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from 'nango';
 
 export async function* paginate<TResult>({
     nango,

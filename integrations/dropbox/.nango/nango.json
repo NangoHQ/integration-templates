@@ -1,0 +1,157 @@
+[
+  {
+    "providerConfigKey": "dropbox",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Dropbox. Requires Dropbox Business.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_dropbox_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_dropbox_createuser"
+        ],
+        "scopes": [
+          "members.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_createuser",
+          "ActionOutput_dropbox_createuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Dropbox. Requires Dropbox Business.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_dropbox_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_dropbox_deleteuser"
+        ],
+        "scopes": [
+          "members.delete"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_deleteuser",
+          "ActionOutput_dropbox_deleteuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-file"
+        },
+        "input": "ActionInput_dropbox_fetchfile",
+        "name": "fetch-file",
+        "output": [
+          "ActionOutput_dropbox_fetchfile"
+        ],
+        "scopes": [
+          "files.content.read"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_fetchfile",
+          "ActionOutput_dropbox_fetchfile"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/folder-content",
+          "group": "Folders"
+        },
+        "input": "ActionInput_dropbox_foldercontent",
+        "name": "folder-content",
+        "output": [
+          "ActionOutput_dropbox_foldercontent"
+        ],
+        "scopes": [
+          "files.metadata.read"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_foldercontent",
+          "ActionOutput_dropbox_foldercontent"
+        ],
+        "version": "3.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Dropbox. Requires Dropbox Business.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_dropbox_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "members.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_dropbox_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/files"
+          }
+        ],
+        "input": "SyncMetadata_dropbox_files",
+        "name": "files",
+        "output": [
+          "Document"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "files.metadata.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Document",
+          "SyncMetadata_dropbox_files"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

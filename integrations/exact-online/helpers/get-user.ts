@@ -1,5 +1,5 @@
-import type { NangoAction } from '../../models';
-import type { EO_User, ResponseGetBody } from '../types';
+import type { NangoAction } from 'nango';
+import type { EO_User, ResponseGetBody } from '../types.js';
 
 export async function getUser(nango: NangoAction): Promise<{ me: EO_User; division: number }> {
     // Get the current user

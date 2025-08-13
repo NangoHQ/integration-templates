@@ -1,6 +1,6 @@
+import { NangoSync } from "nango";
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models';
 
 interface AsanaUser {
     gid: string;
@@ -172,7 +172,7 @@ describe('Asana Tasks Pagination Tests', () => {
 
     it('should handle nested pagination correctly', async () => {
         const fetchData = (await import('../syncs/tasks')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedTasks = nango.getSavedTasks();
         expect(savedTasks).toHaveLength(2); // Two pages of tasks
@@ -222,7 +222,7 @@ describe('Asana Tasks Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/tasks')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedTasks = nango.getSavedTasks();
         expect(savedTasks).toHaveLength(0);
@@ -235,6 +235,6 @@ describe('Asana Tasks Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/tasks')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

@@ -1,5 +1,5 @@
-import type { Affiliation, Book, Question, QuestionField, FrontMatterSection } from '../../models';
-import type { BrightCrowdBook, BrightCrowdQuestion, BrightCrowdQuestionField, BrightCrowdAffiliation } from '../types';
+import type { Affiliation, Book, Question, QuestionField, FrontMatterSection } from '../models.js';
+import type { BrightCrowdBook, BrightCrowdQuestion, BrightCrowdQuestionField, BrightCrowdAffiliation } from '../types.js';
 
 /**
  * Maps a BrightCrowdBook object to a Book object.

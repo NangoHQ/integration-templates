@@ -1,0 +1,131 @@
+[
+  {
+    "providerConfigKey": "avalara",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a new transaction",
+        "endpoint": {
+          "method": "POST",
+          "path": "/transactions",
+          "group": "Transactions"
+        },
+        "input": "ActionInput_avalara_createtransaction",
+        "name": "create-transaction",
+        "output": [
+          "ActionOutput_avalara_createtransaction"
+        ],
+        "scopes": [
+          "AccountAdmin",
+          " AccountOperator",
+          " AccountUser",
+          " BatchServiceAdmin",
+          " CompanyAdmin",
+          " CompanyUser",
+          " CSPTester",
+          " SSTAdmin",
+          " TechnicalSupportAdmin",
+          " TechnicalSupportUser"
+        ],
+        "usedModels": [
+          "ActionInput_avalara_createtransaction",
+          "ActionOutput_avalara_createtransaction"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Marks a transaction by changing its status to Committed",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/transactions",
+          "group": "Transactions"
+        },
+        "input": "ActionInput_avalara_committransaction",
+        "name": "commit-transaction",
+        "output": [
+          "ActionOutput_avalara_committransaction"
+        ],
+        "scopes": [
+          "AccountAdmin",
+          " AccountOperator",
+          " AccountUser",
+          " BatchServiceAdmin",
+          " CompanyAdmin",
+          " CompanyUser",
+          " CSPTester",
+          " ProStoresOperator",
+          " SSTAdmin",
+          " TechnicalSupportAdmin"
+        ],
+        "usedModels": [
+          "ActionInput_avalara_committransaction",
+          "ActionOutput_avalara_committransaction"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Voids the current transaction uniquely identified by the transactionCode",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/transactions",
+          "group": "Transactions"
+        },
+        "input": "ActionInput_avalara_voidtransaction",
+        "name": "void-transaction",
+        "output": [
+          "ActionOutput_avalara_voidtransaction"
+        ],
+        "scopes": [
+          "AccountAdmin",
+          " AccountOperator",
+          " BatchServiceAdmin",
+          " CompanyAdmin",
+          " CSPTester",
+          " ProStoresOperator",
+          " SSTAdmin",
+          " TechnicalSupportAdmin"
+        ],
+        "usedModels": [
+          "ActionInput_avalara_voidtransaction",
+          "ActionOutput_avalara_voidtransaction"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "List all transactions with a default backfill date of one year.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/transactions",
+            "group": "Transactions"
+          }
+        ],
+        "input": "SyncMetadata_avalara_transactions",
+        "name": "transactions",
+        "output": [
+          "Transaction"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Transaction",
+          "SyncMetadata_avalara_transactions"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

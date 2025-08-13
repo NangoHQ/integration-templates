@@ -1,28 +1,58 @@
-import type { HubspotOwner, NangoSync } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { HubspotOwner } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of owners from Hubspot',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const endpoint = '/crm/v3/owners';
-    const config = {
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'paging.next.after',
-            limit_name_in_request: 'limit',
-            cursor_name_in_request: 'after',
-            response_path: 'results',
-            limit: 100
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/owners',
+            group: 'Owners'
         }
-    };
-    for await (const owner of nango.paginate({ ...config, endpoint })) {
-        const mappedOwner: HubspotOwner[] = owner.map(mapOwner) || [];
+    ],
 
-        const batchSize: number = mappedOwner.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} owners (total owners: ${totalRecords})`);
-        await nango.batchSave(mappedOwner, 'HubspotOwner');
+    models: {
+        HubspotOwner: HubspotOwner
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            // https://developers.hubspot.com/docs/reference/api/crm/owners#owners
+            endpoint: '/crm/v3/owners',
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.next.after',
+                limit_name_in_request: 'limit',
+                cursor_name_in_request: 'after',
+                response_path: 'results',
+                limit: 100
+            }
+        };
+        for await (const owner of nango.paginate(config)) {
+            const mappedOwner: HubspotOwner[] = owner.map(mapOwner) || [];
+
+            const batchSize: number = mappedOwner.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} owners (total owners: ${totalRecords})`);
+            await nango.batchSave(mappedOwner, 'HubspotOwner');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapOwner(owner: any): HubspotOwner {
     return {

@@ -1,22 +1,22 @@
 [
     {
-        "id": 4,
+        "id": "4",
         "name": "Contract"
     },
     {
-        "id": 1,
+        "id": "1",
         "name": "Full time"
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Internship"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Part time"
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Temporary"
     }
 ]

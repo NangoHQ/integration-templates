@@ -1,7 +1,7 @@
+import { ProxyConfiguration } from "nango";
 import { describe, expect, test } from 'vitest';
-import type { BoxEntryItem, ListFolderItemsResponse } from '../types';
-import type { BoxDocument } from '../.nango/schema';
-import type { ProxyConfiguration } from '../../../models';
+import type { BoxEntryItem, ListFolderItemsResponse } from '../types.js';
+import type { BoxDocument } from '../.nango/schema.js';
 import fetchData from '../syncs/files.js';
 
 interface Pagination {
@@ -153,7 +153,7 @@ describe('Box Files Pagination', () => {
             return Promise.resolve();
         });
 
-        await fetchData(mockNango);
+        await fetchData.exec(mockNango);
 
         // Verify pagination configuration
         expect(paginationConfig).toBeDefined();
@@ -213,7 +213,7 @@ describe('Box Files Pagination', () => {
             return Promise.resolve();
         });
 
-        await fetchData(mockNango);
+        await fetchData.exec(mockNango);
 
         expect(savedDocuments).toHaveLength(0);
     });
@@ -244,7 +244,7 @@ describe('Box Files Pagination', () => {
             return Promise.resolve();
         });
 
-        await expect(fetchData(mockNango)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(mockNango)).rejects.toThrow('Pagination failed');
         expect(savedDocuments).toHaveLength(0);
     });
 });

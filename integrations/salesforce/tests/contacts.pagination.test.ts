@@ -1,8 +1,7 @@
+import { ProxyConfiguration, NangoSync } from "nango";
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { AxiosResponse } from 'axios';
-import type { ProxyConfiguration } from '../../../models';
-import type { NangoSync } from '../../../integrations/models';
-import type { SalesforceContact } from '../types';
+import type { SalesforceContact } from '../types.js';
 
 interface Contact {
     id: string;
@@ -103,7 +102,7 @@ describe('Salesforce Contacts Pagination', () => {
     it('should configure link-based pagination correctly', async () => {
         const nango = new MockNango() as unknown as NangoSync;
         const fetchData = (await import('../syncs/contacts')).default;
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         expect(savedContacts).toHaveLength(1);
         expect(savedContacts[0]).toEqual({
@@ -126,7 +125,7 @@ describe('Salesforce Contacts Pagination', () => {
     it('should handle empty pages', async () => {
         const nango = new MockNango() as unknown as NangoSync;
         const fetchData = (await import('../syncs/contacts')).default;
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         // After the first page with data, we get an empty page
         // The test should pass with only the contacts from the first page
@@ -140,6 +139,6 @@ describe('Salesforce Contacts Pagination', () => {
         };
 
         const fetchData = (await import('../syncs/contacts')).default;
-        await expect(fetchData(nango)).rejects.toThrow('Pagination error');
+        await expect(fetchData.exec(nango)).rejects.toThrow('Pagination error');
     });
 });

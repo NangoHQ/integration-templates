@@ -1,5 +1,5 @@
-import type { Deal, AssociationCompany, AssociationContact, UpdateDealInput, CreateUpdateDealOutput, CreateDealInput } from '../../models';
-import type { HubSpotDeal, HubSpotDealNonNull, HubSpotDealNonUndefined } from '../types';
+import type { Deal, AssociationCompany, AssociationContact, UpdateDealInput, CreateUpdateDealOutput, CreateDealInput } from '../models.js';
+import type { HubSpotDeal, HubSpotDealNonNull, HubSpotDealNonUndefined } from '../types.js';
 
 export function toDeal(deal: HubSpotDealNonUndefined, contacts?: AssociationContact[] | undefined, companies?: AssociationCompany[] | undefined): Deal {
     const mappedCompanies: AssociationCompany[] = (companies || []).map((company) => ({

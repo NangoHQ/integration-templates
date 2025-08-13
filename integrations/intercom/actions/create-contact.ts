@@ -1,7 +1,10 @@
-import type { NangoAction, ProxyConfiguration, Contact, IntercomCreateContact } from '../../models';
+import { createAction } from 'nango';
 import { toContact } from '../mappers/to-contact.js';
 import { intercomCreateContactSchema } from '../schema.zod.js';
-import type { IntercomContact } from '../types';
+import type { IntercomContact } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Contact, IntercomCreateContact } from '../models.js';
 
 /**
  * Creates an Intercom user contact.
@@ -20,23 +23,39 @@ import type { IntercomContact } from '../types';
  * For detailed endpoint documentation, refer to:
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
  */
-export default async function runAction(nango: NangoAction, input: IntercomCreateContact): Promise<Contact> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
+const action = createAction({
+    description: 'Creates a contact in Intercom',
+    version: '2.0.0',
 
-    const { firstName, lastName, ...userInput } = parsedInput.data;
+    endpoint: {
+        method: 'POST',
+        path: '/contact'
+    },
 
-    const config: ProxyConfiguration = {
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
-        endpoint: `/contacts`,
-        data: {
-            ...userInput,
-            role: 'user',
-            name: `${firstName} ${lastName}`
-        },
-        retries: 3
-    };
+    input: IntercomCreateContact,
+    output: Contact,
 
-    const response = await nango.post<IntercomContact>(config);
+    exec: async (nango, input): Promise<Contact> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
 
-    return toContact(response.data);
-}
+        const { firstName, lastName, ...userInput } = parsedInput.data;
+
+        const config: ProxyConfiguration = {
+            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
+            endpoint: `/contacts`,
+            data: {
+                ...userInput,
+                role: 'user',
+                name: `${firstName} ${lastName}`
+            },
+            retries: 3
+        };
+
+        const response = await nango.post<IntercomContact>(config);
+
+        return toContact(response.data);
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,19 +1,47 @@
-import type { NangoSync, Article, ProxyConfiguration, SalesforceMetadata } from '../../models';
-import type { SalesforceArticle } from '../types';
+import { createSync } from 'nango';
+import type { SalesforceArticle } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<SalesforceMetadata>();
+import type { ProxyConfiguration } from 'nango';
+import { Article, SalesforceMetadata } from '../models.js';
 
-    if (!metadata.customFields) {
-        throw new Error('An array of custom fields are required');
+const sync = createSync({
+    description: 'Fetches a list of articles from salesforce',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: false,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/articles'
+        }
+    ],
+
+    models: {
+        Article: Article
+    },
+
+    metadata: SalesforceMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+
+        if (!metadata.customFields) {
+            throw new Error('An array of custom fields are required');
+        }
+
+        const { customFields } = metadata;
+
+        const query = buildQuery(customFields, nango.lastSyncDate);
+
+        await fetchAndSaveRecords(nango, query, customFields);
     }
+});
 
-    const { customFields } = metadata;
-
-    const query = buildQuery(customFields, nango.lastSyncDate);
-
-    await fetchAndSaveRecords(nango, query, customFields);
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function buildQuery(customFields: string[], lastSyncDate?: Date): string {
     let baseQuery = `
@@ -29,7 +57,7 @@ function buildQuery(customFields: string[], lastSyncDate?: Date): string {
     return baseQuery;
 }
 
-async function fetchAndSaveRecords(nango: NangoSync, query: string, customFields: string[]) {
+async function fetchAndSaveRecords(nango: NangoSyncLocal, query: string, customFields: string[]) {
     const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {

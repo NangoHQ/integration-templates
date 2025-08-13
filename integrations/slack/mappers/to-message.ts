@@ -1,5 +1,5 @@
-import type { SendMessageOutput } from '../../models';
-import type { SlackResponse, SlackSuccessResponse } from '../types';
+import type { SendMessageOutput } from '../models.js';
+import type { SlackResponse, SlackSuccessResponse } from '../types.js';
 
 function isSlackSuccessResponse(response: SlackResponse): response is SlackSuccessResponse {
     return response.ok === true;

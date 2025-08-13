@@ -1,5 +1,5 @@
-import type { JiraProjectResponse } from '../types';
-import type { Project } from '../../models';
+import type { JiraProjectResponse } from '../types.js';
+import type { Project } from '../models.js';
 import { getWebUrl } from '../helpers/get-web-url.js';
 
 /**

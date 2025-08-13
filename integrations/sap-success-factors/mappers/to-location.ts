@@ -1,5 +1,5 @@
 import type { SapSuccessFactorsLocation } from '../types.js';
-import type { Location } from '../../models';
+import type { Location } from '../models.js';
 import { parseSapDateToISOString } from '../helpers/utils.js';
 
 export function toLocation(location: SapSuccessFactorsLocation): Location {

@@ -1,12 +1,12 @@
 import type { SapSuccessDepartment } from '../types.js';
-import type { Group } from '../../models';
+import type { Group } from '../models.js';
 import { parseSapDateToISOString } from '../helpers/utils.js';
 
 export function toGroup(department: SapSuccessDepartment): Group {
     return {
         id: department.externalCode,
         name: department.name,
-        name_localized: department.name_localized,
+        name_localized: department.name_localized || '',
         name_en_US: department.name_en_US,
         name_defaultValue: department.name_defaultValue,
         description: department.description,

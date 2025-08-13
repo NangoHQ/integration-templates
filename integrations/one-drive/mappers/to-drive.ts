@@ -1,5 +1,5 @@
-import type { Drive as DriveModel } from '../../models';
-import type { Drive } from '../types';
+import type { Drive as DriveModel } from '../models.js';
+import type { Drive } from '../types.js';
 
 /**
  * Maps a Drive from the OneDrive API to the standardized Drive format

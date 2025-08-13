@@ -1,5 +1,5 @@
-import type { Contact, CreateContactInput, UpdateContactInput } from '../../models';
-import type { SalesforceContact } from '../types';
+import type { Contact, CreateContactInput, UpdateContactInput } from '../models.js';
+import type { SalesforceContact } from '../types.js';
 
 export function toContact(contact: SalesforceContact): Contact {
     return {

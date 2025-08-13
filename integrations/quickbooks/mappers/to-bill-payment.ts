@@ -1,5 +1,5 @@
-import type { BillPayment } from '../../models';
-import type { QuickBooksBillPayment } from '../types';
+import type { BillPayment } from '../models.js';
+import type { QuickBooksBillPayment } from '../types.js';
 
 export function toBillPayment(billPayment: QuickBooksBillPayment): BillPayment {
     return {

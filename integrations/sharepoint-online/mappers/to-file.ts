@@ -1,5 +1,5 @@
-import type { FileMetadata, UserFileMetadata } from '../../models';
-import type { DriveItem, DriveItemFromItemResponse } from '../types';
+import type { FileMetadata, UserFileMetadata } from '../models.js';
+import type { DriveItem, DriveItemFromItemResponse } from '../types.js';
 
 /**
  * Converts a DriveItem object to a slim FileMetadata object.

@@ -1,4 +1,4 @@
-import type { OutlookCalendarEvent } from '../../models';
+import type { OutlookCalendarEvent } from '../models.js';
 import type { OutlookEvent } from '../types.js';
 
 export function toEvent(eventData: OutlookEvent): OutlookCalendarEvent {
@@ -17,10 +17,6 @@ export function toEvent(eventData: OutlookEvent): OutlookCalendarEvent {
         responseStatus: {
             response: eventData.responseStatus.response,
             time: eventData.responseStatus.time
-        },
-        body: {
-            content: eventData.body.content,
-            contentType: eventData.body.contentType
         },
         start: {
             dateTime: eventData.start.dateTime,

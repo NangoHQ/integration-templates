@@ -1,6 +1,10 @@
-import type { NangoSync, ProxyConfiguration, BamboohrEmployee } from '../../models';
+import { createSync } from 'nango';
 import type { BamboohrEmployeeResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { BamboohrEmployee } from '../models.js';
+import { z } from 'zod';
 
 interface CustomReportData {
     title: string;
@@ -13,71 +17,97 @@ interface CustomReportData {
     fields: (keyof BamboohrEmployee)[];
 }
 
-export default async function fetchData(nango: NangoSync) {
-    const customReportData: CustomReportData = {
-        title: 'Current Employees',
-        filters: {
-            lastChanged: {
-                includeNull: 'no',
-                ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {}) //remove milliseconds
-            }
-        },
-        fields: [
-            'id',
-            'employeeNumber',
-            'firstName',
-            'lastName',
-            'dateOfBirth',
-            'address1',
-            'bestEmail',
-            'jobTitle',
-            'hireDate',
-            'supervisorId',
-            'supervisor',
-            'createdByUserId',
-            'department',
-            'division',
-            'employmentHistoryStatus',
-            'gender',
-            'country',
-            'city',
-            'location',
-            'state',
-            'maritalStatus',
-            'exempt',
-            'payRate',
-            'payType',
-            'payPer',
-            'ssn',
-            'workPhone',
-            'homePhone'
-        ]
-    };
+const sync = createSync({
+    description: 'Fetches a list of current employees from bamboohr',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const proxyConfig: ProxyConfiguration = {
-        // https://documentation.bamboohr.com/reference/request-custom-report-1
-        endpoint: '/v1/reports/custom',
-        params: {
-            format: 'JSON',
-            onlyCurrent: true.toString() //limits the report to only current employees
-        },
-        data: customReportData,
-        retries: 10
-    };
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees',
+            group: 'Employees'
+        }
+    ],
 
-    const response = await nango.post<BamboohrEmployeeResponse>(proxyConfig);
+    models: {
+        BamboohrEmployee: BamboohrEmployee
+    },
 
-    const employees = response.data.employees;
-    const chunkSize = 100;
+    metadata: z.object({}),
 
-    for (let i = 0; i < employees.length; i += chunkSize) {
-        const chunk = employees.slice(i, i + chunkSize);
-        const mappedEmployees = toEmployee(chunk);
-        const batchSize = mappedEmployees.length;
+    exec: async (nango) => {
+        const customReportData: CustomReportData = {
+            title: 'Current Employees',
+            filters: {
+                lastChanged: {
+                    includeNull: 'no',
+                    ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {}) //remove milliseconds
+                }
+            },
+            fields: [
+                'id',
+                'employeeNumber',
+                'firstName',
+                'lastName',
+                'dateOfBirth',
+                'address1',
+                'bestEmail',
+                'jobTitle',
+                'hireDate',
+                'supervisorId',
+                'supervisor',
+                'createdByUserId',
+                'department',
+                'division',
+                'employmentHistoryStatus',
+                'gender',
+                'country',
+                'city',
+                'location',
+                'state',
+                'maritalStatus',
+                'exempt',
+                'payRate',
+                'payType',
+                'payPer',
+                'ssn',
+                'workPhone',
+                'homePhone'
+            ]
+        };
 
-        await nango.log(`Saving batch of ${batchSize} employee(s)`);
-        await nango.batchSave(mappedEmployees, 'BamboohrEmployee');
+        const proxyConfig: ProxyConfiguration = {
+            // https://documentation.bamboohr.com/reference/request-custom-report-1
+            endpoint: '/v1/reports/custom',
+            params: {
+                format: 'JSON',
+                onlyCurrent: true.toString() //limits the report to only current employees
+            },
+            data: customReportData,
+            retries: 10
+        };
+
+        const response = await nango.post<BamboohrEmployeeResponse>(proxyConfig);
+
+        const employees = response.data.employees;
+        const chunkSize = 100;
+
+        for (let i = 0; i < employees.length; i += chunkSize) {
+            const chunk = employees.slice(i, i + chunkSize);
+            const mappedEmployees = toEmployee(chunk);
+            const batchSize = mappedEmployees.length;
+
+            await nango.log(`Saving batch of ${batchSize} employee(s)`);
+            await nango.batchSave(mappedEmployees, 'BamboohrEmployee');
+        }
+
+        await nango.log(`Total employee(s) processed: ${employees.length}`);
     }
+});
 
-    await nango.log(`Total employee(s) processed: ${employees.length}`);
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

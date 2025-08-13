@@ -1,4 +1,4 @@
-import type { NangoAction } from '../../models';
+import type { NangoAction } from 'nango';
 
 /**
  * Validates and converts a date string to ISO format.

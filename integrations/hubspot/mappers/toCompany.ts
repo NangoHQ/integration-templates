@@ -1,5 +1,5 @@
-import type { Company, CreateUpdateCompanyOutput, CreateCompanyInput, UpdateCompanyInput } from '../../models';
-import type { HubSpotCompany, HubSpotCompanyNonUndefined, HubSpotCompanyNonNull } from '../types';
+import type { Company, CreateUpdateCompanyOutput, CreateCompanyInput, UpdateCompanyInput } from '../models.js';
+import type { HubSpotCompany, HubSpotCompanyNonUndefined, HubSpotCompanyNonNull } from '../types.js';
 
 export function toCompany(company: HubSpotCompanyNonUndefined): Company {
     return {

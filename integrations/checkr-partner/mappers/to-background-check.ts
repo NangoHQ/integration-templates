@@ -1,4 +1,4 @@
-import type { CheckrTriggeredBackgroundCheck, BackgroundCheck } from '../../models';
+import type { CheckrTriggeredBackgroundCheck, BackgroundCheck } from '../models.js';
 
 export function toBackgroundCheck(check: CheckrTriggeredBackgroundCheck): BackgroundCheck {
     return {

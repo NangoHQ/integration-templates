@@ -1,57 +1,82 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { DriveItem } from '../types';
+import { createSync } from 'nango';
+import type { DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const metadata = await nango.getMetadata<{
-        drives?: string[];
-        pickedFiles: {
-            driveId: string;
-            fileIds: string[];
-        }[];
-    }>();
+import type { ProxyConfiguration } from 'nango';
+import { OneDriveFileSelection, OneDriveMetadata } from '../models.js';
 
-    if (!metadata || !metadata.pickedFiles || !metadata.pickedFiles.length) {
-        await nango.log('No files selected for syncing');
-        return;
-    }
+const sync = createSync({
+    description: "Fetch selected files from a user's OneDrive based on provided metadata.",
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const files = [];
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/user-files/selected',
+            group: 'Files'
+        }
+    ],
 
-    for (const pickedFile of metadata.pickedFiles) {
-        const { driveId, fileIds } = pickedFile;
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
-        for (const fileId of fileIds) {
-            // Get the file or folder
-            // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
-            const itemConfig: ProxyConfiguration = {
+    models: {
+        OneDriveFileSelection: OneDriveFileSelection
+    },
+
+    metadata: OneDriveMetadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+
+        if (!metadata || !metadata.pickedFiles || !metadata.pickedFiles.length) {
+            await nango.log('No files selected for syncing');
+            return;
+        }
+
+        const files = [];
+
+        for (const pickedFile of metadata.pickedFiles) {
+            const { driveId, fileIds } = pickedFile;
+
+            for (const fileId of fileIds) {
+                // Get the file or folder
                 // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
-                endpoint: `/v1.0/drives/${driveId}/items/${fileId}`,
-                retries: 10
-            };
+                const itemConfig: ProxyConfiguration = {
+                    // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
+                    endpoint: `/v1.0/drives/${driveId}/items/${fileId}`,
+                    retries: 10
+                };
 
-            // @allowTryCatch
-            try {
-                const response = await nango.get<DriveItem>(itemConfig);
-                const item = response.data;
+                // @allowTryCatch
+                try {
+                    const response = await nango.get<DriveItem>(itemConfig);
+                    const item = response.data;
 
-                // Add the file to the list
-                files.push(toFile(item, driveId));
+                    // Add the file to the list
+                    files.push(toFile(item, driveId));
 
-                // If it's a folder, fetch its contents recursively
-                if (item.folder && item.folder.childCount > 0) {
-                    await fetchFolderContents(nango, driveId, fileId, files);
+                    // If it's a folder, fetch its contents recursively
+                    if (item.folder && item.folder.childCount > 0) {
+                        await fetchFolderContents(nango, driveId, fileId, files);
+                    }
+                } catch (error: any) {
+                    await nango.log(`Error fetching file ${fileId} from drive ${driveId}: ${error.message}`);
                 }
-            } catch (error: any) {
-                await nango.log(`Error fetching file ${fileId} from drive ${driveId}: ${error.message}`);
             }
         }
+
+        await nango.batchSave(files, 'OneDriveFileSelection');
     }
+});
 
-    await nango.batchSave(files, 'OneDriveFileSelection');
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
-async function fetchFolderContents(nango: NangoSync, driveId: string, folderId: string, files: any[], depth = 3) {
+async function fetchFolderContents(nango: NangoSyncLocal, driveId: string, folderId: string, files: any[], depth = 3) {
     if (depth === 0) {
         return;
     }

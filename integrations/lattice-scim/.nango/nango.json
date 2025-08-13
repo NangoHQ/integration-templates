@@ -1,0 +1,52 @@
+[
+  {
+    "providerConfigKey": "lattice-scim",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Lattice",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_lattice_scim_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_lattice_scim_createuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lattice_scim_createuser",
+          "ActionOutput_lattice_scim_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Disables a user in Lattice",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_lattice_scim_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_lattice_scim_disableuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lattice_scim_disableuser",
+          "ActionOutput_lattice_scim_disableuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

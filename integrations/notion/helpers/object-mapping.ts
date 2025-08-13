@@ -1,4 +1,4 @@
-import type { CalloutIcon } from '../types';
+import type { CalloutIcon } from '../types.js';
 import { markdownTable } from './markdown-table.js';
 
 export const inlineCode = (text: string) => {

@@ -1,77 +1,97 @@
-import type { NangoAction, User, AWSCreateUser, ProxyConfiguration } from '../../models';
-import type { AWSIAMRequestParams, CreateUserResponse } from '../types';
+import { createAction } from 'nango';
+import type { AWSIAMRequestParams, CreateUserResponse } from '../types.js';
 import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
-export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { User, AWSCreateUser } from '../models.js';
 
-    const { firstName, lastName, email, userName } = parsedInput.data;
+const action = createAction({
+    description: 'Creates a user in AWS IAM.',
+    version: '1.0.0',
 
-    const awsIAMParams: AWSIAMRequestParams = {
+    endpoint: {
         method: 'POST',
-        service: 'iam',
-        path: '/',
-        params: {
-            Action: 'CreateUser',
-            UserName: userName || `${firstName}.${lastName}`,
-            Version: '2010-05-08'
-        }
-    };
+        path: '/users',
+        group: 'Users'
+    },
 
-    const tags = [
-        { Key: 'firstName', Value: firstName },
-        { Key: 'lastName', Value: lastName },
-        { Key: 'email', Value: email }
-    ];
-    const tagsParams = new URLSearchParams();
-    tags.forEach((tag, index) => {
-        tagsParams.append(`Tags.member.${index + 1}.Key`, tag.Key);
-        tagsParams.append(`Tags.member.${index + 1}.Value`, tag.Value);
-    });
+    input: AWSCreateUser,
+    output: User,
 
-    const queryParams = new URLSearchParams({
-        ...awsIAMParams.params
-    });
+    exec: async (nango, input): Promise<User> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
-    tagsParams.forEach((value, key) => {
-        queryParams.append(key, value);
-    });
+        const { firstName, lastName, email, userName } = parsedInput.data;
 
-    // Sort and construct query string
-    const sortedQueryParams = new URLSearchParams(Array.from(queryParams.entries()).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)));
+        const awsIAMParams: AWSIAMRequestParams = {
+            method: 'POST',
+            service: 'iam',
+            path: '/',
+            params: {
+                Action: 'CreateUser',
+                UserName: userName || `${firstName}.${lastName}`,
+                Version: '2010-05-08'
+            }
+        };
 
-    const paramsObject = Object.fromEntries(sortedQueryParams.entries());
+        const tags = [
+            { Key: 'firstName', Value: firstName },
+            { Key: 'lastName', Value: lastName },
+            { Key: 'email', Value: email }
+        ];
+        const tagsParams = new URLSearchParams();
+        tags.forEach((tag, index) => {
+            tagsParams.append(`Tags.member.${index + 1}.Key`, tag.Key);
+            tagsParams.append(`Tags.member.${index + 1}.Value`, tag.Value);
+        });
 
-    // Get AWS authorization header
-    const { authorizationHeader, date } = await getAWSAuthHeader(
-        nango,
-        awsIAMParams.method,
-        awsIAMParams.service,
-        awsIAMParams.path,
-        sortedQueryParams.toString()
-    );
+        const queryParams = new URLSearchParams({
+            ...awsIAMParams.params
+        });
 
-    const config: ProxyConfiguration = {
-        // https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
-        endpoint: awsIAMParams.path,
-        params: paramsObject,
-        retries: 3
-    };
+        tagsParams.forEach((value, key) => {
+            queryParams.append(key, value);
+        });
 
-    // Make the Create User request
-    const resp = await nango.post({
-        ...config,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'x-amz-date': date,
-            Authorization: authorizationHeader
-        },
-        retries: 3
-    });
+        // Sort and construct query string
+        const sortedQueryParams = new URLSearchParams(Array.from(queryParams.entries()).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)));
 
-    return mapCreateUserResponse(resp.data.CreateUserResponse);
-}
+        const paramsObject = Object.fromEntries(sortedQueryParams.entries());
+
+        // Get AWS authorization header
+        const { authorizationHeader, date } = await getAWSAuthHeader(
+            nango,
+            awsIAMParams.method,
+            awsIAMParams.service,
+            awsIAMParams.path,
+            sortedQueryParams.toString()
+        );
+
+        const config: ProxyConfiguration = {
+            // https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
+            endpoint: awsIAMParams.path,
+            params: paramsObject,
+            retries: 3
+        };
+
+        // Make the Create User request
+        const resp = await nango.post({
+            ...config,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-amz-date': date,
+                Authorization: authorizationHeader
+            },
+            retries: 3
+        });
+
+        return mapCreateUserResponse(resp.data.CreateUserResponse);
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
 
 function mapCreateUserResponse(response: CreateUserResponse): User {
     const user = response.CreateUserResult?.User;

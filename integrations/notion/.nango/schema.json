@@ -1,240 +1,329 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "Property": {
-            "type": "object",
-            "properties": {
-                "propertyKey": {
-                    "type": "string"
-                },
-                "notionValue": {}
-            },
-            "required": ["propertyKey", "notionValue"],
-            "additionalProperties": false
-        },
-        "CreateDatabaseRowOutput": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                },
-                "addedProperties": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Property"
-                    }
-                }
-            },
-            "required": ["success", "addedProperties"],
-            "additionalProperties": false
-        },
-        "RichPageInput": {
-            "type": "object",
-            "properties": {
-                "pageId": {
-                    "type": "string"
-                }
-            },
-            "required": ["pageId"],
-            "additionalProperties": false
-        },
-        "ContentMetadata": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["page", "database"]
-                },
-                "last_modified": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "parent_id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "type", "last_modified"],
-            "additionalProperties": false
-        },
-        "RichPage": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "contentType": {
-                    "type": "string"
-                },
-                "meta": {
-                    "type": "object"
-                },
-                "last_modified": {
-                    "type": "string"
-                },
-                "parent_id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "path", "title", "content", "contentType", "meta", "last_modified"],
-            "additionalProperties": false
-        },
-        "DatabaseInput": {
-            "type": "object",
-            "properties": {
-                "databaseId": {
-                    "type": "string"
-                }
-            },
-            "required": ["databaseId"],
-            "additionalProperties": false
-        },
-        "CreateDatabaseRowInput": {
-            "type": "object",
-            "properties": {
-                "databaseId": {
-                    "type": "string"
-                },
-                "properties": {
-                    "type": "object"
-                }
-            },
-            "required": ["databaseId", "properties"],
-            "additionalProperties": false
-        },
-        "RowEntry": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "row": {
-                    "type": "object"
-                }
-            },
-            "required": ["id", "row"],
-            "additionalProperties": false
-        },
-        "Database": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "meta": {
-                    "type": "object"
-                },
-                "last_modified": {
-                    "type": "string"
-                },
-                "entries": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RowEntry"
-                    }
-                }
-            },
-            "required": ["id", "path", "title", "meta", "last_modified", "entries"],
-            "additionalProperties": false
-        },
-        "NotionCompleteDatabase": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "row": {
-                    "type": "object"
-                },
-                "meta": {
-                    "type": "object",
-                    "properties": {
-                        "databaseId": {
-                            "type": "string"
-                        },
-                        "path": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "last_modified": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["databaseId", "path", "title", "last_modified"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["id", "row", "meta"],
-            "additionalProperties": false
-        },
-        "UrlOrId": {
-            "type": "object",
-            "properties": {
-                "url": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": ["string", "null"]
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "isBot": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["id", "email", "firstName", "lastName", "isBot"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_notion_contentmetadata": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.58.7)"
+    "ContentMetadata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "page",
+            "database"
+          ]
+        },
+        "last_modified": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "last_modified"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_notion_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "isBot": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName",
+        "isBot"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_notion_databases": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "NotionCompleteDatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "row": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "databaseId": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "last_modified": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "databaseId",
+            "path",
+            "title",
+            "last_modified"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "row",
+        "meta"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_fetchrichpage": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_fetchrichpage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "last_modified": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "path",
+        "title",
+        "content",
+        "contentType",
+        "meta",
+        "last_modified"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_fetchdatabase": {
+      "type": "object",
+      "properties": {
+        "databaseId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "databaseId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_fetchdatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "last_modified": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "row": {
+                "type": "object",
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "row"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "path",
+        "title",
+        "meta",
+        "last_modified",
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_fetchcontentmetadata": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_fetchcontentmetadata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "page",
+            "database"
+          ]
+        },
+        "last_modified": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "last_modified"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_createdatabaserow": {
+      "type": "object",
+      "properties": {
+        "databaseId": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "databaseId",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createdatabaserow": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "addedProperties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "propertyKey": {
+                "type": "string"
+              },
+              "notionValue": {}
+            },
+            "required": [
+              "propertyKey"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "success",
+        "addedProperties"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

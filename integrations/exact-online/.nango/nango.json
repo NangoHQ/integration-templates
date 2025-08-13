@@ -1,0 +1,165 @@
+[
+  {
+    "providerConfigKey": "exact-online",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a customer in ExactOnline",
+        "endpoint": {
+          "method": "POST",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_exact_online_createcustomer",
+        "name": "create-customer",
+        "output": [
+          "ActionOutput_exact_online_createcustomer"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_createcustomer",
+          "ActionOutput_exact_online_createcustomer"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a customer in ExactOnline",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_exact_online_updatecustomer",
+        "name": "update-customer",
+        "output": [
+          "ActionOutput_exact_online_updatecustomer"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_updatecustomer",
+          "ActionOutput_exact_online_updatecustomer"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates an invoice in ExactOnline",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_exact_online_createinvoice",
+        "name": "create-invoice",
+        "output": [
+          "ActionOutput_exact_online_createinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_createinvoice",
+          "ActionOutput_exact_online_createinvoice"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an invoice in ExactOnline",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_exact_online_updateinvoice",
+        "name": "update-invoice",
+        "output": [
+          "ActionOutput_exact_online_updateinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_updateinvoice",
+          "ActionOutput_exact_online_updateinvoice"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Uploads a file to ExactOnline and link it to an invoice",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices/attach-file"
+        },
+        "input": "ActionInput_exact_online_attachfileinvoice",
+        "name": "attach-file-invoice",
+        "output": [
+          "ActionOutput_exact_online_attachfileinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_attachfileinvoice",
+          "ActionOutput_exact_online_attachfileinvoice"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all customers in Exact Online",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers",
+            "group": "Customers"
+          }
+        ],
+        "input": "SyncMetadata_exact_online_customers",
+        "name": "customers",
+        "output": [
+          "ExactCustomer"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "ExactCustomer",
+          "SyncMetadata_exact_online_customers"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all payments in Exact Online",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/payments"
+          }
+        ],
+        "input": "SyncMetadata_exact_online_payments",
+        "name": "payments",
+        "output": [
+          "ExactPayment"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "ExactPayment",
+          "SyncMetadata_exact_online_payments"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

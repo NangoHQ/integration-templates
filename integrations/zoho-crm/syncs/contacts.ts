@@ -1,38 +1,67 @@
-import type { ZohoCRMContact, NangoSync } from '../../models';
+import { createSync } from 'nango';
+import { ZohoCRMContact } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
-    const fields = ''; // Define your fields to retrieve specific field values
+const sync = createSync({
+    description: 'Fetches a list of contacts from zoho crm',
+    version: '1.0.0',
+    frequency: 'every half hour',
+    autoStart: false,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    // @allowTryCatch
-    try {
-        const endpoint = '/crm/v2/Contacts';
-        const config = {
-            headers: {
-                'If-Modified-Since': nango.lastSyncDate?.toUTCString() || ''
-            },
-            paginate: {
-                limit: 100
-            },
-            ...(fields ? { params: { fields } } : {})
-        };
-        for await (const contact of nango.paginate({ ...config, endpoint })) {
-            const mappedContacts: ZohoCRMContact[] = contact.map(mapContacts) || [];
-            // Save Contacts
-            const batchSize: number = mappedContacts.length;
-            totalRecords += batchSize;
-
-            await nango.log(`Saving batch of ${batchSize} contacts (total contacts: ${totalRecords})`);
-            await nango.batchSave(mappedContacts, 'ZohoCRMContact');
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/zoho-crm/contacts'
         }
-    } catch (error: any) {
-        if (Number(error.status) === 304) {
-            await nango.log('No Contacts found.');
-        } else {
-            throw new Error(`Error in fetchData: ${error.message}`);
+    ],
+
+    scopes: ['ZohoCRM.modules.contacts.READ'],
+
+    models: {
+        ZohoCRMContact: ZohoCRMContact
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+        const fields = ''; // Define your fields to retrieve specific field values
+
+        // @allowTryCatch
+        try {
+            const endpoint = '/crm/v2/Contacts';
+            const config = {
+                headers: {
+                    'If-Modified-Since': nango.lastSyncDate?.toUTCString() || ''
+                },
+                paginate: {
+                    limit: 100
+                },
+                ...(fields ? { params: { fields } } : {})
+            };
+            for await (const contact of nango.paginate({ ...config, endpoint })) {
+                const mappedContacts: ZohoCRMContact[] = contact.map(mapContacts) || [];
+                // Save Contacts
+                const batchSize: number = mappedContacts.length;
+                totalRecords += batchSize;
+
+                await nango.log(`Saving batch of ${batchSize} contacts (total contacts: ${totalRecords})`);
+                await nango.batchSave(mappedContacts, 'ZohoCRMContact');
+            }
+        } catch (error: any) {
+            if (Number(error.status) === 304) {
+                await nango.log('No Contacts found.');
+            } else {
+                throw new Error(`Error in fetchData: ${error.message}`);
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapContacts(contact: any): ZohoCRMContact {
     return {

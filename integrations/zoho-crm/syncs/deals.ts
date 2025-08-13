@@ -1,38 +1,67 @@
-import type { ZohoCRMDeal, NangoSync } from '../../models';
+import { createSync } from 'nango';
+import { ZohoCRMDeal } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
-    const fields = ''; // Define your fields to retrieve specific field values
+const sync = createSync({
+    description: 'Fetches a list of deals/opportunities from zoho crm',
+    version: '1.0.0',
+    frequency: 'every half hour',
+    autoStart: false,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    // @allowTryCatch
-    try {
-        const endpoint = '/crm/v2/Deals';
-        const config = {
-            headers: {
-                'If-Modified-Since': nango.lastSyncDate?.toUTCString() || ''
-            },
-            paginate: {
-                limit: 100
-            },
-            ...(fields ? { params: { fields } } : {})
-        };
-        for await (const deal of nango.paginate({ ...config, endpoint })) {
-            const mappedDeals: ZohoCRMDeal[] = deal.map(mapDeals) || [];
-            // Save Deals
-            const batchSize: number = mappedDeals.length;
-            totalRecords += batchSize;
-
-            await nango.log(`Saving batch of ${batchSize} deals (total deals: ${totalRecords})`);
-            await nango.batchSave(mappedDeals, 'ZohoCRMDeal');
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/zoho-crm/deals'
         }
-    } catch (error: any) {
-        if (Number(error.status) === 304) {
-            await nango.log('No Deals found.');
-        } else {
-            throw new Error(`Error in fetchData: ${error.message}`);
+    ],
+
+    scopes: ['ZohoCRM.modules.deals.READ'],
+
+    models: {
+        ZohoCRMDeal: ZohoCRMDeal
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+        const fields = ''; // Define your fields to retrieve specific field values
+
+        // @allowTryCatch
+        try {
+            const endpoint = '/crm/v2/Deals';
+            const config = {
+                headers: {
+                    'If-Modified-Since': nango.lastSyncDate?.toUTCString() || ''
+                },
+                paginate: {
+                    limit: 100
+                },
+                ...(fields ? { params: { fields } } : {})
+            };
+            for await (const deal of nango.paginate({ ...config, endpoint })) {
+                const mappedDeals: ZohoCRMDeal[] = deal.map(mapDeals) || [];
+                // Save Deals
+                const batchSize: number = mappedDeals.length;
+                totalRecords += batchSize;
+
+                await nango.log(`Saving batch of ${batchSize} deals (total deals: ${totalRecords})`);
+                await nango.batchSave(mappedDeals, 'ZohoCRMDeal');
+            }
+        } catch (error: any) {
+            if (Number(error.status) === 304) {
+                await nango.log('No Deals found.');
+            } else {
+                throw new Error(`Error in fetchData: ${error.message}`);
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapDeals(deal: any): ZohoCRMDeal {
     return {

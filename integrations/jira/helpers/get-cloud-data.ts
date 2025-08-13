@@ -1,5 +1,6 @@
-import type { JiraIssueMetadata, NangoAction, ProxyConfiguration } from '../../models';
-import type { JiraAccessibleResource } from '../types';
+import type { NangoAction, ProxyConfiguration } from 'nango';
+import type { JiraIssueMetadata } from '../models.js';
+import type { JiraAccessibleResource } from '../types.js';
 
 /**
  * Retrieves the cloud ID and base URL for the Jira instance from the Nango connection configuration or metadata.
@@ -9,7 +10,7 @@ import type { JiraAccessibleResource } from '../types';
  * @returns {Promise<{ cloudId: string, baseUrl: string }>} - The cloud ID and base URL for the Jira instance.
  * @throws {Error} - Throws an error if the accessible resources are not found or the cloud ID/base URL cannot be retrieved.
  */
-export async function getCloudData(nango: NangoAction): Promise<{ cloudId: string; baseUrl: string }> {
+export async function getCloudData(nango: NangoAction<typeof JiraIssueMetadata>): Promise<{ cloudId: string; baseUrl: string }> {
     const connection = await nango.getConnection();
     const metadata = await nango.getMetadata<JiraIssueMetadata>();
 

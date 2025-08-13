@@ -1,5 +1,5 @@
-import type { BankTransaction, BankTransactionLineItem, TrackingCategory } from '../../models';
-import type { XeroBankTransactionLineItem, XeroBankTransaction, XeroTrackingCategory } from '../types';
+import type { BankTransaction, BankTransactionLineItem, TrackingCategory } from '../models.js';
+import type { XeroBankTransactionLineItem, XeroBankTransaction, XeroTrackingCategory } from '../types.js';
 
 import { parseDate } from '../utils.js';
 

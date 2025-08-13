@@ -1,18 +1,39 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, OktaAssignRemoveUserGroup } from '../../models';
+import { createAction } from 'nango';
 import { oktaAssignRemoveUserGroupSchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: OktaAssignRemoveUserGroup): Promise<SuccessResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: oktaAssignRemoveUserGroupSchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, OktaAssignRemoveUserGroup } from '../models.js';
 
-    const config: ProxyConfiguration = {
-        // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/assignUserToGroup
-        endpoint: `/api/v1/groups/${parsedInput.data.groupId}/users/${parsedInput.data.userId}`,
-        retries: 3
-    };
+const action = createAction({
+    description: 'Assigns a user to a group with the OKTA_GROUP type',
+    version: '1.0.0',
 
-    await nango.put(config);
+    endpoint: {
+        method: 'PUT',
+        path: '/user-groups',
+        group: 'User Groups'
+    },
 
-    return {
-        success: true
-    };
-}
+    input: OktaAssignRemoveUserGroup,
+    output: SuccessResponse,
+    scopes: ['okta.groups.manage'],
+
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: oktaAssignRemoveUserGroupSchema, input });
+
+        const config: ProxyConfiguration = {
+            // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/assignUserToGroup
+            endpoint: `/api/v1/groups/${parsedInput.data.groupId}/users/${parsedInput.data.userId}`,
+            retries: 3
+        };
+
+        await nango.put(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { Annotations } from '../types';
+import type { Annotations } from '../types.js';
 import { underline, strikethrough, italic, inlineCode, bold } from './object-mapping.js';
 
 export const annotatePlainText = (text: string, annotations: Annotations): string => {

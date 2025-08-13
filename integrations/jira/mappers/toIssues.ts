@@ -1,5 +1,5 @@
-import type { JiraIssueResponse } from '../types';
-import type { Comment, Issue } from '../../models';
+import type { JiraIssueResponse } from '../types.js';
+import type { Comment, Issue } from '../models.js';
 import { getWebUrl } from '../helpers/get-web-url.js';
 
 /**

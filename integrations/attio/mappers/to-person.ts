@@ -1,5 +1,5 @@
-import type { AttioPerson } from '../../models';
-import type { AttioPersonResponse } from '../types';
+import type { AttioPerson } from '../models.js';
+import type { AttioPersonResponse } from '../types.js';
 import { toSocialLinks } from './to-social-links.js';
 
 export function toPerson(record: AttioPersonResponse): AttioPerson {

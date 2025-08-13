@@ -1,25 +1,58 @@
-import type { Address, NangoSync, Organisation, Phone, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const tenant_id = await getTenantId(nango);
+import type { ProxyConfiguration } from 'nango';
+import type { Address, Phone } from '../models.js';
+import { Organisation } from '../models.js';
+import { z } from 'zod';
 
-    const config: ProxyConfiguration = {
-        // https://developer.xero.com/documentation/api/accounting/organisation
-        endpoint: 'api.xro/2.0/Organisation',
-        headers: {
-            'xero-tenant-id': tenant_id
-        },
-        retries: 10
-    };
+const sync = createSync({
+    description: 'Fetches organisation details in Xero.',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const res = await nango.get(config);
-    if (res.data.Organisations) {
-        const mappedOrganisations = res.data.Organisations.map(mapXeroOrganisation);
-        await nango.batchSave(mappedOrganisations, 'Organisation');
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/organisations',
+            group: 'Organisations'
+        }
+    ],
+
+    scopes: ['accounting.settings', 'accounting.settings.read'],
+
+    models: {
+        Organisation: Organisation
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const tenant_id = await getTenantId(nango);
+
+        const config: ProxyConfiguration = {
+            // https://developer.xero.com/documentation/api/accounting/organisation
+            endpoint: 'api.xro/2.0/Organisation',
+            headers: {
+                'xero-tenant-id': tenant_id
+            },
+            retries: 10
+        };
+
+        const res = await nango.get(config);
+        if (res.data.Organisations) {
+            const mappedOrganisations = res.data.Organisations.map(mapXeroOrganisation);
+            await nango.batchSave(mappedOrganisations, 'Organisation');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapXeroOrganisation(xeroOrganisation: any): Organisation {
     return {

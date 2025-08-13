@@ -1,5 +1,5 @@
-import type { Site } from '../../models';
-import type { SharePointSite } from '../types';
+import type { Site } from '../models.js';
+import type { SharePointSite } from '../types.js';
 
 /**
  * Converts a SharePointSite object to a slim Site object.

@@ -1,5 +1,5 @@
-import type { GeneralLedgerAccount } from '../types';
-import type { Account } from '../../models';
+import type { GeneralLedgerAccount } from '../types.js';
+import type { Account } from '../models.js';
 
 export function toAccount(account: GeneralLedgerAccount): Account {
     return {

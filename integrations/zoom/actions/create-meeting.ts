@@ -1,54 +1,75 @@
-import type { NangoAction, ProxyConfiguration, CreateMeeting, Meeting } from '../../models';
+import { createAction } from 'nango';
 import { createMeetingSchema } from '../schema.zod.js';
-import type { ZoomCreatedMeeting } from '../types';
+import type { ZoomCreatedMeeting } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: CreateMeeting): Promise<Meeting> {
-    await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { Meeting, CreateMeeting } from '../models.js';
 
-    const zoomInput: Record<string, any> = {
-        ...input,
-        type: determineMeetingType(input.type)
-    };
+const action = createAction({
+    description: 'Creates a meeting in Zoom.',
+    version: '1.0.0',
 
-    if (zoomInput['recurrence']?.['type']) {
-        zoomInput['recurrence']['type'] = determineRecurrenceType(zoomInput['recurrence']['type']);
+    endpoint: {
+        method: 'POST',
+        path: '/meetings',
+        group: 'Meetings'
+    },
+
+    input: CreateMeeting,
+    output: Meeting,
+    scopes: ['meeting:write'],
+
+    exec: async (nango, input): Promise<Meeting> => {
+        await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
+
+        const zoomInput: Record<string, any> = {
+            ...input,
+            type: determineMeetingType(input.type)
+        };
+
+        if (zoomInput['recurrence']?.['type']) {
+            zoomInput['recurrence']['type'] = determineRecurrenceType(zoomInput['recurrence']['type']);
+        }
+
+        if (zoomInput['recurrence']?.['weekly_days']) {
+            zoomInput['recurrence']['weekly_days'] = determineWeeklyDays(zoomInput['recurrence']['weekly_days']);
+        }
+
+        if (zoomInput['settings']?.['approval_type']) {
+            zoomInput['settings']['approval_type'] = determineApprovalType(zoomInput['settings']['approval_type']);
+        }
+
+        if (zoomInput['settings']?.['registration_type']) {
+            zoomInput['settings']['registration_type'] = determineRegistrationType(zoomInput['settings']['registration_type']);
+        }
+
+        const config: ProxyConfiguration = {
+            // https://developers.zoom.us/docs/api/meetings/#tag/meetings/POST/users/{userId}/meetings
+            endpoint: `/users/me/meetings`,
+            data: zoomInput,
+            retries: 3
+        };
+
+        const response = await nango.post<ZoomCreatedMeeting>(config);
+
+        const { data } = response;
+
+        const meeting: Meeting = {
+            id: data.id.toString(),
+            topic: data.topic,
+            startTime: data.start_time,
+            duration: data.duration,
+            timezone: data.timezone,
+            joinUrl: data.join_url,
+            createdAt: data.created_at
+        };
+
+        return meeting;
     }
+});
 
-    if (zoomInput['recurrence']?.['weekly_days']) {
-        zoomInput['recurrence']['weekly_days'] = determineWeeklyDays(zoomInput['recurrence']['weekly_days']);
-    }
-
-    if (zoomInput['settings']?.['approval_type']) {
-        zoomInput['settings']['approval_type'] = determineApprovalType(zoomInput['settings']['approval_type']);
-    }
-
-    if (zoomInput['settings']?.['registration_type']) {
-        zoomInput['settings']['registration_type'] = determineRegistrationType(zoomInput['settings']['registration_type']);
-    }
-
-    const config: ProxyConfiguration = {
-        // https://developers.zoom.us/docs/api/meetings/#tag/meetings/POST/users/{userId}/meetings
-        endpoint: `/users/me/meetings`,
-        data: zoomInput,
-        retries: 3
-    };
-
-    const response = await nango.post<ZoomCreatedMeeting>(config);
-
-    const { data } = response;
-
-    const meeting: Meeting = {
-        id: data.id.toString(),
-        topic: data.topic,
-        startTime: data.start_time,
-        duration: data.duration,
-        timezone: data.timezone,
-        joinUrl: data.join_url,
-        createdAt: data.created_at
-    };
-
-    return meeting;
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
 
 function determineMeetingType(type: CreateMeeting['type']): number {
     switch (type) {

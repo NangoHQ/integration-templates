@@ -1,29 +1,60 @@
-import type { NangoSync, ProxyConfiguration, Metadata } from '../../models';
+import { createSync } from 'nango';
 import { toPage } from '../mappers/to-page.js';
-import type { BrightCrowdPage } from '../types';
+import type { BrightCrowdPage } from '../types.js';
+import type { ProxyConfiguration } from 'nango';
+import { Page, Metadata } from '../models.js';
+
 /**
  * Fetches pages from BrightCrowd API
  */
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<Metadata>();
+const sync = createSync({
+    description: 'Fetches a list of all pages in a book from Brightcrowd.',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
 
-    if (!metadata) {
-        await nango.log('No Metadata found.', { level: 'warn' });
-        return;
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/pages',
+            group: 'Books'
+        }
+    ],
+
+    scopes: ['bcb.partner/page.read'],
+
+    models: {
+        Page: Page
+    },
+
+    metadata: Metadata,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+
+        if (!metadata) {
+            await nango.log('No Metadata found.', { level: 'warn' });
+            return;
+        }
+        const { bookIds } = metadata;
+
+        if (!bookIds || !bookIds.length) {
+            await nango.log('No books found.', { level: 'warn' });
+            return;
+        }
+
+        for (const bookId of bookIds) {
+            await fetchPages(nango, bookId);
+        }
     }
-    const { bookIds } = metadata;
+});
 
-    if (!bookIds || !bookIds.length) {
-        await nango.log('No books found.', { level: 'warn' });
-        return;
-    }
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
-    for (const bookId of bookIds) {
-        await fetchPages(nango, bookId);
-    }
-}
-
-const fetchPages = async (nango: NangoSync, id: string) => {
+const fetchPages = async (nango: NangoSyncLocal, id: string) => {
     const proxyConfig: ProxyConfiguration = {
         // https://brightcrowd.com/partner-api#/operations/listPages
         endpoint: `/books/${id}/pages`,

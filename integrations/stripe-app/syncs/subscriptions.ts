@@ -1,56 +1,89 @@
-import type { NangoSync, ProxyConfiguration, Subscription, Item } from '../../models';
-import type { StripeResponse, StripeItem, StripeSubscription } from '../types';
+import { createSync } from 'nango';
+import type { StripeResponse, StripeItem, StripeSubscription } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import type { Item } from '../models.js';
+import { Subscription } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const params: Record<string, string | number> = {
-        limit: LIMIT
-    };
+const sync = createSync({
+    description: 'Fetches a list of subscriptions',
+    version: '1.0.0',
+    frequency: 'every 2h',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const config: ProxyConfiguration = {
-        // https://stripe.com/docs/api/subscriptions/list
-        endpoint: '/v1/subscriptions',
-        params,
-        retries: 10
-    };
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/subscriptions',
+            group: 'Subscriptions'
+        }
+    ],
 
-    let hasMore = true;
-    let starting_after = '';
+    scopes: ['subscription_read'],
 
-    while (hasMore) {
-        const response = await nango.get<StripeResponse<StripeSubscription>>(config);
+    models: {
+        Subscription: Subscription
+    },
 
-        const { data } = response;
+    metadata: z.object({}),
 
-        hasMore = data.has_more;
+    exec: async (nango) => {
+        const params: Record<string, string | number> = {
+            limit: LIMIT
+        };
 
-        // Safely access subscriptions and its last item's id
-        if (data.data && data.data.length > 0) {
-            const subscriptions = data.data || [];
+        const config: ProxyConfiguration = {
+            // https://stripe.com/docs/api/subscriptions/list
+            endpoint: '/v1/subscriptions',
+            params,
+            retries: 10
+        };
 
-            const mappedSubscriptions = await Promise.all(
-                subscriptions.map(async (subscription) => ({
-                    ...mapSubscriptions(subscription),
-                    items: await retrieveAndMapItems(nango, subscription.items)
-                }))
-            );
-            await nango.batchSave(mappedSubscriptions, 'Subscription');
+        let hasMore = true;
+        let starting_after = '';
 
-            const lastIndex = subscriptions.length - 1;
-            const lastElement = subscriptions[lastIndex];
-            if (!lastElement) {
+        while (hasMore) {
+            const response = await nango.get<StripeResponse<StripeSubscription>>(config);
+
+            const { data } = response;
+
+            hasMore = data.has_more;
+
+            // Safely access subscriptions and its last item's id
+            if (data.data && data.data.length > 0) {
+                const subscriptions = data.data || [];
+
+                const mappedSubscriptions = await Promise.all(
+                    subscriptions.map(async (subscription) => ({
+                        ...mapSubscriptions(subscription),
+                        items: await retrieveAndMapItems(nango, subscription.items)
+                    }))
+                );
+                await nango.batchSave(mappedSubscriptions, 'Subscription');
+
+                const lastIndex = subscriptions.length - 1;
+                const lastElement = subscriptions[lastIndex];
+                if (!lastElement) {
+                    hasMore = false;
+                    continue;
+                }
+                starting_after = lastElement.id;
+
+                params['starting_after'] = starting_after;
+            } else {
                 hasMore = false;
-                continue;
             }
-            starting_after = lastElement.id;
-
-            params['starting_after'] = starting_after;
-        } else {
-            hasMore = false;
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapSubscriptions(subscription: StripeSubscription): Omit<Subscription, 'items'> {
     return {
@@ -93,7 +126,7 @@ function mapSubscriptions(subscription: StripeSubscription): Omit<Subscription, 
     };
 }
 
-async function retrieveAndMapItems(nango: NangoSync, items: StripeResponse<StripeItem>): Promise<Item[]> {
+async function retrieveAndMapItems(nango: NangoSyncLocal, items: StripeResponse<StripeItem>): Promise<Item[]> {
     const allItems: StripeItem[] = [];
     let hasMore = items.has_more;
     let starting_after = '';

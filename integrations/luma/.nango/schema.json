@@ -1,157 +1,169 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Timestamps": {
-            "type": "object",
-            "properties": {
-                "created_at": {
-                    "type": "string"
-                },
-                "start_at": {
-                    "type": "string"
-                },
-                "end_at": {
-                    "type": "string"
-                }
-            },
-            "required": ["created_at", "start_at", "end_at"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_luma_listevents": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "GeoAddress": {
-            "type": "object",
-            "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "start_at": {
+          "type": "string"
+        },
+        "end_at": {
+          "type": "string"
+        },
+        "cover_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "description_md": {
+          "type": "string"
+        },
+        "series_api_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_interval_iso8601": {
+          "type": "string"
+        },
+        "geo_latitude": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "geo_longitude": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "geo_address_json": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "city": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "type": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "region": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "address": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "country": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "latitude": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "place_id": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "longitude": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "city_state": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "description": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "full_address": {
-                    "type": "string"
+                  "type": "string"
                 }
-            },
-            "required": ["city", "type", "region", "address", "country", "latitude", "place_id", "longitude", "city_state", "description", "full_address"],
-            "additionalProperties": false
-        },
-        "Event": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "start_at": {
-                    "type": "string"
-                },
-                "end_at": {
-                    "type": "string"
-                },
-                "cover_url": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "description_md": {
-                    "type": "string"
-                },
-                "series_api_id": {
-                    "type": ["string", "null"]
-                },
-                "duration_interval_iso8601": {
-                    "type": "string"
-                },
-                "geo_latitude": {
-                    "type": ["string", "null"]
-                },
-                "geo_longitude": {
-                    "type": ["string", "null"]
-                },
-                "geo_address_json": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/GeoAddress"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "url": {
-                    "type": "string"
-                },
-                "timezone": {
-                    "type": "string"
-                },
-                "event_type": {
-                    "type": "string"
-                },
-                "user_api_id": {
-                    "type": "string"
-                },
-                "visibility": {
-                    "type": "string"
-                },
-                "meeting_url": {
-                    "type": ["string", "null"]
-                },
-                "zoom_meeting_url": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": [
-                "id",
-                "created_at",
-                "start_at",
-                "end_at",
-                "cover_url",
-                "name",
+              },
+              "required": [
+                "city",
+                "type",
+                "region",
+                "address",
+                "country",
+                "latitude",
+                "place_id",
+                "longitude",
+                "city_state",
                 "description",
-                "description_md",
-                "series_api_id",
-                "duration_interval_iso8601",
-                "geo_latitude",
-                "geo_longitude",
-                "geo_address_json",
-                "url",
-                "timezone",
-                "event_type",
-                "user_api_id",
-                "visibility",
-                "meeting_url",
-                "zoom_meeting_url"
-            ],
-            "additionalProperties": false
+                "full_address"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "user_api_id": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "meeting_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zoom_meeting_url": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
-    },
-    "$comment": "This file was generated by Nango (v0.58.7)"
+      },
+      "required": [
+        "id",
+        "created_at",
+        "start_at",
+        "end_at",
+        "cover_url",
+        "name",
+        "description",
+        "description_md",
+        "series_api_id",
+        "duration_interval_iso8601",
+        "geo_latitude",
+        "geo_longitude",
+        "geo_address_json",
+        "url",
+        "timezone",
+        "event_type",
+        "user_api_id",
+        "visibility",
+        "meeting_url",
+        "zoom_meeting_url"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -1,5 +1,5 @@
-import type { FailedItem, Item } from '../../models';
-import type { Item as XeroItem } from '../types';
+import type { FailedItem, Item } from '../models.js';
+import type { Item as XeroItem } from '../types.js';
 
 export function toItem(xeroItem: XeroItem): Item {
     const item: Item = {

@@ -1,57 +1,89 @@
-import type { NangoSync, GmailEmail, OptionalBackfillSetting, Attachments } from '../../models';
-import type { Schema$Message, Schema$MessagePart } from '../types';
+import { createSync } from 'nango';
+import type { Schema$Message, Schema$MessagePart } from '../types.js';
+
+import type { Attachments } from '../models.js';
+import { GmailEmail, OptionalBackfillSetting } from '../models.js';
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<OptionalBackfillSetting>();
-    const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
-    const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
-    const { lastSyncDate } = nango;
-    const syncDate = lastSyncDate || backfillPeriod;
+const sync = createSync({
+    description:
+        'Fetches a list of emails from gmail. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const pageSize = 100;
-    let nextPageToken: string | undefined = '';
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/emails',
+            group: 'Emails'
+        }
+    ],
 
-    do {
-        // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list
-        const response: any = await nango.proxy({
-            method: 'get',
-            endpoint: '/gmail/v1/users/me/messages',
-            params: {
-                maxResults: `${pageSize}`,
-                q: `after:${Math.floor(syncDate.getTime() / 1000)}`,
-                pageToken: nextPageToken
-            },
-            retries: 10
-        });
+    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
-        const messageList = response.data.messages || [];
-        const emails: GmailEmail[] = [];
+    models: {
+        GmailEmail: GmailEmail
+    },
 
-        for (const message of messageList) {
-            const messageDetail = await nango.proxy<Schema$Message>({
+    metadata: OptionalBackfillSetting,
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+        const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
+        const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
+        const { lastSyncDate } = nango;
+        const syncDate = lastSyncDate || backfillPeriod;
+
+        const pageSize = 100;
+        let nextPageToken: string | undefined = '';
+
+        do {
+            // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list
+            const response: any = await nango.proxy({
                 method: 'get',
-                endpoint: `/gmail/v1/users/me/messages/${message.id}`,
+                endpoint: '/gmail/v1/users/me/messages',
+                params: {
+                    maxResults: `${pageSize}`,
+                    q: `after:${Math.floor(syncDate.getTime() / 1000)}`,
+                    pageToken: nextPageToken
+                },
                 retries: 10
             });
 
-            const headers: Record<string, any> = messageDetail.data.payload?.headers?.reduce((acc: any, current: any) => {
-                return {
-                    ...acc,
-                    [current.name]: current.value
-                };
-            }, {});
+            const messageList = response.data.messages || [];
+            const emails: GmailEmail[] = [];
 
-            emails.push(mapEmail(messageDetail.data, headers));
-        }
+            for (const message of messageList) {
+                const messageDetail = await nango.proxy<Schema$Message>({
+                    method: 'get',
+                    endpoint: `/gmail/v1/users/me/messages/${message.id}`,
+                    retries: 10
+                });
 
-        await nango.batchSave(emails, 'GmailEmail');
+                const headers: Record<string, any> = messageDetail.data.payload?.headers?.reduce((acc: any, current: any) => {
+                    return {
+                        ...acc,
+                        [current.name]: current.value
+                    };
+                }, {});
 
-        nextPageToken = response.data.nextPageToken;
-    } while (nextPageToken);
-}
+                emails.push(mapEmail(messageDetail.data, headers));
+            }
+
+            await nango.batchSave(emails, 'GmailEmail');
+
+            nextPageToken = response.data.nextPageToken;
+        } while (nextPageToken);
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function processParts(parts: Schema$MessagePart[], bodyObj: { body: string }, attachments: Attachments[]): void {
     for (const part of parts) {

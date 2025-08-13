@@ -1,0 +1,1000 @@
+{
+    "method": "post",
+    "endpoint": "admin/api/2024-01/graphql.json",
+    "requestIdentityHash": "39bbdb4ace5d9dfbfefc9e2cad1c60783c82d803",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "admin/api/2024-01/graphql.json",
+        "params": [],
+        "headers": [],
+        "data": "sha1:cad0610469ef8143a7eea3c352fbcf7fd6e32228"
+    },
+    "response": {
+        "data": {
+            "orders": {
+                "edges": [
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189435814117",
+                            "name": "#1001",
+                            "createdAt": "2025-02-19T13:43:33Z",
+                            "updatedAt": "2025-02-19T13:43:34Z",
+                            "processedAt": "2025-02-19T13:43:32Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "116000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "100000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "16000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949300568293",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTMwMDU2ODI5MywibGFzdF92YWx1ZSI6MTQ5NDkzMDA1NjgyOTN9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189436109029",
+                            "name": "#1002",
+                            "createdAt": "2025-02-19T13:43:54Z",
+                            "updatedAt": "2025-02-19T13:43:55Z",
+                            "processedAt": "2025-02-19T13:43:53Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "232000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "200000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "32000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949301321957",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949301354725",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTMwMTM1NDcyNSwibGFzdF92YWx1ZSI6MTQ5NDkzMDEzNTQ3MjV9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189436502245",
+                            "name": "#1003",
+                            "createdAt": "2025-02-19T13:44:23Z",
+                            "updatedAt": "2025-02-19T13:44:24Z",
+                            "processedAt": "2025-02-19T13:44:23Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "116000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "100000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "16000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949302075621",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTMwMjA3NTYyMSwibGFzdF92YWx1ZSI6MTQ5NDkzMDIwNzU2MjF9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189436797157",
+                            "name": "#1004",
+                            "createdAt": "2025-02-19T13:44:39Z",
+                            "updatedAt": "2025-02-19T13:44:40Z",
+                            "processedAt": "2025-02-19T13:44:39Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "232000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "200000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "32000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949302468837",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949302501605",
+                                            "name": "Dummy Item",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTMwMjUwMTYwNSwibGFzdF92YWx1ZSI6MTQ5NDkzMDI1MDE2MDV9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189437059301",
+                            "name": "#1005",
+                            "createdAt": "2025-02-19T13:44:59Z",
+                            "updatedAt": "2025-02-19T13:45:00Z",
+                            "processedAt": "2025-02-19T13:44:58Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "232000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "200000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "32000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949303124197",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949303156965",
+                                            "name": "Dummy Item",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTMwMzE1Njk2NSwibGFzdF92YWx1ZSI6MTQ5NDkzMDMxNTY5NjV9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189468221669",
+                            "name": "#1006",
+                            "createdAt": "2025-02-19T14:17:55Z",
+                            "updatedAt": "2025-02-19T14:17:56Z",
+                            "processedAt": "2025-02-19T14:17:54Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": {
+                                "firstName": "James",
+                                "lastName": "last",
+                                "displayName": "James last",
+                                "email": null,
+                                "phone": null
+                            },
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "232000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "200000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "32000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": {
+                                "address1": "7834-00200",
+                                "address2": "Number HSE",
+                                "city": "Nairobi",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": "00200"
+                            },
+                            "billingAddress": {
+                                "address1": "7834-00200",
+                                "address2": "Number HSE",
+                                "city": "Nairobi",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": "00200"
+                            },
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949374951653",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949374984421",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTM3NDk4NDQyMSwibGFzdF92YWx1ZSI6MTQ5NDkzNzQ5ODQ0MjF9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6189601521893",
+                            "name": "#1007",
+                            "createdAt": "2025-02-19T15:58:28Z",
+                            "updatedAt": "2025-02-19T15:58:30Z",
+                            "processedAt": "2025-02-19T15:58:28Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": {
+                                "firstName": "james",
+                                "lastName": "testing",
+                                "displayName": "james testing",
+                                "email": null,
+                                "phone": null
+                            },
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "232000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "200000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "32000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": {
+                                "address1": "",
+                                "address2": null,
+                                "city": "",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": null
+                            },
+                            "billingAddress": {
+                                "address1": "",
+                                "address2": null,
+                                "city": "",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": null
+                            },
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949722980581",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14949723013349",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk0OTcyMzAxMzM0OSwibGFzdF92YWx1ZSI6MTQ5NDk3MjMwMTMzNDl9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6190029209829",
+                            "name": "#1008",
+                            "createdAt": "2025-02-19T21:51:00Z",
+                            "updatedAt": "2025-02-19T21:51:01Z",
+                            "processedAt": "2025-02-19T21:51:00Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "348000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "300000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "48000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950804848869",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950804881637",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950804914405",
+                                            "name": "Dummy Item",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk1MDgwNDkxNDQwNSwibGFzdF92YWx1ZSI6MTQ5NTA4MDQ5MTQ0MDV9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6190030553317",
+                            "name": "#1009",
+                            "createdAt": "2025-02-19T21:52:31Z",
+                            "updatedAt": "2025-02-19T21:52:33Z",
+                            "processedAt": "2025-02-19T21:52:31Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": null,
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "348232.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "300200.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "48032.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": null,
+                            "billingAddress": null,
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950808289509",
+                                            "name": "Another one",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950808322277",
+                                            "name": "Another one (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950808355045",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950808387813",
+                                            "name": "Dummt -1 (Copy)",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14950808420581",
+                                            "name": "Dummy Item",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk1MDgwODQyMDU4MSwibGFzdF92YWx1ZSI6MTQ5NTA4MDg0MjA1ODF9"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "id": "gid://shopify/Order/6190793654501",
+                            "name": "#1010",
+                            "createdAt": "2025-02-20T09:35:55Z",
+                            "updatedAt": "2025-02-20T09:35:56Z",
+                            "processedAt": "2025-02-20T09:35:55Z",
+                            "currencyCode": "KES",
+                            "presentmentCurrencyCode": "KES",
+                            "confirmed": true,
+                            "cancelledAt": null,
+                            "cancelReason": null,
+                            "closed": false,
+                            "closedAt": null,
+                            "fullyPaid": true,
+                            "customer": {
+                                "firstName": "james",
+                                "lastName": "testing",
+                                "displayName": "james testing",
+                                "email": null,
+                                "phone": null
+                            },
+                            "totalReceivedSet": {
+                                "presentmentMoney": {
+                                    "amount": "116000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "subtotalPriceSet": {
+                                "presentmentMoney": {
+                                    "amount": "100000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "totalTaxSet": {
+                                "presentmentMoney": {
+                                    "amount": "16000.0",
+                                    "currencyCode": "KES"
+                                }
+                            },
+                            "shippingAddress": {
+                                "address1": "",
+                                "address2": null,
+                                "city": "",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": null
+                            },
+                            "billingAddress": {
+                                "address1": "",
+                                "address2": null,
+                                "city": "",
+                                "country": "Kenya",
+                                "province": null,
+                                "zip": null
+                            },
+                            "lineItems": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "gid://shopify/LineItem/14952682160357",
+                                            "name": "Dummt -1",
+                                            "quantity": 1,
+                                            "originalTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            },
+                                            "discountedTotalSet": {
+                                                "presentmentMoney": {
+                                                    "amount": "100000.0",
+                                                    "currencyCode": "KES"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "pageInfo": {
+                                    "hasNextPage": false,
+                                    "endCursor": "eyJsYXN0X2lkIjoxNDk1MjY4MjE2MDM1NywibGFzdF92YWx1ZSI6MTQ5NTI2ODIxNjAzNTd9"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "pageInfo": {
+                    "hasNextPage": false,
+                    "endCursor": "eyJsYXN0X2lkIjo2MTkwNzkzNjU0NTAxLCJsYXN0X3ZhbHVlIjoiMjAyNS0wMi0yMCAwOTozNTo1NS4xMjE0MjAifQ=="
+                }
+            }
+        },
+        "extensions": {
+            "cost": {
+                "requestedQueryCost": 189,
+                "actualQueryCost": 30,
+                "throttleStatus": {
+                    "maximumAvailable": 2000,
+                    "currentlyAvailable": 1970,
+                    "restoreRate": 100
+                }
+            }
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 20 Feb 2025 09:59:25 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-cache-status": "DYNAMIC",
+        "content-language": "en",
+        "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/5ae8bbe/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=23b2f97c-38aa-479d-8f90-4fd18de7e200-1740045564; report-to shopify-csp",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+        "referrer-policy": "origin-when-cross-origin",
+        "render-cf-cache": "private, max-age=0, no-transform",
+        "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=w3ZrGVGaVdIthY8DDxwz4kGMCKvPqcIhEN7UopqDsstUBzIXG9LVkTe39PMXRLrLb3qOyNnQrqq5ffyOg9sQAAfDikvBVw6XdCwtzRJ%2BhGHAlkdOQRCYIlYRrWdlayGphhxNWRwCc6Y3zDxLqvg%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+        "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=23b2f97c-38aa-479d-8f90-4fd18de7e200-1740045564\"",
+        "rndr-id": "67ce2b84-12b1-4772",
+        "server-timing": "processing;dur=227, graphql;desc=\"admin/query/other\", cfRequestDuration;dur=309.999943",
+        "strict-transport-security": "max-age=7889238",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dc": "gcp-us-central1,gcp-us-central1,gcp-us-central1",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "DENY",
+        "x-permitted-cross-domain-policies": "none",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3494",
+        "x-ratelimit-reset": "1740045584",
+        "x-render-origin-server": "cloudflare",
+        "x-request-id": "23b2f97c-38aa-479d-8f90-4fd18de7e200-1740045564",
+        "x-shardid": "228",
+        "x-shopid": "73310240997",
+        "x-shopify-api-version": "2024-04",
+        "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+        "x-sorting-hat-podid": "228",
+        "x-sorting-hat-shopid": "73310240997",
+        "x-stats-apiclientid": "220958654465",
+        "x-stats-apipermissionid": "532969128165",
+        "x-stats-userid": "",
+        "x-xss-protection": "1; mode=block",
+        "server": "cloudflare",
+        "cf-ray": "914da4c9efb4b199-NBO"
+    }
+}

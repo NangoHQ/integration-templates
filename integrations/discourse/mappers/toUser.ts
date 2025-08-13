@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { DiscourseUser } from '../types';
+import type { User } from '../models.js';
+import type { DiscourseUser } from '../types.js';
 
 /**
  * Converts a DiscourseUser object to a slim User object.
@@ -9,7 +9,7 @@ import type { DiscourseUser } from '../types';
  */
 export function toUser(user: DiscourseUser): User {
     return {
-        id: user.id,
+        id: user.id.toString(),
         username: user.username,
         name: user.name,
         admin: user.admin

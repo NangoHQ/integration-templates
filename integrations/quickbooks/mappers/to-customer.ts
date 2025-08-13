@@ -1,5 +1,5 @@
-import type { Customer, CreateCustomer, UpdateCustomer } from '../../models';
-import type { QuickBooksCustomer, CreateQuickbooksCustomer, PhysicalAddressCreation } from '../types';
+import type { Customer, CreateCustomer, UpdateCustomer } from '../models.js';
+import type { QuickBooksCustomer, CreateQuickbooksCustomer, PhysicalAddressCreation } from '../types.js';
 
 /**
  * Converts a QuickBooksCustomer object to a Customer object.
@@ -108,7 +108,13 @@ export function toQuickBooksCustomer(customer: CreateCustomer | UpdateCustomer):
  * @param address - The simplified address object with optional properties.
  * @returns A `PhysicalAddressCreation` object with only defined address properties.
  */
-function mapAddress(address: { line1?: string; line2?: string; city?: string; postal_code?: string; country?: string }): Partial<PhysicalAddressCreation> {
+function mapAddress(address: {
+    line1?: string | undefined;
+    line2?: string | undefined;
+    city?: string | undefined;
+    postal_code?: string | undefined;
+    country?: string | undefined;
+}): Partial<PhysicalAddressCreation> {
     const result: Partial<PhysicalAddressCreation> = {};
 
     if (address.line1) result.Line1 = address.line1;

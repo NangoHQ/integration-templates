@@ -1,32 +1,62 @@
-import type { NangoSync, RecruiterFlowJob, ProxyConfiguration } from '../../models';
-import type { RecruiterFlowJobResponse } from '../types';
+import { createSync } from 'nango';
+import type { RecruiterFlowJobResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_list
-        endpoint: '/api/external/job/list',
-        retries: 10,
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'current_page',
-            limit_name_in_request: 'items_per_page',
-            offset_start_value: 1,
-            limit: '100',
-            offset_calculation_method: 'per-page',
-            response_path: ''
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowJob } from '../models.js';
+import { z } from 'zod';
+
+const sync = createSync({
+    description: 'Syncs all jobs from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/jobs',
+            group: 'Jobs'
         }
-    };
+    ],
 
-    // Use nango.paginate to handle
-    for await (const page of nango.paginate<RecruiterFlowJobResponse>(proxyConfig)) {
-        const jobs = page;
-        await nango.batchSave(jobs.map(toJob), 'RecruiterFlowJob');
+    models: {
+        RecruiterFlowJob: RecruiterFlowJob
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_list
+            endpoint: '/api/external/job/list',
+            retries: 10,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'current_page',
+                limit_name_in_request: 'items_per_page',
+                offset_start_value: 1,
+                limit: '100',
+                offset_calculation_method: 'per-page',
+                response_path: ''
+            }
+        };
+
+        // Use nango.paginate to handle
+        for await (const page of nango.paginate<RecruiterFlowJobResponse>(proxyConfig)) {
+            const jobs = page;
+            await nango.batchSave(jobs.map(toJob), 'RecruiterFlowJob');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
     const job: RecruiterFlowJob = {
-        id: record.id,
+        id: record.id.toString(),
         title: record.title,
         apply_link: record.apply_link,
         company_name: record.company?.name,

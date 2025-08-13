@@ -1,5 +1,5 @@
-import type { Page } from '../../models';
-import type { BrightCrowdPage } from '../types';
+import type { Page } from '../models.js';
+import type { BrightCrowdPage } from '../types.js';
 
 /**
  * Maps a BrightCrowdPage object to a Page object.

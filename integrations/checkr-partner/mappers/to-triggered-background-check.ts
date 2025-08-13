@@ -1,4 +1,4 @@
-import type { Location, CheckrTriggeredBackgroundCheck, TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../../models';
+import type { Location, CheckrTriggeredBackgroundCheck, TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../models.js';
 
 interface TriggerBackgroundCheckForCheckr {
     candidate_id: string;

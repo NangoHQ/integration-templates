@@ -257,13 +257,13 @@ export interface AvalaraLineInputItem {
 
 interface AddressLocationInfo {
     locationCode?: string;
-    line1?: string;
+    line1?: string | undefined;
     line2?: string;
     line3?: string;
-    city?: string;
-    region?: string;
-    country?: string;
-    postalCode?: string;
+    city?: string | undefined;
+    region?: string | undefined;
+    country?: string | undefined;
+    postalCode?: string | undefined;
     latitude?: number;
     longitude?: number;
 }

@@ -1,5 +1,5 @@
-import type { CreateLead, Lead, UpdateLead } from '../../models';
-import type { UnanetLead } from '../types';
+import type { CreateLead, Lead, UpdateLead } from '../models.js';
+import type { UnanetLead } from '../types.js';
 
 export function toLead(unanetLead: UnanetLead, input: Lead | CreateLead | UpdateLead): Lead {
     if (!unanetLead.LeadId) {

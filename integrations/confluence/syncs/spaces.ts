@@ -1,6 +1,9 @@
-import type { NangoSync, ConfluenceSpace, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ConfluenceSpace } from '../models.js';
+import { z } from 'zod';
 
-async function getCloudId(nango: NangoSync): Promise<string> {
+async function getCloudId(nango: NangoSyncLocal): Promise<string> {
     const response = await nango.get({
         baseUrlOverride: 'https://api.atlassian.com',
         endpoint: `oauth/token/accessible-resources`,
@@ -9,28 +12,55 @@ async function getCloudId(nango: NangoSync): Promise<string> {
     return response.data[0].id;
 }
 
-export default async function fetchData(nango: NangoSync) {
-    const cloudId = await getCloudId(nango);
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of spaces from confluence',
+    version: '2.0.0',
+    frequency: 'every 4 hours',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    const proxyConfig: ProxyConfiguration = {
-        baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`, // The base URL is specific for user because of the cloud ID path param
-        // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space/#api-spaces-get
-        endpoint: `/wiki/api/v2/spaces`,
-        retries: 10,
-        paginate: {
-            limit: 100
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/spaces'
         }
-    };
-    for await (const spaceBatch of nango.paginate(proxyConfig)) {
-        const confluenceSpaces = mapConfluenceSpaces(spaceBatch);
-        const batchSize: number = confluenceSpaces.length;
-        totalRecords += batchSize;
+    ],
 
-        await nango.log(`Saving batch of ${batchSize} spaces (total records: ${totalRecords})`);
-        await nango.batchSave(confluenceSpaces, 'ConfluenceSpace');
+    scopes: ['read:space:confluence'],
+
+    models: {
+        ConfluenceSpace: ConfluenceSpace
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const cloudId = await getCloudId(nango);
+        let totalRecords = 0;
+
+        const proxyConfig: ProxyConfiguration = {
+            baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`, // The base URL is specific for user because of the cloud ID path param
+            // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space/#api-spaces-get
+            endpoint: `/wiki/api/v2/spaces`,
+            retries: 10,
+            paginate: {
+                limit: 100
+            }
+        };
+        for await (const spaceBatch of nango.paginate(proxyConfig)) {
+            const confluenceSpaces = mapConfluenceSpaces(spaceBatch);
+            const batchSize: number = confluenceSpaces.length;
+            totalRecords += batchSize;
+
+            await nango.log(`Saving batch of ${batchSize} spaces (total records: ${totalRecords})`);
+            await nango.batchSave(confluenceSpaces, 'ConfluenceSpace');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapConfluenceSpaces(spaces: any[]): ConfluenceSpace[] {
     return spaces.map((space: any) => {

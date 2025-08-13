@@ -1,1 +1,0 @@
-../gorgias/schema.zod.ts

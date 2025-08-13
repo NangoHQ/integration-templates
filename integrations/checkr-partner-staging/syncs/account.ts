@@ -1,29 +1,57 @@
-import type { NangoSync, CheckrPartnerStagingAccount, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { CheckrPartnerStagingAccount } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const connection = await nango.getConnection();
-    let access_token: string;
-    if ('access_token' in connection.credentials) {
-        access_token = connection.credentials.access_token;
-    } else {
-        throw new nango.ActionError({
-            message: `access_token is missing`
-        });
+const sync = createSync({
+    description: 'Fetches account details for the authenticated account.',
+    version: '2.0.0',
+    frequency: 'every half hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/checkr-partner-staging/account'
+        }
+    ],
+
+    models: {
+        CheckrPartnerStagingAccount: CheckrPartnerStagingAccount
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const connection = await nango.getConnection();
+        let access_token: string;
+        if ('access_token' in connection.credentials) {
+            access_token = connection.credentials.access_token;
+        } else {
+            throw new nango.ActionError({
+                message: `access_token is missing`
+            });
+        }
+        const config: ProxyConfiguration = {
+            // https://docs.checkr.com/#operation/account
+            endpoint: '/v1/account',
+            headers: {
+                Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')
+            },
+            retries: 10
+        };
+
+        const response = await nango.get(config);
+        const mappedAccount = mapUser(response.data);
+
+        await nango.batchSave([mappedAccount], 'CheckrPartnerStagingAccount');
     }
-    const config: ProxyConfiguration = {
-        // https://docs.checkr.com/#operation/account
-        endpoint: '/v1/account',
-        headers: {
-            Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')
-        },
-        retries: 10
-    };
+});
 
-    const response = await nango.get(config);
-    const mappedAccount = mapUser(response.data);
-
-    await nango.batchSave([mappedAccount], 'CheckrPartnerStagingAccount');
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapUser(account: any): CheckrPartnerStagingAccount {
     return {

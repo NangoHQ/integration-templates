@@ -1,5 +1,5 @@
-import type { DatabricksWarehouse } from '../../models';
-import type { DatabricksWarehouseResponseItem } from '../types';
+import type { DatabricksWarehouse } from '../models.js';
+import type { DatabricksWarehouseResponseItem } from '../types.js';
 
 export function toWarehouse(warehouse: DatabricksWarehouseResponseItem): DatabricksWarehouse {
     return {

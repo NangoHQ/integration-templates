@@ -1,25 +1,53 @@
-import type { ClariCopilotCall, NangoSync, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { ClariCopilotCall } from '../models.js';
+import { z } from 'zod';
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of calls from your account. For the first sync, it will go back to the past one year',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const calls: any[] = await getAllCalls(nango);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/calls'
+        }
+    ],
 
-    for (const Specificall of calls) {
-        const call = await getSpecificCall(nango, Specificall.id);
-        if (call) {
-            const mappedCall: ClariCopilotCall = mapCall(call);
+    models: {
+        ClariCopilotCall: ClariCopilotCall
+    },
 
-            totalRecords++;
-            await nango.log(`Saving call for call ${call.id} (total call(s): ${totalRecords})`);
-            await nango.batchSave([mappedCall], 'ClariCopilotCall');
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const calls: any[] = await getAllCalls(nango);
+
+        for (const Specificall of calls) {
+            const call = await getSpecificCall(nango, Specificall.id);
+            if (call) {
+                const mappedCall: ClariCopilotCall = mapCall(call);
+
+                totalRecords++;
+                await nango.log(`Saving call for call ${call.id} (total call(s): ${totalRecords})`);
+                await nango.batchSave([mappedCall], 'ClariCopilotCall');
+            }
         }
     }
-}
+});
 
-async function getAllCalls(nango: NangoSync) {
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function getAllCalls(nango: NangoSyncLocal) {
     const records: any[] = [];
 
     //first run to get all calls from the past 1 year
@@ -46,7 +74,7 @@ async function getAllCalls(nango: NangoSync) {
     return records;
 }
 
-async function getSpecificCall(nango: NangoSync, callId: string) {
+async function getSpecificCall(nango: NangoSyncLocal, callId: string) {
     const endpoint = `/call-details`;
 
     const call = await nango.get({

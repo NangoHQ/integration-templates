@@ -1,30 +1,60 @@
-import type { WorkableJobQuestion, NangoSync, ProxyConfiguration } from '../../models';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableJobQuestion } from '../models.js';
+import { z } from 'zod';
 
 const CHUNK_SIZE = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    const totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of questions for the specified job from workable',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
 
-    const jobs: any[] = await getAllJobs(nango);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/jobs-questions'
+        }
+    ],
 
-    for (const job of jobs) {
-        const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
+    scopes: ['r_jobs'],
 
-        const response = await nango.get({
-            // https://workable.readme.io/reference/job-questions
-            endpoint,
-            retries: 10
-        });
-        const questions: any[] = response.data.questions || [];
+    models: {
+        WorkableJobQuestion: WorkableJobQuestion
+    },
 
-        const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
+    metadata: z.object({}),
 
-        // Process questions in chunks since the endpoint doesn't offer pagination
-        await processChunks(nango, mappedQuestions, job.shortcode, totalRecords);
+    exec: async (nango) => {
+        const totalRecords = 0;
+
+        const jobs: any[] = await getAllJobs(nango);
+
+        for (const job of jobs) {
+            const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
+
+            const response = await nango.get({
+                // https://workable.readme.io/reference/job-questions
+                endpoint,
+                retries: 10
+            });
+            const questions: any[] = response.data.questions || [];
+
+            const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
+
+            // Process questions in chunks since the endpoint doesn't offer pagination
+            await processChunks(nango, mappedQuestions, job.shortcode, totalRecords);
+        }
     }
-}
+});
 
-async function processChunks(nango: NangoSync, data: WorkableJobQuestion[], shortcode: string, totalRecords: number) {
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function processChunks(nango: NangoSyncLocal, data: WorkableJobQuestion[], shortcode: string, totalRecords: number) {
     for (let i = 0; i < data.length; i += CHUNK_SIZE) {
         const chunk = data.slice(i, i + CHUNK_SIZE);
         const batchSize = chunk.length;
@@ -34,7 +64,7 @@ async function processChunks(nango: NangoSync, data: WorkableJobQuestion[], shor
     }
 }
 
-async function getAllJobs(nango: NangoSync) {
+async function getAllJobs(nango: NangoSyncLocal) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
         // https://workable.readme.io/reference/jobs

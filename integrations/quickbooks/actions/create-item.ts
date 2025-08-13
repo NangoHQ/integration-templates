@@ -1,6 +1,9 @@
-import type { NangoAction, CreateItem, Item, ProxyConfiguration } from '../../models';
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Item, CreateItem } from '../models.js';
 
 /**
  * This function handles the creation of an item in QuickBooks via the Nango action.
@@ -14,33 +17,51 @@ import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<Item>} - Returns the created item object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: CreateItem): Promise<Item> {
-    // Validate if input is present
-    if (!input) {
-        throw new nango.ActionError({
-            message: `Input item object is required. Received: ${JSON.stringify(input)}`
-        });
+const action = createAction({
+    description: 'Creates a single item in QuickBooks.',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'POST',
+        path: '/items',
+        group: 'Items'
+    },
+
+    input: CreateItem,
+    output: Item,
+    scopes: ['com.intuit.quickbooks.accounting'],
+
+    exec: async (nango, input): Promise<Item> => {
+        // Validate if input is present
+        if (!input) {
+            throw new nango.ActionError({
+                message: `Input item object is required. Received: ${JSON.stringify(input)}`
+            });
+        }
+
+        // Ensure that required fields are present for QuickBooks
+        if (!input.name || (!input.expense_accountRef && !input.income_accountRef)) {
+            throw new nango.ActionError({
+                message: `Please provide a 'name' and at least one of the following: 'expense_accountRef' or 'income_accountRef'. Received: ${JSON.stringify(input)}`
+            });
+        }
+
+        const companyId = await getCompany(nango);
+        // Map the item input to the QuickBooks item structure
+        const quickBooksItem = toQuickBooksItem(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item#create-an-item
+            endpoint: `/v3/company/${companyId}/item`,
+            data: quickBooksItem,
+            retries: 3
+        };
+
+        const response = await nango.post(config);
+
+        return toItem(response.data['Item']);
     }
+});
 
-    // Ensure that required fields are present for QuickBooks
-    if (!input.name || (!input.expense_accountRef && !input.income_accountRef)) {
-        throw new nango.ActionError({
-            message: `Please provide a 'name' and at least one of the following: 'expense_accountRef' or 'income_accountRef'. Received: ${JSON.stringify(input)}`
-        });
-    }
-
-    const companyId = await getCompany(nango);
-    // Map the item input to the QuickBooks item structure
-    const quickBooksItem = toQuickBooksItem(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item#create-an-item
-        endpoint: `/v3/company/${companyId}/item`,
-        data: quickBooksItem,
-        retries: 3
-    };
-
-    const response = await nango.post(config);
-
-    return toItem(response.data['Item']);
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

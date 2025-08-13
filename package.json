@@ -4,25 +4,17 @@
     "type": "module",
     "description": "",
     "scripts": {
-        "cli": "npx tsx scripts/zero/cli.ts",
-        "zero:build:flows": "npx tsx scripts/zero/buildFlows.ts",
+        "cli": "npx tsx internal/scripts/zero/cli.ts",
+        "build:flows": "npx tsx internal/scripts/zero/buildFlows.ts",
+        "fix:zod-unions": "npx tsx internal/scripts/fix-zod-unions.ts",
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
-        "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash $npm_config_integration",
-        "copy:models-file": "bash scripts/compile-all-templates.bash $npm_config_integration",
-        "undo:move:integrations": "bash scripts/undo-move-to-nango-directories.bash",
-        "lint-moved-integrations": "npm run move:integrations && npm run lint && npm run undo:move:integrations",
-        "resolve:aliases": "bash scripts/resolve-aliases.bash $npm_config_integration",
-        "dryrun": "bash scripts/run-integration-template.bash --dryrun",
-        "generate:zod": "bash scripts/generate-integration-template-zod.bash $npm_config_integration && npm run undo:move:integrations",
-        "compile": "bash scripts/compile-all-templates.bash $npm_config_integration && npm run undo:move:integrations",
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
-        "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
+        "resolve:aliases": "npx tsx internal/scripts/resolve-aliases.ts",
         "test": "vitest --run",
-        "test:watch": "vitest",
-        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
+        "test:watch": "vitest"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
@@ -35,6 +27,7 @@
         "@types/js-yaml": "4.0.9",
         "@types/node": "20.12.2",
         "chalk": "5.4.1",
+        "dotenv": "16.5.0",
         "ejs": "^3.1.10",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
@@ -44,7 +37,7 @@
         "js-yaml": "4.1.0",
         "lint-staged": "15.2.9",
         "lodash-es": "^4.17.21",
-        "nango": "0.62.0",
+        "nango": "^0.66.0",
         "onchange": "7.1.0",
         "parse-link-header": "^2.0.0",
         "soap": "1.1.2",
@@ -52,7 +45,7 @@
         "tsx": "^4.19.0",
         "typescript": "5.7.2",
         "vitest": "^2.0.5",
-        "zod": "3.24.2"
+        "zod": "4.0.5"
     },
     "lint-staged": {
         "*.{html,css,json,yaml,ts}": [

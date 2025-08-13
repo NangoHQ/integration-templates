@@ -1,0 +1,691 @@
+[
+  {
+    "providerConfigKey": "quickbooks",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a single customer in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_quickbooks_createcustomer",
+        "name": "create-customer",
+        "output": [
+          "ActionOutput_quickbooks_createcustomer"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createcustomer",
+          "ActionOutput_quickbooks_createcustomer"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single customer in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_quickbooks_updatecustomer",
+        "name": "update-customer",
+        "output": [
+          "ActionOutput_quickbooks_updatecustomer"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updatecustomer",
+          "ActionOutput_quickbooks_updatecustomer"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single journal entry in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/journal-entries",
+          "group": "Journal Entries"
+        },
+        "input": "ActionInput_quickbooks_createjournalentry",
+        "name": "create-journal-entry",
+        "output": [
+          "ActionOutput_quickbooks_createjournalentry"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createjournalentry",
+          "ActionOutput_quickbooks_createjournalentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single journal entry in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/journal-entries",
+          "group": "Journal Entries"
+        },
+        "input": "ActionInput_quickbooks_updatejournalentry",
+        "name": "update-journal-entry",
+        "output": [
+          "ActionOutput_quickbooks_updatejournalentry"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updatejournalentry",
+          "ActionOutput_quickbooks_updatejournalentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single item in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/items",
+          "group": "Items"
+        },
+        "input": "ActionInput_quickbooks_createitem",
+        "name": "create-item",
+        "output": [
+          "ActionOutput_quickbooks_createitem"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createitem",
+          "ActionOutput_quickbooks_createitem"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single item in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/items",
+          "group": "Items"
+        },
+        "input": "ActionInput_quickbooks_updateitem",
+        "name": "update-item",
+        "output": [
+          "ActionOutput_quickbooks_updateitem"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updateitem",
+          "ActionOutput_quickbooks_updateitem"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single account in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/accounts",
+          "group": "Accounts"
+        },
+        "input": "ActionInput_quickbooks_createaccount",
+        "name": "create-account",
+        "output": [
+          "ActionOutput_quickbooks_createaccount"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createaccount",
+          "ActionOutput_quickbooks_createaccount"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single account in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/accounts",
+          "group": "Accounts"
+        },
+        "input": "ActionInput_quickbooks_updateaccount",
+        "name": "update-account",
+        "output": [
+          "ActionOutput_quickbooks_updateaccount"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updateaccount",
+          "ActionOutput_quickbooks_updateaccount"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single invoice in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_quickbooks_createinvoice",
+        "name": "create-invoice",
+        "output": [
+          "ActionOutput_quickbooks_createinvoice"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createinvoice",
+          "ActionOutput_quickbooks_createinvoice"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single invoice in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_quickbooks_updateinvoice",
+        "name": "update-invoice",
+        "output": [
+          "ActionOutput_quickbooks_updateinvoice"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updateinvoice",
+          "ActionOutput_quickbooks_updateinvoice"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single credit memo in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/credit-memos",
+          "group": "Credit Memos"
+        },
+        "input": "ActionInput_quickbooks_createcreditmemo",
+        "name": "create-credit-memo",
+        "output": [
+          "ActionOutput_quickbooks_createcreditmemo"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createcreditmemo",
+          "ActionOutput_quickbooks_createcreditmemo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a single credit memo in QuickBooks.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/credit-memos",
+          "group": "Credit Memos"
+        },
+        "input": "ActionInput_quickbooks_updatecreditmemo",
+        "name": "update-credit-memo",
+        "output": [
+          "ActionOutput_quickbooks_updatecreditmemo"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_updatecreditmemo",
+          "ActionOutput_quickbooks_updatecreditmemo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single payment in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/payments",
+          "group": "Payments"
+        },
+        "input": "ActionInput_quickbooks_createpayment",
+        "name": "create-payment",
+        "output": [
+          "ActionOutput_quickbooks_createpayment"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createpayment",
+          "ActionOutput_quickbooks_createpayment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single purchase order in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/purchase-orders",
+          "group": "Purchase Orders"
+        },
+        "input": "ActionInput_quickbooks_createpurchaseorder",
+        "name": "create-purchase-order",
+        "output": [
+          "ActionOutput_quickbooks_createpurchaseorder"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createpurchaseorder",
+          "ActionOutput_quickbooks_createpurchaseorder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a single bill in QuickBooks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/bills",
+          "group": "Bills"
+        },
+        "input": "ActionInput_quickbooks_createbill",
+        "name": "create-bill",
+        "output": [
+          "ActionOutput_quickbooks_createbill"
+        ],
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "usedModels": [
+          "ActionInput_quickbooks_createbill",
+          "ActionOutput_quickbooks_createbill"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all accounts in QuickBooks. Handles both active and archived accounts, saving or deleting them based on their status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/accounts",
+            "group": "Accounts"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_accounts",
+        "name": "accounts",
+        "output": [
+          "Account"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Account",
+          "SyncMetadata_quickbooks_accounts"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks bills",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/bills",
+            "group": "Bills"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_bills",
+        "name": "bills",
+        "output": [
+          "Bill"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Bill",
+          "SyncMetadata_quickbooks_bills"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks bill payments",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/bill-payments",
+            "group": "Bill Payments"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_billpayments",
+        "name": "bill-payments",
+        "output": [
+          "BillPayment"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "BillPayment",
+          "SyncMetadata_quickbooks_billpayments"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks deposits",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/deposits",
+            "group": "Deposits"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_deposits",
+        "name": "deposits",
+        "output": [
+          "Deposit"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Deposit",
+          "SyncMetadata_quickbooks_deposits"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks credit memos",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/credit-memos",
+            "group": "Credit Memos"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_creditmemos",
+        "name": "credit-memos",
+        "output": [
+          "CreditMemo"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "CreditMemo",
+          "SyncMetadata_quickbooks_creditmemos"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks customers. Handles both active and archived customers, saving or deleting them based on their status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers",
+            "group": "Customers"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_customers",
+        "name": "customers",
+        "output": [
+          "Customer"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Customer",
+          "SyncMetadata_quickbooks_customers"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all invoices in QuickBooks. Handles both active and voided invoices, saving or deleting them based on their status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/invoices",
+            "group": "Invoices"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_invoices",
+        "name": "invoices",
+        "output": [
+          "Invoice"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Invoice",
+          "SyncMetadata_quickbooks_invoices"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all items in QuickBooks. Handles both active and archived items, saving or deleting them based on their status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/items",
+            "group": "Items"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_items",
+        "name": "items",
+        "output": [
+          "Item"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Item",
+          "SyncMetadata_quickbooks_items"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all journal entries in QuickBooks",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/journal-entries",
+            "group": "Journal Entries"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_journalentries",
+        "name": "journal-entries",
+        "output": [
+          "JournalEntry"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "JournalEntry",
+          "SyncMetadata_quickbooks_journalentries"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/payments",
+            "group": "Payments"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_payments",
+        "name": "payments",
+        "output": [
+          "Payment"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Payment",
+          "SyncMetadata_quickbooks_payments"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks purchases",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/purchases",
+            "group": "Purchases"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_purchases",
+        "name": "purchases",
+        "output": [
+          "Purchase"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Purchase",
+          "SyncMetadata_quickbooks_purchases"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all QuickBooks transfers",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/transfers",
+            "group": "Transfers"
+          }
+        ],
+        "input": "SyncMetadata_quickbooks_transfers",
+        "name": "transfers",
+        "output": [
+          "Transfer"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "com.intuit.quickbooks.accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Transfer",
+          "SyncMetadata_quickbooks_transfers"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

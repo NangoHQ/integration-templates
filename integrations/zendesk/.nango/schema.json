@@ -1,786 +1,1229 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_zendesk_tickets": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
+        "id": {
+          "type": "string"
         },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string",
-                    "enum": ["admin", "agent"]
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "CategoryCreate": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["category"],
-            "additionalProperties": false
-        },
-        "Category": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "url", "name", "description"],
-            "additionalProperties": false
-        },
-        "SectionCreate": {
-            "type": "object",
-            "properties": {
-                "category_id": {
-                    "type": "number"
-                },
-                "section": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["category_id", "section"],
-            "additionalProperties": false
-        },
-        "Section": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "category_id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "url", "category_id", "name", "description"],
-            "additionalProperties": false
-        },
-        "ArticleLite": {
-            "type": "object",
-            "properties": {
-                "title": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            },
-            "required": ["title", "id", "url"],
-            "additionalProperties": false
-        },
-        "ArticleResponse": {
-            "type": "object",
-            "properties": {
-                "articles": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ArticleLite"
-                    }
-                }
-            },
-            "required": ["articles"],
-            "additionalProperties": false
-        },
-        "Article": {
-            "type": "object",
-            "properties": {
-                "title": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "locale": {
-                    "type": "string"
-                },
-                "user_segment_id": {
-                    "type": ["number", "null"]
-                },
-                "permission_group_id": {
-                    "type": "number"
-                },
-                "author_id": {
-                    "type": "number"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "comments_disabled": {
-                    "type": "boolean"
-                },
-                "content_tag_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "draft": {
-                    "type": "boolean"
-                },
-                "edited_at": {
-                    "type": "string"
-                },
-                "html_url": {
-                    "type": "string"
-                },
-                "label_names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "outdated": {
-                    "type": "boolean"
-                },
-                "outdated_locales": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "position": {
-                    "type": "number"
-                },
-                "promoted": {
-                    "type": "boolean"
-                },
-                "section_id": {
-                    "type": "number"
-                },
-                "source_locale": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "vote_count": {
-                    "type": "number"
-                },
-                "vote_sum": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "title",
-                "id",
-                "url",
-                "locale",
-                "user_segment_id",
-                "permission_group_id",
-                "author_id",
-                "body",
-                "comments_disabled",
-                "content_tag_ids",
-                "created_at",
-                "draft",
-                "edited_at",
-                "html_url",
-                "label_names",
-                "outdated",
-                "outdated_locales",
-                "position",
-                "promoted",
-                "section_id",
-                "source_locale",
-                "updated_at",
-                "vote_count",
-                "vote_sum"
-            ],
-            "additionalProperties": false
-        },
-        "SingleArticleResponse": {
-            "type": "object",
-            "properties": {
-                "article": {
-                    "$ref": "#/definitions/Article"
-                }
-            },
-            "required": ["article"],
-            "additionalProperties": false
-        },
-        "ArticleInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "TicketCreate": {
-            "type": "object",
-            "properties": {
-                "ticket": {
-                    "type": "object",
-                    "properties": {
-                        "comment": {
-                            "type": "object",
-                            "properties": {
-                                "body": {
-                                    "type": "string"
-                                },
-                                "html_body": {
-                                    "type": "string"
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        "assignee_email": {
-                            "type": "string"
-                        },
-                        "assignee_id": {
-                            "type": "number"
-                        },
-                        "brand_id": {
-                            "type": "number"
-                        },
-                        "due_at": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": ["problem", "incident", "question", "task"]
-                        },
-                        "status": {
-                            "type": "string",
-                            "enum": ["new", "open", "pending", "hold", "solved", "closed."]
-                        },
-                        "metadata": {
-                            "type": "object"
-                        }
-                    },
-                    "required": ["comment"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["ticket"],
-            "additionalProperties": false
-        },
-        "CreatedTicket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "description": {
-                    "type": "string"
-                },
-                "priority": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "url", "created_at", "updated_at", "subject", "description", "priority", "status"],
-            "additionalProperties": false
-        },
-        "Via": {
-            "type": "object",
-            "properties": {
+        "via": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "channel": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "source": {
-                    "type": "object",
-                    "properties": {
-                        "from": {
-                            "type": "object"
-                        },
-                        "to": {
-                            "type": "object"
-                        },
-                        "rel": {
-                            "type": ["string", "null"]
-                        }
+                  "type": "object",
+                  "properties": {
+                    "from": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
                     },
-                    "required": ["from", "to", "rel"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["channel", "source"],
-            "additionalProperties": false
-        },
-        "CustomFields": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "value": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "value"],
-            "additionalProperties": false
-        },
-        "Ticket": {
-            "type": "object",
-            "properties": {
-                "url": {
-                    "type": ["string", "null"]
-                },
-                "id": {
-                    "type": "number"
-                },
-                "external_id": {
-                    "type": ["string", "null"]
-                },
-                "via": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Via"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "created_at": {
-                    "type": ["string", "null"]
-                },
-                "updated_at": {
-                    "type": ["string", "null"]
-                },
-                "generated_timestamp": {
-                    "type": ["number", "null"]
-                },
-                "type": {
-                    "type": ["string", "null"]
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "raw_subject": {
-                    "type": ["string", "null"]
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "priority": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": ["string", "null"]
-                },
-                "recipient": {
-                    "type": ["string", "null"]
-                },
-                "requester_id": {
-                    "type": ["number", "null"]
-                },
-                "submitter_id": {
-                    "type": ["number", "null"]
-                },
-                "assignee_id": {
-                    "type": ["number", "null"]
-                },
-                "organization_id": {
-                    "type": ["number", "null"]
-                },
-                "group_id": {
-                    "type": ["number", "null"]
-                },
-                "collaborator_ids": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "follower_ids": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "email_cc_ids": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "forum_topic_id": {
-                    "type": ["string", "null"]
-                },
-                "problem_id": {
-                    "type": ["string", "null"]
-                },
-                "has_incidents": {
-                    "type": ["boolean", "null"]
-                },
-                "is_public": {
-                    "type": ["boolean", "null"]
-                },
-                "due_at": {
-                    "type": ["string", "null"]
-                },
-                "tags": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "custom_fields": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/CustomFields"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "satisfaction_rating": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "sharing_agreement_ids": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "custom_status_id": {
-                    "type": ["number", "null"]
-                },
-                "fields": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/CustomFields"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "followup_ids": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "ticket_form_id": {
-                    "type": ["number", "null"]
-                },
-                "brand_id": {
-                    "type": ["number", "null"]
-                },
-                "allow_channelback": {
-                    "type": ["boolean", "null"]
-                },
-                "allow_attachments": {
-                    "type": ["boolean", "null"]
-                },
-                "from_messaging_channel": {
-                    "type": ["boolean", "null"]
-                }
-            },
-            "required": [
-                "url",
-                "id",
-                "external_id",
-                "via",
-                "created_at",
-                "updated_at",
-                "generated_timestamp",
-                "type",
-                "subject",
-                "raw_subject",
-                "description",
-                "priority",
-                "status",
-                "recipient",
-                "requester_id",
-                "submitter_id",
-                "assignee_id",
-                "organization_id",
-                "group_id",
-                "collaborator_ids",
-                "follower_ids",
-                "email_cc_ids",
-                "forum_topic_id",
-                "problem_id",
-                "has_incidents",
-                "is_public",
-                "due_at",
-                "tags",
-                "custom_fields",
-                "satisfaction_rating",
-                "sharing_agreement_ids",
-                "custom_status_id",
-                "fields",
-                "followup_ids",
-                "ticket_form_id",
-                "brand_id",
-                "allow_channelback",
-                "allow_attachments",
-                "from_messaging_channel"
-            ],
-            "additionalProperties": false
-        },
-        "SearchTicketInput": {
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string"
-                }
-            },
-            "required": ["query"],
-            "additionalProperties": false
-        },
-        "SearchTicket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "external_id": {
-                    "type": ["string", "null"]
-                },
-                "requester_id": {
-                    "type": "string"
-                },
-                "requester_name": {
-                    "type": "string"
-                },
-                "assignee_id": {
-                    "type": ["string", "null"]
-                },
-                "assignee_name": {
-                    "type": ["string", "null"]
-                },
-                "assignee_avatar": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "is_public": {
-                    "type": "boolean"
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "description": {
-                    "type": "string"
-                },
-                "priority": {
-                    "type": ["string", "null"]
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
+                    "to": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
+                    },
+                    "rel": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
+                  },
+                  "required": [
+                    "from",
+                    "to",
+                    "rel"
+                  ],
+                  "additionalProperties": false
                 }
+              },
+              "required": [
+                "channel",
+                "source"
+              ],
+              "additionalProperties": false
             },
-            "required": [
-                "id",
-                "url",
-                "external_id",
-                "requester_id",
-                "requester_name",
-                "assignee_id",
-                "assignee_name",
-                "assignee_avatar",
-                "status",
-                "created_at",
-                "updated_at",
-                "is_public",
-                "subject",
-                "description",
-                "priority",
-                "tags"
-            ],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "SearchTicketOutput": {
-            "type": "object",
-            "properties": {
-                "tickets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/SearchTicket"
-                    }
-                }
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "generated_timestamp": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recipient": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requester_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "submitter_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "assignee_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "organization_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "group_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "collaborator_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
             },
-            "required": ["tickets"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "follower_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "email_cc_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "forum_topic_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "problem_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "has_incidents": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "is_public": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "due_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tags": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "custom_fields": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "satisfaction_rating": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sharing_agreement_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "custom_status_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "followup_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ticket_form_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "brand_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "allow_channelback": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "allow_attachments": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "from_messaging_channel": {
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
+      },
+      "required": [
+        "url",
+        "id",
+        "external_id",
+        "via",
+        "created_at",
+        "updated_at",
+        "generated_timestamp",
+        "type",
+        "subject",
+        "raw_subject",
+        "description",
+        "priority",
+        "status",
+        "recipient",
+        "requester_id",
+        "submitter_id",
+        "assignee_id",
+        "organization_id",
+        "group_id",
+        "collaborator_ids",
+        "follower_ids",
+        "email_cc_ids",
+        "forum_topic_id",
+        "problem_id",
+        "has_incidents",
+        "is_public",
+        "due_at",
+        "tags",
+        "custom_fields",
+        "satisfaction_rating",
+        "sharing_agreement_ids",
+        "custom_status_id",
+        "fields",
+        "followup_ids",
+        "ticket_form_id",
+        "brand_id",
+        "allow_channelback",
+        "allow_attachments",
+        "from_messaging_channel"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "SyncMetadata_zendesk_articles": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Article": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "user_segment_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "permission_group_id": {
+          "type": "number"
+        },
+        "author_id": {
+          "type": "number"
+        },
+        "body": {
+          "type": "string"
+        },
+        "comments_disabled": {
+          "type": "boolean"
+        },
+        "content_tag_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "edited_at": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "outdated_locales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "position": {
+          "type": "number"
+        },
+        "promoted": {
+          "type": "boolean"
+        },
+        "section_id": {
+          "type": "number"
+        },
+        "source_locale": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "vote_count": {
+          "type": "number"
+        },
+        "vote_sum": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "id",
+        "url",
+        "locale",
+        "user_segment_id",
+        "permission_group_id",
+        "author_id",
+        "body",
+        "comments_disabled",
+        "content_tag_ids",
+        "created_at",
+        "draft",
+        "edited_at",
+        "html_url",
+        "label_names",
+        "outdated",
+        "outdated_locales",
+        "position",
+        "promoted",
+        "section_id",
+        "source_locale",
+        "updated_at",
+        "vote_count",
+        "vote_sum"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zendesk_categories": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zendesk_sections": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "category_id",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zendesk_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_fetcharticles": {
+      "type": "null"
+    },
+    "ActionOutput_zendesk_fetcharticles": {
+      "type": "object",
+      "properties": {
+        "articles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "id",
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "articles"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_fetcharticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_fetcharticle": {
+      "type": "object",
+      "properties": {
+        "article": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "locale": {
+              "type": "string"
+            },
+            "user_segment_id": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "permission_group_id": {
+              "type": "number"
+            },
+            "author_id": {
+              "type": "number"
+            },
+            "body": {
+              "type": "string"
+            },
+            "comments_disabled": {
+              "type": "boolean"
+            },
+            "content_tag_ids": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "draft": {
+              "type": "boolean"
+            },
+            "edited_at": {
+              "type": "string"
+            },
+            "html_url": {
+              "type": "string"
+            },
+            "label_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "outdated": {
+              "type": "boolean"
+            },
+            "outdated_locales": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "position": {
+              "type": "number"
+            },
+            "promoted": {
+              "type": "boolean"
+            },
+            "section_id": {
+              "type": "number"
+            },
+            "source_locale": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "vote_count": {
+              "type": "number"
+            },
+            "vote_sum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "title",
+            "id",
+            "url",
+            "locale",
+            "user_segment_id",
+            "permission_group_id",
+            "author_id",
+            "body",
+            "comments_disabled",
+            "content_tag_ids",
+            "created_at",
+            "draft",
+            "edited_at",
+            "html_url",
+            "label_names",
+            "outdated",
+            "outdated_locales",
+            "position",
+            "promoted",
+            "section_id",
+            "source_locale",
+            "updated_at",
+            "vote_count",
+            "vote_sum"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "article"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createsection": {
+      "type": "object",
+      "properties": {
+        "category_id": {
+          "type": "number"
+        },
+        "section": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "category_id",
+        "section"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createsection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "category_id",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createcategory": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "category"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createcategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createticket": {
+      "type": "object",
+      "properties": {
+        "ticket": {
+          "type": "object",
+          "properties": {
+            "comment": {
+              "type": "object",
+              "properties": {
+                "body": {
+                  "type": "string"
+                },
+                "html_body": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "assignee_email": {
+              "type": "string"
+            },
+            "assignee_id": {
+              "type": "number"
+            },
+            "brand_id": {
+              "type": "number"
+            },
+            "due_at": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "problem",
+                "incident",
+                "question",
+                "task"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "new",
+                "open",
+                "pending",
+                "hold",
+                "solved",
+                "closed."
+              ]
+            },
+            "metadata": {
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "comment"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ticket"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "created_at",
+        "updated_at",
+        "subject",
+        "description",
+        "priority",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "agent"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_searchtickets": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_searchtickets": {
+      "type": "object",
+      "properties": {
+        "tickets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "requester_id": {
+                "type": "string"
+              },
+              "requester_name": {
+                "type": "string"
+              },
+              "assignee_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "assignee_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "assignee_avatar": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "is_public": {
+                "type": "boolean"
+              },
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "priority": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "url",
+              "external_id",
+              "requester_id",
+              "requester_name",
+              "assignee_id",
+              "assignee_name",
+              "assignee_avatar",
+              "status",
+              "created_at",
+              "updated_at",
+              "is_public",
+              "subject",
+              "description",
+              "priority",
+              "tags"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "tickets"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

@@ -1,39 +1,69 @@
-import type { Document, DocumentMetadata, NangoSync, ProxyConfiguration } from '../../models';
-import type { DropboxFile, DropboxFileList } from '../types';
+import { createSync } from 'nango';
+import type { DropboxFile, DropboxFileList } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Document, DocumentMetadata } from '../models.js';
 
 const batchSize = 100;
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const metadata = await nango.getMetadata<DocumentMetadata>();
+const sync = createSync({
+    description: 'Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.',
+    version: '2.0.0',
+    frequency: 'every day',
+    autoStart: false,
+    syncType: 'full',
+    trackDeletes: true,
 
-    if (!metadata || (!metadata.files && !metadata.folders)) {
-        throw new Error('Metadata for files or folders is required.');
-    }
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/files'
+        }
+    ],
 
-    const folders = metadata?.folders ? [...metadata.folders] : [];
-    const files = metadata?.files ? [...metadata.files] : [];
+    scopes: ['files.metadata.read'],
 
-    for (const folder of folders) {
-        await fetchFolder(nango, folder);
-    }
+    models: {
+        Document: Document
+    },
 
-    const batch: Document[] = [];
-    for (const file of files) {
-        const metadata = await fetchFile(nango, file);
-        batch.push(metadata);
+    metadata: DocumentMetadata,
 
-        if (batch.length >= batchSize) {
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+
+        if (!metadata || (!metadata.files && !metadata.folders)) {
+            throw new Error('Metadata for files or folders is required.');
+        }
+
+        const folders = metadata?.folders ? [...metadata.folders] : [];
+        const files = metadata?.files ? [...metadata.files] : [];
+
+        for (const folder of folders) {
+            await fetchFolder(nango, folder);
+        }
+
+        const batch: Document[] = [];
+        for (const file of files) {
+            const metadata = await fetchFile(nango, file);
+            batch.push(metadata);
+
+            if (batch.length >= batchSize) {
+                await nango.batchSave(batch, 'Document');
+                batch.length = 0;
+            }
+        }
+
+        if (batch.length) {
             await nango.batchSave(batch, 'Document');
-            batch.length = 0;
         }
     }
+});
 
-    if (batch.length) {
-        await nango.batchSave(batch, 'Document');
-    }
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
-async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
+async function fetchFolder(nango: NangoSyncLocal, path: string): Promise<void> {
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
         endpoint: `/2/files/list_folder`,
@@ -91,7 +121,7 @@ async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
     }
 }
 
-async function fetchFile(nango: NangoSync, path: string): Promise<Document> {
+async function fetchFile(nango: NangoSyncLocal, path: string): Promise<Document> {
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-get_metadata
         endpoint: '/2/files/get_metadata',

@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { IntercomContact, IntercomAdminUser } from '../types';
+import type { User } from '../models.js';
+import type { IntercomContact, IntercomAdminUser } from '../types.js';
 
 /**
  * Maps an Intercom API contact object to a Nango User object.

@@ -149,7 +149,7 @@ export const standardEmployeeSchema = z.object({
     addresses: z.array(addressSchema).optional(),
     phones: z.array(phoneSchema).optional(),
     emails: z.array(emailSchema).optional(),
-    providerSpecific: z.record(z.any()),
+    providerSpecific: z.record(z.string(), z.any()),
     createdAt: z.string(),
     updatedAt: z.string()
 });

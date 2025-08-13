@@ -1,0 +1,96 @@
+[
+  {
+    "providerConfigKey": "zoho-crm",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of accounts from zoho crm",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-crm/accounts"
+          }
+        ],
+        "input": "SyncMetadata_zoho_crm_accounts",
+        "name": "accounts",
+        "output": [
+          "ZohoCRMAccount"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "ZohoCRM.modules.accounts.READ"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoCRMAccount",
+          "SyncMetadata_zoho_crm_accounts"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of contacts from zoho crm",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-crm/contacts"
+          }
+        ],
+        "input": "SyncMetadata_zoho_crm_contacts",
+        "name": "contacts",
+        "output": [
+          "ZohoCRMContact"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "ZohoCRM.modules.contacts.READ"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoCRMContact",
+          "SyncMetadata_zoho_crm_contacts"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of deals/opportunities from zoho crm",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-crm/deals"
+          }
+        ],
+        "input": "SyncMetadata_zoho_crm_deals",
+        "name": "deals",
+        "output": [
+          "ZohoCRMDeal"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "ZohoCRM.modules.deals.READ"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoCRMDeal",
+          "SyncMetadata_zoho_crm_deals"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

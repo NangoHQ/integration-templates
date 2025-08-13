@@ -1,7 +1,10 @@
-import type { NangoAction, User, KeeperCreateUser, ProxyConfiguration } from '../../models';
+import { createAction } from 'nango';
 import { toUser } from '../mappers/to-user.js';
 import { keeperCreateUserSchema } from '../schema.zod.js';
-import type { KeeperUser } from '../types';
+import type { KeeperUser } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { User, KeeperCreateUser } from '../models.js';
 
 /**
  * Creates a Keeper user.
@@ -20,33 +23,50 @@ import type { KeeperUser } from '../types';
  * For detailed endpoint documentation, refer to:
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
-export default async function runAction(nango: NangoAction, input: KeeperCreateUser): Promise<User> {
-    await nango.zodValidateInput({ zodSchema: keeperCreateUserSchema, input });
+const action = createAction({
+    description: 'Creates a user in Keeper',
+    version: '1.0.0',
 
-    const { firstName, lastName, email, ...data } = input;
+    endpoint: {
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
+    },
 
-    const config: ProxyConfiguration = {
-        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
-        endpoint: `/Users`,
-        data: {
-            schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
-            userName: email,
-            emails: [
-                {
-                    type: 'work',
-                    value: email
-                }
-            ],
-            name: {
-                givenName: firstName,
-                familyName: lastName
+    input: KeeperCreateUser,
+    output: User,
+
+    exec: async (nango, input): Promise<User> => {
+        await nango.zodValidateInput({ zodSchema: keeperCreateUserSchema, input });
+
+        const { firstName, lastName, email, ...data } = input;
+
+        const config: ProxyConfiguration = {
+            // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
+            endpoint: `/Users`,
+            data: {
+                schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
+                userName: email,
+                emails: [
+                    {
+                        type: 'work',
+                        value: email
+                    }
+                ],
+                name: {
+                    givenName: firstName,
+                    familyName: lastName
+                },
+                ...data
             },
-            ...data
-        },
-        retries: 3
-    };
+            retries: 3
+        };
 
-    const response = await nango.post<KeeperUser>(config);
+        const response = await nango.post<KeeperUser>(config);
 
-    return toUser(response.data);
-}
+        return toUser(response.data);
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
