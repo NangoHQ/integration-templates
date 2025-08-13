@@ -18,6 +18,12 @@ const root = join(import.meta.dirname, '..', '..', '..');
 async function main(): Promise<void> {
     console.log('Building all templates flows');
 
+    // Log environment info for debugging
+    console.log(`Node.js version: ${process.version}`);
+    console.log(`Platform: ${process.platform}`);
+    console.log(`Architecture: ${process.arch}`);
+    console.log(`Working directory: ${process.cwd()}`);
+
     // Load nango version from package.json
     const packageJsonPath = join(root, 'package.json');
     let nangoVersion = 'unknown';
@@ -36,6 +42,8 @@ async function main(): Promise<void> {
     const templatesFolders = await readdir(templatesPath, { withFileTypes: true });
 
     const aggregatedFlows: ZeroFlow[] = [];
+    const processedIntegrations: string[] = [];
+    const failedIntegrations: string[] = [];
 
     console.log();
     console.log(chalk.gray('─'.repeat(20)));
@@ -59,19 +67,37 @@ async function main(): Promise<void> {
                 const command = `npm run cli -- ${name} compile`;
                 console.log(`  Running: ${command}`);
 
-                execSync(command, {
-                    stdio: 'pipe',
-                    cwd: root
-                });
+                try {
+                    execSync(command, {
+                        stdio: 'inherit',
+                        cwd: root,
+                        env: { ...process.env, FORCE_COLOR: '1' },
+                        timeout: 300000 // 5 minute timeout per integration
+                    });
+                } catch (compileError) {
+                    console.error(`   ${chalk.red('err')} Compilation failed for ${name}: ${errorToString(compileError)}`);
+                    console.error(`   ${chalk.red('err')} This integration will be skipped. Continuing with others...`);
+                    failedIntegrations.push(name);
+                    continue; // Skip this integration and continue with others
+                }
 
                 // also rebuild the docs
                 const docsCommand = `npm run cli -- ${name} generate:docs --integration-templates`;
                 console.log(`  Running: ${docsCommand}`);
 
-                execSync(command, {
-                    stdio: 'pipe',
-                    cwd: root
-                });
+                try {
+                    execSync(docsCommand, {
+                        stdio: 'inherit',
+                        cwd: root,
+                        env: { ...process.env, FORCE_COLOR: '1' },
+                        timeout: 120000 // 2 minute timeout for docs
+                    });
+                } catch (docsError) {
+                    console.error(`   ${chalk.red('err')} Docs generation failed for ${name}: ${errorToString(docsError)}`);
+                    console.error(`   ${chalk.red('err')} This integration will be skipped. Continuing with others...`);
+                    failedIntegrations.push(name);
+                    continue; // Skip this integration and continue with others
+                }
             }
 
             // Read the generated nango.json file
@@ -79,17 +105,39 @@ async function main(): Promise<void> {
             const schemaJsonPath = join(templatesPath, name, '.nango/schema.json');
 
             try {
+                // Check if .nango directory exists
+                try {
+                    await readFile(nangoJsonPath, 'utf8');
+                } catch (fileNotFoundError) {
+                    console.log(
+                        `   ${chalk.yellow('warn')} Skipping ${name} - .nango directory or nango.json not found. This usually means the compilation step failed.`
+                    );
+                    failedIntegrations.push(name);
+                    continue; // Skip this integration and continue with others
+                }
+
                 const nangoJsonContent = await readFile(nangoJsonPath, 'utf8');
                 const nangoData = JSON.parse(nangoJsonContent) as NangoYamlParsedIntegration[];
+
+                if (!nangoData || nangoData.length === 0) {
+                    console.log(`   ${chalk.yellow('warn')} Skipping ${name} - No integration data found in nango.json`);
+                    failedIntegrations.push(name);
+                    continue; // Skip this integration and continue with others
+                }
+
                 const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
                 const jsonSchema = JSON.parse(schemaJsonContent);
 
                 aggregatedFlows.push({ ...nangoData[0]!, jsonSchema, sdkVersion: nangoVersion });
+                processedIntegrations.push(name);
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
-                console.error(`   ${chalk.red('err')} Could not read nango.json: ${errorToString(fileError)}`);
-                process.exit(1);
+                console.error(`   ${chalk.red('err')} Could not read generated files for ${name}: ${errorToString(fileError)}`);
+                console.error(`   ${chalk.red('err')} This might indicate a compilation failure. Check the logs above.`);
+                console.log(`   ${chalk.yellow('warn')} Skipping ${name} and continuing with others...`);
+                failedIntegrations.push(name);
+                continue; // Skip this integration and continue with others
             }
         } catch (error) {
             console.error(`   ${chalk.red('err')} ${errorToString(error)}`);
@@ -101,15 +149,35 @@ async function main(): Promise<void> {
     console.log();
     console.log(`Total flows aggregated: ${aggregatedFlows.length}`);
 
+    // Print summary
+    if (processedIntegrations.length > 0) {
+        console.log(chalk.green(`✓ Successfully processed ${processedIntegrations.length} integrations: ${processedIntegrations.join(', ')}`));
+    }
+
+    if (failedIntegrations.length > 0) {
+        console.log(chalk.red(`✗ Failed to process ${failedIntegrations.length} integrations: ${failedIntegrations.join(', ')}`));
+    }
+
+    if (aggregatedFlows.length === 0) {
+        console.error(chalk.red('No flows were successfully aggregated. Check the logs above for compilation errors.'));
+        process.exit(1);
+    }
+
     // Write the aggregated flows to flows.zero.json
     const outputPath = join(root, 'internal/flows.zero.json');
     await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 4), 'utf8');
 
-    execSync('prettier -w internal/flows.zero.json', {
-        stdio: 'pipe',
-        cwd: root
-    });
+    try {
+        execSync('prettier -w internal/flows.zero.json', {
+            stdio: 'pipe',
+            cwd: root
+        });
+    } catch (prettierError) {
+        console.warn(chalk.yellow('Warning: Prettier formatting failed, but the file was written successfully.'));
+    }
+
     console.log(`Output written to: ${outputPath}`);
+    console.log(chalk.green(`✓ Successfully processed ${aggregatedFlows.length} integrations`));
 }
 
 // Run the script
