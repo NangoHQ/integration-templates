@@ -82,7 +82,14 @@ function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): 
     const bodyObj = { body: '' };
     const attachments: Attachments[] = [];
 
-    processParts(parts, bodyObj, attachments);
+    if (parts.length > 0) {
+        processParts(parts, bodyObj, attachments);
+    } else if (messageDetail.payload?.body?.data) {
+        // Handle simple API-sent emails with direct body data
+        bodyObj.body = Buffer.from(messageDetail.payload.body.data, 'base64').toString('utf8');
+    } else if (messageDetail.snippet) {
+        bodyObj.body = messageDetail.snippet;
+    }
 
     return {
         id: messageDetail.id,
