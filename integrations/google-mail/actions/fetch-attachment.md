@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** An action used to fetch the contents of an attachment.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Action
-- **Model:** `string`
-- **Input Model:** `DocumentInput`
+- **Model:** `ActionOutput_google_mail_fetchattachment`
+- **Input Model:** `ActionInput_google_mail_fetchattachment`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/fetch-attachment.ts)
 
 
