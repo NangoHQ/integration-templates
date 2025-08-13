@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of labels from gmail.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Labels
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Sync
@@ -44,8 +43,14 @@ _No request body_
   "messagesUnread": "<number>",
   "threadsTotal": "<number>",
   "threadsUnread": "<number>",
-  "color": "<LabelColor | null>"
+  "color": "<{\"textColor\":\"<string>\",\"backgroundColor\":\"<string>\"} | <null>>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog
