@@ -1,31 +1,61 @@
-import type { NangoSync, RecruiterFlowCandidate, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import type { RecruiterFlowCandidateResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_list
-        endpoint: '/api/external/candidate/list',
-        retries: 10,
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'current_page',
-            limit_name_in_request: 'items_per_page',
-            offset_start_value: 1,
-            limit: '100',
-            offset_calculation_method: 'per-page',
-            response_path: ''
-        }
-    };
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowCandidate } from '../models.js';
+import { z } from 'zod';
 
-    for await (const page of nango.paginate<RecruiterFlowCandidateResponse>(proxyConfig)) {
-        const candidates = page;
-        await nango.batchSave(candidates.map(toCandidate), 'RecruiterFlowCandidate');
+const sync = createSync({
+    description: 'Syncs all candidates from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/candidates',
+            group: 'Candidates'
+        }
+    ],
+
+    models: {
+        RecruiterFlowCandidate: RecruiterFlowCandidate
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_list
+            endpoint: '/api/external/candidate/list',
+            retries: 10,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'current_page',
+                limit_name_in_request: 'items_per_page',
+                offset_start_value: 1,
+                limit: '100',
+                offset_calculation_method: 'per-page',
+                response_path: ''
+            }
+        };
+
+        for await (const page of nango.paginate<RecruiterFlowCandidateResponse>(proxyConfig)) {
+            const candidates = page;
+            await nango.batchSave(candidates.map(toCandidate), 'RecruiterFlowCandidate');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function toCandidate(record: RecruiterFlowCandidateResponse): RecruiterFlowCandidate {
     const candidate: RecruiterFlowCandidate = {
-        id: record.id,
+        id: record.id.toString(),
         full_name: record.name,
         first_name: record.first_name,
         last_name: record.last_name,

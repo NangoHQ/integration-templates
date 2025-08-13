@@ -1,33 +1,40 @@
 [
-    {
-        "providerConfigKey": "teamtailor",
-        "syncs": [
-            {
-                "name": "candidates",
-                "type": "sync",
-                "description": "Fetches a list of all candidates from your teamtailor account.",
-                "sync_type": "full",
-                "usedModels": ["TeamtailorCandidate"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["TeamtailorCandidate"],
-                "scopes": ["Admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/teamtailor/candidates"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "teamtailor",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all candidates from your teamtailor account.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/teamtailor/candidates"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_teamtailor_candidates",
+        "name": "candidates",
+        "output": [
+          "TeamtailorCandidate"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "Admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "TeamtailorCandidate",
+          "SyncMetadata_teamtailor_candidates"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

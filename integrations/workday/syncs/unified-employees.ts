@@ -1,72 +1,97 @@
-import type { NangoSync, SyncConfiguration } from '../../models';
-import type { ResponseGet_WorkersAsync } from '../types';
+import { createSync } from 'nango';
+import type { ResponseGet_WorkersAsync } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const connection = await nango.getConnection();
-    const metadata: SyncConfiguration | null = connection.metadata;
-    const client = await getSoapClient('Human_Resources', connection);
+import { StandardEmployee, SyncConfiguration } from '../models.js';
 
-    let page = 1;
-    let hasMoreData = true;
-    let totalProcessed = 0;
+const sync = createSync({
+    description: 'Fetches a list of current employees from Workday and maps them to the standard HRIS model',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    // Determine date range for incremental sync (only if this is not the first run)
-    let updatedFrom: string | undefined;
-    let updatedThrough: string | undefined;
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/employees/unified',
+            group: 'Unified HRIS API'
+        }
+    ],
 
-    if (nango.lastSyncDate) {
-        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
-    }
+    models: {
+        StandardEmployee: StandardEmployee
+    },
 
-    do {
-        await nango.log(`Fetching page ${page}`);
+    metadata: SyncConfiguration,
+
+    exec: async (nango) => {
+        const connection = await nango.getConnection();
+        const metadata: SyncConfiguration | null = connection.metadata;
+        const client = await getSoapClient('Human_Resources', connection);
+
+        let page = 1;
+        let hasMoreData = true;
+        let totalProcessed = 0;
+
+        // Determine date range for incremental sync (only if this is not the first run)
+        let updatedFrom: string | undefined;
+        let updatedThrough: string | undefined;
+
         if (nango.lastSyncDate) {
-            await nango.log(`Using incremental sync from ${updatedFrom} to ${updatedThrough}`);
+            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
         }
 
-        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
-        const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({
-            Response_Filter: {
-                Page: page,
-                Count: 100
-            },
-            Request_Criteria: {
-                Exclude_Inactive_Workers: false,
-                ...(updatedFrom && {
-                    Transaction_Log_Criteria_Data: {
-                        Transaction_Date_Range_Data: {
-                            Updated_From: updatedFrom,
-                            Updated_Through: updatedThrough
+        do {
+            await nango.log(`Fetching page ${page}`);
+
+            // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
+            const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({
+                Response_Filter: {
+                    Page: page,
+                    Count: 100
+                },
+                Request_Criteria: {
+                    Exclude_Inactive_Workers: false,
+                    ...(updatedFrom && {
+                        Transaction_Log_Criteria_Data: {
+                            Transaction_Date_Range_Data: {
+                                Updated_From: updatedFrom,
+                                Updated_Through: updatedThrough
+                            }
                         }
-                    }
-                })
-            },
-            Response_Group: {
-                Include_Personal_Information: true,
-                Include_Employment_Information: true,
-                Include_Organizations: true,
-                Include_Roles: true
+                    })
+                },
+                Response_Group: {
+                    Include_Personal_Information: true,
+                    Include_Employment_Information: true,
+                    Include_Organizations: true,
+                    Include_Roles: true
+                }
+            });
+
+            const workers = res.Response_Data?.Worker ?? [];
+
+            if (workers.length > 0) {
+                const mappedEmployees = workers.map(toStandardEmployee);
+                await nango.batchSave(mappedEmployees, 'StandardEmployee');
+
+                totalProcessed += workers.length;
+                await nango.log(`Processed and saved batch of ${workers.length} workers. Total processed: ${totalProcessed}`);
             }
-        });
 
-        const workers = res.Response_Data?.Worker ?? [];
+            hasMoreData = res.Response_Results.Page < res.Response_Results.Total_Pages;
+            page++;
 
-        if (workers.length > 0) {
-            const mappedEmployees = workers.map(toStandardEmployee);
-            await nango.batchSave(mappedEmployees, 'StandardEmployee');
+            await nango.log(`Processed page ${res.Response_Results.Page} of ${res.Response_Results.Total_Pages} (${res.Response_Results.Total_Results} total)`);
+        } while (hasMoreData);
 
-            totalProcessed += workers.length;
-            await nango.log(`Processed and saved batch of ${workers.length} workers. Total processed: ${totalProcessed}`);
-        }
+        await nango.log(`Sync completed. Total workers processed: ${totalProcessed}`);
+    }
+});
 
-        hasMoreData = res.Response_Results.Page < res.Response_Results.Total_Pages;
-        page++;
-
-        await nango.log(`Processed page ${res.Response_Results.Page} of ${res.Response_Results.Total_Pages} (${res.Response_Results.Total_Results} total)`);
-    } while (hasMoreData);
-
-    await nango.log(`Sync completed. Total workers processed: ${totalProcessed}`);
-}
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

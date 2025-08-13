@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync, ProxyConfiguration } from '../../models.js';
+import type { NangoAction, NangoSync, ProxyConfiguration } from 'nango';
 
 export async function constructRequest(nango: NangoAction | NangoSync, endpoint: string): Promise<ProxyConfiguration> {
     const token = await nango.getToken();
@@ -15,7 +15,8 @@ export async function constructRequest(nango: NangoAction | NangoSync, endpoint:
             Authorization: 'Basic ' + Buffer.from(token + ':').toString('base64')
         },
         paginate: {
-            type: 'link',
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+            type: 'link' as const,
             response_path: 'data',
             link_path_in_response_body: 'next_href'
         }

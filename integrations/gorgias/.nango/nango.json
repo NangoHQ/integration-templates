@@ -1,102 +1,140 @@
 [
-    {
-        "providerConfigKey": "gorgias",
-        "syncs": [
-            {
-                "name": "tickets",
-                "type": "sync",
-                "description": "Fetches a list of tickets with their associated messages",
-                "sync_type": "full",
-                "usedModels": ["Ticket", "AssigneeUser", "Message", "RecieverSender", "Attachment"],
-                "runs": "every 6 hours",
-                "version": "1.0.3",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Ticket"],
-                "scopes": ["tickets:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/tickets",
-                        "group": "Tickets"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches the list of users",
-                "sync_type": "full",
-                "usedModels": ["GorgiasUser"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["GorgiasUser"],
-                "scopes": ["users:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "gorgias",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a new ticket",
+        "endpoint": {
+          "method": "POST",
+          "path": "/ticket",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_gorgias_createticket",
+        "name": "create-ticket",
+        "output": [
+          "ActionOutput_gorgias_createticket"
         ],
-        "actions": [
-            {
-                "name": "create-ticket",
-                "type": "action",
-                "description": "Creates a new ticket",
-                "version": "",
-                "scopes": ["tickets:write", "account:read", "customers:write", "customers:read"],
-                "input": "CreateTicketInput",
-                "output": ["Ticket"],
-                "usedModels": ["Ticket", "AssigneeUser", "Message", "RecieverSender", "Attachment", "CreateTicketInput", "CreateTicketMessage"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/ticket",
-                    "group": "Tickets"
-                }
-            },
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided",
-                "version": "1.0.1",
-                "scopes": ["users:write"],
-                "input": "GorgiasCreateUser",
-                "output": ["GorgiasUser"],
-                "usedModels": ["GorgiasUser", "GorgiasCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Gorgias",
-                "version": "",
-                "scopes": ["users:write"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [
+          "tickets:write",
+          "account:read",
+          "customers:write",
+          "customers:read"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_gorgias_createticket",
+          "ActionOutput_gorgias_createticket"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_gorgias_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_gorgias_createuser"
+        ],
+        "scopes": [
+          "users:write"
+        ],
+        "usedModels": [
+          "ActionInput_gorgias_createuser",
+          "ActionOutput_gorgias_createuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Gorgias",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_gorgias_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_gorgias_deleteuser"
+        ],
+        "scopes": [
+          "users:write"
+        ],
+        "usedModels": [
+          "ActionInput_gorgias_deleteuser",
+          "ActionOutput_gorgias_deleteuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of tickets with their associated messages",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tickets",
+            "group": "Tickets"
+          }
+        ],
+        "input": "SyncMetadata_gorgias_tickets",
+        "name": "tickets",
+        "output": [
+          "Ticket"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "tickets:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Ticket",
+          "SyncMetadata_gorgias_tickets"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches the list of users",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_gorgias_users",
+        "name": "users",
+        "output": [
+          "GorgiasUser"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "users:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "GorgiasUser",
+          "SyncMetadata_gorgias_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

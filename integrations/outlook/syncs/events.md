@@ -3,10 +3,8 @@
 
 ## General Information
 
-- **Description:** Sync calendar events on the primary calendar going back one month and
-save the entire object as specified by the Outlook Calendar API
-
-- **Version:** 1.0.0
+- **Description:** Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
@@ -54,22 +52,18 @@ _No request body_
         }
       },
       "status": {
-        "response": "<none | accepted | declined | tentative>",
+        "response": "<enum: 'none' | 'organizer' | 'tentativelyAccepted' | 'accepted' | 'declined' | 'notResponded'>",
         "sentDateTime": "<string>"
       },
-      "type": "<required | optional | resource>"
+      "type": "<enum: 'required' | 'optional' | 'resource'>"
     }
   ],
-  "body": {
-    "content": "<string>",
-    "contentType": "<text | html>"
-  },
   "bodyPreview": "<string>",
   "end": {
     "dateTime": "<string>",
     "timeZone": "<string>"
   },
-  "importance": "<low | normal | high>",
+  "importance": "<enum: 'low' | 'normal' | 'high'>",
   "isAllDay": "<boolean>",
   "isCancelled": "<boolean>",
   "isOrganizer": "<boolean>",
@@ -91,11 +85,11 @@ _No request body_
     "displayName?": "<string>",
     "locationEmailAddress?": "<string>",
     "locationUri?": "<string>",
-    "locationType?": "<default | conferenceRoom | homeAddress | businessAddress | geoCoordinates | streetAddress | hotel | restaurant | localBusiness | postalAddress>",
+    "locationType?": "<enum: 'default' | 'conferenceRoom' | 'homeAddress' | 'businessAddress' | 'geoCoordinates' | 'streetAddress' | 'hotel' | 'restaurant' | 'localBusiness' | 'postalAddress'>",
     "uniqueId?": "<string>",
     "uniqueIdType?": "<string>"
   },
-  "onlineMeeting": "<OnlineMeetingInfo | null>",
+  "onlineMeeting": "<{\"conferenceId?\":\"<string>\",\"joinUrl?\":\"<string>\",\"phones\":[{\"number\":\"<string>\",\"type\":\"<enum: 'home' | 'business' | 'mobile' | 'other' | 'assistant' | 'homeFax' | 'businessFax' | 'otherFax' | 'pager' | 'radio'>\"}],\"quickDial?\":\"<string>\",\"tollFreeNumbers\":\"<string[]>\",\"tollNumber?\":\"<string>\"} | <null>>",
   "onlineMeetingProvider": "<string>",
   "organizer": {
     "emailAddress": {
@@ -103,13 +97,13 @@ _No request body_
       "name": "<string>"
     }
   },
-  "recurrence": "<PatternedRecurrence | null>",
+  "recurrence": "<{\"pattern?\":{\"dayOfMonth?\":\"<number>\",\"daysOfWeek?\":\"<string[]>\",\"firstDayOfWeek?\":\"<string>\",\"index?\":\"<enum: 'first' | 'second' | 'third' | 'fourth' | 'last'>\",\"interval\":\"<number>\",\"month?\":\"<number>\",\"type\":\"<enum: 'daily' | 'weekly' | 'absoluteMonthly' | 'relativeMonthly' | 'absoluteYearly' | 'relativeYearly'>\"},\"range\":{\"endDate?\":\"<string>\",\"numberOfOccurrences?\":\"<number>\",\"recurrenceTimeZone?\":\"<string>\",\"startDate\":\"<string>\",\"type\":\"<enum: 'endDate' | 'noEnd' | 'numbered'>\"}} | <null>>",
   "responseRequested": "<boolean>",
   "responseStatus": {
     "response": "<string>",
     "time": "<string>"
   },
-  "sensitivity": "<normal | personal | private | confidential>",
+  "sensitivity": "<enum: 'normal' | 'personal' | 'private' | 'confidential'>",
   "start": {
     "dateTime": "<string>",
     "timeZone": "<string>"
@@ -133,7 +127,6 @@ _No request body_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook/syncs/events.md)
 
 <!-- END  GENERATED CONTENT -->
-
 The sync expects the following metadata:
 ```json
 {

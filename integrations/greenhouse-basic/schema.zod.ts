@@ -31,8 +31,8 @@ export const greenhouseApplicationSchema = z.object({
         })
     }),
     rejection_details: z.object({
-        custom_fields: z.record(z.string(), z.any()),
-        keyed_custom_fields: z.record(z.string(), z.any())
+        custom_fields: z.record(z.any()),
+        keyed_custom_fields: z.record(z.any())
     }),
     jobs: z.array(z.string()),
     job_post_id: z.string(),
@@ -74,8 +74,8 @@ export const greenhouseApplicationSchema = z.object({
             name: z.string()
         })
     }),
-    custom_fields: z.record(z.string(), z.any()),
-    keyed_custom_fields: z.record(z.string(), z.any()),
+    custom_fields: z.record(z.any()),
+    keyed_custom_fields: z.record(z.any()),
     attachments: z.array(z.any())
 });
 
@@ -117,8 +117,8 @@ export const greenhouseCandidateSchema = z.object({
     educations: z.array(z.string()),
     employments: z.array(z.string()),
     linked_user_ids: z.string(),
-    custom_fields: z.record(z.string(), z.any()),
-    keyed_custom_fields: z.record(z.string(), z.any())
+    custom_fields: z.record(z.any()),
+    keyed_custom_fields: z.record(z.any())
 });
 
 export const greenhouseJobSchema = z.object({
@@ -136,8 +136,8 @@ export const greenhouseJobSchema = z.object({
     copied_from_id: z.string(),
     departments: z.array(z.string()),
     offices: z.array(z.string()),
-    custom_fields: z.record(z.string(), z.any()),
-    keyed_custom_fields: z.record(z.string(), z.any()),
+    custom_fields: z.record(z.any()),
+    keyed_custom_fields: z.record(z.any()),
     hiring_team: z.object({
         hiring_managers: z.array(z.string()),
         recruiters: z.array(z.string()),

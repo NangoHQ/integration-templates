@@ -1,67 +1,95 @@
-import type { NangoSync, LinearRoadmap } from '../../models.js';
+import { createSync } from 'nango';
+import { LinearRoadmap } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    const { lastSyncDate } = nango;
-    const pageSize = 50;
-    let after = '';
+const sync = createSync({
+    description: 'Fetches a list of roadmaps from Linear',
+    version: '2.0.0',
+    frequency: 'every 5min',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
-    while (true) {
-        const filterParam = lastSyncDate
-            ? `
-        , filter: {
-            updatedAt: { gte: "${lastSyncDate.toISOString()}" }
-        }`
-            : '';
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/roadmaps',
+            group: 'Roadmaps'
+        }
+    ],
 
-        const afterParam = after ? `, after: "${after}"` : '';
+    models: {
+        LinearRoadmap: LinearRoadmap
+    },
 
-        const query = `
-        query {
-            roadmaps (first: ${pageSize}${afterParam}${filterParam}) {
-                nodes {
-                    id
-                    name
-                    description
-                    createdAt
-                    updatedAt
-                    projects {
-                        nodes {
-                            id
-                        }
-                    }
-                    organization {
-                        teams {
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const { lastSyncDate } = nango;
+        const pageSize = 50;
+        let after = '';
+
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+        while (true) {
+            const filterParam = lastSyncDate
+                ? `
+            , filter: {
+                updatedAt: { gte: "${lastSyncDate.toISOString()}" }
+            }`
+                : '';
+
+            const afterParam = after ? `, after: "${after}"` : '';
+
+            const query = `
+            query {
+                roadmaps (first: ${pageSize}${afterParam}${filterParam}) {
+                    nodes {
+                        id
+                        name
+                        description
+                        createdAt
+                        updatedAt
+                        projects {
                             nodes {
                                 id
                             }
                         }
+                        organization {
+                            teams {
+                                nodes {
+                                    id
+                                }
+                            }
+                        }
+                    }
+                    pageInfo {
+                        hasNextPage
+                        endCursor
                     }
                 }
-                pageInfo {
-                    hasNextPage
-                    endCursor
-                }
+            }`;
+
+            const response = await nango.post({
+                endpoint: '/graphql',
+                data: {
+                    query: query
+                },
+                retries: 10
+            });
+
+            await nango.batchSave(mapRoadmaps(response.data.data.roadmaps.nodes), 'LinearRoadmap');
+
+            if (!response.data.data.roadmaps.pageInfo.hasNextPage || !response.data.data.roadmaps.pageInfo.endCursor) {
+                break;
+            } else {
+                after = response.data.data.roadmaps.pageInfo.endCursor;
             }
-        }`;
-
-        const response = await nango.post({
-            endpoint: '/graphql',
-            data: {
-                query: query
-            },
-            retries: 10
-        });
-
-        await nango.batchSave(mapRoadmaps(response.data.data.roadmaps.nodes), 'LinearRoadmap');
-
-        if (!response.data.data.roadmaps.pageInfo.hasNextPage || !response.data.data.roadmaps.pageInfo.endCursor) {
-            break;
-        } else {
-            after = response.data.data.roadmaps.pageInfo.endCursor;
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapRoadmaps(records: any[]): LinearRoadmap[] {
     return records.map((record: any) => {

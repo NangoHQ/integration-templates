@@ -1,4 +1,4 @@
-import type { Webhook } from '../models.js';
+import type { Webhook } from './models.js';
 
 export interface AirtableTableView {
     id: string;

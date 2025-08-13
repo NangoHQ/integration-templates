@@ -1,6 +1,9 @@
-import type { NangoAction, CreateCreditMemo, CreditMemo, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { CreditMemo, CreateCreditMemo } from '../models.js';
 
 /**
  * This function handles the creation of a credit memo in QuickBooks via the Nango action.
@@ -14,60 +17,78 @@ import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<CreditMemo>} - Returns the created credit memo object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: CreateCreditMemo): Promise<CreditMemo> {
-    // Validate if input is present
-    if (!input) {
-        throw new nango.ActionError({
-            message: `Input credit memo object is required. Received: ${JSON.stringify(input)}`
-        });
-    }
+const action = createAction({
+    description: 'Creates a single credit memo in QuickBooks.',
+    version: '1.0.0',
 
-    // Validate required fields
-    if (!input.customer_ref || !input.customer_ref.value) {
-        throw new nango.ActionError({
-            message: `CustomerRef is required and must include a value. Received: ${JSON.stringify(input.customer_ref)}`
-        });
-    }
+    endpoint: {
+        method: 'POST',
+        path: '/credit-memos',
+        group: 'Credit Memos'
+    },
 
-    if (!input.line || input.line.length === 0) {
-        throw new nango.ActionError({
-            message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
-        });
-    }
+    input: CreateCreditMemo,
+    output: CreditMemo,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
-    // Validate each line item
-    for (const line of input.line) {
-        if (!line.detail_type) {
+    exec: async (nango, input): Promise<CreditMemo> => {
+        // Validate if input is present
+        if (!input) {
             throw new nango.ActionError({
-                message: `DetailType is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `Input credit memo object is required. Received: ${JSON.stringify(input)}`
             });
         }
 
-        if (line.amount_cents === undefined) {
+        // Validate required fields
+        if (!input.customer_ref || !input.customer_ref.value) {
             throw new nango.ActionError({
-                message: `amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                message: `CustomerRef is required and must include a value. Received: ${JSON.stringify(input.customer_ref)}`
             });
         }
 
-        if (!line.sales_item_line_detail || !line.sales_item_line_detail.item_ref) {
+        if (!input.line || input.line.length === 0) {
             throw new nango.ActionError({
-                message: `SalesItemLineDetail with item_ref is required for each line item. Received: ${JSON.stringify(line.sales_item_line_detail)}`
+                message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
             });
         }
+
+        // Validate each line item
+        for (const line of input.line) {
+            if (!line.detail_type) {
+                throw new nango.ActionError({
+                    message: `DetailType is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (line.amount_cents === undefined) {
+                throw new nango.ActionError({
+                    message: `amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
+                });
+            }
+
+            if (!line.sales_item_line_detail || !line.sales_item_line_detail.item_ref) {
+                throw new nango.ActionError({
+                    message: `SalesItemLineDetail with item_ref is required for each line item. Received: ${JSON.stringify(line.sales_item_line_detail)}`
+                });
+            }
+        }
+
+        const companyId = await getCompany(nango);
+        // Map the credit memo input to the QuickBooks credit memo structure
+        const quickBooksInvoice = toQuickBooksCreditMemo(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#create-a-credit-memo
+            endpoint: `/v3/company/${companyId}/creditmemo`,
+            data: quickBooksInvoice,
+            retries: 3
+        };
+
+        const response = await nango.post(config);
+
+        return toCreditMemo(response.data['CreditMemo']);
     }
+});
 
-    const companyId = await getCompany(nango);
-    // Map the credit memo input to the QuickBooks credit memo structure
-    const quickBooksInvoice = toQuickBooksCreditMemo(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#create-a-credit-memo
-        endpoint: `/v3/company/${companyId}/creditmemo`,
-        data: quickBooksInvoice,
-        retries: 3
-    };
-
-    const response = await nango.post(config);
-
-    return toCreditMemo(response.data['CreditMemo']);
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

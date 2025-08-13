@@ -1,6 +1,9 @@
-import type { NangoAction, UpdateItem, Item, ProxyConfiguration } from '../../models.js';
+import { createAction } from 'nango';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { Item, UpdateItem } from '../models.js';
 
 /**
  * This function handles the partial update of a customer in QuickBooks via the Nango action.
@@ -14,33 +17,51 @@ import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<Item>} - Returns the created customer object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: UpdateItem): Promise<Item> {
-    // Validate if input is present
-    if (!input) {
-        throw new nango.ActionError({
-            message: `Input customer object is required. Received: ${JSON.stringify(input)}`
-        });
+const action = createAction({
+    description: 'Update a single item in QuickBooks.',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'PUT',
+        path: '/items',
+        group: 'Items'
+    },
+
+    input: UpdateItem,
+    output: Item,
+    scopes: ['com.intuit.quickbooks.accounting'],
+
+    exec: async (nango, input): Promise<Item> => {
+        // Validate if input is present
+        if (!input) {
+            throw new nango.ActionError({
+                message: `Input customer object is required. Received: ${JSON.stringify(input)}`
+            });
+        }
+
+        // Ensure that required fields are present for QuickBooks
+        if (!input.id || !input.sync_token) {
+            throw new nango.ActionError({
+                message: `Both 'id' and 'sync_token' must be provided. Received: ${JSON.stringify(input)}`
+            });
+        }
+
+        const companyId = await getCompany(nango);
+        // Map the customer input to the QuickBooks customer structure
+        const quickBooksItem = toQuickBooksItem(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#sparse-update-a-customer
+            endpoint: `/v3/company/${companyId}/item`,
+            data: quickBooksItem,
+            retries: 3
+        };
+
+        const response = await nango.post(config);
+
+        return toItem(response.data['Item']);
     }
+});
 
-    // Ensure that required fields are present for QuickBooks
-    if (!input.id || !input.sync_token) {
-        throw new nango.ActionError({
-            message: `Both 'id' and 'sync_token' must be provided. Received: ${JSON.stringify(input)}`
-        });
-    }
-
-    const companyId = await getCompany(nango);
-    // Map the customer input to the QuickBooks customer structure
-    const quickBooksItem = toQuickBooksItem(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#sparse-update-a-customer
-        endpoint: `/v3/company/${companyId}/item`,
-        data: quickBooksItem,
-        retries: 3
-    };
-
-    const response = await nango.post(config);
-
-    return toItem(response.data['Item']);
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

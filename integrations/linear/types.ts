@@ -1,4 +1,4 @@
-import type { LinearIssue } from '../models.js';
+import type { LinearIssue } from './models.js';
 
 export interface LinearCreatedIssue {
     issueCreate: {

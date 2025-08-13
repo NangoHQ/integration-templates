@@ -37,20 +37,23 @@ reviews:
         docstrings:
             enabled: true
     path_instructions:
-        - path: integrations/**/nango.yaml
+        - path: integrations/**/index.ts
           instructions: |-
-              - If `sync_type: full`, then the sync should also have `track_deletes: true`.
-              - If the sync requires metadata, set `auto_start: false` and document the metadata as an input in `nango.yaml`.
-              - Scopes should be explicitly documented.
+              - Use `createSync()` and `createAction()` for inline configuration.
+              - If `syncType: 'full'`, then the sync should also have `trackDeletes: true`.
+              - If the sync requires metadata, set `autoStart: false` and document the metadata as a Zod schema.
+              - Scopes should be explicitly documented in the `scopes` array.
+              - Use Zod schemas for input, output, and metadata validation.
+              - Define models using Zod schemas in `models.ts` files.
 
-              - If `sync_type: full`, then the sync should also have `track_deletes: true`
-              - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
-              - Scopes should be documented
-              - For optional properties in models, use the `?` suffix after the property name
+              - If `syncType: 'full'`, then the sync should also have `trackDeletes: true`
+              - If the sync requires metadata, then the sync should be set to `autoStart: false`. The metadata should be defined as a Zod schema in the sync configuration
+              - Scopes should be documented in the sync/action configuration
+              - For optional properties in models, use the `.optional()` method in Zod schemas
               - Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
               - Model names and endpoint paths should not be duplicated within an integration
-              - When adding a new integration, take care to not remove unrelated entries in the nango.yaml
-              - For enum values in models, do not use quotes around the values
+              - When adding a new integration, take care to not remove unrelated entries in the index.ts file
+              - For enum values in models, use Zod's `.enum()` method
         - path: integrations/**/**.ts
           instructions: |-
               - Use TypeScript best practices and ensure typings are strictly defined.
@@ -66,7 +69,8 @@ reviews:
               - Validate inputs/outputs using `zod`.
               - Ensure date inputs are valid and converted using `new Date()` to the provider's expected format.
               # Syncs
-              - The `fetchData` function must be the default export and placed at the top.
+              - Use `createSync()` to define sync configuration inline.
+              - The `exec` function must be the default export and placed at the top.
               - Always paginate requests to ensure all records are retrieved.
               - Avoid parallel requests to maintain the retry policy and prevent rate limits.
               - Mapping logic should be in a dedicated function.
@@ -76,7 +80,8 @@ reviews:
               - If the sync is incremental, use `nango.lastSyncDate`.
 
               # Actions
-              - The `runAction` function must be the default export and placed at the top.
+              - Use `createAction()` to define action configuration inline.
+              - The `exec` function must be the default export and placed at the top.
               - Use `ActionError` only for specific error messages, otherwise rely on script failure.
 
               Example:
@@ -89,7 +94,7 @@ reviews:
               # TypeScript Development Guidelines
 
               ## Syncs
-              - `fetchData` must be the default export at the top of the file
+              - Use `createSync()` to define syncs with inline configuration
               - Always paginate requests to retrieve all records
               - Avoid parallelizing requests (defeats retry policy and rate limiting)
               - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
@@ -101,7 +106,7 @@ reviews:
               - For incremental syncs, use `nango.lastSyncDate`
 
               ## Actions
-              - `runAction` must be the default export at the top of the file
+              - Use `createAction()` to define actions with inline configuration
               - Only use `ActionError` for specific error messages:
               - Always return objects, not arrays
               - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:

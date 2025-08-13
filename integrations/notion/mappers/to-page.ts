@@ -1,4 +1,5 @@
-import type { NangoAction, RichPage, NangoSync } from '../../models.js';
+import type { NangoAction, NangoSync } from 'nango';
+import type { RichPage } from '../models.js';
 import type { Page, TitleElement } from '../types.js';
 import { richPageSchema } from '../schema.zod.js';
 import { blockToMarkdown } from '../helpers/blocks-to-markdown.js';

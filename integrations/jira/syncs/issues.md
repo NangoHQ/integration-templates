@@ -4,7 +4,8 @@
 ## General Information
 
 - **Description:** Fetches a list of issues from Jira
-- **Version:** 1.0.2
+
+- **Version:** 1.0.1
 - **Group:** Issues
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
@@ -74,8 +75,7 @@ _No request body_
     }
   ],
   "cloudId?": "<string>",
-  "baseUrl?": "<string>",
-  "timeZone?": "<string>"
+  "baseUrl?": "<string>"
 }
 ```
 
@@ -85,28 +85,4 @@ _No request body_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/syncs/issues.md)
 
 <!-- END  GENERATED CONTENT -->
-## Metadata Requirements
 
-The sync expects the following metadata:
-```json
-{
-  "projectIdsToSync": [
-    {
-      "id": "<string>"
-    }
-  ],
-  "cloudId?": "<string>",
-  "baseUrl?": "<string>",
-  "timeZone?": "<string>"
-}
-```
-
-**Required fields:**
-- `projectIdsToSync`: Array of project IDs to sync issues from. At least one project must be specified.
-
-**Optional fields:**
-- `cloudId`: Jira Cloud ID (auto-populated if not provided)
-- `baseUrl`: Jira base URL (auto-populated if not provided)  
-- `timeZone`: Timezone for date formatting in JQL queries (e.g., "America/New_York", "Asia/Tokyo", "Europe/London"). If not provided, uses UTC.
-
-The timezone field is particularly useful for incremental syncs when your Jira instance is in a different timezone than the sync environment, ensuring accurate date-based filtering.

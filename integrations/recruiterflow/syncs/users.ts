@@ -1,22 +1,52 @@
-import type { NangoSync, RecruiterFlowUser, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import type { RecruiterFlowUserResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/User%20APIs/get_api_external_user_list
-        endpoint: '/api/external/user/list',
-        retries: 10
-    };
+import type { ProxyConfiguration } from 'nango';
+import { RecruiterFlowUser } from '../models.js';
+import { z } from 'zod';
 
-    const response = await nango.get<{ data: RecruiterFlowUserResponse[] }>(proxyConfig);
-    const users = response.data.data;
+const sync = createSync({
+    description: 'Syncs all users from RecruiterFlow',
+    version: '2.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: true,
 
-    await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
-}
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/users',
+            group: 'Users'
+        }
+    ],
+
+    models: {
+        RecruiterFlowUser: RecruiterFlowUser
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/User%20APIs/get_api_external_user_list
+            endpoint: '/api/external/user/list',
+            retries: 10
+        };
+
+        const response = await nango.get<{ data: RecruiterFlowUserResponse[] }>(proxyConfig);
+        const users = response.data.data;
+
+        await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function toUser(record: RecruiterFlowUserResponse): RecruiterFlowUser {
     return {
-        id: record.id,
+        id: record.id.toString(),
         email: record.email,
         first_name: record.first_name,
         last_name: record.last_name,

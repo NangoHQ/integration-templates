@@ -1,6 +1,9 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
 import type { IntercomDeleteContactResponse } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes an Intercom contact.
@@ -19,18 +22,34 @@ import type { IntercomDeleteContactResponse } from '../types.js';
  * For detailed endpoint documentation, refer to:
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+const action = createAction({
+    description: 'Deletes a contact in Intercom',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
-        endpoint: `/contacts/${parsedInput.data.id}`,
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/contact'
+    },
 
-    const response = await nango.delete<IntercomDeleteContactResponse>(config);
+    input: IdEntity,
+    output: SuccessResponse,
 
-    return {
-        success: response.data.deleted
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+        const config: ProxyConfiguration = {
+            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
+            endpoint: `/contacts/${parsedInput.data.id}`,
+            retries: 3
+        };
+
+        const response = await nango.delete<IntercomDeleteContactResponse>(config);
+
+        return {
+            success: response.data.deleted
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,32 +1,65 @@
-import type { NangoSync, PennylaneCustomer, PennylaneIndividualCustomer, ProxyConfiguration } from '../../models.js';
+import { createSync } from 'nango';
 import { toCustomer } from '../mappers/to-customer.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const config: ProxyConfiguration = {
-        // https://pennylane.readme.io/reference/customers-get-1
-        endpoint: `/api/external/v1/customers`,
-        retries: 10,
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'page',
-            response_path: 'customers'
+import type { ProxyConfiguration } from 'nango';
+import type { PennylaneIndividualCustomer } from '../models.js';
+import { PennylaneCustomer } from '../models.js';
+import { z } from 'zod';
+
+const sync = createSync({
+    description: 'Fetches a list of customers from pennylane',
+    version: '2.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
+
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/customers',
+            group: 'Customers'
         }
-    };
+    ],
 
-    if (nango.lastSyncDate) {
-        config.params = {
-            filter: JSON.stringify([
-                {
-                    field: 'updated_at',
-                    operator: 'gteq',
-                    value: nango.lastSyncDate.toISOString()
-                }
-            ])
+    scopes: ['accounting'],
+
+    models: {
+        PennylaneCustomer: PennylaneCustomer
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        const config: ProxyConfiguration = {
+            // https://pennylane.readme.io/reference/customers-get-1
+            endpoint: `/api/external/v1/customers`,
+            retries: 10,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                response_path: 'customers'
+            }
         };
-    }
 
-    for await (const response of nango.paginate<PennylaneIndividualCustomer>(config)) {
-        const customers = response.map(toCustomer);
-        await nango.batchSave<PennylaneCustomer>(customers, 'PennylaneCustomer');
+        if (nango.lastSyncDate) {
+            config.params = {
+                filter: JSON.stringify([
+                    {
+                        field: 'updated_at',
+                        operator: 'gteq',
+                        value: nango.lastSyncDate.toISOString()
+                    }
+                ])
+            };
+        }
+
+        for await (const response of nango.paginate<PennylaneIndividualCustomer>(config)) {
+            const customers = response.map(toCustomer);
+            await nango.batchSave(customers, 'PennylaneCustomer');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

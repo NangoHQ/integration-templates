@@ -1,26 +1,31 @@
 [
-    {
-        "providerConfigKey": "algolia",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "create-contacts",
-                "type": "action",
-                "description": "Action to add a single record contact to an index",
-                "version": "",
-                "scopes": [],
-                "input": "AlgoliaCreateContactInput",
-                "output": ["AlgoliaContact"],
-                "usedModels": ["AlgoliaContact", "AlgoliaCreateContactInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/contacts"
-                }
-            }
+  {
+    "providerConfigKey": "algolia",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to add a single record contact to an index",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contacts"
+        },
+        "input": "ActionInput_algolia_createcontacts",
+        "name": "create-contacts",
+        "output": [
+          "ActionOutput_algolia_createcontacts"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_algolia_createcontacts",
+          "ActionOutput_algolia_createcontacts"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

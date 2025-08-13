@@ -28,7 +28,7 @@ export const commentSchema = z.object({
     createdAt: z.string(),
     updatedAt: z.string(),
     author: authorSchema,
-    body: z.record(z.string(), z.any())
+    body: z.record(z.any())
 });
 
 export const issueSchema = z.object({

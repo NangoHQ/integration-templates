@@ -1,609 +1,657 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Account": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_basecamp_todos": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "product": {
-                    "type": "string"
-                },
-                "href": {
-                    "type": "string"
-                },
-                "app_href": {
-                    "type": "string"
-                },
-                "hidden": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["id", "name", "product", "href", "app_href"],
-            "additionalProperties": false
-        },
-        "UserInformation": {
-            "type": "object",
-            "properties": {
-                "identity": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "number"
-                        },
-                        "firstName": {
-                            "type": "string"
-                        },
-                        "lastName": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id", "firstName", "lastName", "email"],
-                    "additionalProperties": false
-                },
-                "accounts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Account"
-                    }
-                }
-            },
-            "required": ["identity", "accounts"],
-            "additionalProperties": false
-        },
-        "DockItem": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "position": {
-                    "type": ["number", "null"]
-                },
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "title", "name", "enabled", "position", "url", "app_url"],
-            "additionalProperties": false
-        },
-        "BasecampProject": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "purpose": {
-                    "type": "string"
-                },
-                "clients_enabled": {
-                    "type": "boolean"
-                },
-                "timesheet_enabled": {
-                    "type": "boolean"
-                },
-                "color": {
-                    "type": ["string", "null"]
-                },
-                "last_needle_color": {
-                    "type": ["string", "null"]
-                },
-                "last_needle_position": {
-                    "type": ["string", "null"]
-                },
-                "previous_needle_position": {
-                    "type": ["string", "null"]
-                },
-                "bookmark_url": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                },
-                "dock": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/DockItem"
-                    }
-                },
-                "bookmarked": {
-                    "type": "boolean"
-                }
+              "projectId": {
+                "type": "number"
+              },
+              "todoSetId": {
+                "type": "number"
+              }
             },
             "required": [
-                "id",
-                "status",
-                "created_at",
-                "updated_at",
-                "name",
-                "description",
-                "purpose",
-                "clients_enabled",
-                "bookmark_url",
-                "url",
-                "app_url",
-                "dock",
-                "bookmarked"
+              "projectId",
+              "todoSetId"
             ],
             "additionalProperties": false
-        },
-        "BasecampProjectsResponse": {
-            "type": "object",
-            "properties": {
-                "projects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BasecampProject"
-                    }
-                }
-            },
-            "required": ["projects"],
-            "additionalProperties": false
-        },
-        "BasecampTodolist": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "visible_to_clients": {
-                    "type": "boolean"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "inherits_status": {
-                    "type": "boolean"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                },
-                "bookmark_url": {
-                    "type": "string"
-                },
-                "subscription_url": {
-                    "type": "string"
-                },
-                "comments_count": {
-                    "type": "number"
-                },
-                "comments_url": {
-                    "type": "string"
-                },
-                "position": {
-                    "type": "number"
-                },
-                "parent": {},
-                "bucket": {},
-                "creator": {},
-                "description": {
-                    "type": "string"
-                },
-                "completed": {
-                    "type": "boolean"
-                },
-                "completed_ratio": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "todos_url": {
-                    "type": "string"
-                },
-                "groups_url": {
-                    "type": "string"
-                },
-                "app_todos_url": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "BasecampTodolistsResponse": {
-            "type": "object",
-            "properties": {
-                "todolists": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BasecampTodolist"
-                    }
-                }
-            },
-            "required": ["todolists"],
-            "additionalProperties": false
-        },
-        "BasecampCreateTodoInput": {
-            "type": "object",
-            "properties": {
-                "projectId": {
-                    "type": "number"
-                },
-                "todoListId": {
-                    "type": "number"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "due_on": {
-                    "type": "string"
-                },
-                "starts_on": {
-                    "type": "string"
-                },
-                "notify": {
-                    "type": "boolean"
-                },
-                "assigneeEmails": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "completionSubscriberEmails": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["projectId", "todoListId", "content"],
-            "additionalProperties": false
-        },
-        "BasecampFetchTodolistsInput": {
-            "type": "object",
-            "properties": {
-                "projectId": {
-                    "type": "number"
-                },
-                "todoSetId": {
-                    "type": "number"
-                }
-            },
-            "required": ["projectId", "todoSetId"],
-            "additionalProperties": false
-        },
-        "BasecampTodoParent": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "title", "type", "url", "app_url"],
-            "additionalProperties": false
-        },
-        "BasecampTodoBucket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "type"],
-            "additionalProperties": false
-        },
-        "BasecampTodoResponse": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "visible_to_clients": {
-                    "type": "boolean"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "inherits_status": {
-                    "type": "boolean"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                },
-                "bookmark_url": {
-                    "type": "string"
-                },
-                "subscription_url": {
-                    "type": "string"
-                },
-                "comments_count": {
-                    "type": "number"
-                },
-                "comments_url": {
-                    "type": "string"
-                },
-                "position": {
-                    "type": "number"
-                },
-                "parent": {
-                    "$ref": "#/definitions/BasecampTodoParent"
-                },
-                "bucket": {
-                    "$ref": "#/definitions/BasecampTodoBucket"
-                },
-                "creator": {},
-                "description": {
-                    "type": "string"
-                },
-                "completed": {
-                    "type": "boolean"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "starts_on": {
-                    "type": "string"
-                },
-                "due_on": {
-                    "type": "string"
-                },
-                "assignees": {
-                    "type": "array",
-                    "items": {}
-                },
-                "completion_subscribers": {
-                    "type": "array",
-                    "items": {}
-                },
-                "completion_url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "status",
-                "visible_to_clients",
-                "created_at",
-                "updated_at",
-                "title",
-                "inherits_status",
-                "type",
-                "url",
-                "app_url",
-                "bookmark_url",
-                "subscription_url",
-                "comments_count",
-                "comments_url",
-                "position",
-                "parent",
-                "bucket",
-                "creator",
-                "description",
-                "completed",
-                "content",
-                "starts_on",
-                "due_on",
-                "assignees",
-                "completion_subscribers",
-                "completion_url"
-            ],
-            "additionalProperties": false
-        },
-        "BasecampPerson": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "email_address": {
-                    "type": "string"
-                },
-                "avatar_url": {
-                    "type": "string"
-                },
-                "admin": {
-                    "type": "boolean"
-                },
-                "owner": {
-                    "type": "boolean"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "attachable_sgid": {
-                    "type": "string"
-                },
-                "personable_type": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": ["string", "null"]
-                },
-                "bio": {
-                    "type": ["string", "null"]
-                },
-                "location": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "name", "email_address"],
-            "additionalProperties": false
-        },
-        "BasecampTodo": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "due_on": {
-                    "type": ["string", "null"]
-                },
-                "completed": {
-                    "type": "boolean"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "bucket_id": {
-                    "type": "number"
-                },
-                "assignees": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BasecampPerson"
-                    }
-                }
-            },
-            "required": ["id", "content", "completed", "created_at", "updated_at", "bucket_id"],
-            "additionalProperties": false
-        },
-        "BasecampCompany": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "ClientSide": {
-            "type": "object",
-            "properties": {
-                "url": {
-                    "type": "string"
-                },
-                "app_url": {
-                    "type": "string"
-                }
-            },
-            "required": ["url", "app_url"],
-            "additionalProperties": false
-        },
-        "Project": {
-            "type": "object",
-            "properties": {
-                "projectId": {
-                    "type": "number"
-                },
-                "todoSetId": {
-                    "type": "number"
-                }
-            },
-            "required": ["projectId", "todoSetId"],
-            "additionalProperties": false
-        },
-        "TodosMetadata": {
-            "type": "object",
-            "properties": {
-                "projects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Project"
-                    }
-                }
-            },
-            "required": ["projects"],
-            "additionalProperties": false
+          }
         }
+      },
+      "required": [
+        "projects"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "BasecampTodo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "bucket_id": {
+          "type": "number"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "avatar_url": {
+                "type": "string"
+              },
+              "admin": {
+                "type": "boolean"
+              },
+              "owner": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "attachable_sgid": {
+                "type": "string"
+              },
+              "personable_type": {
+                "type": "string"
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "bio": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "location": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email_address"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "content",
+        "completed",
+        "created_at",
+        "updated_at",
+        "bucket_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_basecamp_fetchaccounts": {
+      "type": "null"
+    },
+    "ActionOutput_basecamp_fetchaccounts": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "product": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "app_href": {
+                "type": "string"
+              },
+              "hidden": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "product",
+              "href",
+              "app_href"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "identity",
+        "accounts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_basecamp_fetchprojects": {
+      "type": "null"
+    },
+    "ActionOutput_basecamp_fetchprojects": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "purpose": {
+                "type": "string"
+              },
+              "clients_enabled": {
+                "type": "boolean"
+              },
+              "timesheet_enabled": {
+                "type": "boolean"
+              },
+              "color": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_needle_color": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_needle_position": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "previous_needle_position": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "bookmark_url": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "app_url": {
+                "type": "string"
+              },
+              "dock": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "position": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "app_url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "name",
+                    "enabled",
+                    "position",
+                    "url",
+                    "app_url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "bookmarked": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "created_at",
+              "updated_at",
+              "name",
+              "description",
+              "purpose",
+              "clients_enabled",
+              "bookmark_url",
+              "url",
+              "app_url",
+              "dock",
+              "bookmarked"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "projects"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_basecamp_fetchtodolists": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "number"
+        },
+        "todoSetId": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "projectId",
+        "todoSetId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_basecamp_fetchtodolists": {
+      "type": "object",
+      "properties": {
+        "todolists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "visible_to_clients": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "inherits_status": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "app_url": {
+                "type": "string"
+              },
+              "bookmark_url": {
+                "type": "string"
+              },
+              "subscription_url": {
+                "type": "string"
+              },
+              "comments_count": {
+                "type": "number"
+              },
+              "comments_url": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "parent": {},
+              "bucket": {},
+              "creator": {},
+              "description": {
+                "type": "string"
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "completed_ratio": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "todos_url": {
+                "type": "string"
+              },
+              "groups_url": {
+                "type": "string"
+              },
+              "app_todos_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "todolists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_basecamp_createtodo": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "number"
+        },
+        "todoListId": {
+          "type": "number"
+        },
+        "content": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": "string"
+        },
+        "starts_on": {
+          "type": "string"
+        },
+        "notify": {
+          "type": "boolean"
+        },
+        "assigneeEmails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "completionSubscriberEmails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "projectId",
+        "todoListId",
+        "content",
+        "assigneeEmails",
+        "completionSubscriberEmails"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_basecamp_createtodo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "visible_to_clients": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "inherits_status": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "app_url": {
+          "type": "string"
+        },
+        "bookmark_url": {
+          "type": "string"
+        },
+        "subscription_url": {
+          "type": "string"
+        },
+        "comments_count": {
+          "type": "number"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "app_url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "type",
+            "url",
+            "app_url"
+          ],
+          "additionalProperties": false
+        },
+        "bucket": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "creator": {},
+        "description": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "content": {
+          "type": "string"
+        },
+        "starts_on": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": "string"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {}
+        },
+        "completion_subscribers": {
+          "type": "array",
+          "items": {}
+        },
+        "completion_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "visible_to_clients",
+        "created_at",
+        "updated_at",
+        "title",
+        "inherits_status",
+        "type",
+        "url",
+        "app_url",
+        "bookmark_url",
+        "subscription_url",
+        "comments_count",
+        "comments_url",
+        "position",
+        "parent",
+        "bucket",
+        "description",
+        "completed",
+        "content",
+        "starts_on",
+        "due_on",
+        "assignees",
+        "completion_subscribers",
+        "completion_url"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

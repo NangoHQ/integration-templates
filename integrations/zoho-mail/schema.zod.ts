@@ -75,8 +75,8 @@ export const zohoMailSendEmailInputSchema = z.object({
 });
 
 export const zohoMailSendEmailOutputSchema = z.object({
-    status: z.record(z.string(), z.any()),
-    data: z.record(z.string(), z.any())
+    status: z.record(z.any()),
+    data: z.record(z.any())
 });
 
 export const zohoMailAddUserInputSchema = z.object({
@@ -93,6 +93,6 @@ export const zohoMailAddUserInputSchema = z.object({
 });
 
 export const zohoMailAddUserOutputSchema = z.object({
-    status: z.record(z.string(), z.any()),
-    data: z.record(z.string(), z.any())
+    status: z.record(z.any()),
+    data: z.record(z.any())
 });

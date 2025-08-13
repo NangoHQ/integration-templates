@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Sync the calendars list of the user
-
-- **Version:** 0.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
@@ -36,14 +35,12 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "allowedOnlineMeetingProviders": [
-    "<string>"
-  ],
+  "allowedOnlineMeetingProviders": "<string[]>",
   "canEdit": "<boolean>",
   "canShare": "<boolean>",
   "canViewPrivateItems": "<boolean>",
   "changeKey": "<string>",
-  "color": "<auto | lightBlue | lightGreen | lightOrange | lightGray | lightYellow | lightTeal | lightPink | lightBrown | lightRed | maxColor>",
+  "color": "<enum: 'auto' | 'lightBlue' | 'lightGreen' | 'lightOrange' | 'lightGray' | 'lightYellow' | 'lightTeal' | 'lightPink' | 'lightBrown' | 'lightRed' | 'maxColor'>",
   "defaultOnlineMeetingProvider": "<string>",
   "hexColor": "<string>",
   "isDefaultCalendar": "<boolean>",
@@ -55,6 +52,12 @@ _No request body_
     "name": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

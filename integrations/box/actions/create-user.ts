@@ -1,35 +1,55 @@
-import type { NangoAction, ProxyConfiguration, BoxCreateUser, User } from '../../models.js';
+import { createAction } from 'nango';
 import { boxCreateUserSchema } from '../schema.zod.js';
 import type { BoxUser } from '../types.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { User, BoxCreateUser } from '../models.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the API call to create a new user.
  */
-export default async function runAction(nango: NangoAction, input: BoxCreateUser): Promise<User> {
-    await nango.zodValidateInput({ zodSchema: boxCreateUserSchema, input });
+const action = createAction({
+    description: 'Creates a user in Box. Requires an enterprise account.',
+    version: '2.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://developer.box.com/reference/post-users/
-        endpoint: '/2.0/users',
-        data: {
-            name: `${input.firstName} ${input.lastName}`,
-            login: input.email
-        },
-        retries: 3
-    };
+    endpoint: {
+        method: 'POST',
+        path: '/users',
+        group: 'Users'
+    },
 
-    const response = await nango.post<BoxUser>(config);
-    const { data } = response;
+    input: BoxCreateUser,
+    output: User,
 
-    const [firstName, lastName] = data.name.split(' ');
+    exec: async (nango, input): Promise<User> => {
+        await nango.zodValidateInput({ zodSchema: boxCreateUserSchema, input });
 
-    const user: User = {
-        id: data.id,
-        firstName: firstName || '',
-        lastName: lastName || '',
-        email: data.login
-    };
+        const config: ProxyConfiguration = {
+            // https://developer.box.com/reference/post-users/
+            endpoint: '/2.0/users',
+            data: {
+                name: `${input.firstName} ${input.lastName}`,
+                login: input.email
+            },
+            retries: 3
+        };
 
-    return user;
-}
+        const response = await nango.post<BoxUser>(config);
+        const { data } = response;
+
+        const [firstName, lastName] = data.name.split(' ');
+
+        const user: User = {
+            id: data.id,
+            firstName: firstName || '',
+            lastName: lastName || '',
+            email: data.login
+        };
+
+        return user;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { PennylaneInvoice } from '../../models.js';
+import type { PennylaneInvoice } from '../models.js';
 
 export function toInvoice(invoice: PennylaneInvoice): PennylaneInvoice {
     return {

@@ -32,7 +32,7 @@ export const confluencePageSchema = z.object({
         authorId: z.string()
     }),
     body: z.object({
-        storage: z.record(z.string(), z.any()),
-        atlas_doc_format: z.record(z.string(), z.any())
+        storage: z.record(z.any()),
+        atlas_doc_format: z.record(z.any())
     })
 });

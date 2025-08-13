@@ -1,4 +1,4 @@
-import type { Drive as DriveModel } from '../../models.js';
+import type { Drive as DriveModel } from '../models.js';
 import type { Drive } from '../types.js';
 
 /**

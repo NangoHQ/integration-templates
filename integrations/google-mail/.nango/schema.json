@@ -1,201 +1,224 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "OptionalBackfillSetting": {
-            "type": "object",
-            "properties": {
-                "backfillPeriodMs": {
-                    "type": "number"
-                }
-            },
-            "required": ["backfillPeriodMs"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_google_mail_emails": {
+      "type": "object",
+      "properties": {
+        "backfillPeriodMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "backfillPeriodMs"
+      ],
+      "additionalProperties": false
+    },
+    "GmailEmail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "Attachments": {
-            "type": "object",
-            "properties": {
-                "filename": {
-                    "type": "string"
-                },
-                "mimeType": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "number"
-                },
-                "attachmentId": {
-                    "type": "string"
-                }
-            },
-            "required": ["filename", "mimeType", "size", "attachmentId"],
-            "additionalProperties": false
+        "sender": {
+          "type": "string"
         },
-        "GmailEmail": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "sender": {
-                    "type": "string"
-                },
-                "recipients": {
-                    "type": "string"
-                },
-                "date": {
-                    "type": "string"
-                },
-                "subject": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "attachments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Attachments"
-                    }
-                },
-                "threadId": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "sender", "date", "subject", "attachments", "threadId"],
-            "additionalProperties": false
+        "recipients": {
+          "type": "string"
         },
-        "GmailEmailInput": {
-            "type": "object",
-            "properties": {
-                "from": {
-                    "type": "string"
-                },
-                "to": {
-                    "type": "string"
-                },
-                "headers": {
-                    "type": "object"
-                },
-                "subject": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                }
-            },
-            "required": ["from", "to", "subject", "body"],
-            "additionalProperties": false
+        "date": {
+          "type": "string"
         },
-        "EmailHeader": {
-            "type": "object",
-            "properties": {
-                "headerName": {
-                    "type": "string"
-                },
-                "headerValue": {
-                    "type": "string"
-                }
-            },
-            "required": ["headerName", "headerValue"],
-            "additionalProperties": false
+        "subject": {
+          "type": "string"
         },
-        "GmailEmailSentOutput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "threadId": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "threadId"],
-            "additionalProperties": false
+        "body": {
+          "type": "string"
         },
-        "DocumentInput": {
+        "attachments": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "threadId": {
-                    "type": "string"
-                },
-                "attachmentId": {
-                    "type": "string"
-                }
-            },
-            "required": ["threadId", "attachmentId"],
-            "additionalProperties": false
-        },
-        "LabelColor": {
-            "type": "object",
-            "properties": {
-                "textColor": {
-                    "type": "string"
-                },
-                "backgroundColor": {
-                    "type": "string"
-                }
-            },
-            "required": ["textColor", "backgroundColor"],
-            "additionalProperties": false
-        },
-        "GmailLabel": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "messageListVisibility": {
-                    "type": ["string", "null"]
-                },
-                "labelListVisibility": {
-                    "type": ["string", "null"]
-                },
-                "type": {
-                    "type": "string"
-                },
-                "messagesTotal": {
-                    "type": "number"
-                },
-                "messagesUnread": {
-                    "type": "number"
-                },
-                "threadsTotal": {
-                    "type": "number"
-                },
-                "threadsUnread": {
-                    "type": "number"
-                },
-                "color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/LabelColor"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                }
+              "filename": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "attachmentId": {
+                "type": "string"
+              }
             },
             "required": [
-                "id",
-                "name",
-                "messageListVisibility",
-                "labelListVisibility",
-                "type",
-                "messagesTotal",
-                "messagesUnread",
-                "threadsTotal",
-                "threadsUnread",
-                "color"
+              "filename",
+              "mimeType",
+              "size",
+              "attachmentId"
             ],
             "additionalProperties": false
+          }
         },
-        "Anonymous_googlemail_action_fetchattachment_output": {
-            "type": "string"
+        "threadId": {
+          "type": "string"
         }
+      },
+      "required": [
+        "id",
+        "sender",
+        "date",
+        "subject",
+        "attachments",
+        "threadId"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "SyncMetadata_google_mail_labels": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "GmailLabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "messageListVisibility": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "labelListVisibility": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": "string"
+        },
+        "messagesTotal": {
+          "type": "number"
+        },
+        "messagesUnread": {
+          "type": "number"
+        },
+        "threadsTotal": {
+          "type": "number"
+        },
+        "threadsUnread": {
+          "type": "number"
+        },
+        "color": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "textColor": {
+                  "type": "string"
+                },
+                "backgroundColor": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "textColor",
+                "backgroundColor"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "messageListVisibility",
+        "labelListVisibility",
+        "type",
+        "messagesTotal",
+        "messagesUnread",
+        "threadsTotal",
+        "threadsUnread",
+        "color"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_sendemail": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "headers",
+        "subject",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_sendemail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "threadId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_fetchattachment": {
+      "type": "object",
+      "properties": {
+        "threadId": {
+          "type": "string"
+        },
+        "attachmentId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "threadId",
+        "attachmentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_fetchattachment": {
+      "type": "string"
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

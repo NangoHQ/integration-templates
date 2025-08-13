@@ -1,4 +1,4 @@
-import type { Account, CreateAccount, UpdateAccount } from '../../models.js';
+import type { Account, CreateAccount, UpdateAccount } from '../models.js';
 import type { QuickBooksAccount } from '../types.js';
 
 /**

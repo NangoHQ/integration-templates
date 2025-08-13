@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync } from '../../models.js';
+import type { NangoAction, NangoSync } from 'nango';
 import { getCredentials } from '../helpers/credentials.js';
 import type { PolicyListResponse, ExpensifyPolicy } from '../types.js';
 

@@ -1,671 +1,873 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_calendly_events": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
+        "uri": {
+          "type": "string"
         },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email", "firstName", "lastName"],
-            "additionalProperties": false
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["email"],
-            "additionalProperties": false
+        "meeting_notes_plain": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "UserInformation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email"],
-            "additionalProperties": false
+        "meeting_notes_html": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "EventLocation": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": ["string", "null"]
-                },
-                "join_url": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": ["string", "null"]
-                },
-                "additional_info": {
-                    "type": ["string", "null"]
-                }
-            },
-            "additionalProperties": false
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "canceled"
+          ]
         },
-        "InviteesCounter": {
-            "type": "object",
-            "properties": {
-                "total": {
-                    "type": "number"
-                },
-                "active": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                }
-            },
-            "required": ["total", "active", "limit"],
-            "additionalProperties": false
+        "start_time": {
+          "type": "string"
         },
-        "EventMembership": {
-            "type": "object",
-            "properties": {
-                "user": {
-                    "type": "string"
-                },
-                "user_email": {
-                    "type": ["string", "null"]
-                },
-                "user_name": {
-                    "type": "string"
-                },
-                "buffered_end_time": {
-                    "type": "string"
-                },
-                "buffered_start_time": {
-                    "type": "string"
-                }
-            },
-            "required": ["user", "user_email", "user_name"],
-            "additionalProperties": false
+        "end_time": {
+          "type": "string"
         },
-        "EventGuest": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                }
-            },
-            "required": ["email", "created_at", "updated_at"],
-            "additionalProperties": false
+        "event_type": {
+          "type": "string"
         },
-        "CalendarEvent": {
-            "type": "object",
-            "properties": {
-                "kind": {
-                    "type": "string"
-                },
-                "external_id": {
-                    "type": "string"
-                }
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
             },
-            "required": ["kind", "external_id"],
-            "additionalProperties": false
-        },
-        "EventCancellation": {
-            "type": "object",
-            "properties": {
-                "canceled_by": {
-                    "type": "string"
-                },
-                "reason": {
-                    "type": ["string", "null"]
-                },
-                "canceler_type": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                }
+            "location": {
+              "type": [
+                "string",
+                "null"
+              ]
             },
-            "required": ["canceled_by", "reason", "canceler_type", "created_at"],
-            "additionalProperties": false
+            "join_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "additional_info": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
         },
-        "Event": {
+        "invitees_counter": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "number"
+            },
+            "active": {
+              "type": "number"
+            },
+            "limit": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "total",
+            "active",
+            "limit"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "event_memberships": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "uri": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "meeting_notes_plain": {
-                    "type": ["string", "null"]
-                },
-                "meeting_notes_html": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": "string",
-                    "enum": ["active", "canceled"]
-                },
-                "start_time": {
-                    "type": "string"
-                },
-                "end_time": {
-                    "type": "string"
-                },
-                "event_type": {
-                    "type": "string"
-                },
-                "location": {
-                    "$ref": "#/definitions/EventLocation"
-                },
-                "invitees_counter": {
-                    "$ref": "#/definitions/InviteesCounter"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "event_memberships": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventMembership"
-                    }
-                },
-                "event_guests": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventGuest"
-                    }
-                },
-                "calendar_event": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/CalendarEvent"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "cancellation": {
-                    "$ref": "#/definitions/EventCancellation"
-                }
+              "user": {
+                "type": "string"
+              },
+              "user_email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "user_name": {
+                "type": "string"
+              },
+              "buffered_end_time": {
+                "type": "string"
+              },
+              "buffered_start_time": {
+                "type": "string"
+              }
             },
             "required": [
-                "id",
-                "uri",
-                "name",
-                "meeting_notes_plain",
-                "meeting_notes_html",
-                "status",
-                "start_time",
-                "end_time",
-                "event_type",
-                "location",
-                "invitees_counter",
-                "created_at",
-                "updated_at",
-                "event_memberships",
-                "calendar_event"
+              "user",
+              "user_email",
+              "user_name"
             ],
             "additionalProperties": false
+          }
         },
-        "EventTypeLocation": {
+        "event_guests": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
+              "email": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "calendar_event": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "kind": {
-                    "type": "string"
+                  "type": "string"
                 },
-                "phone_number": {
-                    "type": ["number", "null"]
-                },
-                "additional_info": {
-                    "type": ["string", "null"]
+                "external_id": {
+                  "type": "string"
                 }
+              },
+              "required": [
+                "kind",
+                "external_id"
+              ],
+              "additionalProperties": false
             },
-            "required": ["kind"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "EventQuestion": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "position": {
-                    "type": "number"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "required": {
-                    "type": "boolean"
-                },
-                "answer_choices": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "include_other": {
-                    "type": "boolean"
-                }
+        "cancellation": {
+          "type": "object",
+          "properties": {
+            "canceled_by": {
+              "type": "string"
             },
-            "required": ["name", "type", "position", "enabled", "required", "answer_choices", "include_other"],
-            "additionalProperties": false
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "canceler_type": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canceled_by",
+            "reason",
+            "canceler_type",
+            "created_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "uri",
+        "name",
+        "meeting_notes_plain",
+        "meeting_notes_html",
+        "status",
+        "start_time",
+        "end_time",
+        "event_type",
+        "location",
+        "invitees_counter",
+        "created_at",
+        "updated_at",
+        "event_memberships",
+        "event_guests",
+        "calendar_event",
+        "cancellation"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_calendly_eventtypes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "EventType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "EventProfile": {
-            "type": "object",
-            "properties": {
+        "uri": {
+          "type": "string"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "booking_method": {
+          "type": "string"
+        },
+        "slug": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduling_url": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "duration_options": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "type": "string"
+        },
+        "pooling_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "internal_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description_plain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description_html": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profile": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "type": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "owner": {
-                    "type": "string"
+                  "type": "string"
                 }
+              },
+              "required": [
+                "type",
+                "name",
+                "owner"
+              ],
+              "additionalProperties": false
             },
-            "required": ["type", "name", "owner"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "EventType": {
+        "secret": {
+          "type": "boolean"
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "admin_managed": {
+          "type": "boolean"
+        },
+        "locations": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "phone_number": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "additional_info": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "kind"
+                ],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "custom_questions": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "uri": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "active": {
-                    "type": "boolean"
-                },
-                "booking_method": {
-                    "type": "string"
-                },
-                "slug": {
-                    "type": ["string", "null"]
-                },
-                "scheduling_url": {
-                    "type": "string"
-                },
-                "duration": {
-                    "type": "number"
-                },
-                "duration_options": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "kind": {
-                    "type": "string"
-                },
-                "pooling_type": {
-                    "type": ["string", "null"]
-                },
-                "type": {
-                    "type": "string"
-                },
-                "color": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "internal_note": {
-                    "type": ["string", "null"]
-                },
-                "description_plain": {
-                    "type": ["string", "null"]
-                },
-                "description_html": {
-                    "type": ["string", "null"]
-                },
-                "profile": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/EventProfile"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "secret": {
-                    "type": "boolean"
-                },
-                "deleted_at": {
-                    "type": ["string", "null"]
-                },
-                "admin_managed": {
-                    "type": "boolean"
-                },
-                "locations": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/EventTypeLocation"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "custom_questions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventQuestion"
-                    }
-                },
-                "position": {
-                    "type": "number"
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "answer_choices": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
+              },
+              "include_other": {
+                "type": "boolean"
+              }
             },
             "required": [
-                "id",
-                "uri",
-                "name",
-                "active",
-                "booking_method",
-                "slug",
-                "scheduling_url",
-                "duration",
-                "duration_options",
-                "kind",
-                "pooling_type",
-                "type",
-                "color",
-                "created_at",
-                "updated_at",
-                "internal_note",
-                "description_plain",
-                "description_html",
-                "profile",
-                "secret",
-                "deleted_at",
-                "admin_managed",
-                "locations",
-                "custom_questions",
-                "position"
+              "name",
+              "type",
+              "position",
+              "enabled",
+              "required",
+              "answer_choices",
+              "include_other"
             ],
             "additionalProperties": false
+          }
         },
-        "QuestionAndAnswer": {
+        "position": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "uri",
+        "name",
+        "active",
+        "booking_method",
+        "slug",
+        "scheduling_url",
+        "duration",
+        "duration_options",
+        "kind",
+        "pooling_type",
+        "type",
+        "color",
+        "created_at",
+        "updated_at",
+        "internal_note",
+        "description_plain",
+        "description_html",
+        "profile",
+        "secret",
+        "deleted_at",
+        "admin_managed",
+        "locations",
+        "custom_questions",
+        "position"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_calendly_eventinvitees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "EventInvitee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cancel_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "new_invitee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "old_invitee": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "questions_and_answers": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "answer": {
-                    "type": "string"
-                },
-                "position": {
-                    "type": "number"
-                },
-                "question": {
-                    "type": "string"
-                }
+              "answer": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              }
             },
-            "required": ["answer", "position", "question"],
+            "required": [
+              "answer",
+              "position",
+              "question"
+            ],
             "additionalProperties": false
+          }
         },
-        "Tracking": {
-            "type": "object",
-            "properties": {
-                "utm_campaign": {
-                    "type": ["string", "null"]
-                },
-                "utm_source": {
-                    "type": ["string", "null"]
-                },
-                "utm_medium": {
-                    "type": ["string", "null"]
-                },
-                "utm_content": {
-                    "type": ["string", "null"]
-                },
-                "utm_term": {
-                    "type": ["string", "null"]
-                },
-                "salesforce_uuid": {
-                    "type": ["string", "null"]
-                }
+        "reschedule_url": {
+          "type": "string"
+        },
+        "rescheduled": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "text_reminder_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "utm_campaign": {
+              "type": [
+                "string",
+                "null"
+              ]
             },
-            "required": ["utm_campaign", "utm_source", "utm_medium", "utm_content", "utm_term", "salesforce_uuid"],
-            "additionalProperties": false
+            "utm_source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_medium": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "utm_term": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "salesforce_uuid": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "utm_campaign",
+            "utm_source",
+            "utm_medium",
+            "utm_content",
+            "utm_term",
+            "salesforce_uuid"
+          ],
+          "additionalProperties": false
         },
-        "Payment": {
-            "type": "object",
-            "properties": {
+        "updated_at": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "cancellation": {
+          "type": "object",
+          "properties": {
+            "canceled_by": {
+              "type": "string"
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "canceler_type": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canceled_by",
+            "reason",
+            "canceler_type",
+            "created_at"
+          ],
+          "additionalProperties": false
+        },
+        "routing_form_submission": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payment": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "external_id": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "provider": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "amount": {
-                    "type": "number"
+                  "type": "number"
                 },
                 "currency": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "terms": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "successful": {
-                    "type": "boolean"
+                  "type": "boolean"
                 }
+              },
+              "required": [
+                "external_id",
+                "provider",
+                "amount",
+                "currency",
+                "terms",
+                "successful"
+              ],
+              "additionalProperties": false
             },
-            "required": ["external_id", "provider", "amount", "currency", "terms", "successful"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "Reconfirmation": {
-            "type": "object",
-            "properties": {
+        "no_show": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reconfirmation": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "created_at": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "confirmed_at": {
-                    "type": "string"
+                  "type": "string"
                 }
-            },
-            "required": ["created_at", "confirmed_at"],
-            "additionalProperties": false
-        },
-        "EventInvitee": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "cancel_url": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "event": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": ["string", "null"]
-                },
-                "last_name": {
-                    "type": ["string", "null"]
-                },
-                "new_invitee": {
-                    "type": ["string", "null"]
-                },
-                "old_invitee": {
-                    "type": ["string", "null"]
-                },
-                "questions_and_answers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/QuestionAndAnswer"
-                    }
-                },
-                "reschedule_url": {
-                    "type": "string"
-                },
-                "rescheduled": {
-                    "type": "boolean"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "text_reminder_number": {
-                    "type": ["string", "null"]
-                },
-                "timezone": {
-                    "type": "string"
-                },
-                "tracking": {
-                    "$ref": "#/definitions/Tracking"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "uri": {
-                    "type": "string"
-                },
-                "cancellation": {
-                    "$ref": "#/definitions/EventCancellation"
-                },
-                "routing_form_submission": {
-                    "type": ["string", "null"]
-                },
-                "payment": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Payment"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "no_show": {
-                    "type": ["string", "null"]
-                },
-                "reconfirmation": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Reconfirmation"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "scheduling_method": {
-                    "type": ["string", "null"]
-                },
-                "invitee_scheduled_by": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": [
-                "id",
-                "cancel_url",
+              },
+              "required": [
                 "created_at",
-                "email",
-                "event",
-                "name",
-                "first_name",
-                "last_name",
-                "new_invitee",
-                "old_invitee",
-                "questions_and_answers",
-                "reschedule_url",
-                "rescheduled",
-                "status",
-                "text_reminder_number",
-                "timezone",
-                "tracking",
-                "updated_at",
-                "uri",
-                "routing_form_submission",
-                "payment",
-                "no_show",
-                "reconfirmation",
-                "scheduling_method",
-                "invitee_scheduled_by"
-            ],
-            "additionalProperties": false
+                "confirmed_at"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scheduling_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "invitee_scheduled_by": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
+      },
+      "required": [
+        "id",
+        "cancel_url",
+        "created_at",
+        "email",
+        "event",
+        "name",
+        "first_name",
+        "last_name",
+        "new_invitee",
+        "old_invitee",
+        "questions_and_answers",
+        "reschedule_url",
+        "rescheduled",
+        "status",
+        "text_reminder_number",
+        "timezone",
+        "tracking",
+        "updated_at",
+        "uri",
+        "cancellation",
+        "routing_form_submission",
+        "payment",
+        "no_show",
+        "reconfirmation",
+        "scheduling_method",
+        "invitee_scheduled_by"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "SyncMetadata_calendly_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_createuser": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_whoami": {
+      "type": "null"
+    },
+    "ActionOutput_calendly_whoami": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

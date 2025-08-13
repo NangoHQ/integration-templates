@@ -1,23 +1,50 @@
-import type { NextCloudUser, NangoSync } from '../../models.js';
+import { createSync } from 'nango';
+import { NextCloudUser } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of all users' details from NextCloud account",
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    syncType: 'full',
+    trackDeletes: false,
 
-    const userIDs: string[] = await getAllUsers(nango);
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/next-cloud-ocs/next-cloud-users'
+        }
+    ],
 
-    for (const userId of userIDs) {
-        const specificUser = await getSpecificUser(nango, userId);
-        if (specificUser) {
-            const mappedUser: NextCloudUser = mapUser(specificUser);
+    models: {
+        NextCloudUser: NextCloudUser
+    },
 
-            totalRecords++;
-            await nango.log(`Saving user details for user: ${specificUser.id} (total user(s): ${totalRecords})`);
-            await nango.batchSave([mappedUser], 'NextCloudUser');
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const userIDs: string[] = await getAllUsers(nango);
+
+        for (const userId of userIDs) {
+            const specificUser = await getSpecificUser(nango, userId);
+            if (specificUser) {
+                const mappedUser: NextCloudUser = mapUser(specificUser);
+
+                totalRecords++;
+                await nango.log(`Saving user details for user: ${specificUser.id} (total user(s): ${totalRecords})`);
+                await nango.batchSave([mappedUser], 'NextCloudUser');
+            }
         }
     }
-}
+});
 
-async function getAllUsers(nango: NangoSync) {
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
+
+async function getAllUsers(nango: NangoSyncLocal) {
     const records: any[] = [];
     const endpoint = '/cloud/users';
     const response = await nango.get({ endpoint, retries: 10 });
@@ -26,7 +53,7 @@ async function getAllUsers(nango: NangoSync) {
     return records;
 }
 
-async function getSpecificUser(nango: NangoSync, userId: string) {
+async function getSpecificUser(nango: NangoSyncLocal, userId: string) {
     const endpoint = `/cloud/users/${userId}`;
     const specificUser = await nango.get({ endpoint, retries: 10 });
     return mapUser(specificUser.data.ocs.data);

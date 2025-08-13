@@ -6,8 +6,7 @@
 - **Description:** Fetches a list of emails from outlook. Goes back default to 1 year
 but metadata can be set using the `backfillPeriodMs` property
 to change the lookback. The property should be set in milliseconds.
-
-- **Version:** 1.1.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
@@ -39,7 +38,7 @@ _No request body_
 {
   "id": "<string>",
   "sender?": "<string>",
-  "recipients?": "<string | undefined>",
+  "recipients?": "<string>",
   "date": "<string>",
   "subject": "<string>",
   "body": "<string>",

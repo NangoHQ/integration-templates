@@ -1,80 +1,108 @@
 [
-    {
-        "providerConfigKey": "smartsheet",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Smartsheet",
-                "sync_type": "incremental",
-                "usedModels": ["User"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["READ_USERS"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "smartsheet",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Smartsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_smartsheet_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_smartsheet_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Smartsheet",
-                "version": "",
-                "scopes": ["ADMIN_USERS"],
-                "input": "CreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user from Smartsheet. User is transitioned to a free collaborator with read-only access to owned reports, sheets, Sights, workspaces, and any shared templates (unless those are optionally transferred to another user).",
-                "version": "",
-                "scopes": ["ADMIN_USERS"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Disables a user in an organization account. User will no longer be able to access Smartsheet in any way. User's assets will continue to be owned by this user until they are transferred to another user.",
-                "version": "",
-                "scopes": ["ADMIN_USERS"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users/disable",
-                    "group": "Users"
-                }
-            }
+        "scopes": [
+          "ADMIN_USERS"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_smartsheet_createuser",
+          "ActionOutput_smartsheet_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user from Smartsheet. User is transitioned to a free collaborator with read-only access to owned reports, sheets, Sights, workspaces, and any shared templates (unless those are optionally transferred to another user).",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_smartsheet_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_smartsheet_deleteuser"
+        ],
+        "scopes": [
+          "ADMIN_USERS"
+        ],
+        "usedModels": [
+          "ActionInput_smartsheet_deleteuser",
+          "ActionOutput_smartsheet_deleteuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Disables a user in an organization account. User will no longer be able to access Smartsheet in any way. User's assets will continue to be owned by this user until they are transferred to another user.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users/disable",
+          "group": "Users"
+        },
+        "input": "ActionInput_smartsheet_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_smartsheet_disableuser"
+        ],
+        "scopes": [
+          "ADMIN_USERS"
+        ],
+        "usedModels": [
+          "ActionInput_smartsheet_disableuser",
+          "ActionOutput_smartsheet_disableuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Smartsheet",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_smartsheet_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "READ_USERS"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_smartsheet_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

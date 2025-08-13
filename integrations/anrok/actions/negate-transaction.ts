@@ -1,36 +1,54 @@
-import type { NangoAction, TransactionNegationActionResponse, TransactionToNegate } from '../../models.js';
+import { createAction } from 'nango';
 import { errorToObject } from '../utils.js';
 
-export default async function runAction(nango: NangoAction, rawInput: TransactionToNegate[]): Promise<TransactionNegationActionResponse> {
-    const response: TransactionNegationActionResponse = {
-        succeeded: [],
-        failed: []
-    };
-    const input = Array.isArray(rawInput) ? rawInput : [rawInput];
+import { TransactionNegationActionResponse, Anonymous_anrok_action_negatetransaction_input } from '../models.js';
 
-    for (const transaction of input) {
-        const negation = {
-            originalTransactionId: transaction.id,
-            newTransactionId: transaction.voided_id
+const action = createAction({
+    description: 'Creates a negation in Anrok.',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'POST',
+        path: '/transactions/negate'
+    },
+
+    input: Anonymous_anrok_action_negatetransaction_input,
+    output: TransactionNegationActionResponse,
+
+    exec: async (nango, rawInput): Promise<TransactionNegationActionResponse> => {
+        const response: TransactionNegationActionResponse = {
+            succeeded: [],
+            failed: []
         };
+        const input = Array.isArray(rawInput) ? rawInput : [rawInput];
 
-        // @allowTryCatch
-        try {
-            await nango.post({
-                endpoint: `v1/seller/transactions/createNegation`,
-                data: negation,
-                retries: 3
-            });
-            const successTransaction = {
-                ...transaction
+        for (const transaction of input) {
+            const negation = {
+                originalTransactionId: transaction.id,
+                newTransactionId: transaction.voided_id
             };
-            response.succeeded.push(successTransaction);
-        } catch (err) {
-            response.failed.push({
-                ...transaction,
-                validation_errors: errorToObject(err)
-            });
+
+            // @allowTryCatch
+            try {
+                await nango.post({
+                    endpoint: `v1/seller/transactions/createNegation`,
+                    data: negation,
+                    retries: 3
+                });
+                const successTransaction = {
+                    ...transaction
+                };
+                response.succeeded.push(successTransaction);
+            } catch (err) {
+                response.failed.push({
+                    ...transaction,
+                    validation_errors: errorToObject(err)
+                });
+            }
         }
+        return response;
     }
-    return response;
-}
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

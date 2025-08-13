@@ -1,4 +1,4 @@
-import type { Sms } from '../../models.js';
+import type { Sms } from '../models.js';
 import type { ClickSendSms } from '../types.js';
 
 /**

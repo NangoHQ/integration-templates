@@ -1,36 +1,58 @@
-import type { ArchiveObject, LeverOpportunity, NangoAction, ProxyConfiguration, UpdateOpportunity } from '../../models.js';
+import { createAction } from 'nango';
 import type { OperationConfig, OperationType } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateOpportunity): Promise<{ data: Partial<LeverOpportunity> }> {
-    if (!input.opportunityId) {
-        throw new Error('opportunityId cannot be null or undefined');
-    }
+import type { ProxyConfiguration } from 'nango';
 
-    const combinedResponse: Partial<LeverOpportunity> = {};
+import type { LeverOpportunity, ArchiveObject } from '../models.js';
+import { ReturnObjUpdateOpportunity, UpdateOpportunity } from '../models.js';
 
-    const operations: OperationConfig[] = buildOperations(input);
+const action = createAction({
+    description: 'Update an opportunity',
+    version: '1.0.0',
 
-    for (const operation of operations) {
-        await processOperation(nango, input.opportunityId, operation, combinedResponse);
-    }
+    endpoint: {
+        method: 'PATCH',
+        path: '/opportunities',
+        group: 'Opportunities'
+    },
 
-    // handle archive data
-    if (input.reason) {
-        const archiveData: ArchiveObject = {
-            reason: input.reason,
-            cleanInterviews: input.cleanInterviews ?? false
-        };
+    input: UpdateOpportunity,
+    output: ReturnObjUpdateOpportunity,
 
-        if (input.requisitionId) {
-            archiveData.requisitionId = input.requisitionId;
+    exec: async (nango, input): Promise<ReturnObjUpdateOpportunity> => {
+        if (!input.opportunityId) {
+            throw new Error('opportunityId cannot be null or undefined');
         }
 
-        const response = await makeRequest(nango, 'archive', 'put', input.opportunityId, archiveData);
-        Object.assign(combinedResponse, response);
-    }
+        const combinedResponse: Partial<LeverOpportunity> = {};
 
-    return { data: combinedResponse };
-}
+        const operations: OperationConfig[] = buildOperations(input);
+
+        for (const operation of operations) {
+            await processOperation(nango, input.opportunityId, operation, combinedResponse);
+        }
+
+        // handle archive data
+        if (input.reason) {
+            const archiveData: ArchiveObject = {
+                reason: input.reason,
+                cleanInterviews: input.cleanInterviews ?? false
+            };
+
+            if (input.requisitionId) {
+                archiveData.requisitionId = input.requisitionId;
+            }
+
+            const response = await makeRequest(nango, 'archive', 'put', input.opportunityId, archiveData);
+            Object.assign(combinedResponse, response);
+        }
+
+        return { data: combinedResponse };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
 
 function buildOperations(input: UpdateOpportunity): OperationConfig[] {
     const operations: OperationConfig[] = [];
@@ -74,7 +96,7 @@ function buildOperations(input: UpdateOpportunity): OperationConfig[] {
 }
 
 async function processOperation(
-    nango: NangoAction,
+    nango: NangoActionLocal,
     opportunityId: string,
     operation: OperationConfig,
     combinedResponse: Partial<LeverOpportunity>
@@ -84,7 +106,7 @@ async function processOperation(
 }
 
 async function makeRequest(
-    nango: NangoAction,
+    nango: NangoActionLocal,
     operationType: OperationType,
     method: 'post' | 'put',
     opportunityId: string,

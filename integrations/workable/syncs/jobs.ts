@@ -1,29 +1,59 @@
-import type { ProxyConfiguration, WorkableJob, NangoSync } from '../../models.js';
+import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { WorkableJob } from '../models.js';
+import { z } from 'zod';
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: 'Fetches a list of jobs from workable',
+    version: '1.0.0',
+    frequency: 'every 6 hours',
+    autoStart: true,
+    syncType: 'incremental',
+    trackDeletes: false,
 
-    const config: ProxyConfiguration = {
-        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-        // https://workable.readme.io/reference/jobs
-        endpoint: '/spi/v3/jobs',
-        paginate: {
-            type: 'link',
-            link_path_in_response_body: 'paging.next',
-            limit_name_in_request: 'limit',
-            response_path: 'jobs',
-            limit: 100
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/workable/jobs'
         }
-    };
-    for await (const job of nango.paginate(config)) {
-        const mappedJob: WorkableJob[] = job.map(mapJob) || [];
+    ],
 
-        const batchSize: number = mappedJob.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} jobs (total jobs: ${totalRecords})`);
-        await nango.batchSave(mappedJob, 'WorkableJob');
+    scopes: ['r_jobs'],
+
+    models: {
+        WorkableJob: WorkableJob
+    },
+
+    metadata: z.object({}),
+
+    exec: async (nango) => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            // https://workable.readme.io/reference/jobs
+            endpoint: '/spi/v3/jobs',
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: 'paging.next',
+                limit_name_in_request: 'limit',
+                response_path: 'jobs',
+                limit: 100
+            }
+        };
+        for await (const job of nango.paginate(config)) {
+            const mappedJob: WorkableJob[] = job.map(mapJob) || [];
+
+            const batchSize: number = mappedJob.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} jobs (total jobs: ${totalRecords})`);
+            await nango.batchSave(mappedJob, 'WorkableJob');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;
 
 function mapJob(job: any): WorkableJob {
     return {

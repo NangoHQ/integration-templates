@@ -1,6 +1,6 @@
+import { NangoSync } from "nango";
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models.js';
 
 interface GithubRepoFile {
     id: string;
@@ -169,7 +169,7 @@ describe('GitHub List Files Pagination Tests', () => {
 
     it('should handle initial sync pagination correctly', async () => {
         const fetchData = (await import('../syncs/list-files')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedFiles = nango.getSavedFiles();
         expect(savedFiles).toHaveLength(2); // Only blob files should be saved
@@ -194,7 +194,7 @@ describe('GitHub List Files Pagination Tests', () => {
         nango.lastSyncDate = new Date('2024-03-26T00:00:00Z');
 
         const fetchData = (await import('../syncs/list-files')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedFiles = nango.getSavedFiles();
         expect(savedFiles).toHaveLength(1); // One modified file
@@ -224,7 +224,7 @@ describe('GitHub List Files Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/list-files')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedFiles = nango.getSavedFiles();
         expect(savedFiles).toHaveLength(0);
@@ -237,6 +237,6 @@ describe('GitHub List Files Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/list-files')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

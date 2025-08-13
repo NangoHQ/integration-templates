@@ -1,65 +1,80 @@
 [
-    {
-        "providerConfigKey": "clicksend",
-        "syncs": [
-            {
-                "name": "sms-history",
-                "type": "sync",
-                "description": "Fetches the history of SMS messages sent through ClickSend.",
-                "sync_type": "incremental",
-                "usedModels": ["Sms"],
-                "runs": "every half hour",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Sms"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/sms/history",
-                        "group": "SMS"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "clicksend",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Sends an SMS message via ClickSend's API.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/sms/send",
+          "group": "SMS"
+        },
+        "input": "ActionInput_clicksend_sendsms",
+        "name": "send-sms",
+        "output": [
+          "ActionOutput_clicksend_sendsms"
         ],
-        "actions": [
-            {
-                "name": "send-sms",
-                "type": "action",
-                "description": "Sends an SMS message via ClickSend's API.",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "ClickSendSendSmsInput",
-                "output": ["Sms"],
-                "usedModels": ["Sms", "ClickSendSendSmsInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/sms/send",
-                    "group": "SMS"
-                }
-            },
-            {
-                "name": "fetch-account",
-                "type": "action",
-                "description": "Fetches basic information about the ClickSend account.",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": null,
-                "output": ["Account"],
-                "usedModels": ["Account"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/account",
-                    "group": "Account"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_clicksend_sendsms",
+          "ActionOutput_clicksend_sendsms"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches basic information about the ClickSend account.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/account",
+          "group": "Account"
+        },
+        "input": "ActionInput_clicksend_fetchaccount",
+        "name": "fetch-account",
+        "output": [
+          "ActionOutput_clicksend_fetchaccount"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_clicksend_fetchaccount",
+          "ActionOutput_clicksend_fetchaccount"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches the history of SMS messages sent through ClickSend.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/sms/history",
+            "group": "SMS"
+          }
+        ],
+        "input": "SyncMetadata_clicksend_smshistory",
+        "name": "sms-history",
+        "output": [
+          "Sms"
+        ],
+        "runs": "every half hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Sms",
+          "SyncMetadata_clicksend_smshistory"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

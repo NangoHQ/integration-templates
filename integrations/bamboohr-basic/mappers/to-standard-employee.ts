@@ -1,4 +1,4 @@
-import type { StandardEmployee, Phone } from '../../models.js';
+import type { StandardEmployee, Phone } from '../models.js';
 import type { BambooHrEmployee } from '../types.js';
 
 function mapEmploymentType(status: string | undefined): StandardEmployee['employmentType'] {

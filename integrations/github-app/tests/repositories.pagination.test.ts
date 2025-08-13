@@ -1,6 +1,6 @@
+import { NangoSync } from "nango";
 import { describe, expect, test } from 'vitest';
 import type { Repository, RepoResponse } from '../.nango/schema.js';
-import type { NangoSync } from '../../models.js';
 import runAction from '../actions/repositories.js';
 
 interface GithubProxyConfig {
@@ -255,7 +255,7 @@ describe('GitHub App Repositories Pagination', () => {
             yield mockRepos;
         });
 
-        const result = await runAction(mockNango);
+        const result = await runAction.exec(mockNango);
 
         // Verify pagination configuration
         expect(paginationConfig).toBeDefined();
@@ -292,7 +292,7 @@ describe('GitHub App Repositories Pagination', () => {
             yield [];
         });
 
-        const result = await runAction(mockNango);
+        const result = await runAction.exec(mockNango);
         expect(result.repositories).toHaveLength(0);
     });
 
@@ -307,6 +307,6 @@ describe('GitHub App Repositories Pagination', () => {
             throw new Error('Pagination failed');
         });
 
-        await expect(runAction(mockNango)).rejects.toThrow('Pagination failed');
+        await expect(runAction.exec(mockNango)).rejects.toThrow('Pagination failed');
     });
 });

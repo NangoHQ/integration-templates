@@ -1,4 +1,4 @@
-import type { Customer, CreateCustomer, UpdateCustomer } from '../../models.js';
+import type { Customer, CreateCustomer, UpdateCustomer } from '../models.js';
 import type { QuickBooksCustomer, CreateQuickbooksCustomer, PhysicalAddressCreation } from '../types.js';
 
 /**

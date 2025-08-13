@@ -1,5 +1,8 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
+import { createAction } from 'nango';
 import { idEntitySchema } from '../schema.zod.js';
+
+import type { ProxyConfiguration } from 'nango';
+import { SuccessResponse, IdEntity } from '../models.js';
 
 /**
  * Deletes an Keeper user contact.
@@ -18,19 +21,36 @@ import { idEntitySchema } from '../schema.zod.js';
  * For detailed endpoint documentation, refer to:
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+const action = createAction({
+    description: 'Deletes a user in Keeper',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
-        endpoint: `/Users/${parsedInput.data.id}`,
-        retries: 3
-    };
+    endpoint: {
+        method: 'DELETE',
+        path: '/users',
+        group: 'Users'
+    },
 
-    // no body content expected for successful requests
-    await nango.delete(config);
+    input: IdEntity,
+    output: SuccessResponse,
 
-    return {
-        success: true
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+        const config: ProxyConfiguration = {
+            // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
+            endpoint: `/Users/${parsedInput.data.id}`,
+            retries: 3
+        };
+
+        // no body content expected for successful requests
+        await nango.delete(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

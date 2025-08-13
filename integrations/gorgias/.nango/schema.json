@@ -1,699 +1,1689 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_gorgias_tickets": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "assignee_user": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "ActionResponseError": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                }
-            },
-            "required": ["message"],
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
+                  "type": "number"
                 },
                 "firstname": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "lastname": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "meta": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                }
-            },
-            "required": ["id", "firstname", "lastname", "meta"],
-            "additionalProperties": false
-        },
-        "AssigneeUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "firstname": {
-                    "type": "string"
-                },
-                "lastname": {
-                    "type": "string"
-                },
-                "meta": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "email": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "bio": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
+              },
+              "required": [
+                "id",
+                "firstname",
+                "lastname",
+                "meta",
+                "email",
+                "name",
+                "bio"
+              ],
+              "additionalProperties": false
             },
-            "required": ["id", "firstname", "lastname", "meta", "email", "name", "bio"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "RecieverSender": {
+        "channel": {
+          "type": "string"
+        },
+        "closed_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "from_agent": {
+          "type": "boolean"
+        },
+        "integrations": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {}
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "is_unread": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_message_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_received_message_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "messages_count": {
+          "type": "number"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "id": {
+              "id": {
+                "type": "number"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "integration_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rule_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ticket_id": {
+                "type": "number"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string",
+                "enum": [
+                  "aircall",
+                  "api",
+                  "chat",
+                  "contact_form",
+                  "email",
+                  "facebook",
+                  "facebook-mention",
+                  "facebook-messenger",
+                  "facebook-recommendations",
+                  "form",
+                  "gorgias_chat",
+                  "help-center",
+                  "helpdesk",
+                  "instagram",
+                  "instagram-ad-comment",
+                  "instagram-comment",
+                  "instagram-direct-message",
+                  "instagram-mention",
+                  "internal-note",
+                  "offline_capture",
+                  "phone",
+                  "rule",
+                  "self_service",
+                  "shopify",
+                  "sms",
+                  "twilio",
+                  "twitter",
+                  "twitter-direct-message",
+                  "whatsapp",
+                  "yotpo",
+                  "yotpo-review",
+                  "zendesk"
+                ]
+              },
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "body_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "body_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_signature": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "public": {
+                "type": "boolean"
+              },
+              "from_agent": {
+                "type": "boolean"
+              },
+              "sender": {
+                "type": "object",
+                "properties": {
+                  "id": {
                     "type": "number"
+                  },
+                  "firstname": {
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "type": "string"
+                  },
+                  "meta": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": {
+                          "anyOf": [
+                            {},
+                            {
+                              "not": {}
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "firstname",
+                  "lastname",
+                  "meta",
+                  "email",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "receiver": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "meta": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": {
+                              "anyOf": [
+                                {},
+                                {
+                                  "not": {}
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "firstname",
+                      "lastname",
+                      "meta",
+                      "email",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "attachments": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "content_type": {
+                          "type": "string"
+                        },
+                        "public": {
+                          "type": "boolean"
+                        },
+                        "extra": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type",
+                        "public",
+                        "extra"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "meta": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "headers": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "actions": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "macros": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "opened_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "failed_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_sending_error": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "uri",
+              "message_id",
+              "integration_id",
+              "rule_id",
+              "external_id",
+              "ticket_id",
+              "channel",
+              "via",
+              "subject",
+              "body_text",
+              "body_html",
+              "stripped_text",
+              "stripped_html",
+              "stripped_signature",
+              "public",
+              "from_agent",
+              "sender",
+              "receiver",
+              "attachments",
+              "meta",
+              "headers",
+              "actions",
+              "macros",
+              "created_datetime",
+              "opened_datetime",
+              "failed_datetime",
+              "last_sending_error",
+              "deleted_datetime"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opened_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "snooze_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "uri": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "decoration": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "uri",
+              "decoration",
+              "created_datetime"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "spam": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "trashed_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "via": {
+          "type": "string",
+          "enum": [
+            "aircall",
+            "api",
+            "chat",
+            "contact_form",
+            "email",
+            "facebook",
+            "facebook-mention",
+            "facebook-messenger",
+            "facebook-recommendations",
+            "form",
+            "gorgias_chat",
+            "help-center",
+            "helpdesk",
+            "instagram",
+            "instagram-ad-comment",
+            "instagram-comment",
+            "instagram-direct-message",
+            "instagram-mention",
+            "internal-note",
+            "offline_capture",
+            "phone",
+            "rule",
+            "self_service",
+            "shopify",
+            "sms",
+            "twilio",
+            "twitter",
+            "twitter-direct-message",
+            "whatsapp",
+            "yotpo",
+            "yotpo-review",
+            "zendesk"
+          ]
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "assignee_user",
+        "channel",
+        "closed_datetime",
+        "created_datetime",
+        "external_id",
+        "from_agent",
+        "is_unread",
+        "language",
+        "last_message_datetime",
+        "last_received_message_datetime",
+        "messages",
+        "meta",
+        "opened_datetime",
+        "snooze_datetime",
+        "status",
+        "subject",
+        "tags",
+        "spam",
+        "trashed_datetime",
+        "updated_datetime",
+        "via",
+        "uri"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gorgias_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "GorgiasUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gorgias_createticket": {
+      "type": "object",
+      "properties": {
+        "customer": {
+          "type": "object",
+          "properties": {
+            "phone_number": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "phone_number"
+          ],
+          "additionalProperties": false
+        },
+        "ticket": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "attachments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": "number"
+                        },
+                        "content_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "body_html": {
+                    "type": "string"
+                  },
+                  "body_text": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "attachments",
+                  "body_html",
+                  "body_text",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "messages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "customer",
+        "ticket"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gorgias_createticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "assignee_user": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
                 },
                 "firstname": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "lastname": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "meta": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "email": {
-                    "type": ["string", "null"]
+                  "type": "string"
                 },
                 "name": {
-                    "type": ["string", "null"]
+                  "type": "string"
+                },
+                "bio": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
-            },
-            "required": ["id", "firstname", "lastname", "meta", "email", "name"],
-            "additionalProperties": false
-        },
-        "Attachment": {
-            "type": "object",
-            "properties": {
-                "url": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": ["number", "null"]
-                },
-                "content_type": {
-                    "type": "string"
-                },
-                "public": {
-                    "type": "boolean"
-                },
-                "extra": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["url", "name", "size", "content_type", "public", "extra"],
-            "additionalProperties": false
-        },
-        "Message": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "uri": {
-                    "type": "string"
-                },
-                "message_id": {
-                    "type": ["string", "null"]
-                },
-                "integration_id": {
-                    "type": ["number", "null"]
-                },
-                "rule_id": {
-                    "type": ["number", "null"]
-                },
-                "external_id": {
-                    "type": ["string", "null"]
-                },
-                "ticket_id": {
-                    "type": "number"
-                },
-                "channel": {
-                    "type": "string"
-                },
-                "via": {
-                    "type": "string",
-                    "enum": [
-                        "aircall",
-                        "api",
-                        "chat",
-                        "contact_form",
-                        "email",
-                        "facebook",
-                        "facebook-mention",
-                        "facebook-messenger",
-                        "facebook-recommendations",
-                        "form",
-                        "gorgias_chat",
-                        "help-center",
-                        "helpdesk",
-                        "instagram",
-                        "instagram-ad-comment",
-                        "instagram-comment",
-                        "instagram-direct-message",
-                        "instagram-mention",
-                        "internal-note",
-                        "offline_capture",
-                        "phone",
-                        "rule",
-                        "self_service",
-                        "shopify",
-                        "sms",
-                        "twilio",
-                        "twitter",
-                        "twitter-direct-message",
-                        "whatsapp",
-                        "yotpo",
-                        "yotpo-review",
-                        "zendesk"
-                    ]
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "body_text": {
-                    "type": ["string", "null"]
-                },
-                "body_html": {
-                    "type": ["string", "null"]
-                },
-                "stripped_text": {
-                    "type": ["string", "null"]
-                },
-                "stripped_html": {
-                    "type": ["string", "null"]
-                },
-                "stripped_signature": {
-                    "type": ["string", "null"]
-                },
-                "public": {
-                    "type": "boolean"
-                },
-                "from_agent": {
-                    "type": "boolean"
-                },
-                "sender": {
-                    "$ref": "#/definitions/RecieverSender"
-                },
-                "receiver": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/RecieverSender"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "attachments": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Attachment"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "meta": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "headers": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "actions": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {}
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "macros": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {}
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "created_datetime": {
-                    "type": ["string", "null"]
-                },
-                "opened_datetime": {
-                    "type": ["string", "null"]
-                },
-                "failed_datetime": {
-                    "type": ["string", "null"]
-                },
-                "last_sending_error": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "deleted_datetime": {
-                    "type": ["string", "null"]
-                },
-                "replied_by": {
-                    "type": ["string", "null"]
-                },
-                "replied_to": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": [
+              },
+              "required": [
                 "id",
-                "uri",
-                "message_id",
-                "integration_id",
-                "rule_id",
-                "external_id",
-                "ticket_id",
-                "channel",
-                "via",
-                "subject",
-                "body_text",
-                "body_html",
-                "stripped_text",
-                "stripped_html",
-                "stripped_signature",
-                "public",
-                "from_agent",
-                "sender",
-                "receiver",
-                "attachments",
+                "firstname",
+                "lastname",
                 "meta",
-                "headers",
-                "actions",
-                "macros",
-                "created_datetime",
-                "opened_datetime",
-                "failed_datetime",
-                "last_sending_error",
-                "deleted_datetime"
-            ],
-            "additionalProperties": false
-        },
-        "Ticket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "assignee_user": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/AssigneeUser"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "channel": {
-                    "type": "string"
-                },
-                "closed_datetime": {
-                    "type": ["string", "null"]
-                },
-                "created_datetime": {
-                    "type": ["string", "null"]
-                },
-                "excerpt": {
-                    "type": "string"
-                },
-                "external_id": {
-                    "type": ["string", "null"]
-                },
-                "from_agent": {
-                    "type": "boolean"
-                },
-                "integrations": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {}
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "is_unread": {
-                    "type": "boolean"
-                },
-                "language": {
-                    "type": ["string", "null"]
-                },
-                "last_message_datetime": {
-                    "type": ["string", "null"]
-                },
-                "last_received_message_datetime": {
-                    "type": ["string", "null"]
-                },
-                "messages_count": {
-                    "type": "number"
-                },
-                "messages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Message"
-                    }
-                },
-                "meta": {
-                    "anyOf": [
-                        {
-                            "type": "object"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "opened_datetime": {
-                    "type": ["string", "null"]
-                },
-                "snooze_datetime": {
-                    "type": ["string", "null"]
-                },
-                "status": {
-                    "type": "string",
-                    "enum": ["open", "closed"]
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "number"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "uri": {
-                                "type": ["string", "null"]
-                            },
-                            "decoration": {
-                                "anyOf": [
-                                    {
-                                        "type": "object"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "created_datetime": {
-                                "type": ["string", "null"]
-                            },
-                            "deleted_datetime": {
-                                "type": ["string", "null"]
-                            }
-                        },
-                        "required": ["id", "name", "uri", "decoration", "created_datetime"],
-                        "additionalProperties": false
-                    }
-                },
-                "spam": {
-                    "type": ["boolean", "null"]
-                },
-                "trashed_datetime": {
-                    "type": ["string", "null"]
-                },
-                "updated_datetime": {
-                    "type": ["string", "null"]
-                },
-                "via": {
-                    "type": "string",
-                    "enum": [
-                        "aircall",
-                        "api",
-                        "chat",
-                        "contact_form",
-                        "email",
-                        "facebook",
-                        "facebook-mention",
-                        "facebook-messenger",
-                        "facebook-recommendations",
-                        "form",
-                        "gorgias_chat",
-                        "help-center",
-                        "helpdesk",
-                        "instagram",
-                        "instagram-ad-comment",
-                        "instagram-comment",
-                        "instagram-direct-message",
-                        "instagram-mention",
-                        "internal-note",
-                        "offline_capture",
-                        "phone",
-                        "rule",
-                        "self_service",
-                        "shopify",
-                        "sms",
-                        "twilio",
-                        "twitter",
-                        "twitter-direct-message",
-                        "whatsapp",
-                        "yotpo",
-                        "yotpo-review",
-                        "zendesk"
-                    ]
-                },
-                "uri": {
-                    "type": "string"
-                }
+                "email",
+                "name",
+                "bio"
+              ],
+              "additionalProperties": false
             },
-            "required": [
-                "id",
-                "assignee_user",
-                "channel",
-                "closed_datetime",
-                "created_datetime",
-                "external_id",
-                "from_agent",
-                "is_unread",
-                "language",
-                "last_message_datetime",
-                "last_received_message_datetime",
-                "messages",
-                "meta",
-                "opened_datetime",
-                "snooze_datetime",
-                "status",
-                "subject",
-                "tags",
-                "spam",
-                "trashed_datetime",
-                "updated_datetime",
-                "via",
-                "uri"
-            ],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "CreateTicketMessage": {
-            "type": "object",
-            "properties": {
-                "attachments": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "url": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "size": {
-                                "type": "number"
-                            },
-                            "content_type": {
-                                "type": "string"
-                            }
-                        },
-                        "required": ["url", "name", "size", "content_type"],
-                        "additionalProperties": false
-                    }
-                },
-                "body_html": {
-                    "type": "string"
-                },
-                "body_text": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
+        "channel": {
+          "type": "string"
+        },
+        "closed_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "from_agent": {
+          "type": "boolean"
+        },
+        "integrations": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {}
             },
-            "required": ["attachments", "body_html", "body_text", "id"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "CreateTicketInput": {
+        "is_unread": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_message_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_received_message_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "messages_count": {
+          "type": "number"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "customer": {
+              "id": {
+                "type": "number"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "integration_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rule_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ticket_id": {
+                "type": "number"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string",
+                "enum": [
+                  "aircall",
+                  "api",
+                  "chat",
+                  "contact_form",
+                  "email",
+                  "facebook",
+                  "facebook-mention",
+                  "facebook-messenger",
+                  "facebook-recommendations",
+                  "form",
+                  "gorgias_chat",
+                  "help-center",
+                  "helpdesk",
+                  "instagram",
+                  "instagram-ad-comment",
+                  "instagram-comment",
+                  "instagram-direct-message",
+                  "instagram-mention",
+                  "internal-note",
+                  "offline_capture",
+                  "phone",
+                  "rule",
+                  "self_service",
+                  "shopify",
+                  "sms",
+                  "twilio",
+                  "twitter",
+                  "twitter-direct-message",
+                  "whatsapp",
+                  "yotpo",
+                  "yotpo-review",
+                  "zendesk"
+                ]
+              },
+              "subject": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "body_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "body_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_html": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stripped_signature": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "public": {
+                "type": "boolean"
+              },
+              "from_agent": {
+                "type": "boolean"
+              },
+              "sender": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "firstname": {
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "type": "string"
+                  },
+                  "meta": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": {
+                          "anyOf": [
+                            {},
+                            {
+                              "not": {}
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "firstname",
+                  "lastname",
+                  "meta",
+                  "email",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "receiver": {
+                "anyOf": [
+                  {
                     "type": "object",
                     "properties": {
-                        "phone_number": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["phone_number"],
-                    "additionalProperties": false
-                },
-                "ticket": {
-                    "type": "object",
-                    "properties": {
-                        "messages": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/CreateTicketMessage"
+                      "id": {
+                        "type": "number"
+                      },
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "meta": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": {
+                              "anyOf": [
+                                {},
+                                {
+                                  "not": {}
+                                }
+                              ]
                             }
-                        }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
                     },
-                    "required": ["messages"],
+                    "required": [
+                      "id",
+                      "firstname",
+                      "lastname",
+                      "meta",
+                      "email",
+                      "name"
+                    ],
                     "additionalProperties": false
-                }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "attachments": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "content_type": {
+                          "type": "string"
+                        },
+                        "public": {
+                          "type": "boolean"
+                        },
+                        "extra": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "name",
+                        "size",
+                        "content_type",
+                        "public",
+                        "extra"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "meta": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "headers": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "actions": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "macros": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "opened_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "failed_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_sending_error": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "replied_to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
             },
-            "required": ["customer", "ticket"],
+            "required": [
+              "id",
+              "uri",
+              "message_id",
+              "integration_id",
+              "rule_id",
+              "external_id",
+              "ticket_id",
+              "channel",
+              "via",
+              "subject",
+              "body_text",
+              "body_html",
+              "stripped_text",
+              "stripped_html",
+              "stripped_signature",
+              "public",
+              "from_agent",
+              "sender",
+              "receiver",
+              "attachments",
+              "meta",
+              "headers",
+              "actions",
+              "macros",
+              "created_datetime",
+              "opened_datetime",
+              "failed_datetime",
+              "last_sending_error",
+              "deleted_datetime"
+            ],
             "additionalProperties": false
+          }
         },
-        "CreateUser": {
+        "meta": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opened_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "snooze_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "uri": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "decoration": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "created_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deleted_datetime": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
             },
-            "required": ["firstName", "lastName", "email"],
+            "required": [
+              "id",
+              "name",
+              "uri",
+              "decoration",
+              "created_datetime"
+            ],
             "additionalProperties": false
+          }
         },
-        "GorgiasCreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string",
-                    "enum": ["admin", "agent", "basic-agent", "lite-agent", "observer-agent"]
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
+        "spam": {
+          "type": [
+            "boolean",
+            "null"
+          ]
         },
-        "GorgiasUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "firstName", "lastName", "email"],
-            "additionalProperties": false
+        "trashed_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "via": {
+          "type": "string",
+          "enum": [
+            "aircall",
+            "api",
+            "chat",
+            "contact_form",
+            "email",
+            "facebook",
+            "facebook-mention",
+            "facebook-messenger",
+            "facebook-recommendations",
+            "form",
+            "gorgias_chat",
+            "help-center",
+            "helpdesk",
+            "instagram",
+            "instagram-ad-comment",
+            "instagram-comment",
+            "instagram-direct-message",
+            "instagram-mention",
+            "internal-note",
+            "offline_capture",
+            "phone",
+            "rule",
+            "self_service",
+            "shopify",
+            "sms",
+            "twilio",
+            "twitter",
+            "twitter-direct-message",
+            "whatsapp",
+            "yotpo",
+            "yotpo-review",
+            "zendesk"
+          ]
+        },
+        "uri": {
+          "type": "string"
         }
+      },
+      "required": [
+        "id",
+        "assignee_user",
+        "channel",
+        "closed_datetime",
+        "created_datetime",
+        "external_id",
+        "from_agent",
+        "is_unread",
+        "language",
+        "last_message_datetime",
+        "last_received_message_datetime",
+        "messages",
+        "meta",
+        "opened_datetime",
+        "snooze_datetime",
+        "status",
+        "subject",
+        "tags",
+        "spam",
+        "trashed_datetime",
+        "updated_datetime",
+        "via",
+        "uri"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "ActionInput_gorgias_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "agent",
+            "basic-agent",
+            "lite-agent",
+            "observer-agent"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gorgias_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gorgias_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gorgias_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

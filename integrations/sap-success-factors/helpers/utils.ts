@@ -1,4 +1,4 @@
-import type { NangoSync } from '../../models';
+import type { NangoSync } from 'nango';
 import type { SapSuccessFactorsComprehensiveEmployee } from '../types.js';
 
 /**
@@ -28,7 +28,7 @@ export function parseSapDateToISOString(sapDateString: string | null | undefined
 }
 
 // Pick latest based on the startDate
-export function getMostRecentInfo(infos: any | undefined) {
+export function getMostRecentInfo(infos?: any) {
     if (typeof infos === 'object' && !Array.isArray(infos) && Object.keys(infos).length === 0) {
         return undefined;
     }
@@ -67,6 +67,7 @@ export async function getEmployeeLastModifiedWithPath(
         visited.add(obj);
 
         if (obj.lastModifiedDateTime) {
+            // @allowTryCatch
             try {
                 const isoDate = parseSapDateToISOString(obj.lastModifiedDateTime);
                 const timestamp = new Date(isoDate).getTime();

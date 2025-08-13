@@ -1,485 +1,614 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Id": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_asana_tasks": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Task": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "Timestamps": {
-            "type": "object",
-            "properties": {
+        "modified_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assignee": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "created_at": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "modified_at": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["created_at", "modified_at"],
-            "additionalProperties": false
-        },
-        "NangoActionError": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["validation_error", "generic_error"]
-                },
-                "message": {
-                    "type": "string"
-                }
-            },
-            "required": ["type", "message"],
-            "additionalProperties": false
-        },
-        "BaseAsanaModel": {
-            "type": "object",
-            "properties": {
-                "gid": {
-                    "type": "string"
-                },
-                "resource_type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["gid", "resource_type", "name"],
-            "additionalProperties": false
-        },
-        "Limit": {
-            "type": "object",
-            "properties": {
-                "limit": {
-                    "type": "number"
-                }
-            },
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "created_at": {
-                    "type": ["string", "null"]
-                },
-                "modified_at": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "id": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "email": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "avatar_url": {
-                    "type": ["string", "null"]
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
-            },
-            "required": ["created_at", "modified_at", "id", "name", "email", "avatar_url"],
-            "additionalProperties": false
-        },
-        "Task": {
-            "type": "object",
-            "properties": {
-                "created_at": {
-                    "type": ["string", "null"]
-                },
-                "modified_at": {
-                    "type": ["string", "null"]
-                },
-                "id": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "assignee": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/User"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "due_date": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["created_at", "modified_at", "id", "title", "url", "status", "description", "assignee", "due_date"],
-            "additionalProperties": false
-        },
-        "AsanaProjectInput": {
-            "type": "object",
-            "properties": {
-                "limit": {
-                    "type": "number"
-                },
-                "workspace": {
-                    "type": "string"
-                }
-            },
-            "required": ["workspace"],
-            "additionalProperties": false
-        },
-        "CreateAsanaTask": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "workspace": {
-                    "type": "string"
-                },
-                "parent": {
-                    "type": "string"
-                },
-                "projects": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "AsanaPhoto": {
-            "type": "object",
-            "properties": {
-                "image_1024x1024": {
-                    "type": "string"
-                },
-                "image_128x128": {
-                    "type": "string"
-                },
-                "image_21x21": {
-                    "type": "string"
-                },
-                "image_27x27": {
-                    "type": "string"
-                },
-                "image_36x36": {
-                    "type": "string"
-                },
-                "image_60x60": {
-                    "type": "string"
-                }
-            },
-            "required": ["image_1024x1024", "image_128x128", "image_21x21", "image_27x27", "image_36x36", "image_60x60"],
-            "additionalProperties": false
-        },
-        "AsanaUser": {
-            "type": "object",
-            "properties": {
-                "gid": {
-                    "type": "string"
-                },
-                "resource_type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "photo": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/AsanaPhoto"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "workspace": {
-                    "type": "string"
-                }
-            },
-            "required": ["gid", "resource_type", "name", "id", "email", "photo"],
-            "additionalProperties": false
-        },
-        "AsanaTask": {
-            "type": "object",
-            "properties": {
-                "gid": {
-                    "type": "string"
-                },
-                "resource_type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": ["string", "null"]
-                },
-                "modified_at": {
-                    "type": ["string", "null"]
-                },
-                "completed": {
-                    "type": "boolean"
-                },
-                "due_date": {
-                    "type": ["string", "null"]
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "start_on": {
-                    "type": ["string", "null"]
-                },
-                "due_at": {
-                    "type": ["string", "null"]
-                },
-                "due_on": {
-                    "type": ["string", "null"]
-                },
-                "completed_at": {
-                    "type": ["string", "null"]
-                },
-                "actual_time_minutes": {
-                    "type": "number"
-                },
-                "assignee": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/AsanaUser"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "start_at": {
-                    "type": ["string", "null"]
-                },
-                "num_hearts": {
-                    "type": "number"
-                },
-                "num_likes": {
-                    "type": "number"
-                },
-                "workspace": {
-                    "$ref": "#/definitions/BaseAsanaModel"
-                },
-                "hearted": {
-                    "type": "boolean"
-                },
-                "hearts": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "liked": {
-                    "type": "boolean"
-                },
-                "likes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "assignee_status": {
-                    "type": "string"
-                },
-                "followers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BaseAsanaModel"
-                    }
-                },
-                "parent": {
-                    "type": "object",
-                    "properties": {
-                        "gid": {
-                            "type": "string"
-                        },
-                        "resource_type": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "resource_subtype": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["gid", "resource_type", "name", "resource_subtype"],
-                    "additionalProperties": false
-                },
-                "permalink_url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "gid",
-                "resource_type",
-                "name",
+              },
+              "required": [
                 "created_at",
                 "modified_at",
-                "completed",
-                "due_date",
-                "tags",
-                "start_on",
-                "due_at",
-                "due_on",
-                "completed_at",
-                "actual_time_minutes",
-                "assignee",
-                "start_at",
-                "num_hearts",
-                "num_likes",
-                "workspace",
-                "hearted",
-                "hearts",
-                "liked",
-                "likes",
-                "notes",
-                "assignee_status",
-                "followers",
-                "parent",
-                "permalink_url"
-            ],
-            "additionalProperties": false
-        },
-        "AsanaUpdateTask": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "due_at": {
-                    "type": "string"
-                },
-                "due_on": {
-                    "type": "string"
-                },
-                "completed": {
-                    "type": "boolean"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "projects": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "assignee": {
-                    "type": "string"
-                },
-                "parent": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "workspace": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
+                "id",
+                "name",
+                "email",
+                "avatar_url"
+              ],
+              "additionalProperties": false
             },
-            "required": ["id"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "AsanaWorkspace": {
-            "type": "object",
-            "properties": {
-                "gid": {
-                    "type": "string"
-                },
-                "resource_type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "is_organization": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["gid", "resource_type", "name", "id", "is_organization"],
-            "additionalProperties": false
-        },
-        "AsanaProject": {
-            "type": "object",
-            "properties": {
-                "gid": {
-                    "type": "string"
-                },
-                "resource_type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["gid", "resource_type", "name", "id"],
-            "additionalProperties": false
-        },
-        "Anonymous_asana_action_fetchworkspaces_output": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/BaseAsanaModel"
-            },
-            "deprecated": "It is recommended to use a Model"
-        },
-        "Anonymous_asana_action_fetchprojects_output": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/BaseAsanaModel"
-            },
-            "deprecated": "It is recommended to use a Model"
-        },
-        "Anonymous_asana_action_deletetask_output": {
-            "type": "boolean",
-            "deprecated": "It is recommended to use a Model"
+        "due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
+      },
+      "required": [
+        "created_at",
+        "modified_at",
+        "id",
+        "title",
+        "url",
+        "status",
+        "description",
+        "assignee",
+        "due_date"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "SyncMetadata_asana_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modified_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "avatar_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "created_at",
+        "modified_at",
+        "id",
+        "name",
+        "email",
+        "avatar_url"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_asana_workspaces": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "AsanaWorkspace": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_organization": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
+        "name",
+        "id",
+        "is_organization"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_asana_projects": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "AsanaProject": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
+        "name",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_fetchworkspaces": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "limit"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_fetchworkspaces": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type",
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "0"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_fetchprojects": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "workspace": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "limit",
+        "workspace"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_fetchprojects": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type",
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "0"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_createtask": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "workspace": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "workspace",
+        "parent",
+        "projects"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_createtask": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modified_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assignee": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "modified_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "avatar_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "created_at",
+                "modified_at",
+                "id",
+                "name",
+                "email",
+                "avatar_url"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "created_at",
+        "modified_at",
+        "id",
+        "title",
+        "url",
+        "status",
+        "description",
+        "assignee",
+        "due_date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_updatetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "due_at": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assignee": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workspace": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "completed",
+        "notes",
+        "projects",
+        "assignee",
+        "parent",
+        "tags",
+        "workspace",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updatetask": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modified_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assignee": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "modified_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "avatar_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "created_at",
+                "modified_at",
+                "id",
+                "name",
+                "email",
+                "avatar_url"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "created_at",
+        "modified_at",
+        "id",
+        "title",
+        "url",
+        "status",
+        "description",
+        "assignee",
+        "due_date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_deletetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletetask": {
+      "type": "boolean"
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

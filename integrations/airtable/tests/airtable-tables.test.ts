@@ -1,6 +1,6 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/tables.js';
+import sync from '../syncs/tables.js';
 
 describe('airtable tables tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
@@ -13,7 +13,7 @@ describe('airtable tables tests', () => {
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {
-        await fetchData(nangoMock);
+        await sync.exec(nangoMock);
 
         for (const model of models) {
             const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
@@ -33,7 +33,7 @@ describe('airtable tables tests', () => {
     });
 
     it('should get, map correctly the data and batchDelete the result', async () => {
-        await fetchData(nangoMock);
+        await sync.exec(nangoMock);
 
         for (const model of models) {
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);

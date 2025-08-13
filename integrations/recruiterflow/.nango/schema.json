@@ -1,1039 +1,1251 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "RecruiterFlowUser": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "img_link": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "email", "first_name", "last_name", "img_link"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowResumeLink": {
-            "type": "object",
-            "properties": {
-                "filename": {
-                    "type": "string"
-                },
-                "link": {
-                    "type": "string"
-                }
-            },
-            "required": ["filename", "link"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowAssociatedJob": {
-            "type": "object",
-            "properties": {
-                "job_id": {
-                    "type": "number"
-                },
-                "job_name": {
-                    "type": "string"
-                },
-                "client_company_name": {
-                    "type": ["string", "null"]
-                },
-                "current_stage_name": {
-                    "type": "string"
-                },
-                "is_open": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["job_id", "job_name", "client_company_name", "current_stage_name", "is_open"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCustomFields": {
-            "type": "object",
-            "additionalProperties": {
-                "type": ["string", "number"]
-            }
-        },
-        "RecruiterFlowCandidate": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "full_name": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "profile_picture_link": {
-                    "type": "string"
-                },
-                "added_by_name": {
-                    "type": "string"
-                },
-                "added_by_id": {
-                    "type": "number"
-                },
-                "added_time": {
-                    "type": "string"
-                },
-                "latest_activity_time": {
-                    "type": "string"
-                },
-                "last_contacted_time": {
-                    "type": "string"
-                },
-                "email_addresses": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "phone_numbers": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "current_designation": {
-                    "type": "string"
-                },
-                "current_organization": {
-                    "type": "string"
-                },
-                "location_city": {
-                    "type": "string"
-                },
-                "location_country": {
-                    "type": "string"
-                },
-                "location_full_string": {
-                    "type": "string"
-                },
-                "source": {
-                    "type": ["string", "null"]
-                },
-                "status_name": {
-                    "type": "string"
-                },
-                "linkedin_profile_url": {
-                    "type": "string"
-                },
-                "github_profile_url": {
-                    "type": "string"
-                },
-                "twitter_profile_url": {
-                    "type": "string"
-                },
-                "angellist_profile_url": {
-                    "type": "string"
-                },
-                "behance_profile_url": {
-                    "type": "string"
-                },
-                "dribbble_profile_url": {
-                    "type": "string"
-                },
-                "facebook_profile_url": {
-                    "type": "string"
-                },
-                "xing_profile_url": {
-                    "type": "string"
-                },
-                "resume_links": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowResumeLink"
-                    }
-                },
-                "associated_jobs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowAssociatedJob"
-                    }
-                },
-                "custom_fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowCustomFields"
-                    }
-                }
-            },
-            "required": [
-                "id",
-                "full_name",
-                "first_name",
-                "last_name",
-                "added_by_name",
-                "added_by_id",
-                "added_time",
-                "email_addresses",
-                "phone_numbers",
-                "source"
-            ],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityStageMovementInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "after": {
-                    "type": "string"
-                },
-                "before": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowTransitionUser": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["email", "id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowTransition": {
-            "type": "object",
-            "properties": {
-                "entered": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": ["string", "null"]
-                },
-                "left": {
-                    "type": ["string", "null"]
-                },
-                "stage_moved_by": {
-                    "$ref": "#/definitions/RecruiterFlowTransitionUser"
-                },
-                "to": {
-                    "type": "string"
-                }
-            },
-            "required": ["entered", "from", "left", "stage_moved_by", "to"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobWithTransitions": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "added_by": {
-                    "$ref": "#/definitions/RecruiterFlowTransitionUser"
-                },
-                "transitions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowTransition"
-                    }
-                }
-            },
-            "required": ["id", "name", "added_by", "transitions"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityStageMovementOutput": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowJobWithTransitions"
-                    }
-                }
-            },
-            "required": ["data"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityStageMovement": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "jobs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowJobWithTransitions"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "jobs", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityType": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "is_archived": {
-                    "type": "boolean"
-                },
-                "is_custom": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "rank": {
-                    "type": "number"
-                },
-                "track_last_contacted": {
-                    "type": "boolean"
-                },
-                "track_last_engaged": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["category", "id", "is_archived", "is_custom", "name", "rank", "track_last_contacted", "track_last_engaged"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityListInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowLeanCandidate": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowLeanJob": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityListAssociatedEntities": {
-            "type": "object",
-            "properties": {
-                "candidates": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowLeanCandidate"
-                    }
-                },
-                "clients": {
-                    "type": "array",
-                    "items": {}
-                },
-                "contacts": {
-                    "type": "array",
-                    "items": {}
-                },
-                "deals": {
-                    "type": "array",
-                    "items": {}
-                },
-                "jobs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowLeanJob"
-                    }
-                },
-                "placements": {
-                    "type": "array",
-                    "items": {}
-                }
-            },
-            "required": ["candidates", "clients", "contacts", "deals", "jobs", "placements"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityListType": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityListCandidate": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": ["string", "null"]
-                },
-                "first_name": {
-                    "type": ["string", "null"]
-                },
-                "id": {
-                    "type": ["number", "null"]
-                },
-                "last_name": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["email", "first_name", "id", "last_name", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateFullActivity": {
-            "type": "object",
-            "properties": {
-                "activity_id": {
-                    "type": ["number", "null"]
-                },
-                "associated_entities": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/RecruiterFlowCandidateActivityListAssociatedEntities"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "candidate_id": {
-                    "type": ["number", "null"]
-                },
-                "contact_id": {
-                    "type": ["number", "null"]
-                },
-                "interview_plan_id": {
-                    "type": ["number", "null"]
-                },
-                "is_custom": {
-                    "type": "boolean"
-                },
-                "job_id": {
-                    "type": ["number", "null"]
-                },
-                "subject": {
-                    "type": "string"
-                },
-                "text": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "type": {
-                    "$ref": "#/definitions/RecruiterFlowCandidateActivityListType"
-                },
-                "user": {
-                    "$ref": "#/definitions/RecruiterFlowCandidateActivityListCandidate"
-                }
-            },
-            "required": ["activity_id", "candidate_id", "contact_id", "interview_plan_id", "is_custom", "job_id", "subject", "text", "time", "type", "user"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityListOutput": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowCandidateFullActivity"
-                    }
-                }
-            },
-            "required": ["data"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecardAttributeCategory": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecardAttribute": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "$ref": "#/definitions/RecruiterFlowScorecardAttributeCategory"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "rank": {
-                    "type": "number"
-                },
-                "rating": {
-                    "type": "number"
-                }
-            },
-            "required": ["category", "name", "rank", "rating"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecardQuestion": {
-            "type": "object",
-            "properties": {
-                "category_name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "response": {
-                    "type": "string"
-                },
-                "text": {
-                    "type": "string"
-                }
-            },
-            "required": ["category_name", "id", "response", "text"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecard": {
-            "type": "object",
-            "properties": {
-                "attributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowScorecardAttribute"
-                    }
-                },
-                "bottomline": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "middle_name": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "questions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowScorecardQuestion"
-                    }
-                },
-                "result_id": {
-                    "type": "number"
-                },
-                "submission_time": {
-                    "type": "string"
-                },
-                "user_id": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "attributes",
-                "bottomline",
-                "first_name",
-                "id",
-                "last_name",
-                "middle_name",
-                "name",
-                "questions",
-                "result_id",
-                "submission_time",
-                "user_id"
-            ],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecardStage": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "scorecard": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowScorecard"
-                    }
-                }
-            },
-            "required": ["id", "name", "scorecard"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScorecardJob": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "stages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowScorecardStage"
-                    }
-                }
-            },
-            "required": ["id", "name", "stages"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateScorecard": {
-            "type": "object",
-            "properties": {
-                "candidate": {
-                    "$ref": "#/definitions/RecruiterFlowLeanCandidate"
-                },
-                "job": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowScorecardJob"
-                    }
-                }
-            },
-            "required": ["candidate", "job"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateScorecardInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "job_id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "job_id"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobLocation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "RecruiterFlowJob": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "apply_link": {
-                    "type": "string"
-                },
-                "company_name": {
-                    "type": "string"
-                },
-                "company_logo_link": {
-                    "type": ["string", "null"]
-                },
-                "locations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowJobLocation"
-                    }
-                },
-                "department": {
-                    "type": "string"
-                },
-                "employment_type": {
-                    "type": "string"
-                },
-                "job_type_name": {
-                    "type": ["string", "null"]
-                },
-                "experience_range_start": {
-                    "type": ["number", "null"]
-                },
-                "experience_range_end": {
-                    "type": ["number", "null"]
-                },
-                "is_open": {
-                    "type": "boolean"
-                },
-                "job_status_name": {
-                    "type": ["string", "null"]
-                },
-                "number_of_openings": {
-                    "type": "number"
-                },
-                "salary_range_end": {
-                    "type": ["number", "null"]
-                },
-                "salary_range_start": {
-                    "type": ["number", "null"]
-                },
-                "salary_range_currency": {
-                    "type": "string"
-                },
-                "salary_frequency": {
-                    "type": ["string", "null"]
-                },
-                "pay_rate_number": {
-                    "type": "string"
-                },
-                "pay_rate_currency": {
-                    "type": "string"
-                },
-                "pay_rate_frequency_display_name": {
-                    "type": "string"
-                },
-                "bill_rate_number": {
-                    "type": "string"
-                },
-                "bill_rate_currency": {
-                    "type": "string"
-                },
-                "bill_rate_frequency_display_name": {
-                    "type": "string"
-                },
-                "contract_start_date": {
-                    "type": ["string", "null"]
-                },
-                "contract_end_date": {
-                    "type": ["string", "null"]
-                },
-                "work_quantum_number": {
-                    "type": "string"
-                },
-                "work_quantum_unit_display_name": {
-                    "type": "string"
-                },
-                "work_quantum_frequency_display_name": {
-                    "type": "string"
-                },
-                "work_quantum_is_full_time": {
-                    "type": "boolean"
-                },
-                "expected_salary_number": {
-                    "type": "number"
-                },
-                "expected_salary_currency": {
-                    "type": "string"
-                },
-                "expected_fee_number": {
-                    "type": "number"
-                },
-                "expected_fee_currency": {
-                    "type": "string"
-                },
-                "commission_rate": {
-                    "type": ["number", "null"]
-                },
-                "expected_start_date": {
-                    "type": "string"
-                },
-                "expected_end_date": {
-                    "type": "string"
-                },
-                "custom_fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowCustomFields"
-                    }
-                },
-                "files_links": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": [
-                "id",
-                "title",
-                "locations",
-                "department",
-                "employment_type",
-                "job_type_name",
-                "experience_range_start",
-                "experience_range_end",
-                "is_open",
-                "job_status_name",
-                "number_of_openings"
-            ],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobPipelineSummary": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "count": {
-                    "type": "number"
-                }
-            },
-            "required": ["id", "name", "count"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobPipeline": {
-            "type": "object",
-            "properties": {
-                "detail": {
-                    "type": "array",
-                    "items": {}
-                },
-                "summary": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowJobPipelineSummary"
-                    }
-                }
-            },
-            "required": ["detail", "summary"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowLeanJobStageName": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobDepartment": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "count": {
-                    "type": "number"
-                }
-            },
-            "required": ["id", "name", "count"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobStatus": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "color": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "color"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowJobRemoteStatus": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowLocation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "details": {
-                    "type": "string"
-                },
-                "iso_3166_1_alpha_2_code": {
-                    "type": "string"
-                },
-                "location_type": {
-                    "type": "string"
-                },
-                "location_type_id": {
-                    "type": "number"
-                },
-                "postal_code": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "zipcode": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "location_type", "location_type_id"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowEmploymentType": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowOrganizationLocation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "postal_code": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowScores": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "number"
-            }
-        },
-        "RecruiterFlowPipelineInput": {
-            "type": "object",
-            "properties": {
-                "job_id": {
-                    "type": "string"
-                }
-            },
-            "required": ["job_id"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_recruiterflow_users": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "RecruiterFlowUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "img_link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "first_name",
+        "last_name",
+        "img_link"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_candidates": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowCandidate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "profile_picture_link": {
+          "type": "string"
+        },
+        "added_by_name": {
+          "type": "string"
+        },
+        "added_by_id": {
+          "type": "number"
+        },
+        "added_time": {
+          "type": "string"
+        },
+        "latest_activity_time": {
+          "type": "string"
+        },
+        "last_contacted_time": {
+          "type": "string"
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "current_designation": {
+          "type": "string"
+        },
+        "current_organization": {
+          "type": "string"
+        },
+        "location_city": {
+          "type": "string"
+        },
+        "location_country": {
+          "type": "string"
+        },
+        "location_full_string": {
+          "type": "string"
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status_name": {
+          "type": "string"
+        },
+        "linkedin_profile_url": {
+          "type": "string"
+        },
+        "github_profile_url": {
+          "type": "string"
+        },
+        "twitter_profile_url": {
+          "type": "string"
+        },
+        "angellist_profile_url": {
+          "type": "string"
+        },
+        "behance_profile_url": {
+          "type": "string"
+        },
+        "dribbble_profile_url": {
+          "type": "string"
+        },
+        "facebook_profile_url": {
+          "type": "string"
+        },
+        "xing_profile_url": {
+          "type": "string"
+        },
+        "resume_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "associated_jobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "job_id": {
+                "type": "number"
+              },
+              "job_name": {
+                "type": "string"
+              },
+              "client_company_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "current_stage_name": {
+                "type": "string"
+              },
+              "is_open": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "job_id",
+              "job_name",
+              "client_company_name",
+              "current_stage_name",
+              "is_open"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "full_name",
+        "first_name",
+        "last_name",
+        "added_by_name",
+        "added_by_id",
+        "added_time",
+        "email_addresses",
+        "phone_numbers",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_candidateactivitytypes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowCandidateActivityType": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_archived": {
+          "type": "boolean"
+        },
+        "is_custom": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number"
+        },
+        "track_last_contacted": {
+          "type": "boolean"
+        },
+        "track_last_engaged": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "category",
+        "id",
+        "is_archived",
+        "is_custom",
+        "name",
+        "rank",
+        "track_last_contacted",
+        "track_last_engaged"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_jobs": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowJob": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "apply_link": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "company_logo_link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "department": {
+          "type": "string"
+        },
+        "employment_type": {
+          "type": "string"
+        },
+        "job_type_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "experience_range_start": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "experience_range_end": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "is_open": {
+          "type": "boolean"
+        },
+        "job_status_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "number_of_openings": {
+          "type": "number"
+        },
+        "salary_range_end": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "salary_range_start": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "salary_range_currency": {
+          "type": "string"
+        },
+        "salary_frequency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pay_rate_number": {
+          "type": "string"
+        },
+        "pay_rate_currency": {
+          "type": "string"
+        },
+        "pay_rate_frequency_display_name": {
+          "type": "string"
+        },
+        "bill_rate_number": {
+          "type": "string"
+        },
+        "bill_rate_currency": {
+          "type": "string"
+        },
+        "bill_rate_frequency_display_name": {
+          "type": "string"
+        },
+        "contract_start_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contract_end_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "work_quantum_number": {
+          "type": "string"
+        },
+        "work_quantum_unit_display_name": {
+          "type": "string"
+        },
+        "work_quantum_frequency_display_name": {
+          "type": "string"
+        },
+        "work_quantum_is_full_time": {
+          "type": "boolean"
+        },
+        "expected_salary_number": {
+          "type": "number"
+        },
+        "expected_salary_currency": {
+          "type": "string"
+        },
+        "expected_fee_number": {
+          "type": "number"
+        },
+        "expected_fee_currency": {
+          "type": "string"
+        },
+        "commission_rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "expected_start_date": {
+          "type": "string"
+        },
+        "expected_end_date": {
+          "type": "string"
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "files_links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "locations",
+        "department",
+        "employment_type",
+        "job_type_name",
+        "experience_range_start",
+        "experience_range_end",
+        "is_open",
+        "job_status_name",
+        "number_of_openings"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_jobstagenames": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowLeanJobStageName": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_jobdepartments": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowJobDepartment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_jobstatuses": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowJobStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_jobremotestatuses": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowJobRemoteStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_locations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowLocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "iso_3166_1_alpha_2_code": {
+          "type": "string"
+        },
+        "location_type": {
+          "type": "string"
+        },
+        "location_type_id": {
+          "type": "number"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zipcode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "location_type",
+        "location_type_id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_employmenttypes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowEmploymentType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_organizationlocations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RecruiterFlowOrganizationLocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_recruiterflow_candidatescorecards": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "job_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "job_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_recruiterflow_candidatescorecards": {
+      "type": "object",
+      "properties": {
+        "candidate": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "job": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "stages": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "scorecard": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "category": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "notes": {
+                                  "type": "string"
+                                },
+                                "rank": {
+                                  "type": "number"
+                                },
+                                "rating": {
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "category",
+                                "name",
+                                "notes",
+                                "rank",
+                                "rating"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "bottomline": {
+                            "type": "string"
+                          },
+                          "first_name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "number"
+                          },
+                          "last_name": {
+                            "type": "string"
+                          },
+                          "middle_name": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "notes": {
+                            "type": "string"
+                          },
+                          "questions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "category_name": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "number"
+                                },
+                                "response": {
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "category_name",
+                                "id",
+                                "response",
+                                "text"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "result_id": {
+                            "type": "number"
+                          },
+                          "submission_time": {
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "attributes",
+                          "bottomline",
+                          "first_name",
+                          "id",
+                          "last_name",
+                          "middle_name",
+                          "name",
+                          "notes",
+                          "questions",
+                          "result_id",
+                          "submission_time",
+                          "user_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "scorecard"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "stages"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "candidate",
+        "job"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_recruiterflow_jobpipelines": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_recruiterflow_jobpipelines": {
+      "type": "object",
+      "properties": {
+        "detail": {
+          "type": "array",
+          "items": {}
+        },
+        "summary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "count"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "detail",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_recruiterflow_candidateactivitieslist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_recruiterflow_candidateactivitieslist": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "activity_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "associated_entities": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "candidates": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "first_name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "clients": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "deals": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "jobs": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "placements": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    },
+                    "required": [
+                      "candidates",
+                      "clients",
+                      "contacts",
+                      "deals",
+                      "jobs",
+                      "placements"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "candidate_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "contact_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "interview_plan_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "is_custom": {
+                "type": "boolean"
+              },
+              "job_id": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "subject": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "first_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "id",
+                  "last_name",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "activity_id",
+              "candidate_id",
+              "contact_id",
+              "interview_plan_id",
+              "is_custom",
+              "job_id",
+              "subject",
+              "text",
+              "time",
+              "type",
+              "user"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_recruiterflow_candidateactivitiesstagemovements": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_recruiterflow_candidateactivitiesstagemovements": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "added_by": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "transitions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entered": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "left": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "stage_moved_by": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "email",
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "to": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "entered",
+                    "from",
+                    "left",
+                    "stage_moved_by",
+                    "to"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "added_by",
+              "transitions"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.66.0)"
 }

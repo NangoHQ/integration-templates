@@ -1,54 +1,68 @@
 [
-    {
-        "providerConfigKey": "woocommerce",
-        "syncs": [
-            {
-                "name": "customers",
-                "type": "sync",
-                "description": "Periodically fetches all the Woo customers.",
-                "sync_type": "full",
-                "usedModels": ["Customer"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Customer"],
-                "scopes": ["read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/customers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "orders",
-                "type": "sync",
-                "description": "Periodically fetches all the Woo orders.",
-                "sync_type": "incremental",
-                "usedModels": ["Order"],
-                "runs": "every 5 minutes",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Order"],
-                "scopes": ["read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/orders"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "woocommerce",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Periodically fetches all the Woo customers.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_woocommerce_customers",
+        "name": "customers",
+        "output": [
+          "Customer"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Customer",
+          "SyncMetadata_woocommerce_customers"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Periodically fetches all the Woo orders.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/orders"
+          }
+        ],
+        "input": "SyncMetadata_woocommerce_orders",
+        "name": "orders",
+        "output": [
+          "Order"
+        ],
+        "runs": "every 5 minutes",
+        "scopes": [
+          "read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Order",
+          "SyncMetadata_woocommerce_orders"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

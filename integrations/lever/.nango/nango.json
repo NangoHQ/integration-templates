@@ -1,429 +1,558 @@
 [
-    {
-        "providerConfigKey": "lever",
-        "syncs": [
-            {
-                "name": "opportunities",
-                "type": "sync",
-                "description": "Fetches all opportunities",
-                "sync_type": "incremental",
-                "usedModels": ["LeverOpportunity"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunity"],
-                "scopes": ["opportunities:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/opportunities",
-                        "group": "Opportunities"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "opportunities-applications",
-                "type": "sync",
-                "description": "Fetches a list of all applications for a candidate in Lever",
-                "sync_type": "full",
-                "usedModels": ["LeverOpportunityApplication"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunityApplication"],
-                "scopes": ["applications:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/applications",
-                        "group": "Applications"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "opportunities-feedbacks",
-                "type": "sync",
-                "description": "Fetches a list of all feedback forms for a candidate for every single opportunity",
-                "sync_type": "full",
-                "usedModels": ["LeverOpportunityFeedback"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunityFeedback"],
-                "scopes": ["feedback:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/opportunities/feedback",
-                        "group": "Opportunities"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "opportunities-interviews",
-                "type": "sync",
-                "description": "Fetches a list of all interviews for every single opportunity",
-                "sync_type": "full",
-                "usedModels": ["LeverOpportunityInterview"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunityInterview"],
-                "scopes": ["interviews:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/opportunities/interviews",
-                        "group": "Opportunities"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "opportunities-notes",
-                "type": "sync",
-                "description": "Fetches a list of all notes for every single opportunity",
-                "sync_type": "full",
-                "usedModels": ["LeverOpportunityNote"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunityNote"],
-                "scopes": ["notes:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/notes",
-                        "group": "Notes"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "opportunities-offers",
-                "type": "sync",
-                "description": "Fetches a list of all offers for every single opportunity",
-                "sync_type": "full",
-                "usedModels": ["LeverOpportunityOffer"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverOpportunityOffer"],
-                "scopes": ["offers:write:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/offers",
-                        "group": "Offers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "postings",
-                "type": "sync",
-                "description": "Fetches a list of all postings in Lever",
-                "sync_type": "full",
-                "usedModels": ["LeverPosting"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverPosting"],
-                "scopes": ["postings:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/postings",
-                        "group": "Postings"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "postings-questions",
-                "type": "sync",
-                "description": "Fetches a list of all questions included in a posting’s application form in Lever",
-                "sync_type": "full",
-                "usedModels": ["LeverPostingApply"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverPostingApply"],
-                "scopes": ["postings:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/postings/questions",
-                        "group": "Postings"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "stages",
-                "type": "sync",
-                "description": "Fetches a list of all pipeline stages in Lever",
-                "sync_type": "full",
-                "usedModels": ["LeverStage"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["LeverStage"],
-                "scopes": ["stages:read:admin"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/stages",
-                        "group": "Stages"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "lever",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a note and add it to an opportunity.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/notes",
+          "group": "Notes"
+        },
+        "input": "ActionInput_lever_createnote",
+        "name": "create-note",
+        "output": [
+          "ActionOutput_lever_createnote"
         ],
-        "actions": [
-            {
-                "name": "create-note",
-                "type": "action",
-                "description": "Action to create a note and add it to an opportunity.",
-                "version": "1.0.1",
-                "scopes": ["notes:write:admin"],
-                "input": "LeverCreateNoteInput",
-                "output": ["LeverOpportunityNote"],
-                "usedModels": ["LeverOpportunityNote", "LeverCreateNoteInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/notes",
-                    "group": "Notes"
-                }
-            },
-            {
-                "name": "create-opportunity",
-                "type": "action",
-                "description": "Create an opportunity and optionally candidates associated with the opportunity",
-                "version": "1.0.1",
-                "scopes": ["opportunities:write:admin"],
-                "input": "LeverCreateOpportunityInput",
-                "output": ["LeverOpportunity"],
-                "usedModels": ["LeverOpportunity", "LeverCreateOpportunityInput", "PhoneEntry", "ArchievedEntry"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/opportunities",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "get-stages",
-                "type": "action",
-                "description": "Action to get lists all pipeline stages. Note that this does \nnot paginate the response so it is possible that not all stages \nare returned.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": null,
-                "output": ["GetStages"],
-                "usedModels": ["GetStages", "Stages"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/stages/limited",
-                    "group": "Stages"
-                }
-            },
-            {
-                "name": "users",
-                "type": "action",
-                "description": "Lists all the users in your Lever account. Only active users are included by default.",
-                "version": "",
-                "scopes": [],
-                "input": null,
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "get-postings",
-                "type": "action",
-                "description": "Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": null,
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/posts/limited",
-                    "group": "Posts"
-                }
-            },
-            {
-                "name": "get-archive-reasons",
-                "type": "action",
-                "description": "Get all archived reasons",
-                "version": "",
-                "scopes": [],
-                "input": null,
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/archived/reasons",
-                    "group": "Archived"
-                }
-            },
-            {
-                "name": "get-posting",
-                "type": "action",
-                "description": "Get single post for your account in Lever",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "SinglePost",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "SinglePost"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/posts/single",
-                    "group": "Posts"
-                }
-            },
-            {
-                "name": "update-opportunity-links",
-                "type": "action",
-                "description": "Update the links in an opportunity",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateLinks",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "UpdateLinks"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/opportunities/links",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "update-opportunity-sources",
-                "type": "action",
-                "description": "Update the sources in an opportunity",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateSources",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "UpdateSources"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/opportunities/sources",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "update-opportunity-stage",
-                "type": "action",
-                "description": "Update the stage in an opportunity",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateOpportunityStage",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "UpdateOpportunityStage"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/opportunities/stages",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "update-opportunity-tags",
-                "type": "action",
-                "description": "Update the tags in an opportunity",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateTags",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "UpdateTags"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/opportunities/tags",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "update-opportunity-archived",
-                "type": "action",
-                "description": "Update the archived state of an opportunity",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "ArchiveOpportunity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "LeverOpportunity", "ArchiveOpportunity"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/opportunities/archived",
-                    "group": "Opportunities"
-                }
-            },
-            {
-                "name": "apply-posting",
-                "type": "action",
-                "description": "Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.",
-                "version": "",
-                "scopes": [],
-                "input": "ApplyToPosting",
-                "output": ["SuccessResponse"],
-                "usedModels": [
-                    "SuccessResponse",
-                    "LeverOpportunity",
-                    "ApplyToPosting",
-                    "QuestionResponse",
-                    "CustomQuestion",
-                    "CustomQuestionResponse",
-                    "DiversityQuestionResponse"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/posts/apply",
-                    "group": "Posts"
-                }
-            },
-            {
-                "name": "update-opportunity",
-                "type": "action",
-                "description": "Update an opportunity",
-                "version": "",
-                "scopes": [],
-                "input": "UpdateOpportunity",
-                "output": ["ReturnObjUpdateOpportunity"],
-                "usedModels": ["ReturnObjUpdateOpportunity", "StageChangesObject", "UpdateOpportunity"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/opportunities",
-                    "group": "Opportunities"
-                }
-            }
+        "scopes": [
+          "notes:write:admin"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_lever_createnote",
+          "ActionOutput_lever_createnote"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create an opportunity and optionally candidates associated with the opportunity",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunities",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_createopportunity",
+        "name": "create-opportunity",
+        "output": [
+          "ActionOutput_lever_createopportunity"
+        ],
+        "scopes": [
+          "opportunities:write:admin"
+        ],
+        "usedModels": [
+          "ActionInput_lever_createopportunity",
+          "ActionOutput_lever_createopportunity"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to get lists all pipeline stages. Note that this does \nnot paginate the response so it is possible that not all stages \nare returned.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/stages/limited",
+          "group": "Stages"
+        },
+        "input": "ActionInput_lever_getstages",
+        "name": "get-stages",
+        "output": [
+          "ActionOutput_lever_getstages"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_getstages",
+          "ActionOutput_lever_getstages"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all the users in your Lever account. Only active users are included by default.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_lever_users",
+        "name": "users",
+        "output": [
+          "ActionOutput_lever_users"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_users",
+          "ActionOutput_lever_users"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/posts/limited",
+          "group": "Posts"
+        },
+        "input": "ActionInput_lever_getpostings",
+        "name": "get-postings",
+        "output": [
+          "ActionOutput_lever_getpostings"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_getpostings",
+          "ActionOutput_lever_getpostings"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get all archived reasons",
+        "endpoint": {
+          "method": "GET",
+          "path": "/archived/reasons",
+          "group": "Archived"
+        },
+        "input": "ActionInput_lever_getarchivereasons",
+        "name": "get-archive-reasons",
+        "output": [
+          "ActionOutput_lever_getarchivereasons"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_getarchivereasons",
+          "ActionOutput_lever_getarchivereasons"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get single post for your account in Lever",
+        "endpoint": {
+          "method": "GET",
+          "path": "/posts/single",
+          "group": "Posts"
+        },
+        "input": "ActionInput_lever_getposting",
+        "name": "get-posting",
+        "output": [
+          "ActionOutput_lever_getposting"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_getposting",
+          "ActionOutput_lever_getposting"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update the links in an opportunity",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunities/links",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunitylinks",
+        "name": "update-opportunity-links",
+        "output": [
+          "ActionOutput_lever_updateopportunitylinks"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunitylinks",
+          "ActionOutput_lever_updateopportunitylinks"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update the sources in an opportunity",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunities/sources",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunitysources",
+        "name": "update-opportunity-sources",
+        "output": [
+          "ActionOutput_lever_updateopportunitysources"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunitysources",
+          "ActionOutput_lever_updateopportunitysources"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update the stage in an opportunity",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunities/stages",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunitystage",
+        "name": "update-opportunity-stage",
+        "output": [
+          "ActionOutput_lever_updateopportunitystage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunitystage",
+          "ActionOutput_lever_updateopportunitystage"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update the tags in an opportunity",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunities/tags",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunitytags",
+        "name": "update-opportunity-tags",
+        "output": [
+          "ActionOutput_lever_updateopportunitytags"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunitytags",
+          "ActionOutput_lever_updateopportunitytags"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update the archived state of an opportunity",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/opportunities/archived",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunityarchived",
+        "name": "update-opportunity-archived",
+        "output": [
+          "ActionOutput_lever_updateopportunityarchived"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunityarchived",
+          "ActionOutput_lever_updateopportunityarchived"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/posts/apply",
+          "group": "Posts"
+        },
+        "input": "ActionInput_lever_applyposting",
+        "name": "apply-posting",
+        "output": [
+          "ActionOutput_lever_applyposting"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_applyposting",
+          "ActionOutput_lever_applyposting"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update an opportunity",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/opportunities",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunity",
+        "name": "update-opportunity",
+        "output": [
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunity",
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all opportunities",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/opportunities",
+            "group": "Opportunities"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunities",
+        "name": "opportunities",
+        "output": [
+          "LeverOpportunity"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "opportunities:read:admin"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunity",
+          "SyncMetadata_lever_opportunities"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all applications for a candidate in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/applications",
+            "group": "Applications"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunitiesapplications",
+        "name": "opportunities-applications",
+        "output": [
+          "LeverOpportunityApplication"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "applications:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunityApplication",
+          "SyncMetadata_lever_opportunitiesapplications"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all feedback forms for a candidate for every single opportunity",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/opportunities/feedback",
+            "group": "Opportunities"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunitiesfeedbacks",
+        "name": "opportunities-feedbacks",
+        "output": [
+          "LeverOpportunityFeedback"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "feedback:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunityFeedback",
+          "SyncMetadata_lever_opportunitiesfeedbacks"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all interviews for every single opportunity",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/opportunities/interviews",
+            "group": "Opportunities"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunitiesinterviews",
+        "name": "opportunities-interviews",
+        "output": [
+          "LeverOpportunityInterview"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "interviews:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunityInterview",
+          "SyncMetadata_lever_opportunitiesinterviews"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all notes for every single opportunity",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/notes",
+            "group": "Notes"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunitiesnotes",
+        "name": "opportunities-notes",
+        "output": [
+          "LeverOpportunityNote"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "notes:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunityNote",
+          "SyncMetadata_lever_opportunitiesnotes"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all offers for every single opportunity",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/offers",
+            "group": "Offers"
+          }
+        ],
+        "input": "SyncMetadata_lever_opportunitiesoffers",
+        "name": "opportunities-offers",
+        "output": [
+          "LeverOpportunityOffer"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "offers:write:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverOpportunityOffer",
+          "SyncMetadata_lever_opportunitiesoffers"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all postings in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/postings",
+            "group": "Postings"
+          }
+        ],
+        "input": "SyncMetadata_lever_postings",
+        "name": "postings",
+        "output": [
+          "LeverPosting"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "postings:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverPosting",
+          "SyncMetadata_lever_postings"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all questions included in a posting’s application form in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/postings/questions",
+            "group": "Postings"
+          }
+        ],
+        "input": "SyncMetadata_lever_postingsquestions",
+        "name": "postings-questions",
+        "output": [
+          "LeverPostingApply"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "postings:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverPostingApply",
+          "SyncMetadata_lever_postingsquestions"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all pipeline stages in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/stages",
+            "group": "Stages"
+          }
+        ],
+        "input": "SyncMetadata_lever_stages",
+        "name": "stages",
+        "output": [
+          "LeverStage"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "stages:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverStage",
+          "SyncMetadata_lever_stages"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

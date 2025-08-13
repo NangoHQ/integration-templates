@@ -1,48 +1,71 @@
-import type { NangoAction, ProxyConfiguration, CreateWebhook, WebhookCreated } from '../../models.js';
+import { createAction } from 'nango';
 import type { AirtableWebhookCreatedResponse } from '../types.js';
 import { createWebhookSchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
+import type { ProxyConfiguration } from 'nango';
+import { WebhookCreated, CreateWebhook } from '../models.js';
+import { z } from 'zod';
 
-    const { baseId, specification } = parsedInput.data;
-    const webhookUrl = await nango.getWebhookURL();
+const action = createAction({
+    description: 'Create a webhook for a particular base',
+    version: '1.0.0',
 
-    const config: ProxyConfiguration = {
-        // https://airtable.com/developers/web/api/create-a-webhook
-        endpoint: `/v0/bases/${baseId}/webhooks`,
-        data: {
-            notificationUrl: webhookUrl,
-            specification
-        },
-        retries: 3
-    };
+    endpoint: {
+        method: 'POST',
+        path: '/webhooks',
+        group: 'Webhooks'
+    },
 
-    const response = await nango.post<AirtableWebhookCreatedResponse>(config);
+    input: CreateWebhook,
+    output: WebhookCreated,
+    scopes: ['webhook:manage'],
+    metadata: z.object({ webhooks: z.record(z.string(), z.any()) }),
 
-    const { data } = response;
+    exec: async (nango, input): Promise<WebhookCreated> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
 
-    const { expirationTime, id, macSecretBase64 } = data;
+        const { baseId, specification } = parsedInput.data;
+        const webhookUrl = await nango.getWebhookURL();
 
-    const metadata = await nango.getMetadata();
+        const config: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/create-a-webhook
+            endpoint: `/v0/bases/${baseId}/webhooks`,
+            data: {
+                notificationUrl: webhookUrl,
+                specification
+            },
+            retries: 3
+        };
 
-    if (metadata?.['webhooks']) {
-        await nango.updateMetadata({
-            webhooks: {
-                ...metadata['webhooks'],
-                [id]: macSecretBase64
-            }
-        });
-    } else {
-        await nango.updateMetadata({
-            webhooks: {
-                [id]: macSecretBase64
-            }
-        });
+        const response = await nango.post<AirtableWebhookCreatedResponse>(config);
+
+        const { data } = response;
+
+        const { expirationTime, id, macSecretBase64 } = data;
+
+        const metadata = await nango.getMetadata();
+
+        if (metadata?.['webhooks']) {
+            await nango.updateMetadata({
+                webhooks: {
+                    ...metadata['webhooks'],
+                    [id]: macSecretBase64
+                }
+            });
+        } else {
+            await nango.updateMetadata({
+                webhooks: {
+                    [id]: macSecretBase64
+                }
+            });
+        }
+
+        return {
+            id,
+            expirationTime
+        };
     }
+});
 
-    return {
-        id,
-        expirationTime
-    };
-}
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
