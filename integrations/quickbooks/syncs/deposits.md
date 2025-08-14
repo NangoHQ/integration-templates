@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks deposits
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Deposits
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -38,22 +37,28 @@ _No request body_
   "created_at": "<string>",
   "updated_at": "<string>",
   "id": "<string>",
-  "account_id?": "<string | undefined>",
-  "account_name?": "<string | undefined>",
+  "account_id?": "<string>",
+  "account_name?": "<string>",
   "txn_date": "<string>",
   "total_amount": "<number>",
   "currency": "<string>",
-  "private_note?": "<string | undefined>",
+  "private_note?": "<string>",
   "lines": [
     {
       "id?": "<string>",
       "amount": "<number>",
       "detail_type?": "<string>",
-      "deposit_account_id?": "<string | undefined>",
-      "deposit_account_name?": "<string | undefined>"
+      "deposit_account_id?": "<string>",
+      "deposit_account_name?": "<string>"
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

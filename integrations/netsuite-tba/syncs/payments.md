@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all payments received from customers in Netsuite
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Payments
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -43,9 +42,7 @@ _No request body_
   "currency": "<string | null>",
   "paymentReference": "<string | null>",
   "status": "<string | null>",
-  "applyTo": [
-    "<string>"
-  ]
+  "applyTo": "<string[]>"
 }
 ```
 
@@ -53,7 +50,7 @@ _No request body_
 
 ```json
 {
-  "timezone?": "<string | undefined>"
+  "timezone?": "<string>"
 }
 ```
 

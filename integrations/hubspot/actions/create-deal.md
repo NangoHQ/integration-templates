@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single deal in Hubspot
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Deals
 - **Scopes:** `oauth, crm.objects.deals.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `CreateUpdateDealOutput`
-- **Input Model:** `CreateDealInput`
+- **Model:** `ActionOutput_hubspot_createdeal`
+- **Input Model:** `ActionInput_hubspot_createdeal`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-deal.ts)
 
 
@@ -27,14 +27,24 @@ _No request parameters_
 
 ```json
 {
-  "name?": "<string | undefined>",
-  "amount?": "<string | undefined>",
-  "close_date?": "<string | undefined>",
-  "deal_description?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "deal_stage?": "<string | undefined>",
-  "deal_probability?": "<string | undefined>",
-  "associations?": "<Association[] | undefined>"
+  "name?": "<string>",
+  "amount?": "<string>",
+  "close_date?": "<string>",
+  "deal_description?": "<string>",
+  "owner?": "<string>",
+  "deal_stage?": "<string>",
+  "deal_probability?": "<string>",
+  "associations?": [
+    {
+      "to": "<number>",
+      "types": [
+        {
+          "association_category": "<string>",
+          "association_type_Id": "<number>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -43,13 +53,13 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "name?": "<string | undefined>",
-  "amount?": "<string | undefined>",
-  "close_date?": "<string | undefined>",
-  "deal_description?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "deal_stage?": "<string | undefined>",
-  "deal_probability?": "<string | undefined>"
+  "name?": "<string>",
+  "amount?": "<string>",
+  "close_date?": "<string>",
+  "deal_description?": "<string>",
+  "owner?": "<string>",
+  "deal_stage?": "<string>",
+  "deal_probability?": "<string>"
 }
 ```
 

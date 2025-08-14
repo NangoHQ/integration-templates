@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of questions for the specified job from workable
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_jobs`
 - **Endpoint Type:** Sync
@@ -44,11 +43,15 @@ _No request body_
     "id": "<string>",
     "body": "<string>"
   },
-  "supported_file_types": [
-    "<any>"
-  ],
+  "supported_file_types": "<unknown[]>",
   "max_file_size": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Leads
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Lead`
-- **Input Model:** `UpdateLead`
+- **Model:** `ActionOutput_unanet_updatelead`
+- **Input Model:** `ActionInput_unanet_updatelead`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/update-lead.ts)
 
 
@@ -50,9 +50,7 @@ _No request parameters_
   "dueDate": "<string>",
   "postedDate": "<string>",
   "solicitationNumber": "<string>",
-  "naicsCategory": [
-    "<string | string>"
-  ],
+  "naicsCategory": "<<string> | <string[]>>",
   "city": "<string>",
   "state": "<string>",
   "country": "<string>",
@@ -65,7 +63,6 @@ _No request parameters_
 
 ```json
 {
-  "id": "<string>",
   "federalAgency": {
     "city?": "<string>",
     "state?": "<string>",
@@ -89,13 +86,14 @@ _No request parameters_
   "dueDate": "<string>",
   "postedDate": "<string>",
   "solicitationNumber": "<string>",
-  "naicsCategory": [
-    "<string | string>"
-  ],
+  "naicsCategory": "<<string> | <string[]>>",
   "city": "<string>",
   "state": "<string>",
   "country": "<string>",
-  "description": "<string>"
+  "description": "<string>",
+  "createdAt?": "<string>",
+  "updatedAt?": "<string>",
+  "id": "<string>"
 }
 ```
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Gorgias
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_gorgias_deleteuser`
+- **Input Model:** `ActionInput_gorgias_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/delete-user.ts)
 
 

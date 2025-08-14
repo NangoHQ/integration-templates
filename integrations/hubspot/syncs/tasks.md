@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of tasks from Hubspot
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.read, oauth`
 - **Endpoint Type:** Sync
@@ -38,12 +37,38 @@ _No request body_
   "id": "<string>",
   "task_type": "<string | null>",
   "title": "<string | null>",
-  "priority": "<string| null>",
+  "priority": "<string | null>",
   "assigned_to": "<string | null>",
   "due_date": "<string | null>",
   "notes": "<string | null>",
-  "returned_associations?": "<ReturnedAssociations | undefined>"
+  "returned_associations?": {
+    "companies?": [
+      {
+        "id": "<string>",
+        "name": "<string | null>"
+      }
+    ],
+    "contacts?": [
+      {
+        "id": "<string>",
+        "first_name": "<string | null>",
+        "last_name": "<string | null>"
+      }
+    ],
+    "deals?": [
+      {
+        "id": "<string>",
+        "name": "<string | null>"
+      }
+    ]
+  }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

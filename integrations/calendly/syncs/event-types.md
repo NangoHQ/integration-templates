@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all event types per a user
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -42,7 +42,7 @@ _No request body_
   "slug": "<string | null>",
   "scheduling_url": "<string>",
   "duration": "<number>",
-  "duration_options": "<number[] | null>",
+  "duration_options": "<<number[]> | <null>>",
   "kind": "<string>",
   "pooling_type": "<string | null>",
   "type": "<string>",
@@ -52,11 +52,11 @@ _No request body_
   "internal_note": "<string | null>",
   "description_plain": "<string | null>",
   "description_html": "<string | null>",
-  "profile": "<EventProfile | null>",
+  "profile": "<{\"type\":\"<string>\",\"name\":\"<string>\",\"owner\":\"<string>\"} | <null>>",
   "secret": "<boolean>",
   "deleted_at": "<string | null>",
   "admin_managed": "<boolean>",
-  "locations": "<EventTypeLocation[] | null>",
+  "locations": "<[{\"kind\":\"<string>\",\"phone_number?\":\"<number | null>\",\"additional_info?\":\"<string | null>\"}] | <null>>",
   "custom_questions": [
     {
       "name": "<string>",
@@ -64,14 +64,18 @@ _No request body_
       "position": "<number>",
       "enabled": "<boolean>",
       "required": "<boolean>",
-      "answer_choices": [
-        "<string>"
-      ],
+      "answer_choices": "<string[]>",
       "include_other": "<boolean>"
     }
   ],
   "position": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

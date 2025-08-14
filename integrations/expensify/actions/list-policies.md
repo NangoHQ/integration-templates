@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to fetch a list of policies with some relevant information about them
-
-- **Version:** 2.0.1
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExpensifyListPolicyOutput`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_expensify_listpolicies`
+- **Input Model:** `ActionInput_expensify_listpolicies`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/list-policies.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates an existing vendor bill in Netsuite.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Bills
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteBillUpdateOutput`
-- **Input Model:** `NetsuiteBillUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_billupdate`
+- **Input Model:** `ActionInput_netsuite_tba_billupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/bill-update.ts)
 
 
@@ -41,7 +40,7 @@ _No request parameters_
   "department?": "<string>",
   "class?": "<string>",
   "terms?": "<string>",
-  "lines?": [
+  "lines": [
     {
       "itemId": "<string>",
       "quantity": "<number>",

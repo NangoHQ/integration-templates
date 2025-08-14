@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches account details for the authenticated account.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -37,15 +36,15 @@ _No request body_
 {
   "id": "<string>",
   "object": "<string>",
-  "account_deauthorization": "<object>",
+  "account_deauthorization": {},
   "adverse_action_email": "<string>",
   "api_authorized": "<boolean>",
   "authorized": "<boolean>",
-  "available_screenings": "<array>",
+  "available_screenings": "<unknown[]>",
   "billing_email": "<string>",
-  "company": "<object>",
+  "company": {},
   "compliance_contact_email": "<string>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "default_compliance_city": "<string | null>",
   "default_compliance_state": "<string | null>",
   "geos_required": "<boolean>",
@@ -58,6 +57,12 @@ _No request body_
   "uri": "<string>",
   "uri_name": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

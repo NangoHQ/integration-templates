@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Terminates an employee in Gusto.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** `employments:write`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `GustoTerminateEmployee`
+- **Model:** `ActionOutput_gusto_terminateemployee`
+- **Input Model:** `ActionInput_gusto_terminateemployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/terminate-employee.ts)
 
 

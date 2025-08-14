@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Delete a task.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `boolean`
-- **Input Model:** `Id`
+- **Model:** `ActionOutput_asana_deletetask`
+- **Input Model:** `ActionInput_asana_deletetask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/delete-task.ts)
 
 

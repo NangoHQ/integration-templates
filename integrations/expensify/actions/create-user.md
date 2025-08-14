@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Create a user in the account
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExpsensifyNullableUser`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_expensify_createuser`
+- **Input Model:** `ActionInput_expensify_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/create-user.ts)
 
 
@@ -38,7 +37,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<string | null>",
+  "id": "<string>",
   "firstName": "<string | null>",
   "lastName": "<string | null>",
   "email": "<string>"

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all locations from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,15 +40,17 @@ _No request body_
     "name": "<string>"
   },
   "parent_id": "<string>",
-  "child_ids": [
-    "<string>"
-  ],
+  "child_ids": "<string[]>",
   "parent_office_external_id": "<string>",
-  "child_office_external_ids": [
-    "<string>"
-  ],
+  "child_office_external_ids": "<string[]>",
   "deleted_at": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

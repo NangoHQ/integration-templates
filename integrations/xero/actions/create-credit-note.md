@@ -5,13 +5,12 @@
 
 - **Description:** Creates one or more credit notes in Xero.
 Note: Does NOT check if the credit note already exists.
-
-- **Version:** 1.0.4
+- **Version:** 2.0.0
 - **Group:** Credit Notes
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
-- **Model:** `CreditNoteActionResponse`
-- **Input Model:** `CreditNote[]`
+- **Model:** `ActionOutput_xero_createcreditnote`
+- **Input Model:** `ActionInput_xero_createcreditnote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-credit-note.ts)
 
 
@@ -29,34 +28,32 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "id": "<string>",
-      "type": "<string>",
-      "external_contact_id": "<string>",
-      "status": "<string>",
-      "number": "<string>",
-      "is_taxable?": "<boolean>",
-      "tax_rate_id?": "<string>",
-      "tax_rate?": "<number>",
-      "currency": "<string>",
-      "reference": "<string>",
-      "issuing_date": "<string | null>",
-      "fees": [
-        {
-          "item_id": "<string>",
-          "item_code?": "<string | null>",
-          "description?": "<string | null>",
-          "units?": "<number | null>",
-          "precise_unit_amount?": "<number | null>",
-          "account_code?": "<string | null>",
-          "account_external_id?": "<string | null>",
-          "amount_cents?": "<number | null>",
-          "taxes_amount_cents?": "<number | null>"
-        }
-      ]
-    }
-  ]
+  "0": {
+    "id": "<string>",
+    "type": "<string>",
+    "external_contact_id": "<string>",
+    "status": "<string>",
+    "number": "<string>",
+    "is_taxable?": "<boolean>",
+    "tax_rate_id?": "<string>",
+    "tax_rate?": "<number>",
+    "currency": "<string>",
+    "reference": "<string>",
+    "issuing_date": "<string | null>",
+    "fees": [
+      {
+        "item_id": "<string>",
+        "item_code?": "<string | null>",
+        "description?": "<string | null>",
+        "units?": "<number | null>",
+        "precise_unit_amount?": "<number | null>",
+        "account_code?": "<string | null>",
+        "account_external_id?": "<string | null>",
+        "amount_cents?": "<number | null>",
+        "taxes_amount_cents?": "<number | null>"
+      }
+    ]
+  }
 }
 ```
 
@@ -118,9 +115,7 @@ _No request parameters_
           "taxes_amount_cents?": "<number | null>"
         }
       ],
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Zoom. Requires Pro account or higher
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user:write, user:write:admin`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `ZoomCreateUser`
+- **Model:** `ActionOutput_zoom_createuser`
+- **Input Model:** `ActionInput_zoom_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/create-user.ts)
 
 
@@ -30,9 +30,9 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "action?": "<create | autoCreate | custCreate | ssoCreate>",
+  "action?": "<enum: 'create' | 'autoCreate' | 'custCreate' | 'ssoCreate'>",
   "display_name?": "<string>",
-  "type?": "<basic | licensed | UnassignedWithoutMeetingsBasic | None>"
+  "type?": "<enum: 'basic' | 'licensed' | 'UnassignedWithoutMeetingsBasic' | 'None'>"
 }
 ```
 

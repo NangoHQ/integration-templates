@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all credit notes in Netsuite
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -59,7 +58,7 @@ _No request body_
 
 ```json
 {
-  "timezone?": "<string | undefined>"
+  "timezone?": "<string>"
 }
 ```
 

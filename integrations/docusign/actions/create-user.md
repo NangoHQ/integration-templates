@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in DocuSign
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `DocuSignCreateUser`
+- **Model:** `ActionOutput_docusign_createuser`
+- **Input Model:** `ActionInput_docusign_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign/actions/create-user.ts)
 
 

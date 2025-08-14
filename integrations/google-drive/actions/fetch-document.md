@@ -8,13 +8,12 @@ a response stream, and encodes it into a base64 string. This base64-encoded
 string can be used to recreate the file in its original format using an external tool.
 If this is a native google file type then use the fetch-google-sheet or fetch-google-doc
 actions.
-
-- **Version:** 2.0.2
+- **Version:** 3.0.0
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
-- **Model:** `string`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_google_drive_fetchdocument`
+- **Input Model:** `ActionInput_google_drive_fetchdocument`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-document.ts)
 
 

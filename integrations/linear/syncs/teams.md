@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of teams from Linear
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,6 +40,12 @@ _No request body_
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of deals from Hubspot with their associated companies and contacts
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Deals
 - **Scopes:** `crm.objects.deals.read, oauth, e-commerce (standard scope), crm.objects.line_items.read (granular scope)`
 - **Endpoint Type:** Sync
@@ -43,8 +42,34 @@ _No request body_
   "owner": "<string | null>",
   "deal_stage": "<string | null>",
   "deal_probability": "<string | null>",
-  "returned_associations?": "<ReturnedAssociations | undefined>"
+  "returned_associations?": {
+    "companies?": [
+      {
+        "id": "<string>",
+        "name": "<string | null>"
+      }
+    ],
+    "contacts?": [
+      {
+        "id": "<string>",
+        "first_name": "<string | null>",
+        "last_name": "<string | null>"
+      }
+    ],
+    "deals?": [
+      {
+        "id": "<string>",
+        "name": "<string | null>"
+      }
+    ]
+  }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

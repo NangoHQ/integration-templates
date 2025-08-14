@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Ramp by id
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_ramp_disableuser`
+- **Input Model:** `ActionInput_ramp_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ramp/actions/disable-user.ts)
 
 

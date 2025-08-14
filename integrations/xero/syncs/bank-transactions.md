@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.
-
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Bank Transactions
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
@@ -63,13 +62,19 @@ _No request body_
       "tax_type": "<string | null>",
       "tax_amount": "<number>",
       "line_amount": "<number>",
-      "tracking": "<TrackingCategory[] | null>"
+      "tracking": "<[{\"name\":\"<string>\",\"option\":\"<string>\",\"trackingCategoryId\":\"<string>\",\"trackingOptionId\":\"<string>\",\"options\":\"<string[]>\"}] | <null>>"
     }
   ],
   "updated_date": "<string | null>",
   "url": "<string | null>",
   "has_attachments": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

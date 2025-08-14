@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates an invoice in ExactOnline
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExactInvoiceUpdateOutput`
-- **Input Model:** `ExactInvoiceUpdateInput`
+- **Model:** `ActionOutput_exact_online_updateinvoice`
+- **Input Model:** `ActionInput_exact_online_updateinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/update-invoice.ts)
 
 
@@ -30,9 +29,9 @@ _No request parameters_
 {
   "id": "<string>",
   "deliverTo?": "<string>",
-  "currency?": "<EUR>",
+  "currency?": "<string>",
   "description?": "<string>",
-  "createdAt?": "<date>"
+  "createdAt?": "<Date>"
 }
 ```
 

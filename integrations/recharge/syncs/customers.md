@@ -4,9 +4,9 @@
 ## General Information
 
 - **Description:** Incrementally fetch all Recharge customers and their subscription details.
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Customers
-- **Scopes:** `read_customers, read_subscriptions`
+- **Scopes:** `read_customers,  read_subscriptions`
 - **Endpoint Type:** Sync
 - **Model:** `Customer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/syncs/customers.ts)
@@ -39,8 +39,8 @@ _No request body_
   "first_name": "<string | null>",
   "last_name": "<string | null>",
   "email": "<string | null>",
-  "subscriptions": {
-    "0": {
+  "subscriptions": [
+    {
       "id": "<string>",
       "type": "<string>",
       "name": "<string>",
@@ -48,8 +48,14 @@ _No request body_
       "end_date": "<string | null>",
       "next_charge_scheduled_at": "<string | null>"
     }
-  }
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

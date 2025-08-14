@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all postings in Lever
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Postings
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync
@@ -48,36 +47,24 @@ _No request body_
     "team": "<string>",
     "department": "<string>",
     "location": "<string>",
-    "allLocations": [
-      "<string>"
-    ],
+    "allLocations": "<string[]>",
     "commitment": "<string>",
     "level": "<string>"
   },
   "content": {
     "description": "<string>",
     "descriptionHtml": "<string>",
-    "lists": [
-      "<string>"
-    ],
+    "lists": "<string[]>",
     "closing": "<string>",
     "closingHtml": "<string>"
   },
   "country": "<string>",
-  "followers": [
-    "<string>"
-  ],
-  "tags": [
-    "<string>"
-  ],
+  "followers": "<string[]>",
+  "tags": "<string[]>",
   "state": "<string>",
-  "distributionChannels": [
-    "<string>"
-  ],
+  "distributionChannels": "<string[]>",
   "reqCode": "<string>",
-  "requisitionCodes": [
-    "<string>"
-  ],
+  "requisitionCodes": "<string[]>",
   "salaryDescription": "<string>",
   "salaryDescriptionHtml": "<string>",
   "salaryRange": {
@@ -93,6 +80,12 @@ _No request body_
   },
   "workplaceType": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

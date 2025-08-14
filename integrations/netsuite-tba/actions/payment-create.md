@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a payment in Netsuite
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Payments
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuitePaymentCreateOutput`
-- **Input Model:** `NetsuitePaymentCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_paymentcreate`
+- **Input Model:** `ActionInput_netsuite_tba_paymentcreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/payment-create.ts)
 
 
@@ -32,9 +31,7 @@ _No request parameters_
   "amount": "<number>",
   "currency": "<string>",
   "paymentReference": "<string>",
-  "applyTo": [
-    "<string>"
-  ],
+  "applyTo": "<string[]>",
   "status": "<string>",
   "description?": "<string>"
 }

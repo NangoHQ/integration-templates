@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Datadog.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `user_access_invite`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_datadog_createuser`
+- **Input Model:** `ActionInput_datadog_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/actions/create-user.ts)
 
 

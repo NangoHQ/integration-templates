@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches basic information about the ClickSend account.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Account
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Account`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_clicksend_fetchaccount`
+- **Input Model:** `ActionInput_clicksend_fetchaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clicksend/actions/fetch-account.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

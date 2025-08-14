@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a note and add it to an opportunity.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Notes
 - **Scopes:** `notes:write:admin`
 - **Endpoint Type:** Action
-- **Model:** `LeverOpportunityNote`
-- **Input Model:** `LeverCreateNoteInput`
+- **Model:** `ActionOutput_lever_createnote`
+- **Input Model:** `ActionInput_lever_createnote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-note.ts)
 
 
@@ -29,13 +28,13 @@ _No request parameters_
 ```json
 {
   "opportunityId": "<string>",
-  "perform_as": "<string | undefined>",
-  "note_id": "<string | undefined>",
-  "value": "<string | undefined>",
-  "secret": "<boolean | undefined>",
-  "score": "<number | undefined>",
-  "notifyFollowers": "<boolean | undefined>",
-  "createdAt": "<number | undefined>"
+  "perform_as": "<string>",
+  "note_id": "<string>",
+  "value": "<string>",
+  "secret": "<boolean>",
+  "score": "<number>",
+  "notifyFollowers": "<boolean>",
+  "createdAt": "<number>"
 }
 ```
 
@@ -45,9 +44,7 @@ _No request parameters_
 {
   "id": "<string>",
   "text": "<string>",
-  "fields": [
-    "<string>"
-  ],
+  "fields": "<string[]>",
   "user": "<string>",
   "secret": "<boolean>",
   "completedAt": "<number>",

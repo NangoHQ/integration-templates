@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Update the tags in an opportunity
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `UpdateTags`
+- **Model:** `ActionOutput_lever_updateopportunitytags`
+- **Input Model:** `ActionInput_lever_updateopportunitytags`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity-tags.ts)
 
 
@@ -30,9 +29,7 @@ _No request parameters_
 {
   "opportunityId": "<string>",
   "perform_as?": "<string>",
-  "tags": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
   "delete": "<boolean>"
 }
 ```
@@ -43,22 +40,16 @@ _No request parameters_
 {
   "success": "<boolean>",
   "opportunityId?": "<string>",
-  "response?": {
+  "response": {
     "id": "<string>",
     "name": "<string>",
     "headline": "<string>",
     "contact": "<string>",
-    "emails": [
-      "<string>"
-    ],
-    "phones": [
-      "<string>"
-    ],
+    "emails": "<string[]>",
+    "phones": "<string[]>",
     "confidentiality": "<string>",
     "location": "<string>",
-    "links": [
-      "<string>"
-    ],
+    "links": "<string[]>",
     "archived": {
       "reason": "<string>",
       "archivedAt": "<number>"
@@ -71,30 +62,20 @@ _No request parameters_
     "archivedAt": "<number>",
     "archiveReason": "<string>",
     "stage": "<string>",
-    "stageChanges": [
-      "<string>"
-    ],
+    "stageChanges": "<string[]>",
     "owner": "<string>",
-    "tags": [
-      "<string>"
-    ],
-    "sources": [
-      "<string>"
-    ],
+    "tags": "<string[]>",
+    "sources": "<string[]>",
     "origin": "<string>",
     "sourcedBy": "<string>",
-    "applications": [
-      "<string>"
-    ],
+    "applications": "<string[]>",
     "resume": "<string>",
-    "followers": [
-      "<string>"
-    ],
+    "followers": "<string[]>",
     "urls": {
       "list": "<string>",
       "show": "<string>"
     },
-    "dataProtection": "<object>",
+    "dataProtection": {},
     "isAnonymized": "<boolean>",
     "opportunityLocation": "<string>"
   }

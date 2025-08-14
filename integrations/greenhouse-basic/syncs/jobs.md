@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all organization's jobs from greenhouse
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,38 +40,30 @@ _No request body_
   "notes": "<string>",
   "confidential": "<boolean>",
   "status": "<string>",
-  "created_at": "<date>",
-  "opened_at": "<date>",
-  "closed_at": "<date>",
-  "updated_at": "<date>",
+  "created_at": "<Date>",
+  "opened_at": "<Date>",
+  "closed_at": "<Date>",
+  "updated_at": "<Date>",
   "is_template": "<boolean>",
   "copied_from_id": "<string>",
-  "departments": [
-    "<string>"
-  ],
-  "offices": [
-    "<string>"
-  ],
-  "custom_fields": "<object>",
-  "keyed_custom_fields": "<object>",
+  "departments": "<string[]>",
+  "offices": "<string[]>",
+  "custom_fields": {},
+  "keyed_custom_fields": {},
   "hiring_team": {
-    "hiring_managers": [
-      "<string>"
-    ],
-    "recruiters": [
-      "<string>"
-    ],
-    "coordinators": [
-      "<string>"
-    ],
-    "sourcers": [
-      "<string>"
-    ]
+    "hiring_managers": "<string[]>",
+    "recruiters": "<string[]>",
+    "coordinators": "<string[]>",
+    "sourcers": "<string[]>"
   },
-  "openings": [
-    "<string>"
-  ]
+  "openings": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

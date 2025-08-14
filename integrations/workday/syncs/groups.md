@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches Company groups
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Groups
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,6 +39,12 @@ _No request body_
   "created_at": "<string | null>",
   "name": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

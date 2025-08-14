@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates a customer in ExactOnline
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExactCustomerUpdateOutput`
-- **Input Model:** `ExactCustomerUpdateInput`
+- **Model:** `ActionOutput_exact_online_updatecustomer`
+- **Input Model:** `ActionInput_exact_online_updatecustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/update-customer.ts)
 
 
@@ -28,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "name": "<string>",
+  "name?": "<string | null>",
   "email?": "<string | null>",
   "taxNumber?": "<string | null>",
   "addressLine1?": "<string | null>",
@@ -38,8 +37,7 @@ _No request parameters_
   "country?": "<string | null>",
   "state?": "<string | null>",
   "phone?": "<string | null>",
-  "id": "<string>",
-  "name?": "<string | null>"
+  "id": "<string>"
 }
 ```
 

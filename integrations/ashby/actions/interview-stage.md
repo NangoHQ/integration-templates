@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** List all interview stages for an interview plan in order.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Interviews
 - **Scopes:** `interviewsRead`
 - **Endpoint Type:** Action
-- **Model:** `StagesResponse`
-- **Input Model:** `InterviewStageList`
+- **Model:** `ActionOutput_ashby_interviewstage`
+- **Input Model:** `ActionInput_ashby_interviewstage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/interview-stage.ts)
 
 

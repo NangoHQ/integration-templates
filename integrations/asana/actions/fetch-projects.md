@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the projects with a limit (default 10) given a workspace of a user to allow selection when choosing the tasks to sync.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BaseAsanaModel[]`
-- **Input Model:** `AsanaProjectInput`
+- **Model:** `ActionOutput_asana_fetchprojects`
+- **Input Model:** `ActionInput_asana_fetchprojects`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/fetch-projects.ts)
 
 
@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "limit": "<number | undefined>",
+  "limit": "<number>",
   "workspace": "<string>"
 }
 ```
@@ -35,13 +35,13 @@ _No request parameters_
 ### Request Response
 
 ```json
-[
-  {
+{
+  "0": {
     "gid": "<string>",
     "resource_type": "<string>",
     "name": "<string>"
   }
-]
+}
 ```
 
 ## Changelog

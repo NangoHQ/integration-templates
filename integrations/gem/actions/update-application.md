@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update an application's source
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Application`
-- **Input Model:** `UpdateApplicationInput`
+- **Model:** `ActionOutput_gem_updateapplication`
+- **Input Model:** `ActionInput_gem_updateapplication`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/update-application.ts)
 
 
@@ -46,7 +46,7 @@ _No request parameters_
     "public_name": "<string>"
   },
   "credited_to": "<string>",
-  "rejection_reason": "<RejectionReason | null>",
+  "rejection_reason": "<{\"id\":\"<string>\",\"name\":\"<string>\",\"type\":{\"id\":\"<string>\",\"name\":\"<string>\"}} | <null>>",
   "jobs": [
     {
       "id": "<string>",

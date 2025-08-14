@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Create an opportunity and optionally candidates associated with the opportunity
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** `opportunities:write:admin`
 - **Endpoint Type:** Action
-- **Model:** `LeverOpportunity`
-- **Input Model:** `LeverCreateOpportunityInput`
+- **Model:** `ActionOutput_lever_createopportunity`
+- **Input Model:** `ActionInput_lever_createopportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-opportunity.ts)
 
 
@@ -29,24 +28,32 @@ _No request parameters_
 ```json
 {
   "perform_as": "<string>",
-  "parse": "<boolean | undefined>",
-  "perform_as_posting_owner": "<boolean | undefined>",
-  "name": "<string | undefined>",
-  "headline": "<string | undefined>",
-  "stage": "<string | undefined>",
-  "location": "<string | undefined>",
-  "phones": "<PhoneEntry[] | undefined>",
-  "emails": "<string | undefined>",
-  "links": "<string[] | undefined>",
-  "tags": "<string[] | undefined>",
-  "sources": "<string[] | undefined>",
-  "origin": "<string | undefined>",
-  "owner": "<string | undefined>",
-  "followers": "<string[] | undefined>",
-  "postings": "<string[] | undefined>",
-  "createdAt": "<number | undefined>",
-  "archived": "<ArchievedEntry | undefined>",
-  "contact": "<string[] | undefined>"
+  "parse": "<boolean>",
+  "perform_as_posting_owner": "<boolean>",
+  "name": "<string>",
+  "headline": "<string>",
+  "stage": "<string>",
+  "location": "<string>",
+  "phones": [
+    {
+      "value": "<string>",
+      "type": "<string>"
+    }
+  ],
+  "emails": "<string>",
+  "links": "<string[]>",
+  "tags": "<string[]>",
+  "sources": "<string[]>",
+  "origin": "<string>",
+  "owner": "<string>",
+  "followers": "<string[]>",
+  "postings": "<string[]>",
+  "createdAt": "<number>",
+  "archived": {
+    "archivedAt": "<number>",
+    "reason": "<string>"
+  },
+  "contact": "<string[]>"
 }
 ```
 
@@ -58,17 +65,11 @@ _No request parameters_
   "name": "<string>",
   "headline": "<string>",
   "contact": "<string>",
-  "emails": [
-    "<string>"
-  ],
-  "phones": [
-    "<string>"
-  ],
+  "emails": "<string[]>",
+  "phones": "<string[]>",
   "confidentiality": "<string>",
   "location": "<string>",
-  "links": [
-    "<string>"
-  ],
+  "links": "<string[]>",
   "archived": {
     "reason": "<string>",
     "archivedAt": "<number>"
@@ -81,30 +82,20 @@ _No request parameters_
   "archivedAt": "<number>",
   "archiveReason": "<string>",
   "stage": "<string>",
-  "stageChanges": [
-    "<string>"
-  ],
+  "stageChanges": "<string[]>",
   "owner": "<string>",
-  "tags": [
-    "<string>"
-  ],
-  "sources": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
+  "sources": "<string[]>",
   "origin": "<string>",
   "sourcedBy": "<string>",
-  "applications": [
-    "<string>"
-  ],
+  "applications": "<string[]>",
   "resume": "<string>",
-  "followers": [
-    "<string>"
-  ],
+  "followers": "<string[]>",
   "urls": {
     "list": "<string>",
     "show": "<string>"
   },
-  "dataProtection": "<object>",
+  "dataProtection": {},
   "isAnonymized": "<boolean>",
   "opportunityLocation": "<string>"
 }

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of contacts from zoho crm
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoCRM.modules.contacts.READ`
 - **Endpoint Type:** Sync
@@ -47,7 +46,7 @@ _No request body_
   "Mailing_State": "<string>",
   "Other_State": "<string>",
   "Other_Country": "<string>",
-  "Last_Activity_Time": "<date>",
+  "Last_Activity_Time": "<Date>",
   "Department": "<string>",
   "$state": "<string>",
   "Unsubscribed_Mode": "<string>",
@@ -68,7 +67,7 @@ _No request body_
     "resubmit": "<boolean>"
   },
   "Other_City": "<string>",
-  "Created_Time": "<date>",
+  "Created_Time": "<Date>",
   "$editable": "<boolean>",
   "Home_Phone": "<string>",
   "Created_By": {
@@ -110,10 +109,10 @@ _No request body_
     "id": "<string>"
   },
   "Email_Opt_Out": "<boolean>",
-  "Modified_Time": "<date>",
-  "Date_of_Birth": "<date>",
+  "Modified_Time": "<Date>",
+  "Date_of_Birth": "<Date>",
   "Mailing_City": "<string>",
-  "Unsubscribed_Time": "<date>",
+  "Unsubscribed_Time": "<Date>",
   "Title": "<string>",
   "Other_Street": "<string>",
   "Mobile": "<string>",
@@ -122,12 +121,16 @@ _No request body_
   "$in_merge": "<boolean>",
   "Locked__s": "<boolean>",
   "Lead_Source": "<string>",
-  "Tag": [
-    "<any>"
-  ],
+  "Tag": "<unknown[]>",
   "Fax": "<string>",
   "$approval_state": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

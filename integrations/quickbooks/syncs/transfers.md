@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks transfers
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Transfers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -38,15 +37,21 @@ _No request body_
   "created_at": "<string>",
   "updated_at": "<string>",
   "id": "<string>",
-  "from_account_id?": "<string | undefined>",
-  "from_account_name?": "<string | undefined>",
-  "to_account_id?": "<string | undefined>",
-  "to_account_name?": "<string | undefined>",
+  "from_account_id?": "<string>",
+  "from_account_name?": "<string>",
+  "to_account_id?": "<string>",
+  "to_account_name?": "<string>",
   "amount": "<number>",
   "currency": "<string>",
   "txn_date": "<string>",
-  "private_note?": "<string | undefined>"
+  "private_note?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

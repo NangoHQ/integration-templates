@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Smartsheet
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `ADMIN_USERS`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_smartsheet_createuser`
+- **Input Model:** `ActionInput_smartsheet_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/smartsheet/actions/create-user.ts)
 
 

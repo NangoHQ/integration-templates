@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a property in Hubspot
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Properties
 - **Scopes:** `oauth, crm.schemas.orders.write, crm.objects.orders.write, crm.schemas.contacts.write, crm.schemas.carts.write, crm.schemas.deals.write, crm.objects.users.write, crm.schemas.companies.write, crm.objects.carts.write`
 - **Endpoint Type:** Action
-- **Model:** `CreatedProperty`
-- **Input Model:** `CreatePropertyInput`
+- **Model:** `ActionOutput_hubspot_createproperty`
+- **Input Model:** `ActionInput_hubspot_createproperty`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-property.ts)
 
 
@@ -38,7 +38,7 @@ _No request parameters_
     "groupName": "<string>",
     "referencedObjectType?": "<string>",
     "name": "<string>",
-    "options?": [
+    "options": [
       {
         "hidden": "<boolean>",
         "displayOrder?": "<number>",
@@ -81,15 +81,15 @@ _No request parameters_
   "groupName": "<string>",
   "referencedObjectType?": "<string>",
   "name": "<string>",
-  "options": {
-    "0": {
+  "options": [
+    {
       "hidden": "<boolean>",
       "displayOrder": "<number>",
       "description": "<string>",
       "label": "<string>",
       "value": "<string>"
     }
-  },
+  ],
   "calculationFormula?": "<string>",
   "hasUniqueValue": "<boolean>",
   "fieldType": "<string>",

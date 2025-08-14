@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a customer in ExactOnline
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExactCustomerCreateOutput`
-- **Input Model:** `ExactCustomerCreateInput`
+- **Model:** `ActionOutput_exact_online_createcustomer`
+- **Input Model:** `ActionInput_exact_online_createcustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/create-customer.ts)
 
 

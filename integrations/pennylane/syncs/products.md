@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list products from pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Products
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
@@ -47,6 +46,12 @@ _No request body_
   "reference?": "<string | null>",
   "substance?": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

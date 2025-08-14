@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all categories
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Categories
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -40,6 +40,12 @@ _No request body_
   "description": "<string | null>",
   "slug": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

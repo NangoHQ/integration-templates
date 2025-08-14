@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the possible services that Checkr offers for a background check
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `CheckrServicesResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_checkr_partner_backgroundcheckservices`
+- **Input Model:** `ActionInput_checkr_partner_backgroundcheckservices`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/actions/background-check-services.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -36,9 +38,7 @@ _No request body_
       "id": "<string>",
       "price": "<number>",
       "drug_screening_price": "<number | null>",
-      "enabled_examples": [
-        "<string>"
-      ],
+      "enabled_examples": "<string[]>",
       "requires_observed_drug_test": "<boolean>",
       "object": "<string>",
       "apply_url": "<string>",

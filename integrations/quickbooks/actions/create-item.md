@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single item in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Item`
-- **Input Model:** `CreateItem`
+- **Model:** `ActionOutput_quickbooks_createitem`
+- **Input Model:** `ActionInput_quickbooks_createitem`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-item.ts)
 
 
@@ -31,15 +30,15 @@ _No request parameters_
   "track_qty_onHand?": "<boolean>",
   "qty_on_hand?": "<number>",
   "name": "<string>",
-  "expense_accountRef?": {
+  "expense_accountRef": {
     "name?": "<string>",
     "value": "<string>"
   },
-  "income_accountRef?": {
+  "income_accountRef": {
     "name?": "<string>",
     "value": "<string>"
   },
-  "asset_accountRef?": {
+  "asset_accountRef": {
     "name?": "<string>",
     "value": "<string>"
   },

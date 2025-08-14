@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all workspaces for a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Workspaces
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -40,6 +40,12 @@ _No request body_
   "id": "<string>",
   "is_organization": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

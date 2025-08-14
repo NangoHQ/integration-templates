@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Keeper
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_keeper_scim_deleteuser`
+- **Input Model:** `ActionInput_keeper_scim_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/keeper-scim/actions/delete-user.ts)
 
 

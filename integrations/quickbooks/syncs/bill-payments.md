@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks bill payments
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Bill Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -36,12 +35,12 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "vendor_id?": "<string | undefined>",
-  "vendor_name?": "<string | undefined>",
+  "vendor_id?": "<string>",
+  "vendor_name?": "<string>",
   "txn_date": "<string>",
   "total_amount": "<number>",
   "currency": "<string>",
-  "private_note?": "<string | undefined>",
+  "private_note?": "<string>",
   "lines": [
     {
       "amount": "<number>",
@@ -54,6 +53,12 @@ _No request body_
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

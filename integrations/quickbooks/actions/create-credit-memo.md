@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single credit memo in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Credit Memos
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `CreditMemo`
-- **Input Model:** `CreateCreditMemo`
+- **Model:** `ActionOutput_quickbooks_createcreditmemo`
+- **Input Model:** `ActionInput_quickbooks_createcreditmemo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-credit-memo.ts)
 
 
@@ -28,11 +27,11 @@ _No request parameters_
 
 ```json
 {
-  "customer_ref?": {
+  "customer_ref": {
     "name?": "<string>",
     "value": "<string>"
   },
-  "line?": [
+  "line": [
     {
       "detail_type": "<string>",
       "amount_cents": "<number>",
@@ -49,11 +48,11 @@ _No request parameters_
     }
   ],
   "due_date?": "<string>",
-  "currency_ref?": {
+  "currency_ref": {
     "name?": "<string>",
     "value": "<string>"
   },
-  "project_ref?": {
+  "project_ref": {
     "name?": "<string>",
     "value": "<string>"
   }
@@ -64,11 +63,13 @@ _No request parameters_
 
 ```json
 {
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<string>",
   "txn_date": "<string>",
   "balance_cents": "<number>",
   "total_amt_cents": "<number>",
-  "bill_address": "<BillAddr | null>",
+  "bill_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>",
   "items": [
     {
       "id": "<string>",

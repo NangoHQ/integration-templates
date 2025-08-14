@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches all candidate activities stage movements from RecruiterFlow
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RecruiterFlowCandidateActivityStageMovementOutput`
-- **Input Model:** `RecruiterFlowCandidateActivityStageMovementInput`
+- **Model:** `ActionOutput_recruiterflow_candidateactivitiesstagemovements`
+- **Input Model:** `ActionInput_recruiterflow_candidateactivitiesstagemovements`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recruiterflow/actions/candidate-activities-stage-movements.ts)
 
 
@@ -28,8 +28,8 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "after?": "<string | undefined>",
-  "before?": "<string | undefined>"
+  "after?": "<string>",
+  "before?": "<string>"
 }
 ```
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Update a single item in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Item`
-- **Input Model:** `UpdateItem`
+- **Model:** `ActionOutput_quickbooks_updateitem`
+- **Input Model:** `ActionInput_quickbooks_updateitem`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-item.ts)
 
 
@@ -27,7 +26,30 @@ _No request parameters_
 ### Request Body
 
 ```json
-{}
+{
+  "track_qty_onHand?": "<boolean>",
+  "qty_on_hand?": "<number>",
+  "name": "<string>",
+  "expense_accountRef": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "income_accountRef": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "asset_accountRef": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "inv_start_date?": "<string>",
+  "unit_price_cents?": "<number>",
+  "purchase_cost_cents?": "<number>",
+  "type?": "<string>",
+  "id": "<string>",
+  "sync_token": "<string>",
+  "active?": "<boolean>"
+}
 ```
 
 ### Request Response

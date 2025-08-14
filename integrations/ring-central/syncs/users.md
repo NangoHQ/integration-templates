@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the list of users from RingCentral
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `ReadAccounts`
 - **Endpoint Type:** Sync
@@ -40,6 +39,12 @@ _No request body_
   "firstName": "<string>",
   "lastName": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Perimeter81
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `Perimeter81CreateUser`
+- **Model:** `ActionOutput_perimeter81_createuser`
+- **Input Model:** `ActionInput_perimeter81_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/perimeter81/actions/create-user.ts)
 
 
@@ -31,9 +31,7 @@ _No request parameters_
   "lastName": "<string>",
   "email": "<string>",
   "idpType?": "<string>",
-  "accessGroups?": [
-    "<string>"
-  ],
+  "accessGroups": "<string[]>",
   "emailVerified?": "<boolean>",
   "inviteMessage?": "<string>",
   "origin?": "<string>",

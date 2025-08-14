@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** description: Fetch current user information
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `UserInformation`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_google_calendar_whoami`
+- **Input Model:** `ActionInput_google_calendar_whoami`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/actions/whoami.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

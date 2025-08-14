@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of jobs from workable
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_jobs`
 - **Endpoint Type:** Sync
@@ -43,9 +42,7 @@ _No request body_
   "state": "<string>",
   "sample": "<boolean>",
   "department": "<string>",
-  "department_hierarchy": [
-    "<any>"
-  ],
+  "department_hierarchy": "<unknown[]>",
   "url": "<string>",
   "application_url": "<string>",
   "shortlink": "<string>",
@@ -60,16 +57,20 @@ _No request body_
     "telecommuting": "<boolean>",
     "workplace_type": "<string>"
   },
-  "locations": [
-    "<any>"
-  ],
+  "locations": "<unknown[]>",
   "salary": {
     "salary_from": "<number>",
     "salary_to": "<number>",
     "salary_currency": "<string>"
   },
-  "created_at": "<date>"
+  "created_at": "<Date>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

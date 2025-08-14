@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get all pull commits from a Github repository.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Commits
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

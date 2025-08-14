@@ -5,13 +5,12 @@
 
 - **Description:** Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to "Task"
 Data Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SalesforceFieldSchema`
-- **Input Model:** `SalesforceEntity`
+- **Model:** `ActionOutput_salesforce_fetchfields`
+- **Input Model:** `ActionInput_salesforce_fetchfields`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/fetch-fields.ts)
 
 
@@ -42,9 +41,7 @@ _No request parameters_
       "name": "<string>",
       "label": "<string>",
       "type": "<string>",
-      "referenceTo": [
-        "<string>"
-      ],
+      "referenceTo": "<string[]>",
       "relationshipName": "<string | null>"
     }
   ],

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Change a user role. Requires an enterprise account.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Roles
 - **Scopes:** `oauth, settings.users.write (standard scope), crm.objects.users.write (granular scope)`
 - **Endpoint Type:** Action
-- **Model:** `ChangedRoleResponse`
-- **Input Model:** `UserRoleInput`
+- **Model:** `ActionOutput_hubspot_changeuserrole`
+- **Input Model:** `ActionInput_hubspot_changeuserrole`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/change-user-role.ts)
 
 
@@ -39,24 +39,14 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "primaryTeamId?": "<string>",
-  "email": "<string>",
-  "sendWelcomeEmail": "<boolean>",
-  "roleIds": [
-    "<string>"
-  ],
-  "secondaryTeamIds": [
-    "<string>"
-  ],
-  "superAdmin": "<boolean>",
   "firstName?": "<string>",
   "lastName?": "<string>",
+  "primaryTeamId?": "<string>",
+  "email": "<string>",
   "sendWelcomeEmail?": "<boolean>",
-  "secondaryTeamIds?": [
-    "<string>"
-  ]
+  "roleIds": "<string[]>",
+  "secondaryTeamIds": "<string[]>",
+  "superAdmin": "<boolean>"
 }
 ```
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetches all fields in Netsuite
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Fields
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `FetchFieldsOutput`
-- **Input Model:** `FetchFieldsInput`
+- **Model:** `ActionOutput_netsuite_tba_fetchfields`
+- **Input Model:** `ActionInput_netsuite_tba_fetchfields`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/fetch-fields.ts)
 
 
@@ -36,18 +35,18 @@ _No request parameters_
 
 ```json
 {
-  "id?": "<string | undefined>",
-  "schema?": "<string | undefined>",
-  "title?": "<string | undefined>",
-  "description?": "<string | undefined>",
-  "type?": "<string | string[] | undefined>",
-  "properties?": "<object | undefined>",
-  "required?": "<string[] | undefined>",
-  "items?": "<FetchFieldsOutput | FetchFieldsOutput[] | undefined>",
-  "enum?": "<any[] | undefined>",
-  "definitions?": "<object | undefined>",
-  "additionalProperties?": "<boolean | FetchFieldsOutput | undefined>",
-  "default?": "<any | undefined>"
+  "id?": "<string>",
+  "schema?": "<string>",
+  "title?": "<string>",
+  "description?": "<string>",
+  "type?": "<<string> | <string[]>>",
+  "properties?": {},
+  "required?": "<string[]>",
+  "items?": "<{\"id?\":\"<string>\",\"schema?\":\"<string>\",\"title?\":\"<string>\",\"description?\":\"<string>\",\"type?\":\"<<string> | <string[]>>\",\"properties?\":{},\"required?\":\"<string[]>\",\"enum?\":\"<unknown[]>\",\"definitions?\":{},\"additionalProperties?\":\"<boolean>\",\"default?\":\"<unknown>\"} | [{\"id?\":\"<string>\",\"schema?\":\"<string>\",\"title?\":\"<string>\",\"description?\":\"<string>\",\"type?\":\"<<string> | <string[]>>\",\"properties?\":{},\"required?\":\"<string[]>\",\"enum?\":\"<unknown[]>\",\"definitions?\":{},\"additionalProperties?\":\"<boolean>\",\"default?\":\"<unknown>\"}]>",
+  "enum?": "<unknown[]>",
+  "definitions?": {},
+  "additionalProperties?": "<<boolean> | {\"id?\":\"<string>\",\"schema?\":\"<string>\",\"title?\":\"<string>\",\"description?\":\"<string>\",\"type?\":\"<<string> | <string[]>>\",\"properties?\":{},\"required?\":\"<string[]>\",\"enum?\":\"<unknown[]>\",\"definitions?\":{},\"additionalProperties?\":\"<boolean>\",\"default?\":\"<unknown>\"}>",
+  "default?": "<unknown>"
 }
 ```
 

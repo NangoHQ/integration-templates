@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Get the schema of any entity. Useful to know the properties of any object that exists in the system.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Schema[]`
-- **Input Model:** `Entity`
+- **Model:** `ActionOutput_unanet_getschema`
+- **Input Model:** `ActionInput_unanet_getschema`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/get-schema.ts)
 
 
@@ -34,8 +34,8 @@ _No request parameters_
 ### Request Response
 
 ```json
-[
-  {
+{
+  "0": {
     "PropertyName": "<string>",
     "Group": "<string | null>",
     "Label": "<string>",
@@ -58,7 +58,7 @@ _No request parameters_
     "SortOrder": "<number>",
     "CustomSort": "<boolean>"
   }
-]
+}
 ```
 
 ## Changelog

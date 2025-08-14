@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of candidates for the specified job from workable
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_jobs`
 - **Endpoint Type:** Sync
@@ -51,16 +50,22 @@ _No request body_
   "stage": "<string>",
   "disqualified": "<boolean>",
   "disqualification_reason": "<string>",
-  "hired_at": "<date>",
+  "hired_at": "<Date>",
   "sourced": "<boolean>",
   "profile_url": "<string>",
   "address": "<string>",
   "phone": "<string>",
   "email": "<string>",
   "domain": "<string>",
-  "created_at": "<date>",
-  "updated_at": "<date>"
+  "created_at": "<Date>",
+  "updated_at": "<Date>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

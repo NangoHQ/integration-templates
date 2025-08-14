@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from DocuSign
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Sync
@@ -40,6 +39,12 @@ _No request body_
   "firstName": "<string>",
   "lastName": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

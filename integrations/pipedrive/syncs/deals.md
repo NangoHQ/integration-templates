@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of deals from pipedrive
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `deals:read`
 - **Endpoint Type:** Sync
@@ -35,28 +34,34 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
-  "creator_user_id": "<integer>",
-  "user_id": "<integer>",
-  "person_id": "<integer>",
-  "org_id": "<integer>",
-  "stage_id": "<integer>",
+  "id": "<string>",
+  "creator_user_id": "<number>",
+  "user_id": "<number>",
+  "person_id": "<number>",
+  "org_id": "<number>",
+  "stage_id": "<number>",
   "title": "<string>",
-  "value": "<integer>",
+  "value": "<number>",
   "currency": "<string>",
-  "add_time": "<date>",
-  "update_time": "<date>",
+  "add_time": "<Date>",
+  "update_time": "<Date>",
   "status": "<string>",
   "probability": "<string>",
   "lost_reason": "<string>",
   "visible_to": "<string>",
-  "close_time": "<date>",
-  "pipeline_id": "<integer>",
-  "won_time": "<date>",
-  "lost_time": "<date>",
-  "expected_close_date": "<date>",
+  "close_time": "<Date>",
+  "pipeline_id": "<number>",
+  "won_time": "<Date>",
+  "lost_time": "<Date>",
+  "expected_close_date": "<Date>",
   "label": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

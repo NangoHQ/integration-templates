@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Introspection to retrieve available fields
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BamboohrField[]`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_bamboohr_basic_fetchfields`
+- **Input Model:** `ActionInput_bamboohr_basic_fetchfields`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/actions/fetch-fields.ts)
 
 
@@ -25,13 +25,15 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
 ```json
-[
-  {
+{
+  "0": {
     "id": "<string>",
     "type": "<string>",
     "name": "<string>",
@@ -43,7 +45,7 @@ _No request body_
       }
     ]
   }
-]
+}
 ```
 
 ## Changelog

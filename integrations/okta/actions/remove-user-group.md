@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Unassigns a user from a group with the OKTA_GROUP type
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** User Groups
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `OktaAssignRemoveUserGroup`
+- **Model:** `ActionOutput_okta_removeusergroup`
+- **Input Model:** `ActionInput_okta_removeusergroup`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/remove-user-group.ts)
 
 

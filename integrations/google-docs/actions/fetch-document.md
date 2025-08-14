@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetches the content of a document given its ID.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/documents.readonly`
 - **Endpoint Type:** Action
-- **Model:** `Document`
-- **Input Model:** `DocumentId`
+- **Model:** `ActionOutput_google_docs_fetchdocument`
+- **Input Model:** `ActionInput_google_docs_fetchdocument`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-docs/actions/fetch-document.ts)
 
 
@@ -40,22 +39,22 @@ _No request parameters_
   "title": "<string>",
   "url": "<string>",
   "tabs": [
-    "<object>"
+    {}
   ],
   "revisionId": "<string>",
-  "suggestionsViewMode": "<DEFAULT_FOR_CURRENT_ACCESS | SUGGESTIONS_INLINE | PREVIEW_SUGGESTIONS_ACCEPTED\t| PREVIEW_WITHOUT_SUGGESTIONS>",
-  "body": "<object>",
-  "headers": "<object>",
-  "footers": "<object>",
-  "footnotes": "<object>",
-  "documentStyle": "<object>",
-  "suggestedDocumentStyleChanges": "<object>",
-  "namedStyles": "<object>",
-  "suggestedNamedStylesChanges": "<object>",
-  "lists": "<object>",
-  "namedRanges": "<object>",
-  "inlineObjects": "<object>",
-  "positionedObjects": "<object>"
+  "suggestionsViewMode": "<enum: 'DEFAULT_FOR_CURRENT_ACCESS' | 'SUGGESTIONS_INLINE' | 'PREVIEW_SUGGESTIONS_ACCEPTED' | 'PREVIEW_WITHOUT_SUGGESTIONS'>",
+  "body": {},
+  "headers": {},
+  "footers": {},
+  "footnotes": {},
+  "documentStyle": {},
+  "suggestedDocumentStyleChanges": {},
+  "namedStyles": {},
+  "suggestedNamedStylesChanges": {},
+  "lists": {},
+  "namedRanges": {},
+  "inlineObjects": {},
+  "positionedObjects": {}
 }
 ```
 

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all employees from Gusto
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -50,17 +50,33 @@ _No request body_
   "onboarding_status": "<string>",
   "date_of_birth": "<string>",
   "has_ssn": "<boolean>",
-  "custom_fields": "<string>",
-  "jobs": {
-    "0": {
+  "custom_fields": [
+    {
+      "id": "<string>",
+      "company_custom_field_id": "<string>",
+      "name": "<string>",
+      "description": "<string>",
+      "type": "<string>",
+      "value": "<string>",
+      "selection_options?": "<string[]>"
+    }
+  ],
+  "jobs": [
+    {
       "id": "<string>",
       "title": "<string>",
       "hire_date": "<string>",
       "payment_unit": "<string>",
       "primary": "<boolean>"
     }
-  }
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

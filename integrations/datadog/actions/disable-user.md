@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Disables a user in Datadog
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `user_access_manage`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_datadog_disableuser`
+- **Input Model:** `ActionInput_datadog_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/actions/disable-user.ts)
 
 

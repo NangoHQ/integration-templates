@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a meeting in Zoom.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Meetings
 - **Scopes:** `meeting:write`
 - **Endpoint Type:** Action
-- **Model:** `Meeting`
-- **Input Model:** `CreateMeeting`
+- **Model:** `ActionOutput_zoom_createmeeting`
+- **Input Model:** `ActionInput_zoom_createmeeting`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/create-meeting.ts)
 
 
@@ -28,7 +28,7 @@ _No request parameters_
 ```json
 {
   "topic": "<string>",
-  "type": "<instant | scheduled | recurringNoFixed | recurring | screenShareOnly>",
+  "type": "<enum: 'instant' | 'scheduled' | 'recurringNoFixed' | 'recurring' | 'screenShareOnly'>",
   "agenda?": "<string>",
   "default_password?": "<boolean>",
   "duration?": "<number>",
@@ -41,18 +41,18 @@ _No request parameters_
     "monthly_week?": "<number>",
     "monthly_week_day?": "<number>",
     "repeat_interval?": "<number>",
-    "type?": "<daily | weekly | monthly>",
-    "weekly_days?": "<sunday | monday | tuesday | wednesday | thursday | friday | saturday>"
+    "type?": "<enum: 'daily' | 'weekly' | 'monthly'>",
+    "weekly_days?": "<enum: 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday'>"
   },
   "settings?": {
     "host_video?": "<boolean>",
     "participant_video?": "<boolean>",
     "join_before_host?": "<boolean>",
     "mute_upon_entry?": "<boolean>",
-    "approval_type?": "<automatic | manually | notRequired>",
-    "registration_type?": "<registerOnceAttendAny | registerEveryTime | registerOnceSelectOccurrences>",
-    "audio?": "<both | telephony | voip | thirdParty>",
-    "auto_recording?": "<local | cloud | none>",
+    "approval_type?": "<enum: 'automatic' | 'manually' | 'notRequired'>",
+    "registration_type?": "<enum: 'registerOnceAttendAny' | 'registerEveryTime' | 'registerOnceSelectOccurrences'>",
+    "audio?": "<enum: 'both' | 'telephony' | 'voip' | 'thirdParty'>",
+    "auto_recording?": "<enum: 'local' | 'cloud' | 'none'>",
     "waiting_room": "<boolean>"
   },
   "schedule_for?": "<string>",

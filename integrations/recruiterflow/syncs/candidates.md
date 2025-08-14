@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidates from RecruiterFlow
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,41 +34,58 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "full_name": "<string>",
   "first_name": "<string>",
   "last_name": "<string>",
-  "profile_picture_link?": "<string | undefined>",
+  "profile_picture_link?": "<string>",
   "added_by_name": "<string>",
   "added_by_id": "<number>",
   "added_time": "<string>",
-  "latest_activity_time?": "<string | undefined>",
-  "last_contacted_time?": "<string | undefined>",
-  "email_addresses": [
-    "<string>"
-  ],
-  "phone_numbers": [
-    "<string>"
-  ],
-  "current_designation?": "<string | undefined>",
-  "current_organization?": "<string | undefined>",
-  "location_city?": "<string | undefined>",
-  "location_country?": "<string | undefined>",
-  "location_full_string?": "<string | undefined>",
+  "latest_activity_time?": "<string>",
+  "last_contacted_time?": "<string>",
+  "email_addresses": "<string[]>",
+  "phone_numbers": "<string[]>",
+  "current_designation?": "<string>",
+  "current_organization?": "<string>",
+  "location_city?": "<string>",
+  "location_country?": "<string>",
+  "location_full_string?": "<string>",
   "source": "<string | null>",
-  "status_name?": "<string | undefined>",
-  "linkedin_profile_url?": "<string | undefined>",
-  "github_profile_url?": "<string | undefined>",
-  "twitter_profile_url?": "<string | undefined>",
-  "angellist_profile_url?": "<string | undefined>",
-  "behance_profile_url?": "<string | undefined>",
-  "dribbble_profile_url?": "<string | undefined>",
-  "facebook_profile_url?": "<string | undefined>",
-  "xing_profile_url?": "<string | undefined>",
-  "resume_links?": "<RecruiterFlowResumeLink[] | undefined>",
-  "associated_jobs?": "<RecruiterFlowAssociatedJob[] | undefined>",
-  "custom_fields?": "<RecruiterFlowCustomFields[] | undefined>"
+  "status_name?": "<string>",
+  "linkedin_profile_url?": "<string>",
+  "github_profile_url?": "<string>",
+  "twitter_profile_url?": "<string>",
+  "angellist_profile_url?": "<string>",
+  "behance_profile_url?": "<string>",
+  "dribbble_profile_url?": "<string>",
+  "facebook_profile_url?": "<string>",
+  "xing_profile_url?": "<string>",
+  "resume_links?": [
+    {
+      "filename": "<string>",
+      "link": "<string>"
+    }
+  ],
+  "associated_jobs?": [
+    {
+      "job_id": "<number>",
+      "job_name": "<string>",
+      "client_company_name": "<string | null>",
+      "current_stage_name": "<string>",
+      "is_open": "<boolean>"
+    }
+  ],
+  "custom_fields?": [
+    {}
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

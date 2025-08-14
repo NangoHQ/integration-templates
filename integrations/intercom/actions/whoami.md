@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch current user information
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `Read admins`
 - **Endpoint Type:** Action
-- **Model:** `UserInformation`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_intercom_whoami`
+- **Input Model:** `ActionInput_intercom_whoami`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/intercom/actions/whoami.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

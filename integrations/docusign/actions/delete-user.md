@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in DocuSign
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_docusign_deleteuser`
+- **Input Model:** `ActionInput_docusign_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign/actions/delete-user.ts)
 
 

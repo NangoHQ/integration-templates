@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_zendesk_createuser`
+- **Input Model:** `ActionInput_zendesk_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-user.ts)
 
 
@@ -30,7 +30,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "role?": "<admin | agent>"
+  "role?": "<enum: 'admin' | 'agent'>"
 }
 ```
 

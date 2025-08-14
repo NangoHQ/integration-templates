@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from Hubspot
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `oauth, settings.users.read (standard scope), crm.objects.users.read (granular scope)`
 - **Endpoint Type:** Sync
@@ -39,12 +38,16 @@ _No request body_
   "email": "<string>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "roleIds": [
-    "<string>"
-  ],
-  "primaryTeamId?": "<string | undefined>",
+  "roleIds": "<string[]>",
+  "primaryTeamId?": "<string>",
   "superAdmin": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

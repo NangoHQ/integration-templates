@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync the folders at the root level from Box
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Folders
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,6 +39,12 @@ _No request body_
   "modified_at": "<string>",
   "url": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

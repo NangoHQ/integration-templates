@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all opportunities
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Opportunities
 - **Scopes:** `opportunities:read:admin`
 - **Endpoint Type:** Sync
@@ -39,17 +38,11 @@ _No request body_
   "name": "<string>",
   "headline": "<string>",
   "contact": "<string>",
-  "emails": [
-    "<string>"
-  ],
-  "phones": [
-    "<string>"
-  ],
+  "emails": "<string[]>",
+  "phones": "<string[]>",
   "confidentiality": "<string>",
   "location": "<string>",
-  "links": [
-    "<string>"
-  ],
+  "links": "<string[]>",
   "archived": {
     "reason": "<string>",
     "archivedAt": "<number>"
@@ -62,33 +55,29 @@ _No request body_
   "archivedAt": "<number>",
   "archiveReason": "<string>",
   "stage": "<string>",
-  "stageChanges": [
-    "<string>"
-  ],
+  "stageChanges": "<string[]>",
   "owner": "<string>",
-  "tags": [
-    "<string>"
-  ],
-  "sources": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
+  "sources": "<string[]>",
   "origin": "<string>",
   "sourcedBy": "<string>",
-  "applications": [
-    "<string>"
-  ],
+  "applications": "<string[]>",
   "resume": "<string>",
-  "followers": [
-    "<string>"
-  ],
+  "followers": "<string[]>",
   "urls": {
     "list": "<string>",
     "show": "<string>"
   },
-  "dataProtection": "<object>",
+  "dataProtection": {},
   "isAnonymized": "<boolean>",
   "opportunityLocation": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

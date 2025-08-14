@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all events per a user
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,7 +39,7 @@ _No request body_
   "name": "<string | null>",
   "meeting_notes_plain": "<string | null>",
   "meeting_notes_html": "<string | null>",
-  "status": "<active | canceled>",
+  "status": "<enum: 'active' | 'canceled'>",
   "start_time": "<string>",
   "end_time": "<string>",
   "event_type": "<string>",
@@ -66,21 +66,27 @@ _No request body_
       "buffered_start_time?": "<string>"
     }
   ],
-  "event_guests?": [
+  "event_guests": [
     {
       "email": "<string>",
       "created_at": "<string>",
       "updated_at": "<string>"
     }
   ],
-  "calendar_event": "<CalendarEvent | null>",
-  "cancellation?": {
+  "calendar_event": "<{\"kind\":\"<string>\",\"external_id\":\"<string>\"} | <null>>",
+  "cancellation": {
     "canceled_by": "<string>",
     "reason": "<string | null>",
     "canceler_type": "<string>",
     "created_at": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

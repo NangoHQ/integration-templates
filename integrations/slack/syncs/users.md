@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Syncs information about all Users on the Slack workspace
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `users:read, users:read.email`
 - **Endpoint Type:** Sync
@@ -49,7 +48,7 @@ _No request body_
     "real_name_normalized": "<string | null>",
     "display_name_normalized": "<string | null>",
     "email": "<string | null>",
-    "image_original": "<string | null | undefined>"
+    "image_original?": "<string | null>"
   },
   "is_admin": "<boolean>",
   "is_owner": "<boolean>",
@@ -61,6 +60,12 @@ _No request body_
   "is_app_user": "<boolean>",
   "raw_json": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

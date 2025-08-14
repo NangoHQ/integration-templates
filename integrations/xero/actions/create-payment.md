@@ -5,13 +5,12 @@
 
 - **Description:** Creates one or more payments in Xero.
 Note: Does NOT check if the payment already exists.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Payments
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
-- **Model:** `PaymentActionResponse`
-- **Input Model:** `CreatePayment[]`
+- **Model:** `ActionOutput_xero_createpayment`
+- **Input Model:** `ActionInput_xero_createpayment`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-payment.ts)
 
 
@@ -29,18 +28,16 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "date": "<string | null>",
-      "amount_cents": "<number>",
-      "external_contact_id?": "<string>",
-      "account_code?": "<string>",
-      "account_id?": "<string>",
-      "status?": "<string>",
-      "invoice_id?": "<string>",
-      "credit_note_id?": "<string>"
-    }
-  ]
+  "0": {
+    "date": "<string | null>",
+    "amount_cents": "<number>",
+    "external_contact_id?": "<string>",
+    "account_code?": "<string>",
+    "account_id?": "<string>",
+    "status?": "<string>",
+    "invoice_id?": "<string>",
+    "credit_note_id?": "<string>"
+  }
 }
 ```
 
@@ -63,13 +60,16 @@ _No request parameters_
   ],
   "failedPayments": [
     {
+      "date": "<string | null>",
+      "amount_cents": "<number>",
+      "external_contact_id?": "<string>",
+      "account_code?": "<string>",
+      "account_id?": "<string>",
       "id": "<string>",
       "status": "<string>",
       "invoice_id": "<string | null>",
       "credit_note_id": "<string | null>",
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

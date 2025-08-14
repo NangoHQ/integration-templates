@@ -4,11 +4,11 @@
 ## General Information
 
 - **Description:** Fetches a list of current employees from sap success factors
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Employee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/employees.ts)
 
 
@@ -47,6 +47,12 @@ _No request body_
   "createdDateTime": "<string>",
   "lastModifiedDateTime": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,11 +4,11 @@
 ## General Information
 
 - **Description:** Fetches a list of locations from sap success factors
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Location`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/locations.ts)
 
 
@@ -51,6 +51,12 @@ _No request body_
   "addressLine1": "<string | null>",
   "addressLine2": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

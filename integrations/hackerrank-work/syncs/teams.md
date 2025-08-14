@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of teams from hackerrank work
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,7 +37,7 @@ _No request body_
   "id": "<string>",
   "name": "<string>",
   "owner": "<string>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "recruiter_count": "<number>",
   "developer_count": "<number>",
   "interviewer_count": "<number>",
@@ -48,13 +47,15 @@ _No request body_
   "logo_id": "<string>",
   "library_access": "<boolean>",
   "invite_as": "<string>",
-  "locations": [
-    "<string>"
-  ],
-  "departments": [
-    "<string>"
-  ]
+  "locations": "<string[]>",
+  "departments": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

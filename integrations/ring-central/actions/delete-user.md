@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in RingCentral
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_ring_central_deleteuser`
+- **Input Model:** `ActionInput_ring_central_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/delete-user.ts)
 
 

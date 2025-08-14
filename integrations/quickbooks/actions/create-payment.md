@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single payment in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Payment`
-- **Input Model:** `CreatePayment`
+- **Model:** `ActionOutput_quickbooks_createpayment`
+- **Input Model:** `ActionInput_quickbooks_createpayment`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-payment.ts)
 
 
@@ -33,11 +32,11 @@ _No request parameters_
     "name?": "<string>",
     "value": "<string>"
   },
-  "currency_ref?": {
+  "currency_ref": {
     "name?": "<string>",
     "value": "<string>"
   },
-  "project_ref?": {
+  "project_ref": {
     "name?": "<string>",
     "value": "<string>"
   }
