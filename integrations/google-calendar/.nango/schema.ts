@@ -5,6 +5,8 @@
 
 export interface SyncMetadata_google_calendar_events {
   calendarsToSync: string[];
+  timeMin?: string | undefined;
+  timeMax?: string | undefined;
   singleEvents?: boolean | undefined;
 };
 
