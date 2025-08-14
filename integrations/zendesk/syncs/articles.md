@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of articles in Help center from Zendesk
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync
@@ -36,7 +35,7 @@ _No request body_
 ```json
 {
   "title": "<string>",
-  "id": "<number>",
+  "id": "<string>",
   "url": "<string>",
   "locale": "<string>",
   "user_segment_id": "<number | null>",
@@ -44,20 +43,14 @@ _No request body_
   "author_id": "<number>",
   "body": "<string>",
   "comments_disabled": "<boolean>",
-  "content_tag_ids": [
-    "<number>"
-  ],
+  "content_tag_ids": "<number[]>",
   "created_at": "<string>",
   "draft": "<boolean>",
   "edited_at": "<string>",
   "html_url": "<string>",
-  "label_names": [
-    "<string>"
-  ],
+  "label_names": "<string[]>",
   "outdated": "<boolean>",
-  "outdated_locales": [
-    "<string>"
-  ],
+  "outdated_locales": "<string[]>",
   "position": "<number>",
   "promoted": "<boolean>",
   "section_id": "<number>",
@@ -66,6 +59,12 @@ _No request body_
   "vote_count": "<number>",
   "vote_sum": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

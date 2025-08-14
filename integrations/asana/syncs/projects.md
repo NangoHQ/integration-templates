@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieves all projects for a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,6 +39,12 @@ _No request body_
   "name": "<string>",
   "id": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

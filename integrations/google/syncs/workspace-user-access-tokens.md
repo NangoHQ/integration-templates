@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync all workspace users access tokens
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/admin.directory.user.readonly, https://www.googleapis.com/auth/admin.directory.user.security`
 - **Endpoint Type:** Sync
@@ -40,6 +40,12 @@ _No request body_
   "anonymous_app": "<boolean>",
   "scopes": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

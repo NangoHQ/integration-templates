@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a single account in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `ActionResponse`
-- **Input Model:** `CreateAccountInput`
+- **Model:** `ActionOutput_salesforce_createaccount`
+- **Input Model:** `ActionInput_salesforce_createaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/create-account.ts)
 
 
@@ -27,12 +27,12 @@ _No request parameters_
 
 ```json
 {
-  "description?": "<string | undefined>",
-  "website?": "<string | undefined>",
-  "industry?": "<string | undefined>",
-  "billing_city?": "<string | undefined>",
-  "billing_country?": "<string | undefined>",
-  "owner_id?": "<string | undefined>",
+  "description?": "<string>",
+  "website?": "<string>",
+  "industry?": "<string>",
+  "billing_city?": "<string>",
+  "billing_country?": "<string>",
+  "owner_id?": "<string>",
   "name": "<string>"
 }
 ```
@@ -43,7 +43,7 @@ _No request parameters_
 {
   "id": "<string>",
   "success": "<boolean>",
-  "errors": "<array>"
+  "errors": "<unknown[]>"
 }
 ```
 

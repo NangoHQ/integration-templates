@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a negation in Anrok.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TransactionNegationActionResponse`
-- **Input Model:** `TransactionToNegate[]`
+- **Model:** `ActionOutput_anrok_negatetransaction`
+- **Input Model:** `ActionInput_anrok_negatetransaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/negate-transaction.ts)
 
 
@@ -28,12 +27,10 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "id": "<string>",
-      "voided_id": "<string>"
-    }
-  ]
+  "0": {
+    "id": "<string>",
+    "voided_id": "<string>"
+  }
 }
 ```
 
@@ -51,7 +48,7 @@ _No request parameters_
     {
       "id": "<string>",
       "voided_id": "<string>",
-      "validation_errors": "<any>"
+      "validation_errors?": "<unknown>"
     }
   ]
 }

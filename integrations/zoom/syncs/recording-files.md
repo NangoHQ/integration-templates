@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of recordings from Zoom
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Cloud Recordings
 - **Scopes:** `cloud_recording:read:list_user_recordings, cloud_recording:read:list_recording_files`
 - **Endpoint Type:** Sync
@@ -40,14 +39,14 @@ _No request body_
   "downloadUrl": "<string>",
   "filePath?": "<string>",
   "fileSize": "<number>",
-  "fileType": "<MP4 | M4A | CHAT | TRANSCRIPT | CSV | TB | CC | CHAT_MESSAGE | SUMMARY | TIMELINE>",
-  "fileExtension": "<MP4 | M4A | TXT | VTT | CSV | JSON | JPG>",
+  "fileType": "<enum: 'MP4' | 'M4A' | 'CHAT' | 'TRANSCRIPT' | 'CSV' | 'TB' | 'CC' | 'CHAT_MESSAGE' | 'SUMMARY' | 'TIMELINE'>",
+  "fileExtension": "<enum: 'MP4' | 'M4A' | 'TXT' | 'VTT' | 'CSV' | 'JSON' | 'JPG'>",
   "meetingId": "<string>",
   "playUrl?": "<string>",
   "recordingEnd": "<string>",
   "recordingStart": "<string>",
-  "recordingType": "<shared_screen_with_speaker_view(CC) | shared_screen_with_speaker_view | shared_screen_with_gallery_view | active_speaker | gallery_view | shared_screen | audio_only | audio_transcript | chat_file | poll | host_video | closed_caption | timeline | thumbnail | audio_interpretation | summary | summary_next_steps | summary_smart_chapters | sign_interpretation | production_studio>",
-  "status": "<completed>",
+  "recordingType": "<enum: 'shared_screen_with_speaker_view(CC)' | 'shared_screen_with_speaker_view' | 'shared_screen_with_gallery_view' | 'active_speaker' | 'gallery_view' | 'shared_screen' | 'audio_only' | 'audio_transcript' | 'chat_file' | 'poll' | 'host_video' | 'closed_caption' | 'timeline' | 'thumbnail' | 'audio_interpretation' | 'summary' | 'summary_next_steps' | 'summary_smart_chapters' | 'sign_interpretation' | 'production_studio'>",
+  "status": "<string>",
   "autoDelete?": "<boolean>",
   "autoDeleteDate?": "<string>",
   "playPasscode": "<string>"

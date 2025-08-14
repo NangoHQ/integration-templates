@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** An action to add a user to the organization in zoho mail
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoMail.organization.accounts.CREATE`
 - **Endpoint Type:** Action
-- **Model:** `ZohoMailAddUserOutput`
-- **Input Model:** `ZohoMailAddUserInput`
+- **Model:** `ActionOutput_zoho_mail_adduser`
+- **Input Model:** `ActionInput_zoho_mail_adduser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/actions/add-user.ts)
 
 
@@ -37,9 +36,7 @@ _No request parameters_
   "language": "<string>",
   "timeZone": "<string>",
   "oneTimePassword": "<boolean>",
-  "groupMailList": [
-    "<string>"
-  ]
+  "groupMailList": "<string[]>"
 }
 ```
 
@@ -47,8 +44,8 @@ _No request parameters_
 
 ```json
 {
-  "status": "<object>",
-  "data": "<object>"
+  "status": {},
+  "data": {}
 }
 ```
 

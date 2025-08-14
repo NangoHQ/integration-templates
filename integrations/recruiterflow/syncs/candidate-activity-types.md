@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidate activity types from RecruiterFlow
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,7 +35,7 @@ _No request body_
 ```json
 {
   "category": "<string>",
-  "id": "<number>",
+  "id": "<string>",
   "is_archived": "<boolean>",
   "is_custom": "<boolean>",
   "name": "<string>",
@@ -43,6 +43,12 @@ _No request body_
   "track_last_contacted": "<boolean>",
   "track_last_engaged": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

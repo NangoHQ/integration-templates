@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** An action that sends a message to a slack channel.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Messages
 - **Scopes:** `chat:write`
 - **Endpoint Type:** Action
-- **Model:** `SendMessageOutput`
-- **Input Model:** `SendMessageInput`
+- **Model:** `ActionOutput_slack_sendmessage`
+- **Input Model:** `ActionInput_slack_sendmessage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/actions/send-message.ts)
 
 
@@ -38,11 +37,11 @@ _No request parameters_
 ```json
 {
   "ok": "<boolean>",
-  "channel?": "<string | undefined>",
-  "ts?": "<string | undefined>",
-  "message?": "<string | undefined>",
-  "warning?": "<string | undefined>",
-  "error?": "<string | undefined>",
+  "channel?": "<string>",
+  "ts?": "<string>",
+  "message?": "<string>",
+  "warning?": "<string>",
+  "error?": "<string>",
   "raw_json": "<string>"
 }
 ```

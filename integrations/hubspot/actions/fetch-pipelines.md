@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all pipelines for an object type. Defaults to deals
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Pipelines
 - **Scopes:** `oauth, crm.objects.deals.read`
 - **Endpoint Type:** Action
-- **Model:** `PipelineOutput`
-- **Input Model:** `OptionalObjectType`
+- **Model:** `ActionOutput_hubspot_fetchpipelines`
+- **Input Model:** `ActionInput_hubspot_fetchpipelines`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-pipelines.ts)
 
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to update a supplier in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `UpdatePennylaneCustomer`
+- **Model:** `ActionOutput_pennylane_updatecustomer`
+- **Input Model:** `ActionInput_pennylane_updatecustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/update-customer.ts)
 
 
@@ -39,9 +38,9 @@ _No request parameters_
   "country_alpha2?": "<string | null>",
   "recipient?": "<string | null>",
   "source_id?": "<string | null>",
-  "emails?": "<string[] | null>",
+  "emails?": "<<string[]> | <null>>",
   "billing_iban?": "<string | null>",
-  "delivery_address?": "<DeliveryAddressObject | null>",
+  "delivery_address?": "<{\"address?\":\"<string>\",\"postal_code?\":\"<string | null>\",\"city?\":\"<string | null>\",\"country_alpha2?\":\"<string | null>\"} | <null>>",
   "delivery_postal_code?": "<string | null>",
   "delivery_country?": "<string | null>",
   "delivery_country_alpha2?": "<string | null>",

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all employees from Oracle HCM in the native Oracle data model
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Oracle HCM API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,38 +35,76 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "personNumber": "<string | undefined>",
+  "personNumber?": "<string>",
   "displayName?": "<string>",
-  "firstName?": "<string | undefined>",
-  "lastName?": "<string | undefined>",
-  "workEmail?": "<string | undefined>",
-  "title?": "<string | undefined>",
-  "departmentId?": "<string | undefined>",
-  "departmentName?": "<string | undefined>",
-  "assignmentStatusType?": "<string | undefined>",
-  "startDate?": "<string | undefined>",
-  "terminationDate?": "<string | undefined>",
-  "managerId?": "<string | undefined>",
-  "managerName?": "<string | undefined>",
-  "workLocationName?": "<string | undefined>",
-  "workLocationType?": "<string | undefined>",
-  "correspondenceLanguage?": "<string | undefined | null>",
-  "bloodType?": "<string | undefined | null>",
-  "dateOfBirth?": "<string | undefined | null>",
-  "dateOfDeath?": "<string | undefined | null>",
-  "countryOfBirth?": "<string | undefined | null>",
-  "regionOfBirth?": "<string | undefined | null>",
-  "townOfBirth?": "<string | undefined | null>",
-  "applicantNumber?": "<string | undefined | null>",
-  "createdBy?": "<string | undefined>",
-  "lastUpdatedBy?": "<string | undefined>",
-  "creationDate?": "<string | undefined>",
-  "lastUpdateDate?": "<string | undefined>",
-  "workLocationAddress?": "<OracleHcmAddress | undefined>",
-  "addresses?": "<OracleHcmAddress[] | undefined>",
-  "phones?": "<OracleHcmPhone[] | undefined>",
-  "emails?": "<OracleHcmEmail[] | undefined>"
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "workEmail?": "<string>",
+  "title?": "<string>",
+  "departmentId?": "<string>",
+  "departmentName?": "<string>",
+  "assignmentStatusType?": "<string>",
+  "startDate?": "<string>",
+  "terminationDate?": "<string>",
+  "managerId?": "<string>",
+  "managerName?": "<string>",
+  "workLocationName?": "<string>",
+  "workLocationType?": "<string>",
+  "correspondenceLanguage?": "<string | null>",
+  "bloodType?": "<string | null>",
+  "dateOfBirth?": "<string | null>",
+  "dateOfDeath?": "<string | null>",
+  "countryOfBirth?": "<string | null>",
+  "regionOfBirth?": "<string | null>",
+  "townOfBirth?": "<string | null>",
+  "applicantNumber?": "<string | null>",
+  "createdBy?": "<string>",
+  "lastUpdatedBy?": "<string>",
+  "creationDate?": "<string>",
+  "lastUpdateDate?": "<string>",
+  "workLocationAddress?": {
+    "addressLine1?": "<string | null>",
+    "addressLine2?": "<string | null>",
+    "townOrCity?": "<string | null>",
+    "region2?": "<string | null>",
+    "country?": "<string>",
+    "postalCode?": "<string | null>",
+    "addressType?": "<string>",
+    "primaryFlag?": "<boolean>"
+  },
+  "addresses?": [
+    {
+      "addressLine1?": "<string | null>",
+      "addressLine2?": "<string | null>",
+      "townOrCity?": "<string | null>",
+      "region2?": "<string | null>",
+      "country?": "<string>",
+      "postalCode?": "<string | null>",
+      "addressType?": "<string>",
+      "primaryFlag?": "<boolean>"
+    }
+  ],
+  "phones?": [
+    {
+      "phoneType?": "<string>",
+      "phoneNumber?": "<string>",
+      "primaryFlag?": "<boolean>"
+    }
+  ],
+  "emails?": [
+    {
+      "emailType?": "<string>",
+      "emailAddress?": "<string>",
+      "primaryFlag?": "<boolean>"
+    }
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

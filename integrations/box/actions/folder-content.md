@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Folders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `FolderContent`
-- **Input Model:** `FolderContentInput`
+- **Model:** `ActionOutput_box_foldercontent`
+- **Input Model:** `ActionInput_box_foldercontent`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/actions/folder-content.ts)
 
 

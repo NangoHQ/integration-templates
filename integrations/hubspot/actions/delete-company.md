@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a company in Hubspot
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `Id`
+- **Model:** `ActionOutput_hubspot_deletecompany`
+- **Input Model:** `ActionInput_hubspot_deletecompany`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/delete-company.ts)
 
 

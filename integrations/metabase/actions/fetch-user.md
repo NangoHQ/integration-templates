@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches details of a specific user by ID.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_metabase_fetchuser`
+- **Input Model:** `ActionInput_metabase_fetchuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/actions/fetch-user.ts)
 
 
@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<integer>"
+  "id": "<number>"
 }
 ```
 
@@ -35,7 +35,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",

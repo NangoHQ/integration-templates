@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Aircall
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_aircall_deleteuser`
+- **Input Model:** `ActionInput_aircall_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall/actions/delete-user.ts)
 
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Ramp
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `RampCreateUser`
+- **Model:** `ActionOutput_ramp_createuser`
+- **Input Model:** `ActionInput_ramp_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ramp/actions/create-user.ts)
 
 

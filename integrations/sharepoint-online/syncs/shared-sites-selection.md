@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.
-
-- **Version:** 2.0.1
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** `Sites.Read.All, Sites.Selected, MyFiles.Read, Files.Read.All, Files.Read.Selected, offline_access`
 - **Endpoint Type:** Sync
@@ -43,7 +42,7 @@ _No request body_
   "is_folder": "<boolean>",
   "mime_type": "<string | null>",
   "path": "<string>",
-  "raw_source": "<object>",
+  "raw_source?": "<unknown>",
   "updated_at": "<string>",
   "download_url": "<string | null>",
   "created_at": "<string>",
@@ -55,15 +54,11 @@ _No request body_
 
 ```json
 {
-  "sharedSites": [
-    "<string>"
-  ],
+  "sharedSites": "<string[]>",
   "pickedFiles": [
     {
       "siteId": "<string>",
-      "fileIds": [
-        "<string>"
-      ]
+      "fileIds": "<string[]>"
     }
   ]
 }

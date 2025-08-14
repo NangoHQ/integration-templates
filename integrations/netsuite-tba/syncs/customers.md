@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all customers in Netsuite
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,18 +34,18 @@ _No request body_
 
 ```json
 {
-  "addressLine1": "<string | null>",
-  "addressLine2": "<string | null>",
-  "city": "<string | null>",
-  "zip": "<string | null>",
-  "country": "<string | null>",
-  "state": "<string | null>",
   "id": "<string>",
   "externalId": "<string | null>",
   "name": "<string>",
   "email": "<string | null>",
   "taxNumber": "<string | null>",
-  "phone": "<string | null>"
+  "phone": "<string | null>",
+  "addressLine1": "<string | null>",
+  "addressLine2": "<string | null>",
+  "city": "<string | null>",
+  "zip": "<string | null>",
+  "country": "<string | null>",
+  "state": "<string | null>"
 }
 ```
 
@@ -54,7 +53,7 @@ _No request body_
 
 ```json
 {
-  "timezone?": "<string | undefined>"
+  "timezone?": "<string>"
 }
 ```
 

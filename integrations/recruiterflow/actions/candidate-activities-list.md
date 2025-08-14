@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches all candidate activities list from RecruiterFlow
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RecruiterFlowCandidateActivityListOutput`
-- **Input Model:** `RecruiterFlowCandidateActivityListInput`
+- **Model:** `ActionOutput_recruiterflow_candidateactivitieslist`
+- **Input Model:** `ActionInput_recruiterflow_candidateactivitieslist`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recruiterflow/actions/candidate-activities-list.ts)
 
 
@@ -38,7 +38,7 @@ _No request parameters_
   "data": [
     {
       "activity_id": "<number | null>",
-      "associated_entities?": "<RecruiterFlowCandidateActivityListAssociatedEntities | undefined | null>",
+      "associated_entities?": "<{\"candidates\":[{\"id\":\"<number>\",\"name\":\"<string>\",\"first_name?\":\"<string>\"}],\"clients\":\"<unknown[]>\",\"contacts\":\"<unknown[]>\",\"deals\":\"<unknown[]>\",\"jobs\":[{\"id\":\"<number>\",\"name\":\"<string>\"}],\"placements\":\"<unknown[]>\"} | <null>>",
       "candidate_id": "<number | null>",
       "contact_id": "<number | null>",
       "interview_plan_id": "<number | null>",

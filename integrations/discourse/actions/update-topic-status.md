@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update the status of a topic
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TopicStatusUpdated`
-- **Input Model:** `TopicStatus`
+- **Model:** `ActionOutput_discourse_updatetopicstatus`
+- **Input Model:** `ActionInput_discourse_updatetopicstatus`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/update-topic-status.ts)
 
 
@@ -28,8 +28,8 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "status": "<closed | pinned | pinned_globally | archived | visible>",
-  "enabled": "<true | false>",
+  "status": "<enum: 'closed' | 'pinned' | 'pinned_globally' | 'archived' | 'visible'>",
+  "enabled?": "<unknown>",
   "until": "<string>"
 }
 ```

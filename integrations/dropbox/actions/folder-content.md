@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Folders
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Action
-- **Model:** `FolderContent`
-- **Input Model:** `FolderContentInput`
+- **Model:** `ActionOutput_dropbox_foldercontent`
+- **Input Model:** `ActionInput_dropbox_foldercontent`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/folder-content.ts)
 
 

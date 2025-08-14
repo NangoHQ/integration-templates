@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all questions included in a posting’s application form in Lever
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Postings
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync
@@ -37,19 +36,17 @@ _No request body_
 {
   "id": "<string>",
   "text": "<string>",
-  "customQuestions": [
-    "<string>"
-  ],
-  "eeoQuestions": [
-    "<string>"
-  ],
-  "personalInformation": [
-    "<string>"
-  ],
-  "urls": [
-    "<string>"
-  ]
+  "customQuestions": "<string[]>",
+  "eeoQuestions": "<string[]>",
+  "personalInformation": "<string[]>",
+  "urls": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches all job pipelines from RecruiterFlow
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RecruiterFlowJobPipeline`
-- **Input Model:** `RecruiterFlowPipelineInput`
+- **Model:** `ActionOutput_recruiterflow_jobpipelines`
+- **Input Model:** `ActionInput_recruiterflow_jobpipelines`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recruiterflow/actions/job-pipelines.ts)
 
 
@@ -35,9 +35,7 @@ _No request parameters_
 
 ```json
 {
-  "detail": [
-    "<any>"
-  ],
+  "detail": "<unknown[]>",
   "summary": [
     {
       "id": "<number>",

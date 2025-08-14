@@ -5,13 +5,12 @@
 
 - **Description:** Fetches the content of a native google spreadsheet given its ID. Outputs
 a JSON representation of a google sheet.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
-- **Model:** `JSONSpreadsheet`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_google_drive_fetchgooglesheet`
+- **Input Model:** `ActionInput_google_drive_fetchgooglesheet`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-google-sheet.ts)
 
 
@@ -38,22 +37,22 @@ _No request parameters_
 ```json
 {
   "spreadsheetId": "<string>",
-  "properties": "<object>",
+  "properties": {},
   "sheets": [
-    "<object>"
+    {}
   ],
   "namedRanges": [
-    "<object>"
+    {}
   ],
   "spreadsheetUrl": "<string>",
   "developerMetadata": [
-    "<object>"
+    {}
   ],
   "dataSources": [
-    "<object>"
+    {}
   ],
   "dataSourceSchedules": [
-    "<object>"
+    {}
   ]
 }
 ```

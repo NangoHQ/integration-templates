@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of subscriptions
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Subscriptions
 - **Scopes:** `subscription_read`
 - **Endpoint Type:** Sync
@@ -60,15 +60,13 @@ _No request body_
   "default_payment_method": "<string | null>",
   "description": "<string | null>",
   "discount": "<string | null>",
-  "discounts": "<string[] | null>",
+  "discounts": "<<string[]> | <null>>",
   "ended_at": "<string | null>",
   "invoice_settings": {
     "issuer": {
       "type": "<string>"
     },
-    "account_tax_ids": [
-      "<null | string | string>"
-    ]
+    "account_tax_ids": "<<null> | <string> | <string[]>>"
   },
   "items": [
     {
@@ -79,21 +77,21 @@ _No request body_
         "id": "<string>",
         "object": "<string>",
         "active": "<boolean>",
-        "aggregate_usage": "<any>",
+        "aggregate_usage?": "<unknown>",
         "amount": "<number>",
         "amount_decimal": "<string>",
         "billing_scheme": "<string>",
         "created": "<number>",
         "currency": "<string>",
-        "discounts": "<any>",
+        "discounts?": "<unknown>",
         "interval": "<string>",
         "interval_count": "<number>",
         "livemode": "<boolean>",
-        "nickname": "<any>",
+        "nickname?": "<unknown>",
         "product": "<string>",
-        "tiers_mode": "<any>",
-        "transform_usage": "<any>",
-        "trial_period_days": "<any>",
+        "tiers_mode?": "<unknown>",
+        "transform_usage?": "<unknown>",
+        "trial_period_days?": "<unknown>",
         "usage_type": "<string>"
       },
       "price": {
@@ -103,30 +101,28 @@ _No request body_
         "billing_scheme": "<string>",
         "created": "<number>",
         "currency": "<string>",
-        "custom_unit_amount": "<any>",
+        "custom_unit_amount?": "<unknown>",
         "livemode": "<boolean>",
-        "lookup_key": "<any>",
-        "nickname": "<any>",
+        "lookup_key?": "<unknown>",
+        "nickname?": "<unknown>",
         "product": "<string>",
         "recurring": {
-          "aggregate_usage": "<any>",
+          "aggregate_usage?": "<unknown>",
           "interval": "<string>",
           "interval_count": "<number>",
-          "trial_period_days": "<any>",
+          "trial_period_days?": "<unknown>",
           "usage_type": "<string>"
         },
         "tax_behavior": "<string>",
-        "tiers_mode": "<any>",
-        "transform_quantity": "<any>",
+        "tiers_mode?": "<unknown>",
+        "transform_quantity?": "<unknown>",
         "type": "<string>",
         "unit_amount": "<number>",
         "unit_amount_decimal": "<string>"
       },
       "quantity": "<number>",
       "subscription": "<string>",
-      "tax_rates": [
-        "<string>"
-      ]
+      "tax_rates": "<string[]>"
     }
   ],
   "latest_invoice": "<string>",
@@ -153,6 +149,12 @@ _No request body_
   },
   "trial_start": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Disables a user in Lattice
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_lattice_scim_disableuser`
+- **Input Model:** `ActionInput_lattice_scim_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lattice-scim/actions/disable-user.ts)
 
 

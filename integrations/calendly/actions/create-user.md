@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Calendly
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `admin`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_calendly_createuser`
+- **Input Model:** `ActionInput_calendly_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/calendly/actions/create-user.ts)
 
 

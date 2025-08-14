@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Update a single journal entry in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `JournalEntry`
-- **Input Model:** `UpdateJournalEntry`
+- **Model:** `ActionOutput_quickbooks_updatejournalentry`
+- **Input Model:** `ActionInput_quickbooks_updatejournalentry`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-journal-entry.ts)
 
 
@@ -31,23 +30,23 @@ _No request parameters_
   "id": "<string>",
   "sync_token": "<string>",
   "sparse?": "<boolean>",
-  "line_items": {
-    "0": {
+  "line_items": [
+    {
       "id?": "<string>",
       "detail_type": "<string>",
       "amount?": "<number>",
-      "project_ref?": {
+      "project_ref": {
         "name?": "<string>",
         "value": "<string>"
       },
       "description?": "<string>",
       "line_num?": "<number>",
       "journal_entry_line_detail": {
-        "journal_code_ref?": {
+        "journal_code_ref": {
           "name?": "<string>",
           "value": "<string>"
         },
-        "posting_type": "<Debit | Credit>",
+        "posting_type": "<enum: 'Debit' | 'Credit'>",
         "account_ref": {
           "name?": "<string>",
           "value": "<string>"
@@ -55,21 +54,21 @@ _No request parameters_
         "tax_applicable_on?": "<string>",
         "entity?": {
           "type?": "<string>",
-          "entity_ref?": {
+          "entity_ref": {
             "name?": "<string>",
             "value": "<string>"
           }
         },
         "tax_inclusive_amt?": "<number>",
-        "class_ref?": {
+        "class_ref": {
           "name?": "<string>",
           "value": "<string>"
         },
-        "department_ref?": {
+        "department_ref": {
           "name?": "<string>",
           "value": "<string>"
         },
-        "tax_code_ref?": {
+        "tax_code_ref": {
           "name?": "<string>",
           "value": "<string>"
         },
@@ -77,8 +76,8 @@ _No request parameters_
         "tax_amount?": "<number>"
       }
     }
-  },
-  "currency_ref?": {
+  ],
+  "currency_ref": {
     "name?": "<string>",
     "value": "<string>"
   },
@@ -88,16 +87,16 @@ _No request parameters_
   "exchange_rate?": "<number>",
   "transaction_location_type?": "<string>",
   "txn_tax_detail?": {
-    "txn_tax_code_ref?": {
+    "txn_tax_code_ref": {
       "name?": "<string>",
       "value": "<string>"
     },
     "total_tax?": "<number>",
-    "tax_line?": {
-      "0": {
+    "tax_line?": [
+      {
         "detail_type": "<string>",
         "tax_line_detail?": {
-          "tax_rate_ref?": {
+          "tax_rate_ref": {
             "name?": "<string>",
             "value": "<string>"
           },
@@ -107,7 +106,7 @@ _No request parameters_
         },
         "amount?": "<number>"
       }
-    }
+    ]
   },
   "adjustment?": "<boolean>"
 }
@@ -122,7 +121,7 @@ _No request parameters_
   "id": "<string>",
   "date": "<string | null>",
   "currency": "<string>",
-  "note?": "<string | undefined>",
+  "note?": "<string>",
   "lines": [
     {
       "id": "<string>",
@@ -130,15 +129,15 @@ _No request parameters_
       "account_id": "<string>",
       "account_name": "<string>",
       "net_amount": "<number>",
-      "posting_type": "<Debit | Credit>",
+      "posting_type": "<enum: 'Debit' | 'Credit'>",
       "description": "<string>",
-      "entity_type?": "<string | undefined>",
-      "entity_type_id?": "<string | undefined>",
-      "entity_type_name?": "<string | undefined>",
-      "department_id?": "<string | undefined>",
-      "department_name?": "<string | undefined>",
-      "class_id?": "<string | undefined>",
-      "class_name?": "<string | undefined>"
+      "entity_type?": "<string>",
+      "entity_type_id?": "<string>",
+      "entity_type_name?": "<string>",
+      "department_id?": "<string>",
+      "department_name?": "<string>",
+      "class_id?": "<string>",
+      "class_name?": "<string>"
     }
   ]
 }

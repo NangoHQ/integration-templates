@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Introspection endpoint to fetch the fields available per a model
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Fields
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `FieldResponse`
-- **Input Model:** `Entity`
+- **Model:** `ActionOutput_linear_fetchfields`
+- **Input Model:** `ActionInput_linear_fetchfields`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/fetch-fields.ts)
 
 
@@ -36,9 +36,7 @@ _No request parameters_
 ```json
 {
   "fields": [
-    {
-      "__string": "<Field | string>"
-    }
+    {}
   ]
 }
 ```

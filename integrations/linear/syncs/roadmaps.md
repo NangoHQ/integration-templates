@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of roadmaps from Linear
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Roadmaps
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -43,6 +42,12 @@ _No request body_
   "teamId": "<string>",
   "projectIds": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

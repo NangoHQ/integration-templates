@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Harvest
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `administrator`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_harvest_deleteuser`
+- **Input Model:** `ActionInput_harvest_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/actions/delete-user.ts)
 
 

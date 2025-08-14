@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create an invoice in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `CreateInvoice`
+- **Model:** `ActionOutput_pennylane_createinvoice`
+- **Input Model:** `ActionInput_pennylane_createinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-invoice.ts)
 
 
@@ -42,22 +41,20 @@ _No request parameters_
   "special_mention?": "<string | null>",
   "discount?": "<number>",
   "language?": "<string>",
-  "transactions_reference?": {
+  "transactions_reference": {
     "banking_provider": "<string | null>",
     "provider_field_name": "<string | null>",
     "provider_field_value": "<string | null>"
   },
-  "line_items": [
-    "<LineItemWithTax[] | LineItemWithoutTax[] | LineItemWithExistingProduct>"
-  ],
-  "categories?": [
+  "line_items": "<[{\"label\":\"<string>\",\"quantity\":\"<number>\",\"section_rank?\":\"<number>\",\"currency_amount\":\"<number>\",\"plan_item_number?\":\"<string>\",\"unit\":\"<string>\",\"vat_rate\":\"<string>\",\"description?\":\"<string>\",\"discount?\":\"<number>\"}] | [{\"label\":\"<string>\",\"quantity\":\"<number>\",\"section_rank?\":\"<number>\",\"currency_amount_before_tax\":\"<number>\",\"plan_item_number?\":\"<string>\",\"unit\":\"<string>\",\"vat_rate\":\"<string>\",\"description?\":\"<string>\",\"discount?\":\"<number>\"}] | [{\"label?\":\"<string>\",\"quantity\":\"<number>\",\"discount?\":\"<number>\",\"section_rank?\":\"<number>\",\"plan_item_number?\":\"<string>\",\"product\":{\"source_id\":\"<string>\",\"price?\":\"<number>\",\"vat_rate?\":\"<string>\",\"unit?\":\"<string>\"}}]>",
+  "categories": [
     {
       "source_id": "<string>",
       "weight": "<number | null>",
       "amount": "<number | null>"
     }
   ],
-  "line_items_sections_attributes?": [
+  "line_items_sections_attributes": [
     {
       "title?": "<string | null>",
       "description?": "<string | null>",

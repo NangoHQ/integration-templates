@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a single contact in salesforce
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `ActionResponse`
-- **Input Model:** `CreateContactInput`
+- **Model:** `ActionOutput_salesforce_createcontact`
+- **Input Model:** `ActionInput_salesforce_createcontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/create-contact.ts)
 
 
@@ -27,14 +27,14 @@ _No request parameters_
 
 ```json
 {
-  "first_name?": "<string | undefined>",
-  "account_id?": "<string | undefined>",
-  "owner_id?": "<string | undefined>",
-  "email?": "<string | undefined>",
-  "mobile?": "<string | undefined>",
-  "phone?": "<string | undefined>",
-  "salutation?": "<string | undefined>",
-  "title?": "<string | undefined>",
+  "first_name?": "<string>",
+  "account_id?": "<string>",
+  "owner_id?": "<string>",
+  "email?": "<string>",
+  "mobile?": "<string>",
+  "phone?": "<string>",
+  "salutation?": "<string>",
+  "title?": "<string>",
   "last_name": "<string>"
 }
 ```
@@ -45,7 +45,7 @@ _No request parameters_
 {
   "id": "<string>",
   "success": "<boolean>",
-  "errors": "<array>"
+  "errors": "<unknown[]>"
 }
 ```
 

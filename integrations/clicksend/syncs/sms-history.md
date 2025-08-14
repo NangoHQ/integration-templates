@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the history of SMS messages sent through ClickSend.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** SMS
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,10 +38,16 @@ _No request body_
   "to": "<string>",
   "from": "<string>",
   "body": "<string>",
-  "status": "<QUEUED | COMPLETED | SCHEDULED | WAIT_APPROVAL | FAILED | CANCELLED | CANCELLED_AFTER_REVIEW | RECEIVED | SENT | SUCCESS>",
+  "status": "<enum: 'QUEUED' | 'COMPLETED' | 'SCHEDULED' | 'WAIT_APPROVAL' | 'FAILED' | 'CANCELLED' | 'CANCELLED_AFTER_REVIEW' | 'RECEIVED' | 'SENT' | 'SUCCESS'>",
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

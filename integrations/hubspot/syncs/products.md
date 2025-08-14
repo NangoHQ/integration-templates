@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of products from Hubspot
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Products
 - **Scopes:** `e-commerce`
 - **Endpoint Type:** Sync
@@ -49,6 +48,12 @@ _No request body_
   "recurringBillingFrequency": "<number | null>",
   "tax": "<null | number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

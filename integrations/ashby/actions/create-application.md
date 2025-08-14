@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to consider a candidate for a job
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `AshbyCreateApplicationResponse`
-- **Input Model:** `AshbyCreateCandidateInput`
+- **Model:** `ActionOutput_ashby_createapplication`
+- **Input Model:** `ActionInput_ashby_createapplication`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-application.ts)
 
 
@@ -30,10 +29,10 @@ _No request parameters_
 {
   "candidateId": "<string>",
   "jobId": "<string>",
-  "interviewPlanId": "<string | undefined>",
-  "interviewStageId": "<string | undefined>",
-  "sourceId": "<string | undefined>",
-  "creditedToUserId": "<string | undefined>"
+  "interviewPlanId": "<string>",
+  "interviewStageId": "<string>",
+  "sourceId": "<string>",
+  "creditedToUserId": "<string>"
 }
 ```
 
@@ -42,12 +41,10 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "createdAt": "<date>",
-  "updatedAt": "<date>",
+  "createdAt": "<Date>",
+  "updatedAt": "<Date>",
   "status": "<string>",
-  "customFields": [
-    "<string>"
-  ],
+  "customFields": "<string[]>",
   "candidate": {
     "id": "<string>",
     "name": "<string>",
@@ -98,11 +95,9 @@ _No request parameters_
     "email": "<string>",
     "globalRole": "<string>",
     "isEnabled": "<boolean>",
-    "updatedAt": "<date>"
+    "updatedAt": "<Date>"
   },
-  "hiringTeam": [
-    "<string>"
-  ],
+  "hiringTeam": "<string[]>",
   "appliedViaJobPostingId": "<string>"
 }
 ```

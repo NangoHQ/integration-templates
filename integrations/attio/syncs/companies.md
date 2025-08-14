@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all company records from Attio
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Companies
 - **Scopes:** `record_permission:read, object_configuration:read`
 - **Endpoint Type:** Sync
@@ -39,18 +38,42 @@ _No request body_
   "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
-  "name?": "<string | undefined>",
-  "domains?": "<AttioDomain[] | undefined>",
-  "description?": "<string | undefined>",
-  "team_member_ids?": "<string[] | undefined>",
-  "location?": "<AttioCompanyLocation | undefined>",
-  "categories?": "<string[] | undefined>",
-  "logo_url?": "<string | undefined>",
-  "twitter_follower_count?": "<number | undefined>",
-  "foundation_date?": "<string | undefined>",
-  "estimated_arr_usd?": "<number | undefined>",
-  "social_links?": "<AttioSocialLink | undefined>"
+  "name?": "<string>",
+  "domains?": [
+    {
+      "domain": "<string>",
+      "root_domain": "<string>"
+    }
+  ],
+  "description?": "<string>",
+  "team_member_ids?": "<string[]>",
+  "location?": {
+    "country_code?": "<string>",
+    "line_1?": "<string | null>",
+    "line_2?": "<string | null>",
+    "city?": "<string>",
+    "state?": "<string>",
+    "postal_code?": "<string>"
+  },
+  "categories?": "<string[]>",
+  "logo_url?": "<string>",
+  "twitter_follower_count?": "<number>",
+  "foundation_date?": "<string>",
+  "estimated_arr_usd?": "<number>",
+  "social_links?": {
+    "linkedin?": "<string[]>",
+    "twitter?": "<string[]>",
+    "facebook?": "<string[]>",
+    "instagram?": "<string[]>",
+    "angellist?": "<string[]>"
+  }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -36,8 +36,14 @@ _No request body_
 {
   "id": "<string>",
   "name": "<string>",
-  "permissionLevel": "<none | read | comment | edit | create>"
+  "permissionLevel": "<enum: 'none' | 'read' | 'comment' | 'edit' | 'create'>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

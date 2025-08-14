@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `UploadResumeResponse`
-- **Input Model:** `UploadResumeInput`
+- **Model:** `ActionOutput_gem_uploadresume`
+- **Input Model:** `ActionInput_gem_uploadresume`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/upload-resume.ts)
 
 

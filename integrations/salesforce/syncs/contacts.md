@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of contacts from salesforce
-
-- **Version:** 1.0.4
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
@@ -49,6 +48,12 @@ _No request body_
   "title": "<string | null>",
   "last_modified_date": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

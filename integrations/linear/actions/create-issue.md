@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create an issue in Linear
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Issues
 - **Scopes:** `issues:create`
 - **Endpoint Type:** Action
-- **Model:** `LinearIssue`
-- **Input Model:** `CreateIssue`
+- **Model:** `ActionOutput_linear_createissue`
+- **Input Model:** `ActionInput_linear_createissue`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/create-issue.ts)
 
 

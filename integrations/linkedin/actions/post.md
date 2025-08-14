@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a linkedin post with an optional video
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `openid, profile, r_basicprofile, w_member_social, email, w_organization_social, r_organization_social`
 - **Endpoint Type:** Action
-- **Model:** `CreateLinkedInPostWithVideoResponse`
-- **Input Model:** `LinkedinVideoPost`
+- **Model:** `ActionOutput_linkedin_post`
+- **Input Model:** `ActionInput_linkedin_post`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linkedin/actions/post.ts)
 
 

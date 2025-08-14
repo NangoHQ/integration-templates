@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Lists all the files of a Github repo given a specific branch
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Sync
@@ -38,7 +37,7 @@ _No request body_
   "id": "<string>",
   "name": "<string>",
   "url": "<string>",
-  "last_modified_date": "<date>"
+  "last_modified_date": "<Date>"
 }
 ```
 

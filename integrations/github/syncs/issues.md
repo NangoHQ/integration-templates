@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches Github issues from all a user's repositories
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `public_repo`
 - **Endpoint Type:** Sync
@@ -35,7 +34,7 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "owner": "<string>",
   "repo": "<string>",
   "issue_number": "<number>",
@@ -43,10 +42,16 @@ _No request body_
   "author": "<string>",
   "author_id": "<string>",
   "state": "<string>",
-  "date_created": "<date>",
-  "date_last_modified": "<date>",
+  "date_created": "<Date>",
+  "date_last_modified": "<Date>",
   "body": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

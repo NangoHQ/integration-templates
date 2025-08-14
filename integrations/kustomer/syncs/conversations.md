@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Retrieves a paginated list of conversations for the organization
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `org.user.conversation.read, org.permission.conversation.read`
 - **Endpoint Type:** Sync
@@ -37,10 +36,16 @@ _No request body_
 {
   "type": "<string>",
   "id": "<string>",
-  "attributes": "<object>",
-  "relationships": "<object>",
-  "links": "<object>"
+  "attributes": {},
+  "relationships": {},
+  "links": {}
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

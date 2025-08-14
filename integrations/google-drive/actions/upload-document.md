@@ -6,13 +6,12 @@
 - **Description:** Uploads a file to Google Drive. The file is uploaded to the root directory
 of the authenticated user's Google Drive account. If a folder ID is provided,
 the file is uploaded to the specified folder.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata`
 - **Endpoint Type:** Action
-- **Model:** `GoogleDocument`
-- **Input Model:** `UploadFileInput`
+- **Model:** `ActionOutput_google_drive_uploaddocument`
+- **Input Model:** `ActionInput_google_drive_uploaddocument`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/upload-document.ts)
 
 
@@ -33,9 +32,9 @@ _No request parameters_
   "content": "<string>",
   "name": "<string>",
   "mimeType": "<string>",
-  "folderId?": "<string | undefined>",
-  "description?": "<string | undefined>",
-  "isBase64?": "<boolean | undefined>"
+  "folderId?": "<string>",
+  "description?": "<string>",
+  "isBase64?": "<boolean>"
 }
 ```
 
@@ -46,9 +45,7 @@ _No request parameters_
   "id": "<string>",
   "name": "<string>",
   "mimeType": "<string>",
-  "parents?": [
-    "<string>"
-  ],
+  "parents": "<string[]>",
   "modifiedTime?": "<string>",
   "createdTime?": "<string>",
   "webViewLink?": "<string>",

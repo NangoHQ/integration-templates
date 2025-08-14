@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to update an invoice in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `UpdateInvoice`
+- **Model:** `ActionOutput_pennylane_updateinvoice`
+- **Input Model:** `ActionInput_pennylane_updateinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/update-invoice.ts)
 
 
@@ -52,11 +51,11 @@ _No request parameters_
   "file_url?": "<string | null>",
   "filename?": "<string>",
   "remaining_amount?": "<string>",
-  "source?": "<InvoiceSource>",
+  "source?": "<string>",
   "special_mention?": "<string | null>",
   "updated_at?": "<string>",
-  "imputation_dates?": "<ImputationDateObject | null>",
-  "customer?": {
+  "imputation_dates?": "<{\"start_date\":\"<string>\",\"end_date\":\"<string>\"} | <null>>",
+  "customer": {
     "customer_type?": "<string>",
     "first_name": "<string>",
     "last_name": "<string>",
@@ -66,11 +65,9 @@ _No request parameters_
     "postal_code?": "<string>",
     "city?": "<string>",
     "source_id?": "<string>",
-    "emails?": [
-      "<string>"
-    ],
+    "emails?": "<string[]>",
     "billing_iban?": "<string>",
-    "delivery_address?": "<string | DeliveryAddressObject>",
+    "delivery_address?": "<<string> | {\"address?\":\"<string>\",\"postal_code?\":\"<string | null>\",\"city?\":\"<string | null>\",\"country_alpha2?\":\"<string | null>\"}>",
     "vat_number?": "<string | null>",
     "delivery_postal_code?": "<string>",
     "delivery_city?": "<string>",
@@ -92,14 +89,14 @@ _No request parameters_
       "description?": "<string>"
     }
   },
-  "line_items_sections_attributes?": [
+  "line_items_sections_attributes": [
     {
       "title?": "<string | null>",
       "description?": "<string | null>",
       "rank": "<number>"
     }
   ],
-  "line_items?": [
+  "line_items": [
     {
       "id?": "<number>",
       "label?": "<string>",
@@ -120,41 +117,41 @@ _No request parameters_
       "product_v2_id?": "<number | null>"
     }
   ],
-  "categories?": [
+  "categories": [
     {
       "source_id": "<string>",
       "weight": "<string>",
       "label": "<string>",
       "direction": "<string | null>",
-      "created_at": "<date | string>",
-      "updated_at": "<date | string>"
+      "created_at": "<<Date> | <string>>",
+      "updated_at": "<<Date> | <string>>"
     }
   ],
-  "transactions_reference?": {
+  "transactions_reference": {
     "banking_provider": "<string | null>",
     "provider_field_name": "<string | null>",
     "provider_field_value": "<string | null>"
   },
-  "payments?": [
+  "payments": [
     {
       "label": "<string>",
-      "created_at": "<date | string>",
+      "created_at": "<<Date> | <string>>",
       "currency_amount": "<string>"
     }
   ],
-  "matched_transactions?": [
+  "matched_transactions": [
     {
       "label": "<string | null>",
       "amount": "<string | null>",
       "group_uuid": "<string | null>",
-      "date": "<date | null>",
+      "date": "<<Date> | <null>>",
       "fee": "<string | null>",
       "currency": "<string>"
     }
   ],
   "pdf_invoice_free_text?": "<string>",
   "pdf_invoice_subject?": "<string>",
-  "billing_subscription?": "<BillingSubscriptionObject | null>"
+  "billing_subscription?": "<{\"id\":\"<string | null>\"} | <null>>"
 }
 ```
 

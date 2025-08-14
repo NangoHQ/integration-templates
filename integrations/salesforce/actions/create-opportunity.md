@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a single opportunity in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `ActionResponse`
-- **Input Model:** `CreateOpportunityInput`
+- **Model:** `ActionOutput_salesforce_createopportunity`
+- **Input Model:** `ActionInput_salesforce_createopportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/create-opportunity.ts)
 
 
@@ -27,13 +27,13 @@ _No request parameters_
 
 ```json
 {
-  "account_id?": "<string | undefined>",
-  "amount?": "<number | undefined>",
-  "description?": "<string | undefined>",
-  "created_by_id?": "<string | undefined>",
-  "owner_id?": "<string | undefined>",
-  "probability?": "<number | undefined>",
-  "type?": "<string | undefined>",
+  "account_id?": "<string>",
+  "amount?": "<number>",
+  "description?": "<string>",
+  "created_by_id?": "<string>",
+  "owner_id?": "<string>",
+  "probability?": "<number>",
+  "type?": "<string>",
   "opportunity_name": "<string>",
   "close_date": "<string>",
   "stage": "<string>"
@@ -46,7 +46,7 @@ _No request parameters_
 {
   "id": "<string>",
   "success": "<boolean>",
-  "errors": "<array>"
+  "errors": "<unknown[]>"
 }
 ```
 

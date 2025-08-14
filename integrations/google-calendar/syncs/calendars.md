@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Sync the calendars list of the user
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Calendars
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
@@ -49,28 +48,32 @@ _No request body_
   "hidden": "<boolean>",
   "selected": "<boolean>",
   "accessRole": "<string>",
-  "defaultReminders": {
-    "0": {
+  "defaultReminders": [
+    {
       "method": "<string>",
-      "minutes": "<integer>"
+      "minutes": "<number>"
     }
-  },
+  ],
   "notificationSettings": {
-    "notifications": {
-      "0": {
+    "notifications": [
+      {
         "type": "<string>",
         "method": "<string>"
       }
-    }
+    ]
   },
   "primary": "<boolean>",
   "deleted": "<boolean>",
   "conferenceProperties": {
-    "allowedConferenceSolutionTypes": {
-      "0": "<string>"
-    }
+    "allowedConferenceSolutionTypes": "<string[]>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

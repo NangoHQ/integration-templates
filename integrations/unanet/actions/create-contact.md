@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a contact in the system
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Contact`
-- **Input Model:** `Contact`
+- **Model:** `ActionOutput_unanet_createcontact`
+- **Input Model:** `ActionInput_unanet_createcontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-contact.ts)
 
 

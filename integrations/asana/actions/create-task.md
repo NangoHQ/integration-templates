@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Task`
-- **Input Model:** `CreateAsanaTask`
+- **Model:** `ActionOutput_asana_createtask`
+- **Input Model:** `ActionInput_asana_createtask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/create-task.ts)
 
 
@@ -29,9 +28,9 @@ _No request parameters_
 ```json
 {
   "name": "<string>",
-  "workspace": "<string | undefined>",
-  "parent": "<string | undefined>",
-  "projects": "<string[] | undefined>"
+  "workspace": "<string>",
+  "parent": "<string>",
+  "projects": "<string[]>"
 }
 ```
 
@@ -46,7 +45,7 @@ _No request parameters_
   "url": "<string>",
   "status": "<string>",
   "description": "<string | null>",
-  "assignee": "<User | null>",
+  "assignee": "<{\"created_at\":\"<string | null>\",\"modified_at\":\"<string | null>\",\"id\":\"<string>\",\"name\":\"<string>\",\"email\":\"<string | null>\",\"avatar_url\":\"<string | null>\"} | <null>>",
   "due_date": "<string | null>"
 }
 ```

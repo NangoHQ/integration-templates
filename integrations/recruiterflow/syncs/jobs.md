@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all jobs from RecruiterFlow
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,17 +34,17 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "title": "<string>",
-  "apply_link?": "<string | undefined>",
-  "company_name?": "<string | undefined>",
-  "company_logo_link?": "<string | undefined | null>",
+  "apply_link?": "<string>",
+  "company_name?": "<string>",
+  "company_logo_link?": "<string | null>",
   "locations": [
     {
-      "id?": "<number | undefined>",
-      "name?": "<string | undefined>",
-      "city?": "<string | undefined>",
-      "country?": "<string | undefined>"
+      "id?": "<number>",
+      "name?": "<string>",
+      "city?": "<string>",
+      "country?": "<string>"
     }
   ],
   "department": "<string>",
@@ -55,32 +55,40 @@ _No request body_
   "is_open": "<boolean>",
   "job_status_name": "<string | null>",
   "number_of_openings": "<number>",
-  "salary_range_end?": "<number | undefined | null>",
-  "salary_range_start?": "<number | undefined | null>",
-  "salary_range_currency?": "<string | undefined>",
-  "salary_frequency?": "<string | undefined | null>",
-  "pay_rate_number?": "<string | undefined>",
-  "pay_rate_currency?": "<string | undefined>",
-  "pay_rate_frequency_display_name?": "<string | undefined>",
-  "bill_rate_number?": "<string | undefined>",
-  "bill_rate_currency?": "<string | undefined>",
-  "bill_rate_frequency_display_name?": "<string | undefined>",
-  "contract_start_date?": "<string | undefined | null>",
-  "contract_end_date?": "<string | undefined | null>",
-  "work_quantum_number?": "<string | undefined>",
-  "work_quantum_unit_display_name?": "<string | undefined>",
-  "work_quantum_frequency_display_name?": "<string | undefined>",
-  "work_quantum_is_full_time?": "<boolean | undefined>",
-  "expected_salary_number?": "<number | undefined>",
-  "expected_salary_currency?": "<string | undefined>",
-  "expected_fee_number?": "<number | undefined>",
-  "expected_fee_currency?": "<string | undefined>",
-  "commission_rate?": "<number | undefined | null>",
-  "expected_start_date?": "<string | undefined>",
-  "expected_end_date?": "<string | undefined>",
-  "custom_fields?": "<RecruiterFlowCustomFields[] | undefined>",
-  "files_links?": "<string[] | undefined>"
+  "salary_range_end?": "<number | null>",
+  "salary_range_start?": "<number | null>",
+  "salary_range_currency?": "<string>",
+  "salary_frequency?": "<string | null>",
+  "pay_rate_number?": "<string>",
+  "pay_rate_currency?": "<string>",
+  "pay_rate_frequency_display_name?": "<string>",
+  "bill_rate_number?": "<string>",
+  "bill_rate_currency?": "<string>",
+  "bill_rate_frequency_display_name?": "<string>",
+  "contract_start_date?": "<string | null>",
+  "contract_end_date?": "<string | null>",
+  "work_quantum_number?": "<string>",
+  "work_quantum_unit_display_name?": "<string>",
+  "work_quantum_frequency_display_name?": "<string>",
+  "work_quantum_is_full_time?": "<boolean>",
+  "expected_salary_number?": "<number>",
+  "expected_salary_currency?": "<string>",
+  "expected_fee_number?": "<number>",
+  "expected_fee_currency?": "<string>",
+  "commission_rate?": "<number | null>",
+  "expected_start_date?": "<string>",
+  "expected_end_date?": "<string>",
+  "custom_fields?": [
+    {}
+  ],
+  "files_links?": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

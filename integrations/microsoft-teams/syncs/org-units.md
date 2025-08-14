@@ -7,8 +7,7 @@
 Directory.
 Details: full refresh, support deletes, goes back all time, metadata
 is not required.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Org Units
 - **Scopes:** `GroupMember.Read.All`
 - **Endpoint Type:** Sync
@@ -47,6 +46,12 @@ _No request body_
   "parentPath": "<string | null>",
   "parentId": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

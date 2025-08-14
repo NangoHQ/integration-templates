@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** This sync captures all LinkedIn messages for a Linkedin member for archiving purposes
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** messages
 - **Scopes:** `r_dma_portability_3rd_party`
 - **Endpoint Type:** Sync
@@ -35,7 +34,7 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "resourceId": "<string>",
   "method": "<string>",
   "owner": "<string>",
@@ -50,39 +49,35 @@ _No request body_
   "isDeleted": "<boolean>",
   "configVersion": "<number | null>",
   "methodName?": "<string>",
-  "processedActivity?": "<any>",
+  "processedActivity?": "<unknown>",
   "deletedAt?": "<number>",
   "activityData?": {
     "actor": "<string>",
     "createdAt": "<number>",
-    "attachments": [
-      "<string>"
-    ],
+    "attachments": "<string[]>",
     "author": "<string>",
-    "messageContexts": [
-      "<any>"
-    ],
+    "messageContexts": "<unknown[]>",
     "thread": "<string>",
     "message?": "<string>",
     "version?": "<number>",
     "contentCertificationToken?": "<string>",
-    "extensionContent?": "<any>"
+    "extensionContent?": "<unknown>"
   },
-  "content?": "<LinkedInMessageContent | null>",
+  "content?": "<{\"format\":\"<string>\",\"fallback\":\"<string>\",\"formatVersion\":\"<number>\",\"content?\":{\"string?\":\"<string>\"}} | <null>>",
   "deliveredAt?": "<number>",
   "mailbox?": "<string>",
-  "contentClassification?": "<ContentClassification | null>",
-  "attachments?": [
-    "<string>"
-  ],
-  "contentUrns?": [
-    "<string>"
-  ],
-  "extensionContent?": "<any>",
-  "messageContexts?": [
-    "<string>"
-  ]
+  "contentClassification?": "<{\"classification\":\"<string>\"} | <null>>",
+  "attachments?": "<string[]>",
+  "contentUrns?": "<string[]>",
+  "extensionContent?": "<unknown>",
+  "messageContexts?": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

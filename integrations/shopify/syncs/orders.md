@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of orders from Shopify.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Orders
 - **Scopes:** `read_customers, read_orders`
 - **Endpoint Type:** Sync
@@ -48,7 +47,7 @@ _No request body_
   "closed": "<boolean>",
   "closed_at": "<string | null>",
   "fully_paid": "<boolean>",
-  "customer": "<Customer | null>",
+  "customer": "<{\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"display_name\":\"<string>\",\"email\":\"<string | null>\",\"phone\":\"<string | null>\"} | <null>>",
   "total_price_set": {
     "amount": "<string>",
     "currency_code": "<string>"
@@ -61,10 +60,10 @@ _No request body_
     "amount": "<string>",
     "currency_code": "<string>"
   },
-  "shipping_address": "<Address | null>",
-  "billing_address": "<Address | null>",
-  "line_item": {
-    "0": {
+  "shipping_address": "<{\"address1\":\"<string>\",\"address2\":\"<string | null>\",\"city\":\"<string>\",\"country\":\"<string>\",\"province\":\"<string | null>\",\"zip\":\"<string | null>\"} | <null>>",
+  "billing_address": "<{\"address1\":\"<string>\",\"address2\":\"<string | null>\",\"city\":\"<string>\",\"country\":\"<string>\",\"province\":\"<string | null>\",\"zip\":\"<string | null>\"} | <null>>",
+  "line_item": [
+    {
       "id": "<string>",
       "name": "<string>",
       "quantity": "<number>",
@@ -77,8 +76,14 @@ _No request body_
         "currency_code": "<string>"
       }
     }
-  }
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

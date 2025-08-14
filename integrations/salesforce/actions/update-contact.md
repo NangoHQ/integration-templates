@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a single contact in salesforce
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `UpdateContactInput`
+- **Model:** `ActionOutput_salesforce_updatecontact`
+- **Input Model:** `ActionInput_salesforce_updatecontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-contact.ts)
 
 
@@ -27,7 +27,16 @@ _No request parameters_
 
 ```json
 {
-  "last_name?": "<string | undefined>"
+  "first_name?": "<string>",
+  "account_id?": "<string>",
+  "owner_id?": "<string>",
+  "email?": "<string>",
+  "mobile?": "<string>",
+  "phone?": "<string>",
+  "salutation?": "<string>",
+  "title?": "<string>",
+  "id": "<string>",
+  "last_name?": "<string>"
 }
 ```
 

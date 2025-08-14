@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Sync
@@ -46,8 +45,8 @@ _No request body_
 
 ```json
 {
-  "files": "<string[] | undefined>",
-  "folders": "<string[] | undefined>"
+  "files": "<string[]>",
+  "folders": "<string[]>"
 }
 ```
 

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from hackerrank work
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -52,16 +51,20 @@ _No request body_
   "shared_tests_permission": "<number>",
   "shared_interviews_permission": "<number>",
   "shared_candidates_permission": "<number>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "company_admin": "<boolean>",
   "team_admin": "<boolean>",
   "company_id": "<string>",
-  "teams": [
-    "<any>"
-  ],
+  "teams": "<unknown[]>",
   "activated": "<boolean>",
-  "last_activity_time": "<date>"
+  "last_activity_time": "<Date>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

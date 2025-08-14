@@ -5,13 +5,12 @@
 
 - **Description:** Write content to a particular github file within a repo. If
 the file doesn't exist it creates and then writes to it
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Action
-- **Model:** `GithubWriteFileActionResult`
-- **Input Model:** `GithubWriteFileInput`
+- **Model:** `ActionOutput_github_writefile`
+- **Input Model:** `ActionInput_github_writefile`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/write-file.ts)
 
 
@@ -34,7 +33,7 @@ _No request parameters_
   "path": "<string>",
   "message": "<string>",
   "content": "<string>",
-  "sha": "<string | undefined>"
+  "sha": "<string>"
 }
 ```
 

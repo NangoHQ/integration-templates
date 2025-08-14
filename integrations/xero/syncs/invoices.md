@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all invoices in Xero. Incremental sync.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
@@ -35,7 +34,7 @@ _No request body_
 
 ```json
 {
-  "type": "<ACCPAY | ACCREC>",
+  "type": "<enum: 'ACCPAY' | 'ACCREC'>",
   "external_contact_id": "<string>",
   "url?": "<string>",
   "id": "<string>",
@@ -61,6 +60,12 @@ _No request body_
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

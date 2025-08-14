@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a new topic in discourse
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Topic`
-- **Input Model:** `CreateTopic`
+- **Model:** `ActionOutput_discourse_createtopic`
+- **Input Model:** `ActionInput_discourse_createtopic`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/create-topic.ts)
 
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Action
-- **Model:** `SearchTicketOutput`
-- **Input Model:** `SearchTicketInput`
+- **Model:** `ActionOutput_zendesk_searchtickets`
+- **Input Model:** `ActionInput_zendesk_searchtickets`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/search-tickets.ts)
 
 
@@ -53,9 +52,7 @@ _No request parameters_
       "subject": "<string | null>",
       "description": "<string>",
       "priority": "<string | null>",
-      "tags": [
-        "<string>"
-      ]
+      "tags": "<string[]>"
     }
   ]
 }

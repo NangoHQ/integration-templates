@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Metabase.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_metabase_createuser`
+- **Input Model:** `ActionInput_metabase_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/actions/create-user.ts)
 
 
@@ -37,7 +37,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",

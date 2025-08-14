@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetches a list of call transcripts from Gong
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Action
-- **Model:** `GongCallTranscriptOutput`
-- **Input Model:** `GongCallTranscriptInput`
+- **Model:** `ActionOutput_gong_fetchcalltranscripts`
+- **Input Model:** `ActionInput_gong_fetchcalltranscripts`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/actions/fetch-call-transcripts.ts)
 
 
@@ -28,11 +27,11 @@ _No request parameters_
 
 ```json
 {
-  "from?": "<string | undefined>",
-  "to?": "<string | undefined>",
-  "workspace_id?": "<string | undefined>",
-  "call_id?": "<string[] | undefined>",
-  "cursor?": "<string | undefined>"
+  "from?": "<string>",
+  "to?": "<string>",
+  "workspace_id?": "<string>",
+  "call_id?": "<string[]>",
+  "cursor?": "<string>"
 }
 ```
 
@@ -40,23 +39,23 @@ _No request parameters_
 
 ```json
 {
-  "next_cursor?": "<string | undefined>",
+  "next_cursor?": "<string>",
   "transcript": [
     {
       "call_id": "<string>",
-      "transcript": {
-        "0": {
+      "transcript": [
+        {
           "speaker_id": "<string>",
           "topic": "<string | null>",
-          "sentences": {
-            "0": {
+          "sentences": [
+            {
               "start": "<number>",
               "end": "<number>",
               "text": "<string>"
             }
-          }
+          ]
         }
-      }
+      ]
     }
   ]
 }

@@ -38,10 +38,10 @@ _No request body_
 {
   "id": "<string>",
   "sender": "<string>",
-  "recipients": "<string>",
+  "recipients?": "<string>",
   "date": "<string>",
   "subject": "<string>",
-  "body": "<string>",
+  "body?": "<string>",
   "attachments": [
     {
       "filename": "<string>",

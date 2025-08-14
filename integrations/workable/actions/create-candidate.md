@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a candidate at the specified job
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** `w_candidates`
 - **Endpoint Type:** Action
-- **Model:** `WorkableCreateCandidateResponse`
-- **Input Model:** `WorkableCreateCandidateInput`
+- **Model:** `ActionOutput_workable_createcandidate`
+- **Input Model:** `ActionInput_workable_createcandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)
 
 
@@ -34,23 +33,61 @@ _No request parameters_
     "firstname": "<string>",
     "lastname": "<string>",
     "email": "<string>",
-    "headline": "<string | undefined>",
-    "summary": "<string | undefined>",
-    "address": "<string | undefined>",
-    "phone": "<string | undefined>",
-    "cover_letter": "<string | undefined>",
-    "education_entries": "<EducationEntry[] | undefined>",
-    "experience_entries": "<ExperienceEntry[] | undefined>",
-    "answers": "<Answer[] | undefined>",
-    "skills": "<string[] | undefined>",
-    "tags": "<string[] | undefined>",
-    "disqualified": "<boolean | undefined>",
-    "disqualification_reason": "<string | undefined>",
-    "disqualified_at": "<string | undefined>",
-    "social_profiles": "<SocialProfile[] | undefined>"
+    "headline": "<string>",
+    "summary": "<string>",
+    "address": "<string>",
+    "phone": "<string>",
+    "cover_letter": "<string>",
+    "education_entries": [
+      {
+        "school": "<string>",
+        "degree": "<string>",
+        "field_of_study": "<string>",
+        "start_date": "<string>",
+        "end_date": "<string>"
+      }
+    ],
+    "experience_entries": [
+      {
+        "title": "<string>",
+        "summary": "<string>",
+        "start_date": "<string>",
+        "end_date": "<string>",
+        "current": "<boolean>",
+        "company": "<string>",
+        "industry": "<string>"
+      }
+    ],
+    "answers": [
+      {
+        "question_key": "<string>",
+        "body": "<string>",
+        "choices": "<string[]>",
+        "checked": "<boolean>",
+        "date": "<string>",
+        "number": "<number>",
+        "file": {
+          "name": "<string>",
+          "data": "<string>"
+        }
+      }
+    ],
+    "skills": "<string[]>",
+    "tags": "<string[]>",
+    "disqualified": "<boolean>",
+    "disqualification_reason": "<string>",
+    "disqualified_at": "<string>",
+    "social_profiles": [
+      {
+        "type": "<string>",
+        "name": "<string>",
+        "username": "<string>",
+        "url": "<string>"
+      }
+    ]
   },
-  "domain": "<string | undefined>",
-  "recruiter_key": "<string | undefined>"
+  "domain": "<string>",
+  "recruiter_key": "<string>"
 }
 ```
 
@@ -76,36 +113,26 @@ _No request parameters_
     "stage": "<string>",
     "disqualified": "<boolean>",
     "disqualification_reason": "<string>",
-    "hired_at": "<date>",
+    "hired_at": "<Date>",
     "sourced": "<boolean>",
     "profile_url": "<string>",
     "address": "<string>",
     "phone": "<string>",
     "email": "<string>",
     "domain": "<string>",
-    "created_at": "<date>",
-    "updated_at": "<date>",
+    "created_at": "<Date>",
+    "updated_at": "<Date>",
     "image_url": "<string>",
     "outbound_mailbox": "<string>",
     "uploader_id": "<string>",
     "cover_letter": "<string>",
     "summary": "<string>",
-    "education_entries": [
-      "<any>"
-    ],
-    "experience_entries": [
-      "<any>"
-    ],
-    "skills": [
-      "<any>"
-    ],
-    "answers": [
-      "<any>"
-    ],
+    "education_entries": "<unknown[]>",
+    "experience_entries": "<unknown[]>",
+    "skills": "<unknown[]>",
+    "answers": "<unknown[]>",
     "resume_url": "<string>",
-    "tags": [
-      "<any>"
-    ],
+    "tags": "<unknown[]>",
     "location": {
       "location_str": "<string>",
       "country": "<string>",

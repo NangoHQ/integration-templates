@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of contacts from Intercom
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -47,6 +46,12 @@ _No request body_
   "last_seen_at": "<string | null>",
   "last_replied_at": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

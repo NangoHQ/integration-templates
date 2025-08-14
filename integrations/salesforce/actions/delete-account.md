@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Delete a single account in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_salesforce_deleteaccount`
+- **Input Model:** `ActionInput_salesforce_deleteaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/delete-account.ts)
 
 

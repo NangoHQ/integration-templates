@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in RingCentral
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `RingCentralCreateUser`
+- **Model:** `ActionOutput_ring_central_createuser`
+- **Input Model:** `ActionInput_ring_central_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/create-user.ts)
 
 
@@ -32,21 +32,21 @@ _No request parameters_
   "email": "<string>",
   "active?": "<boolean>",
   "externalId?": "<string>",
-  "phoneNumbers?": [
+  "phoneNumbers": [
     {
-      "type": "<work | mobile | other>",
+      "type": "<enum: 'work' | 'mobile' | 'other'>",
       "value": "<string>"
     }
   ],
-  "photos?": [
+  "photos": [
     {
-      "type": "<photo>",
+      "type": "<string>",
       "value": "<string>"
     }
   ],
-  "addresses?": [
+  "addresses": [
     {
-      "type": "<work>",
+      "type": "<string>",
       "streetAddress?": "<string>",
       "locality?": "<string>",
       "region?": "<string>",

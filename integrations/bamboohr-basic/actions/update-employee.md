@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update an existing employee in the system
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BamboohrResponseStatus`
-- **Input Model:** `BamboohrUpdateEmployee`
+- **Model:** `ActionOutput_bamboohr_basic_updateemployee`
+- **Input Model:** `ActionInput_bamboohr_basic_updateemployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/actions/update-employee.ts)
 
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
-- **Model:** `ContactActionResponse`
-- **Input Model:** `Contact[]`
+- **Model:** `ActionOutput_xero_updatecontact`
+- **Input Model:** `ActionInput_xero_updatecontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-contact.ts)
 
 
@@ -28,23 +27,21 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "name": "<string>",
-      "id": "<string>",
-      "external_id": "<string | null>",
-      "email": "<string | null>",
-      "tax_number": "<string | null>",
-      "address_line_1?": "<string | null>",
-      "address_line_2?": "<string | null>",
-      "city": "<string | null>",
-      "zip": "<string | null>",
-      "country": "<string | null>",
-      "state": "<string | null>",
-      "phone": "<string | null>",
-      "subsidiary?": "<string | null>"
-    }
-  ]
+  "0": {
+    "name": "<string>",
+    "id": "<string>",
+    "external_id": "<string | null>",
+    "email": "<string | null>",
+    "tax_number": "<string | null>",
+    "address_line_1?": "<string | null>",
+    "address_line_2?": "<string | null>",
+    "city": "<string | null>",
+    "zip": "<string | null>",
+    "country": "<string | null>",
+    "state": "<string | null>",
+    "phone": "<string | null>",
+    "subsidiary?": "<string | null>"
+  }
 }
 ```
 
@@ -71,6 +68,7 @@ _No request parameters_
   ],
   "failedContacts": [
     {
+      "name": "<string>",
       "id": "<string>",
       "external_id": "<string | null>",
       "email": "<string | null>",
@@ -83,9 +81,7 @@ _No request parameters_
       "state": "<string | null>",
       "phone": "<string | null>",
       "subsidiary?": "<string | null>",
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

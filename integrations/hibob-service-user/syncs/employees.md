@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all active employees
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -40,10 +39,60 @@ _No request body_
   "surname": "<string>",
   "email": "<string>",
   "displayName": "<string>",
-  "work?": "<HibobWork | undefined>",
-  "personal?": "<HibobPersonal | undefined>",
-  "about?": "<HibobAbout | undefined>"
+  "work?": {
+    "title?": "<string>",
+    "department?": {
+      "id": "<string>",
+      "name": "<string>"
+    },
+    "employmentType?": "<string>",
+    "status?": "<string>",
+    "startDate?": "<string>",
+    "terminationDate?": "<string>",
+    "reportsTo?": {
+      "id": "<string>",
+      "firstName": "<string>",
+      "surname": "<string>",
+      "email": "<string>"
+    },
+    "site?": "<string>",
+    "siteType?": "<string>",
+    "address?": {
+      "street": "<string>",
+      "city": "<string>",
+      "state": "<string>",
+      "country": "<string>",
+      "postalCode": "<string>"
+    },
+    "customFields?": {}
+  },
+  "personal?": {
+    "addresses?": [
+      {
+        "street": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "country": "<string>",
+        "postalCode": "<string>",
+        "type": "<string>"
+      }
+    ],
+    "workPhone?": "<string>",
+    "homePhone?": "<string>",
+    "mobilePhone?": "<string>",
+    "email?": "<string>"
+  },
+  "about?": {
+    "createdAt?": "<string>",
+    "updatedAt?": "<string>"
+  }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

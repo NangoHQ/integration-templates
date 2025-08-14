@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Calendly
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `admin`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_calendly_deleteuser`
+- **Input Model:** `ActionInput_calendly_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/calendly/actions/delete-user.ts)
 
 

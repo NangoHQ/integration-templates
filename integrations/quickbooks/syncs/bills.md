@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks bills
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Bills
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -44,20 +43,26 @@ _No request body_
   "txn_date": "<string>",
   "currency": "<string>",
   "vendor_id": "<string>",
-  "vendor_name?": "<string | undefined>",
-  "ap_account_id?": "<string | undefined>",
-  "ap_account_name?": "<string | undefined>",
+  "vendor_name?": "<string>",
+  "ap_account_id?": "<string>",
+  "ap_account_name?": "<string>",
   "total_amount": "<number>",
   "lines": [
     {
       "id": "<string>",
       "detail_type": "<string>",
       "amount": "<number>",
-      "account_id?": "<string | undefined>",
-      "account_name?": "<string | undefined>"
+      "account_id?": "<string>",
+      "account_name?": "<string>"
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

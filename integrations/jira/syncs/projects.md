@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of projects from Jira
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
@@ -41,6 +40,21 @@ _No request body_
   "url": "<string>",
   "projectTypeKey": "<string>",
   "webUrl": "<string>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "projectIdsToSync": [
+    {
+      "id": "<string>"
+    }
+  ],
+  "cloudId?": "<string>",
+  "baseUrl?": "<string>",
+  "timeZone?": "<string>"
 }
 ```
 

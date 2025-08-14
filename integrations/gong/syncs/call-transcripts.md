@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of call transcripts from Gong
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Sync
@@ -36,19 +35,19 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "transcript": {
-    "0": {
+  "transcript": [
+    {
       "speaker_id": "<string>",
       "topic": "<string | null>",
-      "sentences": {
-        "0": {
+      "sentences": [
+        {
           "start": "<number>",
           "end": "<number>",
           "text": "<string>"
         }
-      }
+      ]
     }
-  }
+  ]
 }
 ```
 
@@ -56,11 +55,9 @@ _No request body_
 
 ```json
 {
-  "backfillPeriodMs": "<number>",
-  "lastSyncBackfillPeriod": "<number>",
-  "callIds?": [
-    "<string>"
-  ],
+  "backfillPeriodMs?": "<number>",
+  "lastSyncBackfillPeriod?": "<number>",
+  "callIds?": "<string[]>",
   "workspaceId?": "<string>"
 }
 ```

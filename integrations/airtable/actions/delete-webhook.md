@@ -8,8 +8,8 @@
 - **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `DeleteWebhook`
+- **Model:** `ActionOutput_airtable_deletewebhook`
+- **Input Model:** `ActionInput_airtable_deletewebhook`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/delete-webhook.ts)
 
 

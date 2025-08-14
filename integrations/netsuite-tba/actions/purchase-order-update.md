@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Updates an existing purchase order in Netsuite.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Purchase Orders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuitePurchaseOrderUpdateOutput`
-- **Input Model:** `NetsuitePurchaseOrderUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_purchaseorderupdate`
+- **Input Model:** `ActionInput_netsuite_tba_purchaseorderupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/purchase-order-update.ts)
 
 
@@ -34,7 +34,7 @@ _No request parameters_
   "status?": "<string>",
   "tranDate?": "<string>",
   "dueDate?": "<string>",
-  "lines?": [
+  "lines": [
     {
       "itemId": "<string>",
       "quantity": "<number>",
@@ -45,7 +45,7 @@ _No request parameters_
       "department?": "<string>",
       "class?": "<string>",
       "createWorkOrder?": "<boolean>",
-      "inventoryDetail?": "<InventoryDetail | null>"
+      "inventoryDetail?": "<{\"binNumber?\":\"<string>\",\"expirationDate?\":\"<string>\",\"quantity?\":\"<number>\",\"serialNumber?\":\"<string>\",\"toBinNumber?\":\"<string>\"} | <null>>"
     }
   ],
   "customForm?": "<string>",
@@ -53,9 +53,9 @@ _No request parameters_
   "subsidiary?": "<string>",
   "department?": "<string>",
   "class?": "<string>",
-  "billingAddress?": "<Address | null>",
-  "shippingAddress?": "<Address | null>",
-  "taxDetails?": "<TaxDetails | null>"
+  "billingAddress?": "<{\"addr1?\":\"<string>\",\"addr2?\":\"<string>\",\"addr3?\":\"<string>\",\"city?\":\"<string>\",\"state?\":\"<string>\",\"zip?\":\"<string>\",\"country?\":\"<string>\"} | <null>>",
+  "shippingAddress?": "<{\"addr1?\":\"<string>\",\"addr2?\":\"<string>\",\"addr3?\":\"<string>\",\"city?\":\"<string>\",\"state?\":\"<string>\",\"zip?\":\"<string>\",\"country?\":\"<string>\"} | <null>>",
+  "taxDetails?": "<{\"taxCode?\":\"<string>\",\"taxRate?\":\"<number>\"} | <null>>"
 }
 ```
 

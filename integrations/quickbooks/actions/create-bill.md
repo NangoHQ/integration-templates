@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single bill in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Bills
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Bill`
-- **Input Model:** `CreateBill`
+- **Model:** `ActionOutput_quickbooks_createbill`
+- **Input Model:** `ActionInput_quickbooks_createbill`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-bill.ts)
 
 
@@ -30,14 +29,14 @@ _No request parameters_
 {
   "currency": "<string>",
   "vendor_id": "<string>",
-  "vendor_name?": "<string | undefined>",
+  "vendor_name?": "<string>",
   "line": [
     {
       "id": "<string>",
       "detail_type": "<string>",
       "amount": "<number>",
-      "account_id?": "<string | undefined>",
-      "account_name?": "<string | undefined>"
+      "account_id?": "<string>",
+      "account_name?": "<string>"
     }
   ]
 }
@@ -56,17 +55,17 @@ _No request parameters_
   "txn_date": "<string>",
   "currency": "<string>",
   "vendor_id": "<string>",
-  "vendor_name?": "<string | undefined>",
-  "ap_account_id?": "<string | undefined>",
-  "ap_account_name?": "<string | undefined>",
+  "vendor_name?": "<string>",
+  "ap_account_id?": "<string>",
+  "ap_account_name?": "<string>",
   "total_amount": "<number>",
   "lines": [
     {
       "id": "<string>",
       "detail_type": "<string>",
       "amount": "<number>",
-      "account_id?": "<string | undefined>",
-      "account_name?": "<string | undefined>"
+      "account_id?": "<string>",
+      "account_name?": "<string>"
     }
   ]
 }

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates a single invoice in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Invoices
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Invoice`
-- **Input Model:** `UpdateInvoice`
+- **Model:** `ActionOutput_quickbooks_updateinvoice`
+- **Input Model:** `ActionInput_quickbooks_updateinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-invoice.ts)
 
 
@@ -27,18 +26,53 @@ _No request parameters_
 ### Request Body
 
 ```json
-{}
+{
+  "customer_ref": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "line": [
+    {
+      "detail_type": "<string>",
+      "amount_cents": "<number>",
+      "sales_item_line_detail": {
+        "item_ref": {
+          "name?": "<string>",
+          "value": "<string>"
+        }
+      },
+      "quantity?": "<number>",
+      "unit_price_cents?": "<number>",
+      "discount_rate?": "<number>",
+      "description?": "<string>"
+    }
+  ],
+  "due_date?": "<string>",
+  "currency_ref": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "project_ref": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "id": "<string>",
+  "sync_token": "<string>",
+  "active?": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
 {
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<string>",
   "txn_date": "<string>",
   "balance_cents": "<number>",
   "total_amt_cents": "<number>",
-  "bill_address": "<BillAddr | null>",
+  "bill_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>",
   "items": [
     {
       "id": "<string>",

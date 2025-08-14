@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch a single full help center article
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Action
-- **Model:** `SingleArticleResponse`
-- **Input Model:** `ArticleInput`
+- **Model:** `ActionOutput_zendesk_fetcharticle`
+- **Input Model:** `ActionInput_zendesk_fetcharticle`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/fetch-article.ts)
 
 
@@ -37,7 +37,7 @@ _No request parameters_
 {
   "article": {
     "title": "<string>",
-    "id": "<number>",
+    "id": "<string>",
     "url": "<string>",
     "locale": "<string>",
     "user_segment_id": "<number | null>",
@@ -45,20 +45,14 @@ _No request parameters_
     "author_id": "<number>",
     "body": "<string>",
     "comments_disabled": "<boolean>",
-    "content_tag_ids": [
-      "<number>"
-    ],
+    "content_tag_ids": "<number[]>",
     "created_at": "<string>",
     "draft": "<boolean>",
     "edited_at": "<string>",
     "html_url": "<string>",
-    "label_names": [
-      "<string>"
-    ],
+    "label_names": "<string[]>",
     "outdated": "<boolean>",
-    "outdated_locales": [
-      "<string>"
-    ],
+    "outdated_locales": "<string[]>",
     "position": "<number>",
     "promoted": "<boolean>",
     "section_id": "<number>",

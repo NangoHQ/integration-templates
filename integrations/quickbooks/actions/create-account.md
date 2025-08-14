@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single account in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Accounts
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Account`
-- **Input Model:** `CreateAccount`
+- **Model:** `ActionOutput_quickbooks_createaccount`
+- **Input Model:** `ActionInput_quickbooks_createaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-account.ts)
 
 

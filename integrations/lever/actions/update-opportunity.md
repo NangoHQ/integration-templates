@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Update an opportunity
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Opportunities
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ReturnObjUpdateOpportunity`
-- **Input Model:** `UpdateOpportunity`
+- **Model:** `ActionOutput_lever_updateopportunity`
+- **Input Model:** `ActionInput_lever_updateopportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity.ts)
 
 
@@ -31,16 +30,10 @@ _No request parameters_
   "opportunityId": "<string>",
   "perform_as?": "<string>",
   "delete?": "<boolean>",
-  "links?": [
-    "<string>"
-  ],
-  "sources?": [
-    "<string>"
-  ],
+  "links": "<string[]>",
+  "sources": "<string[]>",
   "stage?": "<string>",
-  "tags?": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
   "reason?": "<string>",
   "cleanInterviews?": "<boolean>",
   "requisitionId?": "<string>"
@@ -56,17 +49,11 @@ _No request parameters_
     "name?": "<string>",
     "headline?": "<string>",
     "contact?": "<string>",
-    "emails?": [
-      "<string>"
-    ],
-    "phones?": [
-      "<string>"
-    ],
+    "emails?": "<string[]>",
+    "phones?": "<string[]>",
     "confidentiality?": "<string>",
     "location?": "<string>",
-    "links?": [
-      "<string>"
-    ],
+    "links?": "<string[]>",
     "archived?": {
       "reason?": "<string>",
       "archivedAt?": "<number>"
@@ -81,33 +68,28 @@ _No request parameters_
     "stage?": "<string>",
     "stageChanges?": [
       {
-        "toStageId": "<string>",
-        "toStageIndex": "<number>",
-        "updatedAt": "<number>",
-        "userId": "<string>"
+        "0": {
+          "toStageId": "<string>",
+          "toStageIndex": "<number>",
+          "updatedAt": "<number>",
+          "userId": "<string>"
+        },
+        "1": "<string>"
       }
     ],
     "owner?": "<string>",
-    "tags?": [
-      "<string>"
-    ],
-    "sources?": [
-      "<string>"
-    ],
+    "tags?": "<string[]>",
+    "sources?": "<string[]>",
     "origin?": "<string>",
     "sourcedBy?": "<string>",
-    "applications?": [
-      "<string>"
-    ],
+    "applications?": "<string[]>",
     "resume?": "<string>",
-    "followers?": [
-      "<string>"
-    ],
+    "followers?": "<string[]>",
     "urls?": {
       "list?": "<string>",
       "show?": "<string>"
     },
-    "dataProtection?": "<object | null>",
+    "dataProtection?": "<{} | <null>>",
     "isAnonymized?": "<boolean>",
     "opportunityLocation?": "<string>"
   }

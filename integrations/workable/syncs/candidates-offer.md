@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches candidate's latest offer from workable
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_candidates`
 - **Endpoint Type:** Sync
@@ -40,11 +39,17 @@ _No request body_
     "id": "<string>",
     "name": "<string>"
   },
-  "created_at": "<date>",
-  "document_variables": "<array>",
-  "documents": "<array>",
+  "created_at": "<Date>",
+  "document_variables": "<unknown[]>",
+  "documents": "<unknown[]>",
   "state": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

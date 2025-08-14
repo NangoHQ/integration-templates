@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all candidates from your ashby account
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Candidates
 - **Scopes:** `candidatelastsyncToken`
 - **Endpoint Type:** Sync
@@ -36,47 +35,33 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "createdAt": "<date>",
+  "createdAt": "<Date>",
   "name": "<string>",
   "primaryEmailAddress": {
     "value": "<string>",
     "type": "<string>",
     "isPrimary": "<boolean>"
   },
-  "emailAddresses": [
-    "<string>"
-  ],
+  "emailAddresses": "<string[]>",
   "primaryPhoneNumber": {
     "value": "<string>",
     "type": "<string>",
     "isPrimary": "<boolean>"
   },
-  "phoneNumbers": [
-    "<string>"
-  ],
-  "socialLinks": [
-    "<string>"
-  ],
-  "tags": [
-    "<string>"
-  ],
+  "phoneNumbers": "<string[]>",
+  "socialLinks": "<string[]>",
+  "tags": "<string[]>",
   "position": "<string>",
   "company": "<string>",
   "school": "<string>",
-  "applicationIds": [
-    "<string>"
-  ],
+  "applicationIds": "<string[]>",
   "resumeFileHandle": {
     "id": "<string>",
     "name": "<string>",
     "handle": "<string>"
   },
-  "fileHandles": [
-    "<string>"
-  ],
-  "customFields": [
-    "<string>"
-  ],
+  "fileHandles": "<string[]>",
+  "customFields": "<string[]>",
   "profileUrl": "<string>",
   "source": {
     "id": "<string>",
@@ -95,8 +80,16 @@ _No request body_
     "email": "<string>",
     "globalRole": "<string>",
     "isEnabled": "<boolean>",
-    "updatedAt": "<date>"
+    "updatedAt": "<Date>"
   }
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "candidatelastsyncToken?": "<string>"
 }
 ```
 

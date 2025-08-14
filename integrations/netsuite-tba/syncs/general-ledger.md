@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all JournalEntries in Netsuite
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -66,7 +65,7 @@ _No request body_
 
 ```json
 {
-  "timezone?": "<string | undefined>"
+  "timezone?": "<string>"
 }
 ```
 

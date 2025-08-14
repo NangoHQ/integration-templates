@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a single account in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `UpdateAccountInput`
+- **Model:** `ActionOutput_salesforce_updateaccount`
+- **Input Model:** `ActionInput_salesforce_updateaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-account.ts)
 
 
@@ -27,7 +27,14 @@ _No request parameters_
 
 ```json
 {
-  "name?": "<string | undefined>"
+  "description?": "<string>",
+  "website?": "<string>",
+  "industry?": "<string>",
+  "billing_city?": "<string>",
+  "billing_country?": "<string>",
+  "owner_id?": "<string>",
+  "id": "<string>",
+  "name?": "<string>"
 }
 ```
 

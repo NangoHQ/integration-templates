@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all job posts from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Job Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -46,6 +45,12 @@ _No request body_
   "updated_at": "<string>",
   "deleted_at": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

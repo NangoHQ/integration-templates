@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a comment on the applicant's timeline
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `w_candidates or w_comments`
 - **Endpoint Type:** Action
-- **Model:** `WorkableCreateCommentResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_workable_createcomment`
+- **Input Model:** `ActionInput_workable_createcomment`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-comment.ts)
 
 
@@ -26,7 +25,20 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+{
+  "id": "<string>",
+  "member_id": "<string>",
+  "comment": {
+    "body": "<string>",
+    "policy": "<string[]>",
+    "attachment": {
+      "name": "<string>",
+      "data": "<string>"
+    }
+  }
+}
+```
 
 ### Request Response
 

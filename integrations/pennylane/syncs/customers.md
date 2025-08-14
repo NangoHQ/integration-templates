@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of customers from pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
@@ -46,9 +45,9 @@ _No request body_
   "country_alpha2?": "<string | null>",
   "recipient?": "<string | null>",
   "source_id?": "<string | null>",
-  "emails?": "<string[] | null>",
+  "emails?": "<<string[]> | <null>>",
   "billing_iban?": "<string | null>",
-  "delivery_address?": "<DeliveryAddressObject | null>",
+  "delivery_address?": "<{\"address?\":\"<string>\",\"postal_code?\":\"<string | null>\",\"city?\":\"<string | null>\",\"country_alpha2?\":\"<string | null>\"} | <null>>",
   "delivery_postal_code?": "<string | null>",
   "delivery_country_alpha2?": "<string | null>",
   "payment_conditions?": "<string | null>",
@@ -56,6 +55,12 @@ _No request body_
   "reference?": "<string | null>",
   "notes?": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

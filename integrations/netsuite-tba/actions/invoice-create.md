@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates an invoice in Netsuite
-
-- **Version:** 2.0.1
+- **Version:** 3.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteInvoiceCreateOutput`
-- **Input Model:** `NetsuiteInvoiceCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_invoicecreate`
+- **Input Model:** `ActionInput_netsuite_tba_invoicecreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/invoice-create.ts)
 
 

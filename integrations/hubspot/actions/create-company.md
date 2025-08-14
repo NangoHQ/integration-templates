@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a single company in Hubspot
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `CreateUpdateCompanyOutput`
-- **Input Model:** `CreateCompanyInput`
+- **Model:** `ActionOutput_hubspot_createcompany`
+- **Input Model:** `ActionInput_hubspot_createcompany`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-company.ts)
 
 
@@ -27,16 +27,16 @@ _No request parameters_
 
 ```json
 {
-  "name?": "<string | undefined>",
-  "industry?": "<string | undefined>",
-  "description?": "<string | undefined>",
-  "country?": "<string | undefined>",
-  "city?": "<string | undefined>",
-  "lead_status?": "<string | undefined>",
-  "lifecycle_stage?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "year_founded?": "<string | undefined>",
-  "website_url?": "<string | undefined>"
+  "name?": "<string>",
+  "industry?": "<string>",
+  "description?": "<string>",
+  "country?": "<string>",
+  "city?": "<string>",
+  "lead_status?": "<string>",
+  "lifecycle_stage?": "<string>",
+  "owner?": "<string>",
+  "year_founded?": "<string>",
+  "website_url?": "<string>"
 }
 ```
 
@@ -46,16 +46,16 @@ _No request parameters_
 {
   "id": "<string>",
   "created_date": "<string>",
-  "name?": "<string | undefined>",
-  "industry?": "<string | undefined>",
-  "description?": "<string | undefined>",
-  "country?": "<string | undefined>",
-  "city?": "<string | undefined>",
-  "lead_status?": "<string | undefined>",
-  "lifecycle_stage?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "year_founded?": "<string | undefined>",
-  "website_url?": "<string | undefined>"
+  "name?": "<string>",
+  "industry?": "<string>",
+  "description?": "<string>",
+  "country?": "<string>",
+  "city?": "<string>",
+  "lead_status?": "<string>",
+  "lifecycle_stage?": "<string>",
+  "owner?": "<string>",
+  "year_founded?": "<string>",
+  "website_url?": "<string>"
 }
 ```
 

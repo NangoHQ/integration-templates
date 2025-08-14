@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates an employee in Gusto.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** `employees:manage`
 - **Endpoint Type:** Action
-- **Model:** `GustoCreateEmployeeResponse`
-- **Input Model:** `GustoCreateEmployee`
+- **Model:** `ActionOutput_gusto_createemployee`
+- **Input Model:** `ActionInput_gusto_createemployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/create-employee.ts)
 
 

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all users from RecruiterFlow
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,13 +34,19 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "email": "<string>",
   "first_name": "<string>",
   "last_name": "<string>",
-  "role?": "<string[] | undefined>",
+  "role?": "<string[]>",
   "img_link": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

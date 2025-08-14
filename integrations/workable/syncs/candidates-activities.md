@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of activity streams of the given candidate
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_candidates`
 - **Endpoint Type:** Sync
@@ -38,14 +37,20 @@ _No request body_
   "id": "<string>",
   "action": "<string>",
   "stage_name": "<string>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "body": "<string>",
   "member": {
     "id": "<string>",
     "name": "<string>"
   },
-  "rating": "<object>"
+  "rating": {}
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

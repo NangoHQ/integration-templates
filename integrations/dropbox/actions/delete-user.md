@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Dropbox. Requires Dropbox Business.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `members.delete`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_dropbox_deleteuser`
+- **Input Model:** `ActionInput_dropbox_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/delete-user.ts)
 
 

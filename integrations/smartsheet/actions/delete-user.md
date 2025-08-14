@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user from Smartsheet. User is transitioned to a free collaborator with read-only access to owned reports, sheets, Sights, workspaces, and any shared templates (unless those are optionally transferred to another user).
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `ADMIN_USERS`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_smartsheet_deleteuser`
+- **Input Model:** `ActionInput_smartsheet_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/smartsheet/actions/delete-user.ts)
 
 

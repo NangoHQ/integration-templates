@@ -5,8 +5,7 @@
 
 - **Description:** Sync a database content with each row as an entry. Store the top level
 database information in the metadata to be able to reconcile the database
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -37,9 +36,7 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "row": {
-    "__string": "<any>"
-  },
+  "row": {},
   "meta": {
     "databaseId": "<string>",
     "path": "<string>",
@@ -47,6 +44,12 @@ _No request body_
     "last_modified": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

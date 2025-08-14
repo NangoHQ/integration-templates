@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Disables a user in Expensify
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `ExpensifyDisableUser`
+- **Model:** `ActionOutput_expensify_disableuser`
+- **Input Model:** `ActionInput_expensify_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/disable-user.ts)
 
 
