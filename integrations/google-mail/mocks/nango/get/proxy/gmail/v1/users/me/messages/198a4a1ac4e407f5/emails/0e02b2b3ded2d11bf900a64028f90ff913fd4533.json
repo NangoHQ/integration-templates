@@ -1,0 +1,89 @@
+{
+  "method": "get",
+  "endpoint": "gmail/v1/users/me/messages/198a4a1ac4e407f5",
+  "requestIdentityHash": "0e02b2b3ded2d11bf900a64028f90ff913fd4533",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "gmail/v1/users/me/messages/198a4a1ac4e407f5",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "id": "198a4a1ac4e407f5",
+    "threadId": "198a4a1ac4e407f5",
+    "labelIds": [
+      "UNREAD",
+      "SENT",
+      "INBOX"
+    ],
+    "snippet": "Hi Hassan, This is a test email sent using the Gmail API in Postman. With regards, Me",
+    "payload": {
+      "partId": "",
+      "mimeType": "text/plain",
+      "filename": "",
+      "headers": [
+        {
+          "name": "Received",
+          "value": "from 402174265127 named unknown by gmailapi.google.com with HTTPREST; Wed, 13 Aug 2025 14:11:55 -0400"
+        },
+        {
+          "name": "Received",
+          "value": "from 402174265127 named unknown by gmailapi.google.com with HTTPREST; Wed, 13 Aug 2025 14:11:55 -0400"
+        },
+        {
+          "name": "From",
+          "value": "hassanwari254@gmail.com"
+        },
+        {
+          "name": "To",
+          "value": "hassanwari254@gmail.com"
+        },
+        {
+          "name": "Subject",
+          "value": "Test Email from Gmail API"
+        },
+        {
+          "name": "Date",
+          "value": "Wed, 13 Aug 2025 14:11:55 -0400"
+        },
+        {
+          "name": "Message-Id",
+          "value": "<CAJd6VjLdicKo5t-R8WjWnYTCAKfzPaQcd89iJ+1MQx59GMKtjA@mail.gmail.com>"
+        }
+      ],
+      "body": {
+        "size": 87,
+        "data": "SGkgSGFzc2FuLAoKVGhpcyBpcyBhIHRlc3QgZW1haWwgc2VudCB1c2luZyB0aGUgR21haWwgQVBJIGluIFBvc3RtYW4uCgpXaXRoIHJlZ2FyZHMsCk1l"
+      }
+    },
+    "sizeEstimate": 548,
+    "historyId": "3802586",
+    "internalDate": "1755108715000"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 13 Aug 2025 18:15:05 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "96ea321e8a75b199-NBO",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "rndr-id": "3ba718ad-7569-4a69",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "vary": "Origin, X-Origin, Referer, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-limit": "200",
+    "x-ratelimit-remaining": "191",
+    "x-ratelimit-reset": "1755108960",
+    "x-render-origin-server": "ESF",
+    "x-xss-protection": "0",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare"
+  }
+}

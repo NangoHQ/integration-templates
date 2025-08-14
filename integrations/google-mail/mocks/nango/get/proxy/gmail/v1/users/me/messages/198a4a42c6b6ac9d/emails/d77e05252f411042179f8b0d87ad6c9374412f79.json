@@ -1,0 +1,168 @@
+{
+  "method": "get",
+  "endpoint": "gmail/v1/users/me/messages/198a4a42c6b6ac9d",
+  "requestIdentityHash": "d77e05252f411042179f8b0d87ad6c9374412f79",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "gmail/v1/users/me/messages/198a4a42c6b6ac9d",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "id": "198a4a42c6b6ac9d",
+    "threadId": "198a4a3d88e1774a",
+    "labelIds": [
+      "UNREAD",
+      "IMPORTANT",
+      "SENT",
+      "INBOX"
+    ],
+    "snippet": "Another one with attachments",
+    "payload": {
+      "partId": "",
+      "mimeType": "multipart/mixed",
+      "filename": "",
+      "headers": [
+        {
+          "name": "MIME-Version",
+          "value": "1.0"
+        },
+        {
+          "name": "Date",
+          "value": "Wed, 13 Aug 2025 21:14:39 +0300"
+        },
+        {
+          "name": "Message-ID",
+          "value": "<CAJd6VjLp_JHF=M6r0OpOH8Jv9vDKPM=_001tqTu9=zAwaudDaQ@mail.gmail.com>"
+        },
+        {
+          "name": "Subject",
+          "value": "ATTACHMENTS"
+        },
+        {
+          "name": "From",
+          "value": "Hassan Wari <hassanwari254@gmail.com>"
+        },
+        {
+          "name": "To",
+          "value": "Hassan Wari <hassanwari254@gmail.com>"
+        },
+        {
+          "name": "Content-Type",
+          "value": "multipart/mixed; boundary=\"0000000000004cfa66063c4321b3\""
+        }
+      ],
+      "body": {
+        "size": 0
+      },
+      "parts": [
+        {
+          "partId": "0",
+          "mimeType": "multipart/alternative",
+          "filename": "",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "multipart/alternative; boundary=\"0000000000004cfa65063c4321b1\""
+            }
+          ],
+          "body": {
+            "size": 0
+          },
+          "parts": [
+            {
+              "partId": "0.0",
+              "mimeType": "text/plain",
+              "filename": "",
+              "headers": [
+                {
+                  "name": "Content-Type",
+                  "value": "text/plain; charset=\"UTF-8\""
+                }
+              ],
+              "body": {
+                "size": 30,
+                "data": "QW5vdGhlciBvbmUgd2l0aCBhdHRhY2htZW50cw0K"
+              }
+            },
+            {
+              "partId": "0.1",
+              "mimeType": "text/html",
+              "filename": "",
+              "headers": [
+                {
+                  "name": "Content-Type",
+                  "value": "text/html; charset=\"UTF-8\""
+                }
+              ],
+              "body": {
+                "size": 51,
+                "data": "PGRpdiBkaXI9Imx0ciI-QW5vdGhlciBvbmUgd2l0aCBhdHRhY2htZW50czwvZGl2Pg0K"
+              }
+            }
+          ]
+        },
+        {
+          "partId": "1",
+          "mimeType": "image/png",
+          "filename": "1200x600wa (1).png",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "image/png; name=\"1200x600wa (1).png\""
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "attachment; filename=\"1200x600wa (1).png\""
+            },
+            {
+              "name": "Content-Transfer-Encoding",
+              "value": "base64"
+            },
+            {
+              "name": "X-Attachment-Id",
+              "value": "f_meaaibui0"
+            },
+            {
+              "name": "Content-ID",
+              "value": "<f_meaaibui0>"
+            }
+          ],
+          "body": {
+            "attachmentId": "ANGjdJ-9XdDWBGDJLcBf4V7d550N-7LY1NZj7jRs5wNbhS5pixjKEAmzrG6vXRnX0I3TnTqjZt2oUd2TUZHlsEL1rVfc4ce_HGBt8n6KSKBVnrQ0d4vc5fbK5oevUA4mAwijx3eV7eRQxSWmzmzPnoQWMkwDd94Xk-mPWgXsw2cFbZjI7wAVXEeXF00h3cTU6sktSMYObL2FT8TqVQudvxv3Bm7OEQDqEPp3aqYIJEJoVopWb2zmhz7q9CavzF9qJNxGIyfOiPm2HhKvni48t4_A6fj7ON1Ejei8wbNkKfLO2-7EA_2rhGLOZPigfCU",
+            "size": 31526
+          }
+        }
+      ]
+    },
+    "sizeEstimate": 44126,
+    "historyId": "3802976",
+    "internalDate": "1755108879000"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 13 Aug 2025 18:15:03 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "96ea3210b8cab199-NBO",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "rndr-id": "0dc9bbe5-09cd-40ea",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "vary": "Origin, X-Origin, Referer, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-limit": "200",
+    "x-ratelimit-remaining": "195",
+    "x-ratelimit-reset": "1755108960",
+    "x-render-origin-server": "ESF",
+    "x-xss-protection": "0",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare"
+  }
+}
