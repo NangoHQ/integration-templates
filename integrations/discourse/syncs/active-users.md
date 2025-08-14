@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of active users from Discourse.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,11 +34,17 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "username": "<string>",
   "name": "<string>",
   "admin": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

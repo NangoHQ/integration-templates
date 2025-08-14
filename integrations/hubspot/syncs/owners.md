@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of owners from Hubspot
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Owners
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,15 +34,21 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "email": "<string>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "userId": "<integer>",
-  "createdAt": "<date>",
-  "updatedAt": "<date>",
+  "userId": "<number>",
+  "createdAt": "<Date>",
+  "updatedAt": "<Date>",
   "archived": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

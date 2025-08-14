@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all notes for every single opportunity
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Notes
 - **Scopes:** `notes:read:admin`
 - **Endpoint Type:** Sync
@@ -37,15 +36,19 @@ _No request body_
 {
   "id": "<string>",
   "text": "<string>",
-  "fields": [
-    "<string>"
-  ],
+  "fields": "<string[]>",
   "user": "<string>",
   "secret": "<boolean>",
   "completedAt": "<number>",
   "createdAt": "<number>",
   "deletedAt": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

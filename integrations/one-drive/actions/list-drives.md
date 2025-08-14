@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Lists the available drives for the authenticated user.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Drives
 - **Scopes:** `Files.Read, offline_access`
 - **Endpoint Type:** Action
-- **Model:** `DriveList`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_one_drive_listdrives`
+- **Input Model:** `ActionInput_one_drive_listdrives`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/actions/list-drives.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

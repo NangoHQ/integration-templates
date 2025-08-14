@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Updates a payment in Netsuite
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Payments
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuitePaymentUpdateOutput`
-- **Input Model:** `NetsuitePaymentUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_paymentupdate`
+- **Input Model:** `ActionInput_netsuite_tba_paymentupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/payment-update.ts)
 
 
@@ -28,22 +28,13 @@ _No request parameters_
 ```json
 {
   "customerId": "<string>",
-  "amount": "<number>",
-  "currency": "<string>",
-  "paymentReference": "<string>",
-  "applyTo": [
-    "<string>"
-  ],
-  "status": "<string>",
-  "description?": "<string>",
-  "id": "<string>",
   "amount?": "<number>",
   "currency?": "<string>",
   "paymentReference?": "<string>",
+  "applyTo?": "<string[]>",
   "status?": "<string>",
-  "applyTo?": [
-    "<string>"
-  ]
+  "description?": "<string>",
+  "id": "<string>"
 }
 ```
 

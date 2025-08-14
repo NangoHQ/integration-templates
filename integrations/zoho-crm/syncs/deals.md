@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of deals/opportunities from zoho crm
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoCRM.modules.deals.READ`
 - **Endpoint Type:** Sync
@@ -52,21 +51,21 @@ _No request body_
     "reject": "<boolean>",
     "resubmit": "<boolean>"
   },
-  "Closing_Date": "<date>",
+  "Closing_Date": "<Date>",
   "Reason_For_Loss__s": "<string>",
-  "Last_Activity_Time": "<date>",
+  "Last_Activity_Time": "<Date>",
   "Modified_By": {
     "name": "<string>",
     "id": "<string>",
     "email": "<string>"
   },
   "$review": "<string>",
-  "Lead_Conversion_Time": "<date>",
+  "Lead_Conversion_Time": "<Date>",
   "$state": "<string>",
   "$process_flow": "<boolean>",
   "Deal_Name": "<string>",
-  "Expected_Revenue": "<integer>",
-  "Overall_Sales_Duration": "<integer>",
+  "Expected_Revenue": "<number>",
+  "Overall_Sales_Duration": "<number>",
   "Stage": "<string>",
   "$locked_for_me": "<boolean>",
   "Account_Name": {
@@ -81,18 +80,18 @@ _No request body_
     "reject": "<boolean>",
     "resubmit": "<boolean>"
   },
-  "Modified_Time": "<date>",
-  "Created_Time": "<date>",
-  "Amount": "<integer>",
+  "Modified_Time": "<Date>",
+  "Created_Time": "<Date>",
+  "Amount": "<number>",
   "Next_Step": "<string>",
-  "Probability": "<integer>",
+  "Probability": "<number>",
   "$editable": "<boolean>",
   "$orchestration": "<boolean>",
   "Contact_Name": {
     "name": "<string>",
     "id": "<string>"
   },
-  "Sales_Cycle_Duration": "<integer>",
+  "Sales_Cycle_Duration": "<number>",
   "Type": "<string>",
   "$in_merge": "<boolean>",
   "Locked__s": "<boolean>",
@@ -102,12 +101,16 @@ _No request body_
     "id": "<string>",
     "email": "<string>"
   },
-  "Tag": [
-    "<any>"
-  ],
+  "Tag": "<unknown[]>",
   "$zia_owner_assignment": "<string>",
   "$approval_state": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

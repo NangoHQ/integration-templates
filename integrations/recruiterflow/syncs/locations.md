@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all locations from RecruiterFlow
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,18 +34,24 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "name": "<string>",
-  "city": "<string | undefined>",
-  "country": "<string | undefined>",
-  "details": "<string | undefined>",
-  "iso_3166_1_alpha_2_code": "<string | undefined>",
+  "city?": "<string>",
+  "country?": "<string>",
+  "details?": "<string>",
+  "iso_3166_1_alpha_2_code?": "<string>",
   "location_type": "<string>",
   "location_type_id": "<number>",
-  "postal_code": "<string | undefined>",
-  "state": "<string | undefined>",
-  "zipcode": "<string | undefined>"
+  "postal_code?": "<string>",
+  "state?": "<string>",
+  "zipcode?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

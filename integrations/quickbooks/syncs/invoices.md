@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all invoices in QuickBooks. Handles both active and voided invoices, saving or deleting them based on their status.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Invoices
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -35,11 +34,13 @@ _No request body_
 
 ```json
 {
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<string>",
   "txn_date": "<string>",
   "balance_cents": "<number>",
   "total_amt_cents": "<number>",
-  "bill_address": "<BillAddr | null>",
+  "bill_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>",
   "items": [
     {
       "id": "<string>",
@@ -52,6 +53,12 @@ _No request body_
   "due_date": "<string>",
   "deposit_cents": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

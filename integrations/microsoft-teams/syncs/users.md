@@ -6,8 +6,7 @@
 - **Description:** Continuously fetches users from either Microsoft 365 or Azure Active
 Directory given specified
 groups to sync.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `User.Read.All`
 - **Endpoint Type:** Sync
@@ -42,16 +41,16 @@ _No request body_
   "displayName": "<string | null>",
   "givenName": "<string | null>",
   "familyName": "<string | null>",
-  "picture": "<string | null | undefined>",
+  "picture": "<string | null>",
   "type": "<string>",
   "createdAt": "<string | null>",
   "deletedAt": "<string | null>",
   "phone": {
-    "value": "<string | null | undefined>",
-    "type": "<string | null | undefined>"
+    "value": "<string | null>",
+    "type": "<string | null>"
   },
-  "organizationId": "<string | null | undefined>",
-  "organizationPath": "<string | null | undefined>",
+  "organizationId": "<string | null>",
+  "organizationPath": "<string | null>",
   "isAdmin": "<boolean | null>",
   "department": "<string | null>"
 }
@@ -61,15 +60,9 @@ _No request body_
 
 ```json
 {
-  "orgsToSync": [
-    "<string>"
-  ],
-  "channelsLastSyncDate?": {
-    "__string": "<string>"
-  },
-  "chatsLastSyncDate?": {
-    "__string": "<string>"
-  }
+  "orgsToSync": "<string[]>",
+  "channelsLastSyncDate?": {},
+  "chatsLastSyncDate?": {}
 }
 ```
 

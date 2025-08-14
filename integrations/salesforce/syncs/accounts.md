@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of accounts from salesforce
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Accounts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -46,6 +45,12 @@ _No request body_
   "owner_name": "<string>",
   "last_modified_date": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

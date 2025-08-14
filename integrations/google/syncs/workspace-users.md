@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync all workspace users
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,16 +39,16 @@ _No request body_
   "displayName": "<string | null>",
   "givenName": "<string | null>",
   "familyName": "<string | null>",
-  "picture": "<string | null | undefined>",
+  "picture?": "<string | null>",
   "type": "<string>",
   "createdAt": "<string | null>",
   "deletedAt": "<string | null>",
   "phone": {
-    "value": "<string | null | undefined>",
-    "type": "<string | null | undefined>"
+    "value?": "<string | null>",
+    "type?": "<string | null>"
   },
-  "organizationId": "<string | null | undefined>",
-  "organizationPath": "<string | null | undefined>",
+  "organizationId?": "<string | null>",
+  "organizationPath": "<string | null>",
   "isAdmin": "<boolean | null>",
   "department": "<string | null>"
 }

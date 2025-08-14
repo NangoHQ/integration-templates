@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all users' details from NextCloud account
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,9 +38,7 @@ _No request body_
   "id": "<string>",
   "lastLogin": "<number>",
   "backend": "<string>",
-  "subadmin": [
-    "<string>"
-  ],
+  "subadmin": "<string[]>",
   "quota": {
     "free": "<number>",
     "used": "<number>",
@@ -53,12 +50,8 @@ _No request body_
   "avatarScope": "<string>",
   "email": "<string>",
   "emailScope": "<string>",
-  "additional_mail": [
-    "<string>"
-  ],
-  "additional_mailScope": [
-    "<string>"
-  ],
+  "additional_mail": "<string[]>",
+  "additional_mailScope": "<string[]>",
   "displayname": "<string>",
   "display_name": "<string>",
   "displaynameScope": "<string>",
@@ -82,9 +75,7 @@ _No request body_
   "biographyScope": "<string>",
   "profile_enabled": "<string>",
   "profile_enabledScope": "<string>",
-  "groups": [
-    "<string>"
-  ],
+  "groups": "<string[]>",
   "language": "<string>",
   "locale": "<string>",
   "notify_email": "<boolean>",
@@ -93,6 +84,12 @@ _No request body_
     "setPassword": "<boolean>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

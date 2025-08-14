@@ -5,13 +5,12 @@
 
 - **Description:** Fetches all the tenants the connection has access to.
 This can be used to set the metadata to the selected tenant.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Tenants
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TenantResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_xero_gettenants`
+- **Input Model:** `ActionInput_xero_gettenants`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/get-tenants.ts)
 
 
@@ -27,7 +26,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

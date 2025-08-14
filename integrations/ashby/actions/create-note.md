@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a note on a candidate.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `AshbyCreateNoteResponse`
-- **Input Model:** `AshbyCreateNoteInput`
+- **Model:** `ActionOutput_ashby_createnote`
+- **Input Model:** `ActionInput_ashby_createnote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-note.ts)
 
 
@@ -29,8 +28,8 @@ _No request parameters_
 ```json
 {
   "candidateId": "<string>",
-  "note": "<string | NoteObject>",
-  "sendNotifications": "<boolean | undefined>"
+  "note": "<<string> | {\"value\":\"<string>\",\"type\":\"<string>\"}>",
+  "sendNotifications": "<boolean>"
 }
 ```
 
@@ -39,7 +38,7 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "createdAt": "<date>",
+  "createdAt": "<Date>",
   "content": "<string>",
   "author": {
     "id": "<string>",

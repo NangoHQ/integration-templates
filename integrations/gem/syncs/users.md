@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all users from Gem
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,6 +38,12 @@ _No request body_
   "name": "<string>",
   "email": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

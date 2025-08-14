@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates one or more items in Xero.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action
-- **Model:** `ItemActionResponse`
-- **Input Model:** `Item[]`
+- **Model:** `ActionOutput_xero_updateitem`
+- **Input Model:** `ActionInput_xero_updateitem`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-item.ts)
 
 
@@ -28,15 +27,13 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "id": "<string>",
-      "item_code": "<string | null>",
-      "name": "<string>",
-      "description": "<string | null>",
-      "account_code": "<string | null>"
-    }
-  ]
+  "0": {
+    "id": "<string>",
+    "item_code": "<string | null>",
+    "name": "<string>",
+    "description": "<string | null>",
+    "account_code": "<string | null>"
+  }
 }
 ```
 
@@ -60,9 +57,7 @@ _No request parameters_
       "name": "<string>",
       "description": "<string | null>",
       "account_code": "<string | null>",
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

@@ -65,17 +65,9 @@ async function main(): Promise<void> {
 
             // Only compile if --rebuild flag is passed
             if (process.argv.includes('--rebuild-all')) {
-                // Run the compile command
-                const command = `npm run cli -- ${name} compile`;
+                // Run the compile command and re-generate docs
+                const command = `npm run cli -- ${name} compile && npm run cli -- ${name} generate:docs --integration-templates`;
                 console.log(`  Running: ${command}`);
-
-                execSync(command, {
-                    stdio: 'pipe',
-                    cwd: root
-                });
-
-                const docsCommand = `npm run cli -- ${name} generate:docs --integration-templates`;
-                console.log(`  Running: ${docsCommand}`);
 
                 execSync(command, {
                     stdio: 'pipe',

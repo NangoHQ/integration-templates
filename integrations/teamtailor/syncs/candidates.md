@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all candidates from your teamtailor account.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `Admin`
 - **Endpoint Type:** Sync
@@ -42,9 +41,9 @@ _No request body_
   },
   "attributes": {
     "connected": "<boolean>",
-    "consent_future_jobs_at": "<date>",
-    "created_at": "<date>",
-    "updated_at": "<date>",
+    "consent_future_jobs_at": "<Date>",
+    "created_at": "<Date>",
+    "updated_at": "<Date>",
     "email": "<string>",
     "facebook_id": "<string>",
     "facebook_profile": "<string>",
@@ -63,7 +62,7 @@ _No request body_
     "referred": "<boolean>",
     "resume": "<string>",
     "sourced": "<boolean>",
-    "tags": "<array>",
+    "tags": "<unknown[]>",
     "unsubscribed": "<boolean>"
   },
   "relationships": {
@@ -135,6 +134,12 @@ _No request body_
     }
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

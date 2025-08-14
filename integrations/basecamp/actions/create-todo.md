@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Todos
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BasecampTodoResponse`
-- **Input Model:** `BasecampCreateTodoInput`
+- **Model:** `ActionOutput_basecamp_createtodo`
+- **Input Model:** `ActionInput_basecamp_createtodo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/create-todo.ts)
 
 
@@ -34,12 +34,8 @@ _No request parameters_
   "due_on?": "<string>",
   "starts_on?": "<string>",
   "notify?": "<boolean>",
-  "assigneeEmails?": [
-    "<string>"
-  ],
-  "completionSubscriberEmails?": [
-    "<string>"
-  ]
+  "assigneeEmails": "<string[]>",
+  "completionSubscriberEmails": "<string[]>"
 }
 ```
 
@@ -59,9 +55,9 @@ _No request parameters_
   "app_url": "<string>",
   "bookmark_url": "<string>",
   "subscription_url": "<string>",
-  "comments_count": "<integer>",
+  "comments_count": "<number>",
   "comments_url": "<string>",
-  "position": "<integer>",
+  "position": "<number>",
   "parent": {
     "id": "<number>",
     "title": "<string>",
@@ -74,18 +70,14 @@ _No request parameters_
     "name": "<string>",
     "type": "<string>"
   },
-  "creator": "<any>",
+  "creator?": "<unknown>",
   "description": "<string>",
   "completed": "<boolean>",
   "content": "<string>",
   "starts_on": "<string>",
   "due_on": "<string>",
-  "assignees": [
-    "<any>"
-  ],
-  "completion_subscribers": [
-    "<any>"
-  ],
+  "assignees": "<unknown[]>",
+  "completion_subscribers": "<unknown[]>",
   "completion_url": "<string>"
 }
 ```

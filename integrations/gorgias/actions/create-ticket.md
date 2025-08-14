@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a new ticket
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Tickets
 - **Scopes:** `tickets:write, account:read, customers:write, customers:read`
 - **Endpoint Type:** Action
-- **Model:** `Ticket`
-- **Input Model:** `CreateTicketInput`
+- **Model:** `ActionOutput_gorgias_createticket`
+- **Input Model:** `ActionInput_gorgias_createticket`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-ticket.ts)
 
 
@@ -30,19 +29,19 @@ _No request parameters_
 {
   "customer": {
     "phone_number": "<string>",
-    "email?": "<string | undefined>"
+    "email?": "<string>"
   },
   "ticket": {
     "messages": [
       {
-        "attachments": {
-          "0": {
+        "attachments": [
+          {
             "url": "<string>",
             "name": "<string>",
             "size": "<number>",
             "content_type": "<string>"
           }
-        },
+        ],
         "body_html": "<string>",
         "body_text": "<string>",
         "id": "<string>"
@@ -56,20 +55,20 @@ _No request parameters_
 
 ```json
 {
-  "id": "<number>",
-  "assignee_user": "<AssigneeUser | null>",
-  "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string>",
+  "id": "<string>",
+  "assignee_user": "<{\"id\":\"<number>\",\"firstname\":\"<string>\",\"lastname\":\"<string>\",\"meta\":\"<{} | <null>>\",\"email\":\"<string>\",\"name\":\"<string>\",\"bio\":\"<string | null>\"} | <null>>",
+  "channel": "<string>",
   "closed_datetime": "<string | null>",
   "created_datetime": "<string | null>",
-  "excerpt?": "<string | undefined>",
+  "excerpt?": "<string>",
   "external_id": "<string | null>",
   "from_agent": "<boolean>",
-  "integrations?": "<array | null | undefined>",
+  "integrations?": "<<unknown[]> | <null>>",
   "is_unread": "<boolean>",
   "language": "<string | null>",
   "last_message_datetime": "<string | null>",
   "last_received_message_datetime": "<string | null>",
-  "messages_count?": "<number | undefined>",
+  "messages_count?": "<number>",
   "messages": [
     {
       "id": "<number>",
@@ -79,8 +78,8 @@ _No request parameters_
       "rule_id": "<number | null>",
       "external_id": "<string | null>",
       "ticket_id": "<number>",
-      "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string>",
-      "via": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | form | gorgias_chat | help-center | helpdesk | instagram | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | offline_capture | phone | rule | self_service | shopify | sms | twilio | twitter | twitter-direct-message | whatsapp | yotpo | yotpo-review | zendesk>",
+      "channel": "<string>",
+      "via": "<enum: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'form' | 'gorgias_chat' | 'help-center' | 'helpdesk' | 'instagram' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'offline_capture' | 'phone' | 'rule' | 'self_service' | 'shopify' | 'sms' | 'twilio' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo' | 'yotpo-review' | 'zendesk'>",
       "subject": "<string | null>",
       "body_text": "<string | null>",
       "body_html": "<string | null>",
@@ -93,44 +92,44 @@ _No request parameters_
         "id": "<number>",
         "firstname": "<string>",
         "lastname": "<string>",
-        "meta": "<object | null>",
+        "meta": "<{} | <null>>",
         "email": "<string | null>",
         "name": "<string | null>"
       },
-      "receiver": "<RecieverSender | null>",
-      "attachments": "<Attachment[] | null>",
-      "meta": "<object | null>",
-      "headers": "<object | null>",
-      "actions": "<array | null>",
-      "macros": "<array | null>",
+      "receiver": "<{\"id\":\"<number>\",\"firstname\":\"<string>\",\"lastname\":\"<string>\",\"meta\":\"<{} | <null>>\",\"email\":\"<string | null>\",\"name\":\"<string | null>\"} | <null>>",
+      "attachments": "<[{\"url\":\"<string>\",\"name\":\"<string>\",\"size\":\"<number | null>\",\"content_type\":\"<string>\",\"public\":\"<boolean>\",\"extra\":\"<string | null>\"}] | <null>>",
+      "meta": "<{} | <null>>",
+      "headers": "<{} | <null>>",
+      "actions": "<<unknown[]> | <null>>",
+      "macros": "<<unknown[]> | <null>>",
       "created_datetime": "<string | null>",
       "opened_datetime": "<string | null>",
       "failed_datetime": "<string | null>",
-      "last_sending_error": "<object | null>",
+      "last_sending_error": "<{} | <null>>",
       "deleted_datetime": "<string | null>",
-      "replied_by?": "<string | null | undefined>",
-      "replied_to?": "<string | null | undefined>"
+      "replied_by?": "<string | null>",
+      "replied_to?": "<string | null>"
     }
   ],
-  "meta": "<object | null>",
+  "meta": "<{} | <null>>",
   "opened_datetime": "<string | null>",
   "snooze_datetime": "<string | null>",
-  "status": "<open | closed>",
+  "status": "<enum: 'open' | 'closed'>",
   "subject": "<string | null>",
-  "tags": {
-    "0": {
+  "tags": [
+    {
       "id": "<number>",
       "name": "<string>",
       "uri": "<string | null>",
-      "decoration": "<object | null>",
+      "decoration": "<{} | <null>>",
       "created_datetime": "<string | null>",
-      "deleted_datetime?": "<string | null | undefined>"
+      "deleted_datetime?": "<string | null>"
     }
-  },
+  ],
   "spam": "<boolean | null>",
   "trashed_datetime": "<string | null>",
   "updated_datetime": "<string | null>",
-  "via": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | form | gorgias_chat | help-center | helpdesk | instagram | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | offline_capture | phone | rule | self_service | shopify | sms | twilio | twitter | twitter-direct-message | whatsapp | yotpo | yotpo-review | zendesk>",
+  "via": "<enum: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'form' | 'gorgias_chat' | 'help-center' | 'helpdesk' | 'instagram' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'offline_capture' | 'phone' | 'rule' | 'self_service' | 'shopify' | 'sms' | 'twilio' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo' | 'yotpo-review' | 'zendesk'>",
   "uri": "<string>"
 }
 ```

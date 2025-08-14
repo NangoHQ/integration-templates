@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all applications from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -45,7 +44,7 @@ _No request body_
     "public_name": "<string>"
   },
   "credited_to": "<string>",
-  "rejection_reason": "<RejectionReason | null>",
+  "rejection_reason": "<{\"id\":\"<string>\",\"name\":\"<string>\",\"type\":{\"id\":\"<string>\",\"name\":\"<string>\"}} | <null>>",
   "jobs": [
     {
       "id": "<string>",
@@ -60,6 +59,12 @@ _No request body_
   },
   "deleted_at": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

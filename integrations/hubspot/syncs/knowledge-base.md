@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of knowledge base from Hubspot
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -42,6 +41,12 @@ _No request body_
   "content": "<string>",
   "publishDate": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

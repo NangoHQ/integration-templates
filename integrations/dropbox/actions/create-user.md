@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Dropbox. Requires Dropbox Business.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `members.write`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_dropbox_createuser`
+- **Input Model:** `ActionInput_dropbox_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/create-user.ts)
 
 

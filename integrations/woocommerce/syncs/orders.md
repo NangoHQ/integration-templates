@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Periodically fetches all the Woo orders.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Sync
@@ -42,6 +41,12 @@ _No request body_
   "created_at": "<string>",
   "modified_at": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all person records from Attio
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** People
 - **Scopes:** `record_permission:read, object_configuration:read`
 - **Endpoint Type:** Sync
@@ -39,18 +38,76 @@ _No request body_
   "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
-  "first_name?": "<string | undefined>",
-  "last_name?": "<string | undefined>",
-  "full_name?": "<string | undefined>",
-  "email_addresses?": "<AttioEmailAddress[] | undefined>",
-  "phone_numbers?": "<AttioPhoneNumber[] | undefined>",
-  "job_title?": "<AttioAttributeWithValue[] | undefined>",
-  "company_id?": "<string | undefined>",
-  "description?": "<AttioAttribute[] | undefined>",
-  "avatar_url?": "<AttioAttribute[] | undefined>",
-  "social_links?": "<AttioSocialLink | undefined>",
-  "location?": "<AttioPersonLocation | undefined>"
+  "first_name?": "<string>",
+  "last_name?": "<string>",
+  "full_name?": "<string>",
+  "email_addresses?": [
+    {
+      "email": "<string>",
+      "domain": "<string>"
+    }
+  ],
+  "phone_numbers?": [
+    {
+      "number": "<string>",
+      "country_code": "<string>"
+    }
+  ],
+  "job_title?": [
+    {
+      "active_from": "<string>",
+      "active_until": "<string | null>",
+      "created_by_actor": {
+        "type": "<string>",
+        "id": "<string | null>"
+      },
+      "value": "<string>",
+      "attribute_type": "<string>"
+    }
+  ],
+  "company_id?": "<string>",
+  "description?": [
+    {
+      "active_from": "<string>",
+      "active_until": "<string | null>",
+      "created_by_actor": {
+        "type": "<string>",
+        "id": "<string | null>"
+      }
+    }
+  ],
+  "avatar_url?": [
+    {
+      "active_from": "<string>",
+      "active_until": "<string | null>",
+      "created_by_actor": {
+        "type": "<string>",
+        "id": "<string | null>"
+      }
+    }
+  ],
+  "social_links?": {
+    "linkedin?": "<string[]>",
+    "twitter?": "<string[]>",
+    "facebook?": "<string[]>",
+    "instagram?": "<string[]>",
+    "angellist?": "<string[]>"
+  },
+  "location?": {
+    "line_1?": "<string>",
+    "line_2?": "<string>",
+    "city?": "<string>",
+    "state?": "<string>",
+    "postal_code?": "<string>",
+    "country_code?": "<string>"
+  }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

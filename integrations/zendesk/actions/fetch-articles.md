@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all help center articles metadata
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Action
-- **Model:** `ArticleResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_zendesk_fetcharticles`
+- **Input Model:** `ActionInput_zendesk_fetcharticles`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/fetch-articles.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

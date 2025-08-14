@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all tasks that exist in the workspace
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,9 +41,15 @@ _No request body_
   "url": "<string>",
   "status": "<string>",
   "description": "<string | null>",
-  "assignee": "<User | null>",
+  "assignee": "<{\"created_at\":\"<string | null>\",\"modified_at\":\"<string | null>\",\"id\":\"<string>\",\"name\":\"<string>\",\"email\":\"<string | null>\",\"avatar_url\":\"<string | null>\"} | <null>>",
   "due_date": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to update a supplier in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Suppliers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `UpdateSupplier`
+- **Model:** `ActionOutput_pennylane_updatesupplier`
+- **Input Model:** `ActionInput_pennylane_updatesupplier`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/update-supplier.ts)
 
 
@@ -37,9 +36,7 @@ _No request parameters_
   "country_alpha2?": "<string>",
   "recipient?": "<string>",
   "vat_number?": "<string>",
-  "emails?": [
-    "<string>"
-  ],
+  "emails": "<string[]>",
   "iban?": "<string>",
   "payment_conditions?": "<string>",
   "phone?": "<string>",

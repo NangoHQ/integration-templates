@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches analytics for a specified list of books from Brightcrowd.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync
@@ -120,10 +119,8 @@ _No request body_
 
 ```json
 {
-  "bookIds": [
-    "<string>"
-  ],
-  "timeframe?": "<7days | 30days | 90days | all>"
+  "bookIds": "<string[]>",
+  "timeframe?": "<<unknown> | <string>>"
 }
 ```
 

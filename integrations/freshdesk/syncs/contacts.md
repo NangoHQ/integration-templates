@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the list of contacts.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,11 +40,17 @@ _No request body_
   "name": "<string>",
   "createdAt": "<string>",
   "updatedAt": "<string>",
-  "companyId?": "<string | undefined>",
-  "phone?": "<string | undefined | null>",
-  "mobile?": "<string | undefined | null>",
-  "jobTitle?": "<string | undefined | null>"
+  "companyId?": "<string>",
+  "phone?": "<string | null>",
+  "mobile?": "<string | null>",
+  "jobTitle?": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

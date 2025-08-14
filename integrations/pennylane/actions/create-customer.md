@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a customer in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `PennylaneIndividualCustomer`
+- **Model:** `ActionOutput_pennylane_createcustomer`
+- **Input Model:** `ActionInput_pennylane_createcustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-customer.ts)
 
 
@@ -37,11 +36,9 @@ _No request parameters_
   "postal_code?": "<string>",
   "city?": "<string>",
   "source_id?": "<string>",
-  "emails?": [
-    "<string>"
-  ],
+  "emails?": "<string[]>",
   "billing_iban?": "<string>",
-  "delivery_address?": "<string | DeliveryAddressObject>",
+  "delivery_address?": "<<string> | {\"address?\":\"<string>\",\"postal_code?\":\"<string | null>\",\"city?\":\"<string | null>\",\"country_alpha2?\":\"<string | null>\"}>",
   "vat_number?": "<string | null>",
   "delivery_postal_code?": "<string>",
   "delivery_city?": "<string>",

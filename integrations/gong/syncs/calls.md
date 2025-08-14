@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of calls from Gong
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Calls
 - **Scopes:** `api:calls:read:basic, api:calls:read:media-url, api:calls:read:extensive`
 - **Endpoint Type:** Sync
@@ -41,58 +40,68 @@ _No request body_
   "scheduled": "<string>",
   "started": "<string>",
   "duration": "<number>",
-  "direction": "<Inbound | Outbound | Conference | Unknown>",
-  "scope": "<Internal | External | Unknown>",
+  "direction": "<enum: 'Inbound' | 'Outbound' | 'Conference' | 'Unknown'>",
+  "scope": "<enum: 'Internal' | 'External' | 'Unknown'>",
   "media": "<string>",
   "language": "<string>",
   "workspace_id": "<string>",
   "purpose": "<string | null>",
   "meeting_url": "<string>",
   "is_private": "<boolean>",
-  "calendar_event_id": "<string>",
-  "context?": "<GongCallContext | undefined>",
-  "parties": {
-    "0": {
-      "id": "<string>",
-      "email_address?": "<string | undefined>",
-      "name?": "<string | undefined>",
-      "title?": "<string | undefined>",
-      "user_id?": "<string | undefined>",
-      "speaker_id": "<string | null>",
-      "affiliation": "<Internal | External | Unknown>",
-      "methods": [
-        "<string>"
+  "calendar_event_id": "<string | null>",
+  "context?": {
+    "system": "<string | null>",
+    "objects?": {
+      "object_type": "<string | null>",
+      "object_id": "<string | null>",
+      "fields": [
+        {
+          "name": "<string>",
+          "value": "<string>"
+        }
       ]
     }
   },
+  "parties": [
+    {
+      "id": "<string>",
+      "email_address?": "<string>",
+      "name?": "<string>",
+      "title?": "<string>",
+      "user_id?": "<string>",
+      "speaker_id": "<string | null>",
+      "affiliation": "<enum: 'Internal' | 'External' | 'Unknown'>",
+      "methods": "<string[]>"
+    }
+  ],
   "interaction": {
-    "speakers": {
-      "0": {
+    "speakers": [
+      {
         "id": "<string>",
         "user_id": "<string>",
         "talkTime": "<number>"
       }
-    },
-    "interaction_stats": {
-      "0": {
+    ],
+    "interaction_stats": [
+      {
         "name": "<string>",
         "value": "<number>"
       }
-    },
-    "video": {
-      "0": {
+    ],
+    "video": [
+      {
         "name": "<string>",
         "duration": "<number>"
       }
-    },
+    ],
     "questions": {
       "company_count": "<number>",
       "non_company_count": "<number>"
     }
   },
   "collaboration": {
-    "public_comments": {
-      "0": {
+    "public_comments": [
+      {
         "id": "<string>",
         "audio_start_time": "<number>",
         "audio_end_time": "<number>",
@@ -101,11 +110,11 @@ _No request body_
         "posted": "<string>",
         "during_call": "<boolean>"
       }
-    }
+    ]
   },
   "media_urls": {
     "audio_url": "<string>",
-    "video_url?": "<string | undefined>"
+    "video_url?": "<string>"
   }
 }
 ```
@@ -114,8 +123,8 @@ _No request body_
 
 ```json
 {
-  "backfillPeriodMs": "<number>",
-  "lastSyncBackfillPeriod": "<number>"
+  "backfillPeriodMs?": "<number>",
+  "lastSyncBackfillPeriod?": "<number>"
 }
 ```
 

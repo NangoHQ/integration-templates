@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the parameters required to trigger a background check
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BackgroundCheckParameterResponse`
-- **Input Model:** `BackgroundCheckParametersInput`
+- **Model:** `ActionOutput_checkr_partner_backgroundcheckparameters`
+- **Input Model:** `ActionInput_checkr_partner_backgroundcheckparameters`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/actions/background-check-parameters.ts)
 
 

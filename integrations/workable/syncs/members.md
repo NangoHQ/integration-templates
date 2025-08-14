@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of account members from workable
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `r_jobs`
 - **Endpoint Type:** Sync
@@ -41,6 +40,12 @@ _No request body_
   "email": "<string>",
   "role": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of customer invoices from pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** `customer_invoices`
 - **Endpoint Type:** Sync
@@ -37,8 +36,8 @@ _No request body_
 {
   "id": "<string>",
   "amount": "<string | null>",
-  "billing_subscription?": "<BillingSubscriptionObject | null>",
-  "categories?": "<InvoiceCategory[] | null>",
+  "billing_subscription?": "<{\"id\":\"<string | null>\"} | <null>>",
+  "categories?": "<[{\"source_id\":\"<string>\",\"weight\":\"<string>\",\"label\":\"<string>\",\"direction\":\"<string | null>\",\"created_at\":\"<<Date> | <string>>\",\"updated_at\":\"<<Date> | <string>>\"}] | <null>>",
   "currency": "<string | null>",
   "currency_amount": "<string | null>",
   "currency_amount_before_tax?": "<string | null>",
@@ -53,11 +52,9 @@ _No request body_
     "postal_code?": "<string>",
     "city?": "<string>",
     "source_id?": "<string>",
-    "emails?": [
-      "<string>"
-    ],
+    "emails?": "<string[]>",
     "billing_iban?": "<string>",
-    "delivery_address?": "<string | DeliveryAddressObject>",
+    "delivery_address?": "<<string> | {\"address?\":\"<string>\",\"postal_code?\":\"<string | null>\",\"city?\":\"<string | null>\",\"country_alpha2?\":\"<string | null>\"}>",
     "vat_number?": "<string | null>",
     "delivery_postal_code?": "<string>",
     "delivery_city?": "<string>",
@@ -81,21 +78,21 @@ _No request body_
   },
   "customer_name": "<string>",
   "customer_validation_needed": "<boolean | null>",
-  "date?": "<date | string>",
+  "date?": "<<Date> | <string>>",
   "deadline": "<string | null>",
   "discount": "<string | null>",
   "discount_type?": "<string | null>",
   "exchange_rate": "<number | null>",
   "file_url": "<string | null>",
   "filename": "<string | null>",
-  "fully_paid_at?": "<date | null>",
-  "imputation_dates": "<ImputationDateObject | null>",
+  "fully_paid_at?": "<<Date> | <null>>",
+  "imputation_dates": "<{\"start_date\":\"<string>\",\"end_date\":\"<string>\"} | <null>>",
   "invoice_number?": "<string | null>",
   "is_draft": "<boolean>",
   "is_estimate?": "<boolean>",
   "label?": "<string | null>",
   "language?": "<string | null>",
-  "line_items?": [
+  "line_items": [
     {
       "id?": "<number>",
       "label?": "<string>",
@@ -116,26 +113,26 @@ _No request body_
       "product_v2_id?": "<number | null>"
     }
   ],
-  "line_items_sections_attributes?": [
+  "line_items_sections_attributes": [
     {
       "title?": "<string | null>",
       "description?": "<string | null>",
       "rank": "<number>"
     }
   ],
-  "matched_transactions?": [
+  "matched_transactions": [
     {
       "label": "<string | null>",
       "amount": "<string | null>",
       "group_uuid": "<string | null>",
-      "date": "<date | null>",
+      "date": "<<Date> | <null>>",
       "fee": "<string | null>",
       "currency": "<string>"
     }
   ],
   "paid": "<boolean>",
   "payments": [
-    "<object>"
+    {}
   ],
   "pdf_invoice_free_text": "<string>",
   "pdf_invoice_subject": "<string>",
@@ -145,9 +142,15 @@ _No request body_
   "source": "<string | null>",
   "special_mention": "<string | null>",
   "status": "<string | null>",
-  "transactions_reference?": "<TransactionReferenceObject | null>",
-  "updated_at": "<date | string>"
+  "transactions_reference?": "<{\"banking_provider\":\"<string | null>\",\"provider_field_name\":\"<string | null>\",\"provider_field_value\":\"<string | null>\"} | <null>>",
+  "updated_at": "<<Date> | <string>>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

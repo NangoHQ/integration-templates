@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Updates a single contact in Hubspot
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `CreateUpdateContactOutput`
-- **Input Model:** `UpdateContactInput`
+- **Model:** `ActionOutput_hubspot_updatecontact`
+- **Input Model:** `ActionInput_hubspot_updatecontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/update-contact.ts)
 
 
@@ -27,16 +27,16 @@ _No request parameters_
 
 ```json
 {
-  "first_name?": "<string | undefined>",
-  "last_name?": "<string | undefined>",
-  "email?": "<string | undefined>",
-  "job_title?": "<string | undefined>",
-  "lead_status?": "<string | undefined>",
-  "lifecycle_stage?": "<string | undefined>",
-  "salutation?": "<string | undefined>",
-  "mobile_phone_number?": "<string | undefined>",
-  "website_url?": "<string | undefined>",
-  "owner?": "<string | undefined>",
+  "first_name?": "<string>",
+  "last_name?": "<string>",
+  "email?": "<string>",
+  "job_title?": "<string>",
+  "lead_status?": "<string>",
+  "lifecycle_stage?": "<string>",
+  "salutation?": "<string>",
+  "mobile_phone_number?": "<string>",
+  "website_url?": "<string>",
+  "owner?": "<string>",
   "id": "<string>"
 }
 ```
@@ -47,18 +47,18 @@ _No request parameters_
 {
   "id": "<string>",
   "created_date": "<string>",
-  "first_name?": "<string | undefined>",
-  "last_name?": "<string  | undefined>",
-  "email?": "<string | undefined>",
-  "job_title?": "<string | undefined>",
-  "last_contacted?": "<string | undefined>",
-  "last_activity_date?": "<string | undefined>",
-  "lead_status?": "<string | undefined>",
-  "lifecycle_stage?": "<string | undefined>",
-  "salutation?": "<string | undefined>",
-  "mobile_phone_number?": "<string | undefined>",
-  "website_url?": "<string | undefined>",
-  "owner?": "<string | undefined>"
+  "first_name?": "<string>",
+  "last_name?": "<string>",
+  "email?": "<string>",
+  "job_title?": "<string>",
+  "last_contacted?": "<string>",
+  "last_activity_date?": "<string>",
+  "lead_status?": "<string>",
+  "lifecycle_stage?": "<string>",
+  "salutation?": "<string>",
+  "mobile_phone_number?": "<string>",
+  "website_url?": "<string>",
+  "owner?": "<string>"
 }
 ```
 

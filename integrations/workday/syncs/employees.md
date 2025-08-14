@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of current employees from Workday
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,7 +38,7 @@ _No request body_
   "user_name": "<string | null>",
   "first_name?": "<string>",
   "last_name?": "<string>",
-  "active?": "<boolean | undefined>",
+  "active?": "<boolean>",
   "email": "<string>",
   "role": "<string>",
   "department": "<string>",
@@ -48,6 +47,14 @@ _No request body_
   "external_id?": "<string>",
   "employment_relationship?": "<string>",
   "phone_number": "<string | null>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "lagMinutes?": "<number>"
 }
 ```
 

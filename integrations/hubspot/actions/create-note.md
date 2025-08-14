@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single note in Hubspot
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `Note`
-- **Input Model:** `Note`
+- **Model:** `ActionOutput_hubspot_createnote`
+- **Input Model:** `ActionInput_hubspot_createnote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-note.ts)
 
 
@@ -27,13 +27,23 @@ _No request parameters_
 
 ```json
 {
-  "id?": "<string | undefined>",
+  "id?": "<string>",
   "time_stamp": "<string>",
-  "created_date?": "<string | undefined>",
-  "body?": "<string | undefined>",
-  "attachment_ids?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "associations?": "<Association[] | undefined>"
+  "created_date?": "<string>",
+  "body?": "<string>",
+  "attachment_ids?": "<string>",
+  "owner?": "<string>",
+  "associations?": [
+    {
+      "to": "<number>",
+      "types": [
+        {
+          "association_category": "<string>",
+          "association_type_Id": "<number>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -41,13 +51,23 @@ _No request parameters_
 
 ```json
 {
-  "id?": "<string | undefined>",
+  "id?": "<string>",
   "time_stamp": "<string>",
-  "created_date?": "<string | undefined>",
-  "body?": "<string | undefined>",
-  "attachment_ids?": "<string | undefined>",
-  "owner?": "<string | undefined>",
-  "associations?": "<Association[] | undefined>"
+  "created_date?": "<string>",
+  "body?": "<string>",
+  "attachment_ids?": "<string>",
+  "owner?": "<string>",
+  "associations?": [
+    {
+      "to": "<number>",
+      "types": [
+        {
+          "association_category": "<string>",
+          "association_type_Id": "<number>"
+        }
+      ]
+    }
+  ]
 }
 ```
 

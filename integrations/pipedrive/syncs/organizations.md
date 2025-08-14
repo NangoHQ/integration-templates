@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of organizations from pipedrive
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `contacts:read`
 - **Endpoint Type:** Sync
@@ -35,16 +34,16 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
-  "owner_id": "<integer>",
+  "id": "<string>",
+  "owner_id": "<number>",
   "name": "<string>",
   "active_flag": "<boolean>",
-  "update_time": "<date>",
-  "delete_time": "<date>",
-  "add_time": "<date>",
+  "update_time": "<Date>",
+  "delete_time": "<Date>",
+  "add_time": "<Date>",
   "visible_to": "<string>",
-  "label": "<integer>",
-  "address": "<integer>",
+  "label": "<number>",
+  "address": "<number>",
   "address_subpremise": "<string>",
   "address_street_number": "<string>",
   "address_route": "<string>",
@@ -57,6 +56,12 @@ _No request body_
   "address_formatted_address": "<string>",
   "cc_email": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

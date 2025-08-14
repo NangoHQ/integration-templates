@@ -6,13 +6,12 @@
 - **Description:** Get all posts for your account. Note that this does
 not paginate the response so it is possible that not all postings 
 are returned.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_lever_getpostings`
+- **Input Model:** `ActionInput_lever_getpostings`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-postings.ts)
 
 
@@ -28,7 +27,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -36,22 +37,16 @@ _No request body_
 {
   "success": "<boolean>",
   "opportunityId?": "<string>",
-  "response?": {
+  "response": {
     "id": "<string>",
     "name": "<string>",
     "headline": "<string>",
     "contact": "<string>",
-    "emails": [
-      "<string>"
-    ],
-    "phones": [
-      "<string>"
-    ],
+    "emails": "<string[]>",
+    "phones": "<string[]>",
     "confidentiality": "<string>",
     "location": "<string>",
-    "links": [
-      "<string>"
-    ],
+    "links": "<string[]>",
     "archived": {
       "reason": "<string>",
       "archivedAt": "<number>"
@@ -64,30 +59,20 @@ _No request body_
     "archivedAt": "<number>",
     "archiveReason": "<string>",
     "stage": "<string>",
-    "stageChanges": [
-      "<string>"
-    ],
+    "stageChanges": "<string[]>",
     "owner": "<string>",
-    "tags": [
-      "<string>"
-    ],
-    "sources": [
-      "<string>"
-    ],
+    "tags": "<string[]>",
+    "sources": "<string[]>",
     "origin": "<string>",
     "sourcedBy": "<string>",
-    "applications": [
-      "<string>"
-    ],
+    "applications": "<string[]>",
     "resume": "<string>",
-    "followers": [
-      "<string>"
-    ],
+    "followers": "<string[]>",
     "urls": {
       "list": "<string>",
       "show": "<string>"
     },
-    "dataProtection": "<object>",
+    "dataProtection": {},
     "isAnonymized": "<boolean>",
     "opportunityLocation": "<string>"
   }

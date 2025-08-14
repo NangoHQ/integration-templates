@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a customer in Netsuite
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteCustomerCreateOutput`
-- **Input Model:** `NetsuiteCustomerCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_customercreate`
+- **Input Model:** `ActionInput_netsuite_tba_customercreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/customer-create.ts)
 
 

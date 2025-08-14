@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all employees from Oracle HCM
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Unified HRIS API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -45,8 +45,8 @@ _No request body_
     "id": "<string>",
     "name": "<string>"
   },
-  "employmentType": "<FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER>",
-  "employmentStatus": "<ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING>",
+  "employmentType": "<enum: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER'>",
+  "employmentStatus": "<enum: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING'>",
   "startDate": "<string>",
   "terminationDate?": "<string>",
   "manager?": {
@@ -57,8 +57,15 @@ _No request body_
   },
   "workLocation": {
     "name": "<string>",
-    "type": "<OFFICE | REMOTE | HYBRID>",
-    "primaryAddress?": "<UnifiedAddress | undefined>"
+    "type": "<enum: 'OFFICE' | 'REMOTE' | 'HYBRID'>",
+    "primaryAddress?": {
+      "street?": "<string>",
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>",
+      "type": "<enum: 'WORK' | 'HOME'>"
+    }
   },
   "addresses?": [
     {
@@ -67,27 +74,31 @@ _No request body_
       "state?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>",
-      "type": "<WORK | HOME>"
+      "type": "<enum: 'WORK' | 'HOME'>"
     }
   ],
   "phones?": [
     {
-      "type": "<WORK | HOME | MOBILE>",
+      "type": "<enum: 'WORK' | 'HOME' | 'MOBILE'>",
       "number": "<string>"
     }
   ],
   "emails?": [
     {
-      "type": "<WORK | PERSONAL>",
+      "type": "<enum: 'WORK' | 'PERSONAL'>",
       "address": "<string>"
     }
   ],
-  "providerSpecific": {
-    "__string": "<any>"
-  },
+  "providerSpecific": {},
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

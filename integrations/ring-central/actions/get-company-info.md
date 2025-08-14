@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Retrieves information about the current RingCentral account/company.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Company
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `CompanyInfo`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_ring_central_getcompanyinfo`
+- **Input Model:** `ActionInput_ring_central_getcompanyinfo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/get-company-info.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -45,10 +46,10 @@ _No request body_
       "name": "<string>"
     }
   },
-  "mainNumber": "<string | undefined>",
+  "mainNumber?": "<string>",
   "operator": {
-    "id": "<string | undefined>",
-    "extensionNumber": "<string | undefined>"
+    "id?": "<string>",
+    "extensionNumber?": "<string>"
   }
 }
 ```

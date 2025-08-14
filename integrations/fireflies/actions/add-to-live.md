@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to add the Fireflies.ai bot to an ongoing meeting
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `FirefliesAddtoLiveResponse`
-- **Input Model:** `FirefliesAddtoLiveInput`
+- **Model:** `ActionOutput_fireflies_addtolive`
+- **Input Model:** `ActionInput_fireflies_addtolive`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/fireflies/actions/add-to-live.ts)
 
 
@@ -29,7 +28,7 @@ _No request parameters_
 ```json
 {
   "query": "<string>",
-  "variables": "<object>"
+  "variables": {}
 }
 ```
 
@@ -37,7 +36,7 @@ _No request parameters_
 
 ```json
 {
-  "data": "<object>"
+  "data": {}
 }
 ```
 

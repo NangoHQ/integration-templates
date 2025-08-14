@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch custom objects in Hubspot. Requires Hubspot enterprise
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `oauth, crm.schemas.custom.read`
 - **Endpoint Type:** Action
-- **Model:** `CustomObject`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_hubspot_fetchcustomobjects`
+- **Input Model:** `ActionInput_hubspot_fetchcustomobjects`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-custom-objects.ts)
 
 
@@ -25,14 +25,15 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
 ```json
 {
-  "id": "<string>",
-  "__string": "<any>"
+  "id": "<string>"
 }
 ```
 

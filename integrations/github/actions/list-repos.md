@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** List github repos from an organization.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `read:org`
 - **Endpoint Type:** Action
-- **Model:** `GithubRepo`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_github_listrepos`
+- **Input Model:** `ActionInput_github_listrepos`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/list-repos.ts)
 
 
@@ -26,20 +25,26 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
 ```json
 {
-  "id": "<integer>",
-  "owner": "<string>",
-  "name": "<string>",
-  "full_name": "<string>",
-  "description": "<string>",
-  "url": "<string>",
-  "date_created": "<date>",
-  "date_last_modified": "<date>"
+  "repos": [
+    {
+      "id": "<number>",
+      "owner": "<string>",
+      "name": "<string>",
+      "full_name": "<string>",
+      "description": "<string>",
+      "url": "<string>",
+      "date_created": "<Date>",
+      "date_last_modified": "<Date>"
+    }
+  ]
 }
 ```
 

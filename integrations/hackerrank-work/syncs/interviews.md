@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of interviews from hackerrank work
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Interviews
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -37,25 +36,23 @@ _No request body_
 {
   "id": "<string>",
   "status": "<string>",
-  "created_at": "<date>",
-  "updated_at": "<date>",
+  "created_at": "<Date>",
+  "updated_at": "<Date>",
   "title": "<string>",
   "feedback": "<string>",
   "notes": "<string>",
-  "metadata": "<object>",
+  "metadata": {},
   "quickpad": "<boolean>",
-  "ended_at": "<date>",
+  "ended_at": "<Date>",
   "timezone": "<string>",
   "interview_template_id": "<string>",
-  "from": "<date>",
-  "to": "<date>",
+  "from": "<Date>",
+  "to": "<Date>",
   "url": "<string>",
   "user": "<string>",
   "thumbs_up": "<boolean>",
   "resume_url": "<string>",
-  "interviewers": [
-    "<string>"
-  ],
+  "interviewers": "<string[]>",
   "candidate": {
     "name": "<string>",
     "email": "<string>"
@@ -63,6 +60,12 @@ _No request body_
   "result_url": "<string>",
   "report_url": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

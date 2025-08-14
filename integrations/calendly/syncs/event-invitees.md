@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** For all events (active and canceled) retrieve the event invitees
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -66,19 +66,25 @@ _No request body_
   },
   "updated_at": "<string>",
   "uri": "<string>",
-  "cancellation?": {
+  "cancellation": {
     "canceled_by": "<string>",
     "reason": "<string | null>",
     "canceler_type": "<string>",
     "created_at": "<string>"
   },
   "routing_form_submission": "<string | null>",
-  "payment": "<Payment | null>",
+  "payment": "<{\"external_id\":\"<string>\",\"provider\":\"<string>\",\"amount\":\"<number>\",\"currency\":\"<string>\",\"terms\":\"<string>\",\"successful\":\"<boolean>\"} | <null>>",
   "no_show": "<string | null>",
-  "reconfirmation": "<Reconfirmation | null>",
+  "reconfirmation": "<{\"created_at\":\"<string>\",\"confirmed_at\":\"<string>\"} | <null>>",
   "scheduling_method": "<string | null>",
   "invitee_scheduled_by": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

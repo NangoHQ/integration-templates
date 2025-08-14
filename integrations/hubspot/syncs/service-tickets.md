@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of service tickets from Hubspot
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,19 +34,25 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
-  "createdAt": "<date>",
-  "updatedAt": "<date>",
+  "id": "<string>",
+  "createdAt": "<Date>",
+  "updatedAt": "<Date>",
   "isArchived": "<boolean>",
   "subject": "<string>",
   "content": "<string>",
-  "objectId": "<integer>",
-  "ownerId": "<integer>",
-  "pipeline": "<integer>",
-  "pipelineStage": "<integer>",
+  "objectId": "<number>",
+  "ownerId": "<number>",
+  "pipeline": "<number>",
+  "pipelineStage": "<number>",
   "ticketCategory": "<string | null>",
   "ticketPriority": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

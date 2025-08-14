@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a test on hackerrank work
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Tests
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `HackerRankWorkTest`
-- **Input Model:** `HackerRankWorkCreateTestInput`
+- **Model:** `ActionOutput_hackerrank_work_createtest`
+- **Input Model:** `ActionInput_hackerrank_work_createtest`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-test.ts)
 
 
@@ -35,35 +34,21 @@ _No request parameters_
   "instructions": "<string>",
   "locked": "<boolean>",
   "draft": "<string>",
-  "languages": [
-    "<string>"
-  ],
-  "candidate_details": [
-    "<string>"
-  ],
+  "languages": "<string[]>",
+  "candidate_details": "<string[]>",
   "custom_acknowledge_text": "<string>",
   "cutoff_score": "<number>",
   "master_password": "<string>",
   "hide_compile_test": "<boolean>",
-  "tags": [
-    "<string>"
-  ],
-  "role_ids": [
-    "<string>"
-  ],
-  "experience": [
-    "<string>"
-  ],
-  "questions": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
+  "role_ids": "<string[]>",
+  "experience": "<string[]>",
+  "questions": "<string[]>",
   "mcq_incorrect_score": "<number>",
   "mcq_correct_score": "<number>",
   "secure": "<boolean>",
   "shuffle_questions": "<boolean>",
-  "test_admins": [
-    "<string>"
-  ],
+  "test_admins": "<string[]>",
   "hide_template": "<boolean>",
   "enable_acknowledgement": "<boolean>",
   "enable_proctoring": "<boolean>",
@@ -84,21 +69,17 @@ _No request parameters_
   "duration": "<number>",
   "owner": "<string>",
   "instructions": "<string>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "state": "<string>",
   "locked": "<boolean>",
   "test_type": "<string>",
   "starred": "<boolean>",
-  "start_time": "<date>",
-  "end_time": "<date>",
+  "start_time": "<Date>",
+  "end_time": "<Date>",
   "draft": "<boolean>",
-  "questions": [
-    "<string>"
-  ],
-  "sections": "<object>",
-  "tags": [
-    "<string>"
-  ],
+  "questions": "<string[]>",
+  "sections": {},
+  "tags": "<string[]>",
   "permission": "<number>"
 }
 ```

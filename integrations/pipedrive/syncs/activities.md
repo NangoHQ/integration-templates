@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of activities from pipedrive
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `activities:read`
 - **Endpoint Type:** Sync
@@ -35,29 +34,29 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "done": "<boolean>",
   "type": "<string>",
-  "duration": "<date>",
+  "duration": "<Date>",
   "subject": "<string>",
-  "company_id": "<integer>",
-  "user_id": "<integer>",
+  "company_id": "<number>",
+  "user_id": "<number>",
   "conference_meeting_client": "<string>",
   "conference_meeting_url": "<string>",
   "conference_meeting_id": "<string>",
-  "due_date": "<date>",
-  "due_time": "<date>",
+  "due_date": "<Date>",
+  "due_time": "<Date>",
   "busy_flag": "<boolean>",
-  "add_time": "<date>",
-  "marked_as_done_time": "<date>",
+  "add_time": "<Date>",
+  "marked_as_done_time": "<Date>",
   "public_description": "<string>",
   "location": "<string>",
-  "org_id": "<integer>",
-  "person_id": "<integer>",
-  "deal_id": "<integer>",
+  "org_id": "<number>",
+  "person_id": "<number>",
+  "deal_id": "<number>",
   "active_flag": "<boolean>",
-  "update_time": "<date>",
-  "update_user_id": "<integer>",
+  "update_time": "<Date>",
+  "update_user_id": "<number>",
   "source_timezone": "<string>",
   "lead_id": "<string>",
   "location_subpremise": "<string>",
@@ -70,8 +69,14 @@ _No request body_
   "location_country": "<string>",
   "location_postal_code": "<string>",
   "location_formatted_address": "<string>",
-  "project_id": "<integer>"
+  "project_id": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

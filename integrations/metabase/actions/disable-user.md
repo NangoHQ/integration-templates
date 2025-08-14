@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Disables a user in Metabase by id.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_metabase_disableuser`
+- **Input Model:** `ActionInput_metabase_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/actions/disable-user.ts)
 
 
@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<integer>"
+  "id": "<number>"
 }
 ```
 

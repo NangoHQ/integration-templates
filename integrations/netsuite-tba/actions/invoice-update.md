@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates an invoice in Netsuite
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteInvoiceUpdateOutput`
-- **Input Model:** `NetsuiteInvoiceUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_invoiceupdate`
+- **Input Model:** `ActionInput_netsuite_tba_invoiceupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/invoice-update.ts)
 
 
@@ -28,8 +27,8 @@ _No request parameters_
 
 ```json
 {
-  "customerId": "<string>",
-  "currency": "<string>",
+  "customerId?": "<string>",
+  "currency?": "<string>",
   "description?": "<string>",
   "status": "<string>",
   "lines": [
@@ -43,9 +42,7 @@ _No request parameters_
     }
   ],
   "id": "<string>",
-  "customerId?": "<string>",
-  "locationId?": "<string>",
-  "currency?": "<string>"
+  "locationId?": "<string>"
 }
 ```
 

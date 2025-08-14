@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from Calendly
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -39,6 +39,12 @@ _No request body_
   "firstName": "<string>",
   "lastName": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

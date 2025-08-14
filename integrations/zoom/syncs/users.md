@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from Zoom
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user:read, user:read:admin`
 - **Endpoint Type:** Sync
@@ -40,6 +39,12 @@ _No request body_
   "lastName": "<string>",
   "email": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

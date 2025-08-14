@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a single lead in salesforce
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `ActionResponse`
-- **Input Model:** `CreateLeadInput`
+- **Model:** `ActionOutput_salesforce_createlead`
+- **Input Model:** `ActionInput_salesforce_createlead`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/create-lead.ts)
 
 
@@ -27,14 +27,14 @@ _No request parameters_
 
 ```json
 {
-  "first_name?": "<string | undefined>",
-  "email?": "<string | undefined>",
-  "owner_id?": "<string | undefined>",
-  "phone?": "<string | undefined>",
-  "salutation?": "<string | undefined>",
-  "title?": "<string | undefined>",
-  "website?": "<string | undefined>",
-  "industry?": "<string | undefined>",
+  "first_name?": "<string>",
+  "email?": "<string>",
+  "owner_id?": "<string>",
+  "phone?": "<string>",
+  "salutation?": "<string>",
+  "title?": "<string>",
+  "website?": "<string>",
+  "industry?": "<string>",
   "last_name": "<string>",
   "company_name": "<string>"
 }
@@ -46,7 +46,7 @@ _No request parameters_
 {
   "id": "<string>",
   "success": "<boolean>",
-  "errors": "<array>"
+  "errors": "<unknown[]>"
 }
 ```
 

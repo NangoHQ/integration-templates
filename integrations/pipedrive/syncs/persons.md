@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches persons from pipedrive
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `contacts:read`
 - **Endpoint Type:** Sync
@@ -35,25 +34,27 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
+  "id": "<string>",
   "active_flag": "<boolean>",
-  "owner_id": "<integer>",
-  "org_id": "<integer>",
+  "owner_id": "<number>",
+  "org_id": "<number>",
   "name": "<string>",
-  "phone": [
-    "<string>"
-  ],
-  "email": [
-    "<string>"
-  ],
-  "update_time": "<date>",
-  "delete_time": "<date>",
-  "add_time": "<date>",
+  "phone": "<string[]>",
+  "email": "<string[]>",
+  "update_time": "<Date>",
+  "delete_time": "<Date>",
+  "add_time": "<Date>",
   "visible_to": "<string>",
-  "picture_id": "<integer>",
-  "label": "<integer>",
+  "picture_id": "<number>",
+  "label": "<number>",
   "cc_email": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

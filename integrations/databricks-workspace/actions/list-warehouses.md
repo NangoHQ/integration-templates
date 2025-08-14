@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** List all SQL warehouses in the workspace
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Warehouses
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ListWarehousesResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_databricks_workspace_listwarehouses`
+- **Input Model:** `ActionInput_databricks_workspace_listwarehouses`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/databricks-workspace/actions/list-warehouses.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -48,10 +50,10 @@ _No request body_
       "num_active_sessions": "<number>",
       "num_clusters": "<number>",
       "state": "<string>",
-      "tags": "<object>",
+      "tags": {},
       "health": {
         "status": "<string>",
-        "message": "<string | undefined>"
+        "message?": "<string>"
       }
     }
   ]

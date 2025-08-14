@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all job departments from RecruiterFlow
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,10 +34,16 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "name": "<string>",
   "count": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all organization's candidates from greenhouse
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -40,32 +39,18 @@ _No request body_
   "last_name": "<string>",
   "company": "<string>",
   "title": "<string>",
-  "created_at": "<date>",
-  "updated_at": "<date>",
-  "last_activity": "<date>",
+  "created_at": "<Date>",
+  "updated_at": "<Date>",
+  "last_activity": "<Date>",
   "is_private": "<boolean>",
   "photo_url": "<string>",
-  "attachments": [
-    "<any>"
-  ],
-  "application_ids": [
-    "<string>"
-  ],
-  "phone_numbers": [
-    "<string>"
-  ],
-  "addresses": [
-    "<any>"
-  ],
-  "email_addresses": [
-    "<string>"
-  ],
-  "website_addresses": [
-    "<string>"
-  ],
-  "social_media_addresses": [
-    "<string>"
-  ],
+  "attachments": "<unknown[]>",
+  "application_ids": "<string[]>",
+  "phone_numbers": "<string[]>",
+  "addresses": "<unknown[]>",
+  "email_addresses": "<string[]>",
+  "website_addresses": "<string[]>",
+  "social_media_addresses": "<string[]>",
   "recruiter": {
     "id": "<string>",
     "first_name": "<string>",
@@ -81,22 +66,20 @@ _No request body_
     "employee_id": "<string>"
   },
   "can_email": "<boolean>",
-  "tags": [
-    "<string>"
-  ],
-  "applications": [
-    "<string>"
-  ],
-  "educations": [
-    "<string>"
-  ],
-  "employments": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
+  "applications": "<string[]>",
+  "educations": "<string[]>",
+  "employments": "<string[]>",
   "linked_user_ids": "<string>",
-  "custom_fields": "<object>",
-  "keyed_custom_fields": "<object>"
+  "custom_fields": {},
+  "keyed_custom_fields": {}
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

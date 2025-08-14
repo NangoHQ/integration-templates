@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all jobs from your ashby account
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Jobs
 - **Scopes:** `jobslastsyncToken`
 - **Endpoint Type:** Sync
@@ -43,20 +42,12 @@ _No request body_
   "locationId": "<string>",
   "departmentId": "<string>",
   "defaultInterviewPlanId": "<string>",
-  "interviewPlanIds": [
-    "<string>"
-  ],
-  "customFields": [
-    "<string>"
-  ],
-  "jobPostingIds": [
-    "<string>"
-  ],
+  "interviewPlanIds": "<string[]>",
+  "customFields": "<string[]>",
+  "jobPostingIds": "<string[]>",
   "customRequisitionId": "<string>",
-  "hiringTeam": [
-    "<string>"
-  ],
-  "updatedAt": "<date>",
+  "hiringTeam": "<string[]>",
+  "updatedAt": "<Date>",
   "location": {
     "id": "<string>",
     "name": "<string>",
@@ -70,9 +61,15 @@ _No request body_
     },
     "isRemote": "<boolean>"
   },
-  "openings": [
-    "<string>"
-  ]
+  "openings": "<string[]>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "jobslastsyncToken?": "<string>"
 }
 ```
 

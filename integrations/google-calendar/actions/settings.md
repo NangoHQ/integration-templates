@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all user settings from Google Calendar
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `https://www.googleapis.com/auth/calendar.settings.readonly`
 - **Endpoint Type:** Action
-- **Model:** `SettingsResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_google_calendar_settings`
+- **Input Model:** `ActionInput_google_calendar_settings`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/actions/settings.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

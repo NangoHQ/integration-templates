@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a purchase order in Netsuite
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Purchase Orders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuitePurchaseOrderCreateOutput`
-- **Input Model:** `NetsuitePurchaseOrderCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_purchaseordercreate`
+- **Input Model:** `ActionInput_netsuite_tba_purchaseordercreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/purchase-order-create.ts)
 
 
@@ -45,7 +44,7 @@ _No request parameters_
       "department?": "<string>",
       "class?": "<string>",
       "createWorkOrder?": "<boolean>",
-      "inventoryDetail?": "<InventoryDetail | null>"
+      "inventoryDetail?": "<{\"binNumber?\":\"<string>\",\"expirationDate?\":\"<string>\",\"quantity?\":\"<number>\",\"serialNumber?\":\"<string>\",\"toBinNumber?\":\"<string>\"} | <null>>"
     }
   ],
   "customForm?": "<string>",
@@ -53,8 +52,8 @@ _No request parameters_
   "subsidiary?": "<string>",
   "department?": "<string>",
   "class?": "<string>",
-  "taxDetails?": "<TaxDetails | null>",
-  "billingAddress?": {
+  "taxDetails?": "<{\"taxCode?\":\"<string>\",\"taxRate?\":\"<number>\"} | <null>>",
+  "billingAddress": {
     "addr1?": "<string>",
     "addr2?": "<string>",
     "addr3?": "<string>",
@@ -63,7 +62,7 @@ _No request parameters_
     "zip?": "<string>",
     "country?": "<string>"
   },
-  "shippingAddress?": {
+  "shippingAddress": {
     "addr1?": "<string>",
     "addr2?": "<string>",
     "addr3?": "<string>",

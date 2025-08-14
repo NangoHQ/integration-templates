@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a new transaction
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Transactions
-- **Scopes:** `AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin, TechnicalSupportUser`
+- **Scopes:** `AccountAdmin,  AccountOperator,  AccountUser,  BatchServiceAdmin,  CompanyAdmin,  CompanyUser,  CSPTester,  SSTAdmin,  TechnicalSupportAdmin,  TechnicalSupportUser`
 - **Endpoint Type:** Action
-- **Model:** `IdEntity`
-- **Input Model:** `CreateTransaction`
+- **Model:** `ActionOutput_avalara_createtransaction`
+- **Input Model:** `ActionInput_avalara_createtransaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/create-transaction.ts)
 
 
@@ -33,20 +32,20 @@ _No request parameters_
     "invoiceNumber": "<string>",
     "emissionDate": "<string>",
     "dueDate": "<string>",
-    "status": "<to_pay | partially_paid | paid | late | grace_period | to_pay_batch | voided>",
+    "status": "<enum: 'to_pay' | 'partially_paid' | 'paid' | 'late' | 'grace_period' | 'to_pay_batch' | 'voided'>",
     "taxRate": "<string>",
     "currency": "<string>",
     "invoiceLineItems": [
       {
-        "id?": "<string | undefined>",
-        "billingItemId?": "<string | null | undefined>",
+        "id?": "<string>",
+        "billingItemId?": "<string | null>",
         "name": "<string>",
         "description": "<string | null>",
         "unitsCount": "<number>",
         "unitAmount": "<string>",
         "taxAmount": "<number>",
         "taxRate": "<string>",
-        "amount?": "<number | undefined>",
+        "amount?": "<number>",
         "amountExcludingTax": "<number>",
         "periodStart": "<string | null>",
         "periodEnd": "<string | null>",
@@ -65,62 +64,62 @@ _No request parameters_
         "discountAmount": "<number>"
       }
     ],
-    "type": "<invoice | refund>",
+    "type": "<enum: 'invoice' | 'refund'>",
     "discountAmount": "<number>"
   },
   "externalCustomerId": "<string>",
   "companyCode?": "<string>",
   "addresses": {
-    "singleLocation?": {
+    "singleLocation": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "shipFrom?": {
+    "shipFrom": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "shipTo?": {
+    "shipTo": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "pointOfOrderOrigin?": {
+    "pointOfOrderOrigin": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "pointOfOrderAcceptance?": {
+    "pointOfOrderAcceptance": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "goodsPlaceOrServiceRendered?": {
+    "goodsPlaceOrServiceRendered": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "import?": {
+    "import": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",
       "country?": "<string>",
       "postalCode?": "<string>"
     },
-    "billTo?": {
+    "billTo": {
       "line1?": "<string>",
       "city?": "<string>",
       "region?": "<string>",

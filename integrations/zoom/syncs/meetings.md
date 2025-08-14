@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of meetings from Zoom
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Meetings
 - **Scopes:** `meeting:read`
 - **Endpoint Type:** Sync
@@ -43,6 +42,12 @@ _No request body_
   "joinUrl": "<string>",
   "createdAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

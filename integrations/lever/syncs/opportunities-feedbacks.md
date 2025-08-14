@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all feedback forms for a candidate for every single opportunity
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Opportunities
 - **Scopes:** `feedback:read:admin`
 - **Endpoint Type:** Sync
@@ -39,9 +38,7 @@ _No request body_
   "type": "<string>",
   "text": "<string>",
   "instructions": "<string>",
-  "fields": [
-    "<string>"
-  ],
+  "fields": "<string[]>",
   "baseTemplateId": "<string>",
   "interview": "<string>",
   "panel": "<string>",
@@ -51,6 +48,12 @@ _No request body_
   "updatedAt": "<number>",
   "deletedAt": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

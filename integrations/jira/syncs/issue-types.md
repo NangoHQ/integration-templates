@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of issue types for a project
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
@@ -52,7 +52,8 @@ _No request body_
     }
   ],
   "cloudId?": "<string>",
-  "baseUrl?": "<string>"
+  "baseUrl?": "<string>",
+  "timeZone?": "<string>"
 }
 ```
 

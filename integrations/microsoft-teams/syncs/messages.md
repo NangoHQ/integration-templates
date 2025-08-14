@@ -5,8 +5,7 @@
 
 - **Description:** Continuously fetches messages from Microsoft Teams channels and chats.
 Details: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Messsages
 - **Scopes:** `ChannelMessage.Read.All, Chat.Read.All`
 - **Endpoint Type:** Sync
@@ -54,9 +53,9 @@ _No request body_
   "messageType": "<string>",
   "subject": "<string | null>",
   "webUrl": "<string | null>",
-  "attachments": "<TeamsMessageAttachment[] | null>",
-  "reactions": "<TeamsMessageReaction[] | null>",
-  "replies": "<TeamsMessageReply[] | null>",
+  "attachments": "<[{\"id\":\"<string>\",\"contentType\":\"<string>\",\"contentUrl\":\"<string | null>\",\"name\":\"<string | null>\",\"thumbnailUrl\":\"<string | null>\"}] | <null>>",
+  "reactions": "<[{\"reactionType\":\"<string>\",\"createdDateTime\":\"<string>\",\"user\":{\"id\":\"<string>\",\"displayName\":\"<string | null>\",\"email\":\"<string | null>\"}}] | <null>>",
+  "replies": "<[{\"id\":\"<string>\",\"content\":\"<string | null>\",\"createdDateTime\":\"<string>\",\"from\":{\"user\":{\"id\":\"<string | null>\",\"displayName\":\"<string | null>\",\"email\":\"<string | null>\"}}}] | <null>>",
   "raw_json": "<string>"
 }
 ```
@@ -65,15 +64,9 @@ _No request body_
 
 ```json
 {
-  "orgsToSync": [
-    "<string>"
-  ],
-  "channelsLastSyncDate?": {
-    "__string": "<string>"
-  },
-  "chatsLastSyncDate?": {
-    "__string": "<string>"
-  }
+  "orgsToSync": "<string[]>",
+  "channelsLastSyncDate?": {},
+  "chatsLastSyncDate?": {}
 }
 ```
 

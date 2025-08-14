@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all projects from Basecamp
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BasecampProjectsResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_basecamp_fetchprojects`
+- **Input Model:** `ActionInput_basecamp_fetchprojects`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/fetch-projects.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

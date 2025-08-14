@@ -9,8 +9,7 @@ joinPublicChannels is set to true, the bot will automatically join all
 public channels as well. Scopes: At least one of channels:read,
 groups:read, mpim:read, im:read. To also join public channels:
 channels:join
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `channels:read, channels:join`
 - **Endpoint Type:** Sync
@@ -57,6 +56,12 @@ _No request body_
   "num_members": "<number>",
   "raw_json": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

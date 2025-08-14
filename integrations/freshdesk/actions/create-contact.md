@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in FreshDesk
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Contact`
-- **Input Model:** `CreateContact`
+- **Model:** `ActionOutput_freshdesk_createcontact`
+- **Input Model:** `ActionInput_freshdesk_createcontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/create-contact.ts)
 
 
@@ -33,25 +33,25 @@ _No request parameters_
   "mobile?": "<string>",
   "twitter_id?": {
     "type": "<string>",
-    "unique": true,
-    "required": true
+    "unique?": "<unknown>",
+    "required?": "<unknown>"
   },
   "unique_external_id?": {
     "type": "<string>",
-    "unique": true,
-    "required": true
+    "unique?": "<unknown>",
+    "required?": "<unknown>"
   },
-  "other_emails?": "<array>",
+  "other_emails?": "<unknown[]>",
   "company_id?": "<number>",
   "view_all_tickets?": "<boolean>",
-  "other_companies?": "<array>",
+  "other_companies?": "<unknown[]>",
   "address?": "<string>",
-  "avatar?": "<object>",
-  "custom_fields?": "<object>",
+  "avatar?": {},
+  "custom_fields?": {},
   "description?": "<string>",
   "job_title?": "<string>",
   "language?": "<string>",
-  "tags?": "<array>",
+  "tags?": "<unknown[]>",
   "time_zone?": "<string>",
   "lookup_parameter?": "<string>"
 }
@@ -67,10 +67,10 @@ _No request parameters_
   "name": "<string>",
   "createdAt": "<string>",
   "updatedAt": "<string>",
-  "companyId?": "<string | undefined>",
-  "phone?": "<string | undefined | null>",
-  "mobile?": "<string | undefined | null>",
-  "jobTitle?": "<string | undefined | null>"
+  "companyId?": "<string>",
+  "phone?": "<string | null>",
+  "mobile?": "<string | null>",
+  "jobTitle?": "<string | null>"
 }
 ```
 

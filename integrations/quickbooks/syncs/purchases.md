@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks purchases
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Purchases
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -38,12 +37,12 @@ _No request body_
   "created_at": "<string>",
   "updated_at": "<string>",
   "id": "<string>",
-  "account_id?": "<string | undefined>",
-  "account_name?": "<string | undefined>",
+  "account_id?": "<string>",
+  "account_name?": "<string>",
   "payment_type": "<string>",
-  "entity_type?": "<string | undefined>",
-  "entity_id?": "<string | undefined>",
-  "entity_name": "<string | undefined>",
+  "entity_type?": "<string>",
+  "entity_id?": "<string>",
+  "entity_name?": "<string>",
   "total_amount": "<number>",
   "print_status?": "<string>",
   "doc_number?": "<string>",
@@ -55,13 +54,19 @@ _No request body_
       "description?": "<string>",
       "detail_type": "<string>",
       "amount": "<number>",
-      "account_name?": "<string | undefined>",
-      "account_id?": "<string | undefined>",
-      "billable_status?": "<string | undefined>",
-      "tax_code?": "<string | undefined>"
+      "account_name?": "<string>",
+      "account_id?": "<string>",
+      "billable_status?": "<string>",
+      "tax_code?": "<string>"
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

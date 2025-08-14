@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all pages in a book from Brightcrowd.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Books
 - **Scopes:** `bcb.partner/page.read`
 - **Endpoint Type:** Sync
@@ -38,7 +37,7 @@ _No request body_
   "id": "<string>",
   "alias": "<string>",
   "name": "<string>",
-  "status": "<draft | published | hidden>",
+  "status": "<enum: 'draft' | 'published' | 'hidden'>",
   "content": {
     "firstName": "<string>",
     "lastName": "<string>",
@@ -50,14 +49,14 @@ _No request body_
     "pictureId?": "<string | null>",
     "audioId?": "<string | null>"
   },
-  "pictures?": "<Picture[] | null>",
-  "videos?": "<Video[] | null>",
-  "tagUsers?": "<string[] | null>",
+  "pictures?": "<[{\"type\":\"<enum: 'profile' | 'content' | 'caption'>\",\"id\":\"<string>\",\"caption?\":\"<string | null>\"}] | <null>>",
+  "videos?": "<[{\"url\":\"<string>\",\"caption?\":\"<string | null>\"}] | <null>>",
+  "tagUsers?": "<<string[]> | <null>>",
   "homeTown?": "<string | null>",
   "currentCity?": "<string | null>",
   "campusResidence?": "<string | null>",
-  "affiliations?": "<Affiliation[] | null>",
-  "plan?": "<school | work | other>",
+  "affiliations?": "<[{\"type\":\"<enum: 'OtherAffiliation' | 'UniversityAffiliation' | 'CompanyAffiliation'>\",\"organization?\":\"<string | null>\",\"major?\":\"<<string> | <string[]>>\",\"degree?\":\"<<string> | <string[]>>\",\"school?\":\"<<string> | <string[]>>\",\"graduationYear?\":\"<number | null>\",\"specialty?\":\"<<string> | <string[]>>\",\"category?\":\"<<string> | <string[]>>\",\"title?\":\"<string>\",\"startYear?\":\"<number | null>\",\"endYear?\":\"<number | null>\",\"office?\":\"<<string> | <string[]>>\",\"group?\":\"<<string> | <string[]>>\"}] | <null>>",
+  "plan?": "<enum: 'school' | 'work' | 'other'>",
   "created": "<string>",
   "modifiedByUserAt?": "<string | null>",
   "completedByUserAt?": "<string | null>",
@@ -69,10 +68,8 @@ _No request body_
 
 ```json
 {
-  "bookIds": [
-    "<string>"
-  ],
-  "timeframe?": "<7days | 30days | 90days | all>"
+  "bookIds": "<string[]>",
+  "timeframe?": "<<unknown> | <string>>"
 }
 ```
 

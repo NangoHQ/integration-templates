@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all users that exist in the workspace
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,6 +41,12 @@ _No request body_
   "email": "<string | null>",
   "avatar_url": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

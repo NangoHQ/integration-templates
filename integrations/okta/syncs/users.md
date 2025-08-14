@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches lists users in your org
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `okta.users.read`
 - **Endpoint Type:** Sync
@@ -54,6 +54,12 @@ _No request body_
     "email": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

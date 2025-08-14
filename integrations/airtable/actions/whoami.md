@@ -8,8 +8,8 @@
 - **Group:** Users
 - **Scopes:** `user.email:read`
 - **Endpoint Type:** Action
-- **Model:** `UserInformation`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_airtable_whoami`
+- **Input Model:** `ActionInput_airtable_whoami`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/whoami.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

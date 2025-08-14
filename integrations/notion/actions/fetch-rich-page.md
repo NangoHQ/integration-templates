@@ -6,13 +6,12 @@
 - **Description:** Fetch a specific page in Notion by passing a pageId. This action fetches a page,
 and its content and converts it into a full markdown. It transforms images,
 tables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Pages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RichPage`
-- **Input Model:** `RichPageInput`
+- **Model:** `ActionOutput_notion_fetchrichpage`
+- **Input Model:** `ActionInput_notion_fetchrichpage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)
 
 
@@ -43,9 +42,9 @@ _No request parameters_
   "title": "<string>",
   "content": "<string>",
   "contentType": "<string>",
-  "meta": "<object>",
+  "meta": {},
   "last_modified": "<string>",
-  "parent_id?": "<string | undefined>"
+  "parent_id?": "<string>"
 }
 ```
 

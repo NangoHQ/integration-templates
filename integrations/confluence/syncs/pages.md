@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of pages from confluence
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `read:page:confluence`
 - **Endpoint Type:** Sync
@@ -53,11 +52,17 @@ _No request body_
   },
   "body": {
     "storage": {
-      "representation": "<string>",
-      "value":  "<string>"
-      },
+      "value": "<string>",
+      "representation": "<string>"
+    }
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

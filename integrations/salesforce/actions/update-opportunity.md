@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a single opportunity in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `UpdateOpportunityInput`
+- **Model:** `ActionOutput_salesforce_updateopportunity`
+- **Input Model:** `ActionInput_salesforce_updateopportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-opportunity.ts)
 
 
@@ -27,9 +27,17 @@ _No request parameters_
 
 ```json
 {
-  "opportunity_name?": "<string | undefined>",
-  "close_date?": "<string | undefined>",
-  "stage?": "<string | undefined>"
+  "account_id?": "<string>",
+  "amount?": "<number>",
+  "description?": "<string>",
+  "created_by_id?": "<string>",
+  "owner_id?": "<string>",
+  "probability?": "<number>",
+  "type?": "<string>",
+  "id": "<string>",
+  "opportunity_name?": "<string>",
+  "close_date?": "<string>",
+  "stage?": "<string>"
 }
 ```
 

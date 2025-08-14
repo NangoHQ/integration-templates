@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of issues from Jira
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Issues
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
@@ -35,9 +34,9 @@ _No request body_
 
 ```json
 {
+  "id": "<string>",
   "createdAt": "<string>",
   "updatedAt": "<string>",
-  "id": "<string>",
   "key": "<string>",
   "summary": "<string>",
   "issueType": "<string>",
@@ -48,20 +47,20 @@ _No request body_
   "projectId": "<string>",
   "projectKey": "<string>",
   "projectName": "<string>",
-  "comments": {
-    "0": {
+  "comments": [
+    {
+      "id": "<string>",
       "createdAt": "<string>",
       "updatedAt": "<string>",
-      "id": "<string>",
       "author": {
         "accountId": "<string | null>",
         "active": "<boolean>",
         "displayName": "<string>",
         "emailAddress": "<string | null>"
       },
-      "body": "<object>"
+      "body": {}
     }
-  }
+  ]
 }
 ```
 
@@ -75,7 +74,8 @@ _No request body_
     }
   ],
   "cloudId?": "<string>",
-  "baseUrl?": "<string>"
+  "baseUrl?": "<string>",
+  "timeZone?": "<string>"
 }
 ```
 

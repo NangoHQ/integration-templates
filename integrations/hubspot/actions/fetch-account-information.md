@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the account information from Hubspot
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `oauth`
 - **Endpoint Type:** Action
-- **Model:** `Account`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_hubspot_fetchaccountinformation`
+- **Input Model:** `ActionInput_hubspot_fetchaccountinformation`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-account-information.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -35,9 +37,7 @@ _No request body_
   "type": "<string>",
   "timeZone": "<string>",
   "companyCurrency": "<string>",
-  "additionalCurrencies": [
-    "<string>"
-  ],
+  "additionalCurrencies": "<string[]>",
   "utcOffset": "<string>",
   "utcOffsetMilliseconds": "<number>",
   "uiDomain": "<string>",

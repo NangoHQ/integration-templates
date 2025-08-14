@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Get all archived reasons
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Archived
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_lever_getarchivereasons`
+- **Input Model:** `ActionInput_lever_getarchivereasons`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-archive-reasons.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -34,22 +35,16 @@ _No request body_
 {
   "success": "<boolean>",
   "opportunityId?": "<string>",
-  "response?": {
+  "response": {
     "id": "<string>",
     "name": "<string>",
     "headline": "<string>",
     "contact": "<string>",
-    "emails": [
-      "<string>"
-    ],
-    "phones": [
-      "<string>"
-    ],
+    "emails": "<string[]>",
+    "phones": "<string[]>",
     "confidentiality": "<string>",
     "location": "<string>",
-    "links": [
-      "<string>"
-    ],
+    "links": "<string[]>",
     "archived": {
       "reason": "<string>",
       "archivedAt": "<number>"
@@ -62,30 +57,20 @@ _No request body_
     "archivedAt": "<number>",
     "archiveReason": "<string>",
     "stage": "<string>",
-    "stageChanges": [
-      "<string>"
-    ],
+    "stageChanges": "<string[]>",
     "owner": "<string>",
-    "tags": [
-      "<string>"
-    ],
-    "sources": [
-      "<string>"
-    ],
+    "tags": "<string[]>",
+    "sources": "<string[]>",
     "origin": "<string>",
     "sourcedBy": "<string>",
-    "applications": [
-      "<string>"
-    ],
+    "applications": "<string[]>",
     "resume": "<string>",
-    "followers": [
-      "<string>"
-    ],
+    "followers": "<string[]>",
     "urls": {
       "list": "<string>",
       "show": "<string>"
     },
-    "dataProtection": "<object>",
+    "dataProtection": {},
     "isAnonymized": "<boolean>",
     "opportunityLocation": "<string>"
   }

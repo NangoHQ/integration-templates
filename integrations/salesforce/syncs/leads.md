@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of leads from salesforce
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
@@ -49,6 +48,12 @@ _No request body_
   "industry": "<string | null>",
   "last_modified_date": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

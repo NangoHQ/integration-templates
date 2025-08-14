@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all upcoming events per a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,9 +38,7 @@ _No request body_
   "title": "<string>",
   "userPrimaryEmail": "<string>",
   "description": "<string>",
-  "customInputs": {
-    "__string": "<any>"
-  },
+  "customInputs": {},
   "startTime": "<string>",
   "endTime": "<string>",
   "attendees": [
@@ -53,9 +51,7 @@ _No request body_
       "bookingId": "<number>"
     }
   ],
-  "metadata": {
-    "__string": "<any>"
-  },
+  "metadata": {},
   "uid": "<string>",
   "recurringEventId": "<string>",
   "location": "<string>",
@@ -64,34 +60,20 @@ _No request body_
     "id": "<number>",
     "eventName": "<string>",
     "price": "<number>",
-    "recurringEvent": {
-      "__string": "<any>"
-    },
+    "recurringEvent": {},
     "currency": "<string>",
-    "metadata": {
-      "__string": "<any>"
-    },
-    "seatsShowAttendees": {
-      "__string": "<any>"
-    },
-    "seatsShowAvailabilityCount": {
-      "__string": "<any>"
-    },
-    "team": {
-      "__string": "<any>"
-    }
+    "metadata": {},
+    "seatsShowAttendees": {},
+    "seatsShowAvailabilityCount": {},
+    "team": {}
   },
-  "status": {
-    "__string": "<any>"
-  },
+  "status": {},
   "paid": "<boolean>",
-  "payment": {
-    "0": {
-      "__string": "<any>"
-    }
-  },
-  "references": {
-    "0": {
+  "payment": [
+    {}
+  ],
+  "references": [
+    {
       "id": "<number>",
       "type": "<string>",
       "uid": "<string>",
@@ -101,18 +83,14 @@ _No request body_
       "meetingUrl": "<string>",
       "bookingId": "<number>",
       "externalCalendarId": "<string>",
-      "deleted": {
-        "__string": "<string>"
-      },
+      "deleted": {},
       "credentialId": "<number>"
     }
-  },
+  ],
   "isRecorded": "<boolean>",
-  "seatsReferences": {
-    "0": {
-      "__string": "<any>"
-    }
-  },
+  "seatsReferences": [
+    {}
+  ],
   "user": {
     "username": "<string>",
     "name": "<string>",
@@ -130,25 +108,25 @@ _No request body_
         "id": "<number>",
         "slug": "<string>",
         "name": "<string>",
-        "metadata": {
-          "__string": "<any>"
-        }
+        "metadata": {}
       },
       "upId": "<string>",
       "image": "<string>",
       "brandColor": "<string>",
       "darkBrandColor": "<string>",
       "theme": "<string>",
-      "bookerLayouts": {
-        "__string": "<any>"
-      }
+      "bookerLayouts": {}
     },
     "bookerUrl": "<string>"
   },
-  "rescheduled": {
-    "__string": "<any>"
-  }
+  "rescheduled": {}
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

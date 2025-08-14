@@ -1,23 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Organisation
+# Organisations
 
 ## General Information
 
 - **Description:** Fetches organisation details in Xero.
-
-- **Version:** 1.0.0
-- **Group:** Organisation
+- **Version:** 2.0.0
+- **Group:** Organisations
 - **Scopes:** `accounting.settings, accounting.settings.read`
 - **Endpoint Type:** Sync
 - **Model:** `Organisation`
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/organisation.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/organisations.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /organisation`
+`GET /organisations`
 
 ### Request Query Parameters
 
@@ -64,7 +63,7 @@ _No request body_
   "edition?": "<string>",
   "class?": "<string>",
   "lineOfBusiness?": "<string>",
-  "addresses?": [
+  "addresses": [
     {
       "addressType?": "<string>",
       "addressLine1?": "<string>",
@@ -78,7 +77,7 @@ _No request body_
       "attentionTo?": "<string>"
     }
   ],
-  "phones?": [
+  "phones": [
     {
       "phoneType?": "<string>",
       "phoneNumber?": "<string>",
@@ -86,18 +85,18 @@ _No request body_
       "phoneCountryCode?": "<string>"
     }
   ],
-  "externalLinks?": [
+  "externalLinks": [
     {
       "linkType?": "<string>",
       "url?": "<string>"
     }
   ],
-  "paymentTerms?": {
-    "bills?": {
+  "paymentTerms": {
+    "bills": {
       "day?": "<number>",
       "type?": "<string>"
     },
-    "sales?": {
+    "sales": {
       "day?": "<number>",
       "type?": "<string>"
     }
@@ -105,10 +104,16 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{}
+```
+
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/organisation.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/organisation.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/organisations.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/organisations.md)
 
 <!-- END  GENERATED CONTENT -->
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a note for a candidate
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Note`
-- **Input Model:** `CreateNoteParams`
+- **Model:** `ActionOutput_gem_createnote`
+- **Input Model:** `ActionInput_gem_createnote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/create-note.ts)
 
 
@@ -29,7 +29,7 @@ _No request parameters_
 {
   "user_id": "<string>",
   "body": "<string>",
-  "visibility": "<private | public>",
+  "visibility": "<enum: 'private' | 'public'>",
   "candidate_id": "<string>"
 }
 ```
@@ -49,7 +49,7 @@ _No request parameters_
     "employee_id": "<string>"
   },
   "private": "<boolean>",
-  "visibility": "<public | private>"
+  "visibility": "<enum: 'public' | 'private'>"
 }
 ```
 

@@ -7,13 +7,12 @@
 that is in DRAFT or SUBMITTED set the status to DELETED. If an
 invoice has been AUTHORISED it can't be deleted but you can set
 the status to VOIDED.
-
-- **Version:** 1.0.4
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
-- **Model:** `InvoiceActionResponse`
-- **Input Model:** `UpdateInvoice[]`
+- **Model:** `ActionOutput_xero_updateinvoice`
+- **Input Model:** `ActionInput_xero_updateinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-invoice.ts)
 
 
@@ -31,35 +30,33 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "type?": "<ACCPAY | ACCREC>",
-      "external_contact_id?": "<string>",
-      "url?": "<string>",
-      "id": "<string>",
-      "issuing_date?": "<string | null>",
-      "payment_due_date?": "<string | null>",
-      "status?": "<string>",
-      "number?": "<string>",
-      "currency?": "<string>",
-      "purchase_order?": "<string | null>",
-      "fees?": [
-        {
-          "account_code?": "<string>",
-          "item_code?": "<string | null>",
-          "account_external_id?": "<string | null>",
-          "discount_amount_cents?": "<number | null>",
-          "discount_rate?": "<number | null>",
-          "item_id?": "<string>",
-          "description?": "<string | null>",
-          "units?": "<number | null>",
-          "precise_unit_amount?": "<number | null>",
-          "amount_cents?": "<number | null>",
-          "taxes_amount_cents?": "<number | null>"
-        }
-      ]
-    }
-  ]
+  "0": {
+    "type?": "<enum: 'ACCPAY' | 'ACCREC'>",
+    "external_contact_id?": "<string>",
+    "url?": "<string>",
+    "id": "<string>",
+    "issuing_date?": "<string | null>",
+    "payment_due_date?": "<string | null>",
+    "status?": "<string>",
+    "number?": "<string>",
+    "currency?": "<string>",
+    "purchase_order?": "<string | null>",
+    "fees": [
+      {
+        "account_code?": "<string>",
+        "item_code?": "<string | null>",
+        "account_external_id?": "<string | null>",
+        "discount_amount_cents?": "<number | null>",
+        "discount_rate?": "<number | null>",
+        "item_id?": "<string>",
+        "description?": "<string | null>",
+        "units?": "<number | null>",
+        "precise_unit_amount?": "<number | null>",
+        "amount_cents?": "<number | null>",
+        "taxes_amount_cents?": "<number | null>"
+      }
+    ]
+  }
 }
 ```
 
@@ -69,7 +66,7 @@ _No request parameters_
 {
   "succeededInvoices": [
     {
-      "type": "<ACCPAY | ACCREC>",
+      "type": "<enum: 'ACCPAY' | 'ACCREC'>",
       "external_contact_id": "<string>",
       "url?": "<string>",
       "id": "<string>",
@@ -98,6 +95,9 @@ _No request parameters_
   ],
   "failedInvoices": [
     {
+      "type": "<enum: 'ACCPAY' | 'ACCREC'>",
+      "external_contact_id": "<string>",
+      "url?": "<string>",
       "id": "<string>",
       "issuing_date": "<string | null>",
       "payment_due_date": "<string | null>",
@@ -120,9 +120,7 @@ _No request parameters_
           "taxes_amount_cents": "<number | null>"
         }
       ],
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

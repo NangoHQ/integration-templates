@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync all workspace org units
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/admin.directory.orgunit.readonly, https://www.googleapis.com/auth/admin.directory.user.readonly`
 - **Endpoint Type:** Sync
@@ -43,6 +43,12 @@ _No request body_
   "parentPath": "<string | null>",
   "parentId": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

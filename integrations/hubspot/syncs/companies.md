@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of companies from Hubspot
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.read, oauth`
 - **Endpoint Type:** Sync
@@ -48,6 +47,12 @@ _No request body_
   "year_founded": "<string | null>",
   "website_url": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a company in the system
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Company`
-- **Input Model:** `CreateCompany`
+- **Model:** `ActionOutput_unanet_createcompany`
+- **Input Model:** `ActionInput_unanet_createcompany`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-company.ts)
 
 
@@ -28,7 +28,7 @@ _No request parameters_
 ```json
 {
   "name": "<string>",
-  "federalAgency?": {
+  "federalAgency": {
     "city?": "<string>",
     "state?": "<string>",
     "country?": "<string>",

@@ -8,8 +8,8 @@
 - **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
-- **Model:** `WebhookCreated`
-- **Input Model:** `CreateWebhook`
+- **Model:** `ActionOutput_airtable_createwebhook`
+- **Input Model:** `ActionInput_airtable_createwebhook`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/create-webhook.ts)
 
 
@@ -32,15 +32,9 @@ _No request parameters_
     "options": {
       "filters": {
         "recordChangeScope?": "<string>",
-        "dataTypes": [
-          "<string>"
-        ],
-        "changeTypes?": [
-          "<string>"
-        ],
-        "fromSources?": [
-          "<string>"
-        ],
+        "dataTypes": "<string[]>",
+        "changeTypes": "<string[]>",
+        "fromSources": "<string[]>",
         "sourceOptions?": {
           "formPageSubmission?": {
             "pageId": "<string>"
@@ -49,15 +43,11 @@ _No request parameters_
             "viewId": "<string>"
           }
         },
-        "watchDataInFieldIds?": [
-          "<string>"
-        ],
-        "watchSchemasOfFieldIds?": [
-          "<string>"
-        ]
+        "watchDataInFieldIds": "<string[]>",
+        "watchSchemasOfFieldIds": "<string[]>"
       },
       "includes?": {
-        "includeCellValuesInFieldIds?": "<string[] | all>",
+        "includeCellValuesInFieldIds?": "<<string[]> | <string>>",
         "includePreviousCellValues:?": "<boolean>",
         "includePreviousFieldDefinitions?": "<boolean>"
       }
