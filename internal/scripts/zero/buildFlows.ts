@@ -93,7 +93,7 @@ async function main(): Promise<void> {
                 const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
                 const jsonSchema = JSON.parse(schemaJsonContent);
 
-                aggregatedFlows.push({ ...nangoData[0]!, jsonSchema, sdkVersion: nangoVersion });
+                aggregatedFlows.push({ ...nangoData[0]!, providerConfigKey: folder.name, jsonSchema, sdkVersion: nangoVersion });
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
