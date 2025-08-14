@@ -32,13 +32,13 @@ const sync = createSync({
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const now = new Date();
-        const timeMin =
-            metadata?.timeMin ??
-            new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days back
+        const timeMin = metadata?.timeMin
+            ? new Date(metadata.timeMin).toISOString()
+            : new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
-        const timeMax =
-            metadata?.timeMax ??
-            new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString(); // 12 months ahead
+        const timeMax = metadata?.timeMax
+            ? new Date(metadata.timeMax).toISOString()
+            : new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString();
 
         const params: Record<string, string> = {
             maxResults: '100',
