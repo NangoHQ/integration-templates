@@ -7,7 +7,7 @@ import { GoogleCalendarEvent, CalendarMetadata } from '../models.js';
 
 const sync = createSync({
     description: 'Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API',
-    version: '3.0.0',
+    version: '4.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
     syncType: 'incremental',
@@ -31,11 +31,22 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
+        const now = new Date();
+        const timeMin =
+            metadata?.timeMin ??
+            new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days back
+
+        const timeMax =
+            metadata?.timeMax ??
+            new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString(); // 12 months ahead
+
         const params: Record<string, string> = {
             maxResults: '100',
             // shows a calendar view of actual event instances
             // set to false to allow editing or canceling the full recurring series
-            singleEvents: metadata?.singleEvents?.toString() ?? 'true'
+            singleEvents: metadata?.singleEvents?.toString() ?? 'true',
+            timeMin,
+            timeMax
         };
 
         if (nango.lastSyncDate) {

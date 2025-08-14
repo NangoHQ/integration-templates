@@ -5,7 +5,7 @@
 
 - **Description:** Sync calendar events on the primary calendar going back one month and
 save the entire object as specified by the Google API
-- **Version:** 3.0.0
+- **Version:** 4.0.0
 - **Group:** Events
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
@@ -204,6 +204,8 @@ _No request body_
 ```json
 {
   "calendarsToSync": "<string[]>",
+  "timeMin?": "<string>",
+  "timeMax?": "<string>",
   "singleEvents?": "<boolean>"
 }
 ```

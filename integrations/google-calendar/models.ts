@@ -2,6 +2,8 @@ import { z } from "zod";
 
 export const CalendarMetadata = z.object({
   calendarsToSync: z.string().optional().array(),
+  timeMin: z.string().optional(),
+  timeMax: z.string().optional(),
   singleEvents: z.boolean().optional()
 });
 

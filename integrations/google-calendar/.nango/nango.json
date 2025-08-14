@@ -72,7 +72,7 @@
           "GoogleCalendarEvent",
           "SyncMetadata_google_calendar_events"
         ],
-        "version": "3.0.0",
+        "version": "4.0.0",
         "webhookSubscriptions": []
       },
       {
