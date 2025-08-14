@@ -1,0 +1,121 @@
+{
+  "method": "get",
+  "endpoint": "gmail/v1/users/me/messages/198a4a2068abf5d9",
+  "requestIdentityHash": "54dfd4f9c688d2bf4d255dc43a5eb8199a0bafd5",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "gmail/v1/users/me/messages/198a4a2068abf5d9",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "id": "198a4a2068abf5d9",
+    "threadId": "198a4a1cb6ece9b2",
+    "labelIds": [
+      "UNREAD",
+      "IMPORTANT",
+      "SENT",
+      "INBOX"
+    ],
+    "snippet": "This is me in here",
+    "payload": {
+      "partId": "",
+      "mimeType": "multipart/alternative",
+      "filename": "",
+      "headers": [
+        {
+          "name": "MIME-Version",
+          "value": "1.0"
+        },
+        {
+          "name": "Date",
+          "value": "Wed, 13 Aug 2025 21:12:18 +0300"
+        },
+        {
+          "name": "Message-ID",
+          "value": "<CAJd6VjLT86SZ__e43ravB-0kw4T7oGptQj0q4W-wiA=UatevHg@mail.gmail.com>"
+        },
+        {
+          "name": "Subject",
+          "value": "Another one from UI"
+        },
+        {
+          "name": "From",
+          "value": "Hassan Wari <hassanwari254@gmail.com>"
+        },
+        {
+          "name": "To",
+          "value": "Hassan Wari <hassanwari254@gmail.com>"
+        },
+        {
+          "name": "Content-Type",
+          "value": "multipart/alternative; boundary=\"000000000000e78b42063c431873\""
+        }
+      ],
+      "body": {
+        "size": 0
+      },
+      "parts": [
+        {
+          "partId": "0",
+          "mimeType": "text/plain",
+          "filename": "",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/plain; charset=\"UTF-8\""
+            }
+          ],
+          "body": {
+            "size": 20,
+            "data": "VGhpcyBpcyBtZSBpbiBoZXJlDQo="
+          }
+        },
+        {
+          "partId": "1",
+          "mimeType": "text/html",
+          "filename": "",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/html; charset=\"UTF-8\""
+            }
+          ],
+          "body": {
+            "size": 41,
+            "data": "PGRpdiBkaXI9Imx0ciI-VGhpcyBpcyBtZSBpbiBoZXJlPC9kaXY-DQo="
+          }
+        }
+      ]
+    },
+    "sizeEstimate": 588,
+    "historyId": "3802706",
+    "internalDate": "1755108738000"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 13 Aug 2025 18:15:04 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "96ea3217a9c5b199-NBO",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "rndr-id": "223bb6b4-2222-40e1",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "vary": "Origin, X-Origin, Referer, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-limit": "200",
+    "x-ratelimit-remaining": "193",
+    "x-ratelimit-reset": "1755108960",
+    "x-render-origin-server": "ESF",
+    "x-xss-protection": "0",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare"
+  }
+}
