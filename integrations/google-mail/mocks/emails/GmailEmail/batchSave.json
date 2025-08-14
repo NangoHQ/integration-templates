@@ -1,64 +1,79 @@
 [
-    {
-        "id": "1926abe2f19f960a",
-        "sender": "Windscribe <noreply@windscribe.com>",
-        "recipients": "john@foo.com@gmail.com",
-        "date": "2024-10-08T05:19:55.000Z",
-        "subject": "Windscribe September Updates (and another new video!)",
-        "body": "",
-        "attachments": [],
-        "threadId": "1926abe2f19f960a"
-    },
-    {
-        "id": "1926ab7f84de3228",
-        "sender": "Feedspot Today <nobody@e.feedspot.com>",
-        "recipients": "john@foo.com@gmail.com",
-        "date": "2024-10-08T06:01:34.000Z",
-        "subject": "U.K. Hacker Charged in $3.75 Million Insider Trading Scheme Using Hacked Executive Emails, Vulnerable APIs..",
-        "body": "",
-        "attachments": [],
-        "threadId": "1926ab7f84de3228"
-    },
-    {
-        "id": "1926ab2f388ee820",
-        "sender": "John Doe <john@foo.com@gmail.com>",
-        "recipients": "John Doe <john@foo.com@gmail.com>",
-        "date": "2024-10-08T05:54:04.000Z",
-        "subject": "",
-        "body": "\r\n",
-        "attachments": [],
-        "threadId": "1926ab2eb6b97dbd"
-    },
-    {
-        "id": "1926aae5958a57a8",
-        "sender": "John Doe <john@foo.com@gmail.com>",
-        "date": "2024-10-08T05:49:02.000Z",
-        "subject": "",
-        "body": "\r\n",
-        "attachments": [],
-        "threadId": "1926aae51748a654"
-    },
-    {
-        "id": "1926aae406722332",
-        "sender": "John Doe <john@foo.com@gmail.com>",
-        "recipients": "John Doe <john@foo.com@gmail.com>",
-        "date": "2024-10-08T05:48:56.000Z",
-        "subject": "THIS IS AN EXAMPLE",
-        "body": "This is an example body\r\n",
-        "attachments": [
-            {
-                "filename": "img.PNG",
-                "mimeType": "image/png",
-                "size": 19165,
-                "attachmentId": "ANGjdJ8LWm3x7O6Bwac3xTFChBSSEaETWh_iacWZD5j1jwm6f620timuhwTop7Jj6mKiv4qO74PZumcn7vJzC_E3AFGu5dgNNzFMruYNakYaUG4J0yPQE1_HH8TV0aRvdEJaxvVslx1imiA22t9F8zLKTzfs7bvR658L_5j7XMzQEf5dJGZeLGMvnnl9A-Xzky670zw4N8eni8tkfI_lS6N-knZTGQYntzdG1Oc9BgsdPj2LQbe4tb5tXt5P1xV6gIbn_AdVD442nX2bjFE155F-NXGF5oa3MX178XdZfDll_Ph6J6wQ3sSuDXs3LzA"
-            },
-            {
-                "filename": "imageee.PNG",
-                "mimeType": "image/png",
-                "size": 7419,
-                "attachmentId": "ANGjdJ9NnyZ7MVj8UqLyhdHLNGEX0EP6cxqro7CkMYWq-yFbscDHN_CcPtPHdn3QuIVSZiSvcUmGHYnWBgmGhu9NioyvZ-2owYuT31JRM3cyz89dixV-LdBjy5VTQSlB177u-cs7W_wAsZ68C1Eoyp3sHtMHsd8xTAM-_uOK9tvXUBCVLo860pQcQOfum8AQekmiiiiMOrSahvvdG7dM7aBqx2XVD1fePzatj9biVireq0c_52cKbAV0dbPh578-nXhty_oAfP_Zig3eFuN7iB3jID6q2NhkmAZclnUNduripuXWAhp4qE4Vf4L4FU8"
-            }
-        ],
-        "threadId": "1926aade210af14d"
-    }
+  {
+    "id": "198a4a42c6b6ac9d",
+    "sender": "Hassan Wari <hassanwari254@gmail.com>",
+    "recipients": "Hassan Wari <hassanwari254@gmail.com>",
+    "date": "2025-08-13T18:14:39.000Z",
+    "subject": "ATTACHMENTS",
+    "body": "Another one with attachments\r\n",
+    "attachments": [
+      {
+        "filename": "1200x600wa (1).png",
+        "mimeType": "image/png",
+        "size": 31526,
+        "attachmentId": "ANGjdJ-9XdDWBGDJLcBf4V7d550N-7LY1NZj7jRs5wNbhS5pixjKEAmzrG6vXRnX0I3TnTqjZt2oUd2TUZHlsEL1rVfc4ce_HGBt8n6KSKBVnrQ0d4vc5fbK5oevUA4mAwijx3eV7eRQxSWmzmzPnoQWMkwDd94Xk-mPWgXsw2cFbZjI7wAVXEeXF00h3cTU6sktSMYObL2FT8TqVQudvxv3Bm7OEQDqEPp3aqYIJEJoVopWb2zmhz7q9CavzF9qJNxGIyfOiPm2HhKvni48t4_A6fj7ON1Ejei8wbNkKfLO2-7EA_2rhGLOZPigfCU"
+      }
+    ],
+    "threadId": "198a4a3d88e1774a"
+  },
+  {
+    "id": "198a4a3533bd34c3",
+    "sender": "hassanwari254@gmail.com",
+    "recipients": "hassanwari254@gmail.com",
+    "date": "2025-08-13T18:13:43.000Z",
+    "subject": "Test Email from Gmail API",
+    "body": "Hi Hassan,\n\nThis is a test email sent using the Gmail API in Postman.\n\nWith regards,\nMe",
+    "attachments": [],
+    "threadId": "198a4a3533bd34c3"
+  },
+  {
+    "id": "198a4a2068abf5d9",
+    "sender": "Hassan Wari <hassanwari254@gmail.com>",
+    "recipients": "Hassan Wari <hassanwari254@gmail.com>",
+    "date": "2025-08-13T18:12:18.000Z",
+    "subject": "Another one from UI",
+    "body": "This is me in here\r\n",
+    "attachments": [],
+    "threadId": "198a4a1cb6ece9b2"
+  },
+  {
+    "id": "198a4a1b3fb89927",
+    "sender": "hassanwari254@gmail.com",
+    "recipients": "hassanwari254@gmail.com",
+    "date": "2025-08-13T18:11:57.000Z",
+    "subject": "Test Email from Gmail API",
+    "body": "Hi Hassan,\n\nThis is a test email sent using the Gmail API in Postman.\n\nWith regards,\nMe",
+    "attachments": [],
+    "threadId": "198a4a1b3fb89927"
+  },
+  {
+    "id": "198a4a1ac4e407f5",
+    "sender": "hassanwari254@gmail.com",
+    "recipients": "hassanwari254@gmail.com",
+    "date": "2025-08-13T18:11:55.000Z",
+    "subject": "Test Email from Gmail API",
+    "body": "Hi Hassan,\n\nThis is a test email sent using the Gmail API in Postman.\n\nWith regards,\nMe",
+    "attachments": [],
+    "threadId": "198a4a1ac4e407f5"
+  },
+  {
+    "id": "198a4a0996091f64",
+    "sender": "Hassan Wari <hassanwari254@gmail.com>",
+    "recipients": "Hassan Wari <hassanwari254@gmail.com>",
+    "date": "2025-08-13T18:10:44.000Z",
+    "subject": "This is from UI",
+    "body": "Simple mail\r\n",
+    "attachments": [],
+    "threadId": "198a4a068a93bcf6"
+  },
+  {
+    "id": "198a49fe919e6fe5",
+    "sender": "hassanwari254@gmail.com",
+    "recipients": "hassanwari254@gmail.com",
+    "date": "2025-08-13T18:09:59.000Z",
+    "subject": "Test Email from Gmail API",
+    "body": "Hi Hassan,\n\nThis is a test email sent using the Gmail API in Postman.\n\nWith regards,\nMe",
+    "attachments": [],
+    "threadId": "198a49fe919e6fe5"
+  }
 ]
