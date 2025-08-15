@@ -10,7 +10,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: 'Lists all the files of a Github repo given a specific branch',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'incremental',
@@ -33,7 +33,13 @@ const sync = createSync({
     metadata: GithubIssueRepoInput,
 
     exec: async (nango) => {
-        const { owner, repo, branch } = await nango.getMetadata();
+        const metadata = await nango.getMetadata();
+        
+        if (!metadata?.owner || !metadata?.repo || !metadata?.branch) {
+            throw Error('Missing required metadata: either owner, repo, or branch might be missing');
+        }
+        
+        const { owner, repo, branch } = metadata;
 
         // On the first run, fetch all files. On subsequent runs, fetch only updated files.
         if (!nango.lastSyncDate) {
