@@ -129,7 +129,7 @@
           "GithubRepoFile",
           "SyncMetadata_github_listfiles"
         ],
-        "version": "2.0.0",
+        "version": "2.0.1",
         "webhookSubscriptions": []
       }
     ],

@@ -19421,7 +19421,7 @@
                 "sync_type": "incremental",
                 "track_deletes": false,
                 "usedModels": ["GithubRepoFile", "SyncMetadata_github_listfiles"],
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "webhookSubscriptions": []
             }
         ],
