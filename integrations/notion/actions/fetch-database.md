@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Database`
-- **Input Model:** `DatabaseInput`
+- **Model:** `ActionOutput_notion_fetchdatabase`
+- **Input Model:** `ActionInput_notion_fetchdatabase`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-database.ts)
 
 
@@ -38,14 +38,12 @@ _No request parameters_
   "id": "<string>",
   "path": "<string>",
   "title": "<string>",
-  "meta": "<object>",
+  "meta": {},
   "last_modified": "<string>",
   "entries": [
     {
       "id": "<string>",
-      "row": {
-        "__string": "<any>"
-      }
+      "row": {}
     }
   ]
 }

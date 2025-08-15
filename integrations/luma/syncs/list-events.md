@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,10 +34,10 @@ _No request body_
 
 ```json
 {
+  "id": "<string>",
   "created_at": "<string>",
   "start_at": "<string>",
   "end_at": "<string>",
-  "id": "<string>",
   "cover_url": "<string>",
   "name": "<string>",
   "description": "<string>",
@@ -47,7 +46,7 @@ _No request body_
   "duration_interval_iso8601": "<string>",
   "geo_latitude": "<string | null>",
   "geo_longitude": "<string | null>",
-  "geo_address_json": "<GeoAddress | null>",
+  "geo_address_json": "<{\"city\":\"<string>\",\"type\":\"<string>\",\"region\":\"<string>\",\"address\":\"<string>\",\"country\":\"<string>\",\"latitude\":\"<string>\",\"place_id\":\"<string>\",\"longitude\":\"<string>\",\"city_state\":\"<string>\",\"description\":\"<string>\",\"full_address\":\"<string>\"} | <null>>",
   "url": "<string>",
   "timezone": "<string>",
   "event_type": "<string>",
@@ -56,6 +55,12 @@ _No request body_
   "meeting_url": "<string | null>",
   "zoom_meeting_url": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all organization locations from RecruiterFlow
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Organizations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -34,14 +34,20 @@ _No request body_
 
 ```json
 {
-  "id": "<number>",
+  "id": "<string>",
   "name": "<string>",
-  "address": "<string | undefined>",
-  "city": "<string | undefined>",
-  "state": "<string | undefined>",
-  "country": "<string | undefined>",
-  "postal_code": "<string | undefined>"
+  "address?": "<string>",
+  "city?": "<string>",
+  "state?": "<string>",
+  "country?": "<string>",
+  "postal_code?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

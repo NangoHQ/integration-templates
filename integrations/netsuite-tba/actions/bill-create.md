@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a vendor bill in Netsuite.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Bills
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteBillCreateOutput`
-- **Input Model:** `NetsuiteBillCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_billcreate`
+- **Input Model:** `ActionInput_netsuite_tba_billcreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/bill-create.ts)
 
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Hubspot
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `oauth, settings.users.write (standard scope), crm.objects.users.write (granular)`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_hubspot_deleteuser`
+- **Input Model:** `ActionInput_hubspot_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/delete-user.ts)
 
 

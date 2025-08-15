@@ -4,11 +4,11 @@
 ## General Information
 
 - **Description:** Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `StandardEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/unified-employees.ts)
 
 
@@ -45,8 +45,8 @@ _No request body_
     "id": "<string>",
     "name": "<string>"
   },
-  "employmentType": "<FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER>",
-  "employmentStatus": "<ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING>",
+  "employmentType": "<enum: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER'>",
+  "employmentStatus": "<enum: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING'>",
   "startDate": "<string>",
   "terminationDate?": "<string>",
   "terminationType?": "<string>",
@@ -58,14 +58,14 @@ _No request body_
   },
   "workLocation": {
     "name": "<string>",
-    "type": "<OFFICE | REMOTE | HYBRID>",
-    "primaryAddress?": {
+    "type": "<enum: 'OFFICE' | 'REMOTE' | 'HYBRID'>",
+    "primaryAddress": {
       "street": "<string>",
       "city": "<string>",
       "state": "<string>",
       "country": "<string>",
       "postalCode": "<string>",
-      "type": "<HOME | WORK>"
+      "type": "<enum: 'HOME' | 'WORK'>"
     }
   },
   "addresses": [
@@ -75,27 +75,31 @@ _No request body_
       "state": "<string>",
       "country": "<string>",
       "postalCode": "<string>",
-      "type": "<HOME | WORK>"
+      "type": "<enum: 'HOME' | 'WORK'>"
     }
   ],
   "phones": [
     {
-      "type": "<WORK | HOME | MOBILE>",
+      "type": "<enum: 'WORK' | 'HOME' | 'MOBILE'>",
       "number": "<string>"
     }
   ],
   "emails": [
     {
-      "type": "<WORK | PERSONAL>",
+      "type": "<enum: 'WORK' | 'PERSONAL'>",
       "address": "<string>"
     }
   ],
-  "providerSpecific": {
-    "__string": "<any>"
-  },
+  "providerSpecific": {},
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of accounts from zoho crm
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoCRM.modules.accounts.READ`
 - **Endpoint Type:** Sync
@@ -44,7 +43,7 @@ _No request body_
   "$field_states": "<string>",
   "Account_Type": "<string>",
   "SIC_Code": "<string>",
-  "Last_Activity_Time": "<date>",
+  "Last_Activity_Time": "<Date>",
   "Industry": "<string>",
   "Account_Site": "<string>",
   "$state": "<string>",
@@ -60,7 +59,7 @@ _No request body_
     "resubmit": "<boolean>"
   },
   "Billing_Street": "<string>",
-  "Created_Time": "<date>",
+  "Created_Time": "<Date>",
   "$editable": "<boolean>",
   "Billing_Code": "<string>",
   "Shipping_City": "<string>",
@@ -73,11 +72,11 @@ _No request body_
     "email": "<string>"
   },
   "$zia_owner_assignment": "<string>",
-  "Annual_Revenue": "<integer>",
+  "Annual_Revenue": "<number>",
   "Shipping_Street": "<string>",
   "Ownership": "<string>",
   "Description": "<string>",
-  "Rating": "<integer>",
+  "Rating": "<number>",
   "Shipping_State": "<string>",
   "$review_process": {
     "approve": "<boolean>",
@@ -85,7 +84,7 @@ _No request body_
     "resubmit": "<boolean>"
   },
   "Website": "<string>",
-  "Employees": "<integer>",
+  "Employees": "<number>",
   "Record_Image": "<string>",
   "Modified_By": {
     "name": "<string>",
@@ -97,7 +96,7 @@ _No request body_
   "Account_Name": "<string>",
   "Account_Number": "<string>",
   "Ticker_Symbol": "<string>",
-  "Modified_Time": "<date>",
+  "Modified_Time": "<Date>",
   "$orchestration": "<boolean>",
   "Parent_Account": {
     "name": "<string>",
@@ -106,12 +105,16 @@ _No request body_
   "$in_merge": "<boolean>",
   "Locked__s": "<boolean>",
   "Billing_State": "<string>",
-  "Tag": [
-    "<any>"
-  ],
+  "Tag": "<unknown[]>",
   "Fax": "<string>",
   "$approval_state": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

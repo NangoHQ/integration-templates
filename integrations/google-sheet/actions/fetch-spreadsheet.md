@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetches the content of a spreadsheet given its ID.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/spreadsheets.readonly`
 - **Endpoint Type:** Action
-- **Model:** `Spreadsheet`
-- **Input Model:** `SpreadsheetId`
+- **Model:** `ActionOutput_google_sheet_fetchspreadsheet`
+- **Input Model:** `ActionInput_google_sheet_fetchspreadsheet`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-sheet/actions/fetch-spreadsheet.ts)
 
 
@@ -37,22 +36,22 @@ _No request parameters_
 ```json
 {
   "spreadsheetId": "<string>",
-  "properties": "<object>",
+  "properties": {},
   "sheets": [
-    "<object>"
+    {}
   ],
   "namedRanges": [
-    "<object>"
+    {}
   ],
   "spreadsheetUrl": "<string>",
   "developerMetadata": [
-    "<object>"
+    {}
   ],
   "dataSources": [
-    "<object>"
+    {}
   ],
   "dataSourceSchedules": [
-    "<object>"
+    {}
   ]
 }
 ```

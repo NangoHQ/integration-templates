@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all customers in Exact Online
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -48,6 +47,12 @@ _No request body_
   "state": "<string | null>",
   "phone": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

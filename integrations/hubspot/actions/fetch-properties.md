@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the properties of a specified object
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Properties
 - **Scopes:** `oauth, media_bridge.read, crm.objects.marketing_events.write, crm.schemas.custom.read, crm.pipelines.orders.read, tickets, crm.objects.feedback_submissions.read, crm.objects.goals.read, crm.objects.custom.write, crm.objects.custom.read, crm.objects.marketing_events.read, timeline, e-commerce, automation`
 - **Endpoint Type:** Action
-- **Model:** `PropertyResponse`
-- **Input Model:** `InputProperty`
+- **Model:** `ActionOutput_hubspot_fetchproperties`
+- **Input Model:** `ActionInput_hubspot_fetchproperties`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-properties.ts)
 
 
@@ -45,22 +45,12 @@ _No request parameters_
       "fieldType": "<string>",
       "description": "<string>",
       "groupName": "<string>",
-      "options": [
-        {
-          "label": "<string>",
-          "value": "<string>",
-          "displayOrder": "<number>",
-          "hidden": "<boolean>"
-        }
-      ],
+      "options": "<unknown[]>",
       "displayOrder": "<number>",
       "calculated": "<boolean>",
       "externalOptions": "<boolean>",
       "hasUniqueValue": "<boolean>",
       "hidden": "<boolean>",
-      "options?": [
-        "<any>"
-      ],
       "hubspotDefined?": "<boolean>",
       "showCurrencySymbol?": "<boolean>",
       "modificationMetadata?": {
@@ -70,8 +60,7 @@ _No request parameters_
         "readOnlyOptions?": "<boolean>"
       },
       "formField": "<boolean>",
-      "dataSensitivity": "<string>",
-      "__string": "<any>"
+      "dataSensitivity": "<string>"
     }
   ]
 }

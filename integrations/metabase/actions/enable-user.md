@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Enables a disabled user.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_metabase_enableuser`
+- **Input Model:** `ActionInput_metabase_enableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/actions/enable-user.ts)
 
 
@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<integer>"
+  "id": "<number>"
 }
 ```
 

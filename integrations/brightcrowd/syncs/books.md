@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all books in an account from Brightcrowd.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync
@@ -42,7 +41,7 @@ _No request body_
   "config": "<string | null>",
   "coverPictureId": "<string | null>",
   "bannerPictureId": "<string | null>",
-  "affiliation": "<Affiliation | null>",
+  "affiliation": "<{\"type\":\"<enum: 'OtherAffiliation' | 'UniversityAffiliation' | 'CompanyAffiliation'>\",\"organization?\":\"<string | null>\",\"major?\":\"<<string> | <string[]>>\",\"degree?\":\"<<string> | <string[]>>\",\"school?\":\"<<string> | <string[]>>\",\"graduationYear?\":\"<number | null>\",\"specialty?\":\"<<string> | <string[]>>\",\"category?\":\"<<string> | <string[]>>\",\"title?\":\"<string>\",\"startYear?\":\"<number | null>\",\"endYear?\":\"<number | null>\",\"office?\":\"<<string> | <string[]>>\",\"group?\":\"<<string> | <string[]>>\"} | <null>>",
   "questions": [
     {
       "id": "<string>",
@@ -74,17 +73,21 @@ _No request body_
       ]
     }
   ],
-  "flags": [
-    "<string>"
-  ],
+  "flags": "<string[]>",
   "publishedAt?": "<string | null>",
   "closedAt?": "<string | null>",
   "lockedAt?": "<string | null>",
   "created": "<string>",
   "modified": "<string>",
-  "frontMatter": "<FrontMatter | null>",
-  "preface?": "<Preface | null>"
+  "frontMatter": "<{\"sections\":[{\"uri\":\"<string>\",\"title\":\"<string>\",\"snippet\":\"<string>\",\"disabled?\":\"<boolean>\"}]} | <null>>",
+  "preface?": "<{\"text\":\"<string | null>\",\"docId?\":\"<string | null>\",\"video?\":\"<string | null>\",\"pictures?\":\"<<string[]> | <null>>\"} | <null>>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

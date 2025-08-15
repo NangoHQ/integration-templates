@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all journal entries in QuickBooks
-
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -40,7 +39,7 @@ _No request body_
   "id": "<string>",
   "date": "<string | null>",
   "currency": "<string>",
-  "note?": "<string | undefined>",
+  "note?": "<string>",
   "lines": [
     {
       "id": "<string>",
@@ -48,18 +47,24 @@ _No request body_
       "account_id": "<string>",
       "account_name": "<string>",
       "net_amount": "<number>",
-      "posting_type": "<Debit | Credit>",
+      "posting_type": "<enum: 'Debit' | 'Credit'>",
       "description": "<string>",
-      "entity_type?": "<string | undefined>",
-      "entity_type_id?": "<string | undefined>",
-      "entity_type_name?": "<string | undefined>",
-      "department_id?": "<string | undefined>",
-      "department_name?": "<string | undefined>",
-      "class_id?": "<string | undefined>",
-      "class_name?": "<string | undefined>"
+      "entity_type?": "<string>",
+      "entity_type_id?": "<string>",
+      "entity_type_name?": "<string>",
+      "department_id?": "<string>",
+      "department_name?": "<string>",
+      "class_id?": "<string>",
+      "class_name?": "<string>"
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

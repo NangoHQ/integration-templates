@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Delete a user in Zendesk
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_zendesk_deleteuser`
+- **Input Model:** `ActionInput_zendesk_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/delete-user.ts)
 
 

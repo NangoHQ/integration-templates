@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of opportunities from salesforce
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
@@ -51,6 +50,12 @@ _No request body_
   "type": "<string | null>",
   "last_modified_date": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

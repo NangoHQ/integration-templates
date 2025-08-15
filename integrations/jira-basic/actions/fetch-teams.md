@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetch teams in an organisation in Jira
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Teams`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_jira_basic_fetchteams`
+- **Input Model:** `ActionInput_jira_basic_fetchteams`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/fetch-teams.ts)
 
 

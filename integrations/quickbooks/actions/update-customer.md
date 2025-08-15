@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Update a single customer in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Customers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Customer`
-- **Input Model:** `UpdateCustomer`
+- **Model:** `ActionOutput_quickbooks_updatecustomer`
+- **Input Model:** `ActionInput_quickbooks_updatecustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-customer.ts)
 
 
@@ -27,7 +26,37 @@ _No request parameters_
 ### Request Body
 
 ```json
-{}
+{
+  "display_name?": "<string>",
+  "suffix?": "<string>",
+  "title?": "<string>",
+  "given_name?": "<string>",
+  "company_name?": "<string>",
+  "notes?": "<string>",
+  "primary_email?": "<string>",
+  "primary_phone?": "<string>",
+  "bill_address": {
+    "line1?": "<string>",
+    "line2?": "<string>",
+    "city?": "<string>",
+    "postal_code?": "<string>",
+    "country?": "<string>",
+    "lat?": "<string>",
+    "long?": "<string>"
+  },
+  "ship_address": {
+    "line1?": "<string>",
+    "line2?": "<string>",
+    "city?": "<string>",
+    "postal_code?": "<string>",
+    "country?": "<string>",
+    "lat?": "<string>",
+    "long?": "<string>"
+  },
+  "id": "<string>",
+  "sync_token": "<string>",
+  "active?": "<boolean>"
+}
 ```
 
 ### Request Response
@@ -44,8 +73,8 @@ _No request parameters_
   "taxable": "<boolean>",
   "primary_email": "<string | null>",
   "primary_phone": "<string | null>",
-  "bill_address": "<BillAddr | null>",
-  "ship_address": "<BillAddr | null>"
+  "bill_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>",
+  "ship_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>"
 }
 ```
 

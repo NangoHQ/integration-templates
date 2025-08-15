@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of tests from hackerrank work
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Tests
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,23 +40,25 @@ _No request body_
   "duration": "<number>",
   "owner": "<string>",
   "instructions": "<string>",
-  "created_at": "<date>",
+  "created_at": "<Date>",
   "state": "<string>",
   "locked": "<boolean>",
   "test_type": "<string>",
   "starred": "<boolean>",
-  "start_time": "<date>",
-  "end_time": "<date>",
+  "start_time": "<Date>",
+  "end_time": "<Date>",
   "draft": "<boolean>",
-  "questions": [
-    "<string>"
-  ],
-  "sections": "<object>",
-  "tags": [
-    "<string>"
-  ],
+  "questions": "<string[]>",
+  "sections": {},
+  "tags": "<string[]>",
   "permission": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

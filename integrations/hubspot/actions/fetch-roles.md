@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the roles on an account. Requires an enterprise account.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Roles
 - **Scopes:** `oauth, settings.users.read (standard scope), crm.objects.users.read (granular scope)`
 - **Endpoint Type:** Action
-- **Model:** `RoleResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_hubspot_fetchroles`
+- **Input Model:** `ActionInput_hubspot_fetchroles`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-roles.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

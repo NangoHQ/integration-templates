@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates or updates a transaction in Anrok.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TransactionActionResponse`
-- **Input Model:** `Transaction[]`
+- **Model:** `ActionOutput_anrok_createorupdatetransaction`
+- **Input Model:** `ActionInput_anrok_createorupdatetransaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/create-or-update-transaction.ts)
 
 
@@ -28,9 +27,38 @@ _No request parameters_
 
 ```json
 {
-  "input": [
+  "0": {
+    "id?": "<string>",
+    "issuing_date": "<string>",
+    "currency": "<string>",
+    "contact": {
+      "external_id": "<string>",
+      "name": "<string>",
+      "address_line_1": "<string>",
+      "city": "<string>",
+      "zip": "<string>",
+      "country": "<string>",
+      "taxable": "<boolean>",
+      "tax_number": "<string>"
+    },
+    "fees": [
+      {
+        "item_id": "<string>",
+        "item_code": "<string | null>",
+        "amount_cents": "<number | null>"
+      }
+    ]
+  }
+}
+```
+
+### Request Response
+
+```json
+{
+  "succeeded": [
     {
-      "id?": "<string | undefined>",
+      "id?": "<string>",
       "issuing_date": "<string>",
       "currency": "<string>",
       "contact": {
@@ -49,24 +77,6 @@ _No request parameters_
           "item_code": "<string | null>",
           "amount_cents": "<number | null>"
         }
-      ]
-    }
-  ]
-}
-```
-
-### Request Response
-
-```json
-{
-  "succeeded": [
-    {
-      "fees": [
-        {
-          "item_id": "<string>",
-          "item_code": "<string | null>",
-          "amount_cents": "<number | null>"
-        }
       ],
       "sub_total_excluding_taxes?": "<number>",
       "taxes_amount_cents?": "<number>"
@@ -74,6 +84,19 @@ _No request parameters_
   ],
   "failed": [
     {
+      "id?": "<string>",
+      "issuing_date": "<string>",
+      "currency": "<string>",
+      "contact": {
+        "external_id": "<string>",
+        "name": "<string>",
+        "address_line_1": "<string>",
+        "city": "<string>",
+        "zip": "<string>",
+        "country": "<string>",
+        "taxable": "<boolean>",
+        "tax_number": "<string>"
+      },
       "fees": [
         {
           "item_id": "<string>",
@@ -81,7 +104,7 @@ _No request parameters_
           "amount_cents": "<number | null>"
         }
       ],
-      "validation_errors": "<any>"
+      "validation_errors?": "<unknown>"
     }
   ]
 }

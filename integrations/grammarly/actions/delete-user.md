@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Grammarly
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `EmailEntity`
+- **Model:** `ActionOutput_grammarly_deleteuser`
+- **Input Model:** `ActionInput_grammarly_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/grammarly/actions/delete-user.ts)
 
 

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all offers for every single opportunity
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Offers
 - **Scopes:** `offers:write:admin`
 - **Endpoint Type:** Sync
@@ -39,9 +38,7 @@ _No request body_
   "createdAt": "<number>",
   "status": "<string>",
   "creator": "<string>",
-  "fields": [
-    "<string>"
-  ],
+  "fields": "<string[]>",
   "sentDocument": {
     "fileName": "<string>",
     "uploadedAt": "<number>",
@@ -53,6 +50,12 @@ _No request body_
     "downloadUrl": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

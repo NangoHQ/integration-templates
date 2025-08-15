@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all your personal tasks in Zoho mail
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoMail.tasks.READ`
 - **Endpoint Type:** Sync
@@ -37,11 +36,9 @@ _No request body_
 {
   "id": "<string>",
   "serviceType": "<number>",
-  "modifiedTime": "<date>",
+  "modifiedTime": "<Date>",
   "resourceId": "<string>",
-  "attachments": [
-    "<any>"
-  ],
+  "attachments": "<unknown[]>",
   "statusStr": "<string>",
   "statusValue": "<number>",
   "description": "<string>",
@@ -51,33 +48,21 @@ _No request body_
   },
   "isTaskPublished": "<boolean>",
   "title": "<string>",
-  "createdAt": "<date>",
+  "createdAt": "<Date>",
   "portalId": "<number>",
   "serviceId": "<string>",
   "owner": {
     "name": "<string>",
     "id": "<number>"
   },
-  "assigneeList": [
-    "<string>"
-  ],
-  "dependency": [
-    "<any>"
-  ],
-  "subtasks": [
-    "<any>"
-  ],
+  "assigneeList": "<string[]>",
+  "dependency": "<unknown[]>",
+  "subtasks": "<unknown[]>",
   "priority": "<string>",
-  "tags": [
-    "<string>"
-  ],
-  "followers": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
+  "followers": "<string[]>",
   "namespaceId": "<string>",
-  "dependents": [
-    "<string>"
-  ],
+  "dependents": "<string[]>",
   "assignee": {
     "name": "<string>",
     "id": "<number>"
@@ -86,6 +71,12 @@ _No request body_
   "depUniqId": "<string>",
   "status": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

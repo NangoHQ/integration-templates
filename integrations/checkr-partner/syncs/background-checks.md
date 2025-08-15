@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all the background checks
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -40,8 +40,14 @@ _No request body_
   "url": "<string>",
   "candidate_id": "<string>",
   "created_at": "<string>",
-  "expires_at?": "<string | undefined>"
+  "expires_at?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

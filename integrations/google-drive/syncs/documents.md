@@ -12,8 +12,7 @@ by using the Google Picker API
 (https://developers.google.com/drive/picker/guides/overview)
 and using the ID field provided by the response
 (https://developers.google.com/drive/picker/reference/results)
-
-- **Version:** 3.0.1
+- **Version:** 4.0.0
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
@@ -55,8 +54,8 @@ _No request body_
 
 ```json
 {
-  "files": "<string[] | undefined>",
-  "folders": "<string[] | undefined>"
+  "files": "<string[]>",
+  "folders": "<string[]>"
 }
 ```
 

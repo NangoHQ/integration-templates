@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch the teams from Linear
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TeamsPaginatedResponse`
-- **Input Model:** `FetchTeamsInput`
+- **Model:** `ActionOutput_linear_fetchteams`
+- **Input Model:** `ActionInput_linear_fetchteams`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/fetch-teams.ts)
 
 

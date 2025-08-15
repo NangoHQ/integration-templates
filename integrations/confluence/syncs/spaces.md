@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of spaces from confluence
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `read:space:confluence`
 - **Endpoint Type:** Sync
@@ -45,6 +44,12 @@ _No request body_
   "homepageId": "<string>",
   "description": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

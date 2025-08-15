@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** This action will be used to fetch the latest file download_url which can be used to download the actual file.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `MyFiles.Read, offline_access`
 - **Endpoint Type:** Action
-- **Model:** `FetchFile`
-- **Input Model:** `FetchFileInput`
+- **Model:** `ActionOutput_sharepoint_online_fetchfile`
+- **Input Model:** `ActionInput_sharepoint_online_fetchfile`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/fetch-file.ts)
 
 

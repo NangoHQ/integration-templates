@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in FreshDesk
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `FreshdeskCreateUser`
+- **Model:** `ActionOutput_freshdesk_createuser`
+- **Input Model:** `ActionInput_freshdesk_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/create-user.ts)
 
 
@@ -31,20 +31,14 @@ _No request parameters_
   "lastName": "<string>",
   "email": "<string>",
   "ticket_scope?": "<number>",
-  "ticketScope?": "<globalAccess | groupAccess | restrictedAccess>",
+  "ticketScope?": "<enum: 'globalAccess' | 'groupAccess' | 'restrictedAccess'>",
   "occasional?": "<boolean>",
   "signature?": "<string>",
-  "skill_ids?": [
-    "<number>"
-  ],
-  "group_ids?": [
-    "<number>"
-  ],
-  "role_ids?": [
-    "<number>"
-  ],
+  "skill_ids": "<number[]>",
+  "group_ids": "<number[]>",
+  "role_ids": "<number[]>",
   "agent_type?": "<number>",
-  "agentType?": "<support | field | collaborator>",
+  "agentType?": "<enum: 'support' | 'field' | 'collaborator'>",
   "language?": "<string>",
   "time_zone?": "<string>",
   "focus_mode?": "<boolean>"

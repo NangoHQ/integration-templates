@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all interviews for every single opportunity
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Opportunities
 - **Scopes:** `interviews:read:admin`
 - **Endpoint Type:** Sync
@@ -39,27 +38,27 @@ _No request body_
   "panel": "<string>",
   "subject": "<string>",
   "note": "<string>",
-  "interviewers": [
-    "<string>"
-  ],
+  "interviewers": "<string[]>",
   "timezone": "<string>",
   "createdAt": "<number>",
   "date": "<number>",
   "duration": "<number>",
   "location": "<string>",
   "feedbackTemplate": "<string>",
-  "feedbackForms": [
-    "<string>"
-  ],
+  "feedbackForms": "<string[]>",
   "feedbackReminder": "<string>",
   "user": "<string>",
   "stage": "<string>",
   "canceledAt": "<number>",
-  "postings": [
-    "<string>"
-  ],
+  "postings": "<string[]>",
   "gcalEventUrl": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a new employee
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BamboohrCreateEmployeeResponse`
-- **Input Model:** `BamboohrCreateEmployee`
+- **Model:** `ActionOutput_bamboohr_basic_createemployee`
+- **Input Model:** `ActionInput_bamboohr_basic_createemployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/actions/create-employee.ts)
 
 

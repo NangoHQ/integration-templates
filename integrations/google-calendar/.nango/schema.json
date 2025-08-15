@@ -10,6 +10,12 @@
             "type": "string"
           }
         },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
         "singleEvents": {
           "type": "boolean"
         }

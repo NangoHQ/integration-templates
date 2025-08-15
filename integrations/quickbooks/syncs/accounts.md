@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all accounts in QuickBooks. Handles both active and archived accounts, saving or deleting them based on their status.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Accounts
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -49,6 +48,12 @@ _No request body_
   "acct_num": "<string | null>",
   "sub_account": "<boolean>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Sends an SMS message via ClickSend's API.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** SMS
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Sms`
-- **Input Model:** `ClickSendSendSmsInput`
+- **Model:** `ActionOutput_clicksend_sendsms`
+- **Input Model:** `ActionInput_clicksend_sendsms`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clicksend/actions/send-sms.ts)
 
 
@@ -40,7 +40,7 @@ _No request parameters_
   "to": "<string>",
   "from": "<string>",
   "body": "<string>",
-  "status": "<QUEUED | COMPLETED | SCHEDULED | WAIT_APPROVAL | FAILED | CANCELLED | CANCELLED_AFTER_REVIEW | RECEIVED | SENT | SUCCESS>",
+  "status": "<enum: 'QUEUED' | 'COMPLETED' | 'SCHEDULED' | 'WAIT_APPROVAL' | 'FAILED' | 'CANCELLED' | 'CANCELLED_AFTER_REVIEW' | 'RECEIVED' | 'SENT' | 'SUCCESS'>",
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }

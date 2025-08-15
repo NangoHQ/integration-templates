@@ -5,13 +5,12 @@
 
 - **Description:** Create an opportunity in the system. Requires a stage that exists
 in the system. Use the list-stages action to find the appropriate stage.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Opportunity`
-- **Input Model:** `Opportunity`
+- **Model:** `ActionOutput_unanet_createopportunity`
+- **Input Model:** `ActionInput_unanet_createopportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-opportunity.ts)
 
 

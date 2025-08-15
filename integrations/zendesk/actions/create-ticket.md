@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a Zendesk ticket
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Tickets
 - **Scopes:** `tickets:write`
 - **Endpoint Type:** Action
-- **Model:** `CreatedTicket`
-- **Input Model:** `TicketCreate`
+- **Model:** `ActionOutput_zendesk_createticket`
+- **Input Model:** `ActionInput_zendesk_createticket`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-ticket.ts)
 
 
@@ -36,11 +36,9 @@ _No request parameters_
     "assignee_id?": "<number>",
     "brand_id?": "<number>",
     "due_at?": "<string>",
-    "type?": "<problem | incident | question | task>",
-    "status?": "<new | open | pending | hold | solved | closed.>",
-    "metadata?": {
-      "__string": "<any>"
-    }
+    "type?": "<enum: 'problem' | 'incident' | 'question' | 'task'>",
+    "status?": "<enum: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed.'>",
+    "metadata?": {}
   }
 }
 ```

@@ -5,13 +5,12 @@
 
 - **Description:** Creates one or multiple contacts in Xero.
 Note: Does NOT check if these contacts already exist.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
-- **Model:** `ContactActionResponse`
-- **Input Model:** `CreateContact[]`
+- **Model:** `ActionOutput_xero_createcontact`
+- **Input Model:** `ActionInput_xero_createcontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-contact.ts)
 
 
@@ -29,21 +28,19 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "name": "<string>",
-      "external_id?": "<string>",
-      "email?": "<string>",
-      "tax_number?": "<string>",
-      "address_line_1?": "<string>",
-      "address_line_2?": "<string>",
-      "city?": "<string>",
-      "zip?": "<string>",
-      "country?": "<string>",
-      "state?": "<string>",
-      "phone?": "<string>"
-    }
-  ]
+  "0": {
+    "name": "<string>",
+    "external_id?": "<string>",
+    "email?": "<string>",
+    "tax_number?": "<string>",
+    "address_line_1?": "<string>",
+    "address_line_2?": "<string>",
+    "city?": "<string>",
+    "zip?": "<string>",
+    "country?": "<string>",
+    "state?": "<string>",
+    "phone?": "<string>"
+  }
 }
 ```
 
@@ -70,6 +67,7 @@ _No request parameters_
   ],
   "failedContacts": [
     {
+      "name": "<string>",
       "id": "<string>",
       "external_id": "<string | null>",
       "email": "<string | null>",
@@ -82,9 +80,7 @@ _No request parameters_
       "state": "<string | null>",
       "phone": "<string | null>",
       "subsidiary?": "<string | null>",
-      "validation_errors": [
-        "<any>"
-      ]
+      "validation_errors": "<unknown[]>"
     }
   ]
 }

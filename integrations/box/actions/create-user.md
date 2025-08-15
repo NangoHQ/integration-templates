@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Box. Requires an enterprise account.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `BoxCreateUser`
+- **Model:** `ActionOutput_box_createuser`
+- **Input Model:** `ActionInput_box_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/actions/create-user.ts)
 
 
@@ -41,13 +41,13 @@ _No request parameters_
   "job_title?": "<string>",
   "language?": "<string>",
   "phone?": "<string>",
-  "role?": "<coadmin | user>",
+  "role?": "<enum: 'coadmin' | 'user'>",
   "space_amount?": "<number>",
-  "status?": "<active| inactive| cannot_delete_edit| cannot_delete_edit_upload>",
+  "status?": "<enum: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload'>",
   "timezone?": "<string>",
-  "tracking_codes?": [
+  "tracking_codes": [
     {
-      "type?": "<tracking_code>",
+      "type?": "<string>",
       "name?": "<string>",
       "value?": "<string>"
     }

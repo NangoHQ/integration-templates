@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches Company locations
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,7 +38,7 @@ _No request body_
   "name": "<string>",
   "description": "<string | null>",
   "city": "<string | null>",
-  "state": "<CompanyLocationState | null>",
+  "state": "<{\"name\":\"<string>\",\"abbrev\":\"<string>\",\"iso_code\":\"<string>\"} | <null>>",
   "country": {
     "name": "<string>",
     "iso_code": "<string>"
@@ -47,6 +47,12 @@ _No request body_
   "address": "<string>",
   "phone_number": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

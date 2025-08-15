@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetches all candidate scorecards from RecruiterFlow
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RecruiterFlowCandidateScorecard`
-- **Input Model:** `RecruiterFlowCandidateScorecardInput`
+- **Model:** `ActionOutput_recruiterflow_candidatescorecards`
+- **Input Model:** `ActionInput_recruiterflow_candidatescorecards`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recruiterflow/actions/candidate-scorecards.ts)
 
 
@@ -39,7 +39,7 @@ _No request parameters_
   "candidate": {
     "id": "<number>",
     "name": "<string>",
-    "first_name?": "<string | undefined>"
+    "first_name?": "<string>"
   },
   "job": [
     {
@@ -57,7 +57,7 @@ _No request parameters_
                     "name": "<string>"
                   },
                   "name": "<string>",
-                  "notes": "<string | undefined>",
+                  "notes": "<string>",
                   "rank": "<number>",
                   "rating": "<number>"
                 }
@@ -68,7 +68,7 @@ _No request parameters_
               "last_name": "<string>",
               "middle_name": "<string>",
               "name": "<string>",
-              "notes": "<string | undefined>",
+              "notes": "<string>",
               "questions": [
                 {
                   "category_name": "<string>",

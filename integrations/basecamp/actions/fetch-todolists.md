@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Todolists
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BasecampTodolistsResponse`
-- **Input Model:** `BasecampFetchTodolistsInput`
+- **Model:** `ActionOutput_basecamp_fetchtodolists`
+- **Input Model:** `ActionInput_basecamp_fetchtodolists`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/fetch-todolists.ts)
 
 
@@ -54,9 +53,9 @@ _No request parameters_
       "comments_count?": "<number>",
       "comments_url?": "<string>",
       "position?": "<number>",
-      "parent?": "<any>",
-      "bucket?": "<any>",
-      "creator?": "<any>",
+      "parent?": "<unknown>",
+      "bucket?": "<unknown>",
+      "creator?": "<unknown>",
       "description?": "<string>",
       "completed?": "<boolean>",
       "completed_ratio?": "<string>",

@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all applications for a candidate in Lever
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Applications
 - **Scopes:** `applications:read:admin`
 - **Endpoint Type:** Sync
@@ -58,18 +57,20 @@ _No request body_
   "ownerId": "<string>",
   "hiringManager": "<string>",
   "company": "<string>",
-  "links": [
-    "<string>"
-  ],
+  "links": "<string[]>",
   "comments": "<string>",
-  "customQuestions": [
-    "<string>"
-  ],
+  "customQuestions": "<string[]>",
   "archived": {
     "reason": "<string>",
     "archivedAt": "<number>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

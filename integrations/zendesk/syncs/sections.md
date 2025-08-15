@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of sections in Help center from Zendesk
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Sections
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync
@@ -41,6 +40,12 @@ _No request body_
   "name": "<string>",
   "description": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -5,13 +5,12 @@
 
 - **Description:** This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.
 The connection metadata should be set based on the file selection.
-
-- **Version:** 2.0.1
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** `Sites.Read.All, Sites.Selected, offline_access`
 - **Endpoint Type:** Action
-- **Model:** `SharepointSites`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_sharepoint_online_listsharedsites`
+- **Input Model:** `ActionInput_sharepoint_online_listsharedsites`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/list-shared-sites.ts)
 
 
@@ -27,7 +26,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

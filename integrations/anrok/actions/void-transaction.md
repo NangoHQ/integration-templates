@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Voids a transaction in Anrok.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TransactionDeletionActionResponse`
-- **Input Model:** `TransactionToDelete[]`
+- **Model:** `ActionOutput_anrok_voidtransaction`
+- **Input Model:** `ActionInput_anrok_voidtransaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/void-transaction.ts)
 
 
@@ -28,11 +27,9 @@ _No request parameters_
 
 ```json
 {
-  "input": [
-    {
-      "id": "<string>"
-    }
-  ]
+  "0": {
+    "id": "<string>"
+  }
 }
 ```
 
@@ -48,7 +45,7 @@ _No request parameters_
   "failed": [
     {
       "id": "<string>",
-      "validation_errors": "<any>"
+      "validation_errors?": "<unknown>"
     }
   ]
 }

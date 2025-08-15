@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Aircall.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `CreateUser`
+- **Model:** `ActionOutput_aircall_createuser`
+- **Input Model:** `ActionInput_aircall_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall/actions/create-user.ts)
 
 

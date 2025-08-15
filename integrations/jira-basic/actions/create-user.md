@@ -8,13 +8,12 @@ be deprecated in the future. Products are optional and allowed params are
 jira-core, jira-servicedesk, jira-product-discovery, jira-software. Defaults to 
 jira-software. Note that the last name isn't able to be set via the API and 
 the first name defaults to the email address.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `JiraCreateUser`
+- **Model:** `ActionOutput_jira_basic_createuser`
+- **Input Model:** `ActionInput_jira_basic_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)
 
 
@@ -35,9 +34,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "products?": [
-    "<string>"
-  ]
+  "products": "<string[]>"
 }
 ```
 

@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Updates a single account in QuickBooks.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Accounts
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Model:** `Account`
-- **Input Model:** `UpdateAccount`
+- **Model:** `ActionOutput_quickbooks_updateaccount`
+- **Input Model:** `ActionInput_quickbooks_updateaccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-account.ts)
 
 
@@ -27,7 +26,16 @@ _No request parameters_
 ### Request Body
 
 ```json
-{}
+{
+  "name": "<string>",
+  "account_type?": "<string>",
+  "account_sub_type?": "<string>",
+  "description?": "<string>",
+  "acct_num?": "<string>",
+  "id": "<string>",
+  "sync_token": "<string>",
+  "active?": "<boolean>"
+}
 ```
 
 ### Request Response

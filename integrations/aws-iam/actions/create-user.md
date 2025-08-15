@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in AWS IAM.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `AWSCreateUser`
+- **Model:** `ActionOutput_aws_iam_createuser`
+- **Input Model:** `ActionInput_aws_iam_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aws-iam/actions/create-user.ts)
 
 

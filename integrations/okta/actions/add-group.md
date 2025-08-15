@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Adds a new group with the OKTA_GROUP type to your org
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
-- **Model:** `Group`
-- **Input Model:** `OktaAddGroup`
+- **Model:** `ActionOutput_okta_addgroup`
+- **Input Model:** `ActionInput_okta_addgroup`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/add-group.ts)
 
 
@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "description?": "<string | undefined>",
+  "description?": "<string>",
   "name": "<string>"
 }
 ```
@@ -40,11 +40,9 @@ _No request parameters_
   "created": "<string>",
   "lastMembershipUpdated": "<string>",
   "lastUpdated": "<string>",
-  "objectClass": [
-    "<string>"
-  ],
-  "type": "<APP_GROUP | BUILT_IN | OKTA_GROUP>",
-  "profile": "<OktaUserGroupProfile | OktaActiveDirectoryGroupProfile>"
+  "objectClass": "<string[]>",
+  "type": "<enum: 'APP_GROUP' | 'BUILT_IN' | 'OKTA_GROUP'>",
+  "profile": "<{\"description\":\"<string | null>\",\"name\":\"<string>\"} | {\"description\":\"<string>\",\"dn\":\"<string>\",\"externalId\":\"<string>\",\"name\":\"<string>\",\"samAccountName\":\"<string>\",\"windowsDomainQualifiedName\":\"<string>\"}>"
 }
 ```
 

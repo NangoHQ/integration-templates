@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of calls from your account. For the first sync, it will go back to the past one year
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,16 +37,10 @@ _No request body_
   "id": "<string>",
   "source_id": "<string>",
   "title": "<string>",
-  "users": [
-    "<any>"
-  ],
-  "externalParticipants": [
-    "<any>"
-  ],
+  "users": "<unknown[]>",
+  "externalParticipants": "<unknown[]>",
   "status": "<string>",
-  "bot_not_join_reason": [
-    "<string>"
-  ],
+  "bot_not_join_reason": "<string[]>",
   "type": "<string>",
   "time": "<string>",
   "icaluid": "<string>",
@@ -63,20 +56,14 @@ _No request body_
   "deal_close_date": "<string>",
   "deal_stage_before_call": "<string>",
   "account_name": "<string>",
-  "contact_names": [
-    "<string>"
-  ],
+  "contact_names": "<string[]>",
   "crm_info": {
     "source_crm": "<string>",
     "deal_id": "<string>",
     "account_id": "<string>",
-    "contact_ids": [
-      "<string>"
-    ]
+    "contact_ids": "<string[]>"
   },
-  "bookmark_timestamps": [
-    "<string>"
-  ],
+  "bookmark_timestamps": "<string[]>",
   "metrics": {
     "talk_listen_ratio": "<number>",
     "num_questions_asked": "<number>",
@@ -86,28 +73,24 @@ _No request body_
     "longest_monologue_duration": "<number>",
     "longest_monologue_start_time": "<number>",
     "engaging_questions": "<number>",
-    "categories": [
-      "<string>"
-    ]
+    "categories": "<string[]>"
   },
   "call_review_page_url": "<string>",
   "deal_stage_live": "<string>",
-  "transcript": [
-    "<string>"
-  ],
+  "transcript": "<string[]>",
   "summary": {
     "full_summary": "<string>",
-    "topics_discussed": [
-      "<string>"
-    ],
-    "key_action_items": [
-      "<string>"
-    ]
+    "topics_discussed": "<string[]>",
+    "key_action_items": "<string[]>"
   },
-  "competitor_sentiments": [
-    "<string>"
-  ]
+  "competitor_sentiments": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Delete a single lead in salesforce
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_salesforce_deletelead`
+- **Input Model:** `ActionInput_salesforce_deletelead`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/delete-lead.ts)
 
 

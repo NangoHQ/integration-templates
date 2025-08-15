@@ -5,13 +5,12 @@
 
 - **Description:** Fetches the top-level content (files and folders) of a folder given its ID.
 If no folder ID is provided, it fetches content from the root folder.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
-- **Model:** `FolderContent`
-- **Input Model:** `FolderContentInput`
+- **Model:** `ActionOutput_google_drive_foldercontent`
+- **Input Model:** `ActionInput_google_drive_foldercontent`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/folder-content.ts)
 
 
@@ -43,9 +42,7 @@ _No request parameters_
       "id": "<string>",
       "name": "<string>",
       "mimeType": "<string>",
-      "parents?": [
-        "<string>"
-      ],
+      "parents": "<string[]>",
       "modifiedTime?": "<string>",
       "createdTime?": "<string>",
       "webViewLink?": "<string>",
@@ -57,9 +54,7 @@ _No request parameters_
       "id": "<string>",
       "name": "<string>",
       "mimeType": "<string>",
-      "parents?": [
-        "<string>"
-      ],
+      "parents": "<string[]>",
       "modifiedTime?": "<string>",
       "createdTime?": "<string>",
       "webViewLink?": "<string>",

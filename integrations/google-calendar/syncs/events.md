@@ -5,8 +5,7 @@
 
 - **Description:** Sync calendar events on the primary calendar going back one month and
 save the entire object as specified by the Google API
-
-- **Version:** 2.0.0
+- **Version:** 4.0.0
 - **Group:** Events
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
@@ -70,9 +69,7 @@ _No request body_
     "timeZone?": "<string>"
   },
   "endTimeUnspecified?": "<boolean>",
-  "recurrence?": [
-    "<string>"
-  ],
+  "recurrence?": "<string[]>",
   "recurringEventId?": "<string>",
   "originalStartTime?": {
     "date?": "<string>",
@@ -82,9 +79,9 @@ _No request body_
   "transparency?": "<string>",
   "visibility?": "<string>",
   "iCalUID?": "<string>",
-  "sequence?": "<integer>",
-  "attendees?": {
-    "0": {
+  "sequence?": "<number>",
+  "attendees?": [
+    {
       "id?": "<string>",
       "email?": "<string>",
       "displayName?": "<string>",
@@ -94,17 +91,13 @@ _No request body_
       "optional?": "<boolean>",
       "responseStatus?": "<string>",
       "comment?": "<string>",
-      "additionalGuests?": "<integer>"
+      "additionalGuests?": "<number>"
     }
-  },
+  ],
   "attendeesOmitted?": "<boolean>",
   "extendedProperties?": {
-    "private?": {
-      "__string": "<string>"
-    },
-    "shared?": {
-      "__string": "<string>"
-    }
+    "private?": {},
+    "shared?": {}
   },
   "hangoutLink?": "<string>",
   "conferenceData?": {
@@ -117,8 +110,8 @@ _No request body_
         "statusCode": "<string>"
       }
     },
-    "entryPoints?": {
-      "0": {
+    "entryPoints?": [
+      {
         "entryPointType": "<string>",
         "uri?": "<string>",
         "label?": "<string>",
@@ -129,7 +122,7 @@ _No request body_
         "password?": "<string>",
         "regionCode?": "<string>"
       }
-    },
+    ],
     "conferenceSolution?": {
       "key": {
         "type": "<string>"
@@ -142,9 +135,7 @@ _No request body_
     "notes?": "<string>",
     "parameters?": {
       "addOnParameters?": {
-        "parameters?": {
-          "__string": "<string>"
-        }
+        "parameters?": {}
       }
     }
   },
@@ -153,12 +144,10 @@ _No request body_
     "title?": "<string>",
     "link?": "<string>",
     "iconLink?": "<string>",
-    "width?": "<integer>",
-    "height?": "<integer>",
+    "width?": "<number>",
+    "height?": "<number>",
     "display?": "<string>",
-    "preferences?": {
-      "__string": "<string>"
-    }
+    "preferences?": {}
   },
   "anyoneCanAddSelf?": "<boolean>",
   "guestsCanInviteOthers?": "<boolean>",
@@ -168,12 +157,12 @@ _No request body_
   "locked?": "<boolean>",
   "reminders?": {
     "useDefault": "<boolean>",
-    "overrides?": {
-      "0": {
+    "overrides?": [
+      {
         "method": "<string>",
-        "minutes": "<integer>"
+        "minutes": "<number>"
       }
-    }
+    ]
   },
   "outOfOfficeProperties?": {
     "autoDeclineMode?": "<string>",
@@ -185,7 +174,7 @@ _No request body_
   },
   "workingLocationProperties?": {
     "type": "<string>",
-    "homeOffice?": "<any>",
+    "homeOffice?": "<unknown>",
     "customLocation?": {
       "label?": "<string>"
     },
@@ -197,15 +186,15 @@ _No request body_
       "label?": "<string>"
     }
   },
-  "attachments?": {
-    "0": {
+  "attachments?": [
+    {
       "fileUrl": "<string>",
       "title?": "<string>",
       "mimeType?": "<string>",
       "iconLink?": "<string>",
       "fileId?": "<string>"
     }
-  },
+  ],
   "eventType?": "<string>"
 }
 ```
@@ -214,9 +203,9 @@ _No request body_
 
 ```json
 {
-  "calendarsToSync?": [
-    "<string>"
-  ],
+  "calendarsToSync": "<string[]>",
+  "timeMin?": "<string>",
+  "timeMax?": "<string>",
   "singleEvents?": "<boolean>"
 }
 ```

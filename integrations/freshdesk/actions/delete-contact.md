@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a contact in FreshDesk
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_freshdesk_deletecontact`
+- **Input Model:** `ActionInput_freshdesk_deletecontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/delete-contact.ts)
 
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Dialpad
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `DialpadCreateUser`
+- **Model:** `ActionOutput_dialpad_createuser`
+- **Input Model:** `ActionInput_dialpad_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dialpad/actions/create-user.ts)
 
 

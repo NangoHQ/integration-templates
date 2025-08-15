@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of all accounts from your sage intacct account.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Accounts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -51,6 +50,12 @@ _No request body_
     "modified_by": "<string>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a user in Zoom. Requires Pro account or higher
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user:write, user:write:admin`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_zoom_deleteuser`
+- **Input Model:** `ActionInput_zoom_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/delete-user.ts)
 
 

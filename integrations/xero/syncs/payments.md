@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all payments in Xero. Incremental sync.
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Payments
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
@@ -45,6 +44,12 @@ _No request body_
   "invoice_id": "<string | null>",
   "credit_note_id": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

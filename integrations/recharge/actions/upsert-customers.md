@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Upsert a customer in Recharge
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Customers
-- **Scopes:** `read_customers, write_customers, write_payment_methods`
+- **Scopes:** `read_customers,  write_customers,  write_payment_methods`
 - **Endpoint Type:** Action
-- **Model:** `UpsertRechargeCustomerOutput`
-- **Input Model:** `UpsertRechargeCustomerInput`
+- **Model:** `ActionOutput_recharge_upsertcustomers`
+- **Input Model:** `ActionInput_recharge_upsertcustomers`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/actions/upsert-customers.ts)
 
 
@@ -28,11 +28,13 @@ _No request parameters_
 ```json
 {
   "email": "<string>",
-  "external_customer_id?": "<ExternalCustomerId | undefined>",
+  "external_customer_id?": {
+    "ecommerce": "<string>"
+  },
   "first_name": "<string>",
   "last_name": "<string>",
-  "phone?": "<string | undefined>",
-  "tax_exempt?": "<boolean | undefined>"
+  "phone?": "<string>",
+  "tax_exempt?": "<boolean>"
 }
 ```
 
@@ -40,21 +42,21 @@ _No request parameters_
 
 ```json
 {
-  "action": "<update | create>",
+  "action": "<enum: 'update' | 'create'>",
   "response": {
     "accepts_marketing": "<number | null>",
     "analytics_data": {
-      "utm_params": {
-        "0": {
-          "utm_campaign?": "<string | undefined>",
-          "utm_content?": "<string | undefined>",
-          "utm_data_source?": "<string | undefined>",
-          "utm_source?": "<string | undefined>",
-          "utm_medium?": "<string | undefined>",
-          "utm_term?": "<string | undefined>",
-          "utm_timestamp?": "<string | undefined>"
+      "utm_params": [
+        {
+          "utm_campaign?": "<string>",
+          "utm_content?": "<string>",
+          "utm_data_source?": "<string>",
+          "utm_source?": "<string>",
+          "utm_medium?": "<string>",
+          "utm_term?": "<string>",
+          "utm_timestamp?": "<string>"
         }
-      }
+      ]
     },
     "billing_address1": "<string | null>",
     "billing_address2": "<string | null>",
@@ -82,12 +84,14 @@ _No request parameters_
     "status": "<string>",
     "tax_exempt": "<boolean>",
     "updated_at": "<string>",
-    "apply_credit_to_next_recurring_charge?": "<boolean | undefined>",
-    "external_customer_id?": "<ExternalCustomerId | undefined>",
-    "has_payment_method_in_dunning?": "<boolean | undefined>",
-    "subscriptions_active_count?": "<number | undefined>",
-    "subscriptions_total_count?": "<number | undefined>",
-    "subscription_related_charge_streak?": "<number | undefined>"
+    "apply_credit_to_next_recurring_charge?": "<boolean>",
+    "external_customer_id?": {
+      "ecommerce": "<string>"
+    },
+    "has_payment_method_in_dunning?": "<boolean>",
+    "subscriptions_active_count?": "<number>",
+    "subscriptions_total_count?": "<number>",
+    "subscription_related_charge_streak?": "<number>"
   }
 }
 ```

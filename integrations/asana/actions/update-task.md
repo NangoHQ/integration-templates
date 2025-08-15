@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a task and be able to assign the task to a specific user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Task`
-- **Input Model:** `AsanaUpdateTask`
+- **Model:** `ActionOutput_asana_updatetask`
+- **Input Model:** `ActionInput_asana_updatetask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/update-task.ts)
 
 
@@ -28,16 +28,16 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "due_at": "<string | undefined>",
-  "due_on": "<string | undefined>",
-  "completed": "<boolean | undefined>",
-  "notes": "<string | undefined>",
-  "projects": "<string[] | undefined>",
-  "assignee": "<string | undefined>",
-  "parent": "<string | undefined>",
-  "tags": "<string[] | undefined>",
-  "workspace": "<string | undefined>",
-  "name": "<string | undefined>"
+  "due_at?": "<string>",
+  "due_on?": "<string>",
+  "completed": "<boolean>",
+  "notes": "<string>",
+  "projects": "<string[]>",
+  "assignee": "<string>",
+  "parent": "<string>",
+  "tags": "<string[]>",
+  "workspace": "<string>",
+  "name": "<string>"
 }
 ```
 
@@ -52,7 +52,7 @@ _No request parameters_
   "url": "<string>",
   "status": "<string>",
   "description": "<string | null>",
-  "assignee": "<User | null>",
+  "assignee": "<{\"created_at\":\"<string | null>\",\"modified_at\":\"<string | null>\",\"id\":\"<string>\",\"name\":\"<string>\",\"email\":\"<string | null>\",\"avatar_url\":\"<string | null>\"} | <null>>",
   "due_date": "<string | null>"
 }
 ```

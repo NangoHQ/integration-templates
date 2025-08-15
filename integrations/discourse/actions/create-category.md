@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a category in discourse
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Categories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Category`
-- **Input Model:** `CreateCategory`
+- **Model:** `ActionOutput_discourse_createcategory`
+- **Input Model:** `ActionInput_discourse_createcategory`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/create-category.ts)
 
 

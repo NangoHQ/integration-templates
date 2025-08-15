@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Updates a credit note in Netsuite
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteCreditNoteUpdateOutput`
-- **Input Model:** `NetsuiteCreditNoteUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_creditnoteupdate`
+- **Input Model:** `ActionInput_netsuite_tba_creditnoteupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/credit-note-update.ts)
 
 

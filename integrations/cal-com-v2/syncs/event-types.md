@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all event types per a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,9 +38,7 @@ _No request body_
   "teamId": "<null | number>",
   "schedulingType": "<null | string>",
   "userId": "<number>",
-  "metadata": {
-    "__string": "<any>"
-  },
+  "metadata": {},
   "description": "<string | null>",
   "hidden": "<boolean>",
   "slug": "<string>",
@@ -78,31 +76,31 @@ _No request body_
   "aiPhoneCallConfig": "<string | null>",
   "assignAllTeamMembers": "<boolean>",
   "recurringEvent": "<boolean | null>",
-  "locations": {
-    "0": {
+  "locations": [
+    {
       "type": "<string>"
     }
-  },
+  ],
   "bookingFields": "<string | null>",
   "useEventTypeDestinationCalendarEmail": "<boolean>",
   "secondaryEmailId": "<string | null>",
   "bookingLimits": "<boolean | null>",
   "durationLimits": "<boolean | null>",
   "hashedLink": "<string | null>",
-  "children": {
-    "0": {
-      "__string": "<any>"
-    }
-  },
-  "hosts": {
-    "0": {
-      "__string": "<any>"
-    }
-  },
-  "userIds": [
-    "<number>"
-  ]
+  "children": [
+    {}
+  ],
+  "hosts": [
+    {}
+  ],
+  "userIds": "<number[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

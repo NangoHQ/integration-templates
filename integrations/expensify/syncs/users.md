@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of users from Expensify.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,11 +34,17 @@ _No request body_
 
 ```json
 {
-  "id": "<string | null>",
+  "id": "<string>",
   "firstName": "<string | null>",
   "lastName": "<string | null>",
   "email": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

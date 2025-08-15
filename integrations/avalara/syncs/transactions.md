@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all transactions with a default backfill date of one year.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Transactions
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -171,16 +171,10 @@ _No request body_
       "nonRecoverableAmount": "<number>"
     }
   ],
-  "locationTypes": [
-    "<any>"
-  ],
-  "messages": [
-    "<string>"
-  ],
-  "summary": [
-    "<string>"
-  ],
-  "addresses?": [
+  "locationTypes": "<unknown[]>",
+  "messages": "<string[]>",
+  "summary": "<string[]>",
+  "addresses": [
     {
       "id": "<number>",
       "transactionId": "<number>",
@@ -193,7 +187,7 @@ _No request body_
       "taxRegionId": "<number>"
     }
   ],
-  "taxDetailsByTaxType?": [
+  "taxDetailsByTaxType": [
     {
       "taxType": "<string>",
       "totalTaxable": "<number>",

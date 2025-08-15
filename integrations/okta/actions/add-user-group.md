@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Assigns a user to a group with the OKTA_GROUP type
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** User Groups
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `OktaAssignRemoveUserGroup`
+- **Model:** `ActionOutput_okta_addusergroup`
+- **Input Model:** `ActionInput_okta_addusergroup`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/add-user-group.ts)
 
 

@@ -5,13 +5,12 @@
 
 - **Description:** List all the stages that exist in the system. Use this action to find
 the correct stage to be able to create an opportunity.
-
-- **Version:** 0.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Stage`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_unanet_liststages`
+- **Input Model:** `ActionInput_unanet_liststages`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/list-stages.ts)
 
 
@@ -27,15 +26,21 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
 ```json
 {
-  "id": "<number>",
-  "name": "<string>",
-  "status": "<string>"
+  "stages": [
+    {
+      "id": "<number>",
+      "name": "<string>",
+      "status": "<string>"
+    }
+  ]
 }
 ```
 

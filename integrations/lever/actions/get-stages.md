@@ -6,13 +6,12 @@
 - **Description:** Action to get lists all pipeline stages. Note that this does 
 not paginate the response so it is possible that not all stages 
 are returned.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Stages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `GetStages`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_lever_getstages`
+- **Input Model:** `ActionInput_lever_getstages`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-stages.ts)
 
 
@@ -28,7 +27,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 

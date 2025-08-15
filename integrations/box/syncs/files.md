@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Files
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -46,12 +45,8 @@ _No request body_
 
 ```json
 {
-  "files": [
-    "<string>"
-  ],
-  "folders": [
-    "<string>"
-  ]
+  "files": "<string[]>",
+  "folders": "<string[]>"
 }
 ```
 

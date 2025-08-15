@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
-- **Model:** `GorgiasUser`
-- **Input Model:** `GorgiasCreateUser`
+- **Model:** `ActionOutput_gorgias_createuser`
+- **Input Model:** `ActionInput_gorgias_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-user.ts)
 
 
@@ -31,7 +30,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "role?": "<admin | agent | basic-agent | lite-agent | observer-agent>"
+  "role?": "<enum: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent'>"
 }
 ```
 

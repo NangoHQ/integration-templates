@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to set a campaign name
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `InstantlySetCampaignNameResponse`
-- **Input Model:** `InstantlySetCampaignNameInput`
+- **Model:** `ActionOutput_instantly_setcampaignname`
+- **Input Model:** `ActionInput_instantly_setcampaignname`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/instantly/actions/set-campaign-name.ts)
 
 

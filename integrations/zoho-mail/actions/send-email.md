@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** An action to send an email in zoho mail
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `ZohoMail.messages.CREATE`
 - **Endpoint Type:** Action
-- **Model:** `ZohoMailSendEmailOutput`
-- **Input Model:** `ZohoMailSendEmailInput`
+- **Model:** `ActionOutput_zoho_mail_sendemail`
+- **Input Model:** `ActionInput_zoho_mail_sendemail`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/actions/send-email.ts)
 
 
@@ -44,8 +43,8 @@ _No request parameters_
 
 ```json
 {
-  "status": "<object>",
-  "data": "<object>"
+  "status": {},
+  "data": {}
 }
 ```
 

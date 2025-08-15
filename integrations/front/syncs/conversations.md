@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List the conversations in the company in reverse chronological order.
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Conversations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -36,11 +36,11 @@ _No request body_
 {
   "id": "<string>",
   "subject": "<string>",
-  "status": "<archived | unassigned | deleted | assigned>",
-  "assignee": "<ConversationAssignee | null>",
-  "recipient": "<ConversationRecipient | null>",
-  "tags": {
-    "0": {
+  "status": "<enum: 'archived' | 'unassigned' | 'deleted' | 'assigned'>",
+  "assignee": "<{\"id\":\"<string>\",\"email\":\"<string>\",\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"is_admin\":\"<boolean>\",\"is_available\":\"<boolean>\",\"is_blocked\":\"<boolean>\",\"custom_fields\":{}} | <null>>",
+  "recipient": "<{\"name\":\"<string>\",\"handle\":\"<string>\",\"role\":\"<enum: 'from' | 'to' | 'cc' | 'bcc'>\"} | <null>>",
+  "tags": [
+    {
       "id": "<string>",
       "name": "<string>",
       "description": "<string | null>",
@@ -50,28 +50,34 @@ _No request body_
       "created_at": "<string>",
       "updated_at": "<string>"
     }
-  },
-  "links": {
-    "0": {
+  ],
+  "links": [
+    {
       "id": "<string>",
       "name": "<string>",
       "type": "<string>",
       "external_url": "<string>",
-      "custom_fields": "<object>"
+      "custom_fields": {}
     }
-  },
-  "custom_fields": "<object>",
+  ],
+  "custom_fields": {},
   "created_at": "<string>",
   "waiting_since": "<string>",
   "is_private": "<boolean>",
-  "scheduled_reminders": {
-    "0": {
+  "scheduled_reminders": [
+    {
       "created_at": "<string>",
       "scheduled_at": "<string>",
       "updated_at": "<string>"
     }
-  }
+  ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

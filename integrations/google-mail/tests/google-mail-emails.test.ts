@@ -9,6 +9,8 @@ describe('google-mail emails tests', () => {
         Model: 'GmailEmail'
     });
 
+    vi.setSystemTime('2025-08-13T01:00:00Z');
+
     const models = 'GmailEmail'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 

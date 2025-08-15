@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** List all repositories accessible to this Github App
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Repositories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `RepoResponse`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_github_app_repositories`
+- **Input Model:** `ActionInput_github_app_repositories`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
 
 
@@ -25,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -80,7 +82,7 @@ _No request body_
       "labels_url": "<string>",
       "language": "<string | null>",
       "languages_url": "<string>",
-      "license": "<GithubLicense | null>",
+      "license": "<{\"key\":\"<string>\",\"name\":\"<string>\",\"url\":\"<string | null>\",\"spdx_id\":\"<string>\",\"node_id\":\"<string>\",\"html_url?\":\"<string | null>\"} | <null>>",
       "merges_url": "<string>",
       "milestones_url": "<string>",
       "mirror_url": "<string | null>",
@@ -131,9 +133,7 @@ _No request body_
       "svn_url": "<string>",
       "tags_url": "<string>",
       "teams_url": "<string>",
-      "topics": [
-        "<string>"
-      ],
+      "topics": "<string[]>",
       "trees_url": "<string>",
       "updated_at": "<string>",
       "url": "<string>",

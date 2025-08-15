@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates an invoice in ExactOnline
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `ExactInvoiceCreateOutput`
-- **Input Model:** `ExactInvoiceCreateInput`
+- **Model:** `ActionOutput_exact_online_createinvoice`
+- **Input Model:** `ActionInput_exact_online_createinvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/create-invoice.ts)
 
 
@@ -30,9 +29,9 @@ _No request parameters_
 {
   "customerId": "<string>",
   "journal?": "<number>",
-  "currency?": "<EUR>",
+  "currency?": "<string>",
   "description?": "<string>",
-  "createdAt?": "<date>",
+  "createdAt?": "<Date>",
   "lines": [
     {
       "itemId": "<string>",

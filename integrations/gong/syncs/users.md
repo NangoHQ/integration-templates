@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the list of gong users
-
-- **Version:** 1.0.3
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `api:users:read`
 - **Endpoint Type:** Sync
@@ -41,6 +40,12 @@ _No request body_
   "email": "<string>",
   "title": "<string | null>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

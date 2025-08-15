@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the list of external contacts from RingCentral
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** `ReadContacts`
 - **Endpoint Type:** Sync
@@ -36,14 +35,25 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "firstName": "<string | undefined>",
-  "lastName": "<string | undefined>",
-  "email": "<string | undefined>",
-  "phoneNumbers?": "<PhoneNumber[] | undefined>",
-  "company": "<string | undefined>",
-  "jobTitle": "<string | undefined>",
-  "notes": "<string | undefined>"
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "email?": "<string>",
+  "phoneNumbers?": [
+    {
+      "type": "<enum: 'work' | 'mobile' | 'other'>",
+      "value": "<string>"
+    }
+  ],
+  "company?": "<string>",
+  "jobTitle?": "<string>",
+  "notes?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

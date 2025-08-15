@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a single task in Hubspot
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `CreateUpdateTaskOutput`
-- **Input Model:** `CreateTaskInput`
+- **Model:** `ActionOutput_hubspot_createtask`
+- **Input Model:** `ActionInput_hubspot_createtask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-task.ts)
 
 
@@ -27,13 +27,23 @@ _No request parameters_
 
 ```json
 {
-  "task_type?": "<string | undefined>",
-  "title?": "<string | undefined>",
-  "priority?": "<string| undefined>",
-  "assigned_to?": "<string | undefined>",
-  "due_date?": "<string | undefined>",
-  "notes?": "<string | undefined>",
-  "associations?": "<Association[] | undefined>"
+  "task_type?": "<string>",
+  "title?": "<string>",
+  "priority?": "<string>",
+  "assigned_to?": "<string>",
+  "due_date?": "<string>",
+  "notes?": "<string>",
+  "associations?": [
+    {
+      "to": "<number>",
+      "types": [
+        {
+          "association_category": "<string>",
+          "association_type_Id": "<number>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -42,13 +52,23 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "task_type?": "<string | undefined>",
-  "title?": "<string | undefined>",
-  "priority?": "<string| undefined>",
-  "assigned_to?": "<string | undefined>",
-  "due_date?": "<string | undefined>",
-  "notes?": "<string | undefined>",
-  "associations?": "<Association[] | undefined>"
+  "task_type?": "<string>",
+  "title?": "<string>",
+  "priority?": "<string>",
+  "assigned_to?": "<string>",
+  "due_date?": "<string>",
+  "notes?": "<string>",
+  "associations?": [
+    {
+      "to": "<number>",
+      "types": [
+        {
+          "association_category": "<string>",
+          "association_type_Id": "<number>"
+        }
+      ]
+    }
+  ]
 }
 ```
 

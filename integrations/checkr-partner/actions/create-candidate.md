@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Create a candidate
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Candidate`
-- **Input Model:** `CreateCandidate`
+- **Model:** `ActionOutput_checkr_partner_createcandidate`
+- **Input Model:** `ActionInput_checkr_partner_createcandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/actions/create-candidate.ts)
 
 
@@ -73,16 +73,10 @@ _No request parameters_
   "previous_driver_license_state": "<string>",
   "copy_requested": "<boolean>",
   "custom_id": "<string>",
-  "report_ids": [
-    "<string>"
-  ],
-  "geo_ids": [
-    "<string>"
-  ],
+  "report_ids": "<string[]>",
+  "geo_ids": "<string[]>",
   "adjudication": "<string>",
-  "metadata": {
-    "__string": "<any>"
-  }
+  "metadata": {}
 }
 ```
 

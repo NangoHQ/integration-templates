@@ -1,0 +1,83 @@
+{
+  "method": "get",
+  "endpoint": "gmail/v1/users/me/messages",
+  "requestIdentityHash": "c211d464b3ba65683c6fea31f454c19c0e84ddd4",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "gmail/v1/users/me/messages",
+    "params": [
+      [
+        "maxResults",
+        "100"
+      ],
+      [
+        "pageToken",
+        ""
+      ],
+      [
+        "q",
+        "after:1755104581"
+      ]
+    ],
+    "headers": []
+  },
+  "response": {
+    "messages": [
+      {
+        "id": "198a4a42c6b6ac9d",
+        "threadId": "198a4a3d88e1774a"
+      },
+      {
+        "id": "198a4a3533bd34c3",
+        "threadId": "198a4a3533bd34c3"
+      },
+      {
+        "id": "198a4a2068abf5d9",
+        "threadId": "198a4a1cb6ece9b2"
+      },
+      {
+        "id": "198a4a1b3fb89927",
+        "threadId": "198a4a1b3fb89927"
+      },
+      {
+        "id": "198a4a1ac4e407f5",
+        "threadId": "198a4a1ac4e407f5"
+      },
+      {
+        "id": "198a4a0996091f64",
+        "threadId": "198a4a068a93bcf6"
+      },
+      {
+        "id": "198a49fe919e6fe5",
+        "threadId": "198a49fe919e6fe5"
+      }
+    ],
+    "resultSizeEstimate": 7
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 13 Aug 2025 18:15:02 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "96ea320d0c5ab199-NBO",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "rndr-id": "388cf23e-3e3e-4030",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "vary": "Origin, X-Origin, Referer, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-limit": "200",
+    "x-ratelimit-remaining": "196",
+    "x-ratelimit-reset": "1755108960",
+    "x-render-origin-server": "ESF",
+    "x-xss-protection": "0",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare"
+  }
+}

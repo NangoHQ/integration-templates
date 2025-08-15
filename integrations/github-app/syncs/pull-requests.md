@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get all pull requests from a Github repository.
-
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Pull Requests
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -56,10 +55,8 @@ _No request body_
     }
   ],
   "draft": "<boolean>",
-  "labels": [
-    "<string>"
-  ],
-  "reviewDecision": "<APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED>",
+  "labels": "<string[]>",
+  "reviewDecision": "<enum: 'APPROVED' | 'CHANGES_REQUESTED' | 'REVIEW_REQUIRED'>",
   "latestComment": {
     "id": "<string>",
     "body": "<string>",

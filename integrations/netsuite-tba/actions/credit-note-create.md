@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a credit note in Netsuite
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteCreditNoteCreateOutput`
-- **Input Model:** `NetsuiteCreditNoteCreateInput`
+- **Model:** `ActionOutput_netsuite_tba_creditnotecreate`
+- **Input Model:** `ActionInput_netsuite_tba_creditnotecreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/credit-note-create.ts)
 
 

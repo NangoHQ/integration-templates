@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all job stages from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Job Stages
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -73,6 +72,12 @@ _No request body_
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

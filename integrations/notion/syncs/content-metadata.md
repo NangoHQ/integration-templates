@@ -5,8 +5,7 @@
 
 - **Description:** Sync pages and databases metadata to further fetch the content
 using a dedicated action
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Contents
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,11 +37,17 @@ _No request body_
 {
   "id": "<string>",
   "path?": "<string>",
-  "type": "<page | database>",
+  "type": "<enum: 'page' | 'database'>",
   "last_modified": "<string>",
   "title?": "<string>",
-  "parent_id?": "<string | undefined>"
+  "parent_id?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

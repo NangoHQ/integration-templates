@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of suppliers from pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Suppliers
 - **Scopes:** `supplier_invoices`
 - **Endpoint Type:** Sync
@@ -36,7 +35,7 @@ _No request body_
 ```json
 {
   "name": "<string>",
-  "id?": "<string>",
+  "id": "<string>",
   "reg_no?": "<string>",
   "address": "<string>",
   "postal_code": "<string>",
@@ -45,15 +44,19 @@ _No request body_
   "recipient?": "<string>",
   "vat_number?": "<string>",
   "source_id?": "<string>",
-  "emails": [
-    "<string>"
-  ],
+  "emails": "<string[]>",
   "iban?": "<string>",
   "payment_conditions?": "<string>",
   "phone?": "<string>",
   "reference?": "<string>",
   "notes?": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

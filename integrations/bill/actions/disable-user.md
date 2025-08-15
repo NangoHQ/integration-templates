@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Archive an existing user in Bill
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_bill_disableuser`
+- **Input Model:** `ActionInput_bill_disableuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bill/actions/disable-user.ts)
 
 

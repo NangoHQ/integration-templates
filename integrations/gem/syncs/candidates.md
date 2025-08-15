@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get all candidates from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -66,9 +65,7 @@ _No request body_
       "value": "<string>"
     }
   ],
-  "tags": [
-    "<string>"
-  ],
+  "tags": "<string[]>",
   "educations": [
     {
       "id": "<string>",
@@ -88,9 +85,7 @@ _No request body_
       "end_date": "<string>"
     }
   ],
-  "linked_user_ids": [
-    "<string>"
-  ],
+  "linked_user_ids": "<string[]>",
   "created_at": "<string>",
   "updated_at": "<string | null>",
   "last_activity": "<string | null>",
@@ -108,7 +103,7 @@ _No request body_
         "public_name": "<string>"
       },
       "credited_to": "<string>",
-      "rejection_reason": "<RejectionReason | null>",
+      "rejection_reason": "<{\"id\":\"<string>\",\"name\":\"<string>\",\"type\":{\"id\":\"<string>\",\"name\":\"<string>\"}} | <null>>",
       "jobs": [
         {
           "id": "<string>",
@@ -124,10 +119,14 @@ _No request body_
       "deleted_at": "<string | null>"
     }
   ],
-  "application_ids": [
-    "<string>"
-  ]
+  "application_ids": "<string[]>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

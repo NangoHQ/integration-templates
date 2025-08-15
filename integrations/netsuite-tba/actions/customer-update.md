@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Updates a customer in Netsuite
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `NetsuiteCustomerUpdateOutput`
-- **Input Model:** `NetsuiteCustomerUpdateInput`
+- **Model:** `ActionOutput_netsuite_tba_customerupdate`
+- **Input Model:** `ActionInput_netsuite_tba_customerupdate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/customer-update.ts)
 
 
@@ -27,8 +27,8 @@ _No request parameters_
 
 ```json
 {
-  "externalId": "<string>",
-  "name": "<string>",
+  "externalId?": "<string>",
+  "name?": "<string>",
   "email?": "<string>",
   "taxNumber?": "<string>",
   "addressLine1?": "<string>",
@@ -38,9 +38,7 @@ _No request parameters_
   "country?": "<string>",
   "state?": "<string>",
   "phone?": "<string>",
-  "id": "<string>",
-  "name?": "<string>",
-  "externalId?": "<string>"
+  "id": "<string>"
 }
 ```
 

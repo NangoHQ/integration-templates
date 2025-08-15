@@ -18,13 +18,12 @@ Supported property types include:
 - `phone_number` (string): Creates a phone number property.
 - `rich_text` (string): Creates a rich text property.
 - `relation` (array of IDs): Creates a relation property.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `CreateDatabaseRowOutput`
-- **Input Model:** `CreateDatabaseRowInput`
+- **Model:** `ActionOutput_notion_createdatabaserow`
+- **Input Model:** `ActionInput_notion_createdatabaserow`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/create-database-row.ts)
 
 
@@ -43,7 +42,7 @@ _No request parameters_
 ```json
 {
   "databaseId": "<string>",
-  "properties": "<object>"
+  "properties": {}
 }
 ```
 
@@ -55,7 +54,7 @@ _No request parameters_
   "addedProperties": [
     {
       "propertyKey": "<string>",
-      "notionValue": "<any>"
+      "notionValue?": "<unknown>"
     }
   ]
 }

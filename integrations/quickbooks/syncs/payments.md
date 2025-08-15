@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -42,6 +41,12 @@ _No request body_
   "customer_name": "<string | null>",
   "txn_date": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

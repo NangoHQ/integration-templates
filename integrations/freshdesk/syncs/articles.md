@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Recursively fetches a list of solution articles.
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -35,9 +34,9 @@ _No request body_
 
 ```json
 {
+  "id": "<string>",
   "created_at": "<string>",
   "updated_at": "<string>",
-  "id": "<number>",
   "type": "<number>",
   "category_id": "<number>",
   "folder_id": "<number>",
@@ -55,11 +54,11 @@ _No request body_
   "thumbs_up": "<number>",
   "thumbs_down": "<number>",
   "hits": "<number>",
-  "tags?": "<string[] | undefined>",
+  "tags?": "<string[]>",
   "seo_data": {
-    "meta_title?": "<string | undefined>",
-    "meta_description?": "<string | undefined>",
-    "meta_keywords?": "<string | undefined>"
+    "meta_title?": "<string>",
+    "meta_description?": "<string>",
+    "meta_keywords?": "<string>"
   },
   "agent_id": "<number>",
   "title": "<string>",
@@ -67,6 +66,12 @@ _No request body_
   "description_text": "<string>",
   "status": "<number>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

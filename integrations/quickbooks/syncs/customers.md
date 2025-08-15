@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetches all QuickBooks customers. Handles both active and archived customers, saving or deleting them based on their status.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Customers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -45,9 +44,15 @@ _No request body_
   "taxable": "<boolean>",
   "primary_email": "<string | null>",
   "primary_phone": "<string | null>",
-  "bill_address": "<BillAddr | null>",
-  "ship_address": "<BillAddr | null>"
+  "bill_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>",
+  "ship_address": "<{\"city\":\"<string | null>\",\"line1\":\"<string | null>\",\"postal_code\":\"<string | null>\",\"country\":\"<string | null>\",\"id\":\"<string>\"} | <null>>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

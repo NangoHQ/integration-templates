@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Deletes a task in Hubspot
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `Id`
+- **Model:** `ActionOutput_hubspot_deletetask`
+- **Input Model:** `ActionInput_hubspot_deletetask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/delete-task.ts)
 
 

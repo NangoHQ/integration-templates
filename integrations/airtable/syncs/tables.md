@@ -5,7 +5,6 @@
 
 - **Description:** Lists all tables with their schema for all bases with a reference to the base id that
 the table belongs to
-
 - **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `schema.bases:read`
@@ -53,13 +52,17 @@ _No request body_
       "description": "<string>",
       "name": "<string>",
       "type": "<string>",
-      "options?": {
-        "__string": "<any>"
-      }
+      "options?": {}
     }
   ],
   "primaryFieldId": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

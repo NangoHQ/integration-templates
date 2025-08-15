@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a new user in your Okta org without credentials.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Users
 - **Scopes:** `okta.users.manage`
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `OktaCreateUser`
+- **Model:** `ActionOutput_okta_createuser`
+- **Input Model:** `ActionInput_okta_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/create-user.ts)
 
 
@@ -31,7 +31,7 @@ _No request parameters_
   "lastName": "<string>",
   "email": "<string>",
   "login": "<string>",
-  "mobilePhone?": "<string | undefined | null>"
+  "mobilePhone?": "<string | null>"
 }
 ```
 

@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Trigger a background check
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `TriggeredBackgroundCheck`
-- **Input Model:** `TriggerBackgroundCheckInput`
+- **Model:** `ActionOutput_checkr_partner_triggerbackgroundcheck`
+- **Input Model:** `ActionInput_checkr_partner_triggerbackgroundcheck`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/actions/trigger-background-check.ts)
 
 
@@ -33,9 +33,7 @@ _No request parameters_
   "service_key": "<string>",
   "candidate_id": "<string>",
   "node?": "<string>",
-  "tags?": [
-    "<string>"
-  ]
+  "tags": "<string[]>"
 }
 ```
 
@@ -45,7 +43,7 @@ _No request parameters_
 {
   "created_at": "<string>",
   "updated_at": "<string>",
-  "applicationId": "<any>",
+  "applicationId?": "<unknown>",
   "url": "<string>",
   "status": "<string>",
   "completed_at": "<string | null>",

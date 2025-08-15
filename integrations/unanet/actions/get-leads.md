@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Fetch all leads
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Leads
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `Lead[]`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_unanet_getleads`
+- **Input Model:** `ActionInput_unanet_getleads`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/get-leads.ts)
 
 
@@ -25,14 +25,15 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
 ```json
-[
-  {
-    "id": "<string>",
+{
+  "0": {
     "federalAgency": {
       "city?": "<string>",
       "state?": "<string>",
@@ -56,15 +57,16 @@ _No request body_
     "dueDate": "<string>",
     "postedDate": "<string>",
     "solicitationNumber": "<string>",
-    "naicsCategory": [
-      "<string | string>"
-    ],
+    "naicsCategory": "<<string> | <string[]>>",
     "city": "<string>",
     "state": "<string>",
     "country": "<string>",
-    "description": "<string>"
+    "description": "<string>",
+    "createdAt?": "<string>",
+    "updatedAt?": "<string>",
+    "id": "<string>"
   }
-]
+}
 ```
 
 ## Changelog

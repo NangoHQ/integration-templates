@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Action to create a supplier in pennylane
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Suppliers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `PennylaneSuccessResponse`
-- **Input Model:** `CreateSupplier`
+- **Model:** `ActionOutput_pennylane_createsupplier`
+- **Input Model:** `ActionInput_pennylane_createsupplier`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-supplier.ts)
 
 
@@ -37,9 +36,7 @@ _No request parameters_
   "recipient?": "<string>",
   "vat_number?": "<string>",
   "source_id?": "<string>",
-  "emails": [
-    "<string>"
-  ],
+  "emails": "<string[]>",
   "iban?": "<string>",
   "payment_conditions?": "<string>",
   "phone?": "<string>",

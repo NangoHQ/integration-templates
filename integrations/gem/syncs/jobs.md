@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Get a list of all jobs from Gem ATS
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -51,13 +50,9 @@ _No request body_
       "id": "<string>",
       "name": "<string>",
       "parent_id": "<string>",
-      "child_ids": [
-        "<string>"
-      ],
+      "child_ids": "<string[]>",
       "parent_department_external_id": "<string>",
-      "child_department_external_ids": [
-        "<string>"
-      ],
+      "child_department_external_ids": "<string[]>",
       "deleted_at": "<string>"
     }
   ],
@@ -69,23 +64,25 @@ _No request body_
         "name": "<string>"
       },
       "parent_id": "<string>",
-      "child_ids": [
-        "<string>"
-      ],
+      "child_ids": "<string[]>",
       "parent_office_external_id": "<string>",
-      "child_office_external_ids": [
-        "<string>"
-      ],
+      "child_office_external_ids": "<string[]>",
       "deleted_at": "<string>"
     }
   ],
   "hiring_team": {
-    "hiring_managers": "<UserLite[] | null>",
-    "recruiters": "<UserLite[] | null>",
-    "coordinators": "<UserLite[] | null>",
-    "sourcers": "<UserLite[] | null>"
+    "hiring_managers": "<[{\"id\":\"<string>\",\"name\":\"<string>\",\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"employee_id\":\"<string>\"}] | <null>>",
+    "recruiters": "<[{\"id\":\"<string>\",\"name\":\"<string>\",\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"employee_id\":\"<string>\"}] | <null>>",
+    "coordinators": "<[{\"id\":\"<string>\",\"name\":\"<string>\",\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"employee_id\":\"<string>\"}] | <null>>",
+    "sourcers": "<[{\"id\":\"<string>\",\"name\":\"<string>\",\"first_name\":\"<string>\",\"last_name\":\"<string>\",\"employee_id\":\"<string>\"}] | <null>>"
   }
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

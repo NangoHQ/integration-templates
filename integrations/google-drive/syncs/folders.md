@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync the folders at the root level of a google drive.
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
@@ -40,6 +40,12 @@ _No request body_
   "mimeType": "<string>",
   "updatedAt": "<string>"
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

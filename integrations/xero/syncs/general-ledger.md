@@ -4,8 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all general ledger entries in Xero
-
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Group:** General Ledger
 - **Scopes:** `accounting.journals.read`
 - **Endpoint Type:** Sync
@@ -48,26 +47,30 @@ _No request body_
       "accountId": "<string>",
       "accountCode": "<string>",
       "accountName": "<string>",
-      "description?": "<string | undefined>",
+      "description?": "<string>",
       "netAmount": "<number>",
       "grossAmount": "<number>",
       "taxAmount": "<number>",
-      "taxType?": "<string | undefined>",
-      "taxName?": "<string | undefined>",
+      "taxType?": "<string>",
+      "taxName?": "<string>",
       "trackingCategories": [
         {
           "name": "<string>",
           "option": "<string>",
           "trackingCategoryId": "<string>",
           "trackingOptionId": "<string>",
-          "options": [
-            "<string>"
-          ]
+          "options": "<string[]>"
         }
       ]
     }
   ]
 }
+```
+
+### Expected Metadata
+
+```json
+{}
 ```
 
 ## Changelog

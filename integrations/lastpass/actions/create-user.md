@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Creates a user in Lastpass.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `User`
-- **Input Model:** `LastPassCreateUser`
+- **Model:** `ActionOutput_lastpass_createuser`
+- **Input Model:** `ActionInput_lastpass_createuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lastpass/actions/create-user.ts)
 
 
@@ -30,9 +30,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "groups?": [
-    "<string>"
-  ],
+  "groups?": "<string[]>",
   "duousername?": "<string>",
   "securidusername?": "<string>",
   "password?": "<string>",

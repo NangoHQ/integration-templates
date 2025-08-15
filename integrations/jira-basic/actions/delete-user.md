@@ -5,13 +5,12 @@
 
 - **Description:** Deletes a user in Jira. Note that this endpoint is marked as experimental and could 
 be deprecated in the future.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `IdEntity`
+- **Model:** `ActionOutput_jira_basic_deleteuser`
+- **Input Model:** `ActionInput_jira_basic_deleteuser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/delete-user.ts)
 
 

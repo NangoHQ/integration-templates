@@ -4,12 +4,12 @@
 ## General Information
 
 - **Description:** Update a single lead in salesforce
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Model:** `SuccessResponse`
-- **Input Model:** `UpdateLeadInput`
+- **Model:** `ActionOutput_salesforce_updatelead`
+- **Input Model:** `ActionInput_salesforce_updatelead`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-lead.ts)
 
 
@@ -27,8 +27,17 @@ _No request parameters_
 
 ```json
 {
-  "last_name?": "<string | undefined>",
-  "company_name?": "<string | undefined>"
+  "first_name?": "<string>",
+  "email?": "<string>",
+  "owner_id?": "<string>",
+  "phone?": "<string>",
+  "salutation?": "<string>",
+  "title?": "<string>",
+  "website?": "<string>",
+  "industry?": "<string>",
+  "id": "<string>",
+  "last_name?": "<string>",
+  "company_name?": "<string>"
 }
 ```
 

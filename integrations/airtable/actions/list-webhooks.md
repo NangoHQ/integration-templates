@@ -8,8 +8,8 @@
 - **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
-- **Model:** `WebhookResponse`
-- **Input Model:** `BaseId`
+- **Model:** `ActionOutput_airtable_listwebhooks`
+- **Input Model:** `ActionInput_airtable_listwebhooks`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/list-webhooks.ts)
 
 
@@ -42,20 +42,14 @@ _No request parameters_
       "cursorForNextPayload": "<number>",
       "isHookEnabled": "<boolean>",
       "lastSuccessfulNotificationTime": "<string | null>",
-      "expirationTime?": "<string | undefined>",
+      "expirationTime?": "<string>",
       "specification": {
         "options": {
           "filters": {
             "recordChangeScope?": "<string>",
-            "dataTypes": [
-              "<string>"
-            ],
-            "changeTypes?": [
-              "<string>"
-            ],
-            "fromSources?": [
-              "<string>"
-            ],
+            "dataTypes": "<string[]>",
+            "changeTypes": "<string[]>",
+            "fromSources": "<string[]>",
             "sourceOptions?": {
               "formPageSubmission?": {
                 "pageId": "<string>"
@@ -64,21 +58,17 @@ _No request parameters_
                 "viewId": "<string>"
               }
             },
-            "watchDataInFieldIds?": [
-              "<string>"
-            ],
-            "watchSchemasOfFieldIds?": [
-              "<string>"
-            ]
+            "watchDataInFieldIds": "<string[]>",
+            "watchSchemasOfFieldIds": "<string[]>"
           },
           "includes?": {
-            "includeCellValuesInFieldIds?": "<string[] | all>",
+            "includeCellValuesInFieldIds?": "<<string[]> | <string>>",
             "includePreviousCellValues:?": "<boolean>",
             "includePreviousFieldDefinitions?": "<boolean>"
           }
         }
       },
-      "lastNotificationResult": "<NotificationResult | null>"
+      "lastNotificationResult": "<{\"success\":\"<boolean>\",\"error?\":{\"message\":\"<string>\"},\"completionTimestamp?\":\"<string>\",\"durationMs?\":\"<number>\",\"retryNumber?\":\"<number>\",\"willBeRetried?\":\"<boolean>\"} | <null>>"
     }
   ]
 }

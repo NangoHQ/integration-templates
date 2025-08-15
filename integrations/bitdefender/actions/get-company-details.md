@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Retrieves detailed information about the current company in Bitdefender GravityZone.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Company
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Model:** `BitdefenderCompany`
-- **Input Model:** _None_
+- **Model:** `ActionOutput_bitdefender_getcompanydetails`
+- **Input Model:** `ActionInput_bitdefender_getcompanydetails`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/actions/get-company-details.ts)
 
 
@@ -26,7 +25,9 @@ _No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+"<null>"
+```
 
 ### Request Response
 
@@ -35,7 +36,7 @@ _No request body_
   "id": "<string>",
   "name": "<string>",
   "type": "<number>",
-  "country": "<string | undefined>",
+  "country?": "<string>",
   "subscribedServices": {
     "endpoint": "<boolean>",
     "exchange": "<boolean>",

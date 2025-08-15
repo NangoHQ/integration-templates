@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all selected files from a user's drive
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `Sites.Read.All, Sites.Selected, MyFiles.Read, Files.Read.All, Files.Read.Selected, offline_access`
 - **Endpoint Type:** Sync
@@ -42,7 +42,7 @@ _No request body_
   "is_folder": "<boolean>",
   "mime_type": "<string | null>",
   "path": "<string>",
-  "raw_source": "<object>",
+  "raw_source": {},
   "updated_at": "<string>",
   "download_url": "<string | null>",
   "created_at": "<string>",
@@ -54,15 +54,11 @@ _No request body_
 
 ```json
 {
-  "sharedSites": [
-    "<string>"
-  ],
+  "sharedSites": "<string[]>",
   "pickedFiles": [
     {
       "siteId": "<string>",
-      "fileIds": [
-        "<string>"
-      ]
+      "fileIds": "<string[]>"
     }
   ]
 }

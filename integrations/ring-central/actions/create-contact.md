@@ -4,13 +4,12 @@
 ## General Information
 
 - **Description:** Creates a new external contact in RingCentral.
-
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** `Contacts`
 - **Endpoint Type:** Action
-- **Model:** `Contact`
-- **Input Model:** `CreateContact`
+- **Model:** `ActionOutput_ring_central_createcontact`
+- **Input Model:** `ActionInput_ring_central_createcontact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/create-contact.ts)
 
 
@@ -31,9 +30,9 @@ _No request parameters_
   "firstName?": "<string>",
   "lastName?": "<string>",
   "email?": "<string>",
-  "phoneNumbers?": [
+  "phoneNumbers": [
     {
-      "type": "<work | mobile | other>",
+      "type": "<enum: 'work' | 'mobile' | 'other'>",
       "value": "<string>"
     }
   ],
@@ -48,13 +47,18 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "firstName": "<string | undefined>",
-  "lastName": "<string | undefined>",
-  "email": "<string | undefined>",
-  "phoneNumbers?": "<PhoneNumber[] | undefined>",
-  "company": "<string | undefined>",
-  "jobTitle": "<string | undefined>",
-  "notes": "<string | undefined>"
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "email?": "<string>",
+  "phoneNumbers?": [
+    {
+      "type": "<enum: 'work' | 'mobile' | 'other'>",
+      "value": "<string>"
+    }
+  ],
+  "company?": "<string>",
+  "jobTitle?": "<string>",
+  "notes?": "<string>"
 }
 ```
 
