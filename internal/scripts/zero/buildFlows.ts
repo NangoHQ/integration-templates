@@ -42,13 +42,13 @@ async function main(): Promise<void> {
 
     // Process each folder
     for (const folder of templatesFolders) {
-        let isSymlLink = false;
+        let symLinkTargetName: string | null = null;
         const folderPath = join(templatesPath, folder.name);
         if (!(folder.isDirectory() || folder.isSymbolicLink())) continue;
         if (folder.isSymbolicLink()) {
-            isSymlLink = true;
             try {
                 const target = await realpath(folderPath);
+                symLinkTargetName = target.split('/').pop() || '';
                 const targetStat = await stat(target);
                 if (!targetStat.isDirectory()) continue; // skip symlinks that don't point to dirs
             } catch {
@@ -87,7 +87,7 @@ async function main(): Promise<void> {
                 const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
                 const jsonSchema = JSON.parse(schemaJsonContent);
 
-                aggregatedFlows.push({ ...nangoData[0]!, providerConfigKey: folder.name, jsonSchema, sdkVersion: nangoVersion, isSymlLink });
+                aggregatedFlows.push({ ...nangoData[0]!, providerConfigKey: folder.name, jsonSchema, sdkVersion: nangoVersion, symLinkTargetName });
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
