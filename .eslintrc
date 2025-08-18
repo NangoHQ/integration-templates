@@ -1,10 +1,18 @@
 {
     "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+    },
     "plugins": [
+        "@typescript-eslint",
         "@nangohq/eslint-plugin-custom-integrations-linting"
     ],
     "extends": [
-        "@nangohq/eslint-config/base"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
     ],
     "rules": {
         "@nangohq/custom-integrations-linting/no-console-log": "error",
@@ -17,5 +25,7 @@
         "@nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed": "warn",
         "@nangohq/custom-integrations-linting/query-params-in-params-object": "error",
         "@nangohq/custom-integrations-linting/include-docs-for-endpoints": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "warn"
     }
 }
