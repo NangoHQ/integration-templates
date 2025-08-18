@@ -6,7 +6,7 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
 import { readdir, readFile, writeFile, lstat, stat, realpath } from 'fs/promises';
-import { join } from 'path';
+import { join, basename } from 'path';
 import { execSync } from 'child_process';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
@@ -48,7 +48,7 @@ async function main(): Promise<void> {
         if (folder.isSymbolicLink()) {
             try {
                 const target = await realpath(folderPath);
-                symLinkTargetName = target.split('/').pop() || '';
+                symLinkTargetName = basename(target) || null;
                 const targetStat = await stat(target);
                 if (!targetStat.isDirectory()) continue; // skip symlinks that don't point to dirs
             } catch {
