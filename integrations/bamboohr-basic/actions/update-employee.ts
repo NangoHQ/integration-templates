@@ -26,7 +26,7 @@ const action = createAction({
             const { id, ...postData } = input;
 
             const response = await nango.post({
-                endpoint: `/v1/employees/${input.id}`,
+                endpoint: `/v1/employees/${id}`,
                 data: postData,
                 retries: 3
             });
