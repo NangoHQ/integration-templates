@@ -1,392 +1,103 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_outlook_emails": {
+    "SyncMetadata_greenhouse_basic_applications": {
       "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
       "additionalProperties": false
     },
-    "OutlookEmail": {
+    "GreenhouseApplication": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "sender": {
+        "candidate_id": {
           "type": "string"
         },
-        "recipients": {
-          "type": "string"
+        "prospect": {
+          "type": "boolean"
         },
-        "date": {
-          "type": "string"
-        },
-        "subject": {
-          "type": "string"
-        },
-        "body": {
-          "type": "string"
-        },
-        "attachments": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "mimeType": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "attachmentId": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "filename",
-              "mimeType",
-              "size",
-              "attachmentId"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "threadId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "date",
-        "subject",
-        "body",
-        "attachments",
-        "threadId"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_outlook_events": {
-      "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
-      "additionalProperties": false
-    },
-    "OutlookCalendarEvent": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "attendees": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "emailAddress": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "address",
-                  "name"
-                ],
-                "additionalProperties": false
-              },
-              "proposedNewTime": {
-                "type": "object",
-                "properties": {
-                  "start": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "end": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "start",
-                  "end"
-                ],
-                "additionalProperties": false
-              },
-              "status": {
-                "type": "object",
-                "properties": {
-                  "response": {
-                    "type": "string",
-                    "enum": [
-                      "none",
-                      "organizer",
-                      "tentativelyAccepted",
-                      "accepted",
-                      "declined",
-                      "notResponded"
-                    ]
-                  },
-                  "sentDateTime": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "response",
-                  "sentDateTime"
-                ],
-                "additionalProperties": false
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "required",
-                  "optional",
-                  "resource"
-                ]
-              }
-            },
-            "required": [
-              "emailAddress",
-              "status",
-              "type"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "bodyPreview": {
-          "type": "string"
-        },
-        "end": {
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "dateTime",
-            "timeZone"
-          ],
-          "additionalProperties": false
-        },
-        "importance": {
+        "applied_at": {
           "type": "string",
-          "enum": [
-            "low",
-            "normal",
-            "high"
-          ]
+          "format": "date-time"
         },
-        "isAllDay": {
-          "type": "boolean"
+        "rejected_at": {
+          "type": "string",
+          "format": "date-time"
         },
-        "isCancelled": {
-          "type": "boolean"
-        },
-        "isOrganizer": {
-          "type": "boolean"
+        "last_activity_at": {
+          "type": "string",
+          "format": "date-time"
         },
         "location": {
           "type": "object",
           "properties": {
             "address": {
-              "type": "object",
-              "properties": {
-                "city": {
-                  "type": "string"
-                },
-                "countryOrRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "state": {
-                  "type": "string"
-                },
-                "street": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            },
-            "coordinates": {
-              "type": "object",
-              "properties": {
-                "accuracy": {
-                  "type": "number"
-                },
-                "altitude": {
-                  "type": "number"
-                },
-                "altitudeAccuracy": {
-                  "type": "number"
-                },
-                "latitude": {
-                  "type": "number"
-                },
-                "longitude": {
-                  "type": "number"
-                }
-              },
-              "additionalProperties": false
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "locationEmailAddress": {
-              "type": "string"
-            },
-            "locationUri": {
-              "type": "string"
-            },
-            "locationType": {
-              "type": "string",
-              "enum": [
-                "default",
-                "conferenceRoom",
-                "homeAddress",
-                "businessAddress",
-                "geoCoordinates",
-                "streetAddress",
-                "hotel",
-                "restaurant",
-                "localBusiness",
-                "postalAddress"
-              ]
-            },
-            "uniqueId": {
-              "type": "string"
-            },
-            "uniqueIdType": {
               "type": "string"
             }
           },
+          "required": [
+            "address"
+          ],
           "additionalProperties": false
         },
-        "onlineMeeting": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "conferenceId": {
-                  "type": "string"
-                },
-                "joinUrl": {
-                  "type": "string"
-                },
-                "phones": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "number": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "home",
-                          "business",
-                          "mobile",
-                          "other",
-                          "assistant",
-                          "homeFax",
-                          "businessFax",
-                          "otherFax",
-                          "pager",
-                          "radio"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "number",
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "quickDial": {
-                  "type": "string"
-                },
-                "tollFreeNumbers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "tollNumber": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "phones",
-                "tollFreeNumbers"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "onlineMeetingProvider": {
-          "type": "string"
-        },
-        "organizer": {
+        "source": {
           "type": "object",
           "properties": {
-            "emailAddress": {
+            "id": {
+              "type": "string"
+            },
+            "public_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "public_name"
+          ],
+          "additionalProperties": false
+        },
+        "credited_to": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "employee_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "first_name",
+            "last_name",
+            "name",
+            "employee_id"
+          ],
+          "additionalProperties": false
+        },
+        "rejection_reason": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
               "type": "object",
               "properties": {
-                "address": {
+                "id": {
                   "type": "string"
                 },
                 "name": {
@@ -394,252 +105,53 @@
                 }
               },
               "required": [
-                "address",
+                "id",
                 "name"
               ],
               "additionalProperties": false
             }
           },
           "required": [
-            "emailAddress"
+            "id",
+            "name",
+            "type"
           ],
           "additionalProperties": false
         },
-        "recurrence": {
-          "anyOf": [
-            {
+        "rejection_details": {
+          "type": "object",
+          "properties": {
+            "custom_fields": {
               "type": "object",
-              "properties": {
-                "pattern": {
-                  "type": "object",
-                  "properties": {
-                    "dayOfMonth": {
-                      "type": "number"
-                    },
-                    "daysOfWeek": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "firstDayOfWeek": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "string",
-                      "enum": [
-                        "first",
-                        "second",
-                        "third",
-                        "fourth",
-                        "last"
-                      ]
-                    },
-                    "interval": {
-                      "type": "number"
-                    },
-                    "month": {
-                      "type": "number"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "daily",
-                        "weekly",
-                        "absoluteMonthly",
-                        "relativeMonthly",
-                        "absoluteYearly",
-                        "relativeYearly"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "interval",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "endDate": {
-                      "type": "string"
-                    },
-                    "numberOfOccurrences": {
-                      "type": "number"
-                    },
-                    "recurrenceTimeZone": {
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "endDate",
-                        "noEnd",
-                        "numbered"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "startDate",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "range"
-              ],
               "additionalProperties": false
             },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "responseRequested": {
-          "type": "boolean"
-        },
-        "responseStatus": {
-          "type": "object",
-          "properties": {
-            "response": {
-              "type": "string"
-            },
-            "time": {
-              "type": "string"
+            "keyed_custom_fields": {
+              "type": "object",
+              "additionalProperties": false
             }
           },
           "required": [
-            "response",
-            "time"
+            "custom_fields",
+            "keyed_custom_fields"
           ],
           "additionalProperties": false
         },
-        "sensitivity": {
-          "type": "string",
-          "enum": [
-            "normal",
-            "personal",
-            "private",
-            "confidential"
-          ]
-        },
-        "start": {
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "dateTime",
-            "timeZone"
-          ],
-          "additionalProperties": false
-        },
-        "subject": {
-          "type": "string"
-        },
-        "webLink": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "attendees",
-        "bodyPreview",
-        "end",
-        "importance",
-        "isAllDay",
-        "isCancelled",
-        "isOrganizer",
-        "location",
-        "onlineMeeting",
-        "onlineMeetingProvider",
-        "organizer",
-        "recurrence",
-        "responseRequested",
-        "responseStatus",
-        "sensitivity",
-        "start",
-        "subject",
-        "webLink"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_outlook_calendars": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "OutlookCalendar": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "allowedOnlineMeetingProviders": {
+        "jobs": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "canEdit": {
-          "type": "boolean"
-        },
-        "canShare": {
-          "type": "boolean"
-        },
-        "canViewPrivateItems": {
-          "type": "boolean"
-        },
-        "changeKey": {
+        "job_post_id": {
           "type": "string"
         },
-        "color": {
-          "type": "string",
-          "enum": [
-            "auto",
-            "lightBlue",
-            "lightGreen",
-            "lightOrange",
-            "lightGray",
-            "lightYellow",
-            "lightTeal",
-            "lightPink",
-            "lightBrown",
-            "lightRed",
-            "maxColor"
-          ]
-        },
-        "defaultOnlineMeetingProvider": {
+        "status": {
           "type": "string"
         },
-        "hexColor": {
-          "type": "string"
-        },
-        "isDefaultCalendar": {
-          "type": "boolean"
-        },
-        "isRemovable": {
-          "type": "boolean"
-        },
-        "isTallyingResponses": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "owner": {
+        "current_stage": {
           "type": "object",
           "properties": {
-            "address": {
+            "id": {
               "type": "string"
             },
             "name": {
@@ -647,89 +159,530 @@
             }
           },
           "required": [
-            "address",
+            "id",
             "name"
           ],
           "additionalProperties": false
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prospective_office": {
+          "type": "object",
+          "properties": {
+            "primary_contact_user_id": {
+              "type": "string"
+            },
+            "parent_id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            "id": {
+              "type": "string"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "child_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "primary_contact_user_id",
+            "parent_id",
+            "name",
+            "location",
+            "id",
+            "external_id",
+            "child_ids"
+          ],
+          "additionalProperties": false
+        },
+        "prospective_department": {
+          "type": "object",
+          "properties": {
+            "parent_id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "child_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "parent_id",
+            "name",
+            "id",
+            "external_id",
+            "child_ids"
+          ],
+          "additionalProperties": false
+        },
+        "prospect_detail": {
+          "type": "object",
+          "properties": {
+            "prospect_pool": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            "prospect_stage": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            "prospect_owner": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "prospect_pool",
+            "prospect_stage",
+            "prospect_owner"
+          ],
+          "additionalProperties": false
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "keyed_custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "attachments": {
+          "type": "array",
+          "items": {}
         }
       },
       "required": [
         "id",
-        "allowedOnlineMeetingProviders",
-        "canEdit",
-        "canShare",
-        "canViewPrivateItems",
-        "changeKey",
-        "color",
-        "defaultOnlineMeetingProvider",
-        "hexColor",
-        "isDefaultCalendar",
-        "isRemovable",
-        "isTallyingResponses",
-        "name",
-        "owner"
+        "candidate_id",
+        "prospect",
+        "applied_at",
+        "rejected_at",
+        "last_activity_at",
+        "location",
+        "source",
+        "credited_to",
+        "rejection_reason",
+        "rejection_details",
+        "jobs",
+        "job_post_id",
+        "status",
+        "current_stage",
+        "answers",
+        "prospective_office",
+        "prospective_department",
+        "prospect_detail",
+        "custom_fields",
+        "keyed_custom_fields",
+        "attachments"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_folders": {
+    "SyncMetadata_greenhouse_basic_candidates": {
       "type": "object",
       "additionalProperties": false
     },
-    "OutlookFolder": {
+    "GreenhouseCandidate": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "displayName": {
+        "first_name": {
           "type": "string"
         },
-        "parentFolderId": {
+        "last_name": {
           "type": "string"
         },
-        "childFolderCount": {
-          "type": "number"
+        "company": {
+          "type": "string"
         },
-        "unreadItemCount": {
-          "type": "number"
+        "title": {
+          "type": "string"
         },
-        "totalItemCount": {
-          "type": "number"
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
         },
-        "isHidden": {
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_activity": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "is_private": {
           "type": "boolean"
+        },
+        "photo_url": {
+          "type": "string"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {}
+        },
+        "application_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {}
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "website_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "social_media_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recruiter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "employee_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "first_name",
+            "last_name",
+            "name",
+            "employee_id"
+          ],
+          "additionalProperties": false
+        },
+        "coordinator": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "employee_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "first_name",
+            "last_name",
+            "name",
+            "employee_id"
+          ],
+          "additionalProperties": false
+        },
+        "can_email": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "applications": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "educations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "employments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linked_user_ids": {
+          "type": "string"
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "keyed_custom_fields": {
+          "type": "object",
+          "additionalProperties": false
         }
       },
       "required": [
         "id",
-        "displayName",
-        "parentFolderId",
-        "childFolderCount",
-        "unreadItemCount",
-        "totalItemCount",
-        "isHidden"
+        "first_name",
+        "last_name",
+        "company",
+        "title",
+        "created_at",
+        "updated_at",
+        "last_activity",
+        "is_private",
+        "photo_url",
+        "attachments",
+        "application_ids",
+        "phone_numbers",
+        "addresses",
+        "email_addresses",
+        "website_addresses",
+        "social_media_addresses",
+        "recruiter",
+        "coordinator",
+        "can_email",
+        "tags",
+        "applications",
+        "educations",
+        "employments",
+        "linked_user_ids",
+        "custom_fields",
+        "keyed_custom_fields"
       ],
       "additionalProperties": false
     },
-    "ActionInput_outlook_fetchattachment": {
+    "SyncMetadata_greenhouse_basic_jobs": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "GreenhouseJob": {
       "type": "object",
       "properties": {
-        "threadId": {
+        "id": {
           "type": "string"
         },
-        "attachmentId": {
+        "name": {
           "type": "string"
+        },
+        "requisition_id": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "confidential": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "opened_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "closed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "is_template": {
+          "type": "boolean"
+        },
+        "copied_from_id": {
+          "type": "string"
+        },
+        "departments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "offices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "keyed_custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "hiring_team": {
+          "type": "object",
+          "properties": {
+            "hiring_managers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recruiters": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "coordinators": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sourcers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "hiring_managers",
+            "recruiters",
+            "coordinators",
+            "sourcers"
+          ],
+          "additionalProperties": false
+        },
+        "openings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
-        "threadId",
-        "attachmentId"
+        "id",
+        "name",
+        "requisition_id",
+        "notes",
+        "confidential",
+        "status",
+        "created_at",
+        "opened_at",
+        "closed_at",
+        "updated_at",
+        "is_template",
+        "copied_from_id",
+        "departments",
+        "offices",
+        "custom_fields",
+        "keyed_custom_fields",
+        "hiring_team",
+        "openings"
       ],
       "additionalProperties": false
-    },
-    "ActionOutput_outlook_fetchattachment": {
-      "type": "string"
     }
   },
-  "$comment": "This file was generated by Nango (v0.66.0)"
+  "$comment": "This file was generated by Nango (v0.66.1)"
 }

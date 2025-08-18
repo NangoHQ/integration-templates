@@ -17,5 +17,4 @@ integrations/github-app-oauth
 integrations/gong-oauth
 integrations/gorgias-basic
 integrations/*-demo
-integrations/lever-basic
 internal/scripts
