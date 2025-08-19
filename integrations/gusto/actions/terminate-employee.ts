@@ -34,7 +34,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://docs.gusto.com/embedded-payroll/reference/post-v1-employees-employee_id-terminations
-            endpoint: `/v1/employees/${input.id}/terminations`,
+            endpoint: `/v1/employees/${id}/terminations`,
             data: gustoInput,
             retries: 3
         };

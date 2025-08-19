@@ -6,7 +6,7 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
 import { readdir, readFile, writeFile, lstat, stat, realpath } from 'fs/promises';
-import { join } from 'path';
+import { join, basename } from 'path';
 import { execSync } from 'child_process';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
@@ -42,11 +42,13 @@ async function main(): Promise<void> {
 
     // Process each folder
     for (const folder of templatesFolders) {
+        let symLinkTargetName: string | null = null;
         const folderPath = join(templatesPath, folder.name);
         if (!(folder.isDirectory() || folder.isSymbolicLink())) continue;
         if (folder.isSymbolicLink()) {
             try {
                 const target = await realpath(folderPath);
+                symLinkTargetName = basename(target) || null;
                 const targetStat = await stat(target);
                 if (!targetStat.isDirectory()) continue; // skip symlinks that don't point to dirs
             } catch {
@@ -85,7 +87,7 @@ async function main(): Promise<void> {
                 const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
                 const jsonSchema = JSON.parse(schemaJsonContent);
 
-                aggregatedFlows.push({ ...nangoData[0]!, providerConfigKey: folder.name, jsonSchema, sdkVersion: nangoVersion });
+                aggregatedFlows.push({ ...nangoData[0]!, providerConfigKey: folder.name, jsonSchema, sdkVersion: nangoVersion, symLinkTargetName });
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
