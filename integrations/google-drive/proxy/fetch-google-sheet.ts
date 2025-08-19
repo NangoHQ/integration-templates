@@ -29,6 +29,8 @@ async function run(input: { id: string }): Promise<JSONSpreadsheet> {
             includeGridData: 'true'
         },
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     };
 
     const response = await nango.get<JSONSpreadsheet>(config);

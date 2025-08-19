@@ -17,6 +17,8 @@ async function run(input: { path: string }): Promise<string> {
             path: input.path
         },
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     };
 
     const { data } = await nango.post<DropboxTemporaryDownloadLink>(proxyConfig);
@@ -30,6 +32,8 @@ async function run(input: { path: string }): Promise<string> {
         endpoint: data.link,
         responseType: 'arraybuffer',
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     });
 
     const chunks: Buffer[] = [];

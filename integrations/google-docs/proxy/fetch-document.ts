@@ -17,6 +17,8 @@ async function run(input: DocumentId): Promise<Document> {
             includeTabsContent: 'true'
         },
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     };
 
     const documentResponse = await nango.get<Document>(config);

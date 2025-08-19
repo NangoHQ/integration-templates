@@ -23,6 +23,8 @@ async function run(input: { id: string }): Promise<string> {
             supportsAllDrives: 'true'
         },
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     };
     const fileMetadataResponse = await nango.get<GoogleDriveFileResponse>(config);
 
@@ -49,6 +51,8 @@ async function run(input: { id: string }): Promise<string> {
         params,
         responseType,
         retries: 3
+        // connectionId: 'your-notion-connection-id'
+        // providerConfigKey: 'notion'
     };
     const response = await nango.get(fetchConfig);
 
