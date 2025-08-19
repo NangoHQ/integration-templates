@@ -1,82 +1,118 @@
 [
   {
-    "providerConfigKey": "greenhouse-basic",
-    "actions": [],
+    "providerConfigKey": "bamboohr-basic",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a new employee",
+        "endpoint": {
+          "method": "POST",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_createemployee",
+        "name": "create-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_createemployee",
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update an existing employee in the system",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_updateemployee",
+        "name": "update-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_updateemployee",
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Introspection to retrieve available fields",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fields"
+        },
+        "input": "ActionInput_bamboohr_basic_fetchfields",
+        "name": "fetch-fields",
+        "output": [
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_fetchfields",
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "version": "2.0.0"
+      }
+    ],
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of all organization's applications from greenhouse",
+        "description": "Fetches a list of current employees from bamboohr",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/greenhouse-basic/applications"
+            "path": "/employees",
+            "group": "Employees"
           }
         ],
-        "input": "SyncMetadata_greenhouse_basic_applications",
-        "name": "applications",
+        "input": "SyncMetadata_bamboohr_basic_employees",
+        "name": "employees",
         "output": [
-          "GreenhouseApplication"
+          "BamboohrEmployee"
         ],
         "runs": "every 6 hours",
         "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "GreenhouseApplication",
-          "SyncMetadata_greenhouse_basic_applications"
+          "BamboohrEmployee",
+          "SyncMetadata_bamboohr_basic_employees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of all organization's candidates from greenhouse",
+        "description": "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/greenhouse-basic/candidates"
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
           }
         ],
-        "input": "SyncMetadata_greenhouse_basic_candidates",
-        "name": "candidates",
+        "input": "SyncMetadata_bamboohr_basic_unifiedemployees",
+        "name": "unified-employees",
         "output": [
-          "GreenhouseCandidate"
+          "StandardEmployee"
         ],
         "runs": "every 6 hours",
         "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "GreenhouseCandidate",
-          "SyncMetadata_greenhouse_basic_candidates"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all organization's jobs from greenhouse",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/greenhouse-basic/jobs"
-          }
-        ],
-        "input": "SyncMetadata_greenhouse_basic_jobs",
-        "name": "jobs",
-        "output": [
-          "GreenhouseJob"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "GreenhouseJob",
-          "SyncMetadata_greenhouse_basic_jobs"
+          "StandardEmployee",
+          "SyncMetadata_bamboohr_basic_unifiedemployees"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

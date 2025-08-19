@@ -3,123 +3,164 @@
 // You can version this file
 // ---------------------------
 
-export interface SyncMetadata_greenhouse_basic_applications {
+export interface SyncMetadata_bamboohr_basic_employees {
 };
 
-export interface GreenhouseApplication {
+export interface BamboohrEmployee {
   id: string;
-  candidate_id: string;
-  prospect: boolean;
-  applied_at: Date;
-  rejected_at: Date;
-  last_activity_at: Date;
-  location: {  address: string;};
-  source: {  id: string;
-  public_name: string;};
-  credited_to: {  id: string;
-  first_name: string;
-  last_name: string;
-  name: string;
-  employee_id: string;};
-  rejection_reason: {  id: string;
-  name: string;
-  type: {  id: string;
-  name: string;};};
-  rejection_details: {  custom_fields: {};
-  keyed_custom_fields: {};};
-  jobs: string[];
-  job_post_id: string;
+  employeeNumber: string;
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  address1: string;
+  bestEmail: string;
+  workEmail: string;
+  jobTitle: string;
+  hireDate: string;
+  supervisorId: string;
+  supervisor: string;
+  createdByUserId: string;
+  department: string;
+  division: string;
+  employmentHistoryStatus: string;
+  gender: string;
+  country: string;
+  city: string;
+  location: string;
+  state: string;
+  maritalStatus: string;
+  exempt: string;
+  payRate: string;
+  payType: string;
+  payPer: string;
+  ssn: string;
+  workPhone: string;
+  homePhone: string;
+};
+
+export interface SyncMetadata_bamboohr_basic_unifiedemployees {
+};
+
+export interface StandardEmployee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  displayName: string;
+  employeeNumber?: string | undefined;
+  title?: string | undefined;
+  department: {  id: string;
+  name: string;};
+  employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+  employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+  startDate: string;
+  terminationDate?: string | undefined;
+  manager?: {  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;} | undefined;
+  workLocation: {  name: string;
+  type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+  primaryAddress?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  type: 'WORK' | 'HOME';} | undefined;};
+  addresses: ({  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  type: 'WORK' | 'HOME';})[];
+  phones: ({  type: 'WORK' | 'HOME' | 'MOBILE';
+  number: string;})[];
+  emails: ({  type: 'WORK' | 'PERSONAL';
+  address: string;})[];
+  providerSpecific: {};
+  createdAt: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_bamboohr_basic_createemployee {
+  firstName: string;
+  lastName: string;
+  employeeNumber?: string | undefined;
+  dateOfBirth?: string | undefined;
+  address1?: string | undefined;
+  bestEmail?: string | undefined;
+  workEmail?: string | undefined;
+  jobTitle?: string | undefined;
+  hireDate?: string | undefined;
+  supervisorId?: string | undefined;
+  supervisor?: string | undefined;
+  createdByUserId?: string | undefined;
+  department?: string | undefined;
+  division?: string | undefined;
+  employmentHistoryStatus?: string | undefined;
+  gender?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  location?: string | undefined;
+  state?: string | undefined;
+  maritalStatus?: string | undefined;
+  exempt?: string | undefined;
+  payRate?: string | undefined;
+  payType?: string | undefined;
+  payPer?: string | undefined;
+  ssn?: string | undefined;
+  workPhone?: string | undefined;
+  homePhone?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_createemployee {
   status: string;
-  current_stage: {  id: string;
-  name: string;};
-  answers: string[];
-  prospective_office: {  primary_contact_user_id: string;
-  parent_id: string;
-  name: string;
-  location: {  name: string;};
   id: string;
-  external_id: string;
-  child_ids: string[];};
-  prospective_department: {  parent_id: string;
-  name: string;
-  id: string;
-  external_id: string;
-  child_ids: string[];};
-  prospect_detail: {  prospect_pool: {  id: string;
-  name: string;};
-  prospect_stage: {  id: string;
-  name: string;};
-  prospect_owner: {  id: string;
-  name: string;};};
-  custom_fields: {};
-  keyed_custom_fields: {};
-  attachments: any[];
 };
 
-export interface SyncMetadata_greenhouse_basic_candidates {
-};
-
-export interface GreenhouseCandidate {
+export interface ActionInput_bamboohr_basic_updateemployee {
   id: string;
-  first_name: string;
-  last_name: string;
-  company: string;
-  title: string;
-  created_at: Date;
-  updated_at: Date;
-  last_activity: Date;
-  is_private: boolean;
-  photo_url: string;
-  attachments: any[];
-  application_ids: string[];
-  phone_numbers: string[];
-  addresses: any[];
-  email_addresses: string[];
-  website_addresses: string[];
-  social_media_addresses: string[];
-  recruiter: {  id: string;
-  first_name: string;
-  last_name: string;
-  name: string;
-  employee_id: string;};
-  coordinator: {  id: string;
-  first_name: string;
-  last_name: string;
-  name: string;
-  employee_id: string;};
-  can_email: boolean;
-  tags: string[];
-  applications: string[];
-  educations: string[];
-  employments: string[];
-  linked_user_ids: string;
-  custom_fields: {};
-  keyed_custom_fields: {};
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  employeeNumber?: string | undefined;
+  dateOfBirth?: string | undefined;
+  address1?: string | undefined;
+  bestEmail?: string | undefined;
+  workEmail?: string | undefined;
+  jobTitle?: string | undefined;
+  hireDate?: string | undefined;
+  supervisorId?: string | undefined;
+  supervisor?: string | undefined;
+  createdByUserId?: string | undefined;
+  department?: string | undefined;
+  division?: string | undefined;
+  employmentHistoryStatus?: string | undefined;
+  gender?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  location?: string | undefined;
+  state?: string | undefined;
+  maritalStatus?: string | undefined;
+  exempt?: string | undefined;
+  payRate?: string | undefined;
+  payType?: string | undefined;
+  payPer?: string | undefined;
+  ssn?: string | undefined;
+  workPhone?: string | undefined;
+  homePhone?: string | undefined;
 };
 
-export interface SyncMetadata_greenhouse_basic_jobs {
-};
-
-export interface GreenhouseJob {
-  id: string;
-  name: string;
-  requisition_id: string;
-  notes: string;
-  confidential: boolean;
+export interface ActionOutput_bamboohr_basic_updateemployee {
   status: string;
-  created_at: Date;
-  opened_at: Date;
-  closed_at: Date;
-  updated_at: Date;
-  is_template: boolean;
-  copied_from_id: string;
-  departments: string[];
-  offices: string[];
-  custom_fields: {};
-  keyed_custom_fields: {};
-  hiring_team: {  hiring_managers: string[];
-  recruiters: string[];
-  coordinators: string[];
-  sourcers: string[];};
-  openings: string[];
+};
+
+export type ActionInput_bamboohr_basic_fetchfields = void
+
+export interface ActionOutput_bamboohr_basic_fetchfields {
+  0: {  id: string;
+  type: string;
+  name: string;
+  alias?: string | undefined;
+  options?: ({  id: number;
+  name: string;})[] | undefined;};
 };

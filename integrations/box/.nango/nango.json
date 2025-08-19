@@ -44,26 +44,6 @@
       },
       {
         "type": "action",
-        "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/file",
-          "group": "Files"
-        },
-        "input": "ActionInput_box_fetchfile",
-        "name": "fetch-file",
-        "output": [
-          "ActionOutput_box_fetchfile"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_box_fetchfile",
-          "ActionOutput_box_fetchfile"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.",
         "endpoint": {
           "method": "GET",

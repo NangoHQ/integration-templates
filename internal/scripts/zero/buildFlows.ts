@@ -65,6 +65,17 @@ async function main(): Promise<void> {
         try {
             console.log(`- Processing ${chalk.blue(name)}...`);
 
+            // if the folder doesn't not have a .nango folder, skip it
+            const nangoFolderPath = join(folderPath, '.nango');
+            const nangoFolderExists = await lstat(nangoFolderPath)
+                .then(() => true)
+                .catch(() => false);
+
+            if (!nangoFolderExists) {
+                console.log(`   ${chalk.yellow('warn')} No .nango folder found, skipping ${name}`);
+                continue;
+            }
+
             // Only compile if --rebuild flag is passed
             if (process.argv.includes('--rebuild-all')) {
                 // Run the compile command and re-generate docs

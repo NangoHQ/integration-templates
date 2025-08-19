@@ -1,154 +1,163 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_greenhouse_basic_applications": {
+    "SyncMetadata_bamboohr_basic_employees": {
       "type": "object",
       "additionalProperties": false
     },
-    "GreenhouseApplication": {
+    "BamboohrEmployee": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "candidate_id": {
+        "employeeNumber": {
           "type": "string"
         },
-        "prospect": {
-          "type": "boolean"
+        "firstName": {
+          "type": "string"
         },
-        "applied_at": {
-          "type": "string",
-          "format": "date-time"
+        "lastName": {
+          "type": "string"
         },
-        "rejected_at": {
-          "type": "string",
-          "format": "date-time"
+        "dateOfBirth": {
+          "type": "string"
         },
-        "last_activity_at": {
-          "type": "string",
-          "format": "date-time"
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
         },
         "location": {
-          "type": "object",
-          "properties": {
-            "address": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "address"
-          ],
-          "additionalProperties": false
-        },
-        "source": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "public_name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "public_name"
-          ],
-          "additionalProperties": false
-        },
-        "credited_to": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "first_name": {
-              "type": "string"
-            },
-            "last_name": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "employee_id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "first_name",
-            "last_name",
-            "name",
-            "employee_id"
-          ],
-          "additionalProperties": false
-        },
-        "rejection_reason": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "type": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "id",
-            "name",
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        "rejection_details": {
-          "type": "object",
-          "properties": {
-            "custom_fields": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "keyed_custom_fields": {
-              "type": "object",
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "custom_fields",
-            "keyed_custom_fields"
-          ],
-          "additionalProperties": false
-        },
-        "jobs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "job_post_id": {
           "type": "string"
         },
-        "status": {
+        "state": {
           "type": "string"
         },
-        "current_stage": {
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "employeeNumber",
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "address1",
+        "bestEmail",
+        "workEmail",
+        "jobTitle",
+        "hireDate",
+        "supervisorId",
+        "supervisor",
+        "createdByUserId",
+        "department",
+        "division",
+        "employmentHistoryStatus",
+        "gender",
+        "country",
+        "city",
+        "location",
+        "state",
+        "maritalStatus",
+        "exempt",
+        "payRate",
+        "payType",
+        "payPer",
+        "ssn",
+        "workPhone",
+        "homePhone"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_bamboohr_basic_unifiedemployees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "StandardEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "department": {
           "type": "object",
           "properties": {
             "id": {
@@ -164,522 +173,490 @@
           ],
           "additionalProperties": false
         },
-        "answers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "employmentType": {
+          "type": "string",
+          "enum": [
+            "FULL_TIME",
+            "PART_TIME",
+            "CONTRACTOR",
+            "INTERN",
+            "TEMPORARY",
+            "OTHER"
+          ]
         },
-        "prospective_office": {
+        "employmentStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "TERMINATED",
+            "ON_LEAVE",
+            "SUSPENDED",
+            "PENDING"
+          ]
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "terminationDate": {
+          "type": "string"
+        },
+        "manager": {
           "type": "object",
           "properties": {
-            "primary_contact_user_id": {
-              "type": "string"
-            },
-            "parent_id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "location": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
-            },
             "id": {
               "type": "string"
             },
-            "external_id": {
+            "firstName": {
               "type": "string"
             },
-            "child_ids": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
             }
           },
           "required": [
-            "primary_contact_user_id",
-            "parent_id",
-            "name",
-            "location",
             "id",
-            "external_id",
-            "child_ids"
+            "firstName",
+            "lastName",
+            "email"
           ],
           "additionalProperties": false
         },
-        "prospective_department": {
+        "workLocation": {
           "type": "object",
           "properties": {
-            "parent_id": {
-              "type": "string"
-            },
             "name": {
               "type": "string"
             },
-            "id": {
-              "type": "string"
+            "type": {
+              "type": "string",
+              "enum": [
+                "OFFICE",
+                "REMOTE",
+                "HYBRID"
+              ]
             },
-            "external_id": {
-              "type": "string"
-            },
-            "child_ids": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+            "primaryAddress": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "WORK",
+                    "HOME"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
-            "parent_id",
             "name",
-            "id",
-            "external_id",
-            "child_ids"
+            "type"
           ],
           "additionalProperties": false
-        },
-        "prospect_detail": {
-          "type": "object",
-          "properties": {
-            "prospect_pool": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ],
-              "additionalProperties": false
-            },
-            "prospect_stage": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ],
-              "additionalProperties": false
-            },
-            "prospect_owner": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "prospect_pool",
-            "prospect_stage",
-            "prospect_owner"
-          ],
-          "additionalProperties": false
-        },
-        "custom_fields": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "keyed_custom_fields": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "attachments": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "id",
-        "candidate_id",
-        "prospect",
-        "applied_at",
-        "rejected_at",
-        "last_activity_at",
-        "location",
-        "source",
-        "credited_to",
-        "rejection_reason",
-        "rejection_details",
-        "jobs",
-        "job_post_id",
-        "status",
-        "current_stage",
-        "answers",
-        "prospective_office",
-        "prospective_department",
-        "prospect_detail",
-        "custom_fields",
-        "keyed_custom_fields",
-        "attachments"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_greenhouse_basic_candidates": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "GreenhouseCandidate": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "company": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "last_activity": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "is_private": {
-          "type": "boolean"
-        },
-        "photo_url": {
-          "type": "string"
-        },
-        "attachments": {
-          "type": "array",
-          "items": {}
-        },
-        "application_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "phone_numbers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         },
         "addresses": {
           "type": "array",
-          "items": {}
-        },
-        "email_addresses": {
-          "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
           }
         },
-        "website_addresses": {
+        "phones": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
           }
         },
-        "social_media_addresses": {
+        "emails": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
           }
         },
-        "recruiter": {
+        "providerSpecific": {
           "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "first_name": {
-              "type": "string"
-            },
-            "last_name": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "employee_id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "first_name",
-            "last_name",
-            "name",
-            "employee_id"
-          ],
           "additionalProperties": false
         },
-        "coordinator": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "first_name": {
-              "type": "string"
-            },
-            "last_name": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "employee_id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "first_name",
-            "last_name",
-            "name",
-            "employee_id"
-          ],
-          "additionalProperties": false
-        },
-        "can_email": {
-          "type": "boolean"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "applications": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "educations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "employments": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "linked_user_ids": {
+        "createdAt": {
           "type": "string"
         },
-        "custom_fields": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "keyed_custom_fields": {
-          "type": "object",
-          "additionalProperties": false
+        "updatedAt": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "first_name",
-        "last_name",
-        "company",
-        "title",
-        "created_at",
-        "updated_at",
-        "last_activity",
-        "is_private",
-        "photo_url",
-        "attachments",
-        "application_ids",
-        "phone_numbers",
+        "firstName",
+        "lastName",
+        "email",
+        "displayName",
+        "department",
+        "employmentType",
+        "employmentStatus",
+        "startDate",
+        "workLocation",
         "addresses",
-        "email_addresses",
-        "website_addresses",
-        "social_media_addresses",
-        "recruiter",
-        "coordinator",
-        "can_email",
-        "tags",
-        "applications",
-        "educations",
-        "employments",
-        "linked_user_ids",
-        "custom_fields",
-        "keyed_custom_fields"
+        "phones",
+        "emails",
+        "providerSpecific",
+        "createdAt",
+        "updatedAt"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_greenhouse_basic_jobs": {
+    "ActionInput_bamboohr_basic_createemployee": {
       "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ],
       "additionalProperties": false
     },
-    "GreenhouseJob": {
+    "ActionOutput_bamboohr_basic_createemployee": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_updateemployee": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "name": {
+        "firstName": {
           "type": "string"
         },
-        "requisition_id": {
+        "lastName": {
           "type": "string"
         },
-        "notes": {
+        "employeeNumber": {
           "type": "string"
         },
-        "confidential": {
-          "type": "boolean"
+        "dateOfBirth": {
+          "type": "string"
         },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_bamboohr_basic_updateemployee": {
+      "type": "object",
+      "properties": {
         "status": {
           "type": "string"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "opened_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "closed_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "is_template": {
-          "type": "boolean"
-        },
-        "copied_from_id": {
-          "type": "string"
-        },
-        "departments": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "offices": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "custom_fields": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "keyed_custom_fields": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "hiring_team": {
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_fetchfields": {
+      "type": "null"
+    },
+    "ActionOutput_bamboohr_basic_fetchfields": {
+      "type": "object",
+      "properties": {
+        "0": {
           "type": "object",
           "properties": {
-            "hiring_managers": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+            "id": {
+              "type": "string"
             },
-            "recruiters": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+            "type": {
+              "type": "string"
             },
-            "coordinators": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+            "name": {
+              "type": "string"
             },
-            "sourcers": {
+            "alias": {
+              "type": "string"
+            },
+            "options": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
               }
             }
           },
           "required": [
-            "hiring_managers",
-            "recruiters",
-            "coordinators",
-            "sourcers"
+            "id",
+            "type",
+            "name"
           ],
           "additionalProperties": false
-        },
-        "openings": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       },
       "required": [
-        "id",
-        "name",
-        "requisition_id",
-        "notes",
-        "confidential",
-        "status",
-        "created_at",
-        "opened_at",
-        "closed_at",
-        "updated_at",
-        "is_template",
-        "copied_from_id",
-        "departments",
-        "offices",
-        "custom_fields",
-        "keyed_custom_fields",
-        "hiring_team",
-        "openings"
+        "0"
       ],
       "additionalProperties": false
     }
