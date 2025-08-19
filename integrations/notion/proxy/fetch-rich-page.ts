@@ -32,7 +32,7 @@ async function run(input: { pageId: string }): Promise<RichPage> {
     const page = response.data;
 
     // NOTE: Nango SDK is typed a little differently than the internal Nango sync/action object
-    // @ts-ignore
+    // @ts-expect-error nango SDK is different than the internal Nango sync/action object
     const mappedPage = await mapPage(nango, page);
 
     return mappedPage;
