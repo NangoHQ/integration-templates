@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch fields for a specific dataset
-- **Version:** 2.0.0
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action

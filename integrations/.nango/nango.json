@@ -59,7 +59,7 @@
           "ActionInput_bamboohr_basic_fetchfields",
           "ActionOutput_bamboohr_basic_fetchfields"
         ],
-        "version": "2.0.0"
+        "version": "3.0.0"
       },
       {
         "type": "action",
@@ -106,7 +106,7 @@
           "BamboohrEmployee",
           "SyncMetadata_bamboohr_basic_employees"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -133,7 +133,7 @@
           "StandardEmployee",
           "SyncMetadata_bamboohr_basic_unifiedemployees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],
