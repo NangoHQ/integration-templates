@@ -1,24 +1,23 @@
 import { createSync } from 'nango';
-import type { BamboohrEmployeeResponse } from '../types.js';
+import type { DatasetDataResponse } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { StandardEmployee } from '../models.js';
 import { z } from 'zod';
 
-interface CustomReportData {
-    title: string;
-    filters: {
-        lastChanged: {
+interface DatasetRequestData {
+    fields?: string[];
+    filters?: {
+        lastChanged?: {
             includeNull: string;
             value?: string;
         };
     };
-    fields: string[];
 }
 
 const sync = createSync({
-    description: 'Fetches a list of current employees from bamboohr and maps them to the standard HRIS model',
+    description: 'Fetches a list of current employees from bamboohr and maps them to the standard HRIS model using the employee dataset',
     version: '1.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
@@ -27,8 +26,8 @@ const sync = createSync({
 
     endpoints: [
         {
-            method: 'GET',
-            path: '/employees/unified',
+            method: 'POST',
+            path: '/employees/unified/sync',
             group: 'Unified HRIS API'
         }
     ],
@@ -40,59 +39,49 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        const customReportData: CustomReportData = {
-            title: 'Current Employees',
-            filters: {
-                lastChanged: {
-                    includeNull: 'no',
-                    ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {})
-                }
-            },
+        const datasetRequestData: DatasetRequestData = {
             fields: [
-                'id',
                 'employeeNumber',
                 'firstName',
                 'lastName',
                 'dateOfBirth',
-                'address1',
-                'bestEmail',
-                'jobTitle',
+                'addressLineOne',
+                'email',
+                'jobInformationJobTitle',
                 'hireDate',
                 'supervisorId',
-                'supervisor',
+                'supervisorName',
                 'createdByUserId',
-                'department',
-                'division',
-                'employmentHistoryStatus',
+                'jobInformationDepartment',
+                'jobInformationDivision',
+                'employmentStatus',
                 'gender',
                 'country',
                 'city',
-                'location',
+                'jobInformationLocation',
                 'state',
                 'maritalStatus',
-                'exempt',
-                'payRate',
-                'payType',
-                'payPer',
+                'payBand',
+                'compensationPayType',
+                'compensationPaySchedule',
                 'workPhone',
                 'homePhone'
             ]
+            // Note: Incremental sync using lastChanged filter is not working as expected
+            // The API may require a different approach for incremental syncs
+            // For now, this will perform a full sync each time
         };
 
         const proxyConfig: ProxyConfiguration = {
-            // https://documentation.bamboohr.com/reference/request-custom-report-1
-            endpoint: '/v1/reports/custom',
-            params: {
-                format: 'JSON',
-                onlyCurrent: true.toString()
-            },
-            data: customReportData,
+            // https://documentation.bamboohr.com/reference/get-data-from-dataset-1
+            endpoint: '/v1/datasets/employee',
+            data: datasetRequestData,
             retries: 10
         };
 
-        const response = await nango.post<BamboohrEmployeeResponse>(proxyConfig);
+        const response = await nango.post<DatasetDataResponse>(proxyConfig);
 
-        const employees = response.data.employees;
+        const employees = response.data.data;
         const chunkSize = 100;
 
         for (let i = 0; i < employees.length; i += chunkSize) {

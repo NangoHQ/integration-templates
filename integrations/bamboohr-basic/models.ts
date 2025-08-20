@@ -12,41 +12,38 @@ export const BamboohrField = z.object({
   type: z.string(),
   name: z.string(),
   alias: z.string().optional(),
-  options: Option.array().optional()
+  options: z.array(Option).optional()
 });
 
 export type BamboohrField = z.infer<typeof BamboohrField>;
 
 export const BamboohrEmployee = z.object({
   id: z.string(),
-  employeeNumber: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
-  dateOfBirth: z.string(),
-  address1: z.string(),
-  bestEmail: z.string(),
-  workEmail: z.string(),
-  jobTitle: z.string(),
-  hireDate: z.string(),
-  supervisorId: z.string(),
-  supervisor: z.string(),
-  createdByUserId: z.string(),
-  department: z.string(),
-  division: z.string(),
-  employmentHistoryStatus: z.string(),
-  gender: z.string(),
-  country: z.string(),
-  city: z.string(),
-  location: z.string(),
-  state: z.string(),
-  maritalStatus: z.string(),
-  exempt: z.string(),
-  payRate: z.string(),
-  payType: z.string(),
-  payPer: z.string(),
-  ssn: z.string(),
-  workPhone: z.string(),
-  homePhone: z.string()
+  employeeNumber: z.string().optional(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  dateOfBirth: z.string().optional(),
+  addressLineOne: z.string().optional(),
+  email: z.string().optional(),
+  jobInformationJobTitle: z.string().optional(),
+  hireDate: z.string().optional(),
+  supervisorId: z.string().optional(),
+  supervisorName: z.string().optional(),
+  createdByUserId: z.string().optional(),
+  jobInformationDepartment: z.string().optional(),
+  jobInformationDivision: z.string().optional(),
+  employmentStatus: z.string().optional(),
+  gender: z.string().optional(),
+  country: z.string().optional(),
+  city: z.string().optional(),
+  jobInformationLocation: z.string().optional(),
+  state: z.string().optional(),
+  maritalStatus: z.string().optional(),
+  payBand: z.string().optional(),
+  compensationPayType: z.string().optional(),
+  compensationPaySchedule: z.string().optional(),
+  workPhone: z.string().optional(),
+  homePhone: z.string().optional()
 });
 
 export type BamboohrEmployee = z.infer<typeof BamboohrEmployee>;
@@ -139,8 +136,8 @@ export const StandardEmployeeEmail = z.object({
 export type StandardEmployeeEmail = z.infer<typeof StandardEmployeeEmail>;
 
 export const StandardEmployeeWorkingHours = z.object({
-  days: z.string().array(),
-  hours: z.string().array(),
+  days: z.array(z.string()),
+  hours: z.array(z.string()),
   time_zone: z.string()
 });
 
@@ -272,17 +269,57 @@ export const StandardEmployee = z.object({
     }).optional()
   }),
 
-  addresses: Address.array(),
-  phones: Phone.array(),
-  emails: Email.array(),
+  addresses: z.array(Address),
+  phones: z.array(Phone),
+  emails: z.array(Email),
   providerSpecific: z.object({}).catchall(z.any()),
   createdAt: z.string(),
   updatedAt: z.string()
 });
 
 export type StandardEmployee = z.infer<typeof StandardEmployee>;
-export const Anonymous_bamboohrbasic_action_fetchfields_output = BamboohrField.array();
+
+// Dataset-related schemas
+export const DatasetField = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: z.string(),
+  alias: z.string().optional()
+});
+
+export type DatasetField = z.infer<typeof DatasetField>;
+
+export const DatasetFieldOptionsResponse = z.object({
+  options: z.array(Option)
+});
+
+export type DatasetFieldOptionsResponse = z.infer<typeof DatasetFieldOptionsResponse>;
+
+export const DatasetDataResponse = z.object({
+  data: z.array(z.record(z.string(), z.any()))
+});
+
+export type DatasetDataResponse = z.infer<typeof DatasetDataResponse>;
+
+export const Dataset = z.object({
+  name: z.string(),
+  displayName: z.string(),
+  description: z.string().optional()
+});
+
+export type Dataset = z.infer<typeof Dataset>;
+
+export const DatasetsResponse = z.object({
+  datasets: z.array(Dataset)
+});
+
+export type DatasetsResponse = z.infer<typeof DatasetsResponse>;
+
+export const Anonymous_bamboohrbasic_action_fetchfields_output = z.array(BamboohrField);
 export type Anonymous_bamboohrbasic_action_fetchfields_output = z.infer<typeof Anonymous_bamboohrbasic_action_fetchfields_output>;
+
+export const Anonymous_bamboohrbasic_action_fetchdatasets_output = DatasetsResponse;
+export type Anonymous_bamboohrbasic_action_fetchdatasets_output = z.infer<typeof Anonymous_bamboohrbasic_action_fetchdatasets_output>;
 
 export const models = {
   Option: Option,
@@ -303,5 +340,11 @@ export const models = {
   Phone: Phone,
   Email: Email,
   StandardEmployee: StandardEmployee,
-  Anonymous_bamboohrbasic_action_fetchfields_output: Anonymous_bamboohrbasic_action_fetchfields_output
+  DatasetField: DatasetField,
+  DatasetFieldOptionsResponse: DatasetFieldOptionsResponse,
+  DatasetDataResponse: DatasetDataResponse,
+  Dataset: Dataset,
+  DatasetsResponse: DatasetsResponse,
+  Anonymous_bamboohrbasic_action_fetchfields_output: Anonymous_bamboohrbasic_action_fetchfields_output,
+  Anonymous_bamboohrbasic_action_fetchdatasets_output: Anonymous_bamboohrbasic_action_fetchdatasets_output
 };

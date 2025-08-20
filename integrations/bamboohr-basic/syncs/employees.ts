@@ -1,24 +1,21 @@
 import { createSync } from 'nango';
-import type { BamboohrEmployeeResponse } from '../types.js';
+import type { DatasetDataResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { BamboohrEmployee } from '../models.js';
 import { z } from 'zod';
 
-interface CustomReportData {
-    title: string;
-    filters: {
-        lastChanged: {
-            includeNull: string;
-            value?: string;
-        };
+interface DatasetRequestData {
+    fields?: string[];
+    filters?: {
+        match: string;
+        filters: { field: string; operator: string; value: string }[];
     };
-    fields: (keyof BamboohrEmployee)[];
 }
 
 const sync = createSync({
-    description: 'Fetches a list of current employees from bamboohr',
+    description: 'Fetches a list of current employees from bamboohr using the employee dataset',
     version: '2.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
@@ -40,60 +37,46 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        const customReportData: CustomReportData = {
-            title: 'Current Employees',
-            filters: {
-                lastChanged: {
-                    includeNull: 'no',
-                    ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {}) //remove milliseconds
-                }
-            },
+        const datasetRequestData: DatasetRequestData = {
             fields: [
-                'id',
                 'employeeNumber',
                 'firstName',
                 'lastName',
                 'dateOfBirth',
-                'address1',
-                'bestEmail',
-                'jobTitle',
+                'addressLineOne',
+                'email',
+                'jobInformationJobTitle',
                 'hireDate',
                 'supervisorId',
-                'supervisor',
+                'supervisorName',
                 'createdByUserId',
-                'department',
-                'division',
-                'employmentHistoryStatus',
+                'jobInformationDepartment',
+                'jobInformationDivision',
+                'employmentStatus',
                 'gender',
                 'country',
                 'city',
-                'location',
+                'jobInformationLocation',
                 'state',
                 'maritalStatus',
-                'exempt',
-                'payRate',
-                'payType',
-                'payPer',
-                'ssn',
+                'payBand',
+                'compensationPayType',
+                'compensationPaySchedule',
                 'workPhone',
                 'homePhone'
             ]
         };
 
         const proxyConfig: ProxyConfiguration = {
-            // https://documentation.bamboohr.com/reference/request-custom-report-1
-            endpoint: '/v1/reports/custom',
-            params: {
-                format: 'JSON',
-                onlyCurrent: true.toString() //limits the report to only current employees
-            },
-            data: customReportData,
+            // https://documentation.bamboohr.com/reference/get-data-from-dataset-1
+            endpoint: '/v1/datasets/employee',
+            data: datasetRequestData,
             retries: 10
         };
 
-        const response = await nango.post<BamboohrEmployeeResponse>(proxyConfig);
+        const response = await nango.post<DatasetDataResponse>(proxyConfig);
 
-        const employees = response.data.employees;
+        const employees = response.data.data;
         const chunkSize = 100;
 
         for (let i = 0; i < employees.length; i += chunkSize) {
