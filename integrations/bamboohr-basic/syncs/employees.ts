@@ -16,7 +16,7 @@ interface DatasetRequestData {
 
 const sync = createSync({
     description: 'Fetches a list of current employees from bamboohr using the employee dataset',
-    version: '2.0.0',
+    version: '3.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'incremental',

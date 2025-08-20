@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of current employees from bamboohr
+- **Description:** Fetches a list of current employees from bamboohr using the employee dataset
 - **Version:** 2.0.0
 - **Group:** Employees
 - **Scopes:** _None_
@@ -35,34 +35,31 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "employeeNumber": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "dateOfBirth": "<string>",
-  "address1": "<string>",
-  "bestEmail": "<string>",
-  "workEmail": "<string>",
-  "jobTitle": "<string>",
-  "hireDate": "<string>",
-  "supervisorId": "<string>",
-  "supervisor": "<string>",
-  "createdByUserId": "<string>",
-  "department": "<string>",
-  "division": "<string>",
-  "employmentHistoryStatus": "<string>",
-  "gender": "<string>",
-  "country": "<string>",
-  "city": "<string>",
-  "location": "<string>",
-  "state": "<string>",
-  "maritalStatus": "<string>",
-  "exempt": "<string>",
-  "payRate": "<string>",
-  "payType": "<string>",
-  "payPer": "<string>",
-  "ssn": "<string>",
-  "workPhone": "<string>",
-  "homePhone": "<string>"
+  "employeeNumber?": "<string>",
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "dateOfBirth?": "<string>",
+  "addressLineOne?": "<string>",
+  "email?": "<string>",
+  "jobInformationJobTitle?": "<string>",
+  "hireDate?": "<string>",
+  "supervisorId?": "<string>",
+  "supervisorName?": "<string>",
+  "createdByUserId?": "<string>",
+  "jobInformationDepartment?": "<string>",
+  "jobInformationDivision?": "<string>",
+  "employmentStatus?": "<string>",
+  "gender?": "<string>",
+  "country?": "<string>",
+  "city?": "<string>",
+  "jobInformationLocation?": "<string>",
+  "state?": "<string>",
+  "maritalStatus?": "<string>",
+  "payBand?": "<string>",
+  "compensationPayType?": "<string>",
+  "compensationPaySchedule?": "<string>",
+  "workPhone?": "<string>",
+  "homePhone?": "<string>"
 }
 ```
 

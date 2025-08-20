@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Fetch fields for a specific dataset',
-    version: '2.0.0',
+    version: '3.0.0',
 
     endpoint: {
         method: 'GET',

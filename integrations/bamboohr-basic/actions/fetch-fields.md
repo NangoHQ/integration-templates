@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Introspection to retrieve available fields
+- **Description:** Fetch fields for a specific dataset
 - **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
@@ -26,7 +26,9 @@ _No request parameters_
 ### Request Body
 
 ```json
-"<null>"
+{
+  "datasetName?": "<string>"
+}
 ```
 
 ### Request Response
