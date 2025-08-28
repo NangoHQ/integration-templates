@@ -24,7 +24,7 @@
       },
       {
         "type": "action",
-        "description": "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.",
+        "description": "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 2MB.",
         "endpoint": {
           "method": "POST",
           "path": "/candidate-upload-resume",
