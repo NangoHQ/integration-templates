@@ -4,46 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch a specific page in Notion by passing a pageId. This action fetches a page,\nand its content and converts it into a full markdown. It transforms images,\ntables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/pages/single",
-          "group": "Pages"
-        },
-        "input": "ActionInput_notion_fetchrichpage",
-        "name": "fetch-rich-page",
-        "output": [
-          "ActionOutput_notion_fetchrichpage"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_notion_fetchrichpage",
-          "ActionOutput_notion_fetchrichpage"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/databases/single",
-          "group": "Databases"
-        },
-        "input": "ActionInput_notion_fetchdatabase",
-        "name": "fetch-database",
-        "output": [
-          "ActionOutput_notion_fetchdatabase"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_notion_fetchdatabase",
-          "ActionOutput_notion_fetchdatabase"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
         "endpoint": {
           "method": "GET",

@@ -1,645 +1,166 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_outlook_emails": {
+    "SyncMetadata_bamboohr_basic_employees": {
       "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
       "additionalProperties": false
     },
-    "OutlookEmail": {
+    "BamboohrEmployee": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "sender": {
+        "employeeNumber": {
           "type": "string"
         },
-        "recipients": {
+        "firstName": {
           "type": "string"
         },
-        "date": {
+        "lastName": {
           "type": "string"
         },
-        "subject": {
+        "dateOfBirth": {
           "type": "string"
         },
-        "body": {
+        "address1": {
           "type": "string"
         },
-        "attachments": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "mimeType": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "attachmentId": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "filename",
-              "mimeType",
-              "size",
-              "attachmentId"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "threadId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "date",
-        "subject",
-        "body",
-        "attachments",
-        "threadId"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_outlook_events": {
-      "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
-      "additionalProperties": false
-    },
-    "OutlookCalendarEvent": {
-      "type": "object",
-      "properties": {
-        "id": {
+        "bestEmail": {
           "type": "string"
         },
-        "attendees": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "emailAddress": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "address",
-                  "name"
-                ],
-                "additionalProperties": false
-              },
-              "proposedNewTime": {
-                "type": "object",
-                "properties": {
-                  "start": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "end": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "start",
-                  "end"
-                ],
-                "additionalProperties": false
-              },
-              "status": {
-                "type": "object",
-                "properties": {
-                  "response": {
-                    "type": "string",
-                    "enum": [
-                      "none",
-                      "organizer",
-                      "tentativelyAccepted",
-                      "accepted",
-                      "declined",
-                      "notResponded"
-                    ]
-                  },
-                  "sentDateTime": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "response",
-                  "sentDateTime"
-                ],
-                "additionalProperties": false
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "required",
-                  "optional",
-                  "resource"
-                ]
-              }
-            },
-            "required": [
-              "emailAddress",
-              "status",
-              "type"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "bodyPreview": {
+        "workEmail": {
           "type": "string"
         },
-        "end": {
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "dateTime",
-            "timeZone"
-          ],
-          "additionalProperties": false
+        "jobTitle": {
+          "type": "string"
         },
-        "importance": {
-          "type": "string",
-          "enum": [
-            "low",
-            "normal",
-            "high"
-          ]
+        "hireDate": {
+          "type": "string"
         },
-        "isAllDay": {
-          "type": "boolean"
+        "supervisorId": {
+          "type": "string"
         },
-        "isCancelled": {
-          "type": "boolean"
+        "supervisor": {
+          "type": "string"
         },
-        "isOrganizer": {
-          "type": "boolean"
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
         },
         "location": {
-          "type": "object",
-          "properties": {
-            "address": {
-              "type": "object",
-              "properties": {
-                "city": {
-                  "type": "string"
-                },
-                "countryOrRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "state": {
-                  "type": "string"
-                },
-                "street": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            },
-            "coordinates": {
-              "type": "object",
-              "properties": {
-                "accuracy": {
-                  "type": "number"
-                },
-                "altitude": {
-                  "type": "number"
-                },
-                "altitudeAccuracy": {
-                  "type": "number"
-                },
-                "latitude": {
-                  "type": "number"
-                },
-                "longitude": {
-                  "type": "number"
-                }
-              },
-              "additionalProperties": false
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "locationEmailAddress": {
-              "type": "string"
-            },
-            "locationUri": {
-              "type": "string"
-            },
-            "locationType": {
-              "type": "string",
-              "enum": [
-                "default",
-                "conferenceRoom",
-                "homeAddress",
-                "businessAddress",
-                "geoCoordinates",
-                "streetAddress",
-                "hotel",
-                "restaurant",
-                "localBusiness",
-                "postalAddress"
-              ]
-            },
-            "uniqueId": {
-              "type": "string"
-            },
-            "uniqueIdType": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "onlineMeeting": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "conferenceId": {
-                  "type": "string"
-                },
-                "joinUrl": {
-                  "type": "string"
-                },
-                "phones": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "number": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "home",
-                          "business",
-                          "mobile",
-                          "other",
-                          "assistant",
-                          "homeFax",
-                          "businessFax",
-                          "otherFax",
-                          "pager",
-                          "radio"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "number",
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "quickDial": {
-                  "type": "string"
-                },
-                "tollFreeNumbers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "tollNumber": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "phones",
-                "tollFreeNumbers"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "onlineMeetingProvider": {
           "type": "string"
         },
-        "organizer": {
-          "type": "object",
-          "properties": {
-            "emailAddress": {
-              "type": "object",
-              "properties": {
-                "address": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "address",
-                "name"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "emailAddress"
-          ],
-          "additionalProperties": false
-        },
-        "recurrence": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "pattern": {
-                  "type": "object",
-                  "properties": {
-                    "dayOfMonth": {
-                      "type": "number"
-                    },
-                    "daysOfWeek": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "firstDayOfWeek": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "string",
-                      "enum": [
-                        "first",
-                        "second",
-                        "third",
-                        "fourth",
-                        "last"
-                      ]
-                    },
-                    "interval": {
-                      "type": "number"
-                    },
-                    "month": {
-                      "type": "number"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "daily",
-                        "weekly",
-                        "absoluteMonthly",
-                        "relativeMonthly",
-                        "absoluteYearly",
-                        "relativeYearly"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "interval",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "endDate": {
-                      "type": "string"
-                    },
-                    "numberOfOccurrences": {
-                      "type": "number"
-                    },
-                    "recurrenceTimeZone": {
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "endDate",
-                        "noEnd",
-                        "numbered"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "startDate",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "range"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "responseRequested": {
-          "type": "boolean"
-        },
-        "responseStatus": {
-          "type": "object",
-          "properties": {
-            "response": {
-              "type": "string"
-            },
-            "time": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "response",
-            "time"
-          ],
-          "additionalProperties": false
-        },
-        "sensitivity": {
-          "type": "string",
-          "enum": [
-            "normal",
-            "personal",
-            "private",
-            "confidential"
-          ]
-        },
-        "start": {
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "dateTime",
-            "timeZone"
-          ],
-          "additionalProperties": false
-        },
-        "subject": {
+        "state": {
           "type": "string"
         },
-        "webLink": {
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "attendees",
-        "bodyPreview",
-        "end",
-        "importance",
-        "isAllDay",
-        "isCancelled",
-        "isOrganizer",
+        "employeeNumber",
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "address1",
+        "bestEmail",
+        "workEmail",
+        "jobTitle",
+        "hireDate",
+        "supervisorId",
+        "supervisor",
+        "createdByUserId",
+        "department",
+        "division",
+        "employmentHistoryStatus",
+        "gender",
+        "country",
+        "city",
         "location",
-        "onlineMeeting",
-        "onlineMeetingProvider",
-        "organizer",
-        "recurrence",
-        "responseRequested",
-        "responseStatus",
-        "sensitivity",
-        "start",
-        "subject",
-        "webLink"
+        "state",
+        "maritalStatus",
+        "exempt",
+        "payRate",
+        "payType",
+        "payPer",
+        "ssn",
+        "workPhone",
+        "homePhone"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_calendars": {
+    "SyncMetadata_bamboohr_basic_unifiedemployees": {
       "type": "object",
       "additionalProperties": false
     },
-    "OutlookCalendar": {
+    "StandardEmployee": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "allowedOnlineMeetingProviders": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "canEdit": {
-          "type": "boolean"
-        },
-        "canShare": {
-          "type": "boolean"
-        },
-        "canViewPrivateItems": {
-          "type": "boolean"
-        },
-        "changeKey": {
+        "firstName": {
           "type": "string"
         },
-        "color": {
-          "type": "string",
-          "enum": [
-            "auto",
-            "lightBlue",
-            "lightGreen",
-            "lightOrange",
-            "lightGray",
-            "lightYellow",
-            "lightTeal",
-            "lightPink",
-            "lightBrown",
-            "lightRed",
-            "maxColor"
-          ]
-        },
-        "defaultOnlineMeetingProvider": {
+        "lastName": {
           "type": "string"
         },
-        "hexColor": {
+        "email": {
           "type": "string"
         },
-        "isDefaultCalendar": {
-          "type": "boolean"
-        },
-        "isRemovable": {
-          "type": "boolean"
-        },
-        "isTallyingResponses": {
-          "type": "boolean"
-        },
-        "name": {
+        "displayName": {
           "type": "string"
         },
-        "owner": {
+        "employeeNumber": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "department": {
           "type": "object",
           "properties": {
-            "address": {
+            "id": {
               "type": "string"
             },
             "name": {
@@ -647,89 +168,498 @@
             }
           },
           "required": [
-            "address",
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "employmentType": {
+          "type": "string",
+          "enum": [
+            "FULL_TIME",
+            "PART_TIME",
+            "CONTRACTOR",
+            "INTERN",
+            "TEMPORARY",
+            "OTHER"
+          ]
+        },
+        "employmentStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "TERMINATED",
+            "ON_LEAVE",
+            "SUSPENDED",
+            "PENDING"
+          ]
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "terminationDate": {
+          "type": "string"
+        },
+        "manager": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "workLocation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "OFFICE",
+                "REMOTE",
+                "HYBRID"
+              ]
+            },
+            "primaryAddress": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "WORK",
+                    "HOME"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "HOME",
+                  "MOBILE"
+                ]
+              },
+              "number": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "number"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "WORK",
+                  "PERSONAL"
+                ]
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "address"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "providerSpecific": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "displayName",
+        "department",
+        "employmentType",
+        "employmentStatus",
+        "startDate",
+        "workLocation",
+        "addresses",
+        "phones",
+        "emails",
+        "providerSpecific",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_createemployee": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_bamboohr_basic_createemployee": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_updateemployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_bamboohr_basic_updateemployee": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_fetchfields": {
+      "type": "null"
+    },
+    "ActionOutput_bamboohr_basic_fetchfields": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "alias": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "type",
             "name"
           ],
           "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "allowedOnlineMeetingProviders",
-        "canEdit",
-        "canShare",
-        "canViewPrivateItems",
-        "changeKey",
-        "color",
-        "defaultOnlineMeetingProvider",
-        "hexColor",
-        "isDefaultCalendar",
-        "isRemovable",
-        "isTallyingResponses",
-        "name",
-        "owner"
+        "0"
       ],
       "additionalProperties": false
-    },
-    "SyncMetadata_outlook_folders": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "OutlookFolder": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "parentFolderId": {
-          "type": "string"
-        },
-        "childFolderCount": {
-          "type": "number"
-        },
-        "unreadItemCount": {
-          "type": "number"
-        },
-        "totalItemCount": {
-          "type": "number"
-        },
-        "isHidden": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "displayName",
-        "parentFolderId",
-        "childFolderCount",
-        "unreadItemCount",
-        "totalItemCount",
-        "isHidden"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_outlook_fetchattachment": {
-      "type": "object",
-      "properties": {
-        "threadId": {
-          "type": "string"
-        },
-        "attachmentId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "threadId",
-        "attachmentId"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_outlook_fetchattachment": {
-      "type": "string"
     }
   },
-  "$comment": "This file was generated by Nango (v0.66.0)"
+  "$comment": "This file was generated by Nango (v0.66.1)"
 }
