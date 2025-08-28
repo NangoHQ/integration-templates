@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.
+- **Description:** Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 2MB.
 - **Version:** 1.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
