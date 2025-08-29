@@ -1,138 +1,118 @@
 [
   {
-    "providerConfigKey": "outlook",
+    "providerConfigKey": "bamboohr-basic",
     "actions": [
       {
         "type": "action",
-        "description": "An action used to fetch the contents of an attachment.",
+        "description": "Action to create a new employee",
+        "endpoint": {
+          "method": "POST",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_createemployee",
+        "name": "create-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_createemployee",
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update an existing employee in the system",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_updateemployee",
+        "name": "update-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_updateemployee",
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Introspection to retrieve available fields",
         "endpoint": {
           "method": "GET",
-          "path": "/fetch-attachment"
+          "path": "/fields"
         },
-        "input": "ActionInput_outlook_fetchattachment",
-        "name": "fetch-attachment",
+        "input": "ActionInput_bamboohr_basic_fetchfields",
+        "name": "fetch-fields",
         "output": [
-          "ActionOutput_outlook_fetchattachment"
+          "ActionOutput_bamboohr_basic_fetchfields"
         ],
-        "scopes": [
-          "Mail.Read"
-        ],
+        "scopes": [],
         "usedModels": [
-          "ActionInput_outlook_fetchattachment",
-          "ActionOutput_outlook_fetchattachment"
+          "ActionInput_bamboohr_basic_fetchfields",
+          "ActionOutput_bamboohr_basic_fetchfields"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
+        "description": "Fetches a list of current employees from bamboohr",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/emails"
+            "path": "/employees",
+            "group": "Employees"
           }
         ],
-        "input": "SyncMetadata_outlook_emails",
-        "name": "emails",
+        "input": "SyncMetadata_bamboohr_basic_employees",
+        "name": "employees",
         "output": [
-          "OutlookEmail"
+          "BamboohrEmployee"
         ],
-        "runs": "every hour",
-        "scopes": [
-          "Mail.Read"
-        ],
+        "runs": "every 6 hours",
+        "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "OutlookEmail",
-          "SyncMetadata_outlook_emails"
+          "BamboohrEmployee",
+          "SyncMetadata_bamboohr_basic_employees"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.",
+        "description": "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/events"
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
           }
         ],
-        "input": "SyncMetadata_outlook_events",
-        "name": "events",
+        "input": "SyncMetadata_bamboohr_basic_unifiedemployees",
+        "name": "unified-employees",
         "output": [
-          "OutlookCalendarEvent"
-        ],
-        "runs": "every 5 minutes",
-        "scopes": [
-          "Calendars.Read"
-        ],
-        "sync_type": "full",
-        "track_deletes": true,
-        "usedModels": [
-          "OutlookCalendarEvent",
-          "SyncMetadata_outlook_events"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Sync the calendars list of the user",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/calendars"
-          }
-        ],
-        "input": "SyncMetadata_outlook_calendars",
-        "name": "calendars",
-        "output": [
-          "OutlookCalendar"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Calendars.Read"
-        ],
-        "sync_type": "full",
-        "track_deletes": true,
-        "usedModels": [
-          "OutlookCalendar",
-          "SyncMetadata_outlook_calendars"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of folders from outlook.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/folders"
-          }
-        ],
-        "input": "SyncMetadata_outlook_folders",
-        "name": "folders",
-        "output": [
-          "OutlookFolder"
+          "StandardEmployee"
         ],
         "runs": "every 6 hours",
-        "scopes": [
-          "Mail.Read"
-        ],
-        "sync_type": "full",
-        "track_deletes": true,
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
         "usedModels": [
-          "OutlookFolder",
-          "SyncMetadata_outlook_folders"
+          "StandardEmployee",
+          "SyncMetadata_bamboohr_basic_unifiedemployees"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

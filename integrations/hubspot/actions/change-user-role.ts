@@ -28,7 +28,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://developers.hubspot.com/docs/api/settings/user-provisioning
-            endpoint: `/settings/v3/users/${input.id}`,
+            endpoint: `/settings/v3/users/${id}`,
             data,
             retries: 3
         };

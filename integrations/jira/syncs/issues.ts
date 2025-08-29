@@ -15,7 +15,7 @@ import { Issue, JiraIssueMetadata } from '../models.js';
  */
 const sync = createSync({
     description: 'Fetches a list of issues from Jira',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 5mins',
     autoStart: false,
     syncType: 'incremental',
@@ -84,15 +84,16 @@ const sync = createSync({
 
         const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
         const config: ProxyConfiguration = {
-            // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
-            endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search`,
+            // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-get
+            endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search/jql`,
             params: {
                 jql: finalJql,
                 fields: fields
             },
             paginate: {
-                type: 'offset',
-                offset_name_in_request: 'startAt',
+                type: 'cursor',
+                cursor_path_in_response: 'nextPageToken',
+                cursor_name_in_request: 'nextPageToken',
                 response_path: 'issues',
                 limit_name_in_request: 'maxResults',
                 limit: 50
@@ -103,7 +104,7 @@ const sync = createSync({
             retries: 10
         };
 
-        //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
+        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-get
         for await (const issues of nango.paginate<JiraIssueResponse>(config)) {
             const issuesToSave = toIssues(issues, cloud.baseUrl);
             await nango.batchSave(issuesToSave, 'Issue');

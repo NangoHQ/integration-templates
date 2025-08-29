@@ -23,7 +23,7 @@ const action = createAction({
             country: rawInput.country
         };
 
-        const { country, ...rest } = rawInput;
+        const { country: _country, ...rest } = rawInput;
 
         const input = { ...rest };
 
