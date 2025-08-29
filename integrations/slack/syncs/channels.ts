@@ -102,8 +102,7 @@ async function getAllPages(nango: NangoSyncLocal, endpoint: string) {
         });
 
         if (!response.data.ok) {
-            await nango.log(`Received a Slack API error (for ${endpoint}): ${JSON.stringify(response.data, null, 2)}`);
-            return responses;
+            throw new Error(`Slack API error (for ${endpoint}): ${JSON.stringify(response.data, null, 2)}`);
         }
 
         const { channels, response_metadata } = response.data;
