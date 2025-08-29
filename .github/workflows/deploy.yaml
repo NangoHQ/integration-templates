@@ -65,6 +65,11 @@ jobs:
                     if [ "$integration" = ".nango" ]; then
                       continue
                     fi
+
+                    if [ ! -f "$dir/index.ts" ]; then
+                      continue
+                    fi
+
                     npm run cli -- $integration compile
                     aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration
                     aws s3 sync integrations/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration/build
