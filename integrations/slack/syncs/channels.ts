@@ -5,7 +5,7 @@ import { z } from 'zod';
 const sync = createSync({
     description:
         'Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -102,7 +102,7 @@ async function getAllPages(nango: NangoSyncLocal, endpoint: string) {
         });
 
         if (!response.data.ok) {
-            await nango.log(`Received a Slack API error (for ${endpoint}): ${JSON.stringify(response.data, null, 2)}`);
+            throw new Error(`Slack API error (for ${endpoint}): ${JSON.stringify(response.data, null, 2)}`);
         }
 
         const { channels, response_metadata } = response.data;
