@@ -38,6 +38,10 @@ jobs:
                       integrations/*
                       integrations/**/*
 
+            - name: Resolve aliases
+              run: |
+                  npm run resolve:aliases
+
             - name: Upload to S3 (Zero)
               if: steps.templates-updated.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               env:
