@@ -74,6 +74,7 @@ jobs:
                       continue
                     fi
 
+                    rm -rf integrations/build
                     npm run cli -- $integration compile
                     aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration
                     aws s3 sync integrations/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration/build
