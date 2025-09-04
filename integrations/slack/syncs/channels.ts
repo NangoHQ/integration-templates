@@ -29,7 +29,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = (await nango.getMetadata()) || {};
-        let allChannels: SlackChannel[] = [];
+        const publicChannelIds: string[] = [];
 
         const proxyConfig = {
             endpoint: 'conversations.list',
@@ -67,13 +67,18 @@ const sync = createSync({
 
             if (mappedChannels.length > 0) {
                 await nango.batchSave(mappedChannels, 'SlackChannel');
-                allChannels = allChannels.concat(mappedChannels);
+                if (metadata['joinPublicChannels']) {
+                    const publicIds = mappedChannels
+                        .filter(channel => channel.is_shared === false && channel.is_private === false)
+                        .map(channel => channel.id);
+                    publicChannelIds.push(...publicIds);
+                }
             }
         }
 
         // Now let's also join all public channels where we are not yet a member
-        if (metadata['joinPublicChannels']) {
-            await joinPublicChannels(nango, allChannels);
+        if (metadata['joinPublicChannels'] && publicChannelIds.length > 0) {
+            await joinPublicChannels(nango, publicChannelIds);
         }
     }
 });
@@ -82,9 +87,9 @@ export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 // Checks for public channels where the bot is not a member yet and joins them
-async function joinPublicChannels(nango: NangoSyncLocal, channels: SlackChannel[]) {
+async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: string[]) {
     // Get ID of all channels where we are already a member
-    const channelIds: string[] = [];
+    const joinedChannelIds: string[] = [];
     
     const proxyConfig: ProxyConfiguration = {
         endpoint: 'users.conversations',
@@ -100,16 +105,15 @@ async function joinPublicChannels(nango: NangoSyncLocal, channels: SlackChannel[
 
     for await (const joinedChannels of nango.paginate(proxyConfig)) {
         const ids = joinedChannels.map((record: any) => record.id);
-        channelIds.push(...ids);
+        joinedChannelIds.push(...ids);
     }
 
-    // For every public, not shared channel where we are not a member yet, join
-    for (const channel of channels) {
-        if (!channelIds.includes(channel.id) && channel.is_shared === false && channel.is_private === false) {
+    for (const channelId of publicChannelIds) {
+        if (!joinedChannelIds.includes(channelId)) {
             await nango.post({
                 endpoint: 'conversations.join',
                 data: {
-                    channel: channel.id
+                    channel: channelId
                 },
                 retries: 10
             });
