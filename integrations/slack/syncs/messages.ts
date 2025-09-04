@@ -51,7 +51,7 @@ const sync = createSync({
     exec: async (nango) => {
         let metadata: Metadata = (await nango.getMetadata()) || {};
         const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
-        const unseenChannels: Set<string> = new Set(Object.keys(channelsLastSyncDate));
+        const unseenChannels = new Set<string>(Object.keys(channelsLastSyncDate));
 
         // Initialize batch arrays for different model types
         // Using batch sizes of ~50 records to avoid memory issues and save data frequently

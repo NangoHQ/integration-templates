@@ -1,6 +1,7 @@
 import { createSync } from 'nango';
 import { SlackChannel } from '../models.js';
 import { z } from 'zod';
+import type { ProxyConfiguration } from 'nango';
 
 const sync = createSync({
     description:
@@ -27,38 +28,53 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        const responses = await getAllPages(nango, 'conversations.list');
-
         const metadata = (await nango.getMetadata()) || {};
+        let allChannels: SlackChannel[] = [];
 
-        const mappedChannels: SlackChannel[] = responses.map((record: any) => {
-            return {
-                id: record.id,
-                name: record.name,
-                is_channel: record.is_channel,
-                is_group: record.is_group,
-                is_im: record.is_im,
-                created: record.created,
-                creator: record.creator,
-                is_archived: record.is_archived,
-                is_general: record.is_general,
-                name_normalized: record.name_normalized,
-                is_shared: record.is_shared,
-                is_private: record.is_private,
-                is_mpim: record.is_mpim,
-                updated: record.updated,
-                num_members: record.num_members,
-                raw_json: JSON.stringify(record)
-            };
-        });
+        const proxyConfig = {
+            endpoint: 'conversations.list',
+            paginate: {
+                type: 'cursor' as const,
+                cursor_path_in_response: 'response_metadata.next_cursor',
+                response_path: 'channels',
+                limit: 200,
+                limit_name_in_request: 'limit'
+            },
+            retries: 10
+        };
+
+        for await (const channels of nango.paginate(proxyConfig)) {
+            const mappedChannels: SlackChannel[] = channels.map((record: any) => {
+                return {
+                    id: record.id,
+                    name: record.name,
+                    is_channel: record.is_channel,
+                    is_group: record.is_group,
+                    is_im: record.is_im,
+                    created: record.created,
+                    creator: record.creator,
+                    is_archived: record.is_archived,
+                    is_general: record.is_general,
+                    name_normalized: record.name_normalized,
+                    is_shared: record.is_shared,
+                    is_private: record.is_private,
+                    is_mpim: record.is_mpim,
+                    updated: record.updated,
+                    num_members: record.num_members,
+                    raw_json: JSON.stringify(record)
+                };
+            });
+
+            if (mappedChannels.length > 0) {
+                await nango.batchSave(mappedChannels, 'SlackChannel');
+                allChannels = allChannels.concat(mappedChannels);
+            }
+        }
 
         // Now let's also join all public channels where we are not yet a member
         if (metadata['joinPublicChannels']) {
-            await joinPublicChannels(nango, mappedChannels);
+            await joinPublicChannels(nango, allChannels);
         }
-
-        // Save channels
-        await nango.batchSave(mappedChannels, 'SlackChannel');
     }
 });
 
@@ -68,10 +84,24 @@ export default sync;
 // Checks for public channels where the bot is not a member yet and joins them
 async function joinPublicChannels(nango: NangoSyncLocal, channels: SlackChannel[]) {
     // Get ID of all channels where we are already a member
-    const joinedChannelsResponse = await getAllPages(nango, 'users.conversations');
-    const channelIds = joinedChannelsResponse.map((record: any) => {
-        return record.id;
-    });
+    const channelIds: string[] = [];
+    
+    const proxyConfig: ProxyConfiguration = {
+        endpoint: 'users.conversations',
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'response_metadata.next_cursor',
+            response_path: 'channels',
+            limit: 200,
+            limit_name_in_request: 'limit'
+        },
+        retries: 10
+    };
+
+    for await (const joinedChannels of nango.paginate(proxyConfig)) {
+        const ids = joinedChannels.map((record: any) => record.id);
+        channelIds.push(...ids);
+    }
 
     // For every public, not shared channel where we are not a member yet, join
     for (const channel of channels) {
@@ -85,30 +115,4 @@ async function joinPublicChannels(nango: NangoSyncLocal, channels: SlackChannel[
             });
         }
     }
-}
-
-async function getAllPages(nango: NangoSyncLocal, endpoint: string) {
-    let nextCursor = 'x';
-    let responses: any[] = [];
-
-    while (nextCursor !== '') {
-        const response = await nango.get({
-            endpoint: endpoint,
-            params: {
-                limit: '200',
-                cursor: nextCursor !== 'x' ? nextCursor : ''
-            },
-            retries: 10
-        });
-
-        if (!response.data.ok) {
-            await nango.log(`Received a Slack API error (for ${endpoint}): ${JSON.stringify(response.data, null, 2)}`);
-        }
-
-        const { channels, response_metadata } = response.data;
-        responses = responses.concat(channels);
-        nextCursor = response_metadata.next_cursor;
-    }
-
-    return responses;
 }
