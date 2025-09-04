@@ -30,7 +30,13 @@ interface SlackMessageBlock {
     }[];
 }
 
-interface SlackMessage {
+interface Reaction {
+    name: string;
+    users: string[];
+    count: number;
+}
+
+export interface SlackMessageResponse {
     text: string;
     username?: string;
     bot_id?: string;
@@ -43,13 +49,21 @@ interface SlackMessage {
     team?: string;
     bot_profile?: SlackBotProfile;
     blocks?: SlackMessageBlock[];
+    thread_ts?: string;
+    display_as_bot?: boolean;
+    is_locked?: boolean;
+    parent_user_id?: string;
+    topic?: string;
+    client_message_id: string | null;
+    reply_count?: number;
+    reactions?: Reaction[];
 }
 
 export interface SlackSuccessResponse {
     ok: true;
     channel: string;
     ts: string;
-    message: SlackMessage;
+    message: SlackMessageResponse;
     warning?: string;
     response_metadata?: {
         warnings?: string[];

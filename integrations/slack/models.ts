@@ -110,7 +110,7 @@ export type SlackMessageReply = z.infer<typeof SlackMessageReply>;
 export const SlackMessageReaction = z.object({
   id: z.string(),
   message_ts: z.string(),
-  thread_ts: z.string(),
+  thread_ts: z.union([z.string(), z.null()]),
   channel_id: z.string(),
   user_id: z.string(),
   reaction_name: z.string()

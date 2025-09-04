@@ -99,7 +99,7 @@ export interface SlackMessageReply {
 export interface SlackMessageReaction {
   id: string;
   message_ts: string;
-  thread_ts: string;
+  thread_ts: string | null;
   channel_id: string;
   user_id: string;
   reaction_name: string;

@@ -3,6 +3,7 @@ import { createHash } from 'crypto';
 
 import type { ProxyConfiguration } from 'nango';
 import { SlackMessage, SlackMessageReply, SlackMessageReaction, SlackMessageMetadata } from '../models.js';
+import type { SlackMessageResponse } from '../types.js';
 
 interface Metadata {
     [key: string]: unknown;
@@ -99,7 +100,7 @@ const sync = createSync({
                 }
             };
 
-            for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
+            for await (const message of getEntries(nango.paginate<SlackMessageResponse>(messagesRequestConfig))) {
                 const mappedMessage: SlackMessage = {
                     id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
                     ts: message.ts,
@@ -134,7 +135,7 @@ const sync = createSync({
                 }
 
                 // Replies to fetch?
-                if (message.reply_count > 0) {
+                if (message.reply_count && message.reply_count > 0 && message.thread_ts) {
                     const messagesReplyRequestConfig: ProxyConfiguration = {
                         // https://api.slack.com/methods/conversations.replies
                         endpoint: 'conversations.replies',
@@ -149,7 +150,7 @@ const sync = createSync({
                         }
                     };
 
-                    for await (const reply of getEntries(nango.paginate(messagesReplyRequestConfig))) {
+                    for await (const reply of getEntries(nango.paginate<SlackMessageResponse>(messagesReplyRequestConfig))) {
                         if (reply.ts === message.ts) {
                             continue;
                         }
@@ -214,7 +215,9 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, message: any) {
+async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, message: SlackMessageResponse) {
+    if (!message.reactions) return;
+    
     const batchReactions: SlackMessageReaction[] = [];
     const REACTION_BATCH_SIZE = 100;
 
