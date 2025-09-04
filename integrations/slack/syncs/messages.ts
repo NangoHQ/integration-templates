@@ -100,8 +100,6 @@ const sync = createSync({
             };
 
             for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
-                const messageForRawJson = removeBlockIds(JSON.parse(JSON.stringify(message)));
-
                 const mappedMessage: SlackMessage = {
                     id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
                     ts: message.ts,
@@ -119,7 +117,7 @@ const sync = createSync({
                     text: message.text ? message.text : null,
                     topic: message.topic ? message.topic : null,
                     user_id: message.user ? message.user : null,
-                    raw_json: JSON.stringify(messageForRawJson)
+                    raw_json: JSON.stringify(message, (k, v) => (k === 'block_id' ? undefined : v))
                 };
 
                 batchMessages.push(mappedMessage);
@@ -156,8 +154,6 @@ const sync = createSync({
                             continue;
                         }
 
-                        const replyForRawJson = removeBlockIds(JSON.parse(JSON.stringify(reply)));
-
                         const mappedReply: SlackMessageReply = {
                             id: createHash('sha256').update(`${reply.ts}${currentChannel.id}`).digest('hex'),
                             ts: reply.ts,
@@ -179,7 +175,7 @@ const sync = createSync({
                                 message_id: message.client_message_id,
                                 ts: message.thread_ts
                             },
-                            raw_json: JSON.stringify(replyForRawJson)
+                            raw_json: JSON.stringify(reply, (k, v) => (k === 'block_id' ? undefined : v))
                         };
 
                         batchMessageReply.push(mappedReply);
@@ -245,31 +241,6 @@ async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, me
     if (batchReactions.length > 0) {
         await nango.batchSave(batchReactions, 'SlackMessageReaction');
     }
-}
-
-function removeBlockIds(data: any): any {
-    // The block_id is not reliable and could change between two runs of this sync causing the messages to show as updated
-    // We remove it from the raw_json to avoid unnecessary updates.
-    // This can be reinstated if required by removing this function.
-    if (Array.isArray(data)) {
-        for (let i = 0; i < data.length; i++) {
-            data = { ...data, i: removeBlockIds(data[i]) };
-        }
-        return data;
-    }
-
-    if (data && typeof data === 'object' && data !== null) {
-        for (const key of Object.keys(data)) {
-            if (key === 'block_id') {
-                delete data[key];
-            } else {
-                data = { ...data, key: removeBlockIds(data[key]) };
-            }
-        }
-        return data;
-    }
-
-    return data;
 }
 
 async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {

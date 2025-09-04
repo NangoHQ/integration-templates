@@ -2,6 +2,7 @@ import { createSync } from 'nango';
 import { SlackChannel } from '../models.js';
 import { z } from 'zod';
 import type { ProxyConfiguration } from 'nango';
+import type { SlackChannelResponse, SlackChannelResponseFiltered } from '../types.js';
 
 const sync = createSync({
     description:
@@ -31,10 +32,11 @@ const sync = createSync({
         const metadata = (await nango.getMetadata()) || {};
         const publicChannelIds: string[] = [];
 
-        const proxyConfig = {
+        const proxyConfig: ProxyConfiguration  = {
+            // https://docs.slack.dev/reference/methods/conversations.list/
             endpoint: 'conversations.list',
             paginate: {
-                type: 'cursor' as const,
+                type: 'cursor',
                 cursor_path_in_response: 'response_metadata.next_cursor',
                 response_path: 'channels',
                 limit: 200,
@@ -43,8 +45,8 @@ const sync = createSync({
             retries: 10
         };
 
-        for await (const channels of nango.paginate(proxyConfig)) {
-            const mappedChannels: SlackChannel[] = channels.map((record: any) => {
+        for await (const channels of nango.paginate<SlackChannelResponse>(proxyConfig)) {
+            const mappedChannels: SlackChannel[] = channels.map((record) => {
                 return {
                     id: record.id,
                     name: record.name,
@@ -92,6 +94,7 @@ async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: strin
     const joinedChannelIds: string[] = [];
     
     const proxyConfig: ProxyConfiguration = {
+        // https://api.slack.com/methods/users.conversations
         endpoint: 'users.conversations',
         paginate: {
             type: 'cursor',
@@ -103,8 +106,8 @@ async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: strin
         retries: 10
     };
 
-    for await (const joinedChannels of nango.paginate(proxyConfig)) {
-        const ids = joinedChannels.map((record: any) => record.id);
+    for await (const joinedChannels of nango.paginate<SlackChannelResponseFiltered>(proxyConfig)) {
+        const ids = joinedChannels.map((record) => record.id);
         joinedChannelIds.push(...ids);
     }
 

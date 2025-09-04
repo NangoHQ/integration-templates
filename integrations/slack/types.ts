@@ -117,3 +117,38 @@ export interface SlackUserResponse {
     is_email_confirmed: boolean;
     who_can_share_contact_card: string;
 }
+
+interface SlackChannelPurposeTopic {
+    value: string;
+    creator: string;
+    last_set: number;
+}
+
+export interface SlackChannelResponse {
+    id: string;
+    name: string;
+    is_channel: boolean;
+    is_group: boolean;
+    is_im: boolean;
+    created: number;
+    creator: string;
+    is_archived: boolean;
+    is_general: boolean;
+    unlinked: number;
+    name_normalized: string;
+    is_shared: boolean;
+    is_ext_shared: boolean;
+    is_org_shared: boolean;
+    pending_shared: string[];
+    is_pending_ext_shared: boolean;
+    is_member: boolean;
+    is_private: boolean;
+    is_mpim: boolean;
+    updated: number;
+    topic: SlackChannelPurposeTopic;
+    purpose: SlackChannelPurposeTopic;
+    previous_names: string[];
+    num_members: number;
+}
+
+export type SlackChannelResponseFiltered = Omit<SlackChannelResponse, 'is_member' | 'updated' | 'num_members'>;
