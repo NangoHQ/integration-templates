@@ -37,7 +37,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://docs.discourse.org/#tag/Topics/operation/updateTopicStatus
-            endpoint: `/t/${input.id}/status`,
+            endpoint: `/t/${id}/status`,
             retries: 3,
             data: rest
         };

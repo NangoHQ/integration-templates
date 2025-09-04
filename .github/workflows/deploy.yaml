@@ -35,8 +35,12 @@ jobs:
               uses: tj-actions/changed-files@v41
               with:
                   files: |
-                      templates/*
-                      templates/**/*
+                      integrations/*
+                      integrations/**/*
+
+            - name: Resolve aliases
+              run: |
+                  npm run resolve:aliases
 
             - name: Upload to S3 (Zero)
               if: steps.templates-updated.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
@@ -47,7 +51,7 @@ jobs:
               run: |
                   if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
                     echo "Manual trigger detected. Uploading all templates."
-                    dirs=$(find templates -maxdepth 1 -type d | tail -n +2 | sort)
+                    dirs=$(find integrations -maxdepth 1 -type d | tail -n +2 | sort)
                   else
                     echo "Automatic trigger detected. Uploading changed templates."
                     all_dirs=$(echo "${{ steps.templates-updated.outputs.all_changed_files }}" | cut -d'/' -f1,2 | sort -u)
@@ -55,7 +59,7 @@ jobs:
                     dirs=$(for dir in $all_dirs; do
                       integration=$(basename "$dir")
                       echo "$dir"
-                      find templates -maxdepth 1 -type d -name "$integration-*"
+                      find integrations -maxdepth 1 -type d -name "$integration-*"
                     done | sort -u)
                   fi
 
@@ -65,7 +69,13 @@ jobs:
                     if [ "$integration" = ".nango" ]; then
                       continue
                     fi
+
+                    if [ ! -f "$dir/index.ts" ]; then
+                      continue
+                    fi
+
+                    rm -rf integrations/build
                     npm run cli -- $integration compile
                     aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration
-                    aws s3 sync templates/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration/build
+                    aws s3 sync integrations/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration/build
                   done

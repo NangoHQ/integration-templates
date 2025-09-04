@@ -48,27 +48,6 @@
       },
       {
         "type": "action",
-        "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/fetch-file"
-        },
-        "input": "ActionInput_dropbox_fetchfile",
-        "name": "fetch-file",
-        "output": [
-          "ActionOutput_dropbox_fetchfile"
-        ],
-        "scopes": [
-          "files.content.read"
-        ],
-        "usedModels": [
-          "ActionInput_dropbox_fetchfile",
-          "ActionOutput_dropbox_fetchfile"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
         "endpoint": {
           "method": "POST",

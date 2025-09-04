@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches a list of issues from Jira
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Group:** Issues
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync

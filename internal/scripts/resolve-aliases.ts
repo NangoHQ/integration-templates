@@ -27,6 +27,8 @@ async function resolveAliases(): Promise<void> {
                 try {
                     // Get the real path (resolves symlinks)
                     const realPath = fs.realpathSync(itemPath);
+                    // original path is the name of the integration which is the last segment
+                    const originalIntegrationName = path.basename(realPath);
 
                     // If the real path is different from the item path, it's a symlink
                     if (realPath !== itemPath) {
@@ -37,6 +39,25 @@ async function resolveAliases(): Promise<void> {
 
                         // Copy the real directory to replace the symlink
                         copyDirectoryRecursive(realPath, itemPath);
+
+                        // change the index.ts file paths to point to the updated integration name
+                        const indexPath = path.join(process.cwd() + '/integrations', `${item}/index.ts`);
+                        let indexContent = fs.readFileSync(indexPath, 'utf-8');
+
+                        // replace all occurrences of the original integration name with the new one
+                        const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const escapedOriginal = escapeRegExp(originalIntegrationName);
+
+                        // 3) Build a precise pattern:
+                        //    - inside quotes (single/double/backtick)
+                        //    - starts with "./"
+                        //    - exactly the original name
+                        //    - followed by a "/" (so we don't hit "./airtabled")
+                        const regex = new RegExp(`(['"\\\`])\\./${escapedOriginal}(?=/)`, 'g');
+
+                        // 4) Replace with the symlink directory name (item), preserve the quote with $1
+                        indexContent = indexContent.replace(regex, `$1./${item}`);
+                        fs.writeFileSync(indexPath, indexContent, 'utf-8');
 
                         console.log(`✓ Resolved symlink for: ${item}`);
                     } else {

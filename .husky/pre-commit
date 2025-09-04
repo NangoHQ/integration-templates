@@ -18,6 +18,12 @@ if [ -n "$changed_files" ]; then
       continue
     fi
 
+    # if no .nango directory exists for the integration, skip it
+    if [ ! -d "integrations/$integration/.nango" ]; then
+      echo "Skipping integration $integration as it does not have a .nango directory."
+      continue
+    fi
+
     npm run cli -- $integration compile
     npm run cli -- $integration generate:docs --integration-templates
   done
