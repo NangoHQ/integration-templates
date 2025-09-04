@@ -91,7 +91,7 @@ export default sync;
 // Checks for public channels where the bot is not a member yet and joins them
 async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: string[]) {
     // Get ID of all channels where we are already a member
-    const joinedChannelIds: string[] = [];
+    const joinedChannelIds = new Set<string>();
     
     const proxyConfig: ProxyConfiguration = {
         // https://api.slack.com/methods/users.conversations
@@ -107,12 +107,11 @@ async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: strin
     };
 
     for await (const joinedChannels of nango.paginate<SlackChannelResponseFiltered>(proxyConfig)) {
-        const ids = joinedChannels.map((record) => record.id);
-        joinedChannelIds.push(...ids);
+        for (const record of joinedChannels) joinedChannelIds.add(record.id);
     }
 
     for (const channelId of publicChannelIds) {
-        if (!joinedChannelIds.includes(channelId)) {
+        if (!joinedChannelIds.has(channelId)) {
             await nango.post({
                 endpoint: 'conversations.join',
                 data: {
