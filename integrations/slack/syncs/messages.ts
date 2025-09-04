@@ -51,13 +51,14 @@ const sync = createSync({
     exec: async (nango) => {
         let metadata: Metadata = (await nango.getMetadata()) || {};
         const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
-        const unseenChannels: string[] = Object.keys(channelsLastSyncDate);
+        const unseenChannels: Set<string> = new Set(Object.keys(channelsLastSyncDate));
 
         // Initialize batch arrays for different model types
         // Using batch sizes of ~50 records to avoid memory issues and save data frequently
         let batchMessages: SlackMessage[] = [];
         let batchMessageReply: SlackMessageReply[] = [];
-
+        
+        const BATCH_SIZE = 50;
         const channelsRequestConfig: ProxyConfiguration = {
             // https://api.slack.com/methods/users.conversations
             endpoint: 'users.conversations',
@@ -76,9 +77,7 @@ const sync = createSync({
             channelsLastSyncDate[currentChannel.id] = new Date().toString();
 
             // Keep track of channels we no longer saw in the API
-            if (unseenChannels.includes(currentChannel.id)) {
-                unseenChannels.splice(unseenChannels.indexOf(currentChannel.id), 1);
-            }
+            unseenChannels.delete(currentChannel.id);
 
             await nango.log(
                 `Processing channel: ${currentChannel.id} - ${
@@ -101,7 +100,7 @@ const sync = createSync({
             };
 
             for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
-                const messageForRawJson = removeBlockIds(message);
+                const messageForRawJson = removeBlockIds(JSON.parse(JSON.stringify(message)));
 
                 const mappedMessage: SlackMessage = {
                     id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
@@ -125,8 +124,8 @@ const sync = createSync({
 
                 batchMessages.push(mappedMessage);
 
-                if (batchMessages.length > 49) {
-                    // Batch save as soon as we reach 50 records to prevent memory issues
+                if (batchMessages.length >= BATCH_SIZE) {
+                    // Batch save as soon as we reach the batch size to prevent memory issues
                     await nango.batchSave(batchMessages, 'SlackMessage');
                     batchMessages = [];
                 }
@@ -157,7 +156,7 @@ const sync = createSync({
                             continue;
                         }
 
-                        const replyForRawJson = removeBlockIds(reply);
+                        const replyForRawJson = removeBlockIds(JSON.parse(JSON.stringify(reply)));
 
                         const mappedReply: SlackMessageReply = {
                             id: createHash('sha256').update(`${reply.ts}${currentChannel.id}`).digest('hex'),
@@ -185,8 +184,8 @@ const sync = createSync({
 
                         batchMessageReply.push(mappedReply);
 
-                        if (batchMessageReply.length > 49) {
-                            // Batch save as soon as we reach 50 records to prevent memory issues
+                        if (batchMessageReply.length >= BATCH_SIZE) {
+                            // Batch save as soon as we reach the batch size to prevent memory issues
                             await nango.batchSave(batchMessageReply, 'SlackMessageReply');
                             batchMessageReply = [];
                         }
@@ -203,7 +202,7 @@ const sync = createSync({
         await nango.batchSave(batchMessageReply, 'SlackMessageReply');
 
         // Remove channels we no longer saw
-        if (unseenChannels.length > 0) {
+        if (unseenChannels.size > 0) {
             for (const channel of unseenChannels) {
                 delete channelsLastSyncDate[channel];
             }
@@ -221,6 +220,7 @@ export default sync;
 
 async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, message: any) {
     const batchReactions: SlackMessageReaction[] = [];
+    const REACTION_BATCH_SIZE = 100;
 
     for (const reaction of message.reactions) {
         for (const user of reaction.users) {
@@ -234,10 +234,17 @@ async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, me
             };
 
             batchReactions.push(mappedReaction);
+            
+            if (batchReactions.length >= REACTION_BATCH_SIZE) {
+                await nango.batchSave(batchReactions, 'SlackMessageReaction');
+                batchReactions.length = 0;
+            }
         }
     }
 
-    await nango.batchSave(batchReactions, 'SlackMessageReaction');
+    if (batchReactions.length > 0) {
+        await nango.batchSave(batchReactions, 'SlackMessageReaction');
+    }
 }
 
 function removeBlockIds(data: any): any {
@@ -245,18 +252,21 @@ function removeBlockIds(data: any): any {
     // We remove it from the raw_json to avoid unnecessary updates.
     // This can be reinstated if required by removing this function.
     if (Array.isArray(data)) {
-        return data.map(removeBlockIds);
+        for (let i = 0; i < data.length; i++) {
+            data = { ...data, i: removeBlockIds(data[i]) };
+        }
+        return data;
     }
 
     if (data && typeof data === 'object' && data !== null) {
-        const newObj: Record<string, any> = {};
         for (const key of Object.keys(data)) {
             if (key === 'block_id') {
-                continue;
+                delete data[key];
+            } else {
+                data = { ...data, key: removeBlockIds(data[key]) };
             }
-            newObj[key] = removeBlockIds(data[key]);
         }
-        return newObj;
+        return data;
     }
 
     return data;

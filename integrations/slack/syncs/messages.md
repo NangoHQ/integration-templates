@@ -10,7 +10,7 @@ detection of the channel. For subsequent runs it will sync messages,
 threads & reactions from the last 10 days. Scopes required:
 channels:read, and at least one of
 channels:history, groups:history, mpim:history, im:history
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Group:** Messages
 - **Scopes:** `channels:read, channels:history`
 - **Endpoint Type:** Sync
