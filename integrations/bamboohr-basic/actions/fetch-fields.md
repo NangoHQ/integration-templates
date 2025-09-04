@@ -3,8 +3,8 @@
 
 ## General Information
 
-- **Description:** Introspection to retrieve available fields
-- **Version:** 2.0.0
+- **Description:** Fetch fields for a specific dataset
+- **Version:** 3.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -26,7 +26,9 @@ _No request parameters_
 ### Request Body
 
 ```json
-"<null>"
+{
+  "datasetName?": "<string>"
+}
 ```
 
 ### Request Response

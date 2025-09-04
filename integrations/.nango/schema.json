@@ -23,16 +23,13 @@
         "dateOfBirth": {
           "type": "string"
         },
-        "address1": {
+        "addressLineOne": {
           "type": "string"
         },
-        "bestEmail": {
+        "email": {
           "type": "string"
         },
-        "workEmail": {
-          "type": "string"
-        },
-        "jobTitle": {
+        "jobInformationJobTitle": {
           "type": "string"
         },
         "hireDate": {
@@ -41,19 +38,19 @@
         "supervisorId": {
           "type": "string"
         },
-        "supervisor": {
+        "supervisorName": {
           "type": "string"
         },
         "createdByUserId": {
           "type": "string"
         },
-        "department": {
+        "jobInformationDepartment": {
           "type": "string"
         },
-        "division": {
+        "jobInformationDivision": {
           "type": "string"
         },
-        "employmentHistoryStatus": {
+        "employmentStatus": {
           "type": "string"
         },
         "gender": {
@@ -65,7 +62,7 @@
         "city": {
           "type": "string"
         },
-        "location": {
+        "jobInformationLocation": {
           "type": "string"
         },
         "state": {
@@ -74,19 +71,13 @@
         "maritalStatus": {
           "type": "string"
         },
-        "exempt": {
+        "payBand": {
           "type": "string"
         },
-        "payRate": {
+        "compensationPayType": {
           "type": "string"
         },
-        "payType": {
-          "type": "string"
-        },
-        "payPer": {
-          "type": "string"
-        },
-        "ssn": {
+        "compensationPaySchedule": {
           "type": "string"
         },
         "workPhone": {
@@ -97,35 +88,7 @@
         }
       },
       "required": [
-        "id",
-        "employeeNumber",
-        "firstName",
-        "lastName",
-        "dateOfBirth",
-        "address1",
-        "bestEmail",
-        "workEmail",
-        "jobTitle",
-        "hireDate",
-        "supervisorId",
-        "supervisor",
-        "createdByUserId",
-        "department",
-        "division",
-        "employmentHistoryStatus",
-        "gender",
-        "country",
-        "city",
-        "location",
-        "state",
-        "maritalStatus",
-        "exempt",
-        "payRate",
-        "payType",
-        "payPer",
-        "ssn",
-        "workPhone",
-        "homePhone"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -607,7 +570,13 @@
       "additionalProperties": false
     },
     "ActionInput_bamboohr_basic_fetchfields": {
-      "type": "null"
+      "type": "object",
+      "properties": {
+        "datasetName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "ActionOutput_bamboohr_basic_fetchfields": {
       "type": "object",
@@ -657,6 +626,40 @@
       },
       "required": [
         "0"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_bamboohr_basic_fetchdatasets": {
+      "type": "null"
+    },
+    "ActionOutput_bamboohr_basic_fetchdatasets": {
+      "type": "object",
+      "properties": {
+        "datasets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "displayName"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "datasets"
       ],
       "additionalProperties": false
     }
