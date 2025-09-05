@@ -463,7 +463,10 @@
           "type": "string"
         },
         "thread_ts": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "channel_id": {
           "type": "string"
