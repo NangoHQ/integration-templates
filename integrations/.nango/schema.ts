@@ -8,34 +8,31 @@ export interface SyncMetadata_bamboohr_basic_employees {
 
 export interface BamboohrEmployee {
   id: string;
-  employeeNumber: string;
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  address1: string;
-  bestEmail: string;
-  workEmail: string;
-  jobTitle: string;
-  hireDate: string;
-  supervisorId: string;
-  supervisor: string;
-  createdByUserId: string;
-  department: string;
-  division: string;
-  employmentHistoryStatus: string;
-  gender: string;
-  country: string;
-  city: string;
-  location: string;
-  state: string;
-  maritalStatus: string;
-  exempt: string;
-  payRate: string;
-  payType: string;
-  payPer: string;
-  ssn: string;
-  workPhone: string;
-  homePhone: string;
+  employeeNumber?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  dateOfBirth?: string | undefined;
+  addressLineOne?: string | undefined;
+  email?: string | undefined;
+  jobInformationJobTitle?: string | undefined;
+  hireDate?: string | undefined;
+  supervisorId?: string | undefined;
+  supervisorName?: string | undefined;
+  createdByUserId?: string | undefined;
+  jobInformationDepartment?: string | undefined;
+  jobInformationDivision?: string | undefined;
+  employmentStatus?: string | undefined;
+  gender?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  jobInformationLocation?: string | undefined;
+  state?: string | undefined;
+  maritalStatus?: string | undefined;
+  payBand?: string | undefined;
+  compensationPayType?: string | undefined;
+  compensationPaySchedule?: string | undefined;
+  workPhone?: string | undefined;
+  homePhone?: string | undefined;
 };
 
 export interface SyncMetadata_bamboohr_basic_unifiedemployees {
@@ -154,7 +151,9 @@ export interface ActionOutput_bamboohr_basic_updateemployee {
   status: string;
 };
 
-export type ActionInput_bamboohr_basic_fetchfields = void
+export interface ActionInput_bamboohr_basic_fetchfields {
+  datasetName?: string | undefined;
+};
 
 export interface ActionOutput_bamboohr_basic_fetchfields {
   0: {  id: string;
@@ -163,4 +162,12 @@ export interface ActionOutput_bamboohr_basic_fetchfields {
   alias?: string | undefined;
   options?: ({  id: number;
   name: string;})[] | undefined;};
+};
+
+export type ActionInput_bamboohr_basic_fetchdatasets = void
+
+export interface ActionOutput_bamboohr_basic_fetchdatasets {
+  datasets: ({  name: string;
+  displayName: string;
+  description?: string | undefined;})[];
 };

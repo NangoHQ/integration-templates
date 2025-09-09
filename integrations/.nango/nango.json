@@ -44,7 +44,7 @@
       },
       {
         "type": "action",
-        "description": "Introspection to retrieve available fields",
+        "description": "Fetch fields for a specific dataset",
         "endpoint": {
           "method": "GET",
           "path": "/fields"
@@ -59,13 +59,32 @@
           "ActionInput_bamboohr_basic_fetchfields",
           "ActionOutput_bamboohr_basic_fetchfields"
         ],
-        "version": "2.0.0"
+        "version": "3.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch available datasets from BambooHR",
+        "endpoint": {
+          "method": "GET",
+          "path": "/datasets"
+        },
+        "input": "ActionInput_bamboohr_basic_fetchdatasets",
+        "name": "fetch-datasets",
+        "output": [
+          "ActionOutput_bamboohr_basic_fetchdatasets"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_fetchdatasets",
+          "ActionOutput_bamboohr_basic_fetchdatasets"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of current employees from bamboohr",
+        "description": "Fetches a list of current employees from bamboohr using the employee dataset",
         "auto_start": true,
         "endpoints": [
           {
@@ -87,17 +106,17 @@
           "BamboohrEmployee",
           "SyncMetadata_bamboohr_basic_employees"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model",
+        "description": "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model using the employee dataset",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/employees/unified",
+            "method": "POST",
+            "path": "/employees/unified/sync",
             "group": "Unified HRIS API"
           }
         ],
@@ -114,7 +133,7 @@
           "StandardEmployee",
           "SyncMetadata_bamboohr_basic_unifiedemployees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],
