@@ -10,7 +10,6 @@ export const oneDriveFileSchema = z.object({
     path: z.string(),
     raw_source: z.record(z.any()),
     updated_at: z.string(),
-    download_url: z.string().nullable(),
     created_at: z.string(),
     blob_size: z.number(),
     drive_id: z.string()

@@ -10,6 +10,8 @@ export function toFile(item: DriveItem, driveId: string): any {
     const isFolder = !!item.folder;
     const path = item.parentReference?.path ? `${item.parentReference.path}/${item.name}` : `/${item.name}`;
 
+    const { ['@microsoft.graph.downloadUrl']: _downloadUrl, ...sanitizedRaw } = item;
+
     return {
         id: item.id,
         name: item.name,
@@ -18,9 +20,8 @@ export function toFile(item: DriveItem, driveId: string): any {
         is_folder: isFolder,
         mime_type: item.file?.mimeType || null,
         path,
-        raw_source: item,
+        raw_source: sanitizedRaw,
         updated_at: item.lastModifiedDateTime,
-        download_url: item['@microsoft.graph.downloadUrl'] || null,
         created_at: item.createdDateTime,
         blob_size: item.size,
         drive_id: driveId

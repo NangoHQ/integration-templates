@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all files from the user's OneDrive and sync the metadata for each file.
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Group:** Files
 - **Scopes:** `Files.Read, Files.Read.All, offline_access`
 - **Endpoint Type:** Sync
@@ -43,7 +43,6 @@ _No request body_
   "path": "<string>",
   "raw_source": {},
   "updated_at": "<string>",
-  "download_url": "<string | null>",
   "created_at": "<string>",
   "blob_size": "<number>",
   "drive_id": "<string>"

@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: "Fetch all files from the user's OneDrive and sync the metadata for each file.",
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
