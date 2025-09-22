@@ -7,7 +7,7 @@ import { OneDriveFileSelection, OneDriveMetadata } from '../models.js';
 
 const sync = createSync({
     description: "Fetch selected files from a user's OneDrive based on provided metadata.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',

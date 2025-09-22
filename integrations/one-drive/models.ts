@@ -10,7 +10,6 @@ export const OneDriveFile = z.object({
   path: z.string(),
   raw_source: z.object({}),
   updated_at: z.string(),
-  download_url: z.union([z.string(), z.null()]),
   created_at: z.string(),
   blob_size: z.number(),
   drive_id: z.string()
@@ -28,7 +27,6 @@ export const OneDriveFileSelection = z.object({
   path: z.string(),
   raw_source: z.object({}),
   updated_at: z.string(),
-  download_url: z.union([z.string(), z.null()]),
   created_at: z.string(),
   blob_size: z.number(),
   drive_id: z.string()
