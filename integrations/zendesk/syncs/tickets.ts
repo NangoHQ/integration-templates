@@ -62,7 +62,7 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-export function mapTickets(tickets: ZendeskTicket[]): Ticket[] {
+function mapTickets(tickets: ZendeskTicket[]): Ticket[] {
     return tickets.map((ticket) => ({
         url: 'url' in ticket ? (ticket.url ?? null) : null,
         id: ticket.id.toString(),

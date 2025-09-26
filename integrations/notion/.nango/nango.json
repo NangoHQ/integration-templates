@@ -63,7 +63,7 @@
         "runs": "every 1h",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ContentMetadata",
           "SyncMetadata_notion_contentmetadata"
@@ -90,7 +90,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_notion_users"
@@ -117,7 +117,7 @@
         "runs": "every 1h",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "NotionCompleteDatabase",
           "SyncMetadata_notion_databases"
@@ -128,7 +128,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

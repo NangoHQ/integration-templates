@@ -103,7 +103,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowUser",
           "SyncMetadata_recruiterflow_users"
@@ -130,7 +130,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowCandidate",
           "SyncMetadata_recruiterflow_candidates"
@@ -157,7 +157,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowCandidateActivityType",
           "SyncMetadata_recruiterflow_candidateactivitytypes"
@@ -184,7 +184,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowJob",
           "SyncMetadata_recruiterflow_jobs"
@@ -211,7 +211,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowLeanJobStageName",
           "SyncMetadata_recruiterflow_jobstagenames"
@@ -238,7 +238,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowJobDepartment",
           "SyncMetadata_recruiterflow_jobdepartments"
@@ -265,7 +265,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowJobStatus",
           "SyncMetadata_recruiterflow_jobstatuses"
@@ -292,7 +292,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowJobRemoteStatus",
           "SyncMetadata_recruiterflow_jobremotestatuses"
@@ -319,7 +319,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowLocation",
           "SyncMetadata_recruiterflow_locations"
@@ -346,7 +346,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowEmploymentType",
           "SyncMetadata_recruiterflow_employmenttypes"
@@ -373,7 +373,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecruiterFlowOrganizationLocation",
           "SyncMetadata_recruiterflow_organizationlocations"
@@ -384,7 +384,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]
