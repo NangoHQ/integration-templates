@@ -33,72 +33,13 @@ _No request body_
 ### Request Response
 
 ```json
-{
-  "id": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "email": "<string>",
-  "displayName": "<string>",
-  "employeeNumber?": "<string>",
-  "title?": "<string>",
-  "department": {
-    "id": "<string>",
-    "name": "<string>"
-  },
-  "employmentType": "<enum: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER'>",
-  "employmentStatus": "<enum: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING'>",
-  "startDate": "<string>",
-  "terminationDate?": "<string>",
-  "manager?": {
-    "id?": "<string>",
-    "firstName?": "<string>",
-    "lastName?": "<string>",
-    "email?": "<string>"
-  },
-  "workLocation": {
-    "name": "<string>",
-    "type": "<enum: 'OFFICE' | 'REMOTE' | 'HYBRID'>",
-    "primaryAddress?": {
-      "street?": "<string>",
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "postalCode?": "<string>",
-      "type": "<enum: 'WORK' | 'HOME'>"
-    }
-  },
-  "addresses?": [
-    {
-      "street?": "<string>",
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "postalCode?": "<string>",
-      "type": "<enum: 'WORK' | 'HOME'>"
-    }
-  ],
-  "phones?": [
-    {
-      "type": "<enum: 'WORK' | 'HOME' | 'MOBILE'>",
-      "number": "<string>"
-    }
-  ],
-  "emails?": [
-    {
-      "type": "<enum: 'WORK' | 'PERSONAL'>",
-      "address": "<string>"
-    }
-  ],
-  "providerSpecific": {},
-  "createdAt": "<string>",
-  "updatedAt": "<string>"
-}
+"<unknown>"
 ```
 
 ### Expected Metadata
 
 ```json
-{}
+"<unknown>"
 ```
 
 ## Changelog
