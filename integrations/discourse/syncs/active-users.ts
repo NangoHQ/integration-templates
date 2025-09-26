@@ -24,7 +24,6 @@ const sync = createSync({
     frequency: 'every 1 hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -59,6 +58,7 @@ const sync = createSync({
         for await (const users of nango.paginate<DiscourseUser>(config)) {
             await nango.batchSave(users.map(toUser), 'User');
         }
+    await nango.deleteRecordsFromPreviousExecutions("User");
     }
 });
 

@@ -14,7 +14,6 @@ const sync = createSync({
     frequency: 'every 5 minutes',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -65,6 +64,7 @@ const sync = createSync({
                 await nango.batchSave(processedEvents, 'OutlookCalendarEvent');
             }
         }
+    await nango.deleteRecordsFromPreviousExecutions("OutlookCalendarEvent");
     }
 }); // 1 month
 

@@ -18,7 +18,6 @@ const sync = createSync({
     frequency: 'every 4 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -56,6 +55,7 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} spaces (total records: ${totalRecords})`);
             await nango.batchSave(confluenceSpaces, 'ConfluenceSpace');
         }
+    await nango.deleteRecordsFromPreviousExecutions("ConfluenceSpace");
     }
 });
 

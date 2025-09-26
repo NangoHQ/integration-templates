@@ -23,7 +23,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -56,6 +55,7 @@ const sync = createSync({
         for await (const customers of nango.paginate<WooCommerceCustomer>(config)) {
             await nango.batchSave(customers.map(toCustomer), 'Customer');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Customer");
     }
 });
 

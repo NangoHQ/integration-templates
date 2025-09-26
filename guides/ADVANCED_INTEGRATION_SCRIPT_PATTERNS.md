@@ -61,7 +61,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -109,6 +108,8 @@ const sync = createSync({
             // Save the batch of records
             await nango.batchSave(mappedData, 'OutputData');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions('OutputData');
     }
 });
 ```
@@ -228,7 +229,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -394,7 +394,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -673,7 +672,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -838,7 +836,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {

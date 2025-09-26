@@ -82,7 +82,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ExpsensifyNullableUser",
           "SyncMetadata_expensify_users"
@@ -93,7 +93,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

@@ -184,7 +184,7 @@
         "runs": "every 1h",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "TeamMemberUser",
           "SyncMetadata_gem_users"
@@ -211,7 +211,7 @@
         "runs": "every 1h",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Location",
           "SyncMetadata_gem_locations"
@@ -276,7 +276,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

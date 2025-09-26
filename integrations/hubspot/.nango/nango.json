@@ -598,7 +598,7 @@
           "oauth"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Contact",
           "SyncMetadata_hubspot_contacts"
@@ -628,7 +628,7 @@
           "oauth"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Company",
           "SyncMetadata_hubspot_companies"
@@ -660,7 +660,7 @@
           "crm.objects.line_items.read (granular scope)"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Deal",
           "SyncMetadata_hubspot_deals"
@@ -689,7 +689,7 @@
           "e-commerce"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Product",
           "SyncMetadata_hubspot_products"
@@ -716,7 +716,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "HubspotOwner",
           "SyncMetadata_hubspot_owners"
@@ -747,7 +747,7 @@
           "crm.objects.users.read (granular scope)"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_hubspot_users"
@@ -773,7 +773,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "HubspotKnowledgeBase",
           "SyncMetadata_hubspot_knowledgebase"
@@ -803,7 +803,7 @@
           "oauth"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Task",
           "SyncMetadata_hubspot_tasks"
@@ -832,7 +832,7 @@
           "settings.currencies.read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "CurrencyCode",
           "SyncMetadata_hubspot_currencycodes"
@@ -843,7 +843,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

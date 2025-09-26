@@ -83,7 +83,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_jira_basic_users"
@@ -94,7 +94,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

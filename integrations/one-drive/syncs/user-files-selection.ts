@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -70,6 +69,7 @@ const sync = createSync({
         }
 
         await nango.batchSave(files, 'OneDriveFileSelection');
+    await nango.deleteRecordsFromPreviousExecutions("OneDriveFileSelection");
     }
 });
 

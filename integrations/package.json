@@ -11,7 +11,7 @@
     "dev": "nango dev"
   },
   "devDependencies": {
-    "nango": "0.66.1",
+    "nango": "0.68.1",
     "soap": "1.1.2",
     "zod": "4.0.5"
   }

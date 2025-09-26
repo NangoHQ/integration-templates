@@ -24,7 +24,7 @@
           "https://www.googleapis.com/auth/admin.directory.user.readonly"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OrganizationalUnit",
           "SyncMetadata_google_workspaceorgunits"
@@ -90,7 +90,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

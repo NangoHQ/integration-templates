@@ -23,7 +23,7 @@
           "read:space:confluence"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ConfluenceSpace",
           "SyncMetadata_confluence_spaces"
@@ -51,7 +51,7 @@
           "read:page:confluence"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ConfluencePage",
           "SyncMetadata_confluence_pages"
@@ -62,7 +62,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

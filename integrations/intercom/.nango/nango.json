@@ -133,7 +133,7 @@
         "runs": "every 6 hours",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Contact",
           "SyncMetadata_intercom_contacts"
@@ -159,7 +159,7 @@
         "runs": "every 6 hours",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Article",
           "SyncMetadata_intercom_articles"
@@ -196,7 +196,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

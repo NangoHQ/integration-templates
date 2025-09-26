@@ -14,7 +14,6 @@ const sync = createSync({
     frequency: 'every 2h',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -79,6 +78,7 @@ const sync = createSync({
                 hasMore = false;
             }
         }
+    await nango.deleteRecordsFromPreviousExecutions("Subscription");
     }
 });
 

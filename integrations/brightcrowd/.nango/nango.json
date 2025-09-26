@@ -24,7 +24,7 @@
           "bcb.partner/book.read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Book",
           "SyncMetadata_brightcrowd_books"
@@ -53,7 +53,7 @@
           "bcb.partner/book.read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "BookById",
           "SyncMetadata_brightcrowd_booksbyid"
@@ -82,7 +82,7 @@
           "bcb.partner/book.read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "BookAnalytics",
           "SyncMetadata_brightcrowd_bookanalytics"
@@ -111,7 +111,7 @@
           "bcb.partner/page.read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Page",
           "SyncMetadata_brightcrowd_pages"
@@ -122,7 +122,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

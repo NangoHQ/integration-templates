@@ -41,7 +41,7 @@ reviews:
         - path: 'integrations/**/index.ts'
           instructions: |
               - Use `createSync()` and `createAction()` for inline configuration.
-              - If `syncType: 'full'`, then the sync should also have `trackDeletes: true`.
+              - If `syncType: 'full'`, then the sync should also have `await nango.deleteRecordsFromPreviousExecutions` as the last line in the sync with the model name as the argument.
               - If the sync requires metadata, set `autoStart: false` and document the metadata as a Zod schema.
               - Scopes should be explicitly documented in the `scopes` array.
               - Use Zod schemas for input, output, and metadata validation.

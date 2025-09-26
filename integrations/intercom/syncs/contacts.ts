@@ -25,7 +25,6 @@ const sync = createSync({
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -77,6 +76,7 @@ const sync = createSync({
             const mappedContacts = contacts.map((contact: IntercomContact) => toContact(contact));
             await nango.batchSave(mappedContacts, 'Contact');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Contact");
     }
 });
 

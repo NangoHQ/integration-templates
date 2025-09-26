@@ -10,7 +10,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -41,6 +40,7 @@ const sync = createSync({
         if (eventTypes.length) {
             await nango.batchSave(eventTypes, 'EventType');
         }
+    await nango.deleteRecordsFromPreviousExecutions("EventType");
     }
 });
 

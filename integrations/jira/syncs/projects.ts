@@ -18,7 +18,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -61,6 +60,7 @@ const sync = createSync({
             const projectsToSave = toProjects(projects, cloud.baseUrl);
             await nango.batchSave(projectsToSave, 'Project');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Project");
     }
 });
 
