@@ -48,7 +48,7 @@ class MockNango implements Partial<NangoSync> {
             posts_read_count: 500,
             topics_entered: 100,
             post_count: 50
-        };
+        }
 
         // First page with data
         if (!config.params || (typeof config.params === 'object' && (!config.params['page'] || config.params['page'] === '1'))) {
@@ -69,6 +69,10 @@ class MockNango implements Partial<NangoSync> {
         console.log('savedUsers before assertions:', JSON.stringify(savedUsers, null, 2));
         return true;
     }
+
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<any> {
+        // Mock deletion logic if needed
+    };
 }
 
 describe('Discourse Active Users Pagination', () => {

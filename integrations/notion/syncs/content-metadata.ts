@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every 1h',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -79,6 +78,7 @@ const sync = createSync({
 
             await recursiveFetchSubPages(nango, pagesOnly);
         }
+    await nango.deleteRecordsFromPreviousExecutions("ContentMetadata");
     }
 });
 

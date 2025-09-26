@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -38,6 +37,7 @@ const sync = createSync({
         const users = response.data.data;
 
         await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
+    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowUser");
     }
 });
 

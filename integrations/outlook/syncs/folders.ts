@@ -15,7 +15,6 @@ const sync = createSync({
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -65,6 +64,7 @@ const sync = createSync({
         });
         await nango.log(`Fetched ${mappedFolders.length} Outlook folders`, { level: 'info' });
         await nango.batchSave(mappedFolders, 'OutlookFolder');
+    await nango.deleteRecordsFromPreviousExecutions("OutlookFolder");
     }
 });
 

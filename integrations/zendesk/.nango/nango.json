@@ -226,7 +226,7 @@
           "hc:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Article",
           "SyncMetadata_zendesk_articles"
@@ -255,7 +255,7 @@
           "hc:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Category",
           "SyncMetadata_zendesk_categories"
@@ -284,7 +284,7 @@
           "hc:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Section",
           "SyncMetadata_zendesk_sections"
@@ -312,7 +312,7 @@
           "users:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_zendesk_users"
@@ -323,7 +323,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

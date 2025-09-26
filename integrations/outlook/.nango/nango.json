@@ -73,7 +73,7 @@
           "Calendars.Read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OutlookCalendarEvent",
           "SyncMetadata_outlook_events"
@@ -101,7 +101,7 @@
           "Calendars.Read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OutlookCalendar",
           "SyncMetadata_outlook_calendars"
@@ -129,7 +129,7 @@
           "Mail.Read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OutlookFolder",
           "SyncMetadata_outlook_folders"
@@ -140,7 +140,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

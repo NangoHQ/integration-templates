@@ -23,7 +23,6 @@ const sync = createSync({
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -59,6 +58,7 @@ const sync = createSync({
             const mappedArticles = articles.map((article: IntercomArticle) => toArticle(article));
             await nango.batchSave(mappedArticles, 'Article');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Article");
     }
 });
 

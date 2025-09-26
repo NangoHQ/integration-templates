@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -53,6 +52,7 @@ const sync = createSync({
             const articles: Article[] = zArticles.map(mapZendeskArticleToArticle);
             await nango.batchSave(articles, 'Article');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Article");
     }
 });
 

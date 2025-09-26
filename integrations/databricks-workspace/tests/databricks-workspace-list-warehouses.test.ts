@@ -34,7 +34,10 @@ describe('databricks-workspace:list-warehouses', () => {
     it('should get and map warehouses correctly', async () => {
         const nango = {
             get: vi.fn().mockResolvedValue({ data: mockResponse }),
-            ActionError: Error
+            ActionError: Error,
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+                // Mock deletion logic if needed
+            }
         };
 
         const result = await runAction.exec(nango as any);
@@ -54,7 +57,10 @@ describe('databricks-workspace:list-warehouses', () => {
 
         const nango = {
             get: vi.fn().mockResolvedValue({ data: { warehouses: undefined } }),
-            ActionError
+            ActionError,
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+                // Mock deletion logic if needed
+            }
         };
 
         await expect(runAction.exec(nango as any)).rejects.toThrow('No warehouses found in response');

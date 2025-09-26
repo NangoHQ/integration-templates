@@ -9,7 +9,6 @@ const sync = createSync({
     frequency: 'every half hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: false,
 
     endpoints: [
         {

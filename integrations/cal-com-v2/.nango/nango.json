@@ -21,7 +21,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Event",
           "SyncMetadata_cal_com_v2_events"
@@ -47,7 +47,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "EventType",
           "SyncMetadata_cal_com_v2_eventtypes"
@@ -58,7 +58,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

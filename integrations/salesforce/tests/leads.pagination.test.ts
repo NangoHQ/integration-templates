@@ -112,6 +112,9 @@ class MockNango {
     getCurrentEndpoint(): string {
         return this.currentEndpoint;
     }
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<void> {
+        // Mock deletion logic if needed
+    }
 }
 
 describe('Salesforce Leads Pagination Tests', () => {

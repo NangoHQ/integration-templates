@@ -13,7 +13,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -45,6 +44,7 @@ const sync = createSync({
             const users: User[] = toUser(results);
             await nango.batchSave(users, 'User');
         }
+    await nango.deleteRecordsFromPreviousExecutions("User");
     }
 });
 

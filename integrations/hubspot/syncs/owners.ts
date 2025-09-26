@@ -9,7 +9,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -48,6 +47,7 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} owners (total owners: ${totalRecords})`);
             await nango.batchSave(mappedOwner, 'HubspotOwner');
         }
+    await nango.deleteRecordsFromPreviousExecutions("HubspotOwner");
     }
 });
 

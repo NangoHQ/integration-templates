@@ -24,7 +24,7 @@
           "subscription_read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Subscription",
           "SyncMetadata_stripe_app_subscriptions"
@@ -35,7 +35,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

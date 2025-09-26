@@ -11,11 +11,13 @@ type LinearIssue = z.infer<typeof linearIssueSchema>;
 class MockNango {
     post: any;
     batchSave: any;
+    deleteRecordsFromPreviousExecutions: any;
     lastSyncDate: Date | null;
 
     constructor() {
         this.post = vi.fn();
         this.batchSave = vi.fn();
+        this.deleteRecordsFromPreviousExecutions = vi.fn();
         this.lastSyncDate = null;
     }
 }

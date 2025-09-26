@@ -73,12 +73,12 @@
           "offline_access"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OneDriveFile",
           "SyncMetadata_one_drive_userfiles"
         ],
-        "version": "2.0.0",
+        "version": "2.0.1",
         "webhookSubscriptions": []
       },
       {
@@ -104,18 +104,19 @@
           "offline_access"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OneDriveFileSelection",
           "SyncMetadata_one_drive_userfilesselection"
         ],
-        "version": "1.0.0",
+        "version": "1.0.1",
         "webhookSubscriptions": []
       }
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

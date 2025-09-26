@@ -45,6 +45,9 @@ describe('Slack Messages Pagination', () => {
                     savedReactions = items;
                 }
             },
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    },
             getMetadata: async () => metadata,
             setMetadata: async (newMetadata: any) => {
                 metadata = newMetadata;
@@ -97,6 +100,12 @@ describe('Slack Messages Pagination', () => {
                 yield [];
             },
             batchSave: async (items: any[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    },
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    },
             getMetadata: async () => ({}),
             setMetadata: async (metadata: any) => {},
             log: async (message: string) => {}
@@ -114,6 +123,12 @@ describe('Slack Messages Pagination', () => {
                 throw new Error('Pagination failed');
             },
             batchSave: async (items: any[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    },
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    },
             getMetadata: async () => ({}),
             setMetadata: async (metadata: any) => {},
             log: async (message: string) => {}

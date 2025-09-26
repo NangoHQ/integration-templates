@@ -9,7 +9,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -42,6 +41,8 @@ const sync = createSync({
         for await (const bases of nango.paginate<Base>(config)) {
             await nango.batchSave(bases, 'Base');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("Base");
     }
 });
 

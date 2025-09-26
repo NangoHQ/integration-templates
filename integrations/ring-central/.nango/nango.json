@@ -111,7 +111,7 @@
           "ReadAccounts"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_ring_central_users"
@@ -140,7 +140,7 @@
           "ReadContacts"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Contact",
           "SyncMetadata_ring_central_contacts"
@@ -151,7 +151,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

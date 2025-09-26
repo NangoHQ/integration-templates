@@ -103,7 +103,7 @@
         "runs": "every 1 day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "BasecampTodo",
           "SyncMetadata_basecamp_todos"
@@ -114,7 +114,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

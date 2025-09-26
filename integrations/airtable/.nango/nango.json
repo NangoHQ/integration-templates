@@ -112,7 +112,7 @@
           "schema.bases:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Table",
           "SyncMetadata_airtable_tables"
@@ -140,7 +140,7 @@
           "schema.bases:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Base",
           "SyncMetadata_airtable_bases"
@@ -151,7 +151,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

@@ -24,7 +24,6 @@ let savedContacts: Contact[] = [];
 class MockNango implements Partial<NangoSync> {
     lastSyncDate?: Date;
     variant = 'cloud';
-    track_deletes = false;
     batchSize = 100;
 
     async get<T = any>(config: Omit<ProxyConfiguration, 'method'>): Promise<AxiosResponse<T>> {
@@ -91,6 +90,10 @@ class MockNango implements Partial<NangoSync> {
         }
         console.log('savedContacts before assertions:', JSON.stringify(savedContacts, null, 2));
         return true;
+    }
+
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<any> {
+        // Mock deletion logic if needed
     }
 }
 

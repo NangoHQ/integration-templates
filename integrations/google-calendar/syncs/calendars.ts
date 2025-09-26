@@ -9,7 +9,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -42,6 +41,7 @@ const sync = createSync({
         for await (const eventPage of nango.paginate<GoogleCalendar>(config)) {
             await nango.batchSave(eventPage, 'GoogleCalendar');
         }
+    await nango.deleteRecordsFromPreviousExecutions("GoogleCalendar");
     }
 });
 

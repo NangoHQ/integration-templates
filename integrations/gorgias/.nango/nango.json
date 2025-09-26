@@ -94,7 +94,7 @@
           "tickets:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Ticket",
           "SyncMetadata_gorgias_tickets"
@@ -123,7 +123,7 @@
           "users:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "GorgiasUser",
           "SyncMetadata_gorgias_users"
@@ -134,7 +134,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

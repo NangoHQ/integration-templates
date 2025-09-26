@@ -122,7 +122,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ExactCustomer",
           "SyncMetadata_exact_online_customers"
@@ -148,7 +148,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "ExactPayment",
           "SyncMetadata_exact_online_payments"
@@ -159,7 +159,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

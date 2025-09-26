@@ -91,7 +91,7 @@
           "https://www.googleapis.com/auth/drive.readonly"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Document",
           "SyncMetadata_google_drive_documents"
@@ -120,7 +120,7 @@
           "https://www.googleapis.com/auth/drive.readonly"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Folder",
           "SyncMetadata_google_drive_folders"
@@ -131,7 +131,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

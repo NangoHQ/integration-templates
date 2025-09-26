@@ -96,7 +96,7 @@
           "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "GoogleCalendar",
           "SyncMetadata_google_calendar_calendars"
@@ -107,7 +107,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

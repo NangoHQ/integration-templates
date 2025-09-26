@@ -97,6 +97,9 @@ class MockNango {
     getDeletedEvents(): string[] {
         return this.deletedEvents;
     }
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<void> {
+        // Mock deletion logic if needed
+    }
 }
 
 describe('Calendly Events Pagination Tests', () => {

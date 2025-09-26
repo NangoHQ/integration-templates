@@ -49,7 +49,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Group",
           "SyncMetadata_workday_groups"
@@ -76,7 +76,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Location",
           "SyncMetadata_workday_locations"
@@ -114,7 +114,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

@@ -50,6 +50,9 @@ describe('Confluence Pages Pagination', () => {
             batchSave: async (pages: ConfluencePage[], model: string) => {
                 savedPages = pages;
             },
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+                // Mock deletion logic if needed
+            },
             log: async (message: string) => {}
         };
 
@@ -102,6 +105,9 @@ describe('Confluence Pages Pagination', () => {
                 return { data: [{ id: 'cloud123' }] };
             },
             batchSave: async (pages: ConfluencePage[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+                // Mock deletion logic if needed
+            },
             log: async (message: string) => {}
         };
 
@@ -120,6 +126,9 @@ describe('Confluence Pages Pagination', () => {
                 return { data: [{ id: 'cloud123' }] };
             },
             batchSave: async (pages: ConfluencePage[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+                // Mock deletion logic if needed
+            },
             log: async (message: string) => {}
         };
 

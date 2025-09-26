@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every 4 hours',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -52,6 +51,8 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} pages (total records: ${totalRecords})`);
             await nango.batchSave(confluencePages, 'ConfluencePage');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("ConfluencePage");
     }
 });
 
