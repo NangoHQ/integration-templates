@@ -106,7 +106,7 @@ async function main(): Promise<void> {
                 process.exit(1);
             }
         } catch (error) {
-            console.log(error);
+            console.log(errorToString(error));
             console.error(`   ${chalk.red('err')} ${errorToString(error)}`);
             process.exit(1);
         }
