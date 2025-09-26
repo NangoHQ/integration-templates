@@ -35,6 +35,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const expand = 'names,addresses,emails,phones';
+        const limit = '100';
         let total = 0;
 
         const lastSyncDate = nango.lastSyncDate ? new Date(nango.lastSyncDate) : null;
@@ -52,7 +53,8 @@ const sync = createSync({
                 offset_start_value: 0,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
-                limit: 100,
+                // @ts-expect-error use to be able to be a string
+                limit,
                 response_path: 'items'
             },
             params: {
