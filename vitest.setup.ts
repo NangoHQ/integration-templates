@@ -37,6 +37,7 @@ class NangoActionMock {
     proxy: ReturnType<typeof vi.fn>;
     getWebhookURL: ReturnType<typeof vi.fn>;
     zodValidateInput: ReturnType<typeof vi.fn>;
+    deleteRecordsFromPreviousExecutions: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         this.dirname = dirname;
@@ -54,6 +55,7 @@ class NangoActionMock {
         this.proxy = vi.fn(this.proxyData.bind(this));
         this.getWebhookURL = vi.fn(() => 'https://example.com/webhook');
         this.zodValidateInput = vi.fn(this.mockZodValidateInput.bind(this));
+        this.deleteRecordsFromPreviousExecutions = vi.fn();
         this.updateMetadata = vi.fn();
     }
 
