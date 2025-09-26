@@ -10,12 +10,14 @@ class MockNango {
     get: any;
     paginate: any;
     batchSave: any;
+    deleteRecordsFromPreviousExecutions: any;
     lastSyncDate: Date | null;
 
     constructor() {
         this.get = vi.fn();
         this.paginate = vi.fn();
         this.batchSave = vi.fn();
+        this.deleteRecordsFromPreviousExecutions = vi.fn();
         this.lastSyncDate = null;
     }
 }

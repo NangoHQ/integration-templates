@@ -199,6 +199,9 @@ class MockNango {
     getPageCount(): number {
         return this.pageCount;
     }
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<void> {
+        // Mock deletion logic if needed
+    }
 }
 
 describe('Outlook Events Pagination Tests', () => {

@@ -95,6 +95,9 @@ class MockNango {
     getLogMessages(): string[] {
         return this.logMessages;
     }
+    async deleteRecordsFromPreviousExecutions(model: string, conditions: object): Promise<void> {
+        // Mock deletion logic if needed
+    }
 }
 
 describe('Zoom Recording Files Pagination Tests', () => {

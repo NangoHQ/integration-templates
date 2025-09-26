@@ -27,7 +27,10 @@ describe('Notion Users Pagination', () => {
             },
             batchSave: async (users: User[], model: string) => {
                 savedUsers = users;
-            }
+            },
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    }
         };
 
         await fetchData.exec(nango as any);
@@ -54,7 +57,10 @@ describe('Notion Users Pagination', () => {
                 paginationConfig = config;
                 yield [];
             },
-            batchSave: async (users: User[], model: string) => {}
+            batchSave: async (users: User[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    }
         };
 
         await fetchData.exec(nango as any);
@@ -68,7 +74,10 @@ describe('Notion Users Pagination', () => {
             paginate: async function* <T>(config: any) {
                 throw new Error('Pagination failed');
             },
-            batchSave: async (users: User[], model: string) => {}
+            batchSave: async (users: User[], model: string) => {},
+            deleteRecordsFromPreviousExecutions: async (model: string): Promise<void> => {
+        // Mock deletion logic if needed
+    }
         };
 
         await expect(fetchData.exec(nango as any)).rejects.toThrow('Pagination failed');

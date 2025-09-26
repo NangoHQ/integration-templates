@@ -74,6 +74,9 @@ class MockNango {
     getSavedContacts(): Contact[] {
         return this.savedContacts;
     }
+    async deleteRecordsFromPreviousExecutions(model: string): Promise<void> {
+        // Mock deletion logic if needed
+    }
 }
 
 describe('HubSpot Contacts Pagination Tests', () => {
