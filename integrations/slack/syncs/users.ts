@@ -33,6 +33,7 @@ const sync = createSync({
             endpoint: 'users.list',
             retries: 10,
             params: {
+                // @ts-expect-error use to be able to be a string
                 limit: '200'
             },
             paginate: {
