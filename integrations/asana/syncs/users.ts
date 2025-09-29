@@ -42,7 +42,6 @@ const sync = createSync({
                 if (workspace.name !== 'Personal Projects') {
                     const params: Record<string, string> = {
                         workspace: workspace.gid,
-                        // @ts-expect-error use to be able to be a string
                         limit: '100',
                         opt_fields: ['gid', 'name', 'email', 'photo', 'resource_type'].join(',')
                     };

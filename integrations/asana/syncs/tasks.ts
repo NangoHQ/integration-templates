@@ -40,7 +40,6 @@ const sync = createSync({
                     for (const project of projects) {
                         const params: Record<string, string> = {
                             project: project.gid,
-                            // @ts-expect-error use to be able to be a string
                             limit: '100',
                             opt_fields: [
                                 'name',

@@ -25,7 +25,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         const params: Record<string, string> = {
-            // @ts-expect-error use to be able to be a string
             limit: '100',
             opt_fields: ['gid', 'name', 'resource_type', 'is_organization'].join(',')
         };
