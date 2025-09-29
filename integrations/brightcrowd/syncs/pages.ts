@@ -13,7 +13,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -48,6 +47,8 @@ const sync = createSync({
         for (const bookId of bookIds) {
             await fetchPages(nango, bookId);
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("Page");
     }
 });
 

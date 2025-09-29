@@ -138,7 +138,7 @@
           "user:read:admin"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_zoom_users"
@@ -167,7 +167,7 @@
           "meeting:read"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Meeting",
           "SyncMetadata_zoom_meetings"
@@ -197,7 +197,7 @@
           "cloud_recording:read:list_recording_files"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "RecordingFile",
           "SyncMetadata_zoom_recordingfiles"
@@ -208,7 +208,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

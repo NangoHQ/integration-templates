@@ -22,7 +22,7 @@
         "runs": "every 6 hours",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Account",
           "SyncMetadata_sage_intacct_oauth_accounts"
@@ -33,7 +33,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

@@ -133,7 +133,7 @@ function convertResolvedFieldToField(r: ResolvedField): Field {
 /**
  * Build a FieldResponse from an array of ResolvedField.
  */
-export function buildFieldResponseFromResolvedFields(resolvedFields: ResolvedField[]): FieldResponse {
+function buildFieldResponseFromResolvedFields(resolvedFields: ResolvedField[]): FieldResponse {
     const fields: Field[] = [];
 
     resolvedFields.forEach((rf) => {

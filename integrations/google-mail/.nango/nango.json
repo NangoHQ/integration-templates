@@ -97,7 +97,7 @@
           "https://www.googleapis.com/auth/gmail.readonly"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "GmailLabel",
           "SyncMetadata_google_mail_labels"
@@ -108,7 +108,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

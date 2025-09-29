@@ -83,7 +83,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_box_users"
@@ -110,7 +110,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Folder",
           "SyncMetadata_box_folders"
@@ -137,7 +137,7 @@
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "BoxDocument",
           "SyncMetadata_box_files"
@@ -148,7 +148,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

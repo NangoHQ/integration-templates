@@ -80,7 +80,7 @@
         "runs": "every 1 hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "User",
           "SyncMetadata_discourse_activeusers"
@@ -107,7 +107,7 @@
         "runs": "every week",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Category",
           "SyncMetadata_discourse_categories"
@@ -118,7 +118,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

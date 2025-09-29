@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -57,6 +56,8 @@ const sync = createSync({
         if (batch.length) {
             await nango.batchSave(batch, 'Document');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("Document");
     }
 });
 

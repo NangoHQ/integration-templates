@@ -1,6 +1,6 @@
 ## Configuration - Inline Script Configuration
 
-- If `syncType: 'full'`, then the sync should also have `trackDeletes: true`
+- If `syncType: 'full'`, then the sync should also have `await nango.deleteRecordsFromPreviousExecutions("ModelName")` as the last line in the sync code
 - If the sync requires metadata, then the sync should be set to `autoStart: false`. The metadata should be defined as a Zod schema in the sync configuration
 - Scopes should be documented in the sync/action configuration
 - For optional properties in models, use the `.optional()` method in Zod schemas
@@ -81,7 +81,6 @@ const sync = createSync({
     frequency: 'every 5m',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -101,6 +100,9 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Sync implementation
+
+        // full sync should track deletes
+        await nango.deleteRecordsFromPreviousExecutions("Contact");
     }
 });
 ```
@@ -257,7 +259,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {

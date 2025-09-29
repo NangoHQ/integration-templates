@@ -102,11 +102,43 @@ async function main(): Promise<void> {
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
-                console.error(`   ${chalk.red('err')} Could not read nango.json: ${errorToString(fileError)}`);
+                const errorMessage = errorToString(fileError);
+                const formattedError = `   ${chalk.red('err')} Could not read nango.json: ${errorMessage}`;
+
+                // Write to both console and stderr directly
+                console.error(formattedError);
+                process.stderr.write(`\n${formattedError}\n`);
+
+                // Ensure output is flushed before exiting
+                process.stdout.write('');
+                process.stderr.write('');
+                await new Promise((resolve) => setTimeout(resolve, 100));
+
                 process.exit(1);
             }
         } catch (error) {
-            console.error(`   ${chalk.red('err')} ${errorToString(error)}`);
+            const errorMessage = errorToString(error);
+            const formattedError = `   ${chalk.red('err')} ${errorMessage}`;
+
+            // Write to both console and stderr directly
+            console.log(errorMessage);
+            console.error(formattedError);
+            process.stderr.write(`\n${formattedError}\n`);
+
+            // Additional explicit error logging for GitHub Actions
+            console.error('=== ERROR DETAILS ===');
+            console.error('Error type:', typeof error);
+            console.error('Error message:', errorMessage);
+            if (error instanceof Error) {
+                console.error('Stack trace:', error.stack);
+            }
+            console.error('====================');
+
+            // Ensure output is flushed before exiting
+            process.stdout.write('');
+            process.stderr.write('');
+            await new Promise((resolve) => setTimeout(resolve, 100));
+
             process.exit(1);
         }
     }
@@ -127,7 +159,17 @@ async function main(): Promise<void> {
 }
 
 // Run the script
-main().catch((error) => {
-    console.error('💥 Script failed:', error);
+main().catch(async (error) => {
+    const errorMessage = `💥 Script failed: ${error}`;
+
+    // Write to both console and stderr directly
+    console.error(errorMessage);
+    process.stderr.write(`\n${errorMessage}\n`);
+
+    // Ensure output is flushed before exiting
+    process.stdout.write('');
+    process.stderr.write('');
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     process.exit(1);
 });

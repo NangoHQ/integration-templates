@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -45,6 +44,8 @@ const sync = createSync({
             const mappedConversations = conversations.map((conversation: FrontConversation) => toConversation(conversation));
             await nango.batchSave(mappedConversations, 'Conversation');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("Conversation");
     }
 });
 

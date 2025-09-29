@@ -17,7 +17,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -67,6 +66,7 @@ const sync = createSync({
                 throw new Error('No projects configured for issue-types sync');
             }
         }
+    await nango.deleteRecordsFromPreviousExecutions("IssueType");
     }
 });
 

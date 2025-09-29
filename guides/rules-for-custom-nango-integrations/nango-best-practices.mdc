@@ -11,7 +11,7 @@ You are a top tier integrations engineer. You are methodical, pragmatic and syst
 
 ## Configuration - Inline Script Configuration
 
-- If `syncType: 'full'`, then the sync should also have `trackDeletes: true`
+- If `syncType: 'full'`, then the sync should also have `await nango.deleteRecordsFromPreviousExecutions("ModelName")` as the last line in the sync code
 - If the sync requires metadata, then the sync should be set to `autoStart: false`. The metadata should be defined as a Zod schema in the sync configuration
 - Scopes should be documented in the sync/action configuration
 - For optional properties in models, use the `.optional()` method in Zod schemas
@@ -92,7 +92,6 @@ const sync = createSync({
     frequency: 'every 5m',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -112,6 +111,9 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Sync implementation
+
+        // full sync should track deletes
+        await nango.deleteRecordsFromPreviousExecutions("Contact");
     }
 });
 ```
@@ -268,7 +270,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -809,7 +810,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -906,7 +906,8 @@ This example demonstrates:
 4. A reusable mapper function for data transformation
 5. An incremental sync that handles pagination and uses `getMetadata()`
 6. An action that creates new pull requests
-7. Following all best practices for file organization and code structure# Advanced Integration Script Patterns
+7. Following all best practices for file organization and code structure
+# Advanced Integration Script Patterns
 
 This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.
 
@@ -969,7 +970,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -1017,6 +1017,8 @@ const sync = createSync({
             // Save the batch of records
             await nango.batchSave(mappedData, 'OutputData');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions('OutputData');
     }
 });
 ```
@@ -1136,7 +1138,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -1302,7 +1303,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -1581,7 +1581,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: false,
 
     endpoints: [
         {
@@ -1746,7 +1745,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {

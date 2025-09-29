@@ -22,7 +22,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "HibobEmployee",
           "SyncMetadata_hibob_service_user_employees"
@@ -49,7 +49,7 @@
         "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "StandardEmployee",
           "SyncMetadata_hibob_service_user_unifiedemployees"
@@ -60,7 +60,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

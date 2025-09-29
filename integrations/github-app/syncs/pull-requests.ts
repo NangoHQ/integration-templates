@@ -16,7 +16,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'incremental',
-    trackDeletes: false,
 
     endpoints: [
         {

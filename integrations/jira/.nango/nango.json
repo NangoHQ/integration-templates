@@ -75,7 +75,7 @@
           "read:jira-work"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "Project",
           "SyncMetadata_jira_projects"
@@ -103,7 +103,7 @@
           "read:jira-work"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "IssueType",
           "SyncMetadata_jira_issuetypes"
@@ -114,7 +114,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

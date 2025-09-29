@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -49,6 +48,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total employee(s) processed: ${employees.length}`);
+    await nango.deleteRecordsFromPreviousExecutions("HibobEmployee");
     }
 });
 

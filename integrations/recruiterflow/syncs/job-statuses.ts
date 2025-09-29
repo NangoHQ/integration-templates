@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -38,6 +37,7 @@ const sync = createSync({
         const statuses = response.data.data;
 
         await nango.batchSave(statuses.map(toJobStatus), 'RecruiterFlowJobStatus');
+    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowJobStatus");
     }
 });
 

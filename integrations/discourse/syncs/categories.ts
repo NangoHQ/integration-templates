@@ -11,7 +11,6 @@ const sync = createSync({
     frequency: 'every week',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -50,6 +49,8 @@ const sync = createSync({
         }
 
         await nango.batchSave(createCategories, 'Category');
+
+        await nango.deleteRecordsFromPreviousExecutions("Category");
     }
 });
 

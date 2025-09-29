@@ -20,7 +20,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -65,6 +64,7 @@ const sync = createSync({
 
         await nango.log(`Found ${employees.length} employees`);
         await nango.batchSave(employees, 'StandardEmployee');
+    await nango.deleteRecordsFromPreviousExecutions("StandardEmployee");
     }
 });
 

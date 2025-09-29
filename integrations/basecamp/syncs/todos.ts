@@ -16,7 +16,6 @@ const sync = createSync({
     frequency: 'every 1 day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -108,6 +107,8 @@ const sync = createSync({
                 await nango.batchSave(finalTodos, 'BasecampTodo');
             }
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("BasecampTodo");
     }
 });
 

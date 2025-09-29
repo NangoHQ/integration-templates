@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -66,6 +65,7 @@ const sync = createSync({
             const mappedContacts = contacts.map((contact: HubSpotContactNonUndefined) => toContact(contact));
             await nango.batchSave(mappedContacts, 'Contact');
         }
+    await nango.deleteRecordsFromPreviousExecutions("Contact");
     }
 });
 

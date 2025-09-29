@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -62,6 +61,8 @@ const sync = createSync({
         if (books.length > 0) {
             await nango.batchSave(books, 'BookById');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("BookById");
     }
 });
 

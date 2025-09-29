@@ -12,7 +12,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -53,6 +52,8 @@ const sync = createSync({
             const companies = page.map(toCompany);
             await nango.batchSave(companies, 'AttioCompany');
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("AttioCompany");
     }
 });
 

@@ -9,7 +9,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-    trackDeletes: true,
 
     endpoints: [
         {
@@ -37,6 +36,7 @@ const sync = createSync({
                 type: 'link',
                 response_path: 'value',
                 link_path_in_response_body: '@odata.nextLink',
+                // @ts-expect-error use to be able to be a string
                 limit: '100',
                 limit_name_in_request: '$top'
             },
@@ -56,6 +56,8 @@ const sync = createSync({
                 await nango.batchSave(processedCalendars, 'OutlookCalendar');
             }
         }
+
+        await nango.deleteRecordsFromPreviousExecutions("OutlookCalendar");
     }
 });
 
