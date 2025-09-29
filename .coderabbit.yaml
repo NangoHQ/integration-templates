@@ -46,6 +46,7 @@ reviews:
               - Use Zod schemas for input, output, and metadata validation.
               - Define models using Zod schemas in `models.ts` files.
 
+              - If `syncType: 'full'`, then the sync should also have `await nango.deleteRecordsFromPreviousExecutions("ModelName")` as the last line in the sync code
               - If the sync requires metadata, then the sync should be set to `autoStart: false`. The metadata should be defined as a Zod schema in the sync configuration
               - Scopes should be documented in the sync/action configuration
               - For optional properties in models, use the `.optional()` method in Zod schemas

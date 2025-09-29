@@ -43,7 +43,7 @@ _No request body_
   "title?": "<string>",
   "department": {
     "id": "<string>",
-    "name": "<string>"
+    "name": "<string>"  
   },
   "employmentType": "<enum: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER'>",
   "employmentStatus": "<enum: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING'>",
