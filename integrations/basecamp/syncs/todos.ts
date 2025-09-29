@@ -107,7 +107,8 @@ const sync = createSync({
                 await nango.batchSave(finalTodos, 'BasecampTodo');
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("BasecampTodo");
+
+        await nango.deleteRecordsFromPreviousExecutions("BasecampTodo");
     }
 });
 

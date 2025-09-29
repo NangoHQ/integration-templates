@@ -61,7 +61,8 @@ const sync = createSync({
         if (books.length > 0) {
             await nango.batchSave(books, 'BookById');
         }
-    await nango.deleteRecordsFromPreviousExecutions("BookById");
+
+        await nango.deleteRecordsFromPreviousExecutions("BookById");
     }
 });
 

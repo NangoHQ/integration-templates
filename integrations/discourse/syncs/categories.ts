@@ -49,7 +49,8 @@ const sync = createSync({
         }
 
         await nango.batchSave(createCategories, 'Category');
-    await nango.deleteRecordsFromPreviousExecutions("Category");
+
+        await nango.deleteRecordsFromPreviousExecutions("Category");
     }
 });
 

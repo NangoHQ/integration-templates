@@ -56,7 +56,8 @@ const sync = createSync({
             });
             await nango.batchSave(payments, 'ExactPayment');
         }
-    await nango.deleteRecordsFromPreviousExecutions("ExactPayment");
+
+        await nango.deleteRecordsFromPreviousExecutions("ExactPayment");
     }
 });
 

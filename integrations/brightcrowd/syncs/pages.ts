@@ -47,7 +47,8 @@ const sync = createSync({
         for (const bookId of bookIds) {
             await fetchPages(nango, bookId);
         }
-    await nango.deleteRecordsFromPreviousExecutions("Page");
+
+        await nango.deleteRecordsFromPreviousExecutions("Page");
     }
 });
 

@@ -41,7 +41,8 @@ const sync = createSync({
         for await (const eventPage of nango.paginate<GoogleCalendar>(config)) {
             await nango.batchSave(eventPage, 'GoogleCalendar');
         }
-    await nango.deleteRecordsFromPreviousExecutions("GoogleCalendar");
+
+        await nango.deleteRecordsFromPreviousExecutions("GoogleCalendar");
     }
 });
 

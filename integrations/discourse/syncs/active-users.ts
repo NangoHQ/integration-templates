@@ -58,7 +58,8 @@ const sync = createSync({
         for await (const users of nango.paginate<DiscourseUser>(config)) {
             await nango.batchSave(users.map(toUser), 'User');
         }
-    await nango.deleteRecordsFromPreviousExecutions("User");
+
+        await nango.deleteRecordsFromPreviousExecutions("User");
     }
 });
 

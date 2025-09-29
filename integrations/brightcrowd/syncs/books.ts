@@ -49,7 +49,8 @@ const sync = createSync({
             const mappedBooks = books.map(toBook);
             await nango.batchSave(mappedBooks, 'Book');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Book");
+
+        await nango.deleteRecordsFromPreviousExecutions("Book");
     }
 });
 

@@ -69,7 +69,8 @@ const sync = createSync({
             await nango.log(`Saving ${bookAnalytics.length} book analytics`, { level: 'debug' });
             await nango.batchSave(bookAnalytics, 'BookAnalytics');
         }
-    await nango.deleteRecordsFromPreviousExecutions("BookAnalytics");
+
+        await nango.deleteRecordsFromPreviousExecutions("BookAnalytics");
     }
 });
 

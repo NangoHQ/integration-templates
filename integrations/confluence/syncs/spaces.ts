@@ -55,7 +55,8 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} spaces (total records: ${totalRecords})`);
             await nango.batchSave(confluenceSpaces, 'ConfluenceSpace');
         }
-    await nango.deleteRecordsFromPreviousExecutions("ConfluenceSpace");
+
+        await nango.deleteRecordsFromPreviousExecutions("ConfluenceSpace");
     }
 });
 

@@ -55,7 +55,8 @@ const sync = createSync({
                 await nango.batchSave(processedCalendars, 'OutlookCalendar');
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("OutlookCalendar");
+
+        await nango.deleteRecordsFromPreviousExecutions("OutlookCalendar");
     }
 });
 

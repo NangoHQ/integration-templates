@@ -56,7 +56,8 @@ const sync = createSync({
         if (batch.length > 0) {
             await nango.batchSave(batch, 'BoxDocument');
         }
-    await nango.deleteRecordsFromPreviousExecutions("BoxDocument");
+
+        await nango.deleteRecordsFromPreviousExecutions("BoxDocument");
     }
 });
 

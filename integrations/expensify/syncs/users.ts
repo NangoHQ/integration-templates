@@ -72,7 +72,8 @@ const sync = createSync({
         });
 
         await nango.batchSave(users, 'ExpsensifyNullableUser');
-    await nango.deleteRecordsFromPreviousExecutions("ExpsensifyNullableUser");
+
+        await nango.deleteRecordsFromPreviousExecutions("ExpsensifyNullableUser");
     }
 });
 

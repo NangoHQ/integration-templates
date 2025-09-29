@@ -55,7 +55,8 @@ const sync = createSync({
                 await nango.batchSave(activeLocations, 'Location');
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("Location");
+
+        await nango.deleteRecordsFromPreviousExecutions("Location");
     }
 });
 

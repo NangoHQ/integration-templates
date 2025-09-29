@@ -52,7 +52,8 @@ const sync = createSync({
             const companies = page.map(toCompany);
             await nango.batchSave(companies, 'AttioCompany');
         }
-    await nango.deleteRecordsFromPreviousExecutions("AttioCompany");
+
+        await nango.deleteRecordsFromPreviousExecutions("AttioCompany");
     }
 });
 

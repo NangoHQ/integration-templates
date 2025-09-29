@@ -56,7 +56,8 @@ const sync = createSync({
 
             await nango.batchSave(savedFolders, 'Folder');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Folder");
+
+        await nango.deleteRecordsFromPreviousExecutions("Folder");
     }
 });
 
