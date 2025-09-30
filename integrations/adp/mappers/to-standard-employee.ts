@@ -1,6 +1,6 @@
-import type { StandardEmployee, Phone, Email } from "../../models.js";
+import type { StandardEmployee, Phone, Email } from "../models.js";
 import type { ADPEmployee } from "../types.js";
-import { parseDate } from "../../helpers/utils.js";
+import { parseDate } from "../helpers/utils.js";
 
 function mapEmploymentType(
   workerTypeCode:
@@ -133,50 +133,62 @@ export function toStandardEmployee(employee: ADPEmployee): StandardEmployee {
               state: legalAddress.countrySubdivisionLevel1?.shortName || "",
               country: legalAddress.countryCode || "",
               postalCode: legalAddress.postalCode || "",
+              // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "HOME" as const,
             },
           ]
         : []),
     ],
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     phones: [
       ...(workMobile?.formattedNumber
         ? [
             {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "WORK" as const,
               number: workMobile.formattedNumber,
             },
           ]
         : []),
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
       ...(workLandline?.formattedNumber
         ? [
             {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "WORK" as const,
               number: workLandline.formattedNumber,
             },
           ]
         : []),
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
       ...(personalMobile?.formattedNumber
         ? [
             {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "MOBILE" as const,
               number: personalMobile.formattedNumber,
             },
           ]
         : []),
       ...(personalLandline?.formattedNumber
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         ? [
             {
+              // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "HOME" as const,
               number: personalLandline.formattedNumber,
             },
           ]
         : []),
     ] as Phone[],
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     emails: [
       ...(businessEmail?.emailUri
+          // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         ? [{ type: "WORK" as const, address: businessEmail.emailUri }]
         : []),
       ...(personalEmail?.emailUri
+          // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         ? [{ type: "PERSONAL" as const, address: personalEmail.emailUri }]
         : []),
     ] as Email[],

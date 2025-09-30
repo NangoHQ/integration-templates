@@ -1,6 +1,6 @@
-import type { StandardEmployee, Person } from "../../models.js";
+import type { StandardEmployee, Person } from "../models.js";
 import type { EmployeeDetails } from "../types.js";
-import { parseDate } from "../../helpers/utils.js";
+import { parseDate } from "../helpers/utils.js";
 
 /**
  * Sanitizes a string by trimming whitespace and converting null/undefined to an empty string.
@@ -15,6 +15,7 @@ function sanitizeString(value?: string | null): string {
 export function toEmployee(response: EmployeeDetails): StandardEmployee {
   // Address mapping
   const workAddress = {
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     type: "WORK" as const,
     street: sanitizeString(response.employeeAddress1),
     city: sanitizeString(response.city),
@@ -28,6 +29,7 @@ export function toEmployee(response: EmployeeDetails): StandardEmployee {
     ...(sanitizeString(response.workPhone)
       ? [
           {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             type: "WORK" as const,
             number: sanitizeString(response.workPhone),
           },
@@ -36,6 +38,7 @@ export function toEmployee(response: EmployeeDetails): StandardEmployee {
     ...(sanitizeString(response.homePhone)
       ? [
           {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             type: "HOME" as const,
             number: sanitizeString(response.homePhone),
           },
@@ -48,6 +51,7 @@ export function toEmployee(response: EmployeeDetails): StandardEmployee {
     ...(sanitizeString(response.emailAddress)
       ? [
           {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             type: "WORK" as const,
             address: sanitizeString(response.emailAddress),
           },
@@ -56,6 +60,7 @@ export function toEmployee(response: EmployeeDetails): StandardEmployee {
     ...(sanitizeString(response.alternateEmailAddress)
       ? [
           {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             type: "PERSONAL" as const,
             address: sanitizeString(response.alternateEmailAddress),
           },

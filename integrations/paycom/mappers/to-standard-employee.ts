@@ -4,9 +4,9 @@ import type {
   Email,
   Address,
   Person,
-} from "../../models.js";
+} from "../models.js";
 import type { PaycomEmployee, PaycomDetailedEmployee } from "../types.js";
-import { parseDate } from "../../helpers/utils.js";
+import { parseDate } from "../helpers/utils.js";
 
 /**
  * Maps employment type based on Paycom employee status
@@ -152,7 +152,9 @@ export function toStandardEmployee(employee: PaycomEmployee): StandardEmployee {
             number: employee.homephone,
           },
         ]
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
       : ([] as Phone[]),
+     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     emails: [] as Email[],
 
     // Provider-specific data

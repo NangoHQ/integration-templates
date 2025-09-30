@@ -1,4 +1,4 @@
-import type { StandardEmployee } from "../../models.js";
+import type { StandardEmployee } from "../models.js";
 import type { SingleEmployeeResponse } from "../types.js";
 
 /**
@@ -37,6 +37,7 @@ export function toEmployee(employee: SingleEmployeeResponse): StandardEmployee {
       ...(employee.phones?.cell_phone
         ? [
             {
+              // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "MOBILE" as const,
               number: employee.phones.cell_phone,
             },
@@ -45,6 +46,7 @@ export function toEmployee(employee: SingleEmployeeResponse): StandardEmployee {
       ...(employee.phones?.home_phone
         ? [
             {
+              // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "HOME" as const,
               number: employee.phones.home_phone,
             },
@@ -53,6 +55,7 @@ export function toEmployee(employee: SingleEmployeeResponse): StandardEmployee {
       ...(employee.phones?.work_phone
         ? [
             {
+              // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
               type: "WORK" as const,
               number: employee.phones.work_phone,
             },
