@@ -1,11 +1,11 @@
-import type { Address, StandardEmployee } from "../../models.js";
+import type { Address, StandardEmployee } from "../models.js";
 import type {
   NamelyProfile,
   NamelyAddress,
   EmployeeType,
   LinkedGroup,
 } from "../types.js";
-import { parseDate } from "../../helpers/utils.js";
+import { parseDate } from "../helpers/utils.js";
 
 /**
  * Maps a Namely address object to a StandardAddress
