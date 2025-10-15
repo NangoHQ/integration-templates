@@ -1,10 +1,11 @@
 import type { DriveItem } from '../types.js';
+import { OneDriveFileSelection } from '../models.js';
 
-export function toFile(item: DriveItem, driveId: string): any {
+export function toFile(item: DriveItem, driveId: string): OneDriveFileSelection {
     const isFolder = !!item.folder;
     const path = item.parentReference?.path ? `${item.parentReference.path}/${item.name}` : `/${item.name}`;
 
-    const { ['@content.downloadUrl']: _downloadUrl, ...sanitizedRaw } = item as any;
+    const { ['@content.downloadUrl']: _downloadUrl, ...sanitizedRaw } = item;
 
     return {
         id: item.id,

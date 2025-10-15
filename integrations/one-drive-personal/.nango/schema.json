@@ -45,7 +45,7 @@
         },
         "raw_source": {
           "type": "object",
-          "additionalProperties": false
+          "additionalProperties": true
         },
         "updated_at": {
           "type": "string"

@@ -33,7 +33,7 @@ interface ItemReference {
 
 export interface DriveItem {
     '@odata.context'?: string;
-    '@microsoft.graph.downloadUrl'?: string;
+    '@content.downloadUrl'?: string;
     createdBy?: IdentitySet;
     createdDateTime: string;
     cTag: string;

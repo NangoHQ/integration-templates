@@ -42,6 +42,7 @@ const sync = createSync({
 
         for (const fileId of fileIds) {
             const itemConfig: ProxyConfiguration = {
+                //  https://learn.microsoft.com/en-us/graph/api/driveitem-get
                 endpoint: `/v1.0/drive/items/${fileId}`,
                 retries: 10
             };
@@ -78,12 +79,13 @@ export default sync;
 async function fetchFolderContents(
     nango: NangoSyncLocal,
     folderId: string,
-    files: any[],
+    files: OneDriveFileSelection[],
     depth = 3
 ) {
     if (depth === 0) return;
 
     const folderConfig: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children
         endpoint: `/v1.0/drive/items/${folderId}/children`,
         paginate: {
             type: 'link',

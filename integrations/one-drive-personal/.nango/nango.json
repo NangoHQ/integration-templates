@@ -25,7 +25,7 @@
           "offline_access"
         ],
         "sync_type": "full",
-        "track_deletes": false,
+        "track_deletes": true,
         "usedModels": [
           "OneDriveFileSelection",
           "SyncMetadata_one_drive_personal_userfilesselection"
