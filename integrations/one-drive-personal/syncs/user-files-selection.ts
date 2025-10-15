@@ -80,7 +80,8 @@ async function fetchFolderContents(
     nango: NangoSyncLocal,
     folderId: string,
     files: OneDriveFileSelection[],
-    depth = 3
+    depth = 3,
+    batchSize = 100
 ) {
     if (depth === 0) return;
 
@@ -97,12 +98,16 @@ async function fetchFolderContents(
         retries: 10
     };
 
-    for await (const items of nango.paginate(folderConfig)) {
+    for await (const items of nango.paginate<DriveItem>(folderConfig)) {
         for (const item of items) {
-            files.push(toFile(item, 'root'));
+            files.push(toFile(item, item.parentReference?.driveId ?? 'root'));
+            if (files.length >= batchSize) {
+                await nango.batchSave(files, 'OneDriveFileSelection');
+                files.length = 0;
+            }
 
             if (item.folder && item.folder.childCount > 0) {
-                await fetchFolderContents(nango, item.id, files, depth - 1);
+                await fetchFolderContents(nango, item.id, files, depth - 1, batchSize);
             }
         }
     }
