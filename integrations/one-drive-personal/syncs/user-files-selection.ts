@@ -47,22 +47,18 @@ const sync = createSync({
                 retries: 10
             };
 
-            try {
-                const response = await nango.get<DriveItem>(itemConfig);
-                const item = response.data;
+            const response = await nango.get<DriveItem>(itemConfig);
+            const item = response.data;
 
-                files.push(toFile(item, 'root'));
+            files.push(toFile(item, 'root'));
 
-                if (item.folder && item.folder.childCount > 0) {
-                    await fetchFolderContents(nango, fileId, files);
-                }
+            if (item.folder && item.folder.childCount > 0) {
+                await fetchFolderContents(nango, fileId, files);
+            }
 
-                if (files.length >= BATCH_SIZE) {
-                    await nango.batchSave(files, 'OneDriveFileSelection');
-                    files.length = 0;
-                }
-            } catch (error: any) {
-                await nango.log(`Error fetching file or folder ${fileId}: ${error}`);
+            if (files.length >= BATCH_SIZE) {
+                await nango.batchSave(files, 'OneDriveFileSelection');
+                files.length = 0;
             }
         }
 
