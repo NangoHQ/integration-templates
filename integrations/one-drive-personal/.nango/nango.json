@@ -1,0 +1,42 @@
+[
+  {
+    "providerConfigKey": "one-drive-personal",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch selected files and folders from a user's OneDrive personal account based on provided metadata.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files/selected",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_one_drive_personal_userfilesselection",
+        "name": "user-files-selection",
+        "output": [
+          "OneDriveFileSelection"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "OneDrive.ReadWrite",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "OneDriveFileSelection",
+          "SyncMetadata_one_drive_personal_userfilesselection"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]
