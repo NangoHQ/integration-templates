@@ -2,6 +2,7 @@ node_modules/*
 .DS_Store
 .idea/*
 .env
+.env.tools
 tsconfig.tsbuildinfo
 node_modules
 integrations/models.ts
@@ -11,3 +12,4 @@ tmp-run-integration-template
 build/
 dist/
 integrations/.nango
+.claude/settings.local.json
