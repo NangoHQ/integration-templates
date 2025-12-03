@@ -171,6 +171,7 @@ const action = createAction({
             baseConfig
         );
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
         const response = await nango.get(config);
 
         // Return the full response structure
