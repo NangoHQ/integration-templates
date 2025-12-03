@@ -37,6 +37,7 @@ const action = createAction({
     scopes: ['bookmarks:write'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/bookmarks.add
             endpoint: 'bookmarks.add',
             data: {
                 channel_id: input.channel_id,

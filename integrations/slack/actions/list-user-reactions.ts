@@ -35,6 +35,7 @@ const action = createAction({
     scopes: ['reactions:read'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/reactions.list
             endpoint: 'reactions.list',
             params: {
                 ...(input.limit && { limit: input.limit.toString() }),

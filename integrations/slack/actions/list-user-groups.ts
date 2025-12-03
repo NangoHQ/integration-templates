@@ -33,6 +33,7 @@ const action = createAction({
     scopes: ['usergroups:read'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/usergroups.list
             endpoint: 'usergroups.list',
             params: {
                 ...(input.include_disabled !== undefined && { include_disabled: input.include_disabled.toString() }),

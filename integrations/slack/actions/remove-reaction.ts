@@ -33,6 +33,7 @@ const action = createAction({
     scopes: ['reactions:write'],
     exec: async (nango, input): Promise<z.infer<typeof RemoveReactionOutput>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/reactions.remove
             endpoint: 'reactions.remove',
             data: {
                 channel: input.channel_id,

@@ -28,6 +28,7 @@ const action = createAction({
     scopes: ['team:read'],
     exec: async (nango, _input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/team.info
             endpoint: 'team.info',
             retries: 3
         };

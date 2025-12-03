@@ -29,6 +29,7 @@ const action = createAction({
     scopes: ['users:write'],
     exec: async (nango, input): Promise<z.infer<typeof SetUserPresenceOutput>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/users.setPresence
             endpoint: 'users.setPresence',
             data: {
                 presence: input.presence

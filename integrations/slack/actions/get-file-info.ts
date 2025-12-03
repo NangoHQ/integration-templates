@@ -31,6 +31,7 @@ const action = createAction({
     scopes: ['files:read'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/files.info
             endpoint: 'files.info',
             params: {
                 file: input.file

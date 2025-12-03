@@ -28,6 +28,7 @@ const action = createAction({
     scopes: ['emoji:read'],
     exec: async (nango, _input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/emoji.list
             endpoint: 'emoji.list',
             retries: 3
         };

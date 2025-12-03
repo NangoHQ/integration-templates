@@ -29,6 +29,7 @@ const action = createAction({
     scopes: ['files:write'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/files.delete
             endpoint: 'files.delete',
             data: {
                 file: input.file

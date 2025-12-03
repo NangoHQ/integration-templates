@@ -8,6 +8,18 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+// Response type for file objects from Slack API
+interface SlackFile {
+    id: string;
+    name?: string;
+    title?: string;
+    mimetype?: string;
+    filetype?: string;
+    size?: number;
+    created?: number;
+    timestamp?: number;
+}
+
 const ListFilesInput = z.object({
     channel_id: z.string().optional()
         .describe('Filter by channel. Example: "C02MB5ZABA7"'),
@@ -92,7 +104,7 @@ const action = createAction({
 
         return {
             ok: response.data.ok,
-            files: response.data.files.map((file: any) => ({
+            files: response.data.files.map((file: SlackFile) => ({
                 id: file.id,
                 name: file.name ?? null,
                 title: file.title ?? null,

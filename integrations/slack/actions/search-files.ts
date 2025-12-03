@@ -21,6 +21,19 @@ const SearchFilesInput = z.object({
         .describe('Sort direction. Default: "desc"')
 });
 
+// Response type for file matches from Slack API
+interface SlackFileMatch {
+    id: string;
+    name: string;
+    title: string;
+    mimetype: string;
+    filetype: string;
+    size: number;
+    url_private: string;
+    permalink: string;
+    timestamp: number;
+}
+
 // Output schema
 const SearchFile = z.object({
     id: z.string()
@@ -83,11 +96,25 @@ async function addBearerTokenToConfig(
     proxyConfig: ProxyConfiguration
 ): Promise<ProxyConfiguration> {
     const connection = await nango.getConnection();
-    const credentials = connection.credentials as Record<string, any>;
+    const credentials = connection.credentials;
+
+    if (!credentials || typeof credentials !== 'object') {
+        throw new nango.ActionError({
+            message: `No credentials found for connection.`
+        });
+    }
 
     // Navigate the dot-notation path to find the token
     const keys = tokenPath.split('.');
-    const token = keys.reduce((obj, key) => obj?.[key], credentials);
+    let token: unknown = credentials;
+    for (const key of keys) {
+        if (token && typeof token === 'object' && key in token) {
+            token = (token as Record<string, unknown>)[key];
+        } else {
+            token = undefined;
+            break;
+        }
+    }
 
     if (!token || typeof token !== 'string') {
         throw new nango.ActionError({
@@ -146,7 +173,7 @@ const action = createAction({
             ok: response.data.ok,
             files: {
                 total: response.data.files.total,
-                matches: response.data.files.matches.map((match: any) => ({
+                matches: response.data.files.matches.map((match: SlackFileMatch) => ({
                     id: match.id,
                     name: match.name,
                     title: match.title,

@@ -31,6 +31,7 @@ const action = createAction({
     scopes: ['pins:read'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/pins.list
             endpoint: 'pins.list',
             params: {
                 channel: input.channel_id

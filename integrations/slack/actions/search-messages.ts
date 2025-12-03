@@ -22,6 +22,20 @@ const SearchMessagesInput = z.object({
         .describe('Sort direction. Default: "desc"')
 });
 
+// Response type for message matches from Slack API
+interface SlackMessageMatch {
+    type: string;
+    ts: string;
+    text: string;
+    channel: {
+        id: string;
+        name: string;
+    };
+    user?: string;
+    username?: string;
+    permalink: string;
+}
+
 // Output schema
 const SearchMessage = z.object({
     type: z.string()
@@ -84,11 +98,25 @@ async function addBearerTokenToConfig(
     proxyConfig: ProxyConfiguration
 ): Promise<ProxyConfiguration> {
     const connection = await nango.getConnection();
-    const credentials = connection.credentials as Record<string, any>;
+    const credentials = connection.credentials;
+
+    if (!credentials || typeof credentials !== 'object') {
+        throw new nango.ActionError({
+            message: `No credentials found for connection.`
+        });
+    }
 
     // Navigate the dot-notation path to find the token
     const keys = tokenPath.split('.');
-    const token = keys.reduce((obj, key) => obj?.[key], credentials);
+    let token: unknown = credentials;
+    for (const key of keys) {
+        if (token && typeof token === 'object' && key in token) {
+            token = (token as Record<string, unknown>)[key];
+        } else {
+            token = undefined;
+            break;
+        }
+    }
 
     if (!token || typeof token !== 'string') {
         throw new nango.ActionError({
@@ -147,7 +175,7 @@ const action = createAction({
             ok: response.data.ok,
             messages: {
                 total: response.data.messages.total,
-                matches: response.data.messages.matches.map((match: any) => ({
+                matches: response.data.messages.matches.map((match: SlackMessageMatch) => ({
                     type: match.type,
                     ts: match.ts,
                     text: match.text,

@@ -33,6 +33,7 @@ const action = createAction({
     scopes: ['reactions:write'],
     exec: async (nango, input): Promise<z.infer<typeof AddReactionOutput>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/reactions.add
             endpoint: 'reactions.add',
             data: {
                 channel: input.channel_id,

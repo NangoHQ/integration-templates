@@ -35,6 +35,7 @@ const action = createAction({
     scopes: ['dnd:read'],
     exec: async (nango, input): Promise<z.infer<typeof Output>> => {
         const config: ProxyConfiguration = {
+            // https://api.slack.com/methods/dnd.info
             endpoint: 'dnd.info',
             params: {
                 ...(input.user_id && { user: input.user_id })
