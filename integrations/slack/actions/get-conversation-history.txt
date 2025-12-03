@@ -1,0 +1,1 @@
+Fetches message history from a channel or conversation. API: https://api.slack.com/methods/conversations.history. Input: channel: string, limit?: number, cursor?: string, oldest?: string, latest?: string. Output: ok: boolean, messages: array, has_more: boolean, response_metadata: object. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "limit": 10 }

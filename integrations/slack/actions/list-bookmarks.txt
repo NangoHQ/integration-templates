@@ -1,0 +1,2 @@
+Lists all bookmarks in a channel
+API: https://api.slack.com/methods/bookmarks.list

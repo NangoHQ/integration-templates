@@ -1,0 +1,5 @@
+Adds an emoji reaction to a message
+API: https://api.slack.com/methods/reactions.add
+Input: channel: string, timestamp: string, name: string
+Output: ok: boolean
+Test Input: { "channel": "C02MB5ZABA7", "timestamp": "1763887648.424429", "name": "thumbsup" }

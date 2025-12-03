@@ -1,0 +1,6 @@
+Moves the read cursor in a conversation
+
+API: https://api.slack.com/methods/conversations.mark
+Input: channel: string, ts: string
+Output: ok: boolean
+Test Input: { "channel": "C02MB5ZABA7", "ts": "1763887648.424429" }

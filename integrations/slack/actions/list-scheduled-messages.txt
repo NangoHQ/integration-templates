@@ -1,0 +1,1 @@
+Retrieves pending scheduled messages from workspace. API: https://api.slack.com/methods/chat.scheduledMessages.list. Input: channel?: string, latest?: number, oldest?: number. Output: ok: boolean, scheduled_messages: array. Connection ID: action-builder.

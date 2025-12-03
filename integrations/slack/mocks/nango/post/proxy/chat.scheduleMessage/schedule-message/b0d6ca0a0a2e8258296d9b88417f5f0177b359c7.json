@@ -1,0 +1,83 @@
+{
+  "method": "post",
+  "endpoint": "chat.scheduleMessage",
+  "requestIdentityHash": "b0d6ca0a0a2e8258296d9b88417f5f0177b359c7",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "chat.scheduleMessage",
+    "params": [],
+    "headers": [],
+    "data": "{\"channel\":\"C02MB5ZABA7\",\"text\":\"Scheduled test message\",\"post_at\":1764244800}"
+  },
+  "response": {
+    "ok": true,
+    "scheduled_message_id": "Q0A0FA7K22V",
+    "channel": "C02MB5ZABA7",
+    "post_at": 1764244800,
+    "message": {
+      "user": "U07E8G7J57T",
+      "type": "message",
+      "bot_id": "B07DVS1FB6E",
+      "app_id": "A07DY9P697W",
+      "text": "Scheduled test message",
+      "team": "T02LWFGTCDV",
+      "bot_profile": {
+        "id": "B07DVS1FB6E",
+        "deleted": false,
+        "name": "Scatterspoke Test Internal",
+        "updated": 1721833970,
+        "app_id": "A07DY9P697W",
+        "user_id": "U07E8G7J57T",
+        "icons": {
+          "image_36": "https://a.slack-edge.com/80588/img/plugins/app/bot_36.png",
+          "image_48": "https://a.slack-edge.com/80588/img/plugins/app/bot_48.png",
+          "image_72": "https://a.slack-edge.com/80588/img/plugins/app/service_72.png"
+        },
+        "team_id": "T02LWFGTCDV"
+      },
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "y+b",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Scheduled test message"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "warning": "missing_charset",
+    "response_metadata": {
+      "warnings": [
+        "missing_charset"
+      ]
+    }
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 26 Nov 2025 20:12:12 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "881",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "997",
+    "x-ratelimit-reset": "1764187991",
+    "etag": "W/\"371-A3DhB4XZIQjZW97KLJyb8kS4FVc\""
+  }
+}

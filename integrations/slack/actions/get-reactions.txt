@@ -1,0 +1,2 @@
+Gets all reactions for a single message or file
+API: https://api.slack.com/methods/reactions.get

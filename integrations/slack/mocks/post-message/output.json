@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "ts": "1764187268.105539",
+  "channel": "C02MB5ZABA7",
+  "message": {
+    "text": "Hello from Nango action test!",
+    "type": "message",
+    "user": "U07E8G7J57T"
+  }
+}

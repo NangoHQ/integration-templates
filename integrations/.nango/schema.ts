@@ -3,777 +3,695 @@
 // You can version this file
 // ---------------------------
 
-export interface SyncMetadata_lever_opportunities {
+export interface SyncMetadata_slack_users {
 };
 
-export interface LeverOpportunity {
+export interface SlackUser {
+  id: string;
+  team_id: string;
+  name: string;
+  deleted: boolean;
+  tz: string;
+  tz_label: string;
+  tz_offset: number;
+  profile: {  avatar_hash: string;
+  real_name: string | null;
+  display_name: string | null;
+  real_name_normalized: string | null;
+  display_name_normalized: string | null;
+  email: string | null;
+  image_original?: string | null | undefined;};
+  is_admin: boolean;
+  is_owner: boolean;
+  is_primary_owner: boolean;
+  is_restricted: boolean;
+  is_ultra_restricted: boolean;
+  is_bot: boolean;
+  updated: number;
+  is_app_user: boolean;
+  raw_json: string;
+};
+
+export interface SyncMetadata_slack_channels {
+};
+
+export interface SlackChannel {
   id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
-};
-
-export interface SyncMetadata_lever_opportunitiesapplications {
-};
-
-export interface LeverOpportunityApplication {
-  id: string;
-  opportunityId: string;
-  candidateId: string;
-  createdAt: number;
-  type: string;
-  posting: string;
-  postingHiringManager: string;
-  postingOwner: string;
-  user: string;
-  name: string;
-  email: string;
-  phone: {  type: string;
-  value: string;};
-  requisitionForHire: {  id: string;
-  requisitionCode: string;
-  hiringManagerOnHire: string;};
-  ownerId: string;
-  hiringManager: string;
-  company: string;
-  links: string[];
-  comments: string;
-  customQuestions: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-};
-
-export interface SyncMetadata_lever_opportunitiesfeedbacks {
-};
-
-export interface LeverOpportunityFeedback {
-  id: string;
-  type: string;
-  text: string;
-  instructions: string;
-  fields: string[];
-  baseTemplateId: string;
-  interview: string;
-  panel: string;
-  user: string;
-  createdAt: number;
-  completedAt: number;
-  updatedAt: number;
-  deletedAt: number;
-};
-
-export interface SyncMetadata_lever_opportunitiesinterviews {
-};
-
-export interface LeverOpportunityInterview {
-  id: string;
-  panel: string;
-  subject: string;
-  note: string;
-  interviewers: string[];
-  timezone: string;
-  createdAt: number;
-  date: number;
-  duration: number;
-  location: string;
-  feedbackTemplate: string;
-  feedbackForms: string[];
-  feedbackReminder: string;
-  user: string;
-  stage: string;
-  canceledAt: number;
-  postings: string[];
-  gcalEventUrl: string;
-};
-
-export interface SyncMetadata_lever_opportunitiesnotes {
-};
-
-export interface LeverOpportunityNote {
-  id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
-};
-
-export interface SyncMetadata_lever_opportunitiesoffers {
-};
-
-export interface LeverOpportunityOffer {
-  id: string;
-  createdAt: number;
-  status: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  created: number;
   creator: string;
-  fields: string[];
-  sentDocument: {  fileName: string;
-  uploadedAt: number;
-  downloadUrl: string;};
-  signedDocument: {  fileName: string;
-  uploadedAt: number;
-  downloadUrl: string;};
+  is_archived: boolean;
+  is_general: boolean;
+  name_normalized: string;
+  is_shared: boolean;
+  is_private: boolean;
+  is_mpim: boolean;
+  updated: number;
+  num_members: number;
+  raw_json: string;
 };
 
-export interface SyncMetadata_lever_postings {
+export interface SyncMetadata_slack_messages {
+  channelsLastSyncDate?: {  [key: string]: string;} | undefined;
 };
 
-export interface LeverPosting {
-  perform_as?: string | undefined;
+export interface SlackMessage {
   id: string;
-  text: string;
-  createdAt: number;
-  updatedAt: number;
-  user: string;
-  owner: string;
-  hiringManager: string;
-  confidentiality: string;
-  categories: {  team: string;
-  department: string;
-  location: string;
-  allLocations: string[];
-  commitment: string;
-  level: string;};
-  content: {  description: string;
-  descriptionHtml: string;
-  lists: string[];
-  closing: string;
-  closingHtml: string;};
-  country: string;
-  followers: string[];
-  tags: string[];
-  state: string;
-  distributionChannels: string[];
-  reqCode: string;
-  requisitionCodes: string[];
-  salaryDescription: string;
-  salaryDescriptionHtml: string;
-  salaryRange: {  max: number;
-  min: number;
-  currency: string;
-  interval: string;};
-  urls: {  list: string;
-  show: string;
-  apply: string;};
-  workplaceType: string;
+  ts: string;
+  channel_id: string;
+  thread_ts: string | null;
+  app_id: string | null;
+  bot_id: string | null;
+  display_as_bot: boolean | null;
+  is_locked: boolean | null;
+  metadata: {  event_type: string;};
+  parent_user_id: string | null;
+  subtype: string | null;
+  text: string | null;
+  topic: string | null;
+  user_id: string | null;
+  raw_json: string;
 };
 
-export interface SyncMetadata_lever_postingsquestions {
-};
-
-export interface LeverPostingApply {
+export interface SlackMessageReply {
   id: string;
-  text: string;
-  customQuestions: string[];
-  eeoQuestions: string[];
-  personalInformation: string[];
-  urls: string[];
+  ts: string;
+  channel_id: string;
+  thread_ts: string | null;
+  app_id: string | null;
+  bot_id: string | null;
+  display_as_bot: boolean | null;
+  is_locked: boolean | null;
+  metadata: {  event_type: string;};
+  parent_user_id: string | null;
+  subtype: string | null;
+  text: string | null;
+  topic: string | null;
+  user_id: string | null;
+  root: {  message_id: string | null;
+  ts: string;};
+  raw_json: string;
 };
 
-export interface SyncMetadata_lever_stages {
-};
-
-export interface LeverStage {
+export interface SlackMessageReaction {
   id: string;
-  text: string;
+  message_ts: string;
+  thread_ts: string | null;
+  channel_id: string;
+  user_id: string;
+  reaction_name: string;
 };
 
-export interface ActionInput_lever_createnote {
-  opportunityId: string;
-  perform_as: string;
-  note_id: string;
-  value: string;
-  secret: boolean;
-  score: number;
-  notifyFollowers: boolean;
-  createdAt: number;
+export interface ActionInput_slack_addbookmark {
+  channel_id: string;
+  title: string;
+  type: string;
+  link: string;
 };
 
-export interface ActionOutput_lever_createnote {
-  id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
+export interface ActionOutput_slack_addbookmark {
+  ok: boolean;
+  bookmark?: any | undefined;
 };
 
-export interface ActionInput_lever_createopportunity {
-  perform_as: string;
-  parse: boolean;
-  perform_as_posting_owner: boolean;
+export interface ActionInput_slack_addreaction {
+  channel_id: string;
+  message_ts: string;
+  reaction_name: string;
+};
+
+export interface ActionOutput_slack_addreaction {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_archivechannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_archivechannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_completefileupload {
+  files: any[];
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_completefileupload {
+  ok: boolean;
+  files: any[];
+};
+
+export interface ActionInput_slack_createchannel {
   name: string;
-  headline: string;
-  stage: string;
-  location: string;
-  phones: ({  value: string;
-  type: string;})[];
-  emails: string;
-  links: string[];
-  tags: string[];
-  sources: string[];
-  origin: string;
-  owner: string;
-  followers: string[];
-  postings: string[];
-  createdAt: number;
-  archived: {  archivedAt: number;
-  reason: string;};
-  contact: string[];
+  is_private?: boolean | undefined;
 };
 
-export interface ActionOutput_lever_createopportunity {
-  id: string;
+export interface ActionOutput_slack_createchannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_deletefile {
+  file: string;
+};
+
+export interface ActionOutput_slack_deletefile {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_deletemessage {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_deletemessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+};
+
+export interface ActionInput_slack_getchannelinfo {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_getchannelinfo {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_getchannelmembers {
+  channel_id: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_getchannelmembers {
+  ok: boolean;
+  members: string[];
+  response_metadata?: {  next_cursor?: string | undefined;};
+};
+
+export interface ActionInput_slack_getconversationhistory {
+  channel_id: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+  oldest_ts?: string | undefined;
+  latest_ts?: string | undefined;
+};
+
+export interface ActionOutput_slack_getconversationhistory {
+  ok: boolean;
+  messages: any[];
+  has_more: boolean;
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_getdndinfo {
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_getdndinfo {
+  ok: boolean;
+  dnd_enabled: boolean;
+  next_dnd_start_ts: number;
+  next_dnd_end_ts: number;
+};
+
+export interface ActionInput_slack_getfileinfo {
+  file: string;
+};
+
+export interface ActionOutput_slack_getfileinfo {
+  ok: boolean;
+  file?: any | undefined;
+};
+
+export interface ActionInput_slack_getreactions {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_getreactions {
+  ok: boolean;
+  type?: string | undefined;
+  message?: any | undefined;
+};
+
+export interface ActionInput_slack_getteaminfo {
+};
+
+export interface ActionOutput_slack_getteaminfo {
+  ok: boolean;
+  team?: any | undefined;
+};
+
+export interface ActionInput_slack_getthreadreplies {
+  channel_id: string;
+  thread_ts: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_getthreadreplies {
+  ok: boolean;
+  messages: any[];
+  has_more: boolean;
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_getuploadurl {
+  filename: string;
+  length: number;
+};
+
+export interface ActionOutput_slack_getuploadurl {
+  ok: boolean;
+  upload_url: string;
+  file_id: string;
+};
+
+export interface ActionInput_slack_getuserinfo {
+  user_id: string;
+};
+
+export interface ActionOutput_slack_getuserinfo {
+  ok: boolean;
+  user?: any | undefined;
+};
+
+export interface ActionInput_slack_getuserpresence {
+  user_id: string;
+};
+
+export interface ActionOutput_slack_getuserpresence {
+  ok: boolean;
+  presence: string;
+};
+
+export interface ActionInput_slack_getuserprofile {
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_getuserprofile {
+  ok: boolean;
+  profile?: any | undefined;
+};
+
+export interface ActionInput_slack_invitetochannel {
+  channel_id: string;
+  user_ids: string;
+};
+
+export interface ActionOutput_slack_invitetochannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_joinchannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_joinchannel {
+  ok: boolean;
+  channel: {  id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  created: number;
+  is_archived: boolean;
+  is_general: boolean;
+  unlinked: number;
+  name_normalized: string;
+  is_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  pending_shared: any[];
+  context_team_id: string;
+  updated: number;
+  parent_conversation: string;
+  creator: string;
+  is_ext_shared: boolean;
+  shared_team_ids: string[];
+  pending_connected_team_ids: string[];
+  is_member: boolean;
+  topic: {  value: string;
+  creator: string;
+  last_set: number;};
+  purpose: {  value: string;
+  creator: string;
+  last_set: number;};
+  previous_names: string[];};
 };
 
-export type ActionInput_lever_getstages = void
-
-export interface ActionOutput_lever_getstages {
-  stages: ({  id: string;
-  text: string;})[];
+export interface ActionInput_slack_leavechannel {
+  channel_id: string;
 };
 
-export type ActionInput_lever_users = void
+export interface ActionOutput_slack_leavechannel {
+  ok: boolean;
+};
 
-export interface ActionOutput_lever_users {
-  users: ({  id: string;
-  name: string;
-  username: string;
+export interface ActionInput_slack_listbookmarks {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_listbookmarks {
+  ok: boolean;
+  bookmarks: any[];
+};
+
+export interface ActionInput_slack_listchannels {
+  types?: string | undefined;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listchannels {
+  ok: boolean;
+  channels: any[];
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_listcustomemoji {
+};
+
+export interface ActionOutput_slack_listcustomemoji {
+  ok: boolean;
+  emoji?: any | undefined;
+};
+
+export interface ActionInput_slack_listfiles {
+  channel_id?: string | undefined;
+  user_id?: string | undefined;
+  types?: string | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+};
+
+export interface ActionOutput_slack_listfiles {
+  ok: boolean;
+  files: ({  id: string;
+  name: string | null;
+  title: string | null;
+  mimetype: string | null;
+  filetype: string | null;
+  size: number | null;
+  created: number | null;
+  timestamp: number | null;})[];
+  paging: {  count: number;
+  total: number;
+  page: number;
+  pages: number;};
+};
+
+export interface ActionInput_slack_listpins {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_listpins {
+  ok: boolean;
+  items: any[];
+};
+
+export interface ActionInput_slack_listscheduledmessages {
+  channel_id?: string | undefined;
+  latest_ts?: number | undefined;
+  oldest_ts?: number | undefined;
+};
+
+export interface ActionOutput_slack_listscheduledmessages {
+  ok: boolean;
+  scheduled_messages: any[];
+};
+
+export interface ActionInput_slack_listusergroupmembers {
+  usergroup: string;
+};
+
+export interface ActionOutput_slack_listusergroupmembers {
+  ok: boolean;
+  users: string[];
+};
+
+export interface ActionInput_slack_listusergroups {
+  include_disabled?: boolean | undefined;
+  include_count?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_listusergroups {
+  ok: boolean;
+  usergroups: any[];
+};
+
+export interface ActionInput_slack_listuserreactions {
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listuserreactions {
+  ok: boolean;
+  items: any[];
+  response_metadata?: any | undefined;
+};
+
+export interface ActionInput_slack_listusers {
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listusers {
+  ok: boolean;
+  members: any[];
+  response_metadata?: any | undefined;
+};
+
+export interface ActionInput_slack_lookupuserbyemail {
   email: string;
-  accessRole: string;
-  photo: string | null;
-  createdAt: number;
-  deactivatedAt: string | null;
-  externalDirectoryId: string | null;
-  linkedContactIds: string[] | null;
-  jobTitle: string | null;
-  managerId: string | null;})[];
 };
 
-export type ActionInput_lever_getpostings = void
+export interface ActionOutput_slack_lookupuserbyemail {
+  ok: boolean;
+  user?: any | undefined;
+};
 
-export interface ActionOutput_lever_getpostings {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
+export interface ActionInput_slack_markasread {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_markasread {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_opendm {
+  users: string;
+  return_im?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_opendm {
+  ok: boolean;
+  channel: {  id: string;};
+};
+
+export interface ActionInput_slack_pinmessage {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_pinmessage {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_postmessage {
+  channel_id: string;
+  text: string;
+  thread_ts?: string | undefined;
+  blocks?: any[] | undefined;
+};
+
+export interface ActionOutput_slack_postmessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+  message: {  text: string;
+  type: string;
+  user: string;};
+};
+
+export interface ActionInput_slack_removefromchannel {
+  channel_id: string;
+  user_id: string;
+};
+
+export interface ActionOutput_slack_removefromchannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_removereaction {
+  channel_id: string;
+  message_ts: string;
+  reaction_name: string;
+};
+
+export interface ActionOutput_slack_removereaction {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_renamechannel {
+  channel_id: string;
+  channel_name: string;
+};
+
+export interface ActionOutput_slack_renamechannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_schedulemessage {
+  channel_id: string;
+  text: string;
+  post_at: number;
+  thread_ts?: string | undefined;
+};
+
+export interface ActionOutput_slack_schedulemessage {
+  ok: boolean;
+  scheduled_message_id: string;
+  post_at: number;
+};
+
+export interface ActionInput_slack_searchfiles {
+  query: string;
+  count?: number | undefined;
+  page?: number | undefined;
+  sort?: 'score' | 'timestamp' | undefined;
+  sort_dir?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_slack_searchfiles {
+  ok: boolean;
+  files: {  total: number;
+  matches: ({  id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  title: string;
+  mimetype: string;
+  filetype: string;
+  size: number;
+  url_private: string;
+  permalink: string;
+  timestamp: number;})[];
+  pagination: {  total_count: number;
+  page: number;
+  per_page: number;
+  page_count: number;
+  first: number;
+  last: number;};};
 };
 
-export type ActionInput_lever_getarchivereasons = void
-
-export interface ActionOutput_lever_getarchivereasons {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_searchmessages {
+  query: string;
+  count?: number | undefined;
+  page?: number | undefined;
+  sort?: 'score' | 'timestamp' | undefined;
+  sort_dir?: 'asc' | 'desc' | undefined;
 };
 
-export interface ActionInput_lever_getposting {
-  id: string;
+export interface ActionOutput_slack_searchmessages {
+  ok: boolean;
+  messages: {  total: number;
+  matches: ({  type: string;
+  ts: string;
+  text: string;
+  channel: {  id: string;
+  name: string;};
+  user: string | null;
+  username: string | null;
+  permalink: string;})[];
+  pagination: {  total_count: number;
+  page: number;
+  per_page: number;
+  page_count: number;
+  first: number;
+  last: number;};};
 };
 
-export interface ActionOutput_lever_getposting {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_sendmessage {
+  channel: string;
+  text: string;
 };
 
-export interface ActionInput_lever_updateopportunitylinks {
-  perform_as?: string | undefined;
-  links: string[];
-  opportunityId: string;
-  delete: boolean;
+export interface ActionOutput_slack_sendmessage {
+  ok: boolean;
+  channel?: string | undefined;
+  ts?: string | undefined;
+  message?: string | undefined;
+  warning?: string | undefined;
+  error?: string | undefined;
+  raw_json: string;
 };
 
-export interface ActionOutput_lever_updateopportunitylinks {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_setchannelpurpose {
+  channel_id: string;
+  purpose: string;
 };
 
-export interface ActionInput_lever_updateopportunitysources {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  sources: string[];
-  delete: boolean;
+export interface ActionOutput_slack_setchannelpurpose {
+  ok: boolean;
+  purpose: string;
 };
 
-export interface ActionOutput_lever_updateopportunitysources {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_setchanneltopic {
+  channel_id: string;
+  topic: string;
 };
 
-export interface ActionInput_lever_updateopportunitystage {
-  perform_as?: string | undefined;
-  stage: string;
-  opportunityId: string;
+export interface ActionOutput_slack_setchanneltopic {
+  ok: boolean;
+  topic: string;
 };
 
-export interface ActionOutput_lever_updateopportunitystage {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_setuserpresence {
+  presence: string;
 };
 
-export interface ActionInput_lever_updateopportunitytags {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  tags: string[];
-  delete: boolean;
+export interface ActionOutput_slack_setuserpresence {
+  ok: boolean;
 };
 
-export interface ActionOutput_lever_updateopportunitytags {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_unarchivechannel {
+  channel_id: string;
 };
 
-export interface ActionInput_lever_updateopportunityarchived {
-  perform_as?: string | undefined;
-  reason: string;
-  requisitionId?: string | undefined;
-  opportunityId: string;
-  cleanInterviews?: boolean | undefined;
+export interface ActionOutput_slack_unarchivechannel {
+  ok: boolean;
 };
 
-export interface ActionOutput_lever_updateopportunityarchived {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_unpinmessage {
+  channel_id: string;
+  message_ts: string;
 };
 
-export interface ActionInput_lever_applyposting {
-  postId: string;
-  send_confirmation_email?: boolean | undefined;
-  personalInformation: ({  name: string;
-  value: string;})[];
-  eeoResponses: {};
-  urls: ({  name: string;
-  value: string;})[];
-  CustomQuestions: ({  id: string;
-  fields: ({  value: string;})[];})[];
-  ipAddress?: string | undefined;
-  source?: string | undefined;
-  consent?: {  marketing: {  provided: boolean;
-  compliancePolicyId: string;};
-  store: {  provided: boolean;
-  compliancePolicyId: string;};} | undefined;
-  diversitySurvey?: {  surveyId: string;
-  candidateSelectedLocation: string;
-  responses: ({  questionId: string;
-  questionText: string;
-  questionType: string;
-  answer: string;})[];} | undefined;
-  origin?: string | undefined;
+export interface ActionOutput_slack_unpinmessage {
+  ok: boolean;
 };
 
-export interface ActionOutput_lever_applyposting {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+export interface ActionInput_slack_updatemessage {
+  channel_id: string;
+  message_ts: string;
+  text?: string | undefined;
+  blocks?: any[] | undefined;
 };
 
-export interface ActionInput_lever_updateopportunity {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  delete?: boolean | undefined;
-  links: string[];
-  sources: string[];
-  stage?: string | undefined;
-  tags: string[];
-  reason?: string | undefined;
-  cleanInterviews?: boolean | undefined;
-  requisitionId?: string | undefined;
-};
-
-export interface ActionOutput_lever_updateopportunity {
-  data: {  id?: string | undefined;
-  name?: string | undefined;
-  headline?: string | undefined;
-  contact?: string | undefined;
-  emails?: string[] | undefined;
-  phones?: string[] | undefined;
-  confidentiality?: string | undefined;
-  location?: string | undefined;
-  links?: string[] | undefined;
-  archived?: {  reason?: string | undefined;
-  archivedAt?: number | undefined;};
-  createdAt?: number | undefined;
-  updatedAt?: number | undefined;
-  lastInteractionAt?: number | undefined;
-  lastAdvancedAt?: number | undefined;
-  snoozedUntil?: number | null | undefined;
-  archivedAt?: number | undefined;
-  archiveReason?: string | undefined;
-  stage?: string | undefined;
-  stageChanges?: ({  0: {  toStageId: string;
-  toStageIndex: number;
-  updatedAt: number;
-  userId: string;};
-  1: string;})[] | undefined;
-  owner?: string | undefined;
-  tags?: string[] | undefined;
-  sources?: string[] | undefined;
-  origin?: string | undefined;
-  sourcedBy?: string | undefined;
-  applications?: string[] | undefined;
-  resume?: string | undefined;
-  followers?: string[] | undefined;
-  urls?: {  list?: string | undefined;
-  show?: string | undefined;};
-  dataProtection?: {} | null | undefined;
-  isAnonymized?: boolean | undefined;
-  opportunityLocation?: string | undefined;};
+export interface ActionOutput_slack_updatemessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+  text: string;
 };

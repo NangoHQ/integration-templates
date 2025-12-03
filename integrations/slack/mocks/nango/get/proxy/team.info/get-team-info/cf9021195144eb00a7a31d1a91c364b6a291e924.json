@@ -1,0 +1,59 @@
+{
+  "method": "get",
+  "endpoint": "team.info",
+  "requestIdentityHash": "cf9021195144eb00a7a31d1a91c364b6a291e924",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "team.info",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "ok": true,
+    "team": {
+      "id": "T02LWFGTCDV",
+      "name": "Nango",
+      "url": "https://nangohq.slack.com/",
+      "domain": "nangohq",
+      "email_domain": "nango.dev",
+      "icon": {
+        "image_default": false,
+        "image_34": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_34.png",
+        "image_44": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_44.png",
+        "image_68": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_68.png",
+        "image_88": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_88.png",
+        "image_102": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_102.png",
+        "image_230": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_230.png",
+        "image_132": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_132.png"
+      },
+      "avatar_base_url": "https://ca.slack-edge.com/",
+      "is_verified": false,
+      "external_org_migrations": {
+        "date_updated": 1763958177,
+        "current": []
+      },
+      "lob_sales_home_enabled": false,
+      "is_sfdc_auto_slack": false
+    }
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 26 Nov 2025 22:17:26 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1043",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "985",
+    "x-ratelimit-reset": "1764195448",
+    "etag": "W/\"413-iv3wdUBQIwRfGF/2TkMb3pvtQjY\""
+  }
+}

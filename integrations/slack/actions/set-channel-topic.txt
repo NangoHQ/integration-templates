@@ -1,0 +1,1 @@
+Updates a channels topic. API: https://api.slack.com/methods/conversations.setTopic. Input: channel: string, topic: string. Output: ok: boolean, topic: string. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "topic": "Test topic from Nango" }

@@ -1,0 +1,6 @@
+Lists all users in a workspace including active and deactivated
+
+API: https://api.slack.com/methods/users.list
+Input: limit?: number, cursor?: string
+Output: ok: boolean, members: array, response_metadata: object
+Test Input: {}

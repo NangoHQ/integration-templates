@@ -1,0 +1,1 @@
+Lists users within a specific user group. API: https://api.slack.com/methods/usergroups.users.list. Input: usergroup: string. Output: ok: boolean, users: array. Connection ID: action-builder. Test input: { "usergroup": "S083F076MSN" }

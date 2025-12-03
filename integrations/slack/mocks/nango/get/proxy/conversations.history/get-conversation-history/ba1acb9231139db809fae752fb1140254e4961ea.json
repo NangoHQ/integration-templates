@@ -1,0 +1,680 @@
+{
+  "method": "get",
+  "endpoint": "conversations.history",
+  "requestIdentityHash": "ba1acb9231139db809fae752fb1140254e4961ea",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "conversations.history",
+    "params": [
+      [
+        "channel",
+        "C02MB5ZABA7"
+      ],
+      [
+        "limit",
+        "10"
+      ]
+    ],
+    "headers": []
+  },
+  "response": {
+    "ok": true,
+    "messages": [
+      {
+        "user": "U056C66B8L8",
+        "type": "message",
+        "ts": "1764157437.193559",
+        "client_msg_id": "7456f3d3-88c9-40aa-ace2-3a715e151e29",
+        "text": "^ as a result of <#C09R9PY3BED|>",
+        "team": "T02LWFGTCDV",
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "xfVYL",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "^ as a result of "
+                  },
+                  {
+                    "type": "channel",
+                    "channel_id": "C09R9PY3BED"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subtype": "channel_join",
+        "user": "U07E8G7J57T",
+        "text": "<@U07E8G7J57T> has joined the channel",
+        "type": "message",
+        "ts": "1764157246.167799"
+      },
+      {
+        "text": "Fun (and relevant with the recent AWS/Cloudflare outages)",
+        "files": [
+          {
+            "id": "F09UP1WKE30",
+            "created": 1763887645,
+            "timestamp": 1763887645,
+            "name": "IMG_4429.jpg",
+            "title": "IMG_4429",
+            "mimetype": "image/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U03HVGHB9J5",
+            "user_team": "T02LWFGTCDV",
+            "editable": false,
+            "size": 72094,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UP1WKE30/img_4429.jpg",
+            "url_private_download": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UP1WKE30/download/img_4429.jpg",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_64.jpg",
+            "thumb_80": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_80.jpg",
+            "thumb_360": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_360.jpg",
+            "thumb_360_w": 285,
+            "thumb_360_h": 360,
+            "thumb_480": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_480.jpg",
+            "thumb_480_w": 379,
+            "thumb_480_h": 480,
+            "thumb_160": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_160.jpg",
+            "thumb_720": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_720.jpg",
+            "thumb_720_w": 569,
+            "thumb_720_h": 720,
+            "thumb_800": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_800.jpg",
+            "thumb_800_w": 800,
+            "thumb_800_h": 1012,
+            "thumb_960": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP1WKE30-66e3e6f96c/img_4429_960.jpg",
+            "thumb_960_w": 759,
+            "thumb_960_h": 960,
+            "original_w": 800,
+            "original_h": 1012,
+            "thumb_tiny": "AwAwACbRZwmM9zimzFhGQoOTxn0pSA54bn6/596ZKG8wbgSp44Y+vpQA7zMAl128gcken+fypySK+cfzByPWl2jnrz15pQMDFABRRRQA2QsqEoMkdvWo2LnG1ujc8dj3/wA/j0qR9rAoed3GKjkCkfNjHTJoAlU5UZ696RHDgkAjB7imKRH5mewDHnr2/pT2VXweMjocA4oAdRSKNox2paAG7sE7sKOxJ61VSKNzsZJMjk5Jxn88VcPIqF4FPIjRjwOR70ALCm13ALY4xkk/lSgt5rckjjAPT+X9fypUjCY2/L7DoaY0rIW+XIz6/wD1qBNpEwOQD60UUUDP/9k=",
+            "permalink": "https://nangohq.slack.com/files/U07E8G7J57T/F09UP1WKE30/img_4429.jpg",
+            "permalink_public": "https://slack-files.com/T02LWFGTCDV-F09UP1WKE30-334c2df750",
+            "is_starred": false,
+            "skipped_shares": true,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          }
+        ],
+        "upload": false,
+        "user": "U03HVGHB9J5",
+        "display_as_bot": false,
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "jPamf",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Fun (and relevant with the recent AWS/Cloudflare outages)"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "type": "message",
+        "ts": "1763887648.424429",
+        "client_msg_id": "E7ECE880-2613-4EFF-B393-2E44235DD91B",
+        "reactions": [
+          {
+            "name": "joy",
+            "users": [
+              "U056C66B8L8",
+              "U02MDCKS1N0",
+              "U08K1T27Z3K"
+            ],
+            "count": 3
+          }
+        ]
+      },
+      {
+        "text": "SF has these ads all over the place right now. At first I thought they are an elaborate joke, but I think they are serious ",
+        "files": [
+          {
+            "id": "F09UG1QNMK7",
+            "created": 1763756660,
+            "timestamp": 1763756660,
+            "name": "IMG_6158.jpg",
+            "title": "IMG_6158",
+            "mimetype": "image/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U02MDCKS1N0",
+            "user_team": "T02LWFGTCDV",
+            "editable": false,
+            "size": 2354913,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UG1QNMK7/img_6158.jpg",
+            "url_private_download": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UG1QNMK7/download/img_6158.jpg",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_64.jpg",
+            "thumb_80": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_80.jpg",
+            "thumb_360": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_360.jpg",
+            "thumb_360_w": 270,
+            "thumb_360_h": 360,
+            "thumb_480": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_480.jpg",
+            "thumb_480_w": 360,
+            "thumb_480_h": 480,
+            "thumb_160": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_160.jpg",
+            "thumb_720": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_720.jpg",
+            "thumb_720_w": 540,
+            "thumb_720_h": 720,
+            "thumb_800": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_800.jpg",
+            "thumb_800_w": 800,
+            "thumb_800_h": 1067,
+            "thumb_960": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_960.jpg",
+            "thumb_960_w": 720,
+            "thumb_960_h": 960,
+            "thumb_1024": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UG1QNMK7-3ff4144459/img_6158_1024.jpg",
+            "thumb_1024_w": 768,
+            "thumb_1024_h": 1024,
+            "original_w": 4284,
+            "original_h": 5712,
+            "thumb_tiny": "AwAwACSKZV8+YAEOdpA/nTPJlPY/p/jUu5t6eYTvZBg+2TUwDdj3oApmKXOCp/If40phPfH/AHzV7b3qOVRgkHtTC5BbwAq2W24bFS/Z1/56fz/wogaPYSGAyc88c1LuT++v51SSIbZUmJNzEPqPwDGrGzEm7AI9NvJ/GqjuTcI5K4/2Qce/WrgYckHIrNFsUqASFTGeCRxTJEEcLbRyRSxzh8HGOemaJWBBWmBXJhCoJc52jHXpSbrT3/I0R2u9AwbGad9jP98fl/8AXoAhYOzqZFIznBOf61OMLGcPle+KbNKsjKQCAOuacrQkgbkx67KQCW7joAcc8GkdiB16++anOCcLKpx6Co5AwiLb88A9OKAHRofLHzsvsMf1p+w/89W/NajMQOCGI4+n+NJ5P/TQ/mP8KBn/2Q==",
+            "permalink": "https://nangohq.slack.com/files/U07E8G7J57T/F09UG1QNMK7/img_6158.jpg",
+            "permalink_public": "https://slack-files.com/T02LWFGTCDV-F09UG1QNMK7-0a06da2148",
+            "is_starred": false,
+            "skipped_shares": true,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          },
+          {
+            "id": "F09UP220L84",
+            "created": 1763756660,
+            "timestamp": 1763756660,
+            "name": "IMG_6157.jpg",
+            "title": "IMG_6157",
+            "mimetype": "image/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U02MDCKS1N0",
+            "user_team": "T02LWFGTCDV",
+            "editable": false,
+            "size": 817467,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UP220L84/img_6157.jpg",
+            "url_private_download": "https://files.slack.com/files-pri/T02LWFGTCDV-F09UP220L84/download/img_6157.jpg",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_64.jpg",
+            "thumb_80": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_80.jpg",
+            "thumb_360": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_360.jpg",
+            "thumb_360_w": 270,
+            "thumb_360_h": 360,
+            "thumb_480": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_480.jpg",
+            "thumb_480_w": 360,
+            "thumb_480_h": 480,
+            "thumb_160": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_160.jpg",
+            "thumb_720": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_720.jpg",
+            "thumb_720_w": 540,
+            "thumb_720_h": 720,
+            "thumb_800": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_800.jpg",
+            "thumb_800_w": 800,
+            "thumb_800_h": 1067,
+            "thumb_960": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_960.jpg",
+            "thumb_960_w": 720,
+            "thumb_960_h": 960,
+            "thumb_1024": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09UP220L84-0df8365ae2/img_6157_1024.jpg",
+            "thumb_1024_w": 768,
+            "thumb_1024_h": 1024,
+            "original_w": 3024,
+            "original_h": 4032,
+            "thumb_tiny": "AwAwACRscEchIfLY7dhUv2KD+5+pptodzSH6f1qaNVGNpXBzwFxmgBhtYduNgxUZt4ldQIySxwOf/r1bBBGQcimsoJBIBI6UxFKe2ZpMrgevNR/ZJPb86sum6RjlR9WxTfK/2o/++6kY60YfcJy20H8KnQMq4Ibseuce1UYpRG4OOMH+lXUl3DPrTAUZHAyOcnGPzp+KRDuUmnNwM0AU5MNI21lGODk96ZtP/PRP1/wpNqMzEkg7j396Nif3z/31QBAE3FQeBz0q4kkUSYLDgfjVeSM5ULkn64zSCAscMhJ+oFAEpuBI6CMHGcnB7e9SyS7FPP4VEYowgIBVgfTNRMGJwxcc+lNWExUyVyV6kmnYPpSRxSMgK/zp3kTf5NIZ/9k=",
+            "permalink": "https://nangohq.slack.com/files/U07E8G7J57T/F09UP220L84/img_6157.jpg",
+            "permalink_public": "https://slack-files.com/T02LWFGTCDV-F09UP220L84-13dc0681c4",
+            "is_starred": false,
+            "skipped_shares": true,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          }
+        ],
+        "upload": false,
+        "user": "U02MDCKS1N0",
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "WKoC/",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "SF has these ads all over the place right now. At first I thought they are an elaborate joke, but I think they are serious "
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "type": "message",
+        "ts": "1763756736.570419",
+        "client_msg_id": "8366350C-05E5-42DF-8E28-FE0743C22ACF",
+        "thread_ts": "1763756736.570419",
+        "reply_count": 4,
+        "reply_users_count": 3,
+        "latest_reply": "1763757847.302859",
+        "reply_users": [
+          "U065J6V2VFE",
+          "U02MDCKS1N0",
+          "U08K1T27Z3K"
+        ],
+        "is_locked": false,
+        "subscribed": false
+      },
+      {
+        "user": "U02MDCKS1N0",
+        "type": "message",
+        "ts": "1763563013.420859",
+        "client_msg_id": "906A28AA-7D86-4C1D-8ED1-74F06FDD764F",
+        "text": "<#C053HHMFSFJ|> is asking for support on their PH launch: <https://www.producthunt.com/posts/alloy-7|https://www.producthunt.com/posts/alloy-7>\n\n(New product)",
+        "team": "T02LWFGTCDV",
+        "thread_ts": "1763563013.420859",
+        "reply_count": 2,
+        "reply_users_count": 2,
+        "latest_reply": "1763563076.410379",
+        "reply_users": [
+          "U03HVGHB9J5",
+          "U056C66B8L8"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "5TVXB",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "channel",
+                    "channel_id": "C053HHMFSFJ"
+                  },
+                  {
+                    "type": "text",
+                    "text": " is asking for support on their PH launch: "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.producthunt.com/posts/alloy-7",
+                    "text": "https://www.producthunt.com/posts/alloy-7"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n\n(New product)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "user": "U056C66B8L8",
+        "type": "message",
+        "ts": "1763553118.723789",
+        "client_msg_id": "ffbc3d27-3283-4aac-a40b-3401c3337c2b",
+        "text": "Pipedream to be acquired by Workday <https://newsroom.workday.com/2025-11-19-Workday-Signs-Definitive-Agreement-to-Acquire-Pipedream>",
+        "team": "T02LWFGTCDV",
+        "thread_ts": "1763553118.723789",
+        "reply_count": 7,
+        "reply_users_count": 3,
+        "latest_reply": "1763611414.503279",
+        "reply_users": [
+          "U03HVGHB9J5",
+          "U056C66B8L8",
+          "U02MDCKS1N0"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "attachments": [
+          {
+            "from_url": "https://newsroom.workday.com/2025-11-19-Workday-Signs-Definitive-Agreement-to-Acquire-Pipedream",
+            "service_icon": "https://newsroom.workday.com/favicon.ico",
+            "thumb_url": "https://mma.prnewswire.com/media/1724389/Workday_Logo.jpg?p=twitter",
+            "thumb_width": 1200,
+            "thumb_height": 567,
+            "id": 1,
+            "original_url": "https://newsroom.workday.com/2025-11-19-Workday-Signs-Definitive-Agreement-to-Acquire-Pipedream",
+            "fallback": "Newsroom | Workday: Workday Signs Definitive Agreement to Acquire Pipedream",
+            "text": "Acquisition will Strengthen Workday's Platform by Connecting its Trusted HR and Finance Data to More than 3,000 Business Applications, Helping Organizations Move From Insight to Action BARCELONA,...",
+            "title": "Workday Signs Definitive Agreement to Acquire Pipedream",
+            "title_link": "https://newsroom.workday.com/2025-11-19-Workday-Signs-Definitive-Agreement-to-Acquire-Pipedream",
+            "service_name": "Newsroom | Workday"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "vl5tF",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Pipedream to be acquired by Workday "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://newsroom.workday.com/2025-11-19-Workday-Signs-Definitive-Agreement-to-Acquire-Pipedream"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "user": "U0907LZ672L",
+        "type": "message",
+        "ts": "1763542776.220089",
+        "client_msg_id": "f0e28fc3-43eb-4c21-8e38-070c674e97e4",
+        "text": "New IDE from Google -&gt; <https://antigravity.google/>",
+        "team": "T02LWFGTCDV",
+        "thread_ts": "1763542776.220089",
+        "reply_count": 7,
+        "reply_users_count": 3,
+        "latest_reply": "1763550315.134659",
+        "reply_users": [
+          "U03HVGHB9J5",
+          "U0907LZ672L",
+          "U056C66B8L8"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "attachments": [
+          {
+            "image_url": "https://antigravity.google/assets/image/sitecards/sitecard-default.png",
+            "image_width": 1200,
+            "image_height": 630,
+            "image_bytes": 48366,
+            "from_url": "https://antigravity.google/",
+            "service_icon": "https://antigravity.google/assets/image/antigravity-logo.png",
+            "id": 1,
+            "original_url": "https://antigravity.google/",
+            "fallback": "Google Antigravity",
+            "text": "Google Antigravity - Build the new way",
+            "title": "Google Antigravity",
+            "title_link": "https://antigravity.google/",
+            "service_name": "antigravity.google"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "FYdwp",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "New IDE from Google -> "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://antigravity.google/"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Impressively high ranking for Replit (and a very cool index by brex).\nAnd instantly!\n\nAwesome to see two Nango customers represented here already",
+        "files": [
+          {
+            "id": "F09SN54BQET",
+            "created": 1763172576,
+            "timestamp": 1763172576,
+            "name": "image.png",
+            "title": "image.png",
+            "mimetype": "image/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U02MDCKS1N0",
+            "user_team": "T02LWFGTCDV",
+            "editable": false,
+            "size": 238176,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F09SN54BQET/image.png",
+            "url_private_download": "https://files.slack.com/files-pri/T02LWFGTCDV-F09SN54BQET/download/image.png",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_64.png",
+            "thumb_80": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_80.png",
+            "thumb_360": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_360.png",
+            "thumb_360_w": 360,
+            "thumb_360_h": 248,
+            "thumb_480": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_480.png",
+            "thumb_480_w": 480,
+            "thumb_480_h": 330,
+            "thumb_160": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_160.png",
+            "thumb_720": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_720.png",
+            "thumb_720_w": 720,
+            "thumb_720_h": 496,
+            "thumb_800": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_800.png",
+            "thumb_800_w": 800,
+            "thumb_800_h": 551,
+            "thumb_960": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_960.png",
+            "thumb_960_w": 960,
+            "thumb_960_h": 661,
+            "thumb_1024": "https://files.slack.com/files-tmb/T02LWFGTCDV-F09SN54BQET-b675aa4245/image_1024.png",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 705,
+            "original_w": 1280,
+            "original_h": 881,
+            "thumb_tiny": "AwAiADC6zEN1XHHB60ZYpldpJHB7U/OMcdTTgVIpgR/N6D86QOMgZXJz37ipTjHamO+wA7cjOD1z+gNIAop/HtSNjHGKYDW27QHxgnvjHT3pyBQg2Y29RjpTHQuoAbbzz1/oRT1AVQNxP1OaQDj0NRv5fy+YVHscc/n+FPOPWmOhbbh8evX+hFAEgGBgUjdKB05akPfnNADaKKKYBRRRQAUUUUAf/9k=",
+            "permalink": "https://nangohq.slack.com/files/U07E8G7J57T/F09SN54BQET/image.png",
+            "permalink_public": "https://slack-files.com/T02LWFGTCDV-F09SN54BQET-4a671fc471",
+            "is_starred": false,
+            "skipped_shares": true,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          }
+        ],
+        "upload": false,
+        "user": "U02MDCKS1N0",
+        "display_as_bot": false,
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "Mt9F4",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Impressively high ranking for Replit (and a very cool index by brex).\nAnd instantly!\n\nAwesome to see two Nango customers represented here already"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "type": "message",
+        "ts": "1763172586.450939",
+        "edited": {
+          "user": "U02MDCKS1N0",
+          "ts": "1763172623.000000"
+        },
+        "client_msg_id": "736361e3-10f6-446f-9811-8297ed600fae",
+        "reactions": [
+          {
+            "name": "raised_hands",
+            "users": [
+              "U056C66B8L8"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      {
+        "user": "U08K1T27Z3K",
+        "type": "message",
+        "ts": "1763148124.817189",
+        "client_msg_id": "60e09ed6-af51-4b19-bb91-263eaca212e6",
+        "text": "liblab just got acquired by postman <https://sg.finance.yahoo.com/news/postman-acquires-liblab-accelerate-vision-180000801.html>",
+        "team": "T02LWFGTCDV",
+        "thread_ts": "1763148124.817189",
+        "reply_count": 3,
+        "reply_users_count": 2,
+        "latest_reply": "1763148612.856799",
+        "reply_users": [
+          "U02MDCKS1N0",
+          "U08K1T27Z3K"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "attachments": [
+          {
+            "image_url": "https://media.zenfs.com/en/business-wire.com/fa5ff4768931487ad3bc0e97064ead41",
+            "image_width": 480,
+            "image_height": 432,
+            "image_bytes": 49714,
+            "from_url": "https://sg.finance.yahoo.com/news/postman-acquires-liblab-accelerate-vision-180000801.html",
+            "service_icon": "https://s.yimg.com/cv/apiv2/default/finance/favicon-180x180.png",
+            "id": 1,
+            "original_url": "https://sg.finance.yahoo.com/news/postman-acquires-liblab-accelerate-vision-180000801.html",
+            "fallback": "Yahoo Finance: Postman Acquires liblab to Accelerate Vision for a Unified API Lifecycle Platform",
+            "text": "SAN FRANCISCO, November 14, 2025--Postman, the world’s leading API collaboration platform, today announced its acquisition of liblab, a platform for developers that automates the generation and maintenance of Software Development Kits (SDKs). With this acquisition, Postman continues to expand its platform to cover the entire API lifecycle—from design and testing to documentation and consumption, enabling developers to build, connect, and consume APIs faster than ever before.",
+            "title": "Postman Acquires liblab to Accelerate Vision for a Unified API Lifecycle Platform",
+            "title_link": "https://sg.finance.yahoo.com/news/postman-acquires-liblab-accelerate-vision-180000801.html",
+            "service_name": "Yahoo Finance"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "XROFf",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "liblab just got acquired by postman "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://sg.finance.yahoo.com/news/postman-acquires-liblab-accelerate-vision-180000801.html"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "reactions": [
+          {
+            "name": "raised_hands",
+            "users": [
+              "U02MDCKS1N0",
+              "U03HVGHB9J5"
+            ],
+            "count": 2
+          }
+        ]
+      },
+      {
+        "user": "U02MDCKS1N0",
+        "type": "message",
+        "ts": "1762386243.916509",
+        "client_msg_id": "47B9A6DA-437D-4314-8A81-CB51F1ED38DB",
+        "text": "I didn’t realize there are now several durable execution engines built on just postgres as the storage &amp; orchestration layer.\n<https://news.ycombinator.com/item?id=45797228|https://news.ycombinator.com/item?id=45797228>",
+        "team": "T02LWFGTCDV",
+        "blocks": [
+          {
+            "type": "rich_text",
+            "block_id": "EJvm7",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I didn’t realize there are now several durable execution engines built on just postgres as the storage & orchestration layer."
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://news.ycombinator.com/item?id=45797228",
+                    "text": "https://news.ycombinator.com/item?id=45797228"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_more": true,
+    "pin_count": 0,
+    "channel_actions_ts": null,
+    "channel_actions_count": 0,
+    "response_metadata": {
+      "next_cursor": "bmV4dF90czoxNzYyMTkwNzA4NTI2Nzk5"
+    }
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 26 Nov 2025 20:26:28 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "18611",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "997",
+    "x-ratelimit-reset": "1764188847",
+    "etag": "W/\"48b3-OsyWAKIS4vGLOau4K04X2oT7+Bc\""
+  }
+}

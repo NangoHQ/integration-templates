@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "team": {
+    "id": "T02LWFGTCDV",
+    "name": "Nango",
+    "url": "https://nangohq.slack.com/",
+    "domain": "nangohq",
+    "email_domain": "nango.dev",
+    "icon": {
+      "image_default": false,
+      "image_34": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_34.png",
+      "image_44": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_44.png",
+      "image_68": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_68.png",
+      "image_88": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_88.png",
+      "image_102": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_102.png",
+      "image_230": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_230.png",
+      "image_132": "https://avatars.slack-edge.com/2023-01-27/4731819414064_f2b49b81ab56e63141e9_132.png"
+    },
+    "avatar_base_url": "https://ca.slack-edge.com/",
+    "is_verified": false,
+    "external_org_migrations": {
+      "date_updated": 1763958177,
+      "current": []
+    },
+    "lob_sales_home_enabled": false,
+    "is_sfdc_auto_slack": false
+  }
+}

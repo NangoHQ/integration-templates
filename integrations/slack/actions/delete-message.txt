@@ -1,0 +1,1 @@
+Removes a message from a conversation. API: https://api.slack.com/methods/chat.delete. Input: channel: string, ts: string. Output: ok: boolean, ts: string, channel: string. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "ts": "MESSAGE_TS_TO_DELETE" }

@@ -1,0 +1,1 @@
+Lists all channel-like conversations in a workspace. API: https://api.slack.com/methods/conversations.list. Input: types?: string, limit?: number, cursor?: string. Output: ok: boolean, channels: array, response_metadata: object. Connection ID: action-builder.
