@@ -104,26 +104,31 @@ async function addBearerTokenToConfig(
         });
     }
 
-    // Navigate the dot-notation path to find the token
-    const keys = tokenPath.split('.');
-    let token: unknown = credentials;
-    for (const key of keys) {
-        if (token && typeof token === 'object' && key in token) {
-            token = (token as Record<string, unknown>)[key];
-        } else {
-            token = undefined;
-            break;
-        }
-    }
-
-    if (!token || typeof token !== 'string') {
+    // For Slack OAuth with user scopes, token is at raw.authed_user.access_token
+    // Navigate through the credentials object safely
+    const credObj = credentials;
+    if (!('raw' in credObj) || typeof credObj.raw !== 'object' || credObj.raw === null) {
         throw new nango.ActionError({
             message: `User token not found at path '${tokenPath}'. Ensure the Slack OAuth includes user scopes.`
         });
     }
+    const rawObj = credObj.raw;
+    if (!('authed_user' in rawObj) || typeof rawObj.authed_user !== 'object' || rawObj.authed_user === null) {
+        throw new nango.ActionError({
+            message: `User token not found at path '${tokenPath}'. Ensure the Slack OAuth includes user scopes.`
+        });
+    }
+    const authedUser = rawObj.authed_user;
+    if (!('access_token' in authedUser) || typeof authedUser.access_token !== 'string') {
+        throw new nango.ActionError({
+            message: `User token not found at path '${tokenPath}'. Ensure the Slack OAuth includes user scopes.`
+        });
+    }
+    const token = authedUser.access_token;
 
     return {
         ...proxyConfig,
+        retries: proxyConfig.retries ?? 3,
         headers: {
             ...proxyConfig.headers,
             Authorization: `Bearer ${token}`  // Overrides Nango's automatic bot token
