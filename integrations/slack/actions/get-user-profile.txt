@@ -1,0 +1,6 @@
+Retrieves detailed user profile including custom fields
+
+API: https://api.slack.com/methods/users.profile.get
+Input: user?: string
+Output: ok: boolean, profile: object
+Test Input: { "user": "U02MDCKS1N0" }

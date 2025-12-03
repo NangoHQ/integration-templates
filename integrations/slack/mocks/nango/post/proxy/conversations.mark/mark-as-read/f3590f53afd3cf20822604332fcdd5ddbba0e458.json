@@ -1,0 +1,21 @@
+{
+  "method": "post",
+  "endpoint": "conversations.mark",
+  "requestIdentityHash": "f3590f53afd3cf20822604332fcdd5ddbba0e458",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "conversations.mark",
+    "params": [],
+    "headers": [],
+    "data": "{\"channel\":\"C02MB5ZABA7\",\"ts\":\"1763887648.424429\"}"
+  },
+  "response": {
+    "ok": true
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 26 Nov 2025 21:53:11 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "connection": "keep-alive"
+  }
+}

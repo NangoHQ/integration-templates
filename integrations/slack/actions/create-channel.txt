@@ -1,0 +1,1 @@
+Creates a new public or private channel. API: https://api.slack.com/methods/conversations.create. Input: name: string, is_private?: boolean. Output: ok: boolean, channel: object. Connection ID: action-builder. Test input: { "name": "test-channel-nango" }

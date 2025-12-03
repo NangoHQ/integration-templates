@@ -1,0 +1,6 @@
+Gets a users current presence status and activity
+
+API: https://api.slack.com/methods/users.getPresence
+Input: user: string
+Output: ok: boolean, presence: string, online: boolean, auto_away: boolean, manual_away: boolean
+Test Input: { "user": "U02MDCKS1N0" }

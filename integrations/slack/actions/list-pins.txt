@@ -1,0 +1,2 @@
+Lists all items pinned to a channel
+API: https://api.slack.com/methods/pins.list

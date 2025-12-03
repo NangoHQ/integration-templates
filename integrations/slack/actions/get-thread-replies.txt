@@ -1,0 +1,1 @@
+Retrieves a thread of messages posted as replies to a message. API: https://api.slack.com/methods/conversations.replies. Input: channel: string, ts: string, limit?: number, cursor?: string. Output: ok: boolean, messages: array, has_more: boolean. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "ts": "1763887648.424429" }

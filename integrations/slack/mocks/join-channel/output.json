@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "channel": {
+    "id": "C02MB5ZABA7",
+    "created": 1636968988,
+    "creator": "U02MDCKS1N0",
+    "is_org_shared": false,
+    "is_im": false,
+    "context_team_id": "T02LWFGTCDV",
+    "updated": 1764192213193,
+    "name": "random",
+    "name_normalized": "random",
+    "is_channel": true,
+    "is_group": false,
+    "is_mpim": false,
+    "is_private": false,
+    "is_archived": false,
+    "is_general": false,
+    "is_shared": false,
+    "is_ext_shared": false,
+    "unlinked": 0,
+    "is_pending_ext_shared": false,
+    "pending_shared": [],
+    "parent_conversation": null,
+    "purpose": {
+      "value": "Test purpose from Nango",
+      "creator": "U07E8G7J57T",
+      "last_set": 1764192213
+    },
+    "topic": {
+      "value": "Test topic from Nango",
+      "creator": "U07E8G7J57T",
+      "last_set": 1764192120
+    },
+    "shared_team_ids": [
+      "T02LWFGTCDV"
+    ],
+    "pending_connected_team_ids": [],
+    "is_member": true,
+    "properties": {
+      "canvas": {
+        "file_id": "F082USZ3CNS",
+        "is_empty": true,
+        "quip_thread_id": "DXN9AAyKDyF",
+        "is_migrated": true
+      },
+      "meeting_notes": {
+        "file_id": "F082USZ3CNS"
+      },
+      "tabs": [
+        {
+          "type": "files",
+          "label": "",
+          "id": "files"
+        },
+        {
+          "type": "bookmarks",
+          "label": "",
+          "id": "bookmarks"
+        },
+        {
+          "label": "Canvas",
+          "type": "channel_canvas",
+          "is_disabled": true,
+          "id": "channel_canvas"
+        }
+      ],
+      "tabz": [
+        {
+          "type": "files"
+        },
+        {
+          "type": "bookmarks"
+        },
+        {
+          "label": "Canvas",
+          "type": "channel_canvas",
+          "is_disabled": true
+        }
+      ],
+      "use_case": "random"
+    },
+    "priority": 0,
+    "previous_names": []
+  }
+}

@@ -1,0 +1,2 @@
+Pins a message to a channel
+API: https://api.slack.com/methods/pins.add

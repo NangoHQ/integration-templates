@@ -1,0 +1,1 @@
+Opens a direct message or multi-person direct message. API: https://api.slack.com/methods/conversations.open. Input: users: string, return_im?: boolean. Output: ok: boolean, channel: object. Connection ID: action-builder. Test input: { "users": "U02MDCKS1N0" }

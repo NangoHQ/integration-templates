@@ -1,0 +1,2 @@
+Lists all items with reactions made by the user
+API: https://api.slack.com/methods/reactions.list

@@ -1,0 +1,6 @@
+Invites 1-1000 users to a public or private channel
+
+API: https://api.slack.com/methods/conversations.invite
+Input: channel: string, users: string
+Output: ok: boolean, channel: object
+Test Input: { "channel": "C02MB5ZABA7", "users": "U02MDCKS1N0" }

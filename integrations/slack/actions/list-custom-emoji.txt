@@ -1,0 +1,2 @@
+Lists all custom emoji for the workspace
+API: https://api.slack.com/methods/emoji.list

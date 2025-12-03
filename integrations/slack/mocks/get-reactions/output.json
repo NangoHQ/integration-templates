@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "type": "message",
+  "message": {
+    "type": "message",
+    "text": "Hello",
+    "reactions": []
+  }
+}

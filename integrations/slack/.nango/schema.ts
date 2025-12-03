@@ -105,6 +105,523 @@ export interface SlackMessageReaction {
   reaction_name: string;
 };
 
+export interface ActionInput_slack_addbookmark {
+  channel_id: string;
+  title: string;
+  type: string;
+  link: string;
+};
+
+export interface ActionOutput_slack_addbookmark {
+  ok: boolean;
+  bookmark?: any | undefined;
+};
+
+export interface ActionInput_slack_addreaction {
+  channel_id: string;
+  message_ts: string;
+  reaction_name: string;
+};
+
+export interface ActionOutput_slack_addreaction {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_archivechannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_archivechannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_completefileupload {
+  files: any[];
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_completefileupload {
+  ok: boolean;
+  files: any[];
+};
+
+export interface ActionInput_slack_createchannel {
+  name: string;
+  is_private?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_createchannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_deletefile {
+  file: string;
+};
+
+export interface ActionOutput_slack_deletefile {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_deletemessage {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_deletemessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+};
+
+export interface ActionInput_slack_getchannelinfo {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_getchannelinfo {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_getchannelmembers {
+  channel_id: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_getchannelmembers {
+  ok: boolean;
+  members: string[];
+  response_metadata?: {  next_cursor?: string | undefined;};
+};
+
+export interface ActionInput_slack_getconversationhistory {
+  channel_id: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+  oldest_ts?: string | undefined;
+  latest_ts?: string | undefined;
+};
+
+export interface ActionOutput_slack_getconversationhistory {
+  ok: boolean;
+  messages: any[];
+  has_more: boolean;
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_getdndinfo {
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_getdndinfo {
+  ok: boolean;
+  dnd_enabled: boolean;
+  next_dnd_start_ts: number;
+  next_dnd_end_ts: number;
+};
+
+export interface ActionInput_slack_getfileinfo {
+  file: string;
+};
+
+export interface ActionOutput_slack_getfileinfo {
+  ok: boolean;
+  file?: any | undefined;
+};
+
+export interface ActionInput_slack_getreactions {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_getreactions {
+  ok: boolean;
+  type?: string | undefined;
+  message?: any | undefined;
+};
+
+export interface ActionInput_slack_getteaminfo {
+};
+
+export interface ActionOutput_slack_getteaminfo {
+  ok: boolean;
+  team?: any | undefined;
+};
+
+export interface ActionInput_slack_getthreadreplies {
+  channel_id: string;
+  thread_ts: string;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_getthreadreplies {
+  ok: boolean;
+  messages: any[];
+  has_more: boolean;
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_getuploadurl {
+  filename: string;
+  length: number;
+};
+
+export interface ActionOutput_slack_getuploadurl {
+  ok: boolean;
+  upload_url: string;
+  file_id: string;
+};
+
+export interface ActionInput_slack_getuserinfo {
+  user_id: string;
+};
+
+export interface ActionOutput_slack_getuserinfo {
+  ok: boolean;
+  user?: any | undefined;
+};
+
+export interface ActionInput_slack_getuserpresence {
+  user_id: string;
+};
+
+export interface ActionOutput_slack_getuserpresence {
+  ok: boolean;
+  presence: string;
+};
+
+export interface ActionInput_slack_getuserprofile {
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_getuserprofile {
+  ok: boolean;
+  profile?: any | undefined;
+};
+
+export interface ActionInput_slack_invitetochannel {
+  channel_id: string;
+  user_ids: string;
+};
+
+export interface ActionOutput_slack_invitetochannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_joinchannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_joinchannel {
+  ok: boolean;
+  channel: {  id: string;
+  name: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  created: number;
+  is_archived: boolean;
+  is_general: boolean;
+  unlinked: number;
+  name_normalized: string;
+  is_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  pending_shared: any[];
+  context_team_id: string;
+  updated: number;
+  parent_conversation: string;
+  creator: string;
+  is_ext_shared: boolean;
+  shared_team_ids: string[];
+  pending_connected_team_ids: string[];
+  is_member: boolean;
+  topic: {  value: string;
+  creator: string;
+  last_set: number;};
+  purpose: {  value: string;
+  creator: string;
+  last_set: number;};
+  previous_names: string[];};
+};
+
+export interface ActionInput_slack_leavechannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_leavechannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_listbookmarks {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_listbookmarks {
+  ok: boolean;
+  bookmarks: any[];
+};
+
+export interface ActionInput_slack_listchannels {
+  types?: string | undefined;
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listchannels {
+  ok: boolean;
+  channels: any[];
+  next_cursor: string | null;
+};
+
+export interface ActionInput_slack_listcustomemoji {
+};
+
+export interface ActionOutput_slack_listcustomemoji {
+  ok: boolean;
+  emoji?: any | undefined;
+};
+
+export interface ActionInput_slack_listfiles {
+  channel_id?: string | undefined;
+  user_id?: string | undefined;
+  types?: string | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+};
+
+export interface ActionOutput_slack_listfiles {
+  ok: boolean;
+  files: ({  id: string;
+  name: string | null;
+  title: string | null;
+  mimetype: string | null;
+  filetype: string | null;
+  size: number | null;
+  created: number | null;
+  timestamp: number | null;})[];
+  paging: {  count: number;
+  total: number;
+  page: number;
+  pages: number;};
+};
+
+export interface ActionInput_slack_listpins {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_listpins {
+  ok: boolean;
+  items: any[];
+};
+
+export interface ActionInput_slack_listscheduledmessages {
+  channel_id?: string | undefined;
+  latest_ts?: number | undefined;
+  oldest_ts?: number | undefined;
+};
+
+export interface ActionOutput_slack_listscheduledmessages {
+  ok: boolean;
+  scheduled_messages: any[];
+};
+
+export interface ActionInput_slack_listusergroupmembers {
+  usergroup: string;
+};
+
+export interface ActionOutput_slack_listusergroupmembers {
+  ok: boolean;
+  users: string[];
+};
+
+export interface ActionInput_slack_listusergroups {
+  include_disabled?: boolean | undefined;
+  include_count?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_listusergroups {
+  ok: boolean;
+  usergroups: any[];
+};
+
+export interface ActionInput_slack_listuserreactions {
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listuserreactions {
+  ok: boolean;
+  items: any[];
+  response_metadata?: any | undefined;
+};
+
+export interface ActionInput_slack_listusers {
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_slack_listusers {
+  ok: boolean;
+  members: any[];
+  response_metadata?: any | undefined;
+};
+
+export interface ActionInput_slack_lookupuserbyemail {
+  email: string;
+};
+
+export interface ActionOutput_slack_lookupuserbyemail {
+  ok: boolean;
+  user?: any | undefined;
+};
+
+export interface ActionInput_slack_markasread {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_markasread {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_opendm {
+  users: string;
+  return_im?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_opendm {
+  ok: boolean;
+  channel: {  id: string;};
+};
+
+export interface ActionInput_slack_pinmessage {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_pinmessage {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_postmessage {
+  channel_id: string;
+  text: string;
+  thread_ts?: string | undefined;
+  blocks?: any[] | undefined;
+};
+
+export interface ActionOutput_slack_postmessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+  message: {  text: string;
+  type: string;
+  user: string;};
+};
+
+export interface ActionInput_slack_removefromchannel {
+  channel_id: string;
+  user_id: string;
+};
+
+export interface ActionOutput_slack_removefromchannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_removereaction {
+  channel_id: string;
+  message_ts: string;
+  reaction_name: string;
+};
+
+export interface ActionOutput_slack_removereaction {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_renamechannel {
+  channel_id: string;
+  channel_name: string;
+};
+
+export interface ActionOutput_slack_renamechannel {
+  ok: boolean;
+  channel?: any | undefined;
+};
+
+export interface ActionInput_slack_schedulemessage {
+  channel_id: string;
+  text: string;
+  post_at: number;
+  thread_ts?: string | undefined;
+};
+
+export interface ActionOutput_slack_schedulemessage {
+  ok: boolean;
+  scheduled_message_id: string;
+  post_at: number;
+};
+
+export interface ActionInput_slack_searchfiles {
+  query: string;
+  count?: number | undefined;
+  page?: number | undefined;
+  sort?: 'score' | 'timestamp' | undefined;
+  sort_dir?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_slack_searchfiles {
+  ok: boolean;
+  files: {  total: number;
+  matches: ({  id: string;
+  name: string;
+  title: string;
+  mimetype: string;
+  filetype: string;
+  size: number;
+  url_private: string;
+  permalink: string;
+  timestamp: number;})[];
+  pagination: {  total_count: number;
+  page: number;
+  per_page: number;
+  page_count: number;
+  first: number;
+  last: number;};};
+};
+
+export interface ActionInput_slack_searchmessages {
+  query: string;
+  count?: number | undefined;
+  page?: number | undefined;
+  sort?: 'score' | 'timestamp' | undefined;
+  sort_dir?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_slack_searchmessages {
+  ok: boolean;
+  messages: {  total: number;
+  matches: ({  type: string;
+  ts: string;
+  text: string;
+  channel: {  id: string;
+  name: string;};
+  user: string | null;
+  username: string | null;
+  permalink: string;})[];
+  pagination: {  total_count: number;
+  page: number;
+  per_page: number;
+  page_count: number;
+  first: number;
+  last: number;};};
+};
+
 export interface ActionInput_slack_sendmessage {
   channel: string;
   text: string;
@@ -118,4 +635,63 @@ export interface ActionOutput_slack_sendmessage {
   warning?: string | undefined;
   error?: string | undefined;
   raw_json: string;
+};
+
+export interface ActionInput_slack_setchannelpurpose {
+  channel_id: string;
+  purpose: string;
+};
+
+export interface ActionOutput_slack_setchannelpurpose {
+  ok: boolean;
+  purpose: string;
+};
+
+export interface ActionInput_slack_setchanneltopic {
+  channel_id: string;
+  topic: string;
+};
+
+export interface ActionOutput_slack_setchanneltopic {
+  ok: boolean;
+  topic: string;
+};
+
+export interface ActionInput_slack_setuserpresence {
+  presence: string;
+};
+
+export interface ActionOutput_slack_setuserpresence {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_unarchivechannel {
+  channel_id: string;
+};
+
+export interface ActionOutput_slack_unarchivechannel {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_unpinmessage {
+  channel_id: string;
+  message_ts: string;
+};
+
+export interface ActionOutput_slack_unpinmessage {
+  ok: boolean;
+};
+
+export interface ActionInput_slack_updatemessage {
+  channel_id: string;
+  message_ts: string;
+  text?: string | undefined;
+  blocks?: any[] | undefined;
+};
+
+export interface ActionOutput_slack_updatemessage {
+  ok: boolean;
+  ts: string;
+  channel: string;
+  text: string;
 };

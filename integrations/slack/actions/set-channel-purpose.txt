@@ -1,0 +1,1 @@
+Updates a channels description or purpose. API: https://api.slack.com/methods/conversations.setPurpose. Input: channel: string, purpose: string. Output: ok: boolean, purpose: string. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "purpose": "Test purpose from Nango" }

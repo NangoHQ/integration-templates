@@ -1,0 +1,2 @@
+Permanently deletes a file from the workspace
+API: https://api.slack.com/methods/files.delete

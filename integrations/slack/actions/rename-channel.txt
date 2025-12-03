@@ -1,0 +1,1 @@
+Renames a conversation with proper permissions. API: https://api.slack.com/methods/conversations.rename. Input: channel: string, name: string. Output: ok: boolean, channel: object. Connection ID: action-builder. Test input: { "channel": "C0A02F9NBCJ", "name": "renamed-test-channel" }

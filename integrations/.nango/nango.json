@@ -1,288 +1,1118 @@
 [
   {
-    "providerConfigKey": "lever",
+    "providerConfigKey": "slack",
     "actions": [
       {
         "type": "action",
-        "description": "Action to create a note and add it to an opportunity.",
+        "description": "Adds a bookmark link to a channel.",
         "endpoint": {
           "method": "POST",
-          "path": "/notes",
-          "group": "Notes"
+          "path": "/add-bookmark",
+          "group": "Actions"
         },
-        "input": "ActionInput_lever_createnote",
-        "name": "create-note",
+        "input": "ActionInput_slack_addbookmark",
+        "name": "add-bookmark",
         "output": [
-          "ActionOutput_lever_createnote"
+          "ActionOutput_slack_addbookmark"
         ],
         "scopes": [
-          "notes:write:admin"
+          "bookmarks:write"
         ],
         "usedModels": [
-          "ActionInput_lever_createnote",
-          "ActionOutput_lever_createnote"
+          "ActionInput_slack_addbookmark",
+          "ActionOutput_slack_addbookmark"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Create an opportunity and optionally candidates associated with the opportunity",
+        "description": "Adds an emoji reaction to a message.",
         "endpoint": {
           "method": "POST",
-          "path": "/opportunities",
-          "group": "Opportunities"
+          "path": "/reactions",
+          "group": "Reactions"
         },
-        "input": "ActionInput_lever_createopportunity",
-        "name": "create-opportunity",
+        "input": "ActionInput_slack_addreaction",
+        "name": "add-reaction",
         "output": [
-          "ActionOutput_lever_createopportunity"
+          "ActionOutput_slack_addreaction"
         ],
         "scopes": [
-          "opportunities:write:admin"
+          "reactions:write"
         ],
         "usedModels": [
-          "ActionInput_lever_createopportunity",
-          "ActionOutput_lever_createopportunity"
+          "ActionInput_slack_addreaction",
+          "ActionOutput_slack_addreaction"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Action to get lists all pipeline stages. Note that this does \nnot paginate the response so it is possible that not all stages \nare returned.",
+        "description": "Archives a conversation making it read-only.",
         "endpoint": {
-          "method": "GET",
-          "path": "/stages/limited",
-          "group": "Stages"
+          "method": "POST",
+          "path": "/archive-channel",
+          "group": "Channels"
         },
-        "input": "ActionInput_lever_getstages",
-        "name": "get-stages",
+        "input": "ActionInput_slack_archivechannel",
+        "name": "archive-channel",
         "output": [
-          "ActionOutput_lever_getstages"
+          "ActionOutput_slack_archivechannel"
         ],
-        "scopes": [],
+        "scopes": [
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
+        ],
         "usedModels": [
-          "ActionInput_lever_getstages",
-          "ActionOutput_lever_getstages"
+          "ActionInput_slack_archivechannel",
+          "ActionOutput_slack_archivechannel"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Lists all the users in your Lever account. Only active users are included by default.",
+        "description": "Finalizes and optionally shares an uploaded file.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/complete-file-upload",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_completefileupload",
+        "name": "complete-file-upload",
+        "output": [
+          "ActionOutput_slack_completefileupload"
+        ],
+        "scopes": [
+          "files:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_completefileupload",
+          "ActionOutput_slack_completefileupload"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new public or private channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_createchannel",
+        "name": "create-channel",
+        "output": [
+          "ActionOutput_slack_createchannel"
+        ],
+        "scopes": [
+          "channels:manage"
+        ],
+        "usedModels": [
+          "ActionInput_slack_createchannel",
+          "ActionOutput_slack_createchannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Permanently deletes a file from the workspace.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/delete-file",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_deletefile",
+        "name": "delete-file",
+        "output": [
+          "ActionOutput_slack_deletefile"
+        ],
+        "scopes": [
+          "files:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_deletefile",
+          "ActionOutput_slack_deletefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes a message from a conversation.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages/delete",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_deletemessage",
+        "name": "delete-message",
+        "output": [
+          "ActionOutput_slack_deletemessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_deletemessage",
+          "ActionOutput_slack_deletemessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves detailed information about a conversation.",
         "endpoint": {
           "method": "GET",
-          "path": "/users",
+          "path": "/channels/info",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_getchannelinfo",
+        "name": "get-channel-info",
+        "output": [
+          "ActionOutput_slack_getchannelinfo"
+        ],
+        "scopes": [
+          "channels:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getchannelinfo",
+          "ActionOutput_slack_getchannelinfo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists members of a conversation with pagination.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/channels/members",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_getchannelmembers",
+        "name": "get-channel-members",
+        "output": [
+          "ActionOutput_slack_getchannelmembers"
+        ],
+        "scopes": [
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getchannelmembers",
+          "ActionOutput_slack_getchannelmembers"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches message history from a channel or conversation.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/conversations/history",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_getconversationhistory",
+        "name": "get-conversation-history",
+        "output": [
+          "ActionOutput_slack_getconversationhistory"
+        ],
+        "scopes": [
+          "channels:history"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getconversationhistory",
+          "ActionOutput_slack_getconversationhistory"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets Do Not Disturb settings for a user.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/get-dnd-info",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_getdndinfo",
+        "name": "get-dnd-info",
+        "output": [
+          "ActionOutput_slack_getdndinfo"
+        ],
+        "scopes": [
+          "dnd:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getdndinfo",
+          "ActionOutput_slack_getdndinfo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves details about a specific file.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/get-file-info",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_getfileinfo",
+        "name": "get-file-info",
+        "output": [
+          "ActionOutput_slack_getfileinfo"
+        ],
+        "scopes": [
+          "files:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getfileinfo",
+          "ActionOutput_slack_getfileinfo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets all reactions for a single message or file.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/get-reactions",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_getreactions",
+        "name": "get-reactions",
+        "output": [
+          "ActionOutput_slack_getreactions"
+        ],
+        "scopes": [
+          "reactions:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getreactions",
+          "ActionOutput_slack_getreactions"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves information about the workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/get-team-info",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_getteaminfo",
+        "name": "get-team-info",
+        "output": [
+          "ActionOutput_slack_getteaminfo"
+        ],
+        "scopes": [
+          "team:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getteaminfo",
+          "ActionOutput_slack_getteaminfo"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves a thread of messages posted as replies to a message.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/conversations/replies",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_getthreadreplies",
+        "name": "get-thread-replies",
+        "output": [
+          "ActionOutput_slack_getthreadreplies"
+        ],
+        "scopes": [
+          "channels:history"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getthreadreplies",
+          "ActionOutput_slack_getthreadreplies"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a URL for uploading files to Slack.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/get-upload-url",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_getuploadurl",
+        "name": "get-upload-url",
+        "output": [
+          "ActionOutput_slack_getuploadurl"
+        ],
+        "scopes": [
+          "files:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_getuploadurl",
+          "ActionOutput_slack_getuploadurl"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves information about a specific user.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/info",
           "group": "Users"
         },
-        "input": "ActionInput_lever_users",
-        "name": "users",
+        "input": "ActionInput_slack_getuserinfo",
+        "name": "get-user-info",
         "output": [
-          "ActionOutput_lever_users"
+          "ActionOutput_slack_getuserinfo"
         ],
-        "scopes": [],
+        "scopes": [
+          "users:read"
+        ],
         "usedModels": [
-          "ActionInput_lever_users",
-          "ActionOutput_lever_users"
+          "ActionInput_slack_getuserinfo",
+          "ActionOutput_slack_getuserinfo"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.",
+        "description": "Gets a user's current presence status and activity.",
         "endpoint": {
           "method": "GET",
-          "path": "/posts/limited",
-          "group": "Posts"
+          "path": "/users/presence",
+          "group": "Users"
         },
-        "input": "ActionInput_lever_getpostings",
-        "name": "get-postings",
+        "input": "ActionInput_slack_getuserpresence",
+        "name": "get-user-presence",
         "output": [
-          "ActionOutput_lever_getpostings"
+          "ActionOutput_slack_getuserpresence"
         ],
-        "scopes": [],
+        "scopes": [
+          "users:read"
+        ],
         "usedModels": [
-          "ActionInput_lever_getpostings",
-          "ActionOutput_lever_getpostings"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Get all archived reasons",
-        "endpoint": {
-          "method": "GET",
-          "path": "/archived/reasons",
-          "group": "Archived"
-        },
-        "input": "ActionInput_lever_getarchivereasons",
-        "name": "get-archive-reasons",
-        "output": [
-          "ActionOutput_lever_getarchivereasons"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_getarchivereasons",
-          "ActionOutput_lever_getarchivereasons"
+          "ActionInput_slack_getuserpresence",
+          "ActionOutput_slack_getuserpresence"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Get single post for your account in Lever",
+        "description": "Retrieves detailed user profile including custom fields.",
         "endpoint": {
           "method": "GET",
-          "path": "/posts/single",
-          "group": "Posts"
+          "path": "/users/profile",
+          "group": "Users"
         },
-        "input": "ActionInput_lever_getposting",
-        "name": "get-posting",
+        "input": "ActionInput_slack_getuserprofile",
+        "name": "get-user-profile",
         "output": [
-          "ActionOutput_lever_getposting"
+          "ActionOutput_slack_getuserprofile"
         ],
-        "scopes": [],
+        "scopes": [
+          "users:read"
+        ],
         "usedModels": [
-          "ActionInput_lever_getposting",
-          "ActionOutput_lever_getposting"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update the links in an opportunity",
-        "endpoint": {
-          "method": "POST",
-          "path": "/opportunities/links",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunitylinks",
-        "name": "update-opportunity-links",
-        "output": [
-          "ActionOutput_lever_updateopportunitylinks"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunitylinks",
-          "ActionOutput_lever_updateopportunitylinks"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update the sources in an opportunity",
-        "endpoint": {
-          "method": "POST",
-          "path": "/opportunities/sources",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunitysources",
-        "name": "update-opportunity-sources",
-        "output": [
-          "ActionOutput_lever_updateopportunitysources"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunitysources",
-          "ActionOutput_lever_updateopportunitysources"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update the stage in an opportunity",
-        "endpoint": {
-          "method": "POST",
-          "path": "/opportunities/stages",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunitystage",
-        "name": "update-opportunity-stage",
-        "output": [
-          "ActionOutput_lever_updateopportunitystage"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunitystage",
-          "ActionOutput_lever_updateopportunitystage"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update the tags in an opportunity",
-        "endpoint": {
-          "method": "POST",
-          "path": "/opportunities/tags",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunitytags",
-        "name": "update-opportunity-tags",
-        "output": [
-          "ActionOutput_lever_updateopportunitytags"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunitytags",
-          "ActionOutput_lever_updateopportunitytags"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update the archived state of an opportunity",
-        "endpoint": {
-          "method": "PUT",
-          "path": "/opportunities/archived",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunityarchived",
-        "name": "update-opportunity-archived",
-        "output": [
-          "ActionOutput_lever_updateopportunityarchived"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunityarchived",
-          "ActionOutput_lever_updateopportunityarchived"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/posts/apply",
-          "group": "Posts"
-        },
-        "input": "ActionInput_lever_applyposting",
-        "name": "apply-posting",
-        "output": [
-          "ActionOutput_lever_applyposting"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_applyposting",
-          "ActionOutput_lever_applyposting"
+          "ActionInput_slack_getuserprofile",
+          "ActionOutput_slack_getuserprofile"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Update an opportunity",
+        "description": "Invites 1-1000 users to a public or private channel.",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/opportunities",
-          "group": "Opportunities"
+          "method": "POST",
+          "path": "/channels/invite",
+          "group": "Channels"
         },
-        "input": "ActionInput_lever_updateopportunity",
-        "name": "update-opportunity",
+        "input": "ActionInput_slack_invitetochannel",
+        "name": "invite-to-channel",
         "output": [
-          "ActionOutput_lever_updateopportunity"
+          "ActionOutput_slack_invitetochannel"
         ],
-        "scopes": [],
+        "scopes": [
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
+        ],
         "usedModels": [
-          "ActionInput_lever_updateopportunity",
-          "ActionOutput_lever_updateopportunity"
+          "ActionInput_slack_invitetochannel",
+          "ActionOutput_slack_invitetochannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Joins a public or private channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/join",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_joinchannel",
+        "name": "join-channel",
+        "output": [
+          "ActionOutput_slack_joinchannel"
+        ],
+        "scopes": [
+          "channels:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_joinchannel",
+          "ActionOutput_slack_joinchannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Leaves a public or private channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/leave",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_leavechannel",
+        "name": "leave-channel",
+        "output": [
+          "ActionOutput_slack_leavechannel"
+        ],
+        "scopes": [
+          "channels:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_leavechannel",
+          "ActionOutput_slack_leavechannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all bookmarks in a channel.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-bookmarks",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_listbookmarks",
+        "name": "list-bookmarks",
+        "output": [
+          "ActionOutput_slack_listbookmarks"
+        ],
+        "scopes": [
+          "bookmarks:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listbookmarks",
+          "ActionOutput_slack_listbookmarks"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all channel-like conversations in a workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/channels/list",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_listchannels",
+        "name": "list-channels",
+        "output": [
+          "ActionOutput_slack_listchannels"
+        ],
+        "scopes": [
+          "channels:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listchannels",
+          "ActionOutput_slack_listchannels"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all custom emoji for the workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-custom-emoji",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_listcustomemoji",
+        "name": "list-custom-emoji",
+        "output": [
+          "ActionOutput_slack_listcustomemoji"
+        ],
+        "scopes": [
+          "emoji:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listcustomemoji",
+          "ActionOutput_slack_listcustomemoji"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists files in a workspace with optional filtering.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/files/list",
+          "group": "Files"
+        },
+        "input": "ActionInput_slack_listfiles",
+        "name": "list-files",
+        "output": [
+          "ActionOutput_slack_listfiles"
+        ],
+        "scopes": [
+          "files:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listfiles",
+          "ActionOutput_slack_listfiles"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all items pinned to a channel.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-pins",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_listpins",
+        "name": "list-pins",
+        "output": [
+          "ActionOutput_slack_listpins"
+        ],
+        "scopes": [
+          "pins:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listpins",
+          "ActionOutput_slack_listpins"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves pending scheduled messages from workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/messages/scheduled",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_listscheduledmessages",
+        "name": "list-scheduled-messages",
+        "output": [
+          "ActionOutput_slack_listscheduledmessages"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listscheduledmessages",
+          "ActionOutput_slack_listscheduledmessages"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists users within a specific user group.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/user-group-members",
+          "group": "User Groups"
+        },
+        "input": "ActionInput_slack_listusergroupmembers",
+        "name": "list-user-group-members",
+        "output": [
+          "ActionOutput_slack_listusergroupmembers"
+        ],
+        "scopes": [
+          "usergroups:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listusergroupmembers",
+          "ActionOutput_slack_listusergroupmembers"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all user groups in the workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-user-groups",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_listusergroups",
+        "name": "list-user-groups",
+        "output": [
+          "ActionOutput_slack_listusergroups"
+        ],
+        "scopes": [
+          "usergroups:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listusergroups",
+          "ActionOutput_slack_listusergroups"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all items with reactions made by the user.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-user-reactions",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_listuserreactions",
+        "name": "list-user-reactions",
+        "output": [
+          "ActionOutput_slack_listuserreactions"
+        ],
+        "scopes": [
+          "reactions:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listuserreactions",
+          "ActionOutput_slack_listuserreactions"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all users in a workspace including active and deactivated.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/list",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_listusers",
+        "name": "list-users",
+        "output": [
+          "ActionOutput_slack_listusers"
+        ],
+        "scopes": [
+          "users:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listusers",
+          "ActionOutput_slack_listusers"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Finds a user by their registered email address.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/lookup",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_lookupuserbyemail",
+        "name": "lookup-user-by-email",
+        "output": [
+          "ActionOutput_slack_lookupuserbyemail"
+        ],
+        "scopes": [
+          "users:read",
+          "users:read.email"
+        ],
+        "usedModels": [
+          "ActionInput_slack_lookupuserbyemail",
+          "ActionOutput_slack_lookupuserbyemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Moves the read cursor in a conversation.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/mark",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_markasread",
+        "name": "mark-as-read",
+        "output": [
+          "ActionOutput_slack_markasread"
+        ],
+        "scopes": [
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_markasread",
+          "ActionOutput_slack_markasread"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Opens a direct message or multi-person direct message.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/conversations/dm/open",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_slack_opendm",
+        "name": "open-dm",
+        "output": [
+          "ActionOutput_slack_opendm"
+        ],
+        "scopes": [
+          "im:write",
+          "mpim:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_opendm",
+          "ActionOutput_slack_opendm"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Pins a message to a channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/pin-message",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_pinmessage",
+        "name": "pin-message",
+        "output": [
+          "ActionOutput_slack_pinmessage"
+        ],
+        "scopes": [
+          "pins:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_pinmessage",
+          "ActionOutput_slack_pinmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Posts a message to a public channel, private channel, or direct message.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages/post",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_postmessage",
+        "name": "post-message",
+        "output": [
+          "ActionOutput_slack_postmessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_postmessage",
+          "ActionOutput_slack_postmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes a user from a channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/members/remove",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_removefromchannel",
+        "name": "remove-from-channel",
+        "output": [
+          "ActionOutput_slack_removefromchannel"
+        ],
+        "scopes": [
+          "channels:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_removefromchannel",
+          "ActionOutput_slack_removefromchannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes an emoji reaction from a message.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/reactions/remove",
+          "group": "Reactions"
+        },
+        "input": "ActionInput_slack_removereaction",
+        "name": "remove-reaction",
+        "output": [
+          "ActionOutput_slack_removereaction"
+        ],
+        "scopes": [
+          "reactions:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_removereaction",
+          "ActionOutput_slack_removereaction"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Renames a conversation with proper permissions.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/rename",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_renamechannel",
+        "name": "rename-channel",
+        "output": [
+          "ActionOutput_slack_renamechannel"
+        ],
+        "scopes": [
+          "channels:manage"
+        ],
+        "usedModels": [
+          "ActionInput_slack_renamechannel",
+          "ActionOutput_slack_renamechannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Schedules a message for future delivery up to 120 days ahead.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages/schedule",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_schedulemessage",
+        "name": "schedule-message",
+        "output": [
+          "ActionOutput_slack_schedulemessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_schedulemessage",
+          "ActionOutput_slack_schedulemessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches for files matching a query in Slack workspace (requires user token).",
+        "endpoint": {
+          "method": "GET",
+          "path": "/search-files",
+          "group": "Search"
+        },
+        "input": "ActionInput_slack_searchfiles",
+        "name": "search-files",
+        "output": [
+          "ActionOutput_slack_searchfiles"
+        ],
+        "scopes": [
+          "search:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_searchfiles",
+          "ActionOutput_slack_searchfiles"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches for messages matching a query in Slack workspace (requires user token).",
+        "endpoint": {
+          "method": "GET",
+          "path": "/search-messages",
+          "group": "Search"
+        },
+        "input": "ActionInput_slack_searchmessages",
+        "name": "search-messages",
+        "output": [
+          "ActionOutput_slack_searchmessages"
+        ],
+        "scopes": [
+          "search:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_searchmessages",
+          "ActionOutput_slack_searchmessages"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "An action that sends a message to a slack channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_sendmessage",
+        "name": "send-message",
+        "output": [
+          "ActionOutput_slack_sendmessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_sendmessage",
+          "ActionOutput_slack_sendmessage"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a channel's description or purpose.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/purpose",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_setchannelpurpose",
+        "name": "set-channel-purpose",
+        "output": [
+          "ActionOutput_slack_setchannelpurpose"
+        ],
+        "scopes": [
+          "channels:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_setchannelpurpose",
+          "ActionOutput_slack_setchannelpurpose"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates a channel's topic.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/topic",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_setchanneltopic",
+        "name": "set-channel-topic",
+        "output": [
+          "ActionOutput_slack_setchanneltopic"
+        ],
+        "scopes": [
+          "channels:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_setchanneltopic",
+          "ActionOutput_slack_setchanneltopic"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Sets the calling user's manual presence status.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users/presence",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_setuserpresence",
+        "name": "set-user-presence",
+        "output": [
+          "ActionOutput_slack_setuserpresence"
+        ],
+        "scopes": [
+          "users:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_setuserpresence",
+          "ActionOutput_slack_setuserpresence"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Restores an archived conversation.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/channels/unarchive",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_unarchivechannel",
+        "name": "unarchive-channel",
+        "output": [
+          "ActionOutput_slack_unarchivechannel"
+        ],
+        "scopes": [
+          "channels:manage"
+        ],
+        "usedModels": [
+          "ActionInput_slack_unarchivechannel",
+          "ActionOutput_slack_unarchivechannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes a pinned item from a channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/unpin-message",
+          "group": "Actions"
+        },
+        "input": "ActionInput_slack_unpinmessage",
+        "name": "unpin-message",
+        "output": [
+          "ActionOutput_slack_unpinmessage"
+        ],
+        "scopes": [
+          "pins:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_unpinmessage",
+          "ActionOutput_slack_unpinmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Modifies an existing message in a channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages/update",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_updatemessage",
+        "name": "update-message",
+        "output": [
+          "ActionOutput_slack_updatemessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_updatemessage",
+          "ActionOutput_slack_updatemessage"
         ],
         "version": "1.0.0"
       }
@@ -290,263 +1120,102 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches all opportunities",
+        "description": "Syncs information about all Users on the Slack workspace",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/opportunities",
-            "group": "Opportunities"
+            "path": "/users"
           }
         ],
-        "input": "SyncMetadata_lever_opportunities",
-        "name": "opportunities",
+        "input": "SyncMetadata_slack_users",
+        "name": "users",
         "output": [
-          "LeverOpportunity"
+          "SlackUser"
         ],
-        "runs": "every 6 hours",
+        "runs": "every hour",
         "scopes": [
-          "opportunities:read:admin"
+          "users:read",
+          "users:read.email"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackUser",
+          "SyncMetadata_slack_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/channels"
+          }
+        ],
+        "input": "SyncMetadata_slack_channels",
+        "name": "channels",
+        "output": [
+          "SlackChannel"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "channels:read",
+          "channels:join"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackChannel",
+          "SyncMetadata_slack_channels"
+        ],
+        "version": "2.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/messages",
+            "group": "Messages"
+          },
+          {
+            "method": "GET",
+            "path": "/messages-reply"
+          },
+          {
+            "method": "GET",
+            "path": "/messages-reaction"
+          }
+        ],
+        "input": "SyncMetadata_slack_messages",
+        "name": "messages",
+        "output": [
+          "SlackMessage",
+          "SlackMessageReply",
+          "SlackMessageReaction"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "channels:read",
+          "channels:history"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "LeverOpportunity",
-          "SyncMetadata_lever_opportunities"
+          "SlackMessage",
+          "SlackMessageReply",
+          "SlackMessageReaction",
+          "SyncMetadata_slack_messages"
         ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all applications for a candidate in Lever",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/applications",
-            "group": "Applications"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunitiesapplications",
-        "name": "opportunities-applications",
-        "output": [
-          "LeverOpportunityApplication"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "applications:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunityApplication",
-          "SyncMetadata_lever_opportunitiesapplications"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all feedback forms for a candidate for every single opportunity",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/opportunities/feedback",
-            "group": "Opportunities"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunitiesfeedbacks",
-        "name": "opportunities-feedbacks",
-        "output": [
-          "LeverOpportunityFeedback"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "feedback:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunityFeedback",
-          "SyncMetadata_lever_opportunitiesfeedbacks"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all interviews for every single opportunity",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/opportunities/interviews",
-            "group": "Opportunities"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunitiesinterviews",
-        "name": "opportunities-interviews",
-        "output": [
-          "LeverOpportunityInterview"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "interviews:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunityInterview",
-          "SyncMetadata_lever_opportunitiesinterviews"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all notes for every single opportunity",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/notes",
-            "group": "Notes"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunitiesnotes",
-        "name": "opportunities-notes",
-        "output": [
-          "LeverOpportunityNote"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "notes:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunityNote",
-          "SyncMetadata_lever_opportunitiesnotes"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all offers for every single opportunity",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/offers",
-            "group": "Offers"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunitiesoffers",
-        "name": "opportunities-offers",
-        "output": [
-          "LeverOpportunityOffer"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "offers:write:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunityOffer",
-          "SyncMetadata_lever_opportunitiesoffers"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all postings in Lever",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/postings",
-            "group": "Postings"
-          }
-        ],
-        "input": "SyncMetadata_lever_postings",
-        "name": "postings",
-        "output": [
-          "LeverPosting"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "postings:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverPosting",
-          "SyncMetadata_lever_postings"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all questions included in a posting’s application form in Lever",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/postings/questions",
-            "group": "Postings"
-          }
-        ],
-        "input": "SyncMetadata_lever_postingsquestions",
-        "name": "postings-questions",
-        "output": [
-          "LeverPostingApply"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "postings:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverPostingApply",
-          "SyncMetadata_lever_postingsquestions"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of all pipeline stages in Lever",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/stages",
-            "group": "Stages"
-          }
-        ],
-        "input": "SyncMetadata_lever_stages",
-        "name": "stages",
-        "output": [
-          "LeverStage"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "stages:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverStage",
-          "SyncMetadata_lever_stages"
-        ],
-        "version": "2.0.0",
+        "version": "2.0.1",
         "webhookSubscriptions": []
       }
     ],

@@ -1,0 +1,1 @@
+Searches for messages matching a query - REQUIRES USER TOKEN (use slack-user-token skill). API: https://api.slack.com/methods/search.messages. Input: query: string, count?: number, page?: number, sort?: string, sort_dir?: string. Output: ok: boolean, messages: object. Connection ID: action-builder. Test input: { "query": "hello" }

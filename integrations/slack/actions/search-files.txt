@@ -1,0 +1,2 @@
+Searches for files matching a query
+API: https://api.slack.com/methods/search.files

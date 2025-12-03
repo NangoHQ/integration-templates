@@ -1,0 +1,2 @@
+Adds a bookmark link to a channel
+API: https://api.slack.com/methods/bookmarks.add

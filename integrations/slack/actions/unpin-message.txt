@@ -1,0 +1,2 @@
+Removes a pinned item from a channel
+API: https://api.slack.com/methods/pins.remove

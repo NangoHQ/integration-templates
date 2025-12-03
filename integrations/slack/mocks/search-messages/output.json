@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "messages": {
+    "total": 1,
+    "matches": [
+      {
+        "type": "message",
+        "ts": "1234567890.123456",
+        "text": "hello world",
+        "channel": {
+          "id": "C02MB5ZABA7",
+          "name": "general"
+        },
+        "user": "U123456",
+        "username": "testuser",
+        "permalink": "https://example.slack.com/archives/C02MB5ZABA7/p1234567890123456"
+      }
+    ],
+    "pagination": {
+      "total_count": 1,
+      "page": 1,
+      "per_page": 20,
+      "page_count": 1,
+      "first": 1,
+      "last": 1
+    }
+  }
+}

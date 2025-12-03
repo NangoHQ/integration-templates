@@ -1,0 +1,1 @@
+Archives a conversation making it read-only. API: https://api.slack.com/methods/conversations.archive. Input: channel: string. Output: ok: boolean. Connection ID: action-builder. Test input: { "channel": "CHANNEL_ID_TO_ARCHIVE" }

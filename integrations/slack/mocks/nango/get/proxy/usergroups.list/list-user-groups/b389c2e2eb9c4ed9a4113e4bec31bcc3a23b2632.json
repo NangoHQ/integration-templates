@@ -1,0 +1,98 @@
+{
+  "method": "get",
+  "endpoint": "usergroups.list",
+  "requestIdentityHash": "b389c2e2eb9c4ed9a4113e4bec31bcc3a23b2632",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "usergroups.list",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "ok": true,
+    "usergroups": [
+      {
+        "id": "S083F076MSN",
+        "team_id": "T02LWFGTCDV",
+        "is_usergroup": true,
+        "is_subteam": true,
+        "name": "Platform Engineers",
+        "description": "",
+        "handle": "eng",
+        "is_external": false,
+        "date_create": 1733233096,
+        "date_update": 1748979597,
+        "date_delete": 0,
+        "auto_type": null,
+        "auto_provision": false,
+        "enterprise_subteam_id": "",
+        "created_by": "U03HVGHB9J5",
+        "updated_by": "U065J6V2VFE",
+        "deleted_by": null,
+        "is_section": false,
+        "is_editing_restricted": false,
+        "is_membership_locked": false,
+        "is_idp_group": false,
+        "is_visible": true,
+        "is_org_level": false,
+        "prefs": {
+          "channels": [],
+          "groups": []
+        },
+        "user_count": 3,
+        "channel_count": 0
+      },
+      {
+        "id": "S08M9MC9TFW",
+        "team_id": "T02LWFGTCDV",
+        "is_usergroup": true,
+        "is_subteam": true,
+        "name": "Customer-facing",
+        "description": "To be included in customer channels",
+        "handle": "customer-facing",
+        "is_external": false,
+        "date_create": 1744097294,
+        "date_update": 1749114066,
+        "date_delete": 0,
+        "auto_type": null,
+        "auto_provision": false,
+        "enterprise_subteam_id": "",
+        "created_by": "U03HVGHB9J5",
+        "updated_by": "U03HVGHB9J5",
+        "deleted_by": null,
+        "is_section": false,
+        "is_editing_restricted": false,
+        "is_membership_locked": false,
+        "is_idp_group": false,
+        "is_visible": true,
+        "is_org_level": false,
+        "prefs": {
+          "channels": [],
+          "groups": []
+        },
+        "user_count": 6,
+        "channel_count": 0
+      }
+    ]
+  },
+  "status": 200,
+  "headers": {
+    "date": "Wed, 26 Nov 2025 22:17:11 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1220",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "988",
+    "x-ratelimit-reset": "1764195448",
+    "etag": "W/\"4c4-CxYkmCI36Ogluiz0FHcAomCw/Uk\""
+  }
+}

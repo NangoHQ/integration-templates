@@ -1,0 +1,2 @@
+Gets Do Not Disturb settings for a user
+API: https://api.slack.com/methods/dnd.info

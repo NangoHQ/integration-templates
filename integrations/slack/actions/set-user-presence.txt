@@ -1,0 +1,5 @@
+Sets the calling users manual presence status
+API: https://api.slack.com/methods/users.setPresence
+Input: presence: string
+Output: ok: boolean
+Test Input: { "presence": "auto" }

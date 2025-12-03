@@ -1,0 +1,6 @@
+Retrieves information about a specific user
+
+API: https://api.slack.com/methods/users.info
+Input: user: string
+Output: ok: boolean, user: object
+Test Input: { "user": "U02MDCKS1N0" }
