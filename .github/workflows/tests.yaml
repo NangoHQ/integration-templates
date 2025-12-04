@@ -35,7 +35,7 @@ jobs:
 
             - name: Make sure flows.zero.json is compiled
               run: |
-                  npm run build:flows
+                  npm run compile:integrations
 
                   REPO_DIRTY=$(git status --short)
                   if [[ ! -z "$REPO_DIRTY" ]]; then
