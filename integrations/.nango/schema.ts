@@ -3,777 +3,96 @@
 // You can version this file
 // ---------------------------
 
-export interface SyncMetadata_lever_opportunities {
+export interface SyncMetadata_airtable_tables {
 };
 
-export interface LeverOpportunity {
+export interface Table {
+  baseId: string;
+  baseName: string;
   id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
-};
-
-export interface SyncMetadata_lever_opportunitiesapplications {
-};
-
-export interface LeverOpportunityApplication {
-  id: string;
-  opportunityId: string;
-  candidateId: string;
-  createdAt: number;
-  type: string;
-  posting: string;
-  postingHiringManager: string;
-  postingOwner: string;
-  user: string;
+  views: ({  id: string;
   name: string;
-  email: string;
-  phone: {  type: string;
-  value: string;};
-  requisitionForHire: {  id: string;
-  requisitionCode: string;
-  hiringManagerOnHire: string;};
-  ownerId: string;
-  hiringManager: string;
-  company: string;
-  links: string[];
-  comments: string;
-  customQuestions: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-};
-
-export interface SyncMetadata_lever_opportunitiesfeedbacks {
-};
-
-export interface LeverOpportunityFeedback {
-  id: string;
-  type: string;
-  text: string;
-  instructions: string;
-  fields: string[];
-  baseTemplateId: string;
-  interview: string;
-  panel: string;
-  user: string;
-  createdAt: number;
-  completedAt: number;
-  updatedAt: number;
-  deletedAt: number;
-};
-
-export interface SyncMetadata_lever_opportunitiesinterviews {
-};
-
-export interface LeverOpportunityInterview {
-  id: string;
-  panel: string;
-  subject: string;
-  note: string;
-  interviewers: string[];
-  timezone: string;
-  createdAt: number;
-  date: number;
-  duration: number;
-  location: string;
-  feedbackTemplate: string;
-  feedbackForms: string[];
-  feedbackReminder: string;
-  user: string;
-  stage: string;
-  canceledAt: number;
-  postings: string[];
-  gcalEventUrl: string;
-};
-
-export interface SyncMetadata_lever_opportunitiesnotes {
-};
-
-export interface LeverOpportunityNote {
-  id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
-};
-
-export interface SyncMetadata_lever_opportunitiesoffers {
-};
-
-export interface LeverOpportunityOffer {
-  id: string;
-  createdAt: number;
-  status: string;
-  creator: string;
-  fields: string[];
-  sentDocument: {  fileName: string;
-  uploadedAt: number;
-  downloadUrl: string;};
-  signedDocument: {  fileName: string;
-  uploadedAt: number;
-  downloadUrl: string;};
-};
-
-export interface SyncMetadata_lever_postings {
-};
-
-export interface LeverPosting {
-  perform_as?: string | undefined;
-  id: string;
-  text: string;
-  createdAt: number;
-  updatedAt: number;
-  user: string;
-  owner: string;
-  hiringManager: string;
-  confidentiality: string;
-  categories: {  team: string;
-  department: string;
-  location: string;
-  allLocations: string[];
-  commitment: string;
-  level: string;};
-  content: {  description: string;
-  descriptionHtml: string;
-  lists: string[];
-  closing: string;
-  closingHtml: string;};
-  country: string;
-  followers: string[];
-  tags: string[];
-  state: string;
-  distributionChannels: string[];
-  reqCode: string;
-  requisitionCodes: string[];
-  salaryDescription: string;
-  salaryDescriptionHtml: string;
-  salaryRange: {  max: number;
-  min: number;
-  currency: string;
-  interval: string;};
-  urls: {  list: string;
-  show: string;
-  apply: string;};
-  workplaceType: string;
-};
-
-export interface SyncMetadata_lever_postingsquestions {
-};
-
-export interface LeverPostingApply {
-  id: string;
-  text: string;
-  customQuestions: string[];
-  eeoQuestions: string[];
-  personalInformation: string[];
-  urls: string[];
-};
-
-export interface SyncMetadata_lever_stages {
-};
-
-export interface LeverStage {
-  id: string;
-  text: string;
-};
-
-export interface ActionInput_lever_createnote {
-  opportunityId: string;
-  perform_as: string;
-  note_id: string;
-  value: string;
-  secret: boolean;
-  score: number;
-  notifyFollowers: boolean;
-  createdAt: number;
-};
-
-export interface ActionOutput_lever_createnote {
-  id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
-};
-
-export interface ActionInput_lever_createopportunity {
-  perform_as: string;
-  parse: boolean;
-  perform_as_posting_owner: boolean;
-  name: string;
-  headline: string;
-  stage: string;
-  location: string;
-  phones: ({  value: string;
   type: string;})[];
-  emails: string;
-  links: string[];
-  tags: string[];
-  sources: string[];
-  origin: string;
-  owner: string;
-  followers: string[];
-  postings: string[];
-  createdAt: number;
-  archived: {  archivedAt: number;
-  reason: string;};
-  contact: string[];
+  fields: ({  id: string;
+  description: string;
+  name: string;
+  type: string;
+  options?: {} | undefined;})[];
+  primaryFieldId: string;
 };
 
-export interface ActionOutput_lever_createopportunity {
+export interface SyncMetadata_airtable_bases {
+};
+
+export interface Base {
   id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
+  permissionLevel: 'none' | 'read' | 'comment' | 'edit' | 'create';
 };
 
-export type ActionInput_lever_getstages = void
+export type ActionInput_airtable_whoami = void
 
-export interface ActionOutput_lever_getstages {
-  stages: ({  id: string;
-  text: string;})[];
-};
-
-export type ActionInput_lever_users = void
-
-export interface ActionOutput_lever_users {
-  users: ({  id: string;
-  name: string;
-  username: string;
-  email: string;
-  accessRole: string;
-  photo: string | null;
-  createdAt: number;
-  deactivatedAt: string | null;
-  externalDirectoryId: string | null;
-  linkedContactIds: string[] | null;
-  jobTitle: string | null;
-  managerId: string | null;})[];
-};
-
-export type ActionInput_lever_getpostings = void
-
-export interface ActionOutput_lever_getpostings {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export type ActionInput_lever_getarchivereasons = void
-
-export interface ActionOutput_lever_getarchivereasons {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_getposting {
+export interface ActionOutput_airtable_whoami {
   id: string;
+  email: string | null;
 };
 
-export interface ActionOutput_lever_getposting {
+export interface ActionInput_airtable_createwebhook {
+  baseId: string;
+  specification: {  options: {  filters: {  recordChangeScope?: string | undefined;
+  dataTypes: string[];
+  changeTypes: string[];
+  fromSources: string[];
+  sourceOptions?: {  formPageSubmission?: {  pageId: string;} | undefined;
+  formSubmission?: {  viewId: string;} | undefined;};
+  watchDataInFieldIds: string[];
+  watchSchemasOfFieldIds: string[];};
+  includes?: {  includeCellValuesInFieldIds?: string[] | 'all' | undefined;
+  "includePreviousCellValues:"?: boolean | undefined;
+  includePreviousFieldDefinitions?: boolean | undefined;};};};
+};
+
+export interface ActionOutput_airtable_createwebhook {
+  id: string;
+  expirationTime: string;
+};
+
+export interface ActionInput_airtable_listwebhooks {
+  baseId: string;
+};
+
+export interface ActionOutput_airtable_listwebhooks {
+  webhooks: ({  id: string;
+  areNotificationsEnabled: boolean;
+  cursorForNextPayload: number;
+  isHookEnabled: boolean;
+  lastSuccessfulNotificationTime: string | null;
+  expirationTime?: string | undefined;
+  specification: {  options: {  filters: {  recordChangeScope?: string | undefined;
+  dataTypes: string[];
+  changeTypes: string[];
+  fromSources: string[];
+  sourceOptions?: {  formPageSubmission?: {  pageId: string;} | undefined;
+  formSubmission?: {  viewId: string;} | undefined;};
+  watchDataInFieldIds: string[];
+  watchSchemasOfFieldIds: string[];};
+  includes?: {  includeCellValuesInFieldIds?: string[] | 'all' | undefined;
+  "includePreviousCellValues:"?: boolean | undefined;
+  includePreviousFieldDefinitions?: boolean | undefined;};};};
+  lastNotificationResult: {  success: boolean;
+  error?: {  message: string;} | undefined;
+  completionTimestamp?: string | undefined;
+  durationMs?: number | undefined;
+  retryNumber?: number | undefined;
+  willBeRetried?: boolean | undefined;} | null;})[];
+};
+
+export interface ActionInput_airtable_deletewebhook {
+  baseId: string;
+  webhookId: string;
+};
+
+export interface ActionOutput_airtable_deletewebhook {
   success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunitylinks {
-  perform_as?: string | undefined;
-  links: string[];
-  opportunityId: string;
-  delete: boolean;
-};
-
-export interface ActionOutput_lever_updateopportunitylinks {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunitysources {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  sources: string[];
-  delete: boolean;
-};
-
-export interface ActionOutput_lever_updateopportunitysources {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunitystage {
-  perform_as?: string | undefined;
-  stage: string;
-  opportunityId: string;
-};
-
-export interface ActionOutput_lever_updateopportunitystage {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunitytags {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  tags: string[];
-  delete: boolean;
-};
-
-export interface ActionOutput_lever_updateopportunitytags {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunityarchived {
-  perform_as?: string | undefined;
-  reason: string;
-  requisitionId?: string | undefined;
-  opportunityId: string;
-  cleanInterviews?: boolean | undefined;
-};
-
-export interface ActionOutput_lever_updateopportunityarchived {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_applyposting {
-  postId: string;
-  send_confirmation_email?: boolean | undefined;
-  personalInformation: ({  name: string;
-  value: string;})[];
-  eeoResponses: {};
-  urls: ({  name: string;
-  value: string;})[];
-  CustomQuestions: ({  id: string;
-  fields: ({  value: string;})[];})[];
-  ipAddress?: string | undefined;
-  source?: string | undefined;
-  consent?: {  marketing: {  provided: boolean;
-  compliancePolicyId: string;};
-  store: {  provided: boolean;
-  compliancePolicyId: string;};} | undefined;
-  diversitySurvey?: {  surveyId: string;
-  candidateSelectedLocation: string;
-  responses: ({  questionId: string;
-  questionText: string;
-  questionType: string;
-  answer: string;})[];} | undefined;
-  origin?: string | undefined;
-};
-
-export interface ActionOutput_lever_applyposting {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunity {
-  opportunityId: string;
-  perform_as?: string | undefined;
-  delete?: boolean | undefined;
-  links: string[];
-  sources: string[];
-  stage?: string | undefined;
-  tags: string[];
-  reason?: string | undefined;
-  cleanInterviews?: boolean | undefined;
-  requisitionId?: string | undefined;
-};
-
-export interface ActionOutput_lever_updateopportunity {
-  data: {  id?: string | undefined;
-  name?: string | undefined;
-  headline?: string | undefined;
-  contact?: string | undefined;
-  emails?: string[] | undefined;
-  phones?: string[] | undefined;
-  confidentiality?: string | undefined;
-  location?: string | undefined;
-  links?: string[] | undefined;
-  archived?: {  reason?: string | undefined;
-  archivedAt?: number | undefined;};
-  createdAt?: number | undefined;
-  updatedAt?: number | undefined;
-  lastInteractionAt?: number | undefined;
-  lastAdvancedAt?: number | undefined;
-  snoozedUntil?: number | null | undefined;
-  archivedAt?: number | undefined;
-  archiveReason?: string | undefined;
-  stage?: string | undefined;
-  stageChanges?: ({  0: {  toStageId: string;
-  toStageIndex: number;
-  updatedAt: number;
-  userId: string;};
-  1: string;})[] | undefined;
-  owner?: string | undefined;
-  tags?: string[] | undefined;
-  sources?: string[] | undefined;
-  origin?: string | undefined;
-  sourcedBy?: string | undefined;
-  applications?: string[] | undefined;
-  resume?: string | undefined;
-  followers?: string[] | undefined;
-  urls?: {  list?: string | undefined;
-  show?: string | undefined;};
-  dataProtection?: {} | null | undefined;
-  isAnonymized?: boolean | undefined;
-  opportunityLocation?: string | undefined;};
 };
