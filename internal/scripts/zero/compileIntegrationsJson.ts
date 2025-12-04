@@ -185,6 +185,12 @@ async function main(): Promise<void> {
     const outputPath = join(root, 'internal/flows.zero.json');
     await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 4), 'utf8');
 
+    // Format with prettier
+    execSync('prettier -w internal/flows.zero.json', {
+        stdio: 'pipe',
+        cwd: root
+    });
+
     console.log(`Output written to: ${chalk.green(outputPath)}`);
     console.log();
     console.log(chalk.green('Done!'));

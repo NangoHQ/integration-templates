@@ -42,6 +42,6 @@ jobs:
                     git diff
                     echo ""
                     echo -e "\r❌ flows.zero.json hasn't been compiled, please run:"
-                    echo -e "npm run build:flows"
+                    echo -e "npm run compile:integrations"
                     exit 1
                   fi
