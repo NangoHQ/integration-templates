@@ -104,7 +104,7 @@ jobs:
                   # Add the changes
                   git add packages/shared/flows.yaml
                   git add packages/shared/flows.zero.json
-                  git add docs-v2/snippets/
+                  git add docs/snippets/
 
                   # Get commit details from the previous step
                   COMMIT_MESSAGE="${{ steps.commit_details.outputs.commit_message }}"
