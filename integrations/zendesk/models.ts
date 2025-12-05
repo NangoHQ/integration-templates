@@ -25,7 +25,8 @@ export const User = z.object({
   id: z.string(),
   firstName: z.string(),
   lastName: z.string(),
-  email: z.string()
+  email: z.string(),
+  user_fields: z.record(z.string(), z.string())
 });
 
 export type User = z.infer<typeof User>;
