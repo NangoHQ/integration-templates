@@ -69,7 +69,7 @@ const sync = createSync({
         }
 
         await nango.batchSave(files, 'OneDriveFileSelection');
-    await nango.deleteRecordsFromPreviousExecutions("OneDriveFileSelection");
+        await nango.deleteRecordsFromPreviousExecutions('OneDriveFileSelection');
     }
 });
 

@@ -65,20 +65,14 @@ const sync = createSync({
         if (files.length > 0) {
             await nango.batchSave(files, 'OneDriveFileSelection');
         }
-        await nango.deleteRecordsFromPreviousExecutions("OneDriveFileSelection");
+        await nango.deleteRecordsFromPreviousExecutions('OneDriveFileSelection');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function fetchFolderContents(
-    nango: NangoSyncLocal,
-    folderId: string,
-    files: OneDriveFileSelection[],
-    depth = 3,
-    batchSize = 100
-) {
+async function fetchFolderContents(nango: NangoSyncLocal, folderId: string, files: OneDriveFileSelection[], depth = 3, batchSize = 100) {
     if (depth === 0) return;
 
     const folderConfig: ProxyConfiguration = {
@@ -99,7 +93,7 @@ async function fetchFolderContents(
             files.push(toFile(item, item.parentReference?.driveId ?? 'root'));
             if (files.length >= batchSize) {
                 await nango.batchSave(files, 'OneDriveFileSelection');
-                files.length = 0;
+                files = { ...files, length: 0 };
             }
 
             if (item.folder && item.folder.childCount > 0) {

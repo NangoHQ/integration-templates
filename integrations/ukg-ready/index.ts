@@ -1,2 +1,2 @@
 // -- Integration: ukg-ready
-import "./ukg-ready/syncs/employees.js";
+import './ukg-ready/syncs/employees.js';

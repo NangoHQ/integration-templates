@@ -56,7 +56,7 @@ const sync = createSync({
             }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("Location");
+        await nango.deleteRecordsFromPreviousExecutions('Location');
     }
 });
 

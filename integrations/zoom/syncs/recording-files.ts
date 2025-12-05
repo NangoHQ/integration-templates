@@ -85,7 +85,7 @@ const sync = createSync({
         }
 
         await nango.batchSave(recordings, 'RecordingFile');
-    await nango.deleteRecordsFromPreviousExecutions("RecordingFile");
+        await nango.deleteRecordsFromPreviousExecutions('RecordingFile');
     }
 });
 

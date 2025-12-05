@@ -40,7 +40,7 @@ const sync = createSync({
         }));
 
         await nango.batchSave(mappedDepartments, 'RecruiterFlowJobDepartment');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowJobDepartment");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJobDepartment');
     }
 });
 

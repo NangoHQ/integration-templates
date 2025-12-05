@@ -40,7 +40,7 @@ const sync = createSync({
         }));
 
         await nango.batchSave(updatedActivityTypes, 'RecruiterFlowCandidateActivityType');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowCandidateActivityType");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowCandidateActivityType');
     }
 });
 

@@ -76,7 +76,7 @@ const sync = createSync({
             const mappedContacts = contacts.map((contact: IntercomContact) => toContact(contact));
             await nango.batchSave(mappedContacts, 'Contact');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Contact");
+        await nango.deleteRecordsFromPreviousExecutions('Contact');
     }
 });
 

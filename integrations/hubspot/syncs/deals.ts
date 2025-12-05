@@ -150,7 +150,7 @@ const sync = createSync({
 
             await nango.batchSave(mappedDeals, 'Deal');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Deal");
+        await nango.deleteRecordsFromPreviousExecutions('Deal');
     }
 });
 

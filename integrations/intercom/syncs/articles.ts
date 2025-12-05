@@ -58,7 +58,7 @@ const sync = createSync({
             const mappedArticles = articles.map((article: IntercomArticle) => toArticle(article));
             await nango.batchSave(mappedArticles, 'Article');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Article");
+        await nango.deleteRecordsFromPreviousExecutions('Article');
     }
 });
 

@@ -54,7 +54,7 @@ const sync = createSync({
         });
 
         await nango.batchSave(labels, 'GmailLabel');
-    await nango.deleteRecordsFromPreviousExecutions("GmailLabel");
+        await nango.deleteRecordsFromPreviousExecutions('GmailLabel');
     }
 });
 

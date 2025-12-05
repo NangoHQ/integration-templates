@@ -45,7 +45,7 @@ const sync = createSync({
         });
 
         await nango.batchSave(codes, 'CurrencyCode');
-    await nango.deleteRecordsFromPreviousExecutions("CurrencyCode");
+        await nango.deleteRecordsFromPreviousExecutions('CurrencyCode');
     }
 });
 

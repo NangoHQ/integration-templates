@@ -1,2 +1,2 @@
 // -- Integration: paycom
-import "./paycom/syncs/unified-employees.js";
+import './paycom/syncs/unified-employees.js';

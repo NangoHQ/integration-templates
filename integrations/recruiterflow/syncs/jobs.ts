@@ -48,7 +48,7 @@ const sync = createSync({
             await nango.batchSave(jobs.map(toJob), 'RecruiterFlowJob');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowJob");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJob');
     }
 });
 

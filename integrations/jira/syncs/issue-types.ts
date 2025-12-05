@@ -66,7 +66,7 @@ const sync = createSync({
                 throw new Error('No projects configured for issue-types sync');
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("IssueType");
+        await nango.deleteRecordsFromPreviousExecutions('IssueType');
     }
 });
 

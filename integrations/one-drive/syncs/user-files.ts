@@ -90,7 +90,7 @@ const sync = createSync({
             await nango.log(`Batch saving remaining ${files.length} files`);
             await nango.batchSave(files, 'OneDriveFile');
         }
-    await nango.deleteRecordsFromPreviousExecutions("OneDriveFile");
+        await nango.deleteRecordsFromPreviousExecutions('OneDriveFile');
     }
 });
 

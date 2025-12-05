@@ -1,2 +1,2 @@
 // -- Integration: adp
-import "./adp/syncs/unified-employees.js";
+import './adp/syncs/unified-employees.js';

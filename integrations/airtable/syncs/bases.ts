@@ -42,7 +42,7 @@ const sync = createSync({
             await nango.batchSave(bases, 'Base');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("Base");
+        await nango.deleteRecordsFromPreviousExecutions('Base');
     }
 });
 

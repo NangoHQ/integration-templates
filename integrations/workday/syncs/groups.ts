@@ -65,7 +65,7 @@ const sync = createSync({
 
         await nango.log('Saving records', { count: records.length });
         await nango.batchSave(records, 'Group');
-        await nango.deleteRecordsFromPreviousExecutions("Group");
+        await nango.deleteRecordsFromPreviousExecutions('Group');
     }
 });
 
