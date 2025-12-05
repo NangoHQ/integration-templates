@@ -30,4 +30,5 @@ jobs:
                   npm ci
 
             - name: Compile
-              run: npm run build:flows -- --rebuild-all
+              working-directory: integrations
+              run: npx nango compile
