@@ -70,7 +70,7 @@ const sync = createSync({
                 }
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("NotionCompleteDatabase");
+        await nango.deleteRecordsFromPreviousExecutions('NotionCompleteDatabase');
     }
 });
 

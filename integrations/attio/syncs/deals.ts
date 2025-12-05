@@ -53,7 +53,7 @@ const sync = createSync({
             await nango.batchSave(deals, 'AttioDeal');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("AttioDeal");
+        await nango.deleteRecordsFromPreviousExecutions('AttioDeal');
     }
 });
 

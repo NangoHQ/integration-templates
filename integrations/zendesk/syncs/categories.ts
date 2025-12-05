@@ -61,7 +61,7 @@ const sync = createSync({
 
             await nango.batchSave(categories, 'Category');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Category");
+        await nango.deleteRecordsFromPreviousExecutions('Category');
     }
 });
 

@@ -35,13 +35,13 @@ jobs:
 
             - name: Make sure flows.zero.json is compiled
               run: |
-                  npm run build:flows
+                  npm run compile:integrations
 
                   REPO_DIRTY=$(git status --short)
                   if [[ ! -z "$REPO_DIRTY" ]]; then
                     git diff
                     echo ""
                     echo -e "\r❌ flows.zero.json hasn't been compiled, please run:"
-                    echo -e "npm run build:flows"
+                    echo -e "npm run compile:integrations"
                     exit 1
                   fi

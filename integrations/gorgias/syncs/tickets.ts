@@ -70,7 +70,7 @@ const sync = createSync({
             }
             await nango.batchSave(processedTickets, 'Ticket');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Ticket");
+        await nango.deleteRecordsFromPreviousExecutions('Ticket');
     }
 });
 

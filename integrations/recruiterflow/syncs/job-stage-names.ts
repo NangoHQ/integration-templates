@@ -35,7 +35,7 @@ const sync = createSync({
         const stages = response.data.data;
 
         await nango.batchSave(stages.map(toJobStageName), 'RecruiterFlowLeanJobStageName');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowLeanJobStageName");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowLeanJobStageName');
     }
 });
 

@@ -106,7 +106,7 @@ const sync = createSync({
             }
             await nango.batchSave(kbs, 'HubspotKnowledgeBase');
         }
-    await nango.deleteRecordsFromPreviousExecutions("HubspotKnowledgeBase");
+        await nango.deleteRecordsFromPreviousExecutions('HubspotKnowledgeBase');
     }
 });
 

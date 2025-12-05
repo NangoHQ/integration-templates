@@ -32,8 +32,7 @@ const action = createAction({
                 offset_name_in_request: 'current_page',
                 limit_name_in_request: 'items_per_page',
                 offset_start_value: 1,
-                // @ts-expect-error use to be able to be a string
-                limit: '100',
+                limit: 100,
                 offset_calculation_method: 'per-page',
                 response_path: 'data'
             }

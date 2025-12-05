@@ -47,7 +47,7 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} owners (total owners: ${totalRecords})`);
             await nango.batchSave(mappedOwner, 'HubspotOwner');
         }
-    await nango.deleteRecordsFromPreviousExecutions("HubspotOwner");
+        await nango.deleteRecordsFromPreviousExecutions('HubspotOwner');
     }
 });
 

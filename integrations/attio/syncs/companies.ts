@@ -53,7 +53,7 @@ const sync = createSync({
             await nango.batchSave(companies, 'AttioCompany');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("AttioCompany");
+        await nango.deleteRecordsFromPreviousExecutions('AttioCompany');
     }
 });
 

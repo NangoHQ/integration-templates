@@ -59,7 +59,7 @@ const sync = createSync({
             await nango.batchSave(users.map(toUser), 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("User");
+        await nango.deleteRecordsFromPreviousExecutions('User');
     }
 });
 

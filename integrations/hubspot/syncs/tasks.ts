@@ -189,7 +189,7 @@ const sync = createSync({
 
             await nango.batchSave(mappedTasks, 'Task');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Task");
+        await nango.deleteRecordsFromPreviousExecutions('Task');
     }
 });
 

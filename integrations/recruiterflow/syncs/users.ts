@@ -37,7 +37,7 @@ const sync = createSync({
         const users = response.data.data;
 
         await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowUser");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowUser');
     }
 });
 

@@ -78,7 +78,7 @@ const sync = createSync({
 
             await recursiveFetchSubPages(nango, pagesOnly);
         }
-    await nango.deleteRecordsFromPreviousExecutions("ContentMetadata");
+        await nango.deleteRecordsFromPreviousExecutions('ContentMetadata');
     }
 });
 

@@ -48,7 +48,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total employee(s) processed: ${employees.length}`);
-    await nango.deleteRecordsFromPreviousExecutions("HibobEmployee");
+        await nango.deleteRecordsFromPreviousExecutions('HibobEmployee');
     }
 });
 

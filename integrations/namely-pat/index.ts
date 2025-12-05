@@ -1,2 +1,2 @@
 // -- Integration: namely-pat
-import "./namely-pat/syncs/unified-employees.js";
+import './namely-pat/syncs/unified-employees.js';
