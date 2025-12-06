@@ -57,7 +57,7 @@ const sync = createSync({
         // Using batch sizes of ~50 records to avoid memory issues and save data frequently
         let batchMessages: SlackMessage[] = [];
         let batchMessageReply: SlackMessageReply[] = [];
-        
+
         const BATCH_SIZE = 50;
         const channelsRequestConfig: ProxyConfiguration = {
             // https://api.slack.com/methods/users.conversations
@@ -216,7 +216,7 @@ export default sync;
 
 async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, message: SlackMessageResponse) {
     if (!message.reactions) return;
-    
+
     const batchReactions: SlackMessageReaction[] = [];
     const REACTION_BATCH_SIZE = 100;
 
@@ -232,7 +232,7 @@ async function saveReactions(nango: NangoSyncLocal, currentChannelId: string, me
             };
 
             batchReactions.push(mappedReaction);
-            
+
             if (batchReactions.length >= REACTION_BATCH_SIZE) {
                 await nango.batchSave(batchReactions, 'SlackMessageReaction');
                 batchReactions.length = 0;

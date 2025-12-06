@@ -56,7 +56,7 @@ const sync = createSync({
             await nango.batchSave(confluenceSpaces, 'ConfluenceSpace');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("ConfluenceSpace");
+        await nango.deleteRecordsFromPreviousExecutions('ConfluenceSpace');
     }
 });
 

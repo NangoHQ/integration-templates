@@ -37,7 +37,7 @@ const sync = createSync({
         const locations = response.data.data;
 
         await nango.batchSave(locations.map(toOrganizationLocation), 'RecruiterFlowOrganizationLocation');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowOrganizationLocation");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowOrganizationLocation');
     }
 });
 

@@ -64,7 +64,7 @@ const sync = createSync({
 
         await nango.log(`Found ${employees.length} employees`);
         await nango.batchSave(employees, 'StandardEmployee');
-    await nango.deleteRecordsFromPreviousExecutions("StandardEmployee");
+        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
     }
 });
 

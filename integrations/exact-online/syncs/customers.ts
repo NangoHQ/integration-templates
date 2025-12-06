@@ -58,7 +58,7 @@ const sync = createSync({
             await nango.batchSave(customers, 'ExactCustomer');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("ExactCustomer");
+        await nango.deleteRecordsFromPreviousExecutions('ExactCustomer');
     }
 });
 

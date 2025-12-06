@@ -43,7 +43,7 @@ const sync = createSync({
             });
             await nango.batchSave(validatedUsers, 'User');
         }
-    await nango.deleteRecordsFromPreviousExecutions("User");
+        await nango.deleteRecordsFromPreviousExecutions('User');
     }
 });
 

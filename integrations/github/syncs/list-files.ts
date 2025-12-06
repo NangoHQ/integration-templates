@@ -33,11 +33,11 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
-        
+
         if (!metadata?.owner || !metadata?.repo || !metadata?.branch) {
             throw Error('Missing required metadata: either owner, repo, or branch might be missing');
         }
-        
+
         const { owner, repo, branch } = metadata;
 
         // On the first run, fetch all files. On subsequent runs, fetch only updated files.

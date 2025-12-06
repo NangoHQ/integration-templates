@@ -42,7 +42,7 @@ const sync = createSync({
             await nango.batchSave(eventPage, 'GoogleCalendar');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("GoogleCalendar");
+        await nango.deleteRecordsFromPreviousExecutions('GoogleCalendar');
     }
 });
 

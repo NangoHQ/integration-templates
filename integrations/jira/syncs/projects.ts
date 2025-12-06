@@ -60,7 +60,7 @@ const sync = createSync({
             const projectsToSave = toProjects(projects, cloud.baseUrl);
             await nango.batchSave(projectsToSave, 'Project');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Project");
+        await nango.deleteRecordsFromPreviousExecutions('Project');
     }
 });
 

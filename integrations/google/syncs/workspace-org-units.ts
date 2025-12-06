@@ -104,7 +104,7 @@ const sync = createSync({
 
             pageToken = response.data.nextPageToken;
         } while (pageToken);
-    await nango.deleteRecordsFromPreviousExecutions("OrganizationalUnit");
+        await nango.deleteRecordsFromPreviousExecutions('OrganizationalUnit');
     }
 });
 

@@ -22,5 +22,3 @@ export function toFile(item: DriveItem, driveId: string): OneDriveFileSelection 
         drive_id: driveId
     };
 }
-
-

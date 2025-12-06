@@ -13,7 +13,7 @@ async function run(input: { id: string }): Promise<string> {
         // https://developer.box.com/reference/get-files-id-content/
         endpoint: `/2.0/files/${input.id}/content`,
         responseType: 'stream',
-        retries: 3,
+        retries: 3
         // connectionId: 'your-notion-connection-id'
         // providerConfigKey: 'notion'
     });

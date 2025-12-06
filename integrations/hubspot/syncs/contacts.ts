@@ -65,7 +65,7 @@ const sync = createSync({
             const mappedContacts = contacts.map((contact: HubSpotContactNonUndefined) => toContact(contact));
             await nango.batchSave(mappedContacts, 'Contact');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Contact");
+        await nango.deleteRecordsFromPreviousExecutions('Contact');
     }
 });
 

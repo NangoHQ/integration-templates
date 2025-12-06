@@ -52,7 +52,7 @@ const sync = createSync({
             await nango.batchSave(confluencePages, 'ConfluencePage');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("ConfluencePage");
+        await nango.deleteRecordsFromPreviousExecutions('ConfluencePage');
     }
 });
 

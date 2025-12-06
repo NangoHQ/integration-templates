@@ -65,7 +65,7 @@ const sync = createSync({
         await nango.log(`Fetched ${mappedFolders.length} Outlook folders`, { level: 'info' });
         await nango.batchSave(mappedFolders, 'OutlookFolder');
 
-        await nango.deleteRecordsFromPreviousExecutions("OutlookFolder");
+        await nango.deleteRecordsFromPreviousExecutions('OutlookFolder');
     }
 });
 

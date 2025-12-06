@@ -37,7 +37,7 @@ async function run() {
     // Video uploaded
     await finalizeUpload(videoURN, etags, uploadToken);
 
-    console.log('video urn => ', videoURN);
+    await nango.log('video urn => ', videoURN);
 }
 
 async function initializeVideoUpload(owner: string, bytesFileSize: number) {
@@ -138,7 +138,7 @@ async function finalizeUpload(videoURN: string, etags: string[], uploadToken: st
     }
 
     if (response.status == 200) {
-        console.log(response.status, 'completed uploading video');
+        await nango.log(response.status, 'completed uploading video');
     }
 
     return response.data;

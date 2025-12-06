@@ -31,7 +31,7 @@ const sync = createSync({
         const metadata = (await nango.getMetadata()) || {};
         const publicChannelIds: string[] = [];
 
-        const proxyConfig: ProxyConfiguration  = {
+        const proxyConfig: ProxyConfiguration = {
             // https://docs.slack.dev/reference/methods/conversations.list/
             endpoint: 'conversations.list',
             paginate: {
@@ -70,8 +70,8 @@ const sync = createSync({
                 await nango.batchSave(mappedChannels, 'SlackChannel');
                 if (metadata['joinPublicChannels']) {
                     const publicIds = mappedChannels
-                        .filter(channel => channel.is_shared === false && channel.is_private === false)
-                        .map(channel => channel.id);
+                        .filter((channel) => channel.is_shared === false && channel.is_private === false)
+                        .map((channel) => channel.id);
                     publicChannelIds.push(...publicIds);
                 }
             }
@@ -91,7 +91,7 @@ export default sync;
 async function joinPublicChannels(nango: NangoSyncLocal, publicChannelIds: string[]) {
     // Get ID of all channels where we are already a member
     const joinedChannelIds = new Set<string>();
-    
+
     const proxyConfig: ProxyConfiguration = {
         // https://api.slack.com/methods/users.conversations
         endpoint: 'users.conversations',
