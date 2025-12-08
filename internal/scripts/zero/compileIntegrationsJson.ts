@@ -119,9 +119,9 @@ async function main(): Promise<void> {
     if (!existsSync(centralBuildDir)) {
         console.log(`  ${chalk.yellow('warn')} No build directory found, skipping distribution`);
     } else {
-        // Read all .cjs files from the central build directory (excluding index files)
+        // Read all .cjs files from the central build directory
         const buildFiles = await readdir(centralBuildDir);
-        const cjsFiles = buildFiles.filter((f) => f.endsWith('.cjs') && !f.endsWith('_index.cjs'));
+        const cjsFiles = buildFiles.filter((f) => f.endsWith('.cjs'));
 
         // Group files by integration name (prefix before first underscore)
         const filesByIntegration = new Map<string, string[]>();
