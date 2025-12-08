@@ -70,7 +70,7 @@ jobs:
                       continue
                     fi
 
-                    if [ ! -f "$dir/index.ts" ]; then
+                    if [ ! -d "$dir/.nango" ]; then
                       continue
                     fi
 
