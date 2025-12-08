@@ -4,9 +4,11 @@ import * as path from 'path';
 /**
  * Resolves symlinks in the integrations directory
  * Iterates over every directory and resolves any symlinks found
+ * Adds entries to the top-level integrations/index.ts file
  */
 async function resolveAliases(): Promise<void> {
     const integrationsPath = path.join(process.cwd(), 'integrations');
+    const topLevelIndexPath = path.join(integrationsPath, 'index.ts');
 
     try {
         // Check if integrations directory exists
@@ -15,54 +17,40 @@ async function resolveAliases(): Promise<void> {
             return;
         }
 
+        // Check if top-level index.ts exists
+        if (!fs.existsSync(topLevelIndexPath)) {
+            console.error('Top-level integrations/index.ts not found');
+            return;
+        }
+
         // Read all items in the integrations directory
         const items = fs.readdirSync(integrationsPath);
 
         for (const item of items) {
             const itemPath = path.join(integrationsPath, item);
-            const stats = fs.statSync(itemPath);
+            const stats = fs.lstatSync(itemPath);
 
-            // Check if it's a directory or symlink
-            if (stats.isDirectory() || stats.isSymbolicLink()) {
+            // Check if it's a symlink
+            if (stats.isSymbolicLink()) {
                 try {
                     // Get the real path (resolves symlinks)
                     const realPath = fs.realpathSync(itemPath);
-                    // original path is the name of the integration which is the last segment
-                    const originalIntegrationName = path.basename(realPath);
 
-                    // If the real path is different from the item path, it's a symlink
-                    if (realPath !== itemPath) {
-                        console.log(`Resolving symlink: ${item} -> ${realPath}`);
+                    console.log(`Resolving symlink: ${item} -> ${realPath}`);
 
-                        // Remove the symlink
-                        fs.unlinkSync(itemPath);
+                    // Remove the symlink
+                    fs.unlinkSync(itemPath);
 
-                        // Copy the real directory to replace the symlink
-                        copyDirectoryRecursive(realPath, itemPath);
+                    // Copy the real directory to replace the symlink
+                    copyDirectoryRecursive(realPath, itemPath);
 
-                        // change the index.ts file paths to point to the updated integration name
-                        const indexPath = path.join(process.cwd() + '/integrations', `${item}/index.ts`);
-                        let indexContent = fs.readFileSync(indexPath, 'utf-8');
-
-                        // replace all occurrences of the original integration name with the new one
-                        const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                        const escapedOriginal = escapeRegExp(originalIntegrationName);
-
-                        // 3) Build a precise pattern:
-                        //    - inside quotes (single/double/backtick)
-                        //    - starts with "./"
-                        //    - exactly the original name
-                        //    - followed by a "/" (so we don't hit "./airtabled")
-                        const regex = new RegExp(`(['"\\\`])\\./${escapedOriginal}(?=/)`, 'g');
-
-                        // 4) Replace with the symlink directory name (item), preserve the quote with $1
-                        indexContent = indexContent.replace(regex, `$1./${item}`);
-                        fs.writeFileSync(indexPath, indexContent, 'utf-8');
-
-                        console.log(`✓ Resolved symlink for: ${item}`);
-                    } else {
-                        console.log(`✓ No symlink found for: ${item}`);
+                    // Generate and add entries to top-level index.ts
+                    const imports = generateImportsForIntegration(item, itemPath);
+                    if (imports.length > 0) {
+                        addImportsToTopLevelIndex(topLevelIndexPath, item, imports);
                     }
+
+                    console.log(`✓ Resolved symlink for: ${item}`);
                 } catch (error) {
                     console.error(`Error processing ${item}:`, error);
                 }
@@ -73,6 +61,51 @@ async function resolveAliases(): Promise<void> {
     } catch (error) {
         console.error('Error resolving aliases:', error);
     }
+}
+
+/**
+ * Generates import statements for an integration based on its syncs and actions
+ */
+function generateImportsForIntegration(integrationName: string, integrationPath: string): string[] {
+    const imports: string[] = [];
+
+    // Check for syncs directory
+    const syncsPath = path.join(integrationPath, 'syncs');
+    if (fs.existsSync(syncsPath)) {
+        const syncFiles = fs.readdirSync(syncsPath).filter((f) => f.endsWith('.ts') && !f.endsWith('.d.ts'));
+        for (const file of syncFiles) {
+            const baseName = file.replace('.ts', '');
+            imports.push(`import './${integrationName}/syncs/${baseName}.js';`);
+        }
+    }
+
+    // Check for actions directory
+    const actionsPath = path.join(integrationPath, 'actions');
+    if (fs.existsSync(actionsPath)) {
+        const actionFiles = fs.readdirSync(actionsPath).filter((f) => f.endsWith('.ts') && !f.endsWith('.d.ts'));
+        for (const file of actionFiles) {
+            const baseName = file.replace('.ts', '');
+            imports.push(`import './${integrationName}/actions/${baseName}.js';`);
+        }
+    }
+
+    return imports;
+}
+
+/**
+ * Adds import statements to the top-level index.ts file
+ */
+function addImportsToTopLevelIndex(indexPath: string, integrationName: string, imports: string[]): void {
+    let content = fs.readFileSync(indexPath, 'utf-8');
+
+    // Build the new section to add
+    const newSection = `\n// -- Integration: ${integrationName}\n${imports.join('\n')}\n`;
+
+    // Append to the end of the file
+    content = content.trimEnd() + newSection;
+
+    fs.writeFileSync(indexPath, content, 'utf-8');
+    console.log(`  Added ${imports.length} imports to index.ts for ${integrationName}`);
 }
 
 /**

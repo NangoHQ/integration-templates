@@ -5,15 +5,19 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
-import { readFile, writeFile, readdir, lstat, readlink } from 'fs/promises';
-import { join, basename } from 'path';
+import { readFile, writeFile, readdir, lstat, readlink, mkdir, copyFile, rm } from 'fs/promises';
+import { join, basename, dirname } from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+import { existsSync } from 'fs';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
 import { errorToString } from './utils.js';
 import type { ZeroFlow } from './types.js';
 
-const root = join(import.meta.dirname, '..', '..', '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const root = join(__dirname, '..', '..', '..');
 
 // Symlink mappings: symlink name -> target name
 const SYMLINKS: Record<string, string> = {
@@ -107,10 +111,71 @@ async function main(): Promise<void> {
         process.exit(1);
     }
 
+    // Step 2.5: Distribute build files to each integration's build directory
+    console.log();
+    console.log('Distributing build files to integration directories...');
+
+    const centralBuildDir = join(integrationsPath, 'build');
+    if (!existsSync(centralBuildDir)) {
+        console.log(`  ${chalk.yellow('warn')} No build directory found, skipping distribution`);
+    } else {
+        // Read all .cjs files from the central build directory
+        const buildFiles = await readdir(centralBuildDir);
+        const cjsFiles = buildFiles.filter((f) => f.endsWith('.cjs'));
+
+        // Group files by integration name (prefix before first underscore)
+        const filesByIntegration = new Map<string, string[]>();
+        for (const file of cjsFiles) {
+            // Files are named like: airtable_syncs_bases.cjs or airtable_actions_create-webhook.cjs
+            const underscoreIndex = file.indexOf('_');
+            if (underscoreIndex === -1) continue;
+
+            const integrationName = file.substring(0, underscoreIndex);
+            if (!filesByIntegration.has(integrationName)) {
+                filesByIntegration.set(integrationName, []);
+            }
+            filesByIntegration.get(integrationName)!.push(file);
+        }
+
+        // Distribute files to each integration's build directory
+        for (const [integrationName, files] of filesByIntegration) {
+            const integrationDir = join(integrationsPath, integrationName);
+
+            // Skip if integration directory doesn't exist
+            if (!existsSync(integrationDir)) {
+                continue;
+            }
+
+            // Skip symlinked directories to avoid overwriting the target's build
+            const stat = await lstat(integrationDir);
+            if (stat.isSymbolicLink()) {
+                continue;
+            }
+
+            const integrationBuildDir = join(integrationDir, 'build');
+
+            // Clear and recreate build directory
+            if (existsSync(integrationBuildDir)) {
+                await rm(integrationBuildDir, { recursive: true });
+            }
+            await mkdir(integrationBuildDir, { recursive: true });
+
+            // Copy each file, keeping the original filename
+            for (const file of files) {
+                const sourceFile = join(centralBuildDir, file);
+                const destFile = join(integrationBuildDir, file);
+                await copyFile(sourceFile, destFile);
+            }
+
+            console.log(`  ${chalk.green('✓')} ${integrationName} (${files.length} files)`);
+        }
+    }
+
+    const fullSchema = jsonSchema as { $schema?: string; $comment?: string; definitions: Record<string, unknown> };
+
     // Step 3: Transform to ZeroFlow format
     // Each integration in nangoData already has providerConfigKey set
     // Filter jsonSchema to only include models used by each integration
-    const fullSchema = jsonSchema as { $schema?: string; $comment?: string; definitions: Record<string, unknown> };
 
     const aggregatedFlows: ZeroFlow[] = nangoData.map((integration) => {
         // Collect all used models from syncs and actions
