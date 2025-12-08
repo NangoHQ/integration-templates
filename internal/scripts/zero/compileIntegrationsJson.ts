@@ -146,6 +146,12 @@ async function main(): Promise<void> {
                 continue;
             }
 
+            // Skip symlinked directories to avoid overwriting the target's build
+            const stat = await lstat(integrationDir);
+            if (stat.isSymbolicLink()) {
+                continue;
+            }
+
             const integrationBuildDir = join(integrationDir, 'build');
 
             // Clear and recreate build directory
@@ -154,12 +160,10 @@ async function main(): Promise<void> {
             }
             await mkdir(integrationBuildDir, { recursive: true });
 
-            // Copy each file, removing the integration prefix from the filename
+            // Copy each file, keeping the original filename
             for (const file of files) {
                 const sourceFile = join(centralBuildDir, file);
-                // Remove integration prefix: airtable_syncs_bases.cjs -> syncs_bases.cjs
-                const newFileName = file.substring(integrationName.length + 1);
-                const destFile = join(integrationBuildDir, newFileName);
+                const destFile = join(integrationBuildDir, file);
                 await copyFile(sourceFile, destFile);
             }
 
