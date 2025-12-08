@@ -58,7 +58,8 @@ const sync = createSync({
                     id: zUser.id.toString(),
                     firstName: firstName || '',
                     lastName: lastName || '',
-                    email: zUser.email
+                    email: zUser.email,
+                    user_fields: zUser.user_fields
                 };
             });
 

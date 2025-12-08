@@ -230,7 +230,7 @@ export interface ZendeskUser {
     suspended: boolean;
     default_group_id: number;
     report_csv: boolean;
-    user_fields: Record<string, any>;
+    user_fields?: Record<string, any>;
 }
 
 interface ZendeskAttachmet {
