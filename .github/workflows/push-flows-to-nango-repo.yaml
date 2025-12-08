@@ -1,6 +1,7 @@
 name: Push flows and docs to Nango repo
 
 on:
+    workflow_dispatch:
     push:
         branches:
             - main
@@ -32,13 +33,13 @@ jobs:
             - name: Debug - Log if files has changed
               run: |
                   if [ "${{ steps.changes.outputs.any_changed }}" == "true" ]; then
-                    echo "flows.yaml has changed."
+                    echo "flows.zero.json has changed."
                   else
-                    echo "No changes detected in flows.yaml."
+                    echo "No changes detected in flows.zero.json."
                   fi
 
             - name: Generate GitHub App Token
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               id: generate_token
               uses: tibdex/github-app-token@v1
               with:
@@ -46,12 +47,12 @@ jobs:
                   private_key: ${{ secrets.GH_APP_PUSHER_PRIVATE_KEY }}
 
             - name: Debug - Log token generation status
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               run: |
                   echo "GitHub App token generated."
 
             - name: Clone the target repository and copy the changed files
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               run: |
                   echo "Cloning the target repository..."
                   git clone https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/NangoHQ/nango.git
@@ -69,14 +70,14 @@ jobs:
                   npm run docs:generate
 
             - name: Debug - status on nango after copying
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               working-directory: nango
               run: |
                   echo "Status of nango directory after copying files"
                   git status
 
             - name: Get Commit Details
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               id: commit_details
               run: |
                   # Get the latest commit details
@@ -94,7 +95,7 @@ jobs:
                   echo "commit_url=$COMMIT_URL" >> $GITHUB_OUTPUT
 
             - name: Make changes and commit
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               working-directory: nango
               run: |
                   echo "Configuring Git and committing changes..."
@@ -117,7 +118,7 @@ jobs:
                   echo "Changes committed."
 
             - name: Push changes to target repo
-              if: steps.changes.outputs.any_changed == 'true'
+              if: steps.changes.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               working-directory: nango
               run: |
                   echo "Pushing changes to target repository..."
