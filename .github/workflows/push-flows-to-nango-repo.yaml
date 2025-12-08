@@ -22,12 +22,11 @@ jobs:
                   echo "Current branch: ${{ github.ref }}"
                   echo "Repository: ${{ github.repository }}"
 
-            - name: Check for changes in flows.yaml
+            - name: Check for changes in flows.zero.json
               id: changes
               uses: tj-actions/changed-files@v41
               with:
                   files: |
-                      internal/flows.yaml
                       internal/flows.zero.json
 
             - name: Debug - Log if files has changed
@@ -57,10 +56,6 @@ jobs:
                   echo "Cloning the target repository..."
                   git clone https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/NangoHQ/nango.git
                   echo "Repository cloned."
-
-                  echo "Copying flows.yaml into the nango repository."
-                  cp internal/flows.yaml nango/packages/shared/flows.yaml
-                  echo "flows.yaml file copied."
 
                   cp internal/flows.zero.json nango/packages/shared/flows.zero.json
 
@@ -103,7 +98,6 @@ jobs:
                   git config --global user.name "GitHub Actions Bot"
 
                   # Add the changes
-                  git add packages/shared/flows.yaml
                   git add packages/shared/flows.zero.json
                   git add docs/snippets/
 
