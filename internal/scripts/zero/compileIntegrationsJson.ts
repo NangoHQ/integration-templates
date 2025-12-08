@@ -6,14 +6,17 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
 import { readFile, writeFile, readdir, lstat, readlink } from 'fs/promises';
-import { join, basename } from 'path';
+import { join, basename, dirname } from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
 import { errorToString } from './utils.js';
 import type { ZeroFlow } from './types.js';
 
-const root = join(import.meta.dirname, '..', '..', '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const root = join(__dirname, '..', '..', '..');
 
 // Symlink mappings: symlink name -> target name
 const SYMLINKS: Record<string, string> = {
