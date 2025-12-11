@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "usergroups": [
+    {
+      "id": "S083F076MSN",
+      "team_id": "T02LWFGTCDV",
+      "is_usergroup": true,
+      "is_subteam": true,
+      "name": "Platform Engineers",
+      "description": "",
+      "handle": "eng",
+      "is_external": false,
+      "date_create": 1733233096,
+      "date_update": 1748979597,
+      "date_delete": 0,
+      "auto_type": null,
+      "auto_provision": false,
+      "enterprise_subteam_id": "",
+      "created_by": "U03HVGHB9J5",
+      "updated_by": "U065J6V2VFE",
+      "deleted_by": null,
+      "is_section": false,
+      "is_editing_restricted": false,
+      "is_membership_locked": false,
+      "is_idp_group": false,
+      "is_visible": true,
+      "is_org_level": false,
+      "prefs": {
+        "channels": [],
+        "groups": []
+      },
+      "user_count": 3,
+      "channel_count": 0
+    },
+    {
+      "id": "S08M9MC9TFW",
+      "team_id": "T02LWFGTCDV",
+      "is_usergroup": true,
+      "is_subteam": true,
+      "name": "Customer-facing",
+      "description": "To be included in customer channels",
+      "handle": "customer-facing",
+      "is_external": false,
+      "date_create": 1744097294,
+      "date_update": 1749114066,
+      "date_delete": 0,
+      "auto_type": null,
+      "auto_provision": false,
+      "enterprise_subteam_id": "",
+      "created_by": "U03HVGHB9J5",
+      "updated_by": "U03HVGHB9J5",
+      "deleted_by": null,
+      "is_section": false,
+      "is_editing_restricted": false,
+      "is_membership_locked": false,
+      "is_idp_group": false,
+      "is_visible": true,
+      "is_org_level": false,
+      "prefs": {
+        "channels": [],
+        "groups": []
+      },
+      "user_count": 6,
+      "channel_count": 0
+    }
+  ]
+}

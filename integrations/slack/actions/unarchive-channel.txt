@@ -1,0 +1,1 @@
+Restores an archived conversation. API: https://api.slack.com/methods/conversations.unarchive. Input: channel: string. Output: ok: boolean. Connection ID: action-builder. Test input: { "channel": "C0A02F9NBCJ" }

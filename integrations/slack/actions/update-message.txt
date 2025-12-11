@@ -1,0 +1,1 @@
+Modifies an existing message in a channel. API: https://api.slack.com/methods/chat.update. Input: channel: string, ts: string, text?: string, blocks?: array. Output: ok: boolean, ts: string, channel: string, text: string. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "ts": "MESSAGE_TS_FROM_POST", "text": "Updated message text" }

@@ -1,13 +1,28 @@
 {
-    "metadata": {
-        "channelsLastSyncDate": {
-            "C06NEAE8W5V": "Wed Oct 02 2024 08:45:40 GMT+0300 (East Africa Time)",
-            "C06NN7CDS6A": "Wed Oct 02 2024 08:45:40 GMT+0300 (East Africa Time)",
-            "C06NXA3AU7N": "Wed Oct 02 2024 08:45:41 GMT+0300 (East Africa Time)"
-        }
-    },
-    "connection_config": {
-        "team.id": "T06NXA39CJ0",
-        "bot_user_id": "U06P7LFRASD"
+  "metadata": null,
+  "connection_config": {
+    "team.id": "T02LWFGTCDV",
+    "bot_user_id": "U07E8G7J57T"
+  },
+  "credentials": {
+    "type": "OAUTH2",
+    "access_token": "xoxb-mock-bot-token",
+    "raw": {
+      "ok": true,
+      "access_token": "xoxb-mock-bot-token",
+      "token_type": "bot",
+      "scope": "channels:read,chat:write,users:read",
+      "bot_user_id": "U07E8G7J57T",
+      "app_id": "A0MOCK",
+      "team": {
+        "name": "Test Workspace",
+        "id": "T02LWFGTCDV"
+      },
+      "authed_user": {
+        "id": "U0MOCKUSER",
+        "scope": "search:read",
+        "access_token": "xoxp-mock-user-token"
+      }
     }
+  }
 }

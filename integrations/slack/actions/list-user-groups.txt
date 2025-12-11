@@ -1,0 +1,2 @@
+Lists all user groups in the workspace
+API: https://api.slack.com/methods/usergroups.list

@@ -1,0 +1,1 @@
+Lists files in a workspace with optional filtering. API: https://api.slack.com/methods/files.list. Input: channel?: string, user?: string, types?: string, count?: number, page?: number. Output: ok: boolean, files: array, paging: object. Connection ID: action-builder.

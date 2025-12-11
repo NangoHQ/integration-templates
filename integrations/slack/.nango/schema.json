@@ -488,6 +488,1842 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_slack_addbookmark": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "title",
+        "type",
+        "link"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_addbookmark": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "bookmark": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_addreaction": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        },
+        "reaction_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts",
+        "reaction_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_addreaction": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_archivechannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_archivechannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_completefileupload": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {}
+        },
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_completefileupload": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "files": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "ok",
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_createchannel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "is_private": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_createchannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_deletefile": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_deletefile": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_deletemessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_deletemessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "ts": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "ts",
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getchannelinfo": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getchannelinfo": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getchannelmembers": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getchannelmembers": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "response_metadata": {
+          "type": "object",
+          "properties": {
+            "next_cursor": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getconversationhistory": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        },
+        "oldest_ts": {
+          "type": "string"
+        },
+        "latest_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getconversationhistory": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "messages": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "messages",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getdndinfo": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getdndinfo": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "dnd_enabled": {
+          "type": "boolean"
+        },
+        "next_dnd_start_ts": {
+          "type": "number"
+        },
+        "next_dnd_end_ts": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ok",
+        "dnd_enabled",
+        "next_dnd_start_ts",
+        "next_dnd_end_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getfileinfo": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getfileinfo": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "file": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getreactions": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getreactions": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getteaminfo": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getteaminfo": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "team": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getthreadreplies": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "thread_ts": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "thread_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getthreadreplies": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "messages": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "messages",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getuploadurl": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "length": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "filename",
+        "length"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getuploadurl": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "upload_url": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "upload_url",
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getuserinfo": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getuserinfo": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "user": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getuserpresence": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getuserpresence": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "presence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "presence"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_getuserprofile": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_getuserprofile": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "profile": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_invitetochannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "user_ids": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "user_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_invitetochannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_joinchannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_joinchannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "is_channel": {
+              "type": "boolean"
+            },
+            "is_group": {
+              "type": "boolean"
+            },
+            "is_im": {
+              "type": "boolean"
+            },
+            "is_mpim": {
+              "type": "boolean"
+            },
+            "is_private": {
+              "type": "boolean"
+            },
+            "created": {
+              "type": "number"
+            },
+            "is_archived": {
+              "type": "boolean"
+            },
+            "is_general": {
+              "type": "boolean"
+            },
+            "unlinked": {
+              "type": "number"
+            },
+            "name_normalized": {
+              "type": "string"
+            },
+            "is_shared": {
+              "type": "boolean"
+            },
+            "is_org_shared": {
+              "type": "boolean"
+            },
+            "is_pending_ext_shared": {
+              "type": "boolean"
+            },
+            "pending_shared": {
+              "type": "array",
+              "items": {}
+            },
+            "context_team_id": {
+              "type": "string"
+            },
+            "updated": {
+              "type": "number"
+            },
+            "parent_conversation": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "string"
+            },
+            "is_ext_shared": {
+              "type": "boolean"
+            },
+            "shared_team_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "pending_connected_team_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "is_member": {
+              "type": "boolean"
+            },
+            "topic": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "value",
+                "creator",
+                "last_set"
+              ],
+              "additionalProperties": false
+            },
+            "purpose": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "value",
+                "creator",
+                "last_set"
+              ],
+              "additionalProperties": false
+            },
+            "previous_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "is_channel",
+            "is_group",
+            "is_im",
+            "is_mpim",
+            "is_private",
+            "created",
+            "is_archived",
+            "is_general",
+            "unlinked",
+            "name_normalized",
+            "is_shared",
+            "is_org_shared",
+            "is_pending_ext_shared",
+            "pending_shared",
+            "context_team_id",
+            "updated",
+            "parent_conversation",
+            "creator",
+            "is_ext_shared",
+            "shared_team_ids",
+            "pending_connected_team_ids",
+            "is_member",
+            "topic",
+            "purpose",
+            "previous_names"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_leavechannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_leavechannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listbookmarks": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listbookmarks": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "bookmarks": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "ok",
+        "bookmarks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listchannels": {
+      "type": "object",
+      "properties": {
+        "types": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listchannels": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channels": {
+          "type": "array",
+          "items": {}
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "channels",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listcustomemoji": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listcustomemoji": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "emoji": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listfiles": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "types": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listfiles": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mimetype": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "filetype": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "size": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "created": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "timestamp": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "title",
+              "mimetype",
+              "filetype",
+              "size",
+              "created",
+              "timestamp"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "paging": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "total": {
+              "type": "number"
+            },
+            "page": {
+              "type": "number"
+            },
+            "pages": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "count",
+            "total",
+            "page",
+            "pages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "files",
+        "paging"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listpins": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listpins": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "ok",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listscheduledmessages": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "latest_ts": {
+          "type": "number"
+        },
+        "oldest_ts": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listscheduledmessages": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "scheduled_messages": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "ok",
+        "scheduled_messages"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listusergroupmembers": {
+      "type": "object",
+      "properties": {
+        "usergroup": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usergroup"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listusergroupmembers": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "ok",
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listusergroups": {
+      "type": "object",
+      "properties": {
+        "include_disabled": {
+          "type": "boolean"
+        },
+        "include_count": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listusergroups": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "usergroups": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "ok",
+        "usergroups"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listuserreactions": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listuserreactions": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "response_metadata": {}
+      },
+      "required": [
+        "ok",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_listusers": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_listusers": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "members": {
+          "type": "array",
+          "items": {}
+        },
+        "response_metadata": {}
+      },
+      "required": [
+        "ok",
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_lookupuserbyemail": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_lookupuserbyemail": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "user": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_markasread": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_markasread": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_opendm": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "string"
+        },
+        "return_im": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_opendm": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_pinmessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_pinmessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_postmessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "thread_ts": {
+          "type": "string"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "channel_id",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_postmessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "ts": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "user": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "type",
+            "user"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "ts",
+        "channel",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_removefromchannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_removefromchannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_removereaction": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        },
+        "reaction_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts",
+        "reaction_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_removereaction": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_renamechannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "channel_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "channel_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_renamechannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {}
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_schedulemessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "post_at": {
+          "type": "number"
+        },
+        "thread_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "text",
+        "post_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_schedulemessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "scheduled_message_id": {
+          "type": "string"
+        },
+        "post_at": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ok",
+        "scheduled_message_id",
+        "post_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_searchfiles": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "score",
+            "timestamp"
+          ]
+        },
+        "sort_dir": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_searchfiles": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "files": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "number"
+            },
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "mimetype": {
+                    "type": "string"
+                  },
+                  "filetype": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "url_private": {
+                    "type": "string"
+                  },
+                  "permalink": {
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "title",
+                  "mimetype",
+                  "filetype",
+                  "size",
+                  "url_private",
+                  "permalink",
+                  "timestamp"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "pagination": {
+              "type": "object",
+              "properties": {
+                "total_count": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "per_page": {
+                  "type": "number"
+                },
+                "page_count": {
+                  "type": "number"
+                },
+                "first": {
+                  "type": "number"
+                },
+                "last": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total_count",
+                "page",
+                "per_page",
+                "page_count",
+                "first",
+                "last"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "total",
+            "matches",
+            "pagination"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_searchmessages": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "score",
+            "timestamp"
+          ]
+        },
+        "sort_dir": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_searchmessages": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "messages": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "number"
+            },
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "ts": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "channel": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "user": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "username": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "permalink": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "ts",
+                  "text",
+                  "channel",
+                  "user",
+                  "username",
+                  "permalink"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "pagination": {
+              "type": "object",
+              "properties": {
+                "total_count": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "per_page": {
+                  "type": "number"
+                },
+                "page_count": {
+                  "type": "number"
+                },
+                "first": {
+                  "type": "number"
+                },
+                "last": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total_count",
+                "page",
+                "per_page",
+                "page_count",
+                "first",
+                "last"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "total",
+            "matches",
+            "pagination"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ok",
+        "messages"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_slack_sendmessage": {
       "type": "object",
       "properties": {
@@ -532,6 +2368,193 @@
       "required": [
         "ok",
         "raw_json"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_setchannelpurpose": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_setchannelpurpose": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "purpose": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_setchanneltopic": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "topic"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_setchanneltopic": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "topic"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_setuserpresence": {
+      "type": "object",
+      "properties": {
+        "presence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "presence"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_setuserpresence": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_unarchivechannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_unarchivechannel": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_unpinmessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_unpinmessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_slack_updatemessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "message_ts": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_ts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_updatemessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "ts": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "ts",
+        "channel",
+        "text"
       ],
       "additionalProperties": false
     }

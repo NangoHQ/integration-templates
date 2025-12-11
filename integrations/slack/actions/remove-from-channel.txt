@@ -1,0 +1,1 @@
+Removes a user from a channel. API: https://api.slack.com/methods/conversations.kick. Input: channel: string, user: string. Output: ok: boolean. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7", "user": "U02MB5ZABA8" }

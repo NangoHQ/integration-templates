@@ -1,0 +1,6 @@
+Finds a user by their registered email address
+
+API: https://api.slack.com/methods/users.lookupByEmail
+Input: email: string
+Output: ok: boolean, user: object
+Test Input: { "email": "robin@nango.dev" }

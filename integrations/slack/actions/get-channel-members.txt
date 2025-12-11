@@ -1,0 +1,1 @@
+Lists members of a conversation with pagination. API: https://api.slack.com/methods/conversations.members. Input: channel: string, limit?: number, cursor?: string. Output: ok: boolean, members: array, response_metadata: object. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7" }

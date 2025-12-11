@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "scheduled_messages": [
+    {
+      "id": "Q0A0FA7K22V",
+      "channel_id": "C02MB5ZABA7",
+      "post_at": 1764244800,
+      "date_created": 1764187932,
+      "text": "Scheduled test message"
+    }
+  ]
+}

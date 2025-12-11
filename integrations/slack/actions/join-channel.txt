@@ -1,0 +1,1 @@
+Joins a public or private channel. API: https://api.slack.com/methods/conversations.join. Input: channel: string. Output: ok: boolean, channel: object. Connection ID: action-builder. Test input: { "channel": "C02MB5ZABA7" }

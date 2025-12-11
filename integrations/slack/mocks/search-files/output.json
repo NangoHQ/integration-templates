@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "files": {
+    "total": 2,
+    "matches": [
+      {
+        "id": "F0MOCK001",
+        "name": "image.png",
+        "title": "Test Image",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "size": 12345,
+        "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F0MOCK001/image.png",
+        "permalink": "https://test-workspace.slack.com/files/U0MOCKUSER/F0MOCK001/image.png",
+        "timestamp": 1700000000
+      },
+      {
+        "id": "F0MOCK002",
+        "name": "screenshot.jpg",
+        "title": "Screenshot",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "size": 54321,
+        "url_private": "https://files.slack.com/files-pri/T02LWFGTCDV-F0MOCK002/screenshot.jpg",
+        "permalink": "https://test-workspace.slack.com/files/U0MOCKUSER/F0MOCK002/screenshot.jpg",
+        "timestamp": 1700000100
+      }
+    ],
+    "pagination": {
+      "total_count": 2,
+      "page": 1,
+      "per_page": 20,
+      "page_count": 1,
+      "first": 1,
+      "last": 2
+    }
+  }
+}
