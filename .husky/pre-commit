@@ -1,33 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run build:flows
-#npm run generate:tests --pre_commit=true
-git add ./internal/flows.yaml
+npm run compile:integrations
 git add ./internal/flows.zero.json
-
-changed_files=$(git diff --cached --name-only | grep "^integrations" || true)
-if [ -n "$changed_files" ]; then
-  # Get unique integration directories
-  integrations=$(echo "$changed_files" | cut -d'/' -f2 | sort -u)
-  for integration in $integrations; do
-    if [ -f "integrations/$integration" ]; then
-      continue
-    fi
-    if [ "$integration" = ".nango" ] || [ "$integration" = "build" ] || [ "$integration" = "node_modules" ]; then
-      continue
-    fi
-
-    # if no .nango directory exists for the integration, skip it
-    if [ ! -d "integrations/$integration/.nango" ]; then
-      echo "Skipping integration $integration as it does not have a .nango directory."
-      continue
-    fi
-
-    npm run cli -- $integration compile
-    npm run cli -- $integration generate:docs --integration-templates
-  done
-fi
 
 # update ai rules if any markdown files change
 if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then

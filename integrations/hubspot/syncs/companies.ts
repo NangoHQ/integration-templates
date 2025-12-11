@@ -63,7 +63,7 @@ const sync = createSync({
             const mappedCompanies = contacts.map((company: HubSpotCompanyNonUndefined) => toCompany(company));
             await nango.batchSave(mappedCompanies, 'Company');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Company");
+        await nango.deleteRecordsFromPreviousExecutions('Company');
     }
 });
 

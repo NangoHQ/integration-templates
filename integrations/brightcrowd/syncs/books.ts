@@ -50,7 +50,7 @@ const sync = createSync({
             await nango.batchSave(mappedBooks, 'Book');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("Book");
+        await nango.deleteRecordsFromPreviousExecutions('Book');
     }
 });
 

@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 import { readdir, readFile, writeFile } from 'fs/promises';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import chalk from 'chalk';
 
-const root = join(import.meta.dirname, '..', '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const root = join(__dirname, '..', '..');
 
 async function fixZodUnions(): Promise<void> {
     console.log('Fixing Zod union types in integration models...');

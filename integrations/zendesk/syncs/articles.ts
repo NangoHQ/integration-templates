@@ -52,7 +52,7 @@ const sync = createSync({
             const articles: Article[] = zArticles.map(mapZendeskArticleToArticle);
             await nango.batchSave(articles, 'Article');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Article");
+        await nango.deleteRecordsFromPreviousExecutions('Article');
     }
 });
 

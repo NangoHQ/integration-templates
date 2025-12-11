@@ -45,7 +45,7 @@ const sync = createSync({
             await nango.batchSave(mappedConversations, 'Conversation');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("Conversation");
+        await nango.deleteRecordsFromPreviousExecutions('Conversation');
     }
 });
 

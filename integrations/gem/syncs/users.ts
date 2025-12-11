@@ -46,7 +46,7 @@ const sync = createSync({
             await nango.batchSave(mappedUsers, 'TeamMemberUser');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("TeamMemberUser");
+        await nango.deleteRecordsFromPreviousExecutions('TeamMemberUser');
     }
 });
 

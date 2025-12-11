@@ -146,7 +146,7 @@ const sync = createSync({
         if (batch.length > 0) {
             await nango.batchSave(batch, 'Document');
         }
-    await nango.deleteRecordsFromPreviousExecutions("Document");
+        await nango.deleteRecordsFromPreviousExecutions('Document');
     }
 });
 

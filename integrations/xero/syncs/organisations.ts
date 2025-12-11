@@ -47,7 +47,7 @@ const sync = createSync({
             const mappedOrganisations = res.data.Organisations.map(mapXeroOrganisation);
             await nango.batchSave(mappedOrganisations, 'Organisation');
         }
-        await nango.deleteRecordsFromPreviousExecutions("Organisation");
+        await nango.deleteRecordsFromPreviousExecutions('Organisation');
     }
 });
 

@@ -51,7 +51,7 @@ const sync = createSync({
                 }
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("Account");
+        await nango.deleteRecordsFromPreviousExecutions('Account');
     }
 });
 

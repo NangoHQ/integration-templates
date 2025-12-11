@@ -52,7 +52,10 @@ export const mimeTypeMapping: Record<string, MimeTypeMapping> = {
     'image/png': { mimeType: 'image/png', responseType: 'stream' },
     'image/svg+xml': { mimeType: 'image/svg+xml', responseType: 'stream' },
     // markdown
-    'text/markdown': { mimeType: 'text/markdown', responseType: 'stream' }
+    'text/markdown': { mimeType: 'text/markdown', responseType: 'stream' },
+
+    //json Files
+    'application/json': { mimeType: 'application/json', responseType: 'stream' }
 };
 
 export interface DriveCapabilities {

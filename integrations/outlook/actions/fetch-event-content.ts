@@ -9,7 +9,7 @@ const action = createAction({
 
     endpoint: {
         method: 'GET',
-        path: '/fetch-attachment'
+        path: '/fetch-event-content'
     },
 
     input: IdEntity,

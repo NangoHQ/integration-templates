@@ -2,13 +2,13 @@ import { Nango } from '@nangohq/node';
 
 interface JSONSpreadsheet {
     spreadsheetId: string;
-    properties: Record<string, any>
-    sheets: object[]
-    namedRanges: object[]
-    spreadsheetUrl: string
-    developerMetadata: object[]
-    dataSources: object[]
-    dataSourceSchedules: object[]
+    properties: Record<string, any>;
+    sheets: object[];
+    namedRanges: object[];
+    spreadsheetUrl: string;
+    developerMetadata: object[];
+    dataSources: object[];
+    dataSourceSchedules: object[];
 }
 
 const nango = new Nango({ secretKey: String(process.env['NANGO_SECRET_KEY']) });

@@ -44,7 +44,7 @@ const sync = createSync({
             const users: User[] = toUser(results);
             await nango.batchSave(users, 'User');
         }
-    await nango.deleteRecordsFromPreviousExecutions("User");
+        await nango.deleteRecordsFromPreviousExecutions('User');
     }
 });
 

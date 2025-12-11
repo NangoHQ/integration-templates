@@ -78,7 +78,7 @@ const sync = createSync({
                 hasMore = false;
             }
         }
-    await nango.deleteRecordsFromPreviousExecutions("Subscription");
+        await nango.deleteRecordsFromPreviousExecutions('Subscription');
     }
 });
 

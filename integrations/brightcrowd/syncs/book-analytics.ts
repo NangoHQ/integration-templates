@@ -70,7 +70,7 @@ const sync = createSync({
             await nango.batchSave(bookAnalytics, 'BookAnalytics');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("BookAnalytics");
+        await nango.deleteRecordsFromPreviousExecutions('BookAnalytics');
     }
 });
 

@@ -37,7 +37,7 @@ const sync = createSync({
         const remoteStatuses = response.data.data;
 
         await nango.batchSave(remoteStatuses.map(toJobRemoteStatus), 'RecruiterFlowJobRemoteStatus');
-    await nango.deleteRecordsFromPreviousExecutions("RecruiterFlowJobRemoteStatus");
+        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJobRemoteStatus');
     }
 });
 

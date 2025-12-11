@@ -51,7 +51,7 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} users (total users: ${totalRecords})`);
             await nango.batchSave(mappedUser, 'User');
         }
-    await nango.deleteRecordsFromPreviousExecutions("User");
+        await nango.deleteRecordsFromPreviousExecutions('User');
     }
 });
 

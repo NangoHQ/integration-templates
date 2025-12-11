@@ -36,7 +36,7 @@ const sync = createSync({
             await nango.batchSave(eventResponse, 'Event');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions("Event");
+        await nango.deleteRecordsFromPreviousExecutions('Event');
     }
 });
 
