@@ -1,2 +1,0 @@
-Finalizes and optionally shares an uploaded file
-API: https://api.slack.com/methods/files.completeUploadExternal
