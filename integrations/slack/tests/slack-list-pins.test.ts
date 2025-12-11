@@ -3,7 +3,7 @@ import createAction from '../actions/list-pins.js';
 
 describe('slack list-pins tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-pins",
       Model: "ActionOutput_slack_listpins"
   });

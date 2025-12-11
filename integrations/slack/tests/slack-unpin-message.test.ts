@@ -3,7 +3,7 @@ import createAction from '../actions/unpin-message.js';
 
 describe('slack unpin-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "unpin-message",
       Model: "ActionOutput_slack_unpinmessage"
   });

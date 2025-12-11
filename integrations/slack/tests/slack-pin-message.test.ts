@@ -3,7 +3,7 @@ import createAction from '../actions/pin-message.js';
 
 describe('slack pin-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "pin-message",
       Model: "ActionOutput_slack_pinmessage"
   });

@@ -3,7 +3,7 @@ import createAction from '../actions/list-custom-emoji.js';
 
 describe('slack list-custom-emoji tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-custom-emoji",
       Model: "ActionOutput_slack_listcustomemoji"
   });

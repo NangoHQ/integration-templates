@@ -3,7 +3,7 @@ import createAction from '../actions/get-dnd-info.js';
 
 describe('slack get-dnd-info tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-dnd-info",
       Model: "ActionOutput_slack_getdndinfo"
   });

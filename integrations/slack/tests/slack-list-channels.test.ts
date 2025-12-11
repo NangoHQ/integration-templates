@@ -4,7 +4,7 @@ import createAction from '../actions/list-channels.js';
 
 describe('slack list-channels tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-channels",
       Model: "ActionOutput_slack_listchannels"
   });

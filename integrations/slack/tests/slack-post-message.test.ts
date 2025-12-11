@@ -4,7 +4,7 @@ import createAction from '../actions/post-message.js';
 
 describe('slack post-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "post-message",
       Model: "ActionOutput_slack_postmessage"
   });

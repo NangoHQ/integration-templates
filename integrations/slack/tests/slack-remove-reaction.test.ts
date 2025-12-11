@@ -3,7 +3,7 @@ import createAction from '../actions/remove-reaction.js';
 
 describe('slack remove-reaction tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "remove-reaction",
       Model: "ActionOutput_slack_removereaction"
   });

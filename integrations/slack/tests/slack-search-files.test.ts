@@ -3,7 +3,7 @@ import createAction from '../actions/search-files.js';
 
 describe('slack search-files tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "search-files",
       Model: "ActionOutput_slack_searchfiles"
   });

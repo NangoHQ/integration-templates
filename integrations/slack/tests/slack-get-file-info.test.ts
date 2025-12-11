@@ -3,7 +3,7 @@ import createAction from '../actions/get-file-info.js';
 
 describe('slack get-file-info tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-file-info",
       Model: "ActionOutput_slack_getfileinfo"
   });

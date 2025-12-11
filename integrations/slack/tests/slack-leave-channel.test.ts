@@ -4,7 +4,7 @@ import createAction from '../actions/leave-channel.js';
 
 describe('slack leave-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "leave-channel",
       Model: "ActionOutput_slack_leavechannel"
   });

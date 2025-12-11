@@ -4,7 +4,7 @@ import createAction from '../actions/create-channel.js';
 
 describe('slack create-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "create-channel",
       Model: "ActionOutput_slack_createchannel"
   });

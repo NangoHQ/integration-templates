@@ -4,7 +4,7 @@ import createAction from '../actions/open-dm.js';
 
 describe('slack open-dm tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "open-dm",
       Model: "ActionOutput_slack_opendm"
   });

@@ -4,7 +4,7 @@ import createAction from '../actions/list-user-group-members.js';
 
 describe('slack list-user-group-members tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-user-group-members",
       Model: "ActionOutput_slack_listusergroupmembers"
   });

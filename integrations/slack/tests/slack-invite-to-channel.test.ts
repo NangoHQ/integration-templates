@@ -4,7 +4,7 @@ import createAction from '../actions/invite-to-channel.js';
 
 describe('slack invite-to-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "invite-to-channel",
       Model: "ActionOutput_slack_invitetochannel"
   });

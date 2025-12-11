@@ -4,7 +4,7 @@ import createAction from '../actions/get-user-info.js';
 
 describe('slack get-user-info tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-user-info",
       Model: "ActionOutput_slack_getuserinfo"
   });

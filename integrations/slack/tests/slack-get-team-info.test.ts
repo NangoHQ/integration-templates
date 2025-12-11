@@ -3,7 +3,7 @@ import createAction from '../actions/get-team-info.js';
 
 describe('slack get-team-info tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-team-info",
       Model: "ActionOutput_slack_getteaminfo"
   });

@@ -4,7 +4,7 @@ import createAction from '../actions/set-channel-purpose.js';
 
 describe('slack set-channel-purpose tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "set-channel-purpose",
       Model: "ActionOutput_slack_setchannelpurpose"
   });

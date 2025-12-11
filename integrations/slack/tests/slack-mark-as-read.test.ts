@@ -4,7 +4,7 @@ import createAction from '../actions/mark-as-read.js';
 
 describe('slack mark-as-read tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "mark-as-read",
       Model: "ActionOutput_slack_markasread"
   });

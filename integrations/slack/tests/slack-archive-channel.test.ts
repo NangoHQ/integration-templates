@@ -4,7 +4,7 @@ import createAction from '../actions/archive-channel.js';
 
 describe('slack archive-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "archive-channel",
       Model: "ActionOutput_slack_archivechannel"
   });

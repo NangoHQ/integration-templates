@@ -4,7 +4,7 @@ import createAction from '../actions/rename-channel.js';
 
 describe('slack rename-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "rename-channel",
       Model: "ActionOutput_slack_renamechannel"
   });

@@ -4,7 +4,7 @@ import createAction from '../actions/delete-message.js';
 
 describe('slack delete-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "delete-message",
       Model: "ActionOutput_slack_deletemessage"
   });

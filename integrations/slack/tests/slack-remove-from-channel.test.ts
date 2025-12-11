@@ -4,7 +4,7 @@ import createAction from '../actions/remove-from-channel.js';
 
 describe('slack remove-from-channel tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "remove-from-channel",
       Model: "ActionOutput_slack_removefromchannel"
   });

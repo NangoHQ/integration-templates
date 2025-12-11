@@ -3,7 +3,7 @@ import createAction from '../actions/add-reaction.js';
 
 describe('slack add-reaction tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "add-reaction",
       Model: "ActionOutput_slack_addreaction"
   });

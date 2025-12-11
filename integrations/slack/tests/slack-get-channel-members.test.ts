@@ -4,7 +4,7 @@ import createAction from '../actions/get-channel-members.js';
 
 describe('slack get-channel-members tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-channel-members",
       Model: "ActionOutput_slack_getchannelmembers"
   });

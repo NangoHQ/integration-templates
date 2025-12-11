@@ -3,7 +3,7 @@ import createAction from '../actions/list-user-reactions.js';
 
 describe('slack list-user-reactions tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-user-reactions",
       Model: "ActionOutput_slack_listuserreactions"
   });

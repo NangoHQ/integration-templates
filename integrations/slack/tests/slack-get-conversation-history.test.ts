@@ -4,7 +4,7 @@ import createAction from '../actions/get-conversation-history.js';
 
 describe('slack get-conversation-history tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-conversation-history",
       Model: "ActionOutput_slack_getconversationhistory"
   });

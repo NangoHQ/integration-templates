@@ -4,7 +4,7 @@ import createAction from '../actions/set-channel-topic.js';
 
 describe('slack set-channel-topic tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "set-channel-topic",
       Model: "ActionOutput_slack_setchanneltopic"
   });

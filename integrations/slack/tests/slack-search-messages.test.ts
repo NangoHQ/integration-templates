@@ -4,7 +4,7 @@ import createAction from '../actions/search-messages.js';
 
 describe('slack search-messages tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "search-messages",
       Model: "ActionOutput_slack_searchmessages"
   });

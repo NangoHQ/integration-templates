@@ -4,7 +4,7 @@ import createAction from '../actions/list-files.js';
 
 describe('slack list-files tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-files",
       Model: "ActionOutput_slack_listfiles"
   });

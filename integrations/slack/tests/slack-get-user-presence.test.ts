@@ -4,7 +4,7 @@ import createAction from '../actions/get-user-presence.js';
 
 describe('slack get-user-presence tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-user-presence",
       Model: "ActionOutput_slack_getuserpresence"
   });

@@ -4,7 +4,7 @@ import createAction from '../actions/update-message.js';
 
 describe('slack update-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "update-message",
       Model: "ActionOutput_slack_updatemessage"
   });

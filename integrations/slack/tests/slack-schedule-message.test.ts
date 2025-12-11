@@ -4,7 +4,7 @@ import createAction from '../actions/schedule-message.js';
 
 describe('slack schedule-message tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "schedule-message",
       Model: "ActionOutput_slack_schedulemessage"
   });

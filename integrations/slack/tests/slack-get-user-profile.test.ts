@@ -4,7 +4,7 @@ import createAction from '../actions/get-user-profile.js';
 
 describe('slack get-user-profile tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-user-profile",
       Model: "ActionOutput_slack_getuserprofile"
   });

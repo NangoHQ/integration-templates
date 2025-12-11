@@ -3,7 +3,7 @@ import createAction from '../actions/list-user-groups.js';
 
 describe('slack list-user-groups tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "list-user-groups",
       Model: "ActionOutput_slack_listusergroups"
   });

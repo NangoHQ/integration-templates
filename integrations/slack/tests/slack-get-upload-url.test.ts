@@ -3,7 +3,7 @@ import createAction from '../actions/get-upload-url.js';
 
 describe('slack get-upload-url tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
-      dirname: 'slack',
+      dirname: __dirname,
       name: "get-upload-url",
       Model: "ActionOutput_slack_getuploadurl"
   });
