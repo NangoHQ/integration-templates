@@ -9,14 +9,10 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const PostMessageInput = z.object({
-    channel_id: z.string()
-        .describe('Channel, DM, or group to post to. Example: "C02MB5ZABA7"'),
-    text: z.string()
-        .describe('Message text content. Supports Slack markdown. Example: "Hello *world*!"'),
-    thread_ts: z.string().optional()
-        .describe('Parent message timestamp to reply in thread. Omit for top-level message. Example: "1763887648.424429"'),
-    blocks: z.array(z.any()).optional()
-        .describe('Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit')
+    channel_id: z.string().describe('Channel, DM, or group to post to. Example: "C02MB5ZABA7"'),
+    text: z.string().describe('Message text content. Supports Slack markdown. Example: "Hello *world*!"'),
+    thread_ts: z.string().optional().describe('Parent message timestamp to reply in thread. Omit for top-level message. Example: "1763887648.424429"'),
+    blocks: z.array(z.any()).optional().describe('Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit')
 });
 
 const MessageObject = z.object({

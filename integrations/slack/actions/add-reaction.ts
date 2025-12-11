@@ -7,17 +7,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const AddReactionInput = z.object({
-    channel_id: z.string()
-        .describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string()
-        .describe('Timestamp of the message to react to in "seconds.microseconds" format. Example: "1763887648.424429"'),
-    reaction_name: z.string()
-        .describe('Emoji name without colons. Example: "thumbsup", "heart", "eyes"')
+    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
+    message_ts: z.string().describe('Timestamp of the message to react to in "seconds.microseconds" format. Example: "1763887648.424429"'),
+    reaction_name: z.string().describe('Emoji name without colons. Example: "thumbsup", "heart", "eyes"')
 });
 
 const AddReactionOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the reaction was added successfully')
+    ok: z.boolean().describe('Whether the reaction was added successfully')
 });
 
 const action = createAction({

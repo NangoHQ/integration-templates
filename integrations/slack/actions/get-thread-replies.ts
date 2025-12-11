@@ -9,25 +9,17 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetThreadRepliesInput = z.object({
-    channel_id: z.string()
-        .describe('The channel containing the thread. Example: "C02MB5ZABA7"'),
-    thread_ts: z.string()
-        .describe('Timestamp of the parent message. Example: "1234567890.123456"'),
-    limit: z.number().optional()
-        .describe('Maximum number of replies to return. Default: 100'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response')
+    channel_id: z.string().describe('The channel containing the thread. Example: "C02MB5ZABA7"'),
+    thread_ts: z.string().describe('Timestamp of the parent message. Example: "1234567890.123456"'),
+    limit: z.number().optional().describe('Maximum number of replies to return. Default: 100'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
 const GetThreadRepliesOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    messages: z.array(z.any())
-        .describe('Array of message objects in the thread'),
-    has_more: z.boolean()
-        .describe('Whether there are more replies to fetch'),
-    next_cursor: z.union([z.string(), z.null()])
-        .describe('Cursor for next page, null if no more pages')
+    ok: z.boolean().describe('Whether the request was successful'),
+    messages: z.array(z.any()).describe('Array of message objects in the thread'),
+    has_more: z.boolean().describe('Whether there are more replies to fetch'),
+    next_cursor: z.union([z.string(), z.null()]).describe('Cursor for next page, null if no more pages')
 });
 
 const action = createAction({

@@ -9,15 +9,12 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetUserPresenceInput = z.object({
-    user_id: z.string()
-        .describe('The user ID to get presence for. Example: "U02MDCKS1N0"')
+    user_id: z.string().describe('The user ID to get presence for. Example: "U02MDCKS1N0"')
 });
 
 const GetUserPresenceOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    presence: z.string()
-        .describe('The user presence status: "active" or "away"')
+    ok: z.boolean().describe('Whether the request was successful'),
+    presence: z.string().describe('The user presence status: "active" or "away"')
 });
 
 const action = createAction({

@@ -7,17 +7,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const RemoveReactionInput = z.object({
-    channel_id: z.string()
-        .describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string()
-        .describe('Timestamp of the message. Example: "1234567890.123456"'),
-    reaction_name: z.string()
-        .describe('The emoji name without colons. Example: "thumbsup"')
+    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
+    message_ts: z.string().describe('Timestamp of the message. Example: "1234567890.123456"'),
+    reaction_name: z.string().describe('The emoji name without colons. Example: "thumbsup"')
 });
 
 const RemoveReactionOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful')
+    ok: z.boolean().describe('Whether the request was successful')
 });
 
 const action = createAction({

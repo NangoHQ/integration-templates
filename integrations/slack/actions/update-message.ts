@@ -9,25 +9,17 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const UpdateMessageInput = z.object({
-    channel_id: z.string()
-        .describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string()
-        .describe('Timestamp of the message to update. Example: "1234567890.123456"'),
-    text: z.string().optional()
-        .describe('New message text. Example: "Updated message content"'),
-    blocks: z.array(z.any()).optional()
-        .describe('Array of Block Kit blocks for rich formatting')
+    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
+    message_ts: z.string().describe('Timestamp of the message to update. Example: "1234567890.123456"'),
+    text: z.string().optional().describe('New message text. Example: "Updated message content"'),
+    blocks: z.array(z.any()).optional().describe('Array of Block Kit blocks for rich formatting')
 });
 
 const UpdateMessageOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    ts: z.string()
-        .describe('Timestamp of the updated message'),
-    channel: z.string()
-        .describe('Channel where the message was updated'),
-    text: z.string()
-        .describe('The updated message text')
+    ok: z.boolean().describe('Whether the request was successful'),
+    ts: z.string().describe('Timestamp of the updated message'),
+    channel: z.string().describe('Channel where the message was updated'),
+    text: z.string().describe('The updated message text')
 });
 
 const action = createAction({

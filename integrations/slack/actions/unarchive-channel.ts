@@ -9,13 +9,11 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const UnarchiveChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to unarchive. Example: "C02MB5ZABA7"')
+    channel_id: z.string().describe('The channel to unarchive. Example: "C02MB5ZABA7"')
 });
 
 const UnarchiveChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful')
+    ok: z.boolean().describe('Whether the request was successful')
 });
 
 const action = createAction({

@@ -8,15 +8,12 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const RemoveFromChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to remove the user from. Example: "C02MB5ZABA7"'),
-    user_id: z.string()
-        .describe('The user ID to remove. Example: "U02MDCKS1N0"')
+    channel_id: z.string().describe('The channel to remove the user from. Example: "C02MB5ZABA7"'),
+    user_id: z.string().describe('The user ID to remove. Example: "U02MDCKS1N0"')
 });
 
 const RemoveFromChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful')
+    ok: z.boolean().describe('Whether the request was successful')
 });
 
 const action = createAction({

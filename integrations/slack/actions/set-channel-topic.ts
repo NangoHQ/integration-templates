@@ -8,17 +8,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const SetChannelTopicInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to update. Example: "C02MB5ZABA7"'),
-    topic: z.string()
-        .describe('The new topic text. Example: "Q4 Planning Discussion"')
+    channel_id: z.string().describe('The channel to update. Example: "C02MB5ZABA7"'),
+    topic: z.string().describe('The new topic text. Example: "Q4 Planning Discussion"')
 });
 
 const SetChannelTopicOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    topic: z.string()
-        .describe('The updated topic text')
+    ok: z.boolean().describe('Whether the request was successful'),
+    topic: z.string().describe('The updated topic text')
 });
 
 const action = createAction({

@@ -8,13 +8,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const LeaveChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to leave. Example: "C02MB5ZABA7"')
+    channel_id: z.string().describe('The channel to leave. Example: "C02MB5ZABA7"')
 });
 
 const LeaveChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful')
+    ok: z.boolean().describe('Whether the request was successful')
 });
 
 const action = createAction({

@@ -10,16 +10,11 @@ import type { NangoAction, ProxyConfiguration } from 'nango';
 
 // Input schema
 const SearchMessagesInput = z.object({
-    query: z.string()
-        .describe('The search query. Example: "important meeting"'),
-    count: z.number().optional()
-        .describe('Number of results per page. Default: 20'),
-    page: z.number().optional()
-        .describe('Page number of results. Default: 1'),
-    sort: z.enum(['score', 'timestamp']).optional()
-        .describe('Sort by relevance or recency. Default: "score"'),
-    sort_dir: z.enum(['asc', 'desc']).optional()
-        .describe('Sort direction. Default: "desc"')
+    query: z.string().describe('The search query. Example: "important meeting"'),
+    count: z.number().optional().describe('Number of results per page. Default: 20'),
+    page: z.number().optional().describe('Page number of results. Default: 1'),
+    sort: z.enum(['score', 'timestamp']).optional().describe('Sort by relevance or recency. Default: "score"'),
+    sort_dir: z.enum(['asc', 'desc']).optional().describe('Sort direction. Default: "desc"')
 });
 
 // Response type for message matches from Slack API
@@ -38,49 +33,38 @@ interface SlackMessageMatch {
 
 // Output schema
 const SearchMessage = z.object({
-    type: z.string()
-        .describe('The type of message'),
-    ts: z.string()
-        .describe('Message timestamp'),
-    text: z.string()
-        .describe('The message text'),
-    channel: z.object({
-        id: z.string()
-            .describe('The channel ID'),
-        name: z.string()
-            .describe('The channel name')
-    }).describe('Channel information'),
-    user: z.union([z.string(), z.null()])
-        .describe('The user ID who sent the message'),
-    username: z.union([z.string(), z.null()])
-        .describe('The username who sent the message'),
-    permalink: z.string()
-        .describe('Permalink to the message in Slack')
+    type: z.string().describe('The type of message'),
+    ts: z.string().describe('Message timestamp'),
+    text: z.string().describe('The message text'),
+    channel: z
+        .object({
+            id: z.string().describe('The channel ID'),
+            name: z.string().describe('The channel name')
+        })
+        .describe('Channel information'),
+    user: z.union([z.string(), z.null()]).describe('The user ID who sent the message'),
+    username: z.union([z.string(), z.null()]).describe('The username who sent the message'),
+    permalink: z.string().describe('Permalink to the message in Slack')
 });
 
 const SearchMessagesOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    messages: z.object({
-        total: z.number()
-            .describe('Total number of matching messages'),
-        matches: z.array(SearchMessage)
-            .describe('Array of matching message objects'),
-        pagination: z.object({
-            total_count: z.number()
-                .describe('Total count of results'),
-            page: z.number()
-                .describe('Current page number'),
-            per_page: z.number()
-                .describe('Results per page'),
-            page_count: z.number()
-                .describe('Total number of pages'),
-            first: z.number()
-                .describe('First result index'),
-            last: z.number()
-                .describe('Last result index')
-        }).describe('Pagination information')
-    }).describe('Search results')
+    ok: z.boolean().describe('Whether the request was successful'),
+    messages: z
+        .object({
+            total: z.number().describe('Total number of matching messages'),
+            matches: z.array(SearchMessage).describe('Array of matching message objects'),
+            pagination: z
+                .object({
+                    total_count: z.number().describe('Total count of results'),
+                    page: z.number().describe('Current page number'),
+                    per_page: z.number().describe('Results per page'),
+                    page_count: z.number().describe('Total number of pages'),
+                    first: z.number().describe('First result index'),
+                    last: z.number().describe('Last result index')
+                })
+                .describe('Pagination information')
+        })
+        .describe('Search results')
 });
 
 /**
@@ -92,11 +76,7 @@ const SearchMessagesOutput = z.object({
  * @param proxyConfig - The proxy configuration to augment
  * @returns ProxyConfiguration with authorization header set
  */
-async function addBearerTokenToConfig(
-    nango: NangoAction,
-    tokenPath: string,
-    proxyConfig: ProxyConfiguration
-): Promise<ProxyConfiguration> {
+async function addBearerTokenToConfig(nango: NangoAction, tokenPath: string, proxyConfig: ProxyConfiguration): Promise<ProxyConfiguration> {
     const connection = await nango.getConnection();
     const credentials = connection.credentials;
 
@@ -133,7 +113,7 @@ async function addBearerTokenToConfig(
         retries: proxyConfig.retries ?? 3,
         headers: {
             ...proxyConfig.headers,
-            Authorization: `Bearer ${token}`  // Overrides Nango's automatic bot token
+            Authorization: `Bearer ${token}` // Overrides Nango's automatic bot token
         }
     };
 }
@@ -167,11 +147,7 @@ const action = createAction({
         };
 
         // Add user token authentication
-        const config = await addBearerTokenToConfig(
-            nango,
-            'raw.authed_user.access_token',
-            baseConfig
-        );
+        const config = await addBearerTokenToConfig(nango, 'raw.authed_user.access_token', baseConfig);
 
         // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
         const response = await nango.get(config);

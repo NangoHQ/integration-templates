@@ -8,19 +8,17 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const OpenDmInput = z.object({
-    users: z.string()
-        .describe('Comma-separated list of user IDs. Example: "U02MDCKS1N0,U01ABC123"'),
-    return_im: z.boolean().optional()
-        .describe('Return the full IM channel object. Default: false')
+    users: z.string().describe('Comma-separated list of user IDs. Example: "U02MDCKS1N0,U01ABC123"'),
+    return_im: z.boolean().optional().describe('Return the full IM channel object. Default: false')
 });
 
 const OpenDmOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    channel: z.object({
-        id: z.string()
-            .describe('The DM channel ID')
-    }).describe('The opened DM channel')
+    ok: z.boolean().describe('Whether the request was successful'),
+    channel: z
+        .object({
+            id: z.string().describe('The DM channel ID')
+        })
+        .describe('The opened DM channel')
 });
 
 const action = createAction({

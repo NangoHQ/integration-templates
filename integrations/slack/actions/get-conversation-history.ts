@@ -9,27 +9,18 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetConversationHistoryInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to fetch history from. Example: "C02MB5ZABA7"'),
-    limit: z.number().optional()
-        .describe('Number of messages to return. Default: 100, max: 1000'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response'),
-    oldest_ts: z.string().optional()
-        .describe('Only messages after this timestamp. Example: "1234567890.123456"'),
-    latest_ts: z.string().optional()
-        .describe('Only messages before this timestamp. Example: "1234567890.123456"')
+    channel_id: z.string().describe('The channel to fetch history from. Example: "C02MB5ZABA7"'),
+    limit: z.number().optional().describe('Number of messages to return. Default: 100, max: 1000'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response'),
+    oldest_ts: z.string().optional().describe('Only messages after this timestamp. Example: "1234567890.123456"'),
+    latest_ts: z.string().optional().describe('Only messages before this timestamp. Example: "1234567890.123456"')
 });
 
 const GetConversationHistoryOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    messages: z.array(z.any())
-        .describe('Array of message objects'),
-    has_more: z.boolean()
-        .describe('Whether there are more messages to fetch'),
-    next_cursor: z.union([z.string(), z.null()])
-        .describe('Cursor for next page, null if no more pages')
+    ok: z.boolean().describe('Whether the request was successful'),
+    messages: z.array(z.any()).describe('Array of message objects'),
+    has_more: z.boolean().describe('Whether there are more messages to fetch'),
+    next_cursor: z.union([z.string(), z.null()]).describe('Cursor for next page, null if no more pages')
 });
 
 const action = createAction({

@@ -9,15 +9,12 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const LookupUserByEmailInput = z.object({
-    email: z.string()
-        .describe('The email address to lookup. Example: "user@example.com"')
+    email: z.string().describe('The email address to lookup. Example: "user@example.com"')
 });
 
 const LookupUserByEmailOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    user: z.any()
-        .describe('The user object if found')
+    ok: z.boolean().describe('Whether the request was successful'),
+    user: z.any().describe('The user object if found')
 });
 
 const action = createAction({

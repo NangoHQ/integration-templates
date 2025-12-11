@@ -7,13 +7,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const SetUserPresenceInput = z.object({
-    presence: z.string()
-        .describe('The presence status to set: "auto" or "away". Example: "away"')
+    presence: z.string().describe('The presence status to set: "auto" or "away". Example: "away"')
 });
 
 const SetUserPresenceOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful')
+    ok: z.boolean().describe('Whether the request was successful')
 });
 
 const action = createAction({

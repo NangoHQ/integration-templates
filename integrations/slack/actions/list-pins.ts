@@ -7,15 +7,12 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({
-    channel_id: z.string()
-        .describe('The channel to list pinned items for. Example: "C02MB5ZABA7"')
+    channel_id: z.string().describe('The channel to list pinned items for. Example: "C02MB5ZABA7"')
 });
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    items: z.array(z.any())
-        .describe('Array of pinned items (messages, files)')
+    ok: z.boolean().describe('Whether the request was successful'),
+    items: z.array(z.any()).describe('Array of pinned items (messages, files)')
 });
 
 const action = createAction({

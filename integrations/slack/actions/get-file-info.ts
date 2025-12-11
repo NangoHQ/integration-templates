@@ -7,15 +7,12 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({
-    file: z.string()
-        .describe('The file ID to get info for. Example: "F09UG1QNMK7"')
+    file: z.string().describe('The file ID to get info for. Example: "F09UG1QNMK7"')
 });
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    file: z.any()
-        .describe('The file object with details like name, size, url, etc.')
+    ok: z.boolean().describe('Whether the request was successful'),
+    file: z.any().describe('The file object with details like name, size, url, etc.')
 });
 
 const action = createAction({

@@ -7,19 +7,14 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({
-    user_id: z.string().optional()
-        .describe('User to get DND info for. Defaults to current user. Example: "U02MDCKS1N0"')
+    user_id: z.string().optional().describe('User to get DND info for. Defaults to current user. Example: "U02MDCKS1N0"')
 });
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    dnd_enabled: z.boolean()
-        .describe('Whether DND is currently enabled'),
-    next_dnd_start_ts: z.number()
-        .describe('Unix timestamp when next DND period starts'),
-    next_dnd_end_ts: z.number()
-        .describe('Unix timestamp when next DND period ends')
+    ok: z.boolean().describe('Whether the request was successful'),
+    dnd_enabled: z.boolean().describe('Whether DND is currently enabled'),
+    next_dnd_start_ts: z.number().describe('Unix timestamp when next DND period starts'),
+    next_dnd_end_ts: z.number().describe('Unix timestamp when next DND period ends')
 });
 
 const action = createAction({

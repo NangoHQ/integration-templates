@@ -9,15 +9,12 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetChannelInfoInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to get info for. Example: "C02MB5ZABA7"')
+    channel_id: z.string().describe('The channel to get info for. Example: "C02MB5ZABA7"')
 });
 
 const GetChannelInfoOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    channel: z.any()
-        .describe('The channel object with details like name, topic, purpose, members count')
+    ok: z.boolean().describe('Whether the request was successful'),
+    channel: z.any().describe('The channel object with details like name, topic, purpose, members count')
 });
 
 const action = createAction({

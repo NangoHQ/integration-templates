@@ -8,22 +8,19 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const GetChannelMembersInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to get members for. Example: "C02MB5ZABA7"'),
-    limit: z.number().optional()
-        .describe('Maximum number of members to return. Default: 100'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response')
+    channel_id: z.string().describe('The channel to get members for. Example: "C02MB5ZABA7"'),
+    limit: z.number().optional().describe('Maximum number of members to return. Default: 100'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
 const GetChannelMembersOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    members: z.array(z.string())
-        .describe('Array of user IDs in the channel'),
-    response_metadata: z.object({
-        next_cursor: z.string().optional()
-    }).optional()
+    ok: z.boolean().describe('Whether the request was successful'),
+    members: z.array(z.string()).describe('Array of user IDs in the channel'),
+    response_metadata: z
+        .object({
+            next_cursor: z.string().optional()
+        })
+        .optional()
         .describe('Pagination metadata for next page')
 });
 

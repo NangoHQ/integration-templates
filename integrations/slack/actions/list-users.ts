@@ -9,19 +9,14 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListUsersInput = z.object({
-    limit: z.number().optional()
-        .describe('Maximum number of users to return. Default: 100'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response')
+    limit: z.number().optional().describe('Maximum number of users to return. Default: 100'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
 const ListUsersOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    members: z.array(z.any())
-        .describe('Array of user objects'),
-    response_metadata: z.any()
-        .describe('Pagination metadata including next_cursor')
+    ok: z.boolean().describe('Whether the request was successful'),
+    members: z.array(z.any()).describe('Array of user objects'),
+    response_metadata: z.any().describe('Pagination metadata including next_cursor')
 });
 
 const action = createAction({

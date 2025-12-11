@@ -9,17 +9,13 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const InviteToChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to invite users to. Example: "C02MB5ZABA7"'),
-    user_ids: z.string()
-        .describe('Comma-separated list of user IDs to invite. Example: "U02MDCKS1N0,U01ABC123"')
+    channel_id: z.string().describe('The channel to invite users to. Example: "C02MB5ZABA7"'),
+    user_ids: z.string().describe('Comma-separated list of user IDs to invite. Example: "U02MDCKS1N0,U01ABC123"')
 });
 
 const InviteToChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    channel: z.any()
-        .describe('The updated channel object')
+    ok: z.boolean().describe('Whether the request was successful'),
+    channel: z.any().describe('The updated channel object')
 });
 
 const action = createAction({

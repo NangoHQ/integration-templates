@@ -7,19 +7,14 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({
-    limit: z.number().optional()
-        .describe('Maximum number of items to return. Default: 100'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response')
+    limit: z.number().optional().describe('Maximum number of items to return. Default: 100'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    items: z.array(z.any())
-        .describe('Array of items the user has reacted to'),
-    response_metadata: z.any()
-        .describe('Pagination metadata including next_cursor')
+    ok: z.boolean().describe('Whether the request was successful'),
+    items: z.array(z.any()).describe('Array of items the user has reacted to'),
+    response_metadata: z.any().describe('Pagination metadata including next_cursor')
 });
 
 const action = createAction({

@@ -7,15 +7,12 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const ListUserGroupMembersInput = z.object({
-    usergroup: z.string()
-        .describe('The user group ID to get members for. Example: "S0614TZR7"')
+    usergroup: z.string().describe('The user group ID to get members for. Example: "S0614TZR7"')
 });
 
 const ListUserGroupMembersOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    users: z.array(z.string())
-        .describe('Array of user IDs in the group')
+    ok: z.boolean().describe('Whether the request was successful'),
+    users: z.array(z.string()).describe('Array of user IDs in the group')
 });
 
 const action = createAction({

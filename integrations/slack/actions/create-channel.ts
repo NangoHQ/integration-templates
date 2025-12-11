@@ -9,17 +9,13 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const CreateChannelInput = z.object({
-    name: z.string()
-        .describe('Channel name (lowercase, no spaces, max 80 chars). Example: "test-channel-nango"'),
-    is_private: z.boolean().optional()
-        .describe('Whether channel should be private. Default: false')
+    name: z.string().describe('Channel name (lowercase, no spaces, max 80 chars). Example: "test-channel-nango"'),
+    is_private: z.boolean().optional().describe('Whether channel should be private. Default: false')
 });
 
 const CreateChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the channel was created successfully'),
-    channel: z.any()
-        .describe('The created channel object')
+    ok: z.boolean().describe('Whether the channel was created successfully'),
+    channel: z.any().describe('The created channel object')
 });
 
 const action = createAction({

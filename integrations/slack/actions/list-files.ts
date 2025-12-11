@@ -21,55 +21,35 @@ interface SlackFile {
 }
 
 const ListFilesInput = z.object({
-    channel_id: z.string().optional()
-        .describe('Filter by channel. Example: "C02MB5ZABA7"'),
-    user_id: z.string().optional()
-        .describe('Filter by user who created the file. Example: "U02MDCKS1N0"'),
-    types: z.string().optional()
-        .describe('Filter by file types. Example: "images,pdfs"'),
-    count: z.number().optional()
-        .describe('Number of files to return per page. Default: 100'),
-    page: z.number().optional()
-        .describe('Page number of results. Default: 1')
+    channel_id: z.string().optional().describe('Filter by channel. Example: "C02MB5ZABA7"'),
+    user_id: z.string().optional().describe('Filter by user who created the file. Example: "U02MDCKS1N0"'),
+    types: z.string().optional().describe('Filter by file types. Example: "images,pdfs"'),
+    count: z.number().optional().describe('Number of files to return per page. Default: 100'),
+    page: z.number().optional().describe('Page number of results. Default: 1')
 });
 
 const FileSchema = z.object({
-    id: z.string()
-        .describe('The file ID'),
-    name: z.union([z.string(), z.null()])
-        .describe('The filename'),
-    title: z.union([z.string(), z.null()])
-        .describe('The file title'),
-    mimetype: z.union([z.string(), z.null()])
-        .describe('The MIME type'),
-    filetype: z.union([z.string(), z.null()])
-        .describe('The file type extension'),
-    size: z.union([z.number(), z.null()])
-        .describe('File size in bytes'),
-    created: z.union([z.number(), z.null()])
-        .describe('Unix timestamp when file was created'),
-    timestamp: z.union([z.number(), z.null()])
-        .describe('Unix timestamp of the file')
+    id: z.string().describe('The file ID'),
+    name: z.union([z.string(), z.null()]).describe('The filename'),
+    title: z.union([z.string(), z.null()]).describe('The file title'),
+    mimetype: z.union([z.string(), z.null()]).describe('The MIME type'),
+    filetype: z.union([z.string(), z.null()]).describe('The file type extension'),
+    size: z.union([z.number(), z.null()]).describe('File size in bytes'),
+    created: z.union([z.number(), z.null()]).describe('Unix timestamp when file was created'),
+    timestamp: z.union([z.number(), z.null()]).describe('Unix timestamp of the file')
 });
 
 const PagingSchema = z.object({
-    count: z.number()
-        .describe('Number of files per page'),
-    total: z.number()
-        .describe('Total number of files'),
-    page: z.number()
-        .describe('Current page number'),
-    pages: z.number()
-        .describe('Total number of pages')
+    count: z.number().describe('Number of files per page'),
+    total: z.number().describe('Total number of files'),
+    page: z.number().describe('Current page number'),
+    pages: z.number().describe('Total number of pages')
 });
 
 const ListFilesOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    files: z.array(FileSchema)
-        .describe('Array of file objects'),
-    paging: PagingSchema
-        .describe('Pagination information')
+    ok: z.boolean().describe('Whether the request was successful'),
+    files: z.array(FileSchema).describe('Array of file objects'),
+    paging: PagingSchema.describe('Pagination information')
 });
 
 const action = createAction({

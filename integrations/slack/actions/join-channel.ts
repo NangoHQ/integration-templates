@@ -8,13 +8,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const JoinChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to join. Example: "C02MB5ZABA7"')
+    channel_id: z.string().describe('The channel to join. Example: "C02MB5ZABA7"')
 });
 
 const JoinChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
+    ok: z.boolean().describe('Whether the request was successful'),
     channel: z.object({
         id: z.string(),
         name: z.string(),

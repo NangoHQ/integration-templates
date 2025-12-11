@@ -9,13 +9,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const ArchiveChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to archive. Example: "C0A02F9NBCJ"')
+    channel_id: z.string().describe('The channel to archive. Example: "C0A02F9NBCJ"')
 });
 
 const ArchiveChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the channel was archived successfully')
+    ok: z.boolean().describe('Whether the channel was archived successfully')
 });
 
 const action = createAction({

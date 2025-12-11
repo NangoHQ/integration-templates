@@ -8,17 +8,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const RenameChannelInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to rename. Example: "C02MB5ZABA7"'),
-    channel_name: z.string()
-        .describe('The new name for the channel. Example: "new-channel-name"')
+    channel_id: z.string().describe('The channel to rename. Example: "C02MB5ZABA7"'),
+    channel_name: z.string().describe('The new name for the channel. Example: "new-channel-name"')
 });
 
 const RenameChannelOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    channel: z.any()
-        .describe('The updated channel object')
+    ok: z.boolean().describe('Whether the request was successful'),
+    channel: z.any().describe('The updated channel object')
 });
 
 const action = createAction({

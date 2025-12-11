@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 const Input = z.object({});
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    emoji: z.any()
-        .describe('Object mapping emoji names to URLs or aliases')
+    ok: z.boolean().describe('Whether the request was successful'),
+    emoji: z.any().describe('Object mapping emoji names to URLs or aliases')
 });
 
 const action = createAction({

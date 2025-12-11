@@ -9,19 +9,14 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListScheduledMessagesInput = z.object({
-    channel_id: z.string().optional()
-        .describe('Filter by channel. Example: "C02MB5ZABA7"'),
-    latest_ts: z.number().optional()
-        .describe('Only include messages before this timestamp. Example: 1234567890'),
-    oldest_ts: z.number().optional()
-        .describe('Only include messages after this timestamp. Example: 1234567890')
+    channel_id: z.string().optional().describe('Filter by channel. Example: "C02MB5ZABA7"'),
+    latest_ts: z.number().optional().describe('Only include messages before this timestamp. Example: 1234567890'),
+    oldest_ts: z.number().optional().describe('Only include messages after this timestamp. Example: 1234567890')
 });
 
 const ListScheduledMessagesOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    scheduled_messages: z.array(z.any())
-        .describe('Array of scheduled message objects')
+    ok: z.boolean().describe('Whether the request was successful'),
+    scheduled_messages: z.array(z.any()).describe('Array of scheduled message objects')
 });
 
 const action = createAction({

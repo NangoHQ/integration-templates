@@ -9,16 +9,11 @@ import type { NangoAction, ProxyConfiguration } from 'nango';
 
 // Input schema
 const SearchFilesInput = z.object({
-    query: z.string()
-        .describe('The search query. Example: "project report"'),
-    count: z.number().optional()
-        .describe('Number of results per page. Default: 20'),
-    page: z.number().optional()
-        .describe('Page number of results. Default: 1'),
-    sort: z.enum(['score', 'timestamp']).optional()
-        .describe('Sort by relevance or recency. Default: "score"'),
-    sort_dir: z.enum(['asc', 'desc']).optional()
-        .describe('Sort direction. Default: "desc"')
+    query: z.string().describe('The search query. Example: "project report"'),
+    count: z.number().optional().describe('Number of results per page. Default: 20'),
+    page: z.number().optional().describe('Page number of results. Default: 1'),
+    sort: z.enum(['score', 'timestamp']).optional().describe('Sort by relevance or recency. Default: "score"'),
+    sort_dir: z.enum(['asc', 'desc']).optional().describe('Sort direction. Default: "desc"')
 });
 
 // Response type for file matches from Slack API
@@ -36,49 +31,35 @@ interface SlackFileMatch {
 
 // Output schema
 const SearchFile = z.object({
-    id: z.string()
-        .describe('The file ID'),
-    name: z.string()
-        .describe('The filename'),
-    title: z.string()
-        .describe('The file title'),
-    mimetype: z.string()
-        .describe('The MIME type'),
-    filetype: z.string()
-        .describe('The file type extension'),
-    size: z.number()
-        .describe('File size in bytes'),
-    url_private: z.string()
-        .describe('Private URL to access the file'),
-    permalink: z.string()
-        .describe('Permalink to the file in Slack'),
-    timestamp: z.number()
-        .describe('Unix timestamp when file was created')
+    id: z.string().describe('The file ID'),
+    name: z.string().describe('The filename'),
+    title: z.string().describe('The file title'),
+    mimetype: z.string().describe('The MIME type'),
+    filetype: z.string().describe('The file type extension'),
+    size: z.number().describe('File size in bytes'),
+    url_private: z.string().describe('Private URL to access the file'),
+    permalink: z.string().describe('Permalink to the file in Slack'),
+    timestamp: z.number().describe('Unix timestamp when file was created')
 });
 
 const SearchFilesOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    files: z.object({
-        total: z.number()
-            .describe('Total number of matching files'),
-        matches: z.array(SearchFile)
-            .describe('Array of matching file objects'),
-        pagination: z.object({
-            total_count: z.number()
-                .describe('Total count of results'),
-            page: z.number()
-                .describe('Current page number'),
-            per_page: z.number()
-                .describe('Results per page'),
-            page_count: z.number()
-                .describe('Total number of pages'),
-            first: z.number()
-                .describe('First result index'),
-            last: z.number()
-                .describe('Last result index')
-        }).describe('Pagination information')
-    }).describe('Search results')
+    ok: z.boolean().describe('Whether the request was successful'),
+    files: z
+        .object({
+            total: z.number().describe('Total number of matching files'),
+            matches: z.array(SearchFile).describe('Array of matching file objects'),
+            pagination: z
+                .object({
+                    total_count: z.number().describe('Total count of results'),
+                    page: z.number().describe('Current page number'),
+                    per_page: z.number().describe('Results per page'),
+                    page_count: z.number().describe('Total number of pages'),
+                    first: z.number().describe('First result index'),
+                    last: z.number().describe('Last result index')
+                })
+                .describe('Pagination information')
+        })
+        .describe('Search results')
 });
 
 /**
@@ -90,11 +71,7 @@ const SearchFilesOutput = z.object({
  * @param proxyConfig - The proxy configuration to augment
  * @returns ProxyConfiguration with authorization header set
  */
-async function addBearerTokenToConfig(
-    nango: NangoAction,
-    tokenPath: string,
-    proxyConfig: ProxyConfiguration
-): Promise<ProxyConfiguration> {
+async function addBearerTokenToConfig(nango: NangoAction, tokenPath: string, proxyConfig: ProxyConfiguration): Promise<ProxyConfiguration> {
     const connection = await nango.getConnection();
     const credentials = connection.credentials;
 
@@ -131,7 +108,7 @@ async function addBearerTokenToConfig(
         retries: proxyConfig.retries ?? 3,
         headers: {
             ...proxyConfig.headers,
-            Authorization: `Bearer ${token}`  // Overrides Nango's automatic bot token
+            Authorization: `Bearer ${token}` // Overrides Nango's automatic bot token
         }
     };
 }
@@ -165,11 +142,7 @@ const action = createAction({
         };
 
         // Add user token authentication
-        const config = await addBearerTokenToConfig(
-            nango,
-            'raw.authed_user.access_token',
-            baseConfig
-        );
+        const config = await addBearerTokenToConfig(nango, 'raw.authed_user.access_token', baseConfig);
 
         // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
         const response = await nango.get(config);

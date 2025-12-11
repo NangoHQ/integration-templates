@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 const Input = z.object({});
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    team: z.any()
-        .describe('The team object with workspace details like name, domain, icon')
+    ok: z.boolean().describe('Whether the request was successful'),
+    team: z.any().describe('The team object with workspace details like name, domain, icon')
 });
 
 const action = createAction({

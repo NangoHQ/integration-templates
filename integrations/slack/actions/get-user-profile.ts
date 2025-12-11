@@ -9,15 +9,12 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetUserProfileInput = z.object({
-    user_id: z.string().optional()
-        .describe('User ID to get profile for. Defaults to current user. Example: "U02MDCKS1N0"')
+    user_id: z.string().optional().describe('User ID to get profile for. Defaults to current user. Example: "U02MDCKS1N0"')
 });
 
 const GetUserProfileOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    profile: z.any()
-        .describe('The user profile object with fields like display_name, status_text, email')
+    ok: z.boolean().describe('Whether the request was successful'),
+    profile: z.any().describe('The user profile object with fields like display_name, status_text, email')
 });
 
 const action = createAction({

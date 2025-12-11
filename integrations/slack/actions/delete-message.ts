@@ -9,19 +9,14 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const DeleteMessageInput = z.object({
-    channel_id: z.string()
-        .describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string()
-        .describe('Timestamp of the message to delete. Example: "1764187268.105539"')
+    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
+    message_ts: z.string().describe('Timestamp of the message to delete. Example: "1764187268.105539"')
 });
 
 const DeleteMessageOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the message was deleted successfully'),
-    ts: z.string()
-        .describe('Timestamp of the deleted message'),
-    channel: z.string()
-        .describe('Channel where the message was deleted')
+    ok: z.boolean().describe('Whether the message was deleted successfully'),
+    ts: z.string().describe('Timestamp of the deleted message'),
+    channel: z.string().describe('Channel where the message was deleted')
 });
 
 const action = createAction({

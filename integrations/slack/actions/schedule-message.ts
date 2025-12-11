@@ -9,23 +9,16 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ScheduleMessageInput = z.object({
-    channel_id: z.string()
-        .describe('The channel to post to. Example: "C02MB5ZABA7"'),
-    text: z.string()
-        .describe('The message text. Example: "Hello, world!"'),
-    post_at: z.number()
-        .describe('Unix timestamp for when to post. Example: 1735689600'),
-    thread_ts: z.string().optional()
-        .describe('Timestamp of thread to reply to. Example: "1234567890.123456"')
+    channel_id: z.string().describe('The channel to post to. Example: "C02MB5ZABA7"'),
+    text: z.string().describe('The message text. Example: "Hello, world!"'),
+    post_at: z.number().describe('Unix timestamp for when to post. Example: 1735689600'),
+    thread_ts: z.string().optional().describe('Timestamp of thread to reply to. Example: "1234567890.123456"')
 });
 
 const ScheduleMessageOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    scheduled_message_id: z.string()
-        .describe('The ID of the scheduled message'),
-    post_at: z.number()
-        .describe('Unix timestamp when the message will be posted')
+    ok: z.boolean().describe('Whether the request was successful'),
+    scheduled_message_id: z.string().describe('The ID of the scheduled message'),
+    post_at: z.number().describe('Unix timestamp when the message will be posted')
 });
 
 const action = createAction({

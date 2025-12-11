@@ -7,17 +7,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({
-    include_disabled: z.boolean().optional()
-        .describe('Include disabled user groups. Default: false'),
-    include_count: z.boolean().optional()
-        .describe('Include member counts. Default: false')
+    include_disabled: z.boolean().optional().describe('Include disabled user groups. Default: false'),
+    include_count: z.boolean().optional().describe('Include member counts. Default: false')
 });
 
 const Output = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    usergroups: z.array(z.any())
-        .describe('Array of user group objects')
+    ok: z.boolean().describe('Whether the request was successful'),
+    usergroups: z.array(z.any()).describe('Array of user group objects')
 });
 
 const action = createAction({

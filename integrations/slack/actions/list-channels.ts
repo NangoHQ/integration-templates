@@ -9,21 +9,15 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListChannelsInput = z.object({
-    types: z.string().optional()
-        .describe('Comma-separated list of channel types. Example: "public_channel,private_channel"'),
-    limit: z.number().optional()
-        .describe('Maximum number of channels to return. Default: 100'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response')
+    types: z.string().optional().describe('Comma-separated list of channel types. Example: "public_channel,private_channel"'),
+    limit: z.number().optional().describe('Maximum number of channels to return. Default: 100'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
 const ListChannelsOutput = z.object({
-    ok: z.boolean()
-        .describe('Whether the request was successful'),
-    channels: z.array(z.any())
-        .describe('Array of channel objects'),
-    next_cursor: z.union([z.string(), z.null()])
-        .describe('Cursor for next page, null if no more pages')
+    ok: z.boolean().describe('Whether the request was successful'),
+    channels: z.array(z.any()).describe('Array of channel objects'),
+    next_cursor: z.union([z.string(), z.null()]).describe('Cursor for next page, null if no more pages')
 });
 
 const action = createAction({
