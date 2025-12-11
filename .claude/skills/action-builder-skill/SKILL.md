@@ -24,12 +24,38 @@ Actions should be **self-contained thin wrappers** using `createAction()` with:
 - Complex business logic required (consider separate service layer)
 - Multi-step workflows (use syncs or orchestrations)
 
+## Working Directory Requirements
+
+**CRITICAL: Before creating any files, detect your current working directory.**
+
+The Nango project root is the directory containing:
+- The `.nango/` directory
+- `package.json`
+- `tsconfig.json`
+
+**Detection steps:**
+1. Check if `.nango/` exists in current directory
+2. If YES: You are in the project root. Use relative paths from here (e.g., `slack/actions/create-message.ts`)
+3. If NO: Navigate to find the project root, or ask the user for the correct path
+
+**Paths must be correct relative to your current working directory:**
+- If you're IN the project root (`.nango/` exists here): use `slack/actions/create-message.ts`
+- If you're in a PARENT directory: use `nango-integrations/slack/actions/create-message.ts`
+
+**Common mistake:** Creating files with a `nango-integrations/` prefix while already inside the `nango-integrations/` directory. This creates a nested structure (`nango-integrations/nango-integrations/...`) that breaks the Nango CLI.
+
+**Example verification:**
+```bash
+# Verify you're in the right place
+ls -la .nango/ package.json 2>/dev/null && echo "✓ In project root" || echo "✗ Not in project root"
+```
+
 ## Directory Structure
 
-Nango integrations follow a standardized directory structure:
+Nango integrations follow a standardized directory structure. **All paths below are relative to the project root** (the directory containing `.nango/`):
 
 ```
-nango-integrations/                  # Root directory
+./                                   # Project root (contains .nango/, package.json)
 ├── hubspot/                         # Provider directory (lowercase)
 │   ├── actions/                     # Actions folder
 │   │   ├── create-contact.ts        # Action files (kebab-case)
@@ -40,6 +66,7 @@ nango-integrations/                  # Root directory
 ├── salesforce/                      # Another provider
 │   └── actions/
 │       └── create-contact.ts
+├── .nango/                          # Nango configuration directory
 ├── index.ts                         # Entry point - imports all actions
 ├── package.json
 └── tsconfig.json

@@ -8,7 +8,7 @@ allowed-tools: Read, Write, Edit, Bash, Grep, Glob, Skill, Task, AskUserQuestion
 
 ## Mode Detection
 
-**If $1 is empty:** Interactive mode - we'll prompt you for all required information
+**If $1 is empty:** Interactive mode - You MUST immediately prompt the user for ALL items in Step 1 below (Integration ID, Connection ID, Use Case, Inputs, Outputs, Action Name, API Reference, Test Input). Do not ask for them one by one.
 **If $1 is provided:** Direct mode - using provided arguments
 
 Integration: **$1**
@@ -25,7 +25,7 @@ Ask the user directly (not using AskUserQuestion tool):
 
 **Integration ID** (required): Which integration? (e.g., hubspot, salesforce, slack)
 
-**Connection ID** (optional): Do you have a connection ID for testing? If not, I'll auto-discover one.
+**Connection ID** (required): The connection ID for testing (e.g., my-hubspot-connection)
 
 **Action Details** (optional but recommended - the more detailed, the better the output):
 - **Use Case Summary** - Brief description of what the action does
@@ -38,7 +38,7 @@ Ask the user directly (not using AskUserQuestion tool):
 Example format:
 ```
 Integration ID: hubspot
-Connection ID: my-hubspot-connection (or leave blank to auto-discover)
+Connection ID: my-hubspot-connection
 Use Case: Creates a new contact in the CRM
 Inputs: firstName, lastName, email
 Outputs: contactId, createdAt
@@ -51,7 +51,7 @@ Please provide all information in a single response."
 
 Wait for their response. Parse and store:
 - Integration ID as integrationId
-- Connection ID (if provided) - skip Connection Discovery step if provided
+- Connection ID as connectionId
 - Action details as detailed instructions for implementation
 - Test Input (if provided) for use in creating input.json mock file
 
@@ -62,31 +62,6 @@ Wait for their response. Parse and store:
 **IMPORTANT: Loading nango-action-builder skill for implementation pattern...**
 
 Use the Skill tool to load `nango-action-builder` skill NOW.
-
-## Step 0: Save Original Prompt
-
-**REQUIRED:** Before starting implementation, save the original prompt/instructions.
-
-Create directory: `nango-integrations/{integrationId}/.prompts/`
-
-Save the prompt to: `nango-integrations/{integrationId}/.prompts/<action-name>.txt`
-
-**Content to save:**
-- If using direct mode with $3: Save the value of $3
-- If using interactive mode: Save the full action details gathered in Step 2
-- If no instructions provided: Save "No specific instructions provided"
-
-**Example:**
-```bash
-mkdir -p nango-integrations/{integrationId}/.prompts
-# Write prompt content to file
-```
-
-This preserves the original requirements and helps with:
-- Documentation
-- Future modifications
-- Understanding design decisions
-- Training data / improvements
 
 ## Working Directory
 
@@ -112,13 +87,7 @@ This includes: `npm`, `npx nango`, test commands, etc.
 
 **CRITICAL: Run dryrun validation for EACH action. Unit tests alone are insufficient.**
 
-## Step 1: Connection Discovery
-
-**Note:** If you already gathered a connection ID in interactive mode, skip this step.
-
-Using connection-discoverer agent to find connections for the integration (either from $1 or from interactive mode)...
-
-## Step 2: Action Planning
+## Step 1: Action Planning
 
 ### Auto-Discovery (Recommended)
 
@@ -136,7 +105,7 @@ Build: create-note, update-note, delete-note
 API docs: https://developers.example.com/api/notes
 ```
 
-## Step 3: Implement Action
+## Step 2: Implement Action
 
 Use the `nango-action-builder` skill (already loaded) for:
 - Complete action implementation pattern
@@ -151,7 +120,7 @@ Use the `nango-action-builder` skill (already loaded) for:
 
 **The skill is the single source of truth for implementation details.**
 
-## Step 4: TDD Loop
+## Step 3: TDD Loop
 
 ### Create Mock Files First
 
@@ -212,24 +181,9 @@ File: `nango-integrations/{integrationId}/actions/<action-name>.ts`
 
 (Where {integrationId} is either $1 from arguments or the value gathered in interactive mode)
 
-**File header template:**
-```typescript
-/**
- * Instructions: $3 or [from interactive mode action details]
- *
- * API Docs: [URL from discovery or interactive mode]
- */
-```
-
-Note:
-- Use instructions from $3 if provided via arguments
-- Use action details gathered in interactive mode if no arguments
-- Omit the Instructions line if neither is provided
-
 **Comments:**
-- ✅ Instructions at top (if provided)
-- ✅ API docs link
-- ✅ Complex business logic
+- ✅ API docs link as comment above endpoint
+- ✅ Complex business logic explanations
 - ❌ Obvious operations
 
 After implementing, compile to verify TypeScript correctness:
@@ -400,10 +354,9 @@ The dryrun creates a mock with hash based on headers like `Nango-Is-Script`. Tes
 - ✅ **Delete old mocks before running `--save-responses` again**
 - ✅ Copy generated mock if test hash differs
 
-## Step 5: Validation Checklist
+## Step 4: Validation Checklist
 
 **Per action:**
-- [ ] Original prompt saved to `.prompts/<action-name>.txt`
 - [ ] **Old/unused mocks cleaned up** (if changing endpoint or implementation)
 - [ ] Mock files created (input.json, output.json)
 - [ ] Test generated using `npx nango generate:tests` AND verified file exists

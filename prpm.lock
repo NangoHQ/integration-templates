@@ -3,9 +3,9 @@
   "lockfileVersion": 1,
   "packages": {
     "@nango/action-builder-skill#claude": {
-      "version": "1.0.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.0.0.tar.gz",
-      "integrity": "sha256-59c8f9653a175c1332e6e15d31c181035b97cc8cdd042b5bb33a85e3797c16a7",
+      "version": "1.0.3",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.0.3.tar.gz",
+      "integrity": "sha256-a69c01726da9dea4d6a1ac562c9d33a4f266ef29e7bbd88ed0a34c729c41fae3",
       "format": "claude",
       "subtype": "skill",
       "sourceFormat": "claude",
@@ -13,27 +13,13 @@
       "installedPath": ".claude/skills/action-builder-skill/SKILL.md",
       "fromCollection": {
         "name_slug": "nango-integration-builder",
-        "version": "1.0.0"
-      }
-    },
-    "@nango/connection-discoverer#claude": {
-      "version": "1.0.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fconnection-discoverer/1.0.0.tar.gz",
-      "integrity": "sha256-85bc01f255d4d714fca683104a797252b1c8c6e14154d62b030b69e79841b2ad",
-      "format": "claude",
-      "subtype": "agent",
-      "sourceFormat": "claude",
-      "sourceSubtype": "agent",
-      "installedPath": ".claude/agents/connection-discoverer",
-      "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.0.0"
+        "version": "1.0.4"
       }
     },
     "@nango/build-actions#claude": {
-      "version": "1.0.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-actions/1.0.0.tar.gz",
-      "integrity": "sha256-a0c1914bf0684397186ab5fe0ecb93f8b95d7d7e51fe92cf069938faa6fedb67",
+      "version": "1.0.2",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-actions/1.0.2.tar.gz",
+      "integrity": "sha256-013f0b41c5cd790154e8831c39f646b9175e10d2a31117d328292dcb88781abe",
       "format": "claude",
       "subtype": "slash-command",
       "sourceFormat": "claude",
@@ -41,19 +27,18 @@
       "installedPath": ".claude/commands/build-actions.md",
       "fromCollection": {
         "name_slug": "nango-integration-builder",
-        "version": "1.0.0"
+        "version": "1.0.4"
       }
     }
   },
-  "generated": "2025-12-05T10:57:04.674Z",
+  "generated": "2025-12-11T08:22:13.550Z",
   "collections": {
     "nango-integration-builder": {
       "name_slug": "nango-integration-builder",
-      "version": "1.0.0",
-      "installedAt": "2025-12-05T10:57:04.674Z",
+      "version": "1.0.4",
+      "installedAt": "2025-12-11T08:22:13.550Z",
       "packages": [
         "@nango/action-builder-skill",
-        "@nango/connection-discoverer",
         "@nango/build-actions"
       ]
     }
