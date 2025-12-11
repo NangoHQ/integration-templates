@@ -8,60 +8,23 @@ import parseLinksHeader from 'parse-link-header';
 import get from 'lodash-es/get.js';
 import type { Pagination, CursorPagination, LinkPagination, OffsetPagination, OffsetCalculationMethod } from '@nangohq/types';
 
-interface RequestIdentity {
-    method: string;
-    endpoint: string;
-    params: [string, unknown][];
-    headers: [string, unknown][];
-    data?: unknown;
+interface MockLoaderStrategy {
+    getBatchSaveData(modelName: string): Promise<any>;
+    getBatchDeleteData(modelName: string): Promise<any>;
+    getInput(): Promise<any>;
+    getOutput(): Promise<any>;
+    getConnectionData(): Promise<any>;
+    getMetadataData(): Promise<any>;
+    getCachedResponse(identity: ConfigIdentity): Promise<any>;
+    getUpdateMetadata(): Promise<any>;
+    getDeleteRecordsFromPreviousExecutions(): Promise<any>;
 }
 
-class NangoActionMock {
-    dirname: string;
-    name: string;
-    Model: string;
-
-    providerConfigKey: string;
-
-    log = vi.fn();
-    ActionError = vi.fn();
-    getConnection: ReturnType<typeof vi.fn>;
-    getMetadata: ReturnType<typeof vi.fn>;
-    updateMetadata: ReturnType<typeof vi.fn>;
-    paginate: ReturnType<typeof vi.fn>;
-    get: ReturnType<typeof vi.fn>;
-    post: ReturnType<typeof vi.fn>;
-    patch: ReturnType<typeof vi.fn>;
-    put: ReturnType<typeof vi.fn>;
-    delete: ReturnType<typeof vi.fn>;
-    proxy: ReturnType<typeof vi.fn>;
-    getWebhookURL: ReturnType<typeof vi.fn>;
-    zodValidateInput: ReturnType<typeof vi.fn>;
-
-    constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
-        this.dirname = dirname;
-        this.providerConfigKey = path.basename(path.dirname(dirname));
-        this.name = name;
-        this.Model = Model;
-        this.getConnection = vi.fn(this.getConnectionData.bind(this));
-        this.getMetadata = vi.fn(this.getMetadataData.bind(this));
-        this.paginate = vi.fn(this.getProxyPaginateData.bind(this));
-        this.get = vi.fn(this.proxyGetData.bind(this));
-        this.post = vi.fn(this.proxyPostData.bind(this));
-        this.patch = vi.fn(this.proxyPatchData.bind(this));
-        this.put = vi.fn(this.proxyPutData.bind(this));
-        this.delete = vi.fn(this.proxyDeleteData.bind(this));
-        this.proxy = vi.fn(this.proxyData.bind(this));
-        this.getWebhookURL = vi.fn(() => 'https://example.com/webhook');
-        this.zodValidateInput = vi.fn(this.mockZodValidateInput.bind(this));
-        this.updateMetadata = vi.fn();
-    }
-
-    private async mockZodValidateInput({ input }: { input: any }) {
-        return {
-            data: input
-        };
-    }
+class LegacyMockLoader implements MockLoaderStrategy {
+    constructor(
+        private dirname: string,
+        private name: string
+    ) {}
 
     private async getMockFile(fileName: string, throwOnMissing: boolean, identity?: ConfigIdentity) {
         const filePath = path.resolve(this.dirname, `../mocks/${fileName}.json`);
@@ -87,7 +50,7 @@ class NangoActionMock {
         }
     }
 
-    private async getCachedResponse(identity: ConfigIdentity) {
+    async getCachedResponse(identity: ConfigIdentity) {
         const dir = `nango/${identity.method}/proxy/${identity.endpoint}/${this.name}/`;
         const hashBasedPath = `${dir}/${identity.requestIdentityHash}`;
 
@@ -99,34 +62,406 @@ class NangoActionMock {
         }
     }
 
-    public async getBatchSaveData(modelName: string) {
-        const data = await this.getMockFile(`${this.name}/${modelName}/batchSave`, true);
+    async getBatchSaveData(modelName: string) {
+        return this.getMockFile(`${this.name}/${modelName}/batchSave`, true);
+    }
+
+    async getBatchDeleteData(modelName: string) {
+        return this.getMockFile(`${this.name}/${modelName}/batchDelete`, true);
+    }
+
+    async getInput() {
+        return this.getMockFile(`${this.name}/input`, false);
+    }
+
+    async getOutput() {
+        return this.getMockFile(`${this.name}/output`, true);
+    }
+
+    async getConnectionData() {
+        return this.getMockFile(`nango/getConnection`, true);
+    }
+
+    async getMetadataData() {
+        return this.getMockFile('nango/getMetadata', true);
+    }
+
+    async getUpdateMetadata() {
+        return this.getMockFile('nango/updateMetadata', false);
+    }
+
+    async getDeleteRecordsFromPreviousExecutions() {
+        return this.getMockFile('nango/deleteRecordsFromPreviousExecutions', false);
+    }
+}
+
+class UnifiedMockLoader implements MockLoaderStrategy {
+    private mockData: any;
+
+    constructor(private mockFilePath: string) {}
+
+    private async loadMockFile() {
+        if (!this.mockData) {
+            const fileContent = await fs.readFile(this.mockFilePath, 'utf-8');
+            this.mockData = JSON.parse(fileContent);
+        }
+    }
+
+    async getBatchSaveData(modelName: string) {
+        await this.loadMockFile();
+        return this.mockData.nango?.batchSave?.[modelName];
+    }
+
+    async getBatchDeleteData(modelName: string) {
+        await this.loadMockFile();
+        return this.mockData.nango?.batchDelete?.[modelName];
+    }
+
+    async getInput() {
+        await this.loadMockFile();
+        return this.mockData.input;
+    }
+
+    async getOutput() {
+        await this.loadMockFile();
+        return this.mockData.output;
+    }
+
+    async getConnectionData() {
+        await this.loadMockFile();
+        return this.mockData.nango?.getConnection;
+    }
+
+    async getMetadataData() {
+        await this.loadMockFile();
+        return this.mockData.nango?.getMetadata;
+    }
+
+    async getUpdateMetadata() {
+        await this.loadMockFile();
+        return this.mockData.nango?.updateMetadata;
+    }
+
+    async getDeleteRecordsFromPreviousExecutions() {
+        await this.loadMockFile();
+        return this.mockData.nango?.deleteRecordsFromPreviousExecutions;
+    }
+
+    async getCachedResponse(identity: ConfigIdentity) {
+        await this.loadMockFile();
+        const { method, endpoint, requestIdentityHash } = identity;
+
+        const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+
+        let apiMock = this.mockData.api[method.toUpperCase()]?.[normalizedEndpoint];
+
+        if (!apiMock) {
+            apiMock = this.mockData.api[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
+        }
+
+        if (apiMock) {
+            if (Array.isArray(apiMock)) {
+                const matchedMock = apiMock.find((mock) => {
+                    if (mock.hash && mock.hash === requestIdentityHash) {
+                        return true;
+                    }
+                    if (mock.request) {
+                        if (mock.request.params) {
+                            for (const [key, value] of Object.entries(mock.request.params)) {
+                                const actualParam = identity.requestIdentity.params.find(([k]) => k === key);
+                                if (!actualParam || String(actualParam[1]) !== String(value)) {
+                                    return false;
+                                }
+                            }
+                        }
+                        if (mock.request.headers) {
+                            for (const [key, value] of Object.entries(mock.request.headers)) {
+                                const actualHeader = identity.requestIdentity.headers.find(([k]) => k.toLowerCase() === key.toLowerCase());
+                                if (!actualHeader || String(actualHeader[1]) !== String(value)) {
+                                    return false;
+                                }
+                            }
+                        }
+                        if (mock.request.data !== undefined) {
+                            const expectedDataIdentity = computeDataIdentity({ data: mock.request.data } as Configish);
+                            if (expectedDataIdentity !== identity.requestIdentity.data) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    return false;
+                });
+
+                if (matchedMock) {
+                    return matchedMock;
+                }
+            } else {
+                return apiMock;
+            }
+        }
+
+        throw new Error(`No mock found for ${method.toUpperCase()} ${endpoint} (normalized: ${normalizedEndpoint}) with hash ${requestIdentityHash}`);
+    }
+}
+
+class RecordingMockLoader implements MockLoaderStrategy {
+    private recordedData: any = {
+        input: null,
+        output: null,
+        nango: {},
+        api: {}
+    };
+
+    constructor(
+        private delegate: MockLoaderStrategy,
+        private outputPath: string
+    ) {}
+
+    private async save() {
+        const dataToSave = JSON.parse(JSON.stringify(this.recordedData));
+
+        if (Object.keys(dataToSave.nango?.batchSave || {}).length === 0) delete dataToSave.nango.batchSave;
+        if (Object.keys(dataToSave.nango?.batchDelete || {}).length === 0) delete dataToSave.nango.batchDelete;
+        if (Object.keys(dataToSave.nango).length === 0) delete dataToSave.nango;
+        if (Object.keys(dataToSave.api).length === 0) delete dataToSave.api;
+        if (dataToSave.input === null) delete dataToSave.input;
+        if (dataToSave.output === null) delete dataToSave.output;
+
+        await fs.writeFile(this.outputPath, JSON.stringify(dataToSave, null, 4));
+    }
+
+    async getBatchSaveData(modelName: string) {
+        const data = await this.delegate.getBatchSaveData(modelName);
+        if (!this.recordedData.nango.batchSave) this.recordedData.nango.batchSave = {};
+        this.recordedData.nango.batchSave[modelName] = data;
+        await this.save();
         return data;
+    }
+
+    async getBatchDeleteData(modelName: string) {
+        const data = await this.delegate.getBatchDeleteData(modelName);
+        if (!this.recordedData.nango.batchDelete) this.recordedData.nango.batchDelete = {};
+        this.recordedData.nango.batchDelete[modelName] = data;
+        await this.save();
+        return data;
+    }
+
+    async getInput() {
+        const data = await this.delegate.getInput();
+        this.recordedData.input = data;
+        await this.save();
+        return data;
+    }
+
+    async getOutput() {
+        const data = await this.delegate.getOutput();
+        this.recordedData.output = data;
+        await this.save();
+        return data;
+    }
+
+    async getConnectionData() {
+        const data = await this.delegate.getConnectionData();
+        this.recordedData.nango.getConnection = data;
+        await this.save();
+        return data;
+    }
+
+    async getMetadataData() {
+        const data = await this.delegate.getMetadataData();
+        this.recordedData.nango.getMetadata = data;
+        await this.save();
+        return data;
+    }
+
+    async getUpdateMetadata() {
+        const data = await this.delegate.getUpdateMetadata();
+        this.recordedData.nango.updateMetadata = data;
+        await this.save();
+        return data;
+    }
+
+    async getDeleteRecordsFromPreviousExecutions() {
+        const data = await this.delegate.getDeleteRecordsFromPreviousExecutions();
+        this.recordedData.nango.deleteRecordsFromPreviousExecutions = data;
+        await this.save();
+        return data;
+    }
+
+    async getCachedResponse(identity: ConfigIdentity) {
+        const data = await this.delegate.getCachedResponse(identity);
+
+        const method = identity.method.toUpperCase();
+        const endpoint = identity.endpoint;
+
+        if (!this.recordedData.api[method]) this.recordedData.api[method] = {};
+        if (!this.recordedData.api[method][endpoint]) this.recordedData.api[method][endpoint] = [];
+
+        const params = Object.fromEntries(identity.requestIdentity.params);
+        const headers = Object.fromEntries(identity.requestIdentity.headers);
+
+        let requestData = identity.requestIdentity.data;
+        if (typeof requestData === 'string') {
+            try {
+                requestData = JSON.parse(requestData);
+            } catch (e) {}
+        }
+
+        const record = {
+            request: {
+                params: Object.keys(params).length > 0 ? params : undefined,
+                headers: Object.keys(headers).length > 0 ? headers : undefined,
+                data: requestData
+            },
+            response: data.response,
+            hash: identity.requestIdentityHash
+        };
+
+        const exists = this.recordedData.api[method][endpoint].some((r: any) => r.hash === record.hash);
+        if (!exists) {
+            this.recordedData.api[method][endpoint].push(record);
+            await this.save();
+        }
+
+        return data;
+    }
+}
+
+function getMockLoader(dirname: string, name: string): MockLoaderStrategy {
+    let testFileName = name;
+    try {
+        const stack = new Error().stack;
+        if (stack) {
+            const lines = stack.split('\n');
+            for (const line of lines) {
+                if (line.includes(dirname) && line.includes('.test.ts')) {
+                    const match = line.match(/\/([^\/]+\.test\.ts)/);
+                    if (match) {
+                        testFileName = match[1].replace('.test.ts', '');
+                        break;
+                    }
+                }
+            }
+        }
+    } catch (e) {}
+
+    const unifiedMockPath = path.resolve(dirname, `${testFileName}.test.json`);
+
+    let unifiedFileExists = false;
+    try {
+        // @ts-ignore
+        const fsSync = require('fs');
+        fsSync.statSync(unifiedMockPath);
+        unifiedFileExists = true;
+    } catch (error) {
+        unifiedFileExists = false;
+    }
+
+    if (unifiedFileExists) {
+        return new UnifiedMockLoader(unifiedMockPath);
+    }
+
+    if (process.env.MIGRATE_MOCKS) {
+        const legacyLoader = new LegacyMockLoader(dirname, name);
+        return new RecordingMockLoader(legacyLoader, unifiedMockPath);
+    }
+
+    return new LegacyMockLoader(dirname, name);
+}
+
+interface RequestIdentity {
+    method: string;
+    endpoint: string;
+    params: [string, unknown][];
+    headers: [string, unknown][];
+    data?: unknown;
+}
+
+class NangoActionMock {
+    dirname: string;
+    name: string;
+    Model: string;
+
+    providerConfigKey: string;
+    private mockLoader: MockLoaderStrategy;
+
+    log: ReturnType<typeof vi.fn>;
+    ActionError = vi.fn();
+    getConnection: ReturnType<typeof vi.fn>;
+    getMetadata: ReturnType<typeof vi.fn>;
+    updateMetadata: ReturnType<typeof vi.fn>;
+    paginate: ReturnType<typeof vi.fn>;
+    get: ReturnType<typeof vi.fn>;
+    post: ReturnType<typeof vi.fn>;
+    patch: ReturnType<typeof vi.fn>;
+    put: ReturnType<typeof vi.fn>;
+    delete: ReturnType<typeof vi.fn>;
+    proxy: ReturnType<typeof vi.fn>;
+    getWebhookURL: ReturnType<typeof vi.fn>;
+    zodValidateInput: ReturnType<typeof vi.fn>;
+    deleteRecordsFromPreviousExecutions: ReturnType<typeof vi.fn>;
+
+    constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
+        this.dirname = dirname;
+        this.providerConfigKey = path.basename(path.dirname(dirname));
+        this.name = name;
+        this.Model = Model;
+        this.mockLoader = getMockLoader(dirname, name);
+
+        this.log = vi.fn();
+        this.getConnection = vi.fn(this.getConnectionData.bind(this));
+        this.getMetadata = vi.fn(this.getMetadataData.bind(this));
+        this.updateMetadata = vi.fn(this.getUpdateMetadata.bind(this));
+        this.deleteRecordsFromPreviousExecutions = vi.fn(this.getDeleteRecordsFromPreviousExecutions.bind(this));
+
+        this.paginate = vi.fn(this.getProxyPaginateData.bind(this));
+        this.get = vi.fn(this.proxyGetData.bind(this));
+        this.post = vi.fn(this.proxyPostData.bind(this));
+        this.patch = vi.fn(this.proxyPatchData.bind(this));
+        this.put = vi.fn(this.proxyPutData.bind(this));
+        this.delete = vi.fn(this.proxyDeleteData.bind(this));
+        this.proxy = vi.fn(this.proxyData.bind(this));
+        this.getWebhookURL = vi.fn(() => 'https://example.com/webhook');
+        this.zodValidateInput = vi.fn(this.mockZodValidateInput.bind(this));
+    }
+
+    private async mockZodValidateInput({ input }: { input: any }) {
+        return {
+            data: input
+        };
+    }
+
+    public async getBatchSaveData(modelName: string) {
+        return this.mockLoader.getBatchSaveData(modelName);
     }
 
     public async getBatchDeleteData(modelName: string) {
-        const data = await this.getMockFile(`${this.name}/${modelName}/batchDelete`, true);
-        return data;
+        return this.mockLoader.getBatchDeleteData(modelName);
     }
 
     public async getInput() {
-        const data = await this.getMockFile(`${this.name}/input`, false);
-        return data;
+        return this.mockLoader.getInput();
     }
 
     public async getOutput() {
-        const data = await this.getMockFile(`${this.name}/output`, true);
-        return data;
+        return this.mockLoader.getOutput();
     }
 
     private async getConnectionData() {
-        const data = await this.getMockFile(`nango/getConnection`, true);
-        return data;
+        return this.mockLoader.getConnectionData();
     }
 
     private async getMetadataData() {
-        const data = await this.getMockFile('nango/getMetadata', true);
-        return data;
+        return this.mockLoader.getMetadataData();
+    }
+
+    private async getUpdateMetadata() {
+        return this.mockLoader.getUpdateMetadata();
+    }
+
+    private async getDeleteRecordsFromPreviousExecutions() {
+        return this.mockLoader.getDeleteRecordsFromPreviousExecutions();
     }
 
     private async *getProxyPaginateData(args: Configish) {
@@ -179,7 +514,6 @@ class NangoActionMock {
 
             const response = await this.proxyData(args);
             if (!response.headers) {
-                // use legacy method for cached responses
                 const data = response.data;
                 const paginate = args.paginate as Pagination;
 
@@ -189,7 +523,6 @@ class NangoActionMock {
                 if (paginate && paginate.response_path) {
                     yield data[paginate.response_path];
                 } else {
-                    // if not an array, return the first key that is an array
                     const keys = Object.keys(data);
                     for (const key of keys) {
                         if (Array.isArray(data[key])) {
@@ -232,7 +565,6 @@ class NangoActionMock {
         while (true) {
             const responseish = await this.proxyData(args);
 
-            // if this is a legacy cached response, use the legacy algorithm
             if (!responseish.headers) {
                 const data = responseish.data;
                 const paginate = args.paginate as Pagination;
@@ -243,7 +575,6 @@ class NangoActionMock {
                 if (paginate && paginate.response_path) {
                     yield data[paginate.response_path];
                 } else {
-                    // if not an array, return the first key that is an array
                     const keys = Object.keys(data);
                     for (const key of keys) {
                         if (Array.isArray(data[key])) {
@@ -269,7 +600,6 @@ class NangoActionMock {
             }
 
             if (!isValidHttpUrl(nextPageLink)) {
-                // some providers only send path+query params in the link so we can immediately assign those to the endpoint
                 args.endpoint = nextPageLink;
             } else {
                 const url: URL = new URL(nextPageLink);
@@ -310,7 +640,6 @@ class NangoActionMock {
             const response = await this.proxyData(args);
 
             if (!response.headers) {
-                // use legacy method for cached responses
                 const data = response.data;
                 const paginate = args.paginate as Pagination;
 
@@ -320,7 +649,6 @@ class NangoActionMock {
                 if (paginate && paginate.response_path) {
                     yield data[paginate.response_path];
                 } else {
-                    // if not an array, return the first key that is an array
                     const keys = Object.keys(data);
                     for (const key of keys) {
                         if (Array.isArray(data[key])) {
@@ -343,7 +671,6 @@ class NangoActionMock {
             }
 
             if (responseData.length < 1) {
-                // empty page, no more results
                 return;
             }
 
@@ -377,7 +704,7 @@ class NangoActionMock {
 
     private async proxyData(args: Configish) {
         const identity = computeConfigIdentity(args);
-        const cached = await this.getCachedResponse(identity);
+        const cached = await this.mockLoader.getCachedResponse(identity);
 
         return { data: cached.response, headers: cached.headers, status: cached.status };
     }
@@ -387,13 +714,11 @@ class NangoSyncMock extends NangoActionMock {
 
     batchSave: ReturnType<typeof vi.fn>;
     batchDelete: ReturnType<typeof vi.fn>;
-    deleteRecordsFromPreviousExecutions: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         super({ dirname, name, Model });
         this.batchSave = vi.fn();
         this.batchDelete = vi.fn();
-        this.deleteRecordsFromPreviousExecutions = vi.fn();
     }
 }
 
