@@ -1,0 +1,790 @@
+{
+    "nango": {
+        "batchSave": {
+            "Deal": [
+                {
+                    "id": "22983893905",
+                    "name": "Mock testing Update-1",
+                    "amount": "10000",
+                    "close_date": "2025-10-07T05:01:36.281Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": "contractsent",
+                    "deal_probability": "0.90000000000000002220446049250313080847263336181640625",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22988297499",
+                    "name": "sample testing",
+                    "amount": "10000",
+                    "close_date": "2025-10-07T05:01:36.281Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22988311627",
+                    "name": "New deal",
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22988801456",
+                    "name": null,
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22989336979",
+                    "name": null,
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22989884957",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": "This is a new sample deal",
+                    "owner": "902942351",
+                    "deal_stage": "contractsent",
+                    "deal_probability": "1.000000",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "22992142492",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": "This is a new sample deal",
+                    "owner": "902942351",
+                    "deal_stage": "contractsent",
+                    "deal_probability": "1.000000",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            },
+                            {
+                                "id": "64283084320",
+                                "first_name": "James",
+                                "last_name": "Testing"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "22992923788",
+                    "name": null,
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "22995834004",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            },
+                            {
+                                "id": "64283084320",
+                                "first_name": "James",
+                                "last_name": "Testing"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "23003021969",
+                    "name": null,
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "23012111010",
+                    "name": null,
+                    "amount": null,
+                    "close_date": null,
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [],
+                        "contacts": []
+                    }
+                },
+                {
+                    "id": "23012677461",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            },
+                            {
+                                "id": "64283084320",
+                                "first_name": "James",
+                                "last_name": "Testing"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "23103329674",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            },
+                            {
+                                "id": "64283084320",
+                                "first_name": "James",
+                                "last_name": "Testing"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "23109606184",
+                    "name": "New Deal",
+                    "amount": "1000",
+                    "close_date": "2025-10-07T06:37:47.523Z",
+                    "deal_description": null,
+                    "owner": null,
+                    "deal_stage": null,
+                    "deal_probability": "0",
+                    "returned_associations": {
+                        "companies": [
+                            {
+                                "id": "23516293919",
+                                "name": "TestCompany"
+                            }
+                        ],
+                        "contacts": [
+                            {
+                                "id": "64283084318",
+                                "first_name": "Mock testing Update-1",
+                                "last_name": "Doe"
+                            },
+                            {
+                                "id": "64283084320",
+                                "first_name": "James",
+                                "last_name": "Testing"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "batchDelete": {
+            "Deal": []
+        }
+    },
+    "api": {
+        "GET": {
+            "crm/v3/objects/deals": [
+                {
+                    "request": {
+                        "params": {
+                            "associations": "contact,company",
+                            "limit": 100,
+                            "properties": "dealname,amount,closedate,description,hubspot_owner_id,dealstage,hs_deal_stage_probability"
+                        }
+                    },
+                    "response": {
+                        "results": [
+                            {
+                                "id": "22983893905",
+                                "properties": {
+                                    "amount": "10000",
+                                    "closedate": "2025-10-07T05:01:36.281Z",
+                                    "createdate": "2024-10-07T05:01:20.320Z",
+                                    "dealname": "Mock testing Update-1",
+                                    "dealstage": "contractsent",
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0.90000000000000002220446049250313080847263336181640625",
+                                    "hs_lastmodifieddate": "2024-10-09T12:21:23.651Z",
+                                    "hs_object_id": "22983893905",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T05:01:20.320Z",
+                                "updatedAt": "2024-10-09T12:21:23.651Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22988297499",
+                                "properties": {
+                                    "amount": "10000",
+                                    "closedate": "2025-10-07T05:01:36.281Z",
+                                    "createdate": "2024-10-07T05:01:36.281Z",
+                                    "dealname": "sample testing",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-07T05:20:32.888Z",
+                                    "hs_object_id": "22988297499",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T05:01:36.281Z",
+                                "updatedAt": "2024-10-07T05:20:32.888Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22988311627",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-07T05:01:25.829Z",
+                                    "dealname": "New deal",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-07T05:01:26.700Z",
+                                    "hs_object_id": "22988311627",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T05:01:25.829Z",
+                                "updatedAt": "2024-10-07T05:01:26.700Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22988801456",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-07T06:37:47.523Z",
+                                    "dealname": null,
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-07T06:37:48.363Z",
+                                    "hs_object_id": "22988801456",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T06:37:47.523Z",
+                                "updatedAt": "2024-10-07T06:37:48.363Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22989336979",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-07T05:01:30.678Z",
+                                    "dealname": null,
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-07T05:01:31.653Z",
+                                    "hs_object_id": "22989336979",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T05:01:30.678Z",
+                                "updatedAt": "2024-10-07T05:01:31.653Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22989884957",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-07T06:42:52.610Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": "contractsent",
+                                    "description": "This is a new sample deal",
+                                    "hs_deal_stage_probability": "1.000000",
+                                    "hs_lastmodifieddate": "2024-10-07T06:42:53.803Z",
+                                    "hs_object_id": "22989884957",
+                                    "hubspot_owner_id": "902942351"
+                                },
+                                "createdAt": "2024-10-07T06:42:52.610Z",
+                                "updatedAt": "2024-10-07T06:42:53.803Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "id": "22992142492",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-07T07:00:29.387Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": "contractsent",
+                                    "description": "This is a new sample deal",
+                                    "hs_deal_stage_probability": "1.000000",
+                                    "hs_lastmodifieddate": "2024-10-07T07:00:31.004Z",
+                                    "hs_object_id": "22992142492",
+                                    "hubspot_owner_id": "902942351"
+                                },
+                                "createdAt": "2024-10-07T07:00:29.387Z",
+                                "updatedAt": "2024-10-07T07:00:31.004Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            },
+                                            {
+                                                "id": "64283084320",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "id": "22992923788",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-07T11:18:16.658Z",
+                                    "dealname": null,
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-07T11:18:17.868Z",
+                                    "hs_object_id": "22992923788",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-07T11:18:16.658Z",
+                                "updatedAt": "2024-10-07T11:18:17.868Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "22995834004",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-08T01:48:12.686Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-08T01:48:13.745Z",
+                                    "hs_object_id": "22995834004",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-08T01:48:12.686Z",
+                                "updatedAt": "2024-10-08T01:48:13.745Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            },
+                                            {
+                                                "id": "64283084320",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "id": "23003021969",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-08T02:12:06.547Z",
+                                    "dealname": null,
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-08T02:12:07.359Z",
+                                    "hs_object_id": "23003021969",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-08T02:12:06.547Z",
+                                "updatedAt": "2024-10-08T02:12:07.359Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "23012111010",
+                                "properties": {
+                                    "amount": null,
+                                    "closedate": null,
+                                    "createdate": "2024-10-08T02:12:16.296Z",
+                                    "dealname": null,
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-08T02:12:17.196Z",
+                                    "hs_object_id": "23012111010",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-08T02:12:16.296Z",
+                                "updatedAt": "2024-10-08T02:12:17.196Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "23012677461",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-08T03:39:53.159Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-08T03:39:54.588Z",
+                                    "hs_object_id": "23012677461",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-08T03:39:53.159Z",
+                                "updatedAt": "2024-10-08T03:39:54.588Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            },
+                                            {
+                                                "id": "64283084320",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "id": "23103329674",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-09T12:04:11.061Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-09T12:07:46.393Z",
+                                    "hs_object_id": "23103329674",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-09T12:04:11.061Z",
+                                "updatedAt": "2024-10-09T12:07:46.393Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            },
+                                            {
+                                                "id": "64283084320",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "id": "23109606184",
+                                "properties": {
+                                    "amount": "1000",
+                                    "closedate": "2025-10-07T06:37:47.523Z",
+                                    "createdate": "2024-10-09T12:07:19.172Z",
+                                    "dealname": "New Deal",
+                                    "dealstage": null,
+                                    "description": null,
+                                    "hs_deal_stage_probability": "0",
+                                    "hs_lastmodifieddate": "2024-10-09T12:07:20.996Z",
+                                    "hs_object_id": "23109606184",
+                                    "hubspot_owner_id": null
+                                },
+                                "createdAt": "2024-10-09T12:07:19.172Z",
+                                "updatedAt": "2024-10-09T12:07:20.996Z",
+                                "archived": false,
+                                "associations": {
+                                    "companies": {
+                                        "results": [
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company"
+                                            },
+                                            {
+                                                "id": "23516293919",
+                                                "type": "deal_to_company_unlabeled"
+                                            }
+                                        ]
+                                    },
+                                    "contacts": {
+                                        "results": [
+                                            {
+                                                "id": "64283084318",
+                                                "type": "deal_to_contact"
+                                            },
+                                            {
+                                                "id": "64283084320",
+                                                "type": "deal_to_contact"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "hash": "4d48bf5053c8fc74a8f1a63bbff6b057ccc28329"
+                }
+            ],
+            "crm/v3/objects/companies/23516293919": [
+                {
+                    "request": {
+                        "params": {
+                            "properties": "id,name"
+                        }
+                    },
+                    "response": {
+                        "id": "23516293919",
+                        "properties": {
+                            "createdate": "2024-10-03T20:32:21.222Z",
+                            "hs_lastmodifieddate": "2024-10-09T12:21:23.765Z",
+                            "hs_object_id": "23516293919",
+                            "name": "TestCompany"
+                        },
+                        "createdAt": "2024-10-03T20:32:21.222Z",
+                        "updatedAt": "2024-10-09T12:21:23.765Z",
+                        "archived": false
+                    },
+                    "hash": "880fb155ed30692d23648002d65b6971e7c2f7f7"
+                }
+            ],
+            "crm/v3/objects/contacts/64283084318": [
+                {
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
+                    "response": {
+                        "id": "64283084318",
+                        "properties": {
+                            "createdate": "2024-10-03T11:59:45.689Z",
+                            "firstname": "Mock testing Update-1",
+                            "hs_object_id": "64283084318",
+                            "lastmodifieddate": "2024-10-09T12:21:24.382Z",
+                            "lastname": "Doe"
+                        },
+                        "createdAt": "2024-10-03T11:59:45.689Z",
+                        "updatedAt": "2024-10-09T12:21:24.382Z",
+                        "archived": false
+                    },
+                    "hash": "ba473bff96c2a363c94a51dc3f5a0e1c444693f3"
+                }
+            ],
+            "crm/v3/objects/contacts/64283084320": [
+                {
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
+                    "response": {
+                        "id": "64283084320",
+                        "properties": {
+                            "createdate": "2024-10-03T11:59:45.689Z",
+                            "firstname": "James",
+                            "hs_object_id": "64283084320",
+                            "lastmodifieddate": "2024-10-09T12:07:21.315Z",
+                            "lastname": "Testing"
+                        },
+                        "createdAt": "2024-10-03T11:59:45.689Z",
+                        "updatedAt": "2024-10-09T12:07:21.315Z",
+                        "archived": false
+                    },
+                    "hash": "b1cd5c9ca56b0aaa26c6d2772b1cc9a0cec6e699"
+                }
+            ]
+        }
+    }
+}

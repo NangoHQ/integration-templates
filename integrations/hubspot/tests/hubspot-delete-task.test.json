@@ -1,0 +1,19 @@
+{
+    "input": {
+        "id": "61688519345"
+    },
+    "output": {
+        "success": true
+    },
+    "api": {
+        "DELETE": {
+            "crm/v3/objects/tasks/61688519345": [
+                {
+                    "request": {},
+                    "response": "",
+                    "hash": "ece89348da2017adc6d9f6831770f0f36daa6528"
+                }
+            ]
+        }
+    }
+}

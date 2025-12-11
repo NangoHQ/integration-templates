@@ -1,0 +1,19 @@
+{
+    "input": {
+        "id": "71690856"
+    },
+    "output": {
+        "success": true
+    },
+    "api": {
+        "DELETE": {
+            "settings/v3/users/71690856": [
+                {
+                    "request": {},
+                    "response": "",
+                    "hash": "29d1d1bb22e707d66e906f5ef2d384549ef7dd1f"
+                }
+            ]
+        }
+    }
+}

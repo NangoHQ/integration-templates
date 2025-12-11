@@ -1,0 +1,58 @@
+{
+    "input": {
+        "name": "Tech Innovations I.NC-1",
+        "industry": "MOBILE_GAMES",
+        "year_founded": "2020",
+        "id": "23618222883"
+    },
+    "output": {
+        "id": "23618222883",
+        "created_date": "2024-10-07T10:11:49.565Z",
+        "name": "Tech Innovations I.NC-1",
+        "industry": "MOBILE_GAMES",
+        "lifecycle_stage": "lead",
+        "owner": "902942351",
+        "year_founded": "2020"
+    },
+    "api": {
+        "PATCH": {
+            "crm/v3/objects/companies/23618222883": [
+                {
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "name": "Tech Innovations I.NC-1",
+                                "industry": "MOBILE_GAMES",
+                                "founded_year": "2020"
+                            }
+                        }
+                    },
+                    "response": {
+                        "id": "23618222883",
+                        "properties": {
+                            "createdate": "2024-10-07T10:11:49.565Z",
+                            "founded_year": "2020",
+                            "hs_all_owner_ids": "902942351",
+                            "hs_lastmodifieddate": "2024-10-07T11:03:04.441Z",
+                            "hs_object_id": "23618222883",
+                            "hs_object_source": "INTEGRATION",
+                            "hs_object_source_id": "4001099",
+                            "hs_object_source_label": "INTEGRATION",
+                            "hs_pipeline": "companies-lifecycle-pipeline",
+                            "hs_user_ids_of_all_owners": "71674059",
+                            "hubspot_owner_assigneddate": "2024-10-07T10:11:49.565Z",
+                            "hubspot_owner_id": "902942351",
+                            "industry": "MOBILE_GAMES",
+                            "lifecyclestage": "lead",
+                            "name": "Tech Innovations I.NC-1"
+                        },
+                        "createdAt": "2024-10-07T10:11:49.565Z",
+                        "updatedAt": "2024-10-07T11:03:04.441Z",
+                        "archived": false
+                    },
+                    "hash": "e8465097632cffe6ba2a4cb79908d879590cb1f3"
+                }
+            ]
+        }
+    }
+}

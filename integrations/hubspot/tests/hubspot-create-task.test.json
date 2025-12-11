@@ -1,0 +1,143 @@
+{
+    "input": {
+        "task_type": "TODO",
+        "title": "Send Proposal",
+        "priority": "HIGH",
+        "assigned_to": "902942351",
+        "due_date": "2024-10-30T03:30:17.883Z",
+        "notes": "Follow-up for Brian Buyer",
+        "associations": [
+            {
+                "to": 64283084318,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 204
+                    }
+                ]
+            },
+            {
+                "to": 23516293919,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 192
+                    }
+                ]
+            },
+            {
+                "to": 22983893905,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 216
+                    }
+                ]
+            }
+        ]
+    },
+    "output": {
+        "id": "61993360389",
+        "task_type": "TODO",
+        "title": "Send Proposal",
+        "priority": "HIGH",
+        "assigned_to": "902942351",
+        "due_date": "2024-10-30T03:30:17.883Z",
+        "notes": "Follow-up for Brian Buyer"
+    },
+    "api": {
+        "POST": {
+            "crm/v3/objects/tasks": [
+                {
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "hs_task_subject": "Send Proposal",
+                                "hs_timestamp": "2024-10-30T03:30:17.883Z",
+                                "hs_task_priority": "HIGH",
+                                "hubspot_owner_id": "902942351",
+                                "hs_task_body": "Follow-up for Brian Buyer"
+                            },
+                            "associations": [
+                                {
+                                    "to": {
+                                        "id": 64283084318
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 204
+                                        }
+                                    ]
+                                },
+                                {
+                                    "to": {
+                                        "id": 23516293919
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 192
+                                        }
+                                    ]
+                                },
+                                {
+                                    "to": {
+                                        "id": 22983893905
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 216
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "response": {
+                        "id": "61993360389",
+                        "properties": {
+                            "hs_all_owner_ids": "902942351",
+                            "hs_body_preview": "Follow-up for Brian Buyer",
+                            "hs_body_preview_html": "<html>\n <head></head>\n <body>\n Follow-up for Brian Buyer\n </body>\n</html>",
+                            "hs_body_preview_is_truncated": "false",
+                            "hs_createdate": "2024-10-09T12:21:22.591Z",
+                            "hs_lastmodifieddate": "2024-10-09T12:21:22.591Z",
+                            "hs_object_id": "61993360389",
+                            "hs_object_source": "INTEGRATION",
+                            "hs_object_source_id": "4001099",
+                            "hs_object_source_label": "INTEGRATION",
+                            "hs_task_body": "Follow-up for Brian Buyer",
+                            "hs_task_completion_count": "0",
+                            "hs_task_family": "SALES",
+                            "hs_task_for_object_type": "OWNER",
+                            "hs_task_is_all_day": "false",
+                            "hs_task_is_completed": "0",
+                            "hs_task_is_completed_call": "0",
+                            "hs_task_is_completed_email": "0",
+                            "hs_task_is_completed_linked_in": "0",
+                            "hs_task_is_completed_sequence": "0",
+                            "hs_task_is_overdue": "false",
+                            "hs_task_is_past_due_date": "false",
+                            "hs_task_missed_due_date": "false",
+                            "hs_task_missed_due_date_count": "0",
+                            "hs_task_priority": "HIGH",
+                            "hs_task_status": "NOT_STARTED",
+                            "hs_task_subject": "Send Proposal",
+                            "hs_task_type": "TODO",
+                            "hs_timestamp": "2024-10-30T03:30:17.883Z",
+                            "hs_user_ids_of_all_owners": "71674059",
+                            "hubspot_owner_assigneddate": "2024-10-09T12:21:22.591Z",
+                            "hubspot_owner_id": "902942351"
+                        },
+                        "createdAt": "2024-10-09T12:21:22.591Z",
+                        "updatedAt": "2024-10-09T12:21:22.591Z",
+                        "archived": false
+                    },
+                    "hash": "9aee1ca16026ef617905de8ccd92340767734021"
+                }
+            ]
+        }
+    }
+}

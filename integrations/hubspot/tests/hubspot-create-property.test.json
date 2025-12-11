@@ -1,0 +1,154 @@
+{
+    "input": {
+        "objectType": "companies",
+        "data": {
+            "hidden": false,
+            "displayOrder": 1,
+            "description": "string",
+            "label": "My Company Property",
+            "type": "enumeration",
+            "formField": false,
+            "groupName": "companyinformation",
+            "name": "my_cool_company_property",
+            "options": [
+                {
+                    "label": "Option A",
+                    "value": "A",
+                    "hidden": false,
+                    "description": "Choice number one",
+                    "displayOrder": 1
+                },
+                {
+                    "label": "Option B",
+                    "value": "B",
+                    "hidden": false,
+                    "description": "Choice number two",
+                    "displayOrder": 2
+                }
+            ],
+            "hasUniqueValue": false,
+            "fieldType": "select"
+        }
+    },
+    "output": {
+        "updatedAt": "2024-10-23T12:40:46.602Z",
+        "createdAt": "2024-10-23T12:40:46.602Z",
+        "name": "my_cool_company_property",
+        "label": "My Company Property",
+        "type": "enumeration",
+        "fieldType": "select",
+        "description": "string",
+        "groupName": "companyinformation",
+        "options": [
+            {
+                "label": "Option A",
+                "value": "A",
+                "description": "Choice number one",
+                "displayOrder": 1,
+                "hidden": false
+            },
+            {
+                "label": "Option B",
+                "value": "B",
+                "description": "Choice number two",
+                "displayOrder": 2,
+                "hidden": false
+            }
+        ],
+        "createdUserId": "46062047",
+        "updatedUserId": "46062047",
+        "displayOrder": 1,
+        "calculated": false,
+        "externalOptions": false,
+        "archived": false,
+        "hasUniqueValue": false,
+        "hidden": false,
+        "modificationMetadata": {
+            "archivable": true,
+            "readOnlyDefinition": false,
+            "readOnlyValue": false
+        },
+        "formField": false,
+        "dataSensitivity": "non_sensitive"
+    },
+    "api": {
+        "POST": {
+            "crm/v3/properties/companies": [
+                {
+                    "request": {
+                        "data": {
+                            "hidden": false,
+                            "displayOrder": 1,
+                            "description": "string",
+                            "label": "My Company Property",
+                            "type": "enumeration",
+                            "formField": false,
+                            "groupName": "companyinformation",
+                            "name": "my_cool_company_property",
+                            "options": [
+                                {
+                                    "label": "Option A",
+                                    "value": "A",
+                                    "hidden": false,
+                                    "description": "Choice number one",
+                                    "displayOrder": 1
+                                },
+                                {
+                                    "label": "Option B",
+                                    "value": "B",
+                                    "hidden": false,
+                                    "description": "Choice number two",
+                                    "displayOrder": 2
+                                }
+                            ],
+                            "hasUniqueValue": false,
+                            "fieldType": "select"
+                        }
+                    },
+                    "response": {
+                        "updatedAt": "2024-10-23T12:40:46.602Z",
+                        "createdAt": "2024-10-23T12:40:46.602Z",
+                        "name": "my_cool_company_property",
+                        "label": "My Company Property",
+                        "type": "enumeration",
+                        "fieldType": "select",
+                        "description": "string",
+                        "groupName": "companyinformation",
+                        "options": [
+                            {
+                                "label": "Option A",
+                                "value": "A",
+                                "description": "Choice number one",
+                                "displayOrder": 1,
+                                "hidden": false
+                            },
+                            {
+                                "label": "Option B",
+                                "value": "B",
+                                "description": "Choice number two",
+                                "displayOrder": 2,
+                                "hidden": false
+                            }
+                        ],
+                        "createdUserId": "46062047",
+                        "updatedUserId": "46062047",
+                        "displayOrder": 1,
+                        "calculated": false,
+                        "externalOptions": false,
+                        "archived": false,
+                        "hasUniqueValue": false,
+                        "hidden": false,
+                        "modificationMetadata": {
+                            "archivable": true,
+                            "readOnlyDefinition": false,
+                            "readOnlyValue": false
+                        },
+                        "formField": false,
+                        "dataSensitivity": "non_sensitive"
+                    },
+                    "hash": "42198379a6e1139528ba1026ba3b789c46d4faec"
+                }
+            ]
+        }
+    }
+}

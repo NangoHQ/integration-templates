@@ -1,0 +1,19 @@
+{
+    "input": {
+        "id": "65283032841"
+    },
+    "output": {
+        "success": true
+    },
+    "api": {
+        "DELETE": {
+            "crm/v3/objects/contacts/65283032841": [
+                {
+                    "request": {},
+                    "response": "",
+                    "hash": "c45683f4dc44eddb400a5f794c596dc921702617"
+                }
+            ]
+        }
+    }
+}

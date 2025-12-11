@@ -1,0 +1,34 @@
+{
+    "output": {
+        "id": "123456789",
+        "type": "DEVELOPER_TEST",
+        "timeZone": "US/Eastern",
+        "companyCurrency": "USD",
+        "additionalCurrencies": [],
+        "utcOffset": "-04:00",
+        "utcOffsetMilliseconds": -14400000,
+        "uiDomain": "app-eu1.hubspot.com",
+        "dataHostingLocation": "eu1"
+    },
+    "api": {
+        "GET": {
+            "account-info/v3/details": [
+                {
+                    "request": {},
+                    "response": {
+                        "portalId": 123456789,
+                        "accountType": "DEVELOPER_TEST",
+                        "timeZone": "US/Eastern",
+                        "companyCurrency": "USD",
+                        "additionalCurrencies": [],
+                        "utcOffset": "-04:00",
+                        "utcOffsetMilliseconds": -14400000,
+                        "uiDomain": "app-eu1.hubspot.com",
+                        "dataHostingLocation": "eu1"
+                    },
+                    "hash": "544a031e3e533cf4d8d8d7a39ae8a27e30d540fd"
+                }
+            ]
+        }
+    }
+}
