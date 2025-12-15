@@ -12,8 +12,8 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "nango": "0.69.17",
-    "zod": "4.0.5",
-    "vitest": "4.0.15"
+    "nango": "^0.69.18",
+    "vitest": "4.0.15",
+    "zod": "4.0.5"
   }
 }
