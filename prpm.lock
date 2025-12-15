@@ -2,18 +2,32 @@
   "version": "1.0.0",
   "lockfileVersion": 1,
   "packages": {
-    "@nango/action-builder-skill#claude": {
-      "version": "1.1.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.1.0.tar.gz",
-      "integrity": "sha256-a34693d4bd731053b526a61373c495d7a56b408f98f4c762945335cde15c6317",
+    "@nango/integration-patterns-skill#claude": {
+      "version": "1.0.0",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fintegration-patterns-skill/1.0.0.tar.gz",
+      "integrity": "sha256-e2b2a6bd5463e3fd7c69129f0ceddb9c1b86f36a8335a709541be8b43c2e4ca3",
       "format": "claude",
       "subtype": "skill",
       "sourceFormat": "claude",
       "sourceSubtype": "skill",
-      "installedPath": ".claude/skills/action-builder-skill",
+      "installedPath": ".claude/skills/integration-patterns-skill/SKILL.md",
       "fromCollection": {
         "name_slug": "nango-integration-builder",
-        "version": "1.1.0"
+        "version": "1.2.0"
+      }
+    },
+    "@nango/action-builder-skill#claude": {
+      "version": "1.2.0",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.2.0.tar.gz",
+      "integrity": "sha256-9cf8fe896275e2ac588a1543c99e9c4481559dde6d413a1340691f19394d6315",
+      "format": "claude",
+      "subtype": "skill",
+      "sourceFormat": "claude",
+      "sourceSubtype": "skill",
+      "installedPath": ".claude/skills/action-builder-skill/SKILL.md",
+      "fromCollection": {
+        "name_slug": "nango-integration-builder",
+        "version": "1.2.0"
       }
     },
     "@nango/build-actions#claude": {
@@ -27,17 +41,18 @@
       "installedPath": ".claude/commands/build-actions.md",
       "fromCollection": {
         "name_slug": "nango-integration-builder",
-        "version": "1.1.0"
+        "version": "1.2.0"
       }
     }
   },
-  "generated": "2025-12-15T10:37:02.637Z",
+  "generated": "2025-12-15T11:31:04.443Z",
   "collections": {
     "nango-integration-builder": {
       "name_slug": "nango-integration-builder",
-      "version": "1.1.0",
-      "installedAt": "2025-12-15T10:37:02.637Z",
+      "version": "1.2.0",
+      "installedAt": "2025-12-15T11:31:04.443Z",
       "packages": [
+        "@nango/integration-patterns-skill",
         "@nango/action-builder-skill",
         "@nango/build-actions"
       ]

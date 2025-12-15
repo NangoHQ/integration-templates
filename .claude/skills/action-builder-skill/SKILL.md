@@ -5,18 +5,25 @@ description: Use when creating or refactoring Nango integration actions to be th
 
 # Nango Action Builder
 
-## 🚨 REQUIRED: Read PATTERNS.md First
+## 🚨 REQUIRED: Invoke integration-patterns-skill First
 
-**This skill is bundled with `PATTERNS.md` which contains critical shared patterns.** Read it for:
+**Before using this skill, you MUST invoke the `integration-patterns-skill` using the Skill tool.**
+
+This dependency skill contains critical shared patterns for:
 - Working directory detection (git root ≠ Nango root)
 - Inline schema requirements (NOT from models.ts)
 - `?? null` for optional fields
 - Explicit parameter naming (`user_id` not `user`)
 - Type safety (inline types, not `any`)
 - No `.default()` on Zod schemas
+- **index.ts registration requirement**
 - Common mistakes table
 
-**If you skip reading it, you WILL make mistakes.**
+**If you skip invoking it, you WILL miss critical checklist items and make mistakes.**
+
+```
+Use Skill tool: integration-patterns-skill
+```
 
 ---
 
@@ -237,7 +244,7 @@ If WebFetch returns incomplete API docs (JavaScript-rendered content):
 - [ ] Input uses `cursor: z.string().optional()`
 - [ ] Output uses `next_cursor: z.union([z.string(), z.null()])`
 
-**See `integration-patterns-skill` for:** schema, naming, typing, and path checklist items.
+**See `integration-patterns-skill` for:** schema, naming, typing, path, and **index.ts registration** checklist items.
 
 ## Action-Specific Mistakes
 
@@ -249,4 +256,4 @@ If WebFetch returns incomplete API docs (JavaScript-rendered content):
 | Provider-specific pagination | Inconsistent API | Use `cursor`/`next_cursor` standard |
 | Importing mapper functions | Not self-contained | Inline transformations in exec |
 
-**For schema, naming, typing mistakes → see `integration-patterns-skill`**
+**For schema, naming, typing, registration mistakes → invoke `integration-patterns-skill`**

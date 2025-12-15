@@ -1,8 +1,39 @@
+---
+name: integration-patterns-skill
+description: Shared patterns for Nango actions and syncs - working directory verification, inline schemas, parameter naming, type safety, and registration requirements. Private dependency skill.
+---
+
 # Nango Integration Patterns (Shared)
 
-This file contains patterns shared by both actions and syncs. For specific guidance:
-- **Actions:** Use `action-builder-skill`
-- **Syncs:** Use `sync-builder-skill`
+This skill contains patterns shared by both actions and syncs. It is invoked as a dependency by:
+- **action-builder-skill** - For building actions
+- **sync-builder-skill** - For building syncs
+
+## Mandatory Checklist
+
+**CRITICAL: Create TodoWrite items for EACH of these before writing any code.**
+
+### Pre-Flight Checks
+- [ ] **Verify working directory** - Run the directory check command below. Do NOT proceed until you see "IN NANGO PROJECT ROOT"
+- [ ] **Confirm relative paths** - All file operations use paths relative to Nango root (e.g., `slack/actions/create-message.ts`)
+
+### Schema & Type Safety
+- [ ] **Define schemas inline** - All Zod schemas at top of file, NEVER import from models.ts
+- [ ] **Use `?? null` for optional fields** - Never use `?? undefined`
+- [ ] **No `.default()` on Zod schemas** - Handle defaults in exec function
+- [ ] **Explicit parameter names** - Use `user_id` not `user`, `channel_id` not `channel`
+- [ ] **Add `.describe()` with examples** - For IDs, timestamps, and constrained values
+- [ ] **Inline types for mapping** - Use `(item: { id: string }) => ...` not `(item: any) => ...`
+
+### Endpoint & Configuration
+- [ ] **Static endpoint paths** - No dynamic segments like `/users/:id` or `/users/{id}`
+- [ ] **API doc link comment** - Add URL comment above endpoint in exec function
+- [ ] **`retries: 3` configured** - Required in all ProxyConfiguration
+
+### Registration (CRITICAL)
+- [ ] **Add import to index.ts** - e.g., `import './hubspot/actions/get-company.js';` - Action/sync will NOT load without this!
+
+---
 
 ## Working Directory Requirements
 
@@ -75,6 +106,22 @@ nango-integrations/slack/...  <- CORRECT
 - **All actions/syncs must be imported in `index.ts` to be loaded**
 
 **Note:** There is NO `nango.yaml` configuration file in this setup.
+
+## index.ts Registration Requirement
+
+**CRITICAL: All actions and syncs MUST be imported in `index.ts` to be loaded by Nango.**
+
+```typescript
+// index.ts
+import './hubspot/actions/create-contact.js';
+import './hubspot/actions/update-contact.js';
+import './hubspot/syncs/fetch-contacts.js';
+import './slack/actions/post-message.js';
+```
+
+**Symptom of missing registration:** Action/sync file exists, compiles without errors, but isn't included in build output (file count stays the same).
+
+**This is the #1 reason new actions/syncs don't work.** Always add the import immediately after creating the file.
 
 ## Inline Schema Pattern
 
@@ -303,30 +350,16 @@ exec: async (nango, input) => {
 }
 ```
 
-## index.ts Import Requirement
-
-**All actions and syncs MUST be imported in `index.ts` to be loaded by Nango.**
-
-```typescript
-// index.ts
-import './hubspot/actions/create-contact.js';
-import './hubspot/actions/update-contact.js';
-import './hubspot/syncs/fetch-contacts.js';
-import './slack/actions/post-message.js';
-```
-
-Forgetting this import is a common mistake - the action/sync will compile but won't be available.
-
-## Common Mistakes (Shared)
+## Common Mistakes
 
 | Mistake | Why It Fails | Fix |
 |---------|--------------|-----|
+| **Missing index.ts import** | Action/sync won't be loaded | Add `import './provider/actions/name.js';` to index.ts |
 | Importing schemas from models.ts | Not self-contained, creates coupling | Define schemas inline at top of file |
 | Using `?? undefined` | Zod expects `null` for optional fields | Use `?? null` |
 | Using `.default()` on Zod schemas | Nango compiler doesn't support it | Handle defaults in exec function |
 | Ambiguous param names (`user`, `channel`) | Unclear what value to provide | Use explicit names (`user_id`, `channel_id`) |
 | `(item: any) => ...` | Loses type safety | Use inline type: `(item: { id: string }) => ...` |
 | Dynamic segments in endpoint path | Invalid path format | Use static path + input params |
-| Missing index.ts import | Action/sync won't be loaded | Add import to index.ts |
 | Missing API doc link | Hard to verify implementation | Add comment with docs URL |
 | Creating files in wrong directory | Nested paths break CLI | Verify working directory first |
