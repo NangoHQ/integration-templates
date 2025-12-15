@@ -75,6 +75,10 @@ jobs:
                       continue
                     fi
 
+                    if [ "$dir" = "integrations" ]; then
+                      continue
+                    fi
+
                     if [ ! -d "$dir/.nango" ]; then
                       continue
                     fi
