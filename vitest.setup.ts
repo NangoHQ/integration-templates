@@ -8,7 +8,7 @@ import parseLinksHeader from 'parse-link-header';
 import get from 'lodash-es/get.js';
 import type { Pagination, CursorPagination, LinkPagination, OffsetPagination, OffsetCalculationMethod } from '@nangohq/types';
 
-interface MockLoaderStrategy {
+interface FixtureProvider {
     getBatchSaveData(modelName: string): Promise<any>;
     getBatchDeleteData(modelName: string): Promise<any>;
     getInput(): Promise<any>;
@@ -20,7 +20,7 @@ interface MockLoaderStrategy {
     getDeleteRecordsFromPreviousExecutions(): Promise<any>;
 }
 
-class LegacyMockLoader implements MockLoaderStrategy {
+class LegacyFixtureProvider implements FixtureProvider {
     constructor(
         private dirname: string,
         private name: string
@@ -36,6 +36,7 @@ class LegacyMockLoader implements MockLoaderStrategy {
             if (throwOnMissing) {
                 throw new Error(`Failed to load mock data from ${filePath}: ${error.message} ${identity ? JSON.stringify(identity, null, 2) : ''}`);
             }
+            return undefined;
         }
     }
 
@@ -95,73 +96,95 @@ class LegacyMockLoader implements MockLoaderStrategy {
     }
 }
 
-class UnifiedMockLoader implements MockLoaderStrategy {
-    private mockData: any;
+interface ApiMockResponse {
+    response: any;
+    headers?: Record<string, string>;
+    status?: number;
+    hash?: string;
+    request?: {
+        params?: Record<string, unknown>;
+        headers?: Record<string, unknown>;
+        data?: unknown;
+    };
+}
 
-    constructor(private mockFilePath: string) {}
+interface UnifiedMockData {
+    input?: any;
+    output?: any;
+    nango?: {
+        batchSave?: Record<string, any>;
+        batchDelete?: Record<string, any>;
+        getConnection?: any;
+        getMetadata?: any;
+        updateMetadata?: any;
+        deleteRecordsFromPreviousExecutions?: any;
+    };
+    api?: Record<string, Record<string, ApiMockResponse | ApiMockResponse[]>>;
+}
 
-    private async loadMockFile() {
-        if (!this.mockData) {
-            const fileContent = await fs.readFile(this.mockFilePath, 'utf-8');
-            this.mockData = JSON.parse(fileContent);
-        }
-    }
+class UnifiedFixtureProvider implements FixtureProvider {
+    constructor(private mockData: UnifiedMockData) {}
 
     async getBatchSaveData(modelName: string) {
-        await this.loadMockFile();
         return this.mockData.nango?.batchSave?.[modelName];
     }
 
     async getBatchDeleteData(modelName: string) {
-        await this.loadMockFile();
         return this.mockData.nango?.batchDelete?.[modelName];
     }
 
     async getInput() {
-        await this.loadMockFile();
         return this.mockData.input;
     }
 
     async getOutput() {
-        await this.loadMockFile();
-        return this.mockData.output;
+        const data = this.mockData.output;
+        if (data === undefined) {
+            throw new Error(`Missing mock data for output`);
+        }
+        return data;
     }
 
     async getConnectionData() {
-        await this.loadMockFile();
-        return this.mockData.nango?.getConnection;
+        const data = this.mockData.nango?.getConnection;
+        if (data === undefined) {
+            throw new Error(`Missing mock data for getConnection`);
+        }
+        return data;
     }
 
     async getMetadataData() {
-        await this.loadMockFile();
-        return this.mockData.nango?.getMetadata;
+        const data = this.mockData.nango?.getMetadata;
+        if (data === undefined) {
+            throw new Error(`Missing mock data for getMetadata`);
+        }
+        return data;
     }
 
     async getUpdateMetadata() {
-        await this.loadMockFile();
         return this.mockData.nango?.updateMetadata;
     }
 
     async getDeleteRecordsFromPreviousExecutions() {
-        await this.loadMockFile();
         return this.mockData.nango?.deleteRecordsFromPreviousExecutions;
     }
 
     async getCachedResponse(identity: ConfigIdentity) {
-        await this.loadMockFile();
         const { method, endpoint, requestIdentityHash } = identity;
 
         const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
 
-        let apiMock = this.mockData.api[method.toUpperCase()]?.[normalizedEndpoint];
+        // The endpoint in the mock file can be stored with or without a leading slash.
+        // This ensures we can find it in both cases.
+        let apiMock = this.mockData.api?.[method.toUpperCase()]?.[normalizedEndpoint];
 
         if (!apiMock) {
-            apiMock = this.mockData.api[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
+            apiMock = this.mockData.api?.[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
         }
 
         if (apiMock) {
             if (Array.isArray(apiMock)) {
-                const matchedMock = apiMock.find((mock) => {
+                const matchedMock = apiMock.find((mock: ApiMockResponse) => {
                     if (mock.hash && mock.hash === requestIdentityHash) {
                         return true;
                     }
@@ -205,8 +228,8 @@ class UnifiedMockLoader implements MockLoaderStrategy {
     }
 }
 
-class RecordingMockLoader implements MockLoaderStrategy {
-    private recordedData: any = {
+class RecordingFixtureProvider implements FixtureProvider {
+    private recordedData: UnifiedMockData = {
         input: null,
         output: null,
         nango: {},
@@ -214,17 +237,18 @@ class RecordingMockLoader implements MockLoaderStrategy {
     };
 
     constructor(
-        private delegate: MockLoaderStrategy,
+        private delegate: FixtureProvider,
         private outputPath: string
     ) {}
 
     private async save() {
         const dataToSave = JSON.parse(JSON.stringify(this.recordedData));
 
-        if (Object.keys(dataToSave.nango?.batchSave || {}).length === 0) delete dataToSave.nango.batchSave;
-        if (Object.keys(dataToSave.nango?.batchDelete || {}).length === 0) delete dataToSave.nango.batchDelete;
-        if (Object.keys(dataToSave.nango).length === 0) delete dataToSave.nango;
-        if (Object.keys(dataToSave.api).length === 0) delete dataToSave.api;
+        // Prevent empty keys
+        if (Object.keys(dataToSave.nango?.batchSave || {}).length === 0) delete dataToSave.nango?.batchSave;
+        if (Object.keys(dataToSave.nango?.batchDelete || {}).length === 0) delete dataToSave.nango?.batchDelete;
+        if (Object.keys(dataToSave.nango || {}).length === 0) delete dataToSave.nango;
+        if (Object.keys(dataToSave.api || {}).length === 0) delete dataToSave.api;
         if (dataToSave.input === null) delete dataToSave.input;
         if (dataToSave.output === null) delete dataToSave.output;
 
@@ -233,6 +257,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getBatchSaveData(modelName: string) {
         const data = await this.delegate.getBatchSaveData(modelName);
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         if (!this.recordedData.nango.batchSave) this.recordedData.nango.batchSave = {};
         this.recordedData.nango.batchSave[modelName] = data;
         await this.save();
@@ -241,6 +266,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getBatchDeleteData(modelName: string) {
         const data = await this.delegate.getBatchDeleteData(modelName);
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         if (!this.recordedData.nango.batchDelete) this.recordedData.nango.batchDelete = {};
         this.recordedData.nango.batchDelete[modelName] = data;
         await this.save();
@@ -263,6 +289,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getConnectionData() {
         const data = await this.delegate.getConnectionData();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         this.recordedData.nango.getConnection = data;
         await this.save();
         return data;
@@ -270,6 +297,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getMetadataData() {
         const data = await this.delegate.getMetadataData();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         this.recordedData.nango.getMetadata = data;
         await this.save();
         return data;
@@ -277,6 +305,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getUpdateMetadata() {
         const data = await this.delegate.getUpdateMetadata();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         this.recordedData.nango.updateMetadata = data;
         await this.save();
         return data;
@@ -284,6 +313,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
 
     async getDeleteRecordsFromPreviousExecutions() {
         const data = await this.delegate.getDeleteRecordsFromPreviousExecutions();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
         this.recordedData.nango.deleteRecordsFromPreviousExecutions = data;
         await this.save();
         return data;
@@ -295,6 +325,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
         const method = identity.method.toUpperCase();
         const endpoint = identity.endpoint;
 
+        if (!this.recordedData.api) this.recordedData.api = {};
         if (!this.recordedData.api[method]) this.recordedData.api[method] = {};
         if (!this.recordedData.api[method][endpoint]) this.recordedData.api[method][endpoint] = [];
 
@@ -308,7 +339,7 @@ class RecordingMockLoader implements MockLoaderStrategy {
             } catch (e) {}
         }
 
-        const record = {
+        const record: ApiMockResponse = {
             request: {
                 params: Object.keys(params).length > 0 ? params : undefined,
                 headers: Object.keys(headers).length > 0 ? headers : undefined,
@@ -318,9 +349,13 @@ class RecordingMockLoader implements MockLoaderStrategy {
             hash: identity.requestIdentityHash
         };
 
-        const exists = this.recordedData.api[method][endpoint].some((r: any) => r.hash === record.hash);
+        const currentMocks = this.recordedData.api[method][endpoint];
+        // Ensure it's treated as an array for the recorder
+        const mocksArray = Array.isArray(currentMocks) ? currentMocks : [currentMocks];
+
+        const exists = mocksArray.some((r: ApiMockResponse) => r.hash === record.hash);
         if (!exists) {
-            this.recordedData.api[method][endpoint].push(record);
+            (this.recordedData.api[method][endpoint] as ApiMockResponse[]).push(record);
             await this.save();
         }
 
@@ -328,8 +363,11 @@ class RecordingMockLoader implements MockLoaderStrategy {
     }
 }
 
-function getMockLoader(dirname: string, name: string): MockLoaderStrategy {
+async function getFixtureProvider(dirname: string, name: string): Promise<FixtureProvider> {
     let testFileName = name;
+    // Inspect the stack trace to automatically determine the name of the test file that is currently running.
+    // This allows it to locate the corresponding `.test.json` mock file (e.g., `my-test.test.ts` uses `my-test.test.json`).
+    // The `name` parameter serves as a fallback if the test file cannot be determined from the stack trace, or its missing
     try {
         const stack = new Error().stack;
         if (stack) {
@@ -346,28 +384,41 @@ function getMockLoader(dirname: string, name: string): MockLoaderStrategy {
         }
     } catch (e) {}
 
-    const unifiedMockPath = path.resolve(dirname, `${testFileName}.test.json`);
+    let unifiedMockPath = path.resolve(dirname, `${testFileName}.test.json`);
 
     let unifiedFileExists = false;
     try {
-        // @ts-ignore
-        const fsSync = require('fs');
-        fsSync.statSync(unifiedMockPath);
+        await fs.stat(unifiedMockPath);
         unifiedFileExists = true;
     } catch (error) {
-        unifiedFileExists = false;
+        if (testFileName !== name) {
+            const fallbackPath = path.resolve(dirname, `${name}.test.json`);
+            try {
+                await fs.stat(fallbackPath);
+                unifiedMockPath = fallbackPath;
+                unifiedFileExists = true;
+            } catch (e) {
+                unifiedFileExists = false;
+            }
+        }
     }
 
     if (unifiedFileExists) {
-        return new UnifiedMockLoader(unifiedMockPath);
+        const fileContent = await fs.readFile(unifiedMockPath, 'utf-8');
+        return new UnifiedFixtureProvider(JSON.parse(fileContent));
     }
 
+    // This section supports the migration of tests from the legacy mock format (multiple files per test)
+    // to the new unified format (a single `.test.json` file). When the `MIGRATE_MOCKS` environment variable is set,
+    // it uses the `RecordingFixtureProvider` to intercept calls to the old mock loader, run the test, and then
+    // save all the mock data that was accessed into a single new `.test.json` file.
+    // This is a developer utility, not a production runtime feature.
     if (process.env.MIGRATE_MOCKS) {
-        const legacyLoader = new LegacyMockLoader(dirname, name);
-        return new RecordingMockLoader(legacyLoader, unifiedMockPath);
+        const legacyLoader = new LegacyFixtureProvider(dirname, name);
+        return new RecordingFixtureProvider(legacyLoader, unifiedMockPath);
     }
 
-    return new LegacyMockLoader(dirname, name);
+    return new LegacyFixtureProvider(dirname, name);
 }
 
 interface RequestIdentity {
@@ -384,7 +435,7 @@ class NangoActionMock {
     Model: string;
 
     providerConfigKey: string;
-    private mockLoader: MockLoaderStrategy;
+    private fixtureProvider: Promise<FixtureProvider>;
 
     log: ReturnType<typeof vi.fn>;
     ActionError = vi.fn();
@@ -407,7 +458,7 @@ class NangoActionMock {
         this.providerConfigKey = path.basename(path.dirname(dirname));
         this.name = name;
         this.Model = Model;
-        this.mockLoader = getMockLoader(dirname, name);
+        this.fixtureProvider = getFixtureProvider(dirname, name);
 
         this.log = vi.fn();
         this.getConnection = vi.fn(this.getConnectionData.bind(this));
@@ -433,35 +484,35 @@ class NangoActionMock {
     }
 
     public async getBatchSaveData(modelName: string) {
-        return this.mockLoader.getBatchSaveData(modelName);
+        return (await this.fixtureProvider).getBatchSaveData(modelName);
     }
 
     public async getBatchDeleteData(modelName: string) {
-        return this.mockLoader.getBatchDeleteData(modelName);
+        return (await this.fixtureProvider).getBatchDeleteData(modelName);
     }
 
     public async getInput() {
-        return this.mockLoader.getInput();
+        return (await this.fixtureProvider).getInput();
     }
 
     public async getOutput() {
-        return this.mockLoader.getOutput();
+        return (await this.fixtureProvider).getOutput();
     }
 
     private async getConnectionData() {
-        return this.mockLoader.getConnectionData();
+        return (await this.fixtureProvider).getConnectionData();
     }
 
     private async getMetadataData() {
-        return this.mockLoader.getMetadataData();
+        return (await this.fixtureProvider).getMetadataData();
     }
 
     private async getUpdateMetadata() {
-        return this.mockLoader.getUpdateMetadata();
+        return (await this.fixtureProvider).getUpdateMetadata();
     }
 
     private async getDeleteRecordsFromPreviousExecutions() {
-        return this.mockLoader.getDeleteRecordsFromPreviousExecutions();
+        return (await this.fixtureProvider).getDeleteRecordsFromPreviousExecutions();
     }
 
     private async *getProxyPaginateData(args: Configish) {
@@ -704,7 +755,7 @@ class NangoActionMock {
 
     private async proxyData(args: Configish) {
         const identity = computeConfigIdentity(args);
-        const cached = await this.mockLoader.getCachedResponse(identity);
+        const cached = await (await this.fixtureProvider).getCachedResponse(identity);
 
         return { data: cached.response, headers: cached.headers, status: cached.status };
     }
