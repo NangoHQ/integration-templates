@@ -8,10 +8,12 @@
   },
   "scripts": {
     "compile": "nango compile",
-    "dev": "nango dev"
+    "dev": "nango dev",
+    "test": "vitest"
   },
   "devDependencies": {
-    "nango": "0.69.14",
-    "zod": "4.0.5"
+    "nango": "0.69.17",
+    "zod": "4.0.5",
+    "vitest": "4.0.15"
   }
 }
