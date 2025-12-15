@@ -149,11 +149,13 @@ Example output.json:
 
 ### RED - Generate Failing Test
 
-**CRITICAL: Use `npx nango generate:tests` to create tests automatically.**
+**CRITICAL: Use `npx nango generate:tests` with specific flags to create tests for only the action you're building.**
 
 ```bash
-npx nango generate:tests
+npx nango generate:tests -i {integrationId} -a <action-name>
 ```
+
+This generates a test for only the specified action, avoiding regeneration of all tests.
 
 **VERIFY the test file was created:**
 ```bash
@@ -359,7 +361,7 @@ The dryrun creates a mock with hash based on headers like `Nango-Is-Script`. Tes
 **Per action:**
 - [ ] **Old/unused mocks cleaned up** (if changing endpoint or implementation)
 - [ ] Mock files created (input.json, output.json)
-- [ ] Test generated using `npx nango generate:tests` AND verified file exists
+- [ ] Test generated using `npx nango generate:tests -i {integrationId} -a <action-name>` AND verified file exists
 - [ ] Action implemented (GREEN)
 - [ ] **Action imported in `index.ts`** (e.g., `import './provider/actions/action-name.js';`)
 - [ ] Compilation passes (`npx nango compile`)
@@ -376,7 +378,7 @@ The dryrun creates a mock with hash based on headers like `Nango-Is-Script`. Tes
 | Running commands from wrong directory | Commands fail or can't find files | Always `cd nango-integrations/` first |
 | Forgetting to update index.ts | Action won't be loaded/compiled | Add import to index.ts after creating action file |
 | Not cleaning up old mocks | Tests pass with stale/incorrect data | Delete old mocks before running `--save-responses` again |
-| Manually writing test files | Wrong structure, missing test utilities | Use `npx nango generate:tests` |
+| Manually writing test files | Wrong structure, missing test utilities | Use `npx nango generate:tests -i {integrationId} -a <action-name>` |
 | Skipping dryrun validation | Action may fail in production | Always run dryrun with real API for each action |
 | Not verifying test file creation | Tests not generated, workflow blocked | Check file exists after `generate:tests` |
 | Looking for nango.yaml | File doesn't exist in this setup | Use index.ts for imports instead |

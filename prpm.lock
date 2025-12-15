@@ -3,35 +3,27 @@
   "lockfileVersion": 1,
   "packages": {
     "@nango/action-builder-skill#claude": {
-      "version": "1.0.3",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.0.3.tar.gz",
-      "integrity": "sha256-a69c01726da9dea4d6a1ac562c9d33a4f266ef29e7bbd88ed0a34c729c41fae3",
+      "version": "1.1.0",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.1.0.tar.gz",
+      "integrity": "sha256-a34693d4bd731053b526a61373c495d7a56b408f98f4c762945335cde15c6317",
       "format": "claude",
       "subtype": "skill",
       "sourceFormat": "claude",
       "sourceSubtype": "skill",
-      "installedPath": ".claude/skills/action-builder-skill/SKILL.md",
-      "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.0.4"
-      }
+      "installedPath": ".claude/skills/action-builder-skill"
     },
     "@nango/build-actions#claude": {
-      "version": "1.0.2",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-actions/1.0.2.tar.gz",
-      "integrity": "sha256-013f0b41c5cd790154e8831c39f646b9175e10d2a31117d328292dcb88781abe",
+      "version": "1.0.3",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-actions/1.0.3.tar.gz",
+      "integrity": "sha256-ce0c41bb9a70eddc2eb61d88538b69c4bf2ee5b45c54f0d5e3334a2608758945",
       "format": "claude",
       "subtype": "slash-command",
       "sourceFormat": "claude",
       "sourceSubtype": "slash-command",
-      "installedPath": ".claude/commands/build-actions.md",
-      "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.0.4"
-      }
+      "installedPath": ".claude/commands/build-actions.md"
     }
   },
-  "generated": "2025-12-11T08:22:13.550Z",
+  "generated": "2025-12-15T10:10:57.497Z",
   "collections": {
     "nango-integration-builder": {
       "name_slug": "nango-integration-builder",
