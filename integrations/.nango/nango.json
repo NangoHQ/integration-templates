@@ -5804,6 +5804,28 @@
       },
       {
         "type": "action",
+        "description": "Fetch a company by domain from HubSpot",
+        "endpoint": {
+          "method": "POST",
+          "path": "/company/search",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_getcompanybydomain",
+        "name": "get-company-by-domain",
+        "output": [
+          "ActionOutput_hubspot_getcompanybydomain"
+        ],
+        "scopes": [
+          "crm.objects.companies.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getcompanybydomain",
+          "ActionOutput_hubspot_getcompanybydomain"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Update a single company in Hubspot",
         "endpoint": {
           "method": "PATCH",
