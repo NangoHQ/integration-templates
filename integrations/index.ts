@@ -326,6 +326,7 @@ import './hubspot/actions/fetch-custom-objects.js';
 import './hubspot/actions/fetch-pipelines.js';
 import './hubspot/actions/fetch-properties.js';
 import './hubspot/actions/fetch-roles.js';
+import './hubspot/actions/get-company-by-domain.js';
 import './hubspot/actions/update-company.js';
 import './hubspot/actions/update-contact.js';
 import './hubspot/actions/update-deal.js';
