@@ -5,7 +5,7 @@ import runAction from '../actions/create-company.js';
 describe('hubspot create-company tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-company',
+        name: 'hubspot-create-company',
         Model: 'CreateUpdateCompanyOutput'
     });
 

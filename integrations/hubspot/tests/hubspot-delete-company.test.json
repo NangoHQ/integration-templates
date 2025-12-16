@@ -1,0 +1,19 @@
+{
+    "input": {
+        "id": "23735747388"
+    },
+    "output": {
+        "success": true
+    },
+    "api": {
+        "DELETE": {
+            "crm/v3/objects/companies/23735747388": [
+                {
+                    "request": {},
+                    "response": "",
+                    "hash": "51b686094386a267d259cb64e73df0af7058550f"
+                }
+            ]
+        }
+    }
+}

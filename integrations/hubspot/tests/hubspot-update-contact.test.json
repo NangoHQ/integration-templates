@@ -1,0 +1,56 @@
+{
+    "input": {
+        "id": "65318450564",
+        "email": "mocktestingsplloiu@hubspot.com",
+        "mobile_phone_number": "(55500) 555-5555",
+        "website_url": "https://www.mocktestingslll.com",
+        "lifecycle_stage": "marketingqualifiedlead"
+    },
+    "output": {
+        "id": "65318450564",
+        "email": "mocktestingsplloiu@hubspot.com",
+        "lifecycle_stage": "marketingqualifiedlead",
+        "mobile_phone_number": "(55500) 555-5555",
+        "website_url": "https://www.mocktestingslll.com",
+        "created_date": "2024-10-07T09:49:23.479Z"
+    },
+    "api": {
+        "PATCH": {
+            "crm/v3/objects/contacts/65318450564": [
+                {
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "email": "mocktestingsplloiu@hubspot.com",
+                                "lifecyclestage": "marketingqualifiedlead",
+                                "mobilephone": "(55500) 555-5555",
+                                "website": "https://www.mocktestingslll.com"
+                            }
+                        }
+                    },
+                    "response": {
+                        "id": "65318450564",
+                        "properties": {
+                            "createdate": "2024-10-07T09:49:23.479Z",
+                            "email": "mocktestingsplloiu@hubspot.com",
+                            "hs_is_unworked": "true",
+                            "hs_object_id": "65318450564",
+                            "hs_object_source": "INTEGRATION",
+                            "hs_object_source_id": "4001099",
+                            "hs_object_source_label": "INTEGRATION",
+                            "hs_pipeline": "contacts-lifecycle-pipeline",
+                            "lastmodifieddate": "2024-10-07T09:56:45.054Z",
+                            "lifecyclestage": "marketingqualifiedlead",
+                            "mobilephone": "(55500) 555-5555",
+                            "website": "https://www.mocktestingslll.com"
+                        },
+                        "createdAt": "2024-10-07T09:49:23.479Z",
+                        "updatedAt": "2024-10-07T09:56:45.054Z",
+                        "archived": false
+                    },
+                    "hash": "c52ed18b4030df88cc2fb83cd2ec820596eccbef"
+                }
+            ]
+        }
+    }
+}

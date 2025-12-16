@@ -1,0 +1,61 @@
+{
+    "nango": {
+        "batchSave": {
+            "User": [
+                {
+                    "id": "000000",
+                    "email": "foo@gmoo.com",
+                    "firstName": "Jane",
+                    "lastName": "Beautiful",
+                    "roleIds": [],
+                    "superAdmin": true
+                },
+                {
+                    "id": "010101",
+                    "email": "foo@foo.com",
+                    "firstName": "John",
+                    "lastName": "Faked",
+                    "roleIds": [],
+                    "superAdmin": false
+                }
+            ]
+        },
+        "batchDelete": {
+            "User": []
+        }
+    },
+    "api": {
+        "GET": {
+            "settings/v3/users": [
+                {
+                    "request": {
+                        "params": {
+                            "limit": 100
+                        }
+                    },
+                    "response": {
+                        "results": [
+                            {
+                                "id": "000000",
+                                "email": "foo@gmoo.com",
+                                "firstName": "Jane",
+                                "lastName": "Beautiful",
+                                "roleIds": [],
+                                "superAdmin": true
+                            },
+                            {
+                                "id": "010101",
+                                "email": "foo@foo.com",
+                                "firstName": "John",
+                                "lastName": "Faked",
+                                "roleIds": [],
+                                "superAdmin": false
+                            }
+                        ]
+                    },
+                    "hash": "128c176d3ea15d165bacb733a32d222421d3b9c9"
+                }
+            ]
+        }
+    }
+}

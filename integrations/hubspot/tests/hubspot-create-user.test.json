@@ -1,0 +1,37 @@
+{
+    "input": {
+        "email": "foo@foo.com"
+    },
+    "output": {
+        "id": "010101",
+        "email": "foo@foo.com",
+        "firstName": "John",
+        "lastName": "Faked",
+        "roleIds": [],
+        "sendWelcomeEmail": true,
+        "superAdmin": false
+    },
+    "api": {
+        "POST": {
+            "settings/v3/users": [
+                {
+                    "request": {
+                        "data": {
+                            "email": "foo@foo.com"
+                        }
+                    },
+                    "response": {
+                        "id": "010101",
+                        "email": "foo@foo.com",
+                        "firstName": "John",
+                        "lastName": "Faked",
+                        "roleIds": [],
+                        "sendWelcomeEmail": true,
+                        "superAdmin": false
+                    },
+                    "hash": "f5ae7aa4b87e1adb676d5475651f27d7fc9e2ac4"
+                }
+            ]
+        }
+    }
+}

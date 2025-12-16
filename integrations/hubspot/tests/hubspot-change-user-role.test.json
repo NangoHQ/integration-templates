@@ -1,0 +1,32 @@
+{
+    "input": {
+        "id": "010101",
+        "superAdmin": false
+    },
+    "output": {
+        "id": "010101",
+        "email": "foo@foo.com",
+        "roleIds": [],
+        "superAdmin": false
+    },
+    "api": {
+        "PUT": {
+            "settings/v3/users/010101": [
+                {
+                    "request": {
+                        "data": {
+                            "superAdmin": false
+                        }
+                    },
+                    "response": {
+                        "id": "010101",
+                        "email": "foo@foo.com",
+                        "roleIds": [],
+                        "superAdmin": false
+                    },
+                    "hash": "e0b1f69488fe8f65de01cf51fdb2e7a132c08b7c"
+                }
+            ]
+        }
+    }
+}

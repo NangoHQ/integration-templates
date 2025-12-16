@@ -1,0 +1,101 @@
+{
+    "nango": {
+        "batchSave": {
+            "Product": [
+                {
+                    "id": "9086470873",
+                    "amount": null,
+                    "description": "One Two",
+                    "discount": null,
+                    "sku": "123",
+                    "url": null,
+                    "name": "Test 1",
+                    "price": "1",
+                    "quantity": null,
+                    "recurringBillingFrequency": null,
+                    "tax": null,
+                    "createdAt": "2024-10-08T20:57:49.777Z",
+                    "updatedAt": "2024-10-08T20:58:32.014Z"
+                },
+                {
+                    "id": "15498066137",
+                    "amount": null,
+                    "description": "yes",
+                    "discount": null,
+                    "sku": "1234",
+                    "url": null,
+                    "name": "Other Product",
+                    "price": "2",
+                    "quantity": null,
+                    "recurringBillingFrequency": null,
+                    "tax": null,
+                    "createdAt": "2024-10-23T11:56:26.300Z",
+                    "updatedAt": "2024-10-23T11:56:26.300Z"
+                }
+            ]
+        },
+        "batchDelete": {
+            "Product": []
+        }
+    },
+    "api": {
+        "GET": {
+            "crm/v3/objects/products": [
+                {
+                    "request": {
+                        "params": {
+                            "properties": "amount,description,discount,hs_sku,hs_url,name,price,quantity,recurringbillingfrequency,tax"
+                        }
+                    },
+                    "response": {
+                        "results": [
+                            {
+                                "id": "9086470873",
+                                "properties": {
+                                    "amount": null,
+                                    "createdate": "2024-10-08T20:57:49.777Z",
+                                    "description": "One Two",
+                                    "discount": null,
+                                    "hs_lastmodifieddate": "2024-10-08T20:58:32.014Z",
+                                    "hs_object_id": "9086470873",
+                                    "hs_sku": "123",
+                                    "hs_url": null,
+                                    "name": "Test 1",
+                                    "price": "1",
+                                    "quantity": null,
+                                    "recurringbillingfrequency": null,
+                                    "tax": null
+                                },
+                                "createdAt": "2024-10-08T20:57:49.777Z",
+                                "updatedAt": "2024-10-08T20:58:32.014Z",
+                                "archived": false
+                            },
+                            {
+                                "id": "15498066137",
+                                "properties": {
+                                    "amount": null,
+                                    "createdate": "2024-10-23T11:56:26.300Z",
+                                    "description": "yes",
+                                    "discount": null,
+                                    "hs_lastmodifieddate": "2024-10-23T11:56:26.300Z",
+                                    "hs_object_id": "15498066137",
+                                    "hs_sku": "1234",
+                                    "hs_url": null,
+                                    "name": "Other Product",
+                                    "price": "2",
+                                    "quantity": null,
+                                    "recurringbillingfrequency": null,
+                                    "tax": null
+                                },
+                                "createdAt": "2024-10-23T11:56:26.300Z",
+                                "updatedAt": "2024-10-23T11:56:26.300Z",
+                                "archived": false
+                            }
+                        ]
+                    },
+                    "hash": "f5dc000e8c03b78aca45139ac0ae9ccbc8ca030e"
+                }
+            ]
+        }
+    }
+}

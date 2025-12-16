@@ -1,9 +1,0 @@
-{
-    "id": "010101",
-    "email": "foo@foo.com",
-    "firstName": "John",
-    "lastName": "Faked",
-    "roleIds": [],
-    "sendWelcomeEmail": true,
-    "superAdmin": false
-}

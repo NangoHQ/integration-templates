@@ -1,0 +1,123 @@
+{
+    "input": {
+        "time_stamp": "2024-10-05T11:00:00Z",
+        "body": "Spoke with Jane and John regarding the proposal.",
+        "attachment_ids": "24332474034;24332474044",
+        "owner": "902942351",
+        "associations": [
+            {
+                "to": 64283084318,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 202
+                    }
+                ]
+            },
+            {
+                "to": 23516293919,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 190
+                    }
+                ]
+            },
+            {
+                "to": 23103329674,
+                "types": [
+                    {
+                        "association_category": "HUBSPOT_DEFINED",
+                        "association_type_Id": 214
+                    }
+                ]
+            }
+        ]
+    },
+    "output": {
+        "id": "61975065190",
+        "time_stamp": "2024-10-05T11:00:00Z",
+        "created_date": "2024-10-09T12:07:45.207Z",
+        "body": "Spoke with Jane and John regarding the proposal.",
+        "attachment_ids": "24332474034;24332474044",
+        "owner": "902942351"
+    },
+    "api": {
+        "POST": {
+            "crm/v3/objects/notes": [
+                {
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "hs_timestamp": "2024-10-05T11:00:00Z",
+                                "hs_note_body": "Spoke with Jane and John regarding the proposal.",
+                                "hs_attachment_ids": "24332474034;24332474044",
+                                "hubspot_owner_id": "902942351"
+                            },
+                            "associations": [
+                                {
+                                    "to": {
+                                        "id": 64283084318
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 202
+                                        }
+                                    ]
+                                },
+                                {
+                                    "to": {
+                                        "id": 23516293919
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 190
+                                        }
+                                    ]
+                                },
+                                {
+                                    "to": {
+                                        "id": 23103329674
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 214
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "response": {
+                        "id": "61975065190",
+                        "properties": {
+                            "hs_all_owner_ids": "902942351",
+                            "hs_attachment_ids": "24332474034;24332474044",
+                            "hs_body_preview": "Spoke with Jane and John regarding the proposal.",
+                            "hs_body_preview_html": "<html>\n <head></head>\n <body>\n Spoke with Jane and John regarding the proposal.\n </body>\n</html>",
+                            "hs_body_preview_is_truncated": "false",
+                            "hs_createdate": "2024-10-09T12:07:45.207Z",
+                            "hs_lastmodifieddate": "2024-10-09T12:07:45.207Z",
+                            "hs_note_body": "Spoke with Jane and John regarding the proposal.",
+                            "hs_object_id": "61975065190",
+                            "hs_object_source": "INTEGRATION",
+                            "hs_object_source_id": "4001099",
+                            "hs_object_source_label": "INTEGRATION",
+                            "hs_timestamp": "2024-10-05T11:00:00Z",
+                            "hs_user_ids_of_all_owners": "71674059",
+                            "hubspot_owner_assigneddate": "2024-10-09T12:07:45.207Z",
+                            "hubspot_owner_id": "902942351"
+                        },
+                        "createdAt": "2024-10-09T12:07:45.207Z",
+                        "updatedAt": "2024-10-09T12:07:45.207Z",
+                        "archived": false
+                    },
+                    "hash": "09dfb3ddd53f072cc319805b4e1db54010c35409"
+                }
+            ]
+        }
+    }
+}
