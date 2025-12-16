@@ -1,18 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npm run fix -- --quiet
 npm run compile:integrations
 git add ./internal/flows.zero.json
-
-# update ai rules if any markdown files change
-if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
-  npx tsx internal/scripts/code-rabbit-yaml.ts
-  npx tsx internal/scripts/cursor/rules-for-integration-templates.ts
-  npx tsx internal/scripts/cursor/rules-for-custom-integrations.ts
-  git add .coderabbit.yaml
-  git add .cursor/rules/nango-script-best-practices.mdc
-  git add guides/rules-for-custom-nango-integrations/nango-best-practices.mdc
-fi
 
 # Only run lint-staged if there are staged files
 staged_files=$(git diff --cached --name-only)

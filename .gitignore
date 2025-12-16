@@ -11,5 +11,4 @@ integrations/**/nango-integrations
 tmp-run-integration-template
 build/
 dist/
-integrations/.nango
 .claude/settings.local.json
