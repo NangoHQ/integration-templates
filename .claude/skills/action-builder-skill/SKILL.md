@@ -27,6 +27,30 @@ Use Skill tool: integration-patterns-skill
 
 ---
 
+## 🚫 STOP: nango.yaml Detection
+
+**This skill only works with TypeScript-based Nango projects (using `createAction()`/`createSync()`).**
+
+Before proceeding, check if the project uses the legacy YAML configuration:
+
+```bash
+ls nango.yaml 2>/dev/null && echo "YAML PROJECT DETECTED" || echo "OK - No nango.yaml"
+```
+
+**If you see `YAML PROJECT DETECTED`:**
+
+❌ **STOP. This skill cannot be used with YAML-based projects.**
+
+Tell the user:
+> "This project uses `nango.yaml` (legacy configuration). The action-builder-skill only supports TypeScript-based projects using `createAction()`. Please upgrade your project to the TypeScript format first. See: https://docs.nango.dev/guides/custom-integrations/setup"
+
+**Do NOT attempt to:**
+- Create actions in a YAML-based project
+- Mix YAML and TypeScript action definitions
+- Use `npx nango generate:tests` (it doesn't work with YAML projects)
+
+---
+
 ## Overview
 
 Actions are **thin API wrappers** using `createAction()`. This skill covers action-specific patterns only.
@@ -184,16 +208,72 @@ npx nango dryrun <action-name> <connection-id> --input '<json>' --integration-id
 - `--validation` - Show detailed validation errors
 - `--auto-confirm` - Skip confirmation prompts
 
+### Common Dryrun Mistakes
+
+❌ **WRONG - Using `--connection-id` flag (doesn't exist):**
+```bash
+npx nango dryrun get-company hubspot --connection-id abc123 --input '{}'
+# Error: Integration "hubspot" does not exist
+```
+
+❌ **WRONG - Integration name as second argument:**
+```bash
+npx nango dryrun get-company hubspot --input '{}' --integration-id hubspot
+# Error: Integration "hubspot" does not exist (hubspot is being read as connection ID)
+```
+
+✅ **CORRECT - Connection ID is positional (2nd arg):**
+```bash
+npx nango dryrun get-company abc123 --integration-id hubspot --input '{}'
+#                            ↑ connection ID here (no flag!)
+```
+
 ## After Creating an Action
 
-**Always output the dryrun command** using user-provided values:
+**Follow this workflow after creating the action file:**
 
+### 1. Register in index.ts
+```typescript
+// Add to index.ts
+import './hubspot/actions/get-company-by-domain.js';
+```
+
+### 2. Run dryrun with --save-responses
 ```bash
-# Template
-npx nango dryrun <action-name> <connection-id> --input '{"param":"value"}' --integration-id <provider>
+npx nango dryrun <action-name> <connection-id> --integration-id <provider> --input '{"param":"value"}' --save-responses
+```
 
-# Example: user provided connectionId: action-builder, channel: C02MB5ZABA7
-npx nango dryrun get-channel-info action-builder --input '{"channel_id":"C02MB5ZABA7"}' --integration-id slack
+This validates the action works and saves the API response for test mocks.
+
+### 3. Generate tests
+```bash
+npx nango generate:tests -a <action-name> --integration-id <provider>
+
+# Example:
+npx nango generate:tests -a get-company-by-domain --integration-id hubspot
+```
+
+This creates test scaffolding in `{provider}/mocks/{action-name}/`.
+
+### 4. Run tests
+```bash
+npx nango test -a <action-name> --integration-id <provider>
+```
+
+**Complete example workflow:**
+```bash
+# After creating hubspot/actions/get-company-by-domain.ts
+
+# 1. Register (edit index.ts to add import)
+
+# 2. Dryrun with saved responses
+npx nango dryrun get-company-by-domain abc123 --integration-id hubspot --input '{"domain":"nango.dev"}' --save-responses
+
+# 3. Generate tests
+npx nango generate:tests -a get-company-by-domain --integration-id hubspot
+
+# 4. Run tests
+npx nango test -a get-company-by-domain --integration-id hubspot
 ```
 
 ## Using User-Provided Values
@@ -234,6 +314,9 @@ If WebFetch returns incomplete API docs (JavaScript-rendered content):
 - [ ] `createAction()` with description, version, endpoint, input/output, scopes
 - [ ] Return type is `Promise<z.infer<typeof OutputSchema>>`
 - [ ] `export type NangoActionLocal` and `export default action`
+
+**Zod Schemas (CRITICAL):**
+- [ ] **NO `.default()` in any schema** - Nango compiler doesn't support it. Handle defaults in exec function instead.
 
 **ProxyConfiguration:**
 - [ ] `retries: 3` configured

@@ -47,7 +47,7 @@ ls -la .nango/ 2>/dev/null && pwd && echo "IN NANGO PROJECT ROOT" || echo "NOT i
 
 **Expected output:** You should see `.nango/` contents, the current path, and `IN NANGO PROJECT ROOT`
 
-**If you see `NOT in Nango root`:** You MUST `cd` into the directory containing `.nango/` (usually `cd nango-integrations/`) and re-run the check.
+**If you see `NOT in Nango root`:** You MUST `cd` into the directory containing `.nango/` and re-run the check.
 
 **Do NOT use absolute paths as a workaround.** All file operations must use relative paths from the Nango root.
 
@@ -55,30 +55,41 @@ ls -la .nango/ 2>/dev/null && pwd && echo "IN NANGO PROJECT ROOT" || echo "NOT i
 
 ---
 
-**Why this matters:** The git root is NOT the Nango root:
+**Why this matters:** The git root may NOT be the Nango root. The Nango root is wherever `.nango/` lives:
 
 ```
-/my-project/              <- Git root (.git/ here) - NOT HERE
+/my-project/              <- Git root (.git/ here) - May or may not be Nango root
 ├── .git/
 ├── .claude/
-└── nango-integrations/   <- Nango root (.nango/ here) - YOU MUST BE HERE
+├── .nango/               <- If .nango/ is here, THIS is the Nango root
+├── package.json
+├── tsconfig.json
+└── slack/
+```
+
+Or it may be in a subdirectory:
+
+```
+/my-project/              <- Git root
+├── .git/
+├── .claude/
+└── integrations/         <- Nango root (.nango/ here) - YOU MUST BE HERE
     ├── .nango/
     ├── package.json
-    ├── tsconfig.json
     └── slack/
 ```
 
 **Path rules once in Nango root:**
 - Use relative paths from Nango root: `slack/actions/create-message.ts`
-- NEVER prefix with `nango-integrations/` when already inside it
+- NEVER use absolute paths or parent directory prefixes when already in Nango root
 
-**Common mistake that WILL break the build:** Creating files with a `nango-integrations/` prefix while already inside the `nango-integrations/` directory. This creates:
+**Common mistake that WILL break the build:** Creating files with extra path prefixes while already inside the Nango root directory. This creates nested structures:
 ```
-nango-integrations/nango-integrations/slack/...  <- WRONG - nested structure
+integrations/integrations/slack/...  <- WRONG - nested structure
 ```
 Instead of:
 ```
-nango-integrations/slack/...  <- CORRECT
+slack/...  <- CORRECT (when already in Nango root)
 ```
 
 ## Directory Structure
