@@ -3,58 +3,73 @@
   "lockfileVersion": 1,
   "packages": {
     "@nango/integration-patterns-skill#claude": {
-      "version": "1.0.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fintegration-patterns-skill/1.0.0.tar.gz",
-      "integrity": "sha256-e2b2a6bd5463e3fd7c69129f0ceddb9c1b86f36a8335a709541be8b43c2e4ca3",
+      "version": "1.0.1",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fintegration-patterns-skill/1.0.1.tar.gz",
+      "integrity": "sha256-1fbfe31cdb34ef71415b32292f29257b9c56a722db748bde159450ba2063c46a",
       "format": "claude",
       "subtype": "skill",
       "sourceFormat": "claude",
       "sourceSubtype": "skill",
       "installedPath": ".claude/skills/integration-patterns-skill/SKILL.md",
       "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.2.0"
+        "name_slug": "nango-function-builder",
+        "version": "1.0.1"
+      }
+    },
+    "@nango/sync-builder-skill#claude": {
+      "version": "1.2.1",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fsync-builder-skill/1.2.1.tar.gz",
+      "integrity": "sha256-61abac872150d8c25f58cf259e6f4d6ec96370357d0f8daebd3c8944c8a33a5b",
+      "format": "claude",
+      "subtype": "skill",
+      "sourceFormat": "claude",
+      "sourceSubtype": "skill",
+      "installedPath": ".claude/skills/sync-builder-skill/SKILL.md",
+      "fromCollection": {
+        "name_slug": "nango-function-builder",
+        "version": "1.0.1"
       }
     },
     "@nango/action-builder-skill#claude": {
-      "version": "1.2.0",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.2.0.tar.gz",
-      "integrity": "sha256-9cf8fe896275e2ac588a1543c99e9c4481559dde6d413a1340691f19394d6315",
+      "version": "1.2.1",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Faction-builder-skill/1.2.1.tar.gz",
+      "integrity": "sha256-a57605ca93618b31a82e33821237f41e1b461f96f03935e491e8f9cb2b45a3d2",
       "format": "claude",
       "subtype": "skill",
       "sourceFormat": "claude",
       "sourceSubtype": "skill",
       "installedPath": ".claude/skills/action-builder-skill/SKILL.md",
       "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.2.0"
+        "name_slug": "nango-function-builder",
+        "version": "1.0.1"
       }
     },
-    "@nango/build-actions#claude": {
-      "version": "1.0.3",
-      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-actions/1.0.3.tar.gz",
-      "integrity": "sha256-ce0c41bb9a70eddc2eb61d88538b69c4bf2ee5b45c54f0d5e3334a2608758945",
+    "@nango/build-function#claude": {
+      "version": "2.0.0",
+      "resolved": "https://registry.prpm.dev/api/v1/packages/%40nango%2Fbuild-function/2.0.0.tar.gz",
+      "integrity": "sha256-30543192786fd7de9d76d9029b396fd59bbbc6e297a9ad6326aeb33ae283688a",
       "format": "claude",
       "subtype": "slash-command",
       "sourceFormat": "claude",
       "sourceSubtype": "slash-command",
-      "installedPath": ".claude/commands/build-actions.md",
+      "installedPath": ".claude/commands/build-function.md",
       "fromCollection": {
-        "name_slug": "nango-integration-builder",
-        "version": "1.2.0"
+        "name_slug": "nango-function-builder",
+        "version": "1.0.1"
       }
     }
   },
-  "generated": "2025-12-15T11:31:04.443Z",
+  "generated": "2025-12-17T11:41:04.160Z",
   "collections": {
-    "nango-integration-builder": {
-      "name_slug": "nango-integration-builder",
-      "version": "1.2.0",
-      "installedAt": "2025-12-15T11:31:04.443Z",
+    "nango-function-builder": {
+      "name_slug": "nango-function-builder",
+      "version": "1.0.1",
+      "installedAt": "2025-12-17T11:41:04.160Z",
       "packages": [
         "@nango/integration-patterns-skill",
+        "@nango/sync-builder-skill",
         "@nango/action-builder-skill",
-        "@nango/build-actions"
+        "@nango/build-function"
       ]
     }
   }
