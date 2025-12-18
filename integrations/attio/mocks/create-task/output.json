@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": {
+      "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+      "task_id": "task-123"
+    },
+    "content_plaintext": "Follow up with customer",
+    "deadline_at": null,
+    "is_completed": false,
+    "created_at": "2025-01-01T00:00:00.000Z"
+  }
+}

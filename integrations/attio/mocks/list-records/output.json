@@ -1,0 +1,1120 @@
+{
+  "data": [
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+      },
+      "created_at": "2025-11-27T14:45:32.141000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "5829dd6c-0577-40dc-a858-8bd9a0d6aa58",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Emily",
+            "last_name": "Thompson",
+            "full_name": "Emily Thompson",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "emily.t@dataflow.ai",
+            "email_address": "emily.t@dataflow.ai",
+            "email_domain": "dataflow.ai",
+            "email_root_domain": "dataflow.ai",
+            "email_local_specifier": "emily.t",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:45:32.506000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "d0918404-f762-4723-b00e-1e6ec25e7205",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "Head of Engineering",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:45:32.155000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:45:32.141000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "5c85ee2d-081a-4561-8989-069166f1bafb"
+      },
+      "created_at": "2025-11-27T14:46:24.409000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "5c85ee2d-081a-4561-8989-069166f1bafb",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Amanda",
+            "last_name": "Foster",
+            "full_name": "Amanda Foster",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "a.foster@fincore.bank",
+            "email_address": "a.foster@fincore.bank",
+            "email_domain": "fincore.bank",
+            "email_root_domain": "fincore.bank",
+            "email_local_specifier": "a.foster",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:46:25.044000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "ff183d30-38a4-4eb1-9fc4-fd4eccf0b684",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CFO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:46:24.427000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:46:24.409000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "5dc342c2-cd1f-4736-a0cd-a83526899a12"
+      },
+      "created_at": "2025-11-27T14:45:43.879000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "5dc342c2-cd1f-4736-a0cd-a83526899a12",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "David",
+            "last_name": "Kim",
+            "full_name": "David Kim",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "david.kim@securevault.com",
+            "email_address": "david.kim@securevault.com",
+            "email_domain": "securevault.com",
+            "email_root_domain": "securevault.com",
+            "email_local_specifier": "david.kim",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:45:45.145000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "3b2815d9-53e7-4cb0-8fbf-d11abd13d89a",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CISO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:45:43.912000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:45:43.879000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "70f7a640-38c1-40b3-9953-93d8f59fc310"
+      },
+      "created_at": "2025-11-27T14:45:18.878000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "70f7a640-38c1-40b3-9953-93d8f59fc310",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Michael",
+            "last_name": "Rodriguez",
+            "full_name": "Michael Rodriguez",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "m.rodriguez@cloudnine.co",
+            "email_address": "m.rodriguez@cloudnine.co",
+            "email_domain": "cloudnine.co",
+            "email_root_domain": "cloudnine.co",
+            "email_local_specifier": "m.rodriguez",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:45:19.317000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "4c50e22a-fdc5-4baf-8249-1c43e90cdfdd",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CTO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:45:18.904000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:45:18.878000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "b1317daf-a990-43b0-96cf-e4b232c3b192"
+      },
+      "created_at": "2025-11-27T14:45:10.410000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "b1317daf-a990-43b0-96cf-e4b232c3b192",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Sarah",
+            "last_name": "Chen",
+            "full_name": "Sarah Chen",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "sarah.chen@techstart.io",
+            "email_address": "sarah.chen@techstart.io",
+            "email_domain": "techstart.io",
+            "email_root_domain": "techstart.io",
+            "email_local_specifier": "sarah.chen",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:45:10.845000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "f373c1c3-93d8-4099-9f0b-6b25a63e6e49",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CEO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:45:10.430000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:45:10.410000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "b599621b-0951-4613-8afe-6df88f51675c"
+      },
+      "created_at": "2025-11-27T14:45:54.054000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "b599621b-0951-4613-8afe-6df88f51675c",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Lisa",
+            "last_name": "Patel",
+            "full_name": "Lisa Patel",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "lisa@greenleaf.energy",
+            "email_address": "lisa@greenleaf.energy",
+            "email_domain": "greenleaf.energy",
+            "email_root_domain": "greenleaf.energy",
+            "email_local_specifier": "lisa",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:45:54.940000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "4ae467ca-ca1e-439a-8315-54c38fe2d81e",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "VP Operations",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:45:54.068000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:45:54.054000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "cad2c312-2a70-4dac-95d8-6744d3f991b6"
+      },
+      "created_at": "2025-11-27T14:46:34.367000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "cad2c312-2a70-4dac-95d8-6744d3f991b6",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "Robert",
+            "last_name": "Martinez",
+            "full_name": "Robert Martinez",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "robert@logitrack.com",
+            "email_address": "robert@logitrack.com",
+            "email_domain": "logitrack.com",
+            "email_root_domain": "logitrack.com",
+            "email_local_specifier": "robert",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:46:34.642000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "a4ec1676-e637-41db-9e59-caddc405c7db",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "COO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:46:34.377000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:46:34.367000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "d9ce1f13-9acf-4c88-a747-64f27c33072d"
+      },
+      "created_at": "2025-11-27T14:46:14.955000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "d9ce1f13-9acf-4c88-a747-64f27c33072d",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "James",
+            "last_name": "Wilson",
+            "full_name": "James Wilson",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "james.w@healthbridge.med",
+            "email_address": "james.w@healthbridge.med",
+            "email_domain": "healthbridge.med",
+            "email_root_domain": "healthbridge.med",
+            "email_local_specifier": "james.w",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:46:15.639000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "f94657fc-c887-455d-9598-35024f2e4347",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CMO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:46:14.977000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:46:14.955000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f",
+        "record_id": "e9002be5-e744-4f91-81c8-29485789c1e4"
+      },
+      "created_at": "2025-11-27T14:42:13.535000000Z",
+      "values": {
+        "record_id": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "e9002be5-e744-4f91-81c8-29485789c1e4",
+            "attribute_type": "text"
+          }
+        ],
+        "name": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "first_name": "John",
+            "last_name": "Doe",
+            "full_name": "John Doe",
+            "attribute_type": "personal-name"
+          }
+        ],
+        "email_addresses": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "original_email_address": "john.doe@acme.com",
+            "email_address": "john.doe@acme.com",
+            "email_domain": "acme.com",
+            "email_root_domain": "acme.com",
+            "email_local_specifier": "john.doe",
+            "attribute_type": "email-address"
+          }
+        ],
+        "description": [],
+        "company": [
+          {
+            "active_from": "2025-11-27T14:42:13.848000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "system",
+              "id": null
+            },
+            "target_object": "companies",
+            "target_record_id": "f9de702f-923c-44ef-baba-30ad7a87408b",
+            "attribute_type": "record-reference"
+          }
+        ],
+        "job_title": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "CEO",
+            "attribute_type": "text"
+          }
+        ],
+        "avatar_url": [],
+        "phone_numbers": [],
+        "primary_location": [],
+        "angellist": [],
+        "facebook": [],
+        "instagram": [],
+        "linkedin": [],
+        "twitter": [],
+        "twitter_follower_count": [],
+        "first_calendar_interaction": [],
+        "last_calendar_interaction": [],
+        "next_calendar_interaction": [],
+        "first_email_interaction": [],
+        "last_email_interaction": [],
+        "first_interaction": [],
+        "last_interaction": [],
+        "next_interaction": [],
+        "strongest_connection_strength_legacy": [],
+        "strongest_connection_strength": [],
+        "strongest_connection_user": [],
+        "associated_deals": [],
+        "created_at": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "value": "2025-11-27T14:42:13.549000000Z",
+            "attribute_type": "timestamp"
+          }
+        ],
+        "created_by": [
+          {
+            "active_from": "2025-11-27T14:42:13.535000000Z",
+            "active_until": null,
+            "created_by_actor": {
+              "type": "app",
+              "id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3"
+            },
+            "referenced_actor_type": "app",
+            "referenced_actor_id": "ddce52e1-853a-43cc-9f33-81f0690d1ff3",
+            "attribute_type": "actor-reference"
+          }
+        ]
+      }
+    }
+  ]
+}
