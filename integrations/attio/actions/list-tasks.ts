@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListTasksInput = z.object({
-    limit: z.number().optional()
-        .describe('Maximum number of tasks to return'),
-    offset: z.number().optional()
-        .describe('Number of tasks to skip')
+    limit: z.number().optional().describe('Maximum number of tasks to return'),
+    offset: z.number().optional().describe('Number of tasks to skip')
 });
 
 const TaskId = z.object({

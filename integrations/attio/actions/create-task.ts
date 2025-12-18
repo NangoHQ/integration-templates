@@ -14,14 +14,10 @@ const LinkedRecord = z.object({
 });
 
 const CreateTaskInput = z.object({
-    content: z.string()
-        .describe('Task description. Example: "Follow up with customer"'),
-    deadline: z.string().optional()
-        .describe('Due date in ISO format. Example: "2025-12-31T23:59:59.000Z"'),
-    assignee_ids: z.array(z.string()).optional()
-        .describe('Array of workspace member IDs to assign. Example: ["user-id-123"]'),
-    linked_records: z.array(LinkedRecord).optional()
-        .describe('Records to link to this task')
+    content: z.string().describe('Task description. Example: "Follow up with customer"'),
+    deadline: z.string().optional().describe('Due date in ISO format. Example: "2025-12-31T23:59:59.000Z"'),
+    assignee_ids: z.array(z.string()).optional().describe('Array of workspace member IDs to assign. Example: ["user-id-123"]'),
+    linked_records: z.array(LinkedRecord).optional().describe('Records to link to this task')
 });
 
 const TaskId = z.object({
@@ -62,7 +58,9 @@ const action = createAction({
                     format: 'plaintext',
                     content: input.content,
                     ...(input.deadline && { deadline_at: input.deadline }),
-                    ...(input.assignee_ids && { assignees: input.assignee_ids.map(id => ({ referenced_actor_type: 'workspace-member', referenced_actor_id: id })) }),
+                    ...(input.assignee_ids && {
+                        assignees: input.assignee_ids.map((id) => ({ referenced_actor_type: 'workspace-member', referenced_actor_id: id }))
+                    }),
                     ...(input.linked_records && { linked_records: input.linked_records })
                 }
             },

@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetRecordInput = z.object({
-    object_slug: z.string()
-        .describe('The object type slug. Example: "people" or "companies"'),
-    record_id: z.string()
-        .describe('The record ID to retrieve. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
+    object_slug: z.string().describe('The object type slug. Example: "people" or "companies"'),
+    record_id: z.string().describe('The record ID to retrieve. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
 });
 
 const RecordId = z.object({

@@ -86,7 +86,7 @@ const action = createAction({
             data: {
                 data: {
                     target_url: input.target_url,
-                    subscriptions: input.subscriptions.map(sub => ({
+                    subscriptions: input.subscriptions.map((sub) => ({
                         event_type: sub.event_type,
                         filter: sub.filter ?? null
                     }))

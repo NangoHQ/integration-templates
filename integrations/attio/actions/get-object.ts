@@ -9,8 +9,7 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const GetObjectInput = z.object({
-    object_id: z.string()
-        .describe('UUID or slug to identify the object. Example: "people" or "97052eb9-e65e-443f-a297-f2d9a4a7f795"')
+    object_id: z.string().describe('UUID or slug to identify the object. Example: "people" or "97052eb9-e65e-443f-a297-f2d9a4a7f795"')
 });
 
 const GetObjectOutput = z.object({

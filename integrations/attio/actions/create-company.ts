@@ -73,7 +73,7 @@ const action = createAction({
 
         // Add domains if provided
         if (input.domains && input.domains.length > 0) {
-            values['domains'] = input.domains.map(d => ({ domain: d }));
+            values['domains'] = input.domains.map((d) => ({ domain: d }));
         }
 
         // Add optional text fields

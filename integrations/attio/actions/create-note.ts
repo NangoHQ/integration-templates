@@ -9,14 +9,10 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const CreateNoteInput = z.object({
-    parent_object: z.string()
-        .describe('The object type of the parent record. Example: "people" or "companies"'),
-    parent_record_id: z.string()
-        .describe('The record ID to attach the note to. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"'),
-    title: z.string()
-        .describe('The note title. Example: "Meeting Notes"'),
-    content: z.string()
-        .describe('The note content in plain text or markdown. Example: "Discussed Q4 planning..."')
+    parent_object: z.string().describe('The object type of the parent record. Example: "people" or "companies"'),
+    parent_record_id: z.string().describe('The record ID to attach the note to. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"'),
+    title: z.string().describe('The note title. Example: "Meeting Notes"'),
+    content: z.string().describe('The note content in plain text or markdown. Example: "Discussed Q4 planning..."')
 });
 
 const NoteId = z.object({

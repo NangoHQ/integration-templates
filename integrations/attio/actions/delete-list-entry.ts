@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const DeleteListEntryInput = z.object({
-    list_id: z.string()
-        .describe('The list slug or UUID. Example: "my-sales-list"'),
-    entry_id: z.string()
-        .describe('The entry ID to remove. Example: "abc123-def456"')
+    list_id: z.string().describe('The list slug or UUID. Example: "my-sales-list"'),
+    entry_id: z.string().describe('The entry ID to remove. Example: "abc123-def456"')
 });
 
 const DeleteListEntryOutput = z.object({

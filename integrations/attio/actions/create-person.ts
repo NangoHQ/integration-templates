@@ -86,14 +86,14 @@ const action = createAction({
 
         // Add email addresses if provided
         if (input.email_addresses && input.email_addresses.length > 0) {
-            values['email_addresses'] = input.email_addresses.map(email => ({
+            values['email_addresses'] = input.email_addresses.map((email) => ({
                 email_address: email
             }));
         }
 
         // Add phone numbers if provided
         if (input.phone_numbers && input.phone_numbers.length > 0) {
-            values['phone_numbers'] = input.phone_numbers.map(phone => ({
+            values['phone_numbers'] = input.phone_numbers.map((phone) => ({
                 original_phone_number: phone
             }));
         }

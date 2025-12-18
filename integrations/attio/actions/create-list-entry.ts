@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const CreateListEntryInput = z.object({
-    list_id: z.string()
-        .describe('The list slug or UUID to add the entry to. Example: "my-sales-list"'),
-    record_id: z.string()
-        .describe('The record ID to add to the list. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
+    list_id: z.string().describe('The list slug or UUID to add the entry to. Example: "my-sales-list"'),
+    record_id: z.string().describe('The record ID to add to the list. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
 });
 
 const EntryId = z.object({

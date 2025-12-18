@@ -9,14 +9,10 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListNotesInput = z.object({
-    parent_object: z.string()
-        .describe('The object type of the parent record. Example: "people" or "companies"'),
-    parent_record_id: z.string()
-        .describe('The record ID to list notes for. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"'),
-    limit: z.number().optional()
-        .describe('Maximum number of notes to return'),
-    offset: z.number().optional()
-        .describe('Number of notes to skip')
+    parent_object: z.string().describe('The object type of the parent record. Example: "people" or "companies"'),
+    parent_record_id: z.string().describe('The record ID to list notes for. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"'),
+    limit: z.number().optional().describe('Maximum number of notes to return'),
+    offset: z.number().optional().describe('Number of notes to skip')
 });
 
 const NoteId = z.object({

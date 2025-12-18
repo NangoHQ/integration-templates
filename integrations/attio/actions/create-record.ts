@@ -9,10 +9,8 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const CreateRecordInput = z.object({
-    object_slug: z.string()
-        .describe('The object type slug to create record in. Example: "people" or "companies"'),
-    values: z.record(z.string(), z.any())
-        .describe('Object containing attribute values to set. Example: {"name": [{"first_name": "John", "last_name": "Doe"}]}')
+    object_slug: z.string().describe('The object type slug to create record in. Example: "people" or "companies"'),
+    values: z.record(z.string(), z.any()).describe('Object containing attribute values to set. Example: {"name": [{"first_name": "John", "last_name": "Doe"}]}')
 });
 
 const RecordId = z.object({

@@ -87,7 +87,7 @@ const action = createAction({
         }
 
         if (input.subscriptions) {
-            data['subscriptions'] = input.subscriptions.map(sub => ({
+            data['subscriptions'] = input.subscriptions.map((sub) => ({
                 event_type: sub.event_type,
                 filter: sub.filter ?? null
             }));

@@ -9,8 +9,7 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const DeleteNoteInput = z.object({
-    note_id: z.string()
-        .describe('The note ID to delete. Example: "abc123-def456"')
+    note_id: z.string().describe('The note ID to delete. Example: "abc123-def456"')
 });
 
 const DeleteNoteOutput = z.object({

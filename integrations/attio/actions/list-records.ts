@@ -9,12 +9,9 @@ import type { ProxyConfiguration } from 'nango';
 
 // Inline schema definitions
 const ListRecordsInput = z.object({
-    object_slug: z.string()
-        .describe('The object type slug to query records from. Example: "people" or "companies"'),
-    limit: z.number().optional()
-        .describe('Maximum number of records to return. Default: 25'),
-    offset: z.number().optional()
-        .describe('Number of records to skip. Default: 0')
+    object_slug: z.string().describe('The object type slug to query records from. Example: "people" or "companies"'),
+    limit: z.number().optional().describe('Maximum number of records to return. Default: 25'),
+    offset: z.number().optional().describe('Number of records to skip. Default: 0')
 });
 
 const RecordId = z.object({
@@ -26,8 +23,7 @@ const RecordId = z.object({
 const Record = z.object({
     id: RecordId,
     created_at: z.string(),
-    values: z.record(z.string(), z.any())
-        .describe('Object containing attribute values keyed by attribute slug')
+    values: z.record(z.string(), z.any()).describe('Object containing attribute values keyed by attribute slug')
 });
 
 const ListRecordsOutput = z.object({

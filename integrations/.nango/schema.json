@@ -7158,6 +7158,1847 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_attio_createcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createcompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "object_id",
+            "record_id"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "domains",
+        "description",
+        "created_at",
+        "web_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createlistentry": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "list_id",
+        "record_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createlistentry": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "list_id": {
+                  "type": "string"
+                },
+                "entry_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "list_id",
+                "entry_id"
+              ],
+              "additionalProperties": false
+            },
+            "record_id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "record_id",
+            "created_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createnote": {
+      "type": "object",
+      "properties": {
+        "parent_object": {
+          "type": "string"
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_object",
+        "parent_record_id",
+        "title",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createnote": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "note_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "note_id"
+              ],
+              "additionalProperties": false
+            },
+            "title": {
+              "type": "string"
+            },
+            "content_plaintext": {
+              "type": "string"
+            },
+            "parent_object": {
+              "type": "string"
+            },
+            "parent_record_id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "content_plaintext",
+            "parent_object",
+            "parent_record_id",
+            "created_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createperson": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "job_title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "object_id",
+            "record_id"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "job_title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "phone",
+        "job_title",
+        "created_at",
+        "web_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createrecord": {
+      "type": "object",
+      "properties": {
+        "object_slug": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "object_slug",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createrecord": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "object_id": {
+                  "type": "string"
+                },
+                "record_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "object_id",
+                "record_id"
+              ],
+              "additionalProperties": false
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "created_at",
+            "values"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createtask": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "deadline": {
+          "type": "string"
+        },
+        "assignee_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linked_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_object": {
+                "type": "string"
+              },
+              "target_record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target_object",
+              "target_record_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createtask": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "task_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "task_id"
+              ],
+              "additionalProperties": false
+            },
+            "content_plaintext": {
+              "type": "string"
+            },
+            "deadline_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "is_completed": {
+              "type": "boolean"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "content_plaintext",
+            "deadline_at",
+            "is_completed",
+            "created_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createwebhook": {
+      "type": "object",
+      "properties": {
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "target_url",
+        "subscriptions"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createwebhook": {
+      "type": "object",
+      "properties": {
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type",
+              "filter"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "webhook_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "webhook_id"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "degraded",
+            "inactive"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_url",
+        "subscriptions",
+        "id",
+        "status",
+        "created_at",
+        "secret"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_deletelistentry": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string"
+        },
+        "entry_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "list_id",
+        "entry_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deletelistentry": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_deletenote": {
+      "type": "object",
+      "properties": {
+        "note_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "note_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deletenote": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_deleterecord": {
+      "type": "object",
+      "properties": {
+        "object_slug": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_slug",
+        "record_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deleterecord": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "webhook_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "webhook_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getobject": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getobject": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "object_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "object_id"
+              ],
+              "additionalProperties": false
+            },
+            "api_slug": {
+              "type": "string"
+            },
+            "singular_noun": {
+              "type": "string"
+            },
+            "plural_noun": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "api_slug",
+            "singular_noun",
+            "plural_noun",
+            "created_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getrecord": {
+      "type": "object",
+      "properties": {
+        "object_slug": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_slug",
+        "record_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getrecord": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "object_id": {
+                  "type": "string"
+                },
+                "record_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "object_id",
+                "record_id"
+              ],
+              "additionalProperties": false
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "created_at",
+            "values"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getwebhook": {
+      "type": "object",
+      "properties": {
+        "webhook_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "webhook_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getwebhook": {
+      "type": "object",
+      "properties": {
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type",
+              "filter"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "webhook_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "webhook_id"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "degraded",
+            "inactive"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_url",
+        "subscriptions",
+        "id",
+        "status",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listlists": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listlists": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "list_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "list_id"
+                ],
+                "additionalProperties": false
+              },
+              "api_slug": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parent_object": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "api_slug",
+              "name",
+              "parent_object",
+              "created_at"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listnotes": {
+      "type": "object",
+      "properties": {
+        "parent_object": {
+          "type": "string"
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "parent_object",
+        "parent_record_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listnotes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "note_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "note_id"
+                ],
+                "additionalProperties": false
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "content_plaintext": {
+                "type": "string"
+              },
+              "parent_object": {
+                "type": "string"
+              },
+              "parent_record_id": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "content_plaintext",
+              "parent_object",
+              "parent_record_id",
+              "created_at"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listobjects": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listobjects": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "object_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "object_id"
+                ],
+                "additionalProperties": false
+              },
+              "api_slug": {
+                "type": "string"
+              },
+              "singular_noun": {
+                "type": "string"
+              },
+              "plural_noun": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "api_slug",
+              "singular_noun",
+              "plural_noun",
+              "created_at"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listrecords": {
+      "type": "object",
+      "properties": {
+        "object_slug": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "object_slug"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listrecords": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "object_id": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "object_id",
+                  "record_id"
+                ],
+                "additionalProperties": false
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "values": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id",
+              "created_at",
+              "values"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listtasks": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listtasks": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "task_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "task_id"
+                ],
+                "additionalProperties": false
+              },
+              "content_plaintext": {
+                "type": "string"
+              },
+              "deadline_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "is_completed": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "content_plaintext",
+              "deadline_at",
+              "is_completed",
+              "created_at"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "webhooks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_url": {
+                "type": "string"
+              },
+              "subscriptions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "event_type": {
+                      "type": "string"
+                    },
+                    "filter": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "$and": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "field": {
+                                    "type": "string"
+                                  },
+                                  "operator": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "field",
+                                  "operator",
+                                  "value"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "$or": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "field": {
+                                    "type": "string"
+                                  },
+                                  "operator": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "field",
+                                  "operator",
+                                  "value"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "event_type",
+                    "filter"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "webhook_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "webhook_id"
+                ],
+                "additionalProperties": false
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "degraded",
+                  "inactive"
+                ]
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target_url",
+              "subscriptions",
+              "id",
+              "status",
+              "created_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "webhooks",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updaterecord": {
+      "type": "object",
+      "properties": {
+        "object_slug": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "object_slug",
+        "record_id",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updaterecord": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "workspace_id": {
+                  "type": "string"
+                },
+                "object_id": {
+                  "type": "string"
+                },
+                "record_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workspace_id",
+                "object_id",
+                "record_id"
+              ],
+              "additionalProperties": false
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "created_at",
+            "values"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updatewebhook": {
+      "type": "object",
+      "properties": {
+        "webhook_id": {
+          "type": "string"
+        },
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "webhook_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updatewebhook": {
+      "type": "object",
+      "properties": {
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type",
+              "filter"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "webhook_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "webhook_id"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "degraded",
+            "inactive"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_url",
+        "subscriptions",
+        "id",
+        "status",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_avalara_transactions": {
       "type": "object",
       "properties": {
@@ -62636,5 +64477,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.69.20)"
+  "$comment": "This file was generated by Nango (v0.69.18)"
 }
