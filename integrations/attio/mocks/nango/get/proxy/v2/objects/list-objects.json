@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "047b0f6d-0fd3-4c4b-9b7b-bc726a73aea9"
+      },
+      "api_slug": "companies",
+      "singular_noun": "Company",
+      "plural_noun": "Companies",
+      "created_at": "2025-11-27T12:21:27.862000000Z"
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "b30a0c93-0ea9-43c7-afa7-cf6e41e7d18f"
+      },
+      "api_slug": "people",
+      "singular_noun": "Person",
+      "plural_noun": "People",
+      "created_at": "2025-11-27T12:21:27.862000000Z"
+    },
+    {
+      "id": {
+        "workspace_id": "805cbc5a-e82b-42b0-b96f-4c34d366628d",
+        "object_id": "d2be3215-3948-4c22-88b4-21688b28398d"
+      },
+      "api_slug": "deals",
+      "singular_noun": "Deal",
+      "plural_noun": "Deals",
+      "created_at": "2025-11-27T12:21:27.862000000Z"
+    }
+  ]
+}
