@@ -1,0 +1,40 @@
+[
+  {
+    "providerConfigKey": "adp",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of current employees from ADP and maps them to the standard HRIS model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
+          }
+        ],
+        "input": "SyncMetadata_adp_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_adp_unifiedemployees"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": [],
+      "validate-connection": []
+    }
+  }
+]
