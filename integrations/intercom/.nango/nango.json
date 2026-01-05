@@ -4,25 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch a single article from Intercom",
-        "endpoint": {
-          "method": "GET",
-          "path": "/single-article"
-        },
-        "input": "ActionInput_intercom_fetcharticle",
-        "name": "fetch-article",
-        "output": [
-          "ActionOutput_intercom_fetcharticle"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_intercom_fetcharticle",
-          "ActionOutput_intercom_fetcharticle"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Creates a contact in Intercom",
         "endpoint": {
           "method": "POST",
@@ -61,6 +42,25 @@
       },
       {
         "type": "action",
+        "description": "Fetch a single article from Intercom",
+        "endpoint": {
+          "method": "GET",
+          "path": "/single-article"
+        },
+        "input": "ActionInput_intercom_fetcharticle",
+        "name": "fetch-article",
+        "output": [
+          "ActionOutput_intercom_fetcharticle"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_intercom_fetcharticle",
+          "ActionOutput_intercom_fetcharticle"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Fetch current user information",
         "endpoint": {
           "method": "GET",
@@ -85,32 +85,26 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of conversations from Intercom",
+        "description": "Fetches a list of articles from Intercom",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/conversations"
-          },
-          {
-            "method": "GET",
-            "path": "/conversation-messages"
+            "path": "/articles"
           }
         ],
-        "input": "SyncMetadata_intercom_conversations",
-        "name": "conversations",
+        "input": "SyncMetadata_intercom_articles",
+        "name": "articles",
         "output": [
-          "Conversation",
-          "ConversationMessage"
+          "Article"
         ],
         "runs": "every 6 hours",
         "scopes": [],
-        "sync_type": "incremental",
+        "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Conversation",
-          "ConversationMessage",
-          "SyncMetadata_intercom_conversations"
+          "Article",
+          "SyncMetadata_intercom_articles"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -143,26 +137,32 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of articles from Intercom",
+        "description": "Fetches a list of conversations from Intercom",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/articles"
+            "path": "/conversations"
+          },
+          {
+            "method": "GET",
+            "path": "/conversation-messages"
           }
         ],
-        "input": "SyncMetadata_intercom_articles",
-        "name": "articles",
+        "input": "SyncMetadata_intercom_conversations",
+        "name": "conversations",
         "output": [
-          "Article"
+          "Conversation",
+          "ConversationMessage"
         ],
         "runs": "every 6 hours",
         "scopes": [],
-        "sync_type": "full",
+        "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "Article",
-          "SyncMetadata_intercom_articles"
+          "Conversation",
+          "ConversationMessage",
+          "SyncMetadata_intercom_conversations"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

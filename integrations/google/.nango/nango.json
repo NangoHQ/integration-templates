@@ -34,32 +34,6 @@
       },
       {
         "type": "sync",
-        "description": "Sync all workspace users",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/google/workspace-users"
-          }
-        ],
-        "input": "SyncMetadata_google_workspaceusers",
-        "name": "workspace-users",
-        "output": [
-          "User"
-        ],
-        "runs": "every hour",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_google_workspaceusers"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Sync all workspace users access tokens",
         "auto_start": true,
         "endpoints": [
@@ -83,6 +57,32 @@
         "usedModels": [
           "GoogleWorkspaceUserToken",
           "SyncMetadata_google_workspaceuseraccesstokens"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync all workspace users",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/google/workspace-users"
+          }
+        ],
+        "input": "SyncMetadata_google_workspaceusers",
+        "name": "workspace-users",
+        "output": [
+          "User"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_google_workspaceusers"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

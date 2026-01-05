@@ -5,32 +5,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of users from evaluagent",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users"
-          }
-        ],
-        "input": "SyncMetadata_evaluagent_users",
-        "name": "users",
-        "output": [
-          "EvaluAgentUser"
-        ],
-        "runs": "every day",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "EvaluAgentUser",
-          "SyncMetadata_evaluagent_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches a list of groups from evaluagent",
         "auto_start": true,
         "endpoints": [
@@ -77,6 +51,32 @@
         "usedModels": [
           "EvaluAgentRole",
           "SyncMetadata_evaluagent_roles"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from evaluagent",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
+        ],
+        "input": "SyncMetadata_evaluagent_users",
+        "name": "users",
+        "output": [
+          "EvaluAgentUser"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "EvaluAgentUser",
+          "SyncMetadata_evaluagent_users"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

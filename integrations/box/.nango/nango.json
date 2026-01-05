@@ -66,27 +66,27 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of users from Box. Requires an enterprise account.",
-        "auto_start": true,
+        "description": "Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.",
+        "auto_start": false,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/users",
-            "group": "Users"
+            "path": "/files",
+            "group": "Files"
           }
         ],
-        "input": "SyncMetadata_box_users",
-        "name": "users",
+        "input": "SyncMetadata_box_files",
+        "name": "files",
         "output": [
-          "User"
+          "BoxDocument"
         ],
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "User",
-          "SyncMetadata_box_users"
+          "BoxDocument",
+          "SyncMetadata_box_files"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -120,27 +120,27 @@
       },
       {
         "type": "sync",
-        "description": "Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.",
-        "auto_start": false,
+        "description": "Fetches a list of users from Box. Requires an enterprise account.",
+        "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/files",
-            "group": "Files"
+            "path": "/users",
+            "group": "Users"
           }
         ],
-        "input": "SyncMetadata_box_files",
-        "name": "files",
+        "input": "SyncMetadata_box_users",
+        "name": "users",
         "output": [
-          "BoxDocument"
+          "User"
         ],
         "runs": "every day",
         "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "BoxDocument",
-          "SyncMetadata_box_files"
+          "User",
+          "SyncMetadata_box_users"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

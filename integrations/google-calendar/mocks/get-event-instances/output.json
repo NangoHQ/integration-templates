@@ -1,0 +1,39 @@
+{
+  "kind": "calendar#events",
+  "etag": "\"p337o7ndlm74p20o\"",
+  "summary": "Khaliq's Nango Calendar",
+  "items": [
+    {
+      "kind": "calendar#event",
+      "etag": "\"3532271093326014\"",
+      "id": "52ioipnl6747maniqelu3c6kkc",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NTJpb2lwbmw2NzQ3bWFuaXFlbHUzYzZra2Mga2hhbGlxQG5hbmdvLmRldg",
+      "created": "2025-12-19T09:12:26.000Z",
+      "updated": "2025-12-19T09:12:26.663Z",
+      "summary": "Test event for API testing",
+      "creator": {
+        "email": "khaliq@nango.dev",
+        "self": true
+      },
+      "organizer": {
+        "email": "khaliq@nango.dev",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2025-12-20T15:00:00+01:00",
+        "timeZone": "Europe/Oslo"
+      },
+      "end": {
+        "dateTime": "2025-12-20T15:50:00+01:00",
+        "timeZone": "Europe/Oslo"
+      },
+      "iCalUID": "52ioipnl6747maniqelu3c6kkc@google.com",
+      "sequence": 0,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    }
+  ]
+}

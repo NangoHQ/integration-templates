@@ -1,0 +1,6 @@
+{
+  "kind": "calendar#setting",
+  "etag": "\"1753946300665887\"",
+  "id": "timezone",
+  "value": "Europe/Oslo"
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "calendar#event",
+  "etag": "\"3532287260984542\"",
+  "id": "8ru8moiqfpqp3gccjl01rts9as",
+  "status": "confirmed",
+  "summary": "Updated Test Event",
+  "start": {
+    "dateTime": "2025-12-22T11:00:00+01:00",
+    "timeZone": "Europe/Oslo"
+  },
+  "end": {
+    "dateTime": "2025-12-22T12:00:00+01:00",
+    "timeZone": "Europe/Oslo"
+  }
+}

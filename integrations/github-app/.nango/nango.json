@@ -26,33 +26,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Get all pull requests from a Github repository.",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/pull-requests",
-            "group": "Pull Requests"
-          }
-        ],
-        "input": "SyncMetadata_github_app_pullrequests",
-        "name": "pull-requests",
-        "output": [
-          "GithubPullRequest"
-        ],
-        "runs": "every hour",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "GithubPullRequest",
-          "SyncMetadata_github_app_pullrequests"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Get all pull commits from a Github repository.",
         "auto_start": false,
         "endpoints": [
@@ -74,6 +47,33 @@
         "usedModels": [
           "GithubCommit",
           "SyncMetadata_github_app_commits"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Get all pull requests from a Github repository.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pull-requests",
+            "group": "Pull Requests"
+          }
+        ],
+        "input": "SyncMetadata_github_app_pullrequests",
+        "name": "pull-requests",
+        "output": [
+          "GithubPullRequest"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GithubPullRequest",
+          "SyncMetadata_github_app_pullrequests"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

@@ -5,6 +5,35 @@
     "syncs": [
       {
         "type": "sync",
+        "description": "Fetches analytics for a specified list of books from Brightcrowd.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/book-analytics",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_bookanalytics",
+        "name": "book-analytics",
+        "output": [
+          "BookAnalytics"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "BookAnalytics",
+          "SyncMetadata_brightcrowd_bookanalytics"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
         "description": "Fetches a list of all books in an account from Brightcrowd.",
         "auto_start": true,
         "endpoints": [
@@ -57,35 +86,6 @@
         "usedModels": [
           "BookById",
           "SyncMetadata_brightcrowd_booksbyid"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches analytics for a specified list of books from Brightcrowd.",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/book-analytics",
-            "group": "Books"
-          }
-        ],
-        "input": "SyncMetadata_brightcrowd_bookanalytics",
-        "name": "book-analytics",
-        "output": [
-          "BookAnalytics"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "bcb.partner/book.read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "BookAnalytics",
-          "SyncMetadata_brightcrowd_bookanalytics"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

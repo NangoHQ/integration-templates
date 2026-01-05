@@ -70,28 +70,28 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Retrieve all events per a user",
+        "description": "For all events (active and canceled) retrieve the event invitees",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/events"
+            "path": "/event/invitees"
           }
         ],
-        "input": "SyncMetadata_calendly_events",
-        "name": "events",
+        "input": "SyncMetadata_calendly_eventinvitees",
+        "name": "event-invitees",
         "output": [
-          "Event"
+          "EventInvitee"
         ],
         "runs": "every hour",
         "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "Event",
-          "SyncMetadata_calendly_events"
+          "EventInvitee",
+          "SyncMetadata_calendly_eventinvitees"
         ],
-        "version": "3.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -122,28 +122,28 @@
       },
       {
         "type": "sync",
-        "description": "For all events (active and canceled) retrieve the event invitees",
+        "description": "Retrieve all events per a user",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/event/invitees"
+            "path": "/events"
           }
         ],
-        "input": "SyncMetadata_calendly_eventinvitees",
-        "name": "event-invitees",
+        "input": "SyncMetadata_calendly_events",
+        "name": "events",
         "output": [
-          "EventInvitee"
+          "Event"
         ],
         "runs": "every hour",
         "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "EventInvitee",
-          "SyncMetadata_calendly_eventinvitees"
+          "Event",
+          "SyncMetadata_calendly_events"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {

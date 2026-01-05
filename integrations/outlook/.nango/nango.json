@@ -22,9 +22,58 @@
           "ActionOutput_outlook_fetchattachment"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "An action used to fetch the contents of an attachment.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-event-content"
+        },
+        "input": "ActionInput_outlook_fetcheventcontent",
+        "name": "fetch-event-content",
+        "output": [
+          "ActionOutput_outlook_fetcheventcontent"
+        ],
+        "scopes": [
+          "Mail.Read"
+        ],
+        "usedModels": [
+          "ActionInput_outlook_fetcheventcontent",
+          "ActionOutput_outlook_fetcheventcontent"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync the calendars list of the user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/calendars"
+          }
+        ],
+        "input": "SyncMetadata_outlook_calendars",
+        "name": "calendars",
+        "output": [
+          "OutlookCalendar"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Calendars.Read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "OutlookCalendar",
+          "SyncMetadata_outlook_calendars"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
       {
         "type": "sync",
         "description": "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
@@ -77,34 +126,6 @@
         "usedModels": [
           "OutlookCalendarEvent",
           "SyncMetadata_outlook_events"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Sync the calendars list of the user",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/calendars"
-          }
-        ],
-        "input": "SyncMetadata_outlook_calendars",
-        "name": "calendars",
-        "output": [
-          "OutlookCalendar"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Calendars.Read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "OutlookCalendar",
-          "SyncMetadata_outlook_calendars"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

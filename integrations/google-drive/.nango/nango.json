@@ -26,28 +26,6 @@
       },
       {
         "type": "action",
-        "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/upload-document",
-          "group": "Documents"
-        },
-        "input": "ActionInput_google_drive_uploaddocument",
-        "name": "upload-document",
-        "output": [
-          "ActionOutput_google_drive_uploaddocument"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
-        ],
-        "usedModels": [
-          "ActionInput_google_drive_uploaddocument",
-          "ActionOutput_google_drive_uploaddocument"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
         "endpoint": {
           "method": "GET",
@@ -67,6 +45,28 @@
           "ActionOutput_google_drive_listdrives"
         ],
         "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/upload-document",
+          "group": "Documents"
+        },
+        "input": "ActionInput_google_drive_uploaddocument",
+        "name": "upload-document",
+        "output": [
+          "ActionOutput_google_drive_uploaddocument"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_uploaddocument",
+          "ActionOutput_google_drive_uploaddocument"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [

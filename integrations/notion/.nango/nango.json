@@ -4,26 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/contents/single",
-          "group": "Contents"
-        },
-        "input": "ActionInput_notion_fetchcontentmetadata",
-        "name": "fetch-content-metadata",
-        "output": [
-          "ActionOutput_notion_fetchcontentmetadata"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_notion_fetchcontentmetadata",
-          "ActionOutput_notion_fetchcontentmetadata"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Create a new row in a specified Notion database. \nThe properties are mapped to Notion-compatible formats based on the database schema. \nSupported property types include:\n- `title` (string): Creates a title property.\n- `select` (string): Creates a select property.\n- `multi_select` (array of strings): Creates a multi-select property.\n- `status` (string): Creates a status property.\n- `date` (string or object): Supports ISO date strings or objects with a `start` field.\n- `checkbox` (boolean): Creates a checkbox property.\n- `number` (number): Creates a number property.\n- `url` (string): Creates a URL property.\n- `email` (string): Creates an email property.\n- `phone_number` (string): Creates a phone number property.\n- `rich_text` (string): Creates a rich text property.\n- `relation` (array of IDs): Creates a relation property.",
         "endpoint": {
           "method": "POST",
@@ -39,6 +19,26 @@
         "usedModels": [
           "ActionInput_notion_createdatabaserow",
           "ActionOutput_notion_createdatabaserow"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/contents/single",
+          "group": "Contents"
+        },
+        "input": "ActionInput_notion_fetchcontentmetadata",
+        "name": "fetch-content-metadata",
+        "output": [
+          "ActionOutput_notion_fetchcontentmetadata"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_fetchcontentmetadata",
+          "ActionOutput_notion_fetchcontentmetadata"
         ],
         "version": "2.0.0"
       }
@@ -73,33 +73,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of users from Notion",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_notion_users",
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every day",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_notion_users"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Sync a database content with each row as an entry. Store the top level\ndatabase information in the metadata to be able to reconcile the database",
         "auto_start": true,
         "endpoints": [
@@ -123,6 +96,33 @@
           "SyncMetadata_notion_databases"
         ],
         "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Notion",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_notion_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_notion_users"
+        ],
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

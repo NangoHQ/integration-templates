@@ -4,6 +4,25 @@
     "actions": [
       {
         "type": "action",
+        "description": "Uploads a file to ExactOnline and link it to an invoice",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices/attach-file"
+        },
+        "input": "ActionInput_exact_online_attachfileinvoice",
+        "name": "attach-file-invoice",
+        "output": [
+          "ActionOutput_exact_online_attachfileinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_attachfileinvoice",
+          "ActionOutput_exact_online_attachfileinvoice"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Creates a customer in ExactOnline",
         "endpoint": {
           "method": "POST",
@@ -19,26 +38,6 @@
         "usedModels": [
           "ActionInput_exact_online_createcustomer",
           "ActionOutput_exact_online_createcustomer"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Updates a customer in ExactOnline",
-        "endpoint": {
-          "method": "PUT",
-          "path": "/customers",
-          "group": "Customers"
-        },
-        "input": "ActionInput_exact_online_updatecustomer",
-        "name": "update-customer",
-        "output": [
-          "ActionOutput_exact_online_updatecustomer"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_exact_online_updatecustomer",
-          "ActionOutput_exact_online_updatecustomer"
         ],
         "version": "2.0.0"
       },
@@ -64,6 +63,26 @@
       },
       {
         "type": "action",
+        "description": "Updates a customer in ExactOnline",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_exact_online_updatecustomer",
+        "name": "update-customer",
+        "output": [
+          "ActionOutput_exact_online_updatecustomer"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_exact_online_updatecustomer",
+          "ActionOutput_exact_online_updatecustomer"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Updates an invoice in ExactOnline",
         "endpoint": {
           "method": "PUT",
@@ -79,25 +98,6 @@
         "usedModels": [
           "ActionInput_exact_online_updateinvoice",
           "ActionOutput_exact_online_updateinvoice"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Uploads a file to ExactOnline and link it to an invoice",
-        "endpoint": {
-          "method": "POST",
-          "path": "/invoices/attach-file"
-        },
-        "input": "ActionInput_exact_online_attachfileinvoice",
-        "name": "attach-file-invoice",
-        "output": [
-          "ActionOutput_exact_online_attachfileinvoice"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_exact_online_attachfileinvoice",
-          "ActionOutput_exact_online_attachfileinvoice"
         ],
         "version": "2.0.0"
       }

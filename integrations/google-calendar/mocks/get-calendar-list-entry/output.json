@@ -1,0 +1,9 @@
+{
+  "kind": "calendar#calendarListEntry",
+  "etag": "\"1765282065240623\"",
+  "id": "khaliq@nango.dev",
+  "summary": "Khaliq's Nango Calendar",
+  "accessRole": "owner",
+  "backgroundColor": "#9fe1e7",
+  "foregroundColor": "#000000"
+}

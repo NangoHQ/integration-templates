@@ -4,28 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Creates a new user in your Okta org without credentials.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/users",
-          "group": "Users"
-        },
-        "input": "ActionInput_okta_createuser",
-        "name": "create-user",
-        "output": [
-          "ActionOutput_okta_createuser"
-        ],
-        "scopes": [
-          "okta.users.manage"
-        ],
-        "usedModels": [
-          "ActionInput_okta_createuser",
-          "ActionOutput_okta_createuser"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Adds a new group with the OKTA_GROUP type to your org",
         "endpoint": {
           "method": "POST",
@@ -66,6 +44,28 @@
           "ActionOutput_okta_addusergroup"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new user in your Okta org without credentials.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_okta_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_okta_createuser"
+        ],
+        "scopes": [
+          "okta.users.manage"
+        ],
+        "usedModels": [
+          "ActionInput_okta_createuser",
+          "ActionOutput_okta_createuser"
+        ],
+        "version": "2.0.0"
       },
       {
         "type": "action",

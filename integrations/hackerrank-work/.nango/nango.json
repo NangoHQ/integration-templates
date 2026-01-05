@@ -4,26 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Action to create a test on hackerrank work",
-        "endpoint": {
-          "method": "POST",
-          "path": "/tests",
-          "group": "Tests"
-        },
-        "input": "ActionInput_hackerrank_work_createtest",
-        "name": "create-test",
-        "output": [
-          "ActionOutput_hackerrank_work_createtest"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_hackerrank_work_createtest",
-          "ActionOutput_hackerrank_work_createtest"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Action to create an interview on hackerrank work",
         "endpoint": {
           "method": "POST",
@@ -39,6 +19,26 @@
         "usedModels": [
           "ActionInput_hackerrank_work_createinterview",
           "ActionOutput_hackerrank_work_createinterview"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a test on hackerrank work",
+        "endpoint": {
+          "method": "POST",
+          "path": "/tests",
+          "group": "Tests"
+        },
+        "input": "ActionInput_hackerrank_work_createtest",
+        "name": "create-test",
+        "output": [
+          "ActionOutput_hackerrank_work_createtest"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_hackerrank_work_createtest",
+          "ActionOutput_hackerrank_work_createtest"
         ],
         "version": "2.0.0"
       }

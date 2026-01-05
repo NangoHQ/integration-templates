@@ -28,29 +28,29 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches the list of gong users",
+        "description": "Fetches a list of call transcripts from Gong",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/users",
-            "group": "Users"
+            "path": "/call-transcripts",
+            "group": "Calls"
           }
         ],
-        "input": "SyncMetadata_gong_users",
-        "name": "users",
+        "input": "SyncMetadata_gong_calltranscripts",
+        "name": "call-transcripts",
         "output": [
-          "User"
+          "GongCallTranscriptSyncOutput"
         ],
-        "runs": "every day",
+        "runs": "every 1h",
         "scopes": [
-          "api:users:read"
+          "api:calls:read:transcript"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "User",
-          "SyncMetadata_gong_users"
+          "GongCallTranscriptSyncOutput",
+          "SyncMetadata_gong_calltranscripts"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -88,29 +88,29 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of call transcripts from Gong",
+        "description": "Fetches the list of gong users",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/call-transcripts",
-            "group": "Calls"
+            "path": "/users",
+            "group": "Users"
           }
         ],
-        "input": "SyncMetadata_gong_calltranscripts",
-        "name": "call-transcripts",
+        "input": "SyncMetadata_gong_users",
+        "name": "users",
         "output": [
-          "GongCallTranscriptSyncOutput"
+          "User"
         ],
-        "runs": "every 1h",
+        "runs": "every day",
         "scopes": [
-          "api:calls:read:transcript"
+          "api:users:read"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "GongCallTranscriptSyncOutput",
-          "SyncMetadata_gong_calltranscripts"
+          "User",
+          "SyncMetadata_gong_users"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

@@ -4,6 +4,28 @@
     "actions": [
       {
         "type": "action",
+        "description": "Create an issue in Linear",
+        "endpoint": {
+          "method": "POST",
+          "path": "/issues",
+          "group": "Issues"
+        },
+        "input": "ActionInput_linear_createissue",
+        "name": "create-issue",
+        "output": [
+          "ActionOutput_linear_createissue"
+        ],
+        "scopes": [
+          "issues:create"
+        ],
+        "usedModels": [
+          "ActionInput_linear_createissue",
+          "ActionOutput_linear_createissue"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Introspection endpoint to fetch the fields available per a model",
         "endpoint": {
           "method": "GET",
@@ -41,28 +63,6 @@
           "ActionOutput_linear_fetchmodels"
         ],
         "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create an issue in Linear",
-        "endpoint": {
-          "method": "POST",
-          "path": "/issues",
-          "group": "Issues"
-        },
-        "input": "ActionInput_linear_createissue",
-        "name": "create-issue",
-        "output": [
-          "ActionOutput_linear_createissue"
-        ],
-        "scopes": [
-          "issues:create"
-        ],
-        "usedModels": [
-          "ActionInput_linear_createissue",
-          "ActionOutput_linear_createissue"
-        ],
-        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -115,6 +115,33 @@
       },
       {
         "type": "sync",
+        "description": "Fetches a list of milesontes from Linear",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/milestones",
+            "group": "Milestones"
+          }
+        ],
+        "input": "SyncMetadata_linear_milestones",
+        "name": "milestones",
+        "output": [
+          "LinearMilestone"
+        ],
+        "runs": "every 6min",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "LinearMilestone",
+          "SyncMetadata_linear_milestones"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
         "description": "Fetches a list of projects from Linear",
         "auto_start": true,
         "endpoints": [
@@ -136,60 +163,6 @@
         "usedModels": [
           "LinearProject",
           "SyncMetadata_linear_projects"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of users from Linear",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_linear_users",
-        "name": "users",
-        "output": [
-          "LinearUser"
-        ],
-        "runs": "every 5min",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "LinearUser",
-          "SyncMetadata_linear_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of teams from Linear",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/teams",
-            "group": "Teams"
-          }
-        ],
-        "input": "SyncMetadata_linear_teams",
-        "name": "teams",
-        "output": [
-          "LinearTeam"
-        ],
-        "runs": "every 5min",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "LinearTeam",
-          "SyncMetadata_linear_teams"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -223,29 +196,56 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of milesontes from Linear",
+        "description": "Fetches a list of teams from Linear",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/milestones",
-            "group": "Milestones"
+            "path": "/teams",
+            "group": "Teams"
           }
         ],
-        "input": "SyncMetadata_linear_milestones",
-        "name": "milestones",
+        "input": "SyncMetadata_linear_teams",
+        "name": "teams",
         "output": [
-          "LinearMilestone"
+          "LinearTeam"
         ],
-        "runs": "every 6min",
+        "runs": "every 5min",
         "scopes": [],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "LinearMilestone",
-          "SyncMetadata_linear_milestones"
+          "LinearTeam",
+          "SyncMetadata_linear_teams"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Linear",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_linear_users",
+        "name": "users",
+        "output": [
+          "LinearUser"
+        ],
+        "runs": "every 5min",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "LinearUser",
+          "SyncMetadata_linear_users"
+        ],
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

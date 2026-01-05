@@ -25,7 +25,7 @@
           "offline_access"
         ],
         "sync_type": "full",
-        "track_deletes": true,
+        "track_deletes": false,
         "usedModels": [
           "OneDriveFileSelection",
           "SyncMetadata_one_drive_personal_userfilesselection"
@@ -36,7 +36,8 @@
     ],
     "onEventScripts": {
       "post-connection-creation": [],
-      "pre-connection-deletion": []
+      "pre-connection-deletion": [],
+      "validate-connection": []
     }
   }
 ]

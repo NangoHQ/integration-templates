@@ -4,6 +4,28 @@
     "actions": [
       {
         "type": "action",
+        "description": "Creates a meeting in Zoom.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/meetings",
+          "group": "Meetings"
+        },
+        "input": "ActionInput_zoom_createmeeting",
+        "name": "create-meeting",
+        "output": [
+          "ActionOutput_zoom_createmeeting"
+        ],
+        "scopes": [
+          "meeting:write"
+        ],
+        "usedModels": [
+          "ActionInput_zoom_createmeeting",
+          "ActionOutput_zoom_createmeeting"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Creates a user in Zoom. Requires Pro account or higher",
         "endpoint": {
           "method": "POST",
@@ -27,23 +49,23 @@
       },
       {
         "type": "action",
-        "description": "Fetch current user information",
+        "description": "Deletes a meeting in Zoom",
         "endpoint": {
-          "method": "GET",
-          "path": "/whoami",
-          "group": "Users"
+          "method": "DELETE",
+          "path": "/meetings",
+          "group": "Meetings"
         },
-        "input": "ActionInput_zoom_whoami",
-        "name": "whoami",
+        "input": "ActionInput_zoom_deletemeeting",
+        "name": "delete-meeting",
         "output": [
-          "ActionOutput_zoom_whoami"
+          "ActionOutput_zoom_deletemeeting"
         ],
         "scopes": [
-          "user:read:user"
+          "meeting:write"
         ],
         "usedModels": [
-          "ActionInput_zoom_whoami",
-          "ActionOutput_zoom_whoami"
+          "ActionInput_zoom_deletemeeting",
+          "ActionOutput_zoom_deletemeeting"
         ],
         "version": "1.0.0"
       },
@@ -72,80 +94,28 @@
       },
       {
         "type": "action",
-        "description": "Creates a meeting in Zoom.",
+        "description": "Fetch current user information",
         "endpoint": {
-          "method": "POST",
-          "path": "/meetings",
-          "group": "Meetings"
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
         },
-        "input": "ActionInput_zoom_createmeeting",
-        "name": "create-meeting",
+        "input": "ActionInput_zoom_whoami",
+        "name": "whoami",
         "output": [
-          "ActionOutput_zoom_createmeeting"
+          "ActionOutput_zoom_whoami"
         ],
         "scopes": [
-          "meeting:write"
+          "user:read:user"
         ],
         "usedModels": [
-          "ActionInput_zoom_createmeeting",
-          "ActionOutput_zoom_createmeeting"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Deletes a meeting in Zoom",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/meetings",
-          "group": "Meetings"
-        },
-        "input": "ActionInput_zoom_deletemeeting",
-        "name": "delete-meeting",
-        "output": [
-          "ActionOutput_zoom_deletemeeting"
-        ],
-        "scopes": [
-          "meeting:write"
-        ],
-        "usedModels": [
-          "ActionInput_zoom_deletemeeting",
-          "ActionOutput_zoom_deletemeeting"
+          "ActionInput_zoom_whoami",
+          "ActionOutput_zoom_whoami"
         ],
         "version": "1.0.0"
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches a list of users from Zoom",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_zoom_users",
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "user:read",
-          "user:read:admin"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_zoom_users"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches a list of meetings from Zoom",
@@ -201,6 +171,36 @@
         "usedModels": [
           "RecordingFile",
           "SyncMetadata_zoom_recordingfiles"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Zoom",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_zoom_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "user:read",
+          "user:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_zoom_users"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

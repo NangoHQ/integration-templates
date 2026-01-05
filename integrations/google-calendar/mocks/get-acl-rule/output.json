@@ -1,0 +1,10 @@
+{
+  "kind": "calendar#aclRule",
+  "etag": "\"00000000000000000000\"",
+  "id": "user:khaliq@nango.dev",
+  "scope": {
+    "type": "user",
+    "value": "khaliq@nango.dev"
+  },
+  "role": "owner"
+}

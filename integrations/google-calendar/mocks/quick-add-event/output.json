@@ -1,0 +1,15 @@
+{
+  "kind": "calendar#event",
+  "etag": "\"3532190428455966\"",
+  "id": "2vc1bh0sk0fg0jevjpo2vj1rf4",
+  "status": "confirmed",
+  "summary": "Test meeting",
+  "start": {
+    "dateTime": "2025-12-19T15:00:00+01:00",
+    "timeZone": "Europe/Oslo"
+  },
+  "end": {
+    "dateTime": "2025-12-19T15:50:00+01:00",
+    "timeZone": "Europe/Oslo"
+  }
+}

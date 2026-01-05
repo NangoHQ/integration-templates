@@ -24,26 +24,6 @@
       },
       {
         "type": "action",
-        "description": "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 2MB.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/candidate-upload-resume",
-          "group": "Candidates"
-        },
-        "input": "ActionInput_gem_uploadresume",
-        "name": "upload-resume",
-        "output": [
-          "ActionOutput_gem_uploadresume"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_gem_uploadresume",
-          "ActionOutput_gem_uploadresume"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Create a note for a candidate",
         "endpoint": {
           "method": "POST",
@@ -81,9 +61,56 @@
           "ActionOutput_gem_updateapplication"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 2MB.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/candidate-upload-resume",
+          "group": "Candidates"
+        },
+        "input": "ActionInput_gem_uploadresume",
+        "name": "upload-resume",
+        "output": [
+          "ActionOutput_gem_uploadresume"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_gem_uploadresume",
+          "ActionOutput_gem_uploadresume"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [
+      {
+        "type": "sync",
+        "description": "Get a list of all applications from Gem ATS",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/applications",
+            "group": "Applications"
+          }
+        ],
+        "input": "SyncMetadata_gem_applications",
+        "name": "applications",
+        "output": [
+          "Application"
+        ],
+        "runs": "every 1h",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Application",
+          "SyncMetadata_gem_applications"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
       {
         "type": "sync",
         "description": "Get all candidates from Gem ATS",
@@ -167,27 +194,27 @@
       },
       {
         "type": "sync",
-        "description": "Get a list of all users from Gem",
+        "description": "Get a list of all jobs from Gem ATS",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/users",
-            "group": "Users"
+            "path": "/jobs",
+            "group": "Jobs"
           }
         ],
-        "input": "SyncMetadata_gem_users",
-        "name": "users",
+        "input": "SyncMetadata_gem_jobs",
+        "name": "jobs",
         "output": [
-          "TeamMemberUser"
+          "Job"
         ],
         "runs": "every 1h",
         "scopes": [],
-        "sync_type": "full",
+        "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "TeamMemberUser",
-          "SyncMetadata_gem_users"
+          "Job",
+          "SyncMetadata_gem_jobs"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []
@@ -221,54 +248,27 @@
       },
       {
         "type": "sync",
-        "description": "Get a list of all applications from Gem ATS",
+        "description": "Get a list of all users from Gem",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/applications",
-            "group": "Applications"
+            "path": "/users",
+            "group": "Users"
           }
         ],
-        "input": "SyncMetadata_gem_applications",
-        "name": "applications",
+        "input": "SyncMetadata_gem_users",
+        "name": "users",
         "output": [
-          "Application"
+          "TeamMemberUser"
         ],
         "runs": "every 1h",
         "scopes": [],
-        "sync_type": "incremental",
+        "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Application",
-          "SyncMetadata_gem_applications"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Get a list of all jobs from Gem ATS",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/jobs",
-            "group": "Jobs"
-          }
-        ],
-        "input": "SyncMetadata_gem_jobs",
-        "name": "jobs",
-        "output": [
-          "Job"
-        ],
-        "runs": "every 1h",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Job",
-          "SyncMetadata_gem_jobs"
+          "TeamMemberUser",
+          "SyncMetadata_gem_users"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

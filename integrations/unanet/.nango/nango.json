@@ -4,6 +4,45 @@
     "actions": [
       {
         "type": "action",
+        "description": "Create a company in the system",
+        "endpoint": {
+          "method": "POST",
+          "path": "/company"
+        },
+        "input": "ActionInput_unanet_createcompany",
+        "name": "create-company",
+        "output": [
+          "ActionOutput_unanet_createcompany"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createcompany",
+          "ActionOutput_unanet_createcompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a contact in the system",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_unanet_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_unanet_createcontact"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createcontact",
+          "ActionOutput_unanet_createcontact"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Create a lead with with information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
         "endpoint": {
           "method": "POST",
@@ -24,23 +63,41 @@
       },
       {
         "type": "action",
-        "description": "Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
+        "description": "Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.",
         "endpoint": {
-          "method": "PUT",
-          "path": "/leads",
-          "group": "Leads"
+          "method": "POST",
+          "path": "/opportunity"
         },
-        "input": "ActionInput_unanet_updatelead",
-        "name": "update-lead",
+        "input": "ActionInput_unanet_createopportunity",
+        "name": "create-opportunity",
         "output": [
-          "ActionOutput_unanet_updatelead"
+          "ActionOutput_unanet_createopportunity"
         ],
         "scopes": [],
         "usedModels": [
-          "ActionInput_unanet_updatelead",
-          "ActionOutput_unanet_updatelead"
+          "ActionInput_unanet_createopportunity",
+          "ActionOutput_unanet_createopportunity"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve information about a company",
+        "endpoint": {
+          "method": "GET",
+          "path": "/company"
+        },
+        "input": "ActionInput_unanet_getcompany",
+        "name": "get-company",
+        "output": [
+          "ActionOutput_unanet_getcompany"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_getcompany",
+          "ActionOutput_unanet_getcompany"
+        ],
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -83,83 +140,6 @@
       },
       {
         "type": "action",
-        "description": "Retrieve information about a company",
-        "endpoint": {
-          "method": "GET",
-          "path": "/company"
-        },
-        "input": "ActionInput_unanet_getcompany",
-        "name": "get-company",
-        "output": [
-          "ActionOutput_unanet_getcompany"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_unanet_getcompany",
-          "ActionOutput_unanet_getcompany"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create a company in the system",
-        "endpoint": {
-          "method": "POST",
-          "path": "/company"
-        },
-        "input": "ActionInput_unanet_createcompany",
-        "name": "create-company",
-        "output": [
-          "ActionOutput_unanet_createcompany"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_unanet_createcompany",
-          "ActionOutput_unanet_createcompany"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/opportunity"
-        },
-        "input": "ActionInput_unanet_createopportunity",
-        "name": "create-opportunity",
-        "output": [
-          "ActionOutput_unanet_createopportunity"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_unanet_createopportunity",
-          "ActionOutput_unanet_createopportunity"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create a contact in the system",
-        "endpoint": {
-          "method": "POST",
-          "path": "/contacts",
-          "group": "Contacts"
-        },
-        "input": "ActionInput_unanet_createcontact",
-        "name": "create-contact",
-        "output": [
-          "ActionOutput_unanet_createcontact"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_unanet_createcontact",
-          "ActionOutput_unanet_createcontact"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "List all the stages that exist in the system. Use this action to find\nthe correct stage to be able to create an opportunity.",
         "endpoint": {
           "method": "GET",
@@ -174,6 +154,26 @@
         "usedModels": [
           "ActionInput_unanet_liststages",
           "ActionOutput_unanet_liststages"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_unanet_updatelead",
+        "name": "update-lead",
+        "output": [
+          "ActionOutput_unanet_updatelead"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_updatelead",
+          "ActionOutput_unanet_updatelead"
         ],
         "version": "2.0.0"
       }

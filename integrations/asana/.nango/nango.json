@@ -4,20 +4,41 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync",
+        "description": "Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields",
         "endpoint": {
-          "method": "GET",
-          "path": "/workspaces/limit"
+          "method": "POST",
+          "path": "/tasks",
+          "group": "Tasks"
         },
-        "input": "ActionInput_asana_fetchworkspaces",
-        "name": "fetch-workspaces",
+        "input": "ActionInput_asana_createtask",
+        "name": "create-task",
         "output": [
-          "ActionOutput_asana_fetchworkspaces"
+          "ActionOutput_asana_createtask"
         ],
         "scopes": [],
         "usedModels": [
-          "ActionInput_asana_fetchworkspaces",
-          "ActionOutput_asana_fetchworkspaces"
+          "ActionInput_asana_createtask",
+          "ActionOutput_asana_createtask"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a task.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_asana_deletetask",
+        "name": "delete-task",
+        "output": [
+          "ActionOutput_asana_deletetask"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_deletetask",
+          "ActionOutput_asana_deletetask"
         ],
         "version": "2.0.0"
       },
@@ -42,21 +63,20 @@
       },
       {
         "type": "action",
-        "description": "Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields",
+        "description": "Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync",
         "endpoint": {
-          "method": "POST",
-          "path": "/tasks",
-          "group": "Tasks"
+          "method": "GET",
+          "path": "/workspaces/limit"
         },
-        "input": "ActionInput_asana_createtask",
-        "name": "create-task",
+        "input": "ActionInput_asana_fetchworkspaces",
+        "name": "fetch-workspaces",
         "output": [
-          "ActionOutput_asana_createtask"
+          "ActionOutput_asana_fetchworkspaces"
         ],
         "scopes": [],
         "usedModels": [
-          "ActionInput_asana_createtask",
-          "ActionOutput_asana_createtask"
+          "ActionInput_asana_fetchworkspaces",
+          "ActionOutput_asana_fetchworkspaces"
         ],
         "version": "2.0.0"
       },
@@ -79,29 +99,36 @@
           "ActionOutput_asana_updatetask"
         ],
         "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Delete a task.",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/tasks",
-          "group": "Tasks"
-        },
-        "input": "ActionInput_asana_deletetask",
-        "name": "delete-task",
-        "output": [
-          "ActionOutput_asana_deletetask"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_asana_deletetask",
-          "ActionOutput_asana_deletetask"
-        ],
-        "version": "2.0.0"
       }
     ],
     "syncs": [
+      {
+        "type": "sync",
+        "description": "Retrieves all projects for a user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/projects",
+            "group": "Projects"
+          }
+        ],
+        "input": "SyncMetadata_asana_projects",
+        "name": "projects",
+        "output": [
+          "AsanaProject"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "AsanaProject",
+          "SyncMetadata_asana_projects"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
       {
         "type": "sync",
         "description": "Retrieve all tasks that exist in the workspace",
@@ -179,33 +206,6 @@
         "usedModels": [
           "AsanaWorkspace",
           "SyncMetadata_asana_workspaces"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Retrieves all projects for a user",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/projects",
-            "group": "Projects"
-          }
-        ],
-        "input": "SyncMetadata_asana_projects",
-        "name": "projects",
-        "output": [
-          "AsanaProject"
-        ],
-        "runs": "every hour",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "AsanaProject",
-          "SyncMetadata_asana_projects"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

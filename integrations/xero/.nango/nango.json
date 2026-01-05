@@ -26,23 +26,23 @@
       },
       {
         "type": "action",
-        "description": "Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.",
+        "description": "Creates one or more credit notes in Xero.\nNote: Does NOT check if the credit note already exists.",
         "endpoint": {
-          "method": "PUT",
-          "path": "/contacts",
-          "group": "Contacts"
+          "method": "POST",
+          "path": "/credit-notes",
+          "group": "Credit Notes"
         },
-        "input": "ActionInput_xero_updatecontact",
-        "name": "update-contact",
+        "input": "ActionInput_xero_createcreditnote",
+        "name": "create-credit-note",
         "output": [
-          "ActionOutput_xero_updatecontact"
+          "ActionOutput_xero_createcreditnote"
         ],
         "scopes": [
-          "accounting.contacts"
+          "accounting.transactions"
         ],
         "usedModels": [
-          "ActionInput_xero_updatecontact",
-          "ActionOutput_xero_updatecontact"
+          "ActionInput_xero_createcreditnote",
+          "ActionOutput_xero_createcreditnote"
         ],
         "version": "2.0.0"
       },
@@ -70,67 +70,23 @@
       },
       {
         "type": "action",
-        "description": "Updates one or more invoices in Xero. To delete an invoice\nthat is in DRAFT or SUBMITTED set the status to DELETED. If an\ninvoice has been AUTHORISED it can't be deleted but you can set\nthe status to VOIDED.",
-        "endpoint": {
-          "method": "PUT",
-          "path": "/invoices",
-          "group": "Invoices"
-        },
-        "input": "ActionInput_xero_updateinvoice",
-        "name": "update-invoice",
-        "output": [
-          "ActionOutput_xero_updateinvoice"
-        ],
-        "scopes": [
-          "accounting.transactions"
-        ],
-        "usedModels": [
-          "ActionInput_xero_updateinvoice",
-          "ActionOutput_xero_updateinvoice"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Creates one or more credit notes in Xero.\nNote: Does NOT check if the credit note already exists.",
+        "description": "Creates one or more items in Xero.\nNote: Does NOT check if the item already exists.",
         "endpoint": {
           "method": "POST",
-          "path": "/credit-notes",
-          "group": "Credit Notes"
+          "path": "/items",
+          "group": "Items"
         },
-        "input": "ActionInput_xero_createcreditnote",
-        "name": "create-credit-note",
+        "input": "ActionInput_xero_createitem",
+        "name": "create-item",
         "output": [
-          "ActionOutput_xero_createcreditnote"
+          "ActionOutput_xero_createitem"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.settings"
         ],
         "usedModels": [
-          "ActionInput_xero_createcreditnote",
-          "ActionOutput_xero_createcreditnote"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Updates one or more credit notes in Xero.",
-        "endpoint": {
-          "method": "PUT",
-          "path": "/credit-notes",
-          "group": "Credit Notes"
-        },
-        "input": "ActionInput_xero_updatecreditnote",
-        "name": "update-credit-note",
-        "output": [
-          "ActionOutput_xero_updatecreditnote"
-        ],
-        "scopes": [
-          "accounting.transactions"
-        ],
-        "usedModels": [
-          "ActionInput_xero_updatecreditnote",
-          "ActionOutput_xero_updatecreditnote"
+          "ActionInput_xero_createitem",
+          "ActionOutput_xero_createitem"
         ],
         "version": "2.0.0"
       },
@@ -158,28 +114,6 @@
       },
       {
         "type": "action",
-        "description": "Creates one or more items in Xero.\nNote: Does NOT check if the item already exists.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/items",
-          "group": "Items"
-        },
-        "input": "ActionInput_xero_createitem",
-        "name": "create-item",
-        "output": [
-          "ActionOutput_xero_createitem"
-        ],
-        "scopes": [
-          "accounting.settings"
-        ],
-        "usedModels": [
-          "ActionInput_xero_createitem",
-          "ActionOutput_xero_createitem"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
         "endpoint": {
           "method": "GET",
@@ -197,6 +131,72 @@
           "ActionOutput_xero_gettenants"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_xero_updatecontact",
+        "name": "update-contact",
+        "output": [
+          "ActionOutput_xero_updatecontact"
+        ],
+        "scopes": [
+          "accounting.contacts"
+        ],
+        "usedModels": [
+          "ActionInput_xero_updatecontact",
+          "ActionOutput_xero_updatecontact"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates one or more credit notes in Xero.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/credit-notes",
+          "group": "Credit Notes"
+        },
+        "input": "ActionInput_xero_updatecreditnote",
+        "name": "update-credit-note",
+        "output": [
+          "ActionOutput_xero_updatecreditnote"
+        ],
+        "scopes": [
+          "accounting.transactions"
+        ],
+        "usedModels": [
+          "ActionInput_xero_updatecreditnote",
+          "ActionOutput_xero_updatecreditnote"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates one or more invoices in Xero. To delete an invoice\nthat is in DRAFT or SUBMITTED set the status to DELETED. If an\ninvoice has been AUTHORISED it can't be deleted but you can set\nthe status to VOIDED.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_xero_updateinvoice",
+        "name": "update-invoice",
+        "output": [
+          "ActionOutput_xero_updateinvoice"
+        ],
+        "scopes": [
+          "accounting.transactions"
+        ],
+        "usedModels": [
+          "ActionInput_xero_updateinvoice",
+          "ActionOutput_xero_updateinvoice"
+        ],
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -224,35 +224,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches all Xero contacts.\nDetails: incremental sync, detects deletes, metadata is not required.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/contacts",
-            "group": "Contacts"
-          }
-        ],
-        "input": "SyncMetadata_xero_contacts",
-        "name": "contacts",
-        "output": [
-          "Contact"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "accounting.contacts"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Contact",
-          "SyncMetadata_xero_contacts"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches all accounts in Xero (chart of accounts). Incremental sync, detects deletes, metadata is not required.",
         "auto_start": true,
         "endpoints": [
@@ -276,64 +247,6 @@
         "usedModels": [
           "Account",
           "SyncMetadata_xero_accounts"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not\nrequired.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/items",
-            "group": "Items"
-          }
-        ],
-        "input": "SyncMetadata_xero_items",
-        "name": "items",
-        "output": [
-          "Item"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "accounting.settings"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Item",
-          "SyncMetadata_xero_items"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches all invoices in Xero. Incremental sync.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/invoices",
-            "group": "Invoices"
-          }
-        ],
-        "input": "SyncMetadata_xero_invoices",
-        "name": "invoices",
-        "output": [
-          "Invoice"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "accounting.transactions"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Invoice",
-          "SyncMetadata_xero_invoices"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -369,6 +282,64 @@
       },
       {
         "type": "sync",
+        "description": "Fetches all Xero contacts.\nDetails: incremental sync, detects deletes, metadata is not required.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/contacts",
+            "group": "Contacts"
+          }
+        ],
+        "input": "SyncMetadata_xero_contacts",
+        "name": "contacts",
+        "output": [
+          "Contact"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "accounting.contacts"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Contact",
+          "SyncMetadata_xero_contacts"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all credit notes in Xero. Incremental sync.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/credit-notes",
+            "group": "Credit Notes"
+          }
+        ],
+        "input": "SyncMetadata_xero_creditnotes",
+        "name": "credit-notes",
+        "output": [
+          "CreditNote"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "accounting.transactions"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "CreditNote",
+          "SyncMetadata_xero_creditnotes"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
         "description": "Fetch all general ledger entries in Xero",
         "auto_start": true,
         "endpoints": [
@@ -392,6 +363,64 @@
         "usedModels": [
           "GeneralLedger",
           "SyncMetadata_xero_generalledger"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all invoices in Xero. Incremental sync.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/invoices",
+            "group": "Invoices"
+          }
+        ],
+        "input": "SyncMetadata_xero_invoices",
+        "name": "invoices",
+        "output": [
+          "Invoice"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "accounting.transactions"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Invoice",
+          "SyncMetadata_xero_invoices"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not\nrequired.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/items",
+            "group": "Items"
+          }
+        ],
+        "input": "SyncMetadata_xero_items",
+        "name": "items",
+        "output": [
+          "Item"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "accounting.settings"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Item",
+          "SyncMetadata_xero_items"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -451,35 +480,6 @@
         "usedModels": [
           "Payment",
           "SyncMetadata_xero_payments"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches all credit notes in Xero. Incremental sync.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/credit-notes",
-            "group": "Credit Notes"
-          }
-        ],
-        "input": "SyncMetadata_xero_creditnotes",
-        "name": "credit-notes",
-        "output": [
-          "CreditNote"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "accounting.transactions"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "CreditNote",
-          "SyncMetadata_xero_creditnotes"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

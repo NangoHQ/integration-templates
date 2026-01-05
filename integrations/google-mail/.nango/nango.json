@@ -4,6 +4,27 @@
     "actions": [
       {
         "type": "action",
+        "description": "An action used to fetch the contents of an attachment.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/attachment"
+        },
+        "input": "ActionInput_google_mail_fetchattachment",
+        "name": "fetch-attachment",
+        "output": [
+          "ActionOutput_google_mail_fetchattachment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_fetchattachment",
+          "ActionOutput_google_mail_fetchattachment"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Send an Email using Gmail.",
         "endpoint": {
           "method": "POST",
@@ -21,27 +42,6 @@
         "usedModels": [
           "ActionInput_google_mail_sendemail",
           "ActionOutput_google_mail_sendemail"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "An action used to fetch the contents of an attachment.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/attachment"
-        },
-        "input": "ActionInput_google_mail_fetchattachment",
-        "name": "fetch-attachment",
-        "output": [
-          "ActionOutput_google_mail_fetchattachment"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/gmail.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_mail_fetchattachment",
-          "ActionOutput_google_mail_fetchattachment"
         ],
         "version": "2.0.0"
       }
