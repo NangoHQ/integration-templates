@@ -3,14 +3,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    parent: z.object({
-        page_id: z.string()
-            .describe('Page ID to add comment to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
-    }).describe('Parent page for the comment.'),
-    rich_text: z.array(z.any())
-        .describe('Comment content as rich text array.'),
-    discussion_id: z.string().optional()
-        .describe('Discussion thread ID to reply to.')
+    parent: z
+        .object({
+            page_id: z.string().describe('Page ID to add comment to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
+        })
+        .describe('Parent page for the comment.'),
+    rich_text: z.array(z.any()).describe('Comment content as rich text array.'),
+    discussion_id: z.string().optional().describe('Discussion thread ID to reply to.')
 });
 
 const OutputSchema = z.object({

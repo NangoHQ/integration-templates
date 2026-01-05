@@ -3,17 +3,21 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    parent: z.object({
-        page_id: z.string()
-            .describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
-    }).describe('Parent page where database will be created.'),
-    title: z.array(z.object({
-        text: z.object({
-            content: z.string()
+    parent: z
+        .object({
+            page_id: z.string().describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
         })
-    })).describe('Database title as rich text array.'),
-    properties: z.record(z.string(), z.any())
-        .describe('Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}')
+        .describe('Parent page where database will be created.'),
+    title: z
+        .array(
+            z.object({
+                text: z.object({
+                    content: z.string()
+                })
+            })
+        )
+        .describe('Database title as rich text array.'),
+    properties: z.record(z.string(), z.any()).describe('Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}')
 });
 
 const OutputSchema = z.object({

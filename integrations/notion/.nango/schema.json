@@ -113,6 +113,333 @@
       "type": "object",
       "additionalProperties": false
     },
+    "ActionInput_notion_appendblockchildren": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        },
+        "after": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendblockchildren": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appendbulletedlist": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendbulletedlist": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appendcalloutblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendcalloutblock": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appendcodeblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendcodeblock": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appenddivider": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appenddivider": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appendheadingblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendheadingblock": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_appendtodoblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "block_id",
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_appendtodoblock": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "object",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_archivepage": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_archivepage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_createcomment": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "page_id"
+          ],
+          "additionalProperties": false
+        },
+        "rich_text": {
+          "type": "array",
+          "items": {}
+        },
+        "discussion_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent",
+        "rich_text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "rich_text": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "rich_text"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_notion_createdatabaserow": {
       "type": "object",
       "properties": {
@@ -159,6 +486,427 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "page_id"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "parent",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_createpage": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            },
+            "database_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        },
+        "icon": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            },
+            "external": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "cover": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "external": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "parent",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createpage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_edited_time": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "last_edited_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "page_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "page_id",
+            "database_id"
+          ],
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "in_trash": {
+          "type": "boolean"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "public_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "last_edited_time",
+        "created_by",
+        "last_edited_by",
+        "parent",
+        "archived",
+        "in_trash",
+        "properties",
+        "url",
+        "public_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_deleteblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_deleteblock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_duplicatepage": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            },
+            "database_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "parent",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_duplicatepage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "page_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "page_id",
+            "database_id"
+          ],
+          "additionalProperties": false
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "parent",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_notion_fetchcontentmetadata": {
       "type": "object",
       "properties": {
@@ -201,6 +949,1142 @@
         "id",
         "type",
         "last_modified"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_getbotuser": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_getbotuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "bot": {}
+      },
+      "required": [
+        "id",
+        "object",
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_listcomments": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_listcomments": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_listusers": {
+      "type": "object",
+      "properties": {
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_listusers": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_querydatabasefiltered": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "string"
+        },
+        "filter": {},
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_querydatabasefiltered": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_querydatabasesorted": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "string"
+        },
+        "sorts": {
+          "type": "array",
+          "items": {}
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_id",
+        "sorts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_querydatabasesorted": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_querydatabase": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "string"
+        },
+        "filter": {},
+        "sorts": {
+          "type": "array",
+          "items": {}
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_querydatabase": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_restorepage": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_restorepage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrieveblockchildren": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrieveblockchildren": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrieveblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrieveblock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "has_children": {
+          "type": "boolean"
+        },
+        "created_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "type",
+        "has_children",
+        "created_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrievedatabase": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrievedatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_edited_time": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "last_edited_time",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrievepageproperty": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string"
+        },
+        "property_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id",
+        "property_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrievepageproperty": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "property_item": {}
+      },
+      "required": [
+        "object",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrievepage": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrievepage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_edited_time": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "last_edited_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "page_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "workspace": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "page_id",
+            "database_id",
+            "workspace"
+          ],
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "in_trash": {
+          "type": "boolean"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "public_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "last_edited_time",
+        "created_by",
+        "last_edited_by",
+        "parent",
+        "archived",
+        "in_trash",
+        "properties",
+        "url",
+        "public_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_retrieveuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_retrieveuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "type",
+        "name",
+        "avatar_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_searchdatabases": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_searchdatabases": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_searchpages": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_searchpages": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_search": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "property": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "property",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "sort": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "direction",
+            "timestamp"
+          ],
+          "additionalProperties": false
+        },
+        "page_size": {
+          "type": "number"
+        },
+        "cursor": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_search": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {}
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "object",
+        "results",
+        "has_more",
+        "next_cursor"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_updateblock": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "paragraph": {},
+        "heading_1": {},
+        "heading_2": {},
+        "heading_3": {},
+        "bulleted_list_item": {},
+        "numbered_list_item": {},
+        "to_do": {},
+        "toggle": {},
+        "code": {},
+        "callout": {},
+        "quote": {}
+      },
+      "required": [
+        "block_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_updateblock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "has_children": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "type",
+        "has_children"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_updatedatabase": {
+      "type": "object",
+      "properties": {
+        "database_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "description": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "database_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_updatedatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_updatepage": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "icon": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "emoji": {
+              "type": "string"
+            },
+            "external": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "cover": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "external": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "page_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_updatepage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_edited_time": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "last_edited_by": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "object",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "page_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "database_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "workspace": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "page_id",
+            "database_id",
+            "workspace"
+          ],
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "in_trash": {
+          "type": "boolean"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "public_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "last_edited_time",
+        "created_by",
+        "last_edited_by",
+        "parent",
+        "archived",
+        "in_trash",
+        "properties",
+        "url",
+        "public_url"
       ],
       "additionalProperties": false
     }

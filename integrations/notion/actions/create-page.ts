@@ -4,26 +4,30 @@ import type { ProxyConfiguration } from 'nango';
 
 // Input schema - parent and properties are required, others optional
 const InputSchema = z.object({
-    parent: z.object({
-        page_id: z.string().optional()
-            .describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
-        database_id: z.string().optional()
-            .describe('Parent database ID. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"')
-    }).describe('Parent page or database. Must include either page_id or database_id.'),
-    properties: z.record(z.string(), z.any())
+    parent: z
+        .object({
+            page_id: z.string().optional().describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
+            database_id: z.string().optional().describe('Parent database ID. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"')
+        })
+        .describe('Parent page or database. Must include either page_id or database_id.'),
+    properties: z
+        .record(z.string(), z.any())
         .describe('Page properties. For pages with page parent, use title property. For database parents, use database property schema.'),
-    children: z.array(z.any()).optional()
-        .describe('Array of block objects to add as page content.'),
-    icon: z.object({
-        type: z.string().optional(),
-        emoji: z.string().optional(),
-        external: z.object({ url: z.string() }).optional()
-    }).optional()
+    children: z.array(z.any()).optional().describe('Array of block objects to add as page content.'),
+    icon: z
+        .object({
+            type: z.string().optional(),
+            emoji: z.string().optional(),
+            external: z.object({ url: z.string() }).optional()
+        })
+        .optional()
         .describe('Page icon as emoji or external URL.'),
-    cover: z.object({
-        type: z.string().optional(),
-        external: z.object({ url: z.string() }).optional()
-    }).optional()
+    cover: z
+        .object({
+            type: z.string().optional(),
+            external: z.object({ url: z.string() }).optional()
+        })
+        .optional()
         .describe('Page cover image as external URL.')
 });
 

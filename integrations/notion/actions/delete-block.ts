@@ -3,8 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string()
-        .describe('The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"')
+    block_id: z.string().describe('The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"')
 });
 
 const OutputSchema = z.object({

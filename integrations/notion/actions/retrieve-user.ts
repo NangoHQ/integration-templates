@@ -3,8 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string()
-        .describe('The ID of the user to retrieve. Example: "d42542a8-a81c-4386-aa95-313aa4e818b3"')
+    user_id: z.string().describe('The ID of the user to retrieve. Example: "d42542a8-a81c-4386-aa95-313aa4e818b3"')
 });
 
 const OutputSchema = z.object({

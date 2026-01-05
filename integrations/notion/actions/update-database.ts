@@ -3,18 +3,19 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    database_id: z.string()
-        .describe('The ID of the database to update. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"'),
-    title: z.array(z.object({
-        text: z.object({
-            content: z.string()
-        })
-    })).optional()
+    database_id: z.string().describe('The ID of the database to update. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"'),
+    title: z
+        .array(
+            z.object({
+                text: z.object({
+                    content: z.string()
+                })
+            })
+        )
+        .optional()
         .describe('New database title as rich text array.'),
-    description: z.array(z.any()).optional()
-        .describe('Database description as rich text array.'),
-    properties: z.record(z.string(), z.any()).optional()
-        .describe('Property schema updates.')
+    description: z.array(z.any()).optional().describe('Database description as rich text array.'),
+    properties: z.record(z.string(), z.any()).optional().describe('Property schema updates.')
 });
 
 const OutputSchema = z.object({

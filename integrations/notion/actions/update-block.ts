@@ -3,30 +3,18 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string()
-        .describe('The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"'),
-    paragraph: z.any().optional()
-        .describe('Paragraph block content.'),
-    heading_1: z.any().optional()
-        .describe('Heading 1 block content.'),
-    heading_2: z.any().optional()
-        .describe('Heading 2 block content.'),
-    heading_3: z.any().optional()
-        .describe('Heading 3 block content.'),
-    bulleted_list_item: z.any().optional()
-        .describe('Bulleted list item content.'),
-    numbered_list_item: z.any().optional()
-        .describe('Numbered list item content.'),
-    to_do: z.any().optional()
-        .describe('To-do block content.'),
-    toggle: z.any().optional()
-        .describe('Toggle block content.'),
-    code: z.any().optional()
-        .describe('Code block content.'),
-    callout: z.any().optional()
-        .describe('Callout block content.'),
-    quote: z.any().optional()
-        .describe('Quote block content.')
+    block_id: z.string().describe('The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"'),
+    paragraph: z.any().optional().describe('Paragraph block content.'),
+    heading_1: z.any().optional().describe('Heading 1 block content.'),
+    heading_2: z.any().optional().describe('Heading 2 block content.'),
+    heading_3: z.any().optional().describe('Heading 3 block content.'),
+    bulleted_list_item: z.any().optional().describe('Bulleted list item content.'),
+    numbered_list_item: z.any().optional().describe('Numbered list item content.'),
+    to_do: z.any().optional().describe('To-do block content.'),
+    toggle: z.any().optional().describe('Toggle block content.'),
+    code: z.any().optional().describe('Code block content.'),
+    callout: z.any().optional().describe('Callout block content.'),
+    quote: z.any().optional().describe('Quote block content.')
 });
 
 const OutputSchema = z.object({

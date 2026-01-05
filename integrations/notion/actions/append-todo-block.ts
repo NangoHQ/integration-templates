@@ -3,10 +3,8 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string()
-        .describe('The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
-    children: z.array(z.any())
-        .describe('Array of to-do block objects.')
+    block_id: z.string().describe('The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
+    children: z.array(z.any()).describe('Array of to-do block objects.')
 });
 
 const OutputSchema = z.object({

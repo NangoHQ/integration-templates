@@ -3,23 +3,24 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    page_id: z.string()
-        .describe('The ID of the page to update. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
-    properties: z.record(z.string(), z.any()).optional()
-        .describe('Page properties to update.'),
-    icon: z.object({
-        type: z.string().optional(),
-        emoji: z.string().optional(),
-        external: z.object({ url: z.string() }).optional()
-    }).optional()
+    page_id: z.string().describe('The ID of the page to update. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
+    properties: z.record(z.string(), z.any()).optional().describe('Page properties to update.'),
+    icon: z
+        .object({
+            type: z.string().optional(),
+            emoji: z.string().optional(),
+            external: z.object({ url: z.string() }).optional()
+        })
+        .optional()
         .describe('Page icon as emoji or external URL.'),
-    cover: z.object({
-        type: z.string().optional(),
-        external: z.object({ url: z.string() }).optional()
-    }).optional()
+    cover: z
+        .object({
+            type: z.string().optional(),
+            external: z.object({ url: z.string() }).optional()
+        })
+        .optional()
         .describe('Page cover image as external URL.'),
-    archived: z.boolean().optional()
-        .describe('Set to true to archive the page.')
+    archived: z.boolean().optional().describe('Set to true to archive the page.')
 });
 
 const OutputSchema = z.object({

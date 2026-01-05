@@ -3,10 +3,8 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    page_size: z.number().optional()
-        .describe('Number of results to return (max 100).'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response.')
+    page_size: z.number().optional().describe('Number of results to return (max 100).'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response.')
 });
 
 const OutputSchema = z.object({

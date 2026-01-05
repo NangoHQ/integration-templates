@@ -3,16 +3,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    database_id: z.string()
-        .describe('The ID of the database to query. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"'),
-    filter: z.any().optional()
-        .describe('Filter conditions for the query.'),
-    sorts: z.array(z.any()).optional()
-        .describe('Sort criteria for the results.'),
-    page_size: z.number().optional()
-        .describe('Number of results to return (max 100).'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response.')
+    database_id: z.string().describe('The ID of the database to query. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"'),
+    filter: z.any().optional().describe('Filter conditions for the query.'),
+    sorts: z.array(z.any()).optional().describe('Sort criteria for the results.'),
+    page_size: z.number().optional().describe('Number of results to return (max 100).'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response.')
 });
 
 const OutputSchema = z.object({

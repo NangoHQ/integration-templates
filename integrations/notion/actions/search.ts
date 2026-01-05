@@ -3,22 +3,23 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    query: z.string().optional()
-        .describe('Text to search for in page/database titles.'),
-    filter: z.object({
-        property: z.string(),
-        value: z.string()
-    }).optional()
+    query: z.string().optional().describe('Text to search for in page/database titles.'),
+    filter: z
+        .object({
+            property: z.string(),
+            value: z.string()
+        })
+        .optional()
         .describe('Filter to search only pages or databases. Example: {"property":"object","value":"page"}'),
-    sort: z.object({
-        direction: z.string(),
-        timestamp: z.string()
-    }).optional()
+    sort: z
+        .object({
+            direction: z.string(),
+            timestamp: z.string()
+        })
+        .optional()
         .describe('Sort order. Example: {"direction":"descending","timestamp":"last_edited_time"}'),
-    page_size: z.number().optional()
-        .describe('Number of results to return (max 100).'),
-    cursor: z.string().optional()
-        .describe('Pagination cursor from previous response.')
+    page_size: z.number().optional().describe('Number of results to return (max 100).'),
+    cursor: z.string().optional().describe('Pagination cursor from previous response.')
 });
 
 const OutputSchema = z.object({

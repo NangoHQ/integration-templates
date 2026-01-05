@@ -3,8 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    database_id: z.string()
-        .describe('The ID of the database to retrieve. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"')
+    database_id: z.string().describe('The ID of the database to retrieve. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"')
 });
 
 const OutputSchema = z.object({

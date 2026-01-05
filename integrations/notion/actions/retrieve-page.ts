@@ -3,8 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    page_id: z.string()
-        .describe('The ID of the page to retrieve. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
+    page_id: z.string().describe('The ID of the page to retrieve. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
 });
 
 const OutputSchema = z.object({

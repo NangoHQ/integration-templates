@@ -3,16 +3,14 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    parent: z.object({
-        page_id: z.string().optional()
-            .describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
-        database_id: z.string().optional()
-            .describe('Parent database ID.')
-    }).describe('Parent page or database for the duplicate.'),
-    properties: z.record(z.string(), z.any())
-        .describe('Page properties for the duplicate.'),
-    children: z.array(z.any()).optional()
-        .describe('Content blocks to include in the duplicate.')
+    parent: z
+        .object({
+            page_id: z.string().optional().describe('Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
+            database_id: z.string().optional().describe('Parent database ID.')
+        })
+        .describe('Parent page or database for the duplicate.'),
+    properties: z.record(z.string(), z.any()).describe('Page properties for the duplicate.'),
+    children: z.array(z.any()).optional().describe('Content blocks to include in the duplicate.')
 });
 
 const OutputSchema = z.object({
