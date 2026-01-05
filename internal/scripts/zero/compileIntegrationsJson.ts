@@ -173,6 +173,114 @@ async function main(): Promise<void> {
 
     const fullSchema = jsonSchema as { $schema?: string; $comment?: string; definitions: Record<string, unknown> };
 
+    // Step 2.6: Distribute .nango files to each integration's .nango directory
+    console.log();
+    console.log('Distributing .nango files to integration directories...');
+
+    // Read schema.ts from main .nango directory
+    const schemaTsPath = join(integrationsPath, '.nango', 'schema.ts');
+    let schemaTs = '';
+    try {
+        schemaTs = await readFile(schemaTsPath, 'utf8');
+    } catch (error) {
+        console.log(`  ${chalk.yellow('warn')} Could not read schema.ts: ${errorToString(error)}`);
+    }
+
+    for (const integration of nangoData) {
+        const integrationName = integration.providerConfigKey;
+        const integrationDir = join(integrationsPath, integrationName);
+
+        // Skip if integration directory doesn't exist
+        if (!existsSync(integrationDir)) {
+            continue;
+        }
+
+        // Skip symlinked directories
+        const stat = await lstat(integrationDir);
+        if (stat.isSymbolicLink()) {
+            continue;
+        }
+
+        const integrationNangoDir = join(integrationDir, '.nango');
+
+        // Create .nango directory if it doesn't exist
+        if (!existsSync(integrationNangoDir)) {
+            await mkdir(integrationNangoDir, { recursive: true });
+        }
+
+        // Collect all used models from syncs and actions
+        const usedModels = new Set<string>();
+        for (const sync of integration.syncs || []) {
+            if (sync.usedModels) {
+                for (const model of sync.usedModels) {
+                    usedModels.add(model);
+                }
+            }
+        }
+        for (const action of integration.actions || []) {
+            if (action.usedModels) {
+                for (const model of action.usedModels) {
+                    usedModels.add(model);
+                }
+            }
+        }
+
+        // Write nango.json with just this integration's data
+        const integrationNangoJson = [integration];
+        await writeFile(join(integrationNangoDir, 'nango.json'), JSON.stringify(integrationNangoJson, null, 2), 'utf8');
+
+        // Filter schema.json definitions to only include used models
+        const filteredDefinitions: Record<string, unknown> = {};
+        for (const modelName of usedModels) {
+            if (fullSchema.definitions[modelName]) {
+                filteredDefinitions[modelName] = fullSchema.definitions[modelName];
+            }
+        }
+        const filteredSchemaJson = {
+            $schema: fullSchema.$schema,
+            $comment: fullSchema.$comment,
+            definitions: filteredDefinitions
+        };
+        await writeFile(join(integrationNangoDir, 'schema.json'), JSON.stringify(filteredSchemaJson, null, 2), 'utf8');
+
+        // Filter schema.ts to only include used models
+        if (schemaTs) {
+            // Extract type/interface definitions for used models
+            const filteredSchemaTsLines: string[] = [];
+            const lines = schemaTs.split('\n');
+            let inUsedBlock = false;
+            let braceCount = 0;
+
+            for (const line of lines) {
+                // Check if this line starts a type or interface we need
+                const typeMatch = line.match(/^export\s+(type|interface)\s+(\w+)/);
+                if (typeMatch) {
+                    const typeName = typeMatch[2];
+                    if (usedModels.has(typeName)) {
+                        inUsedBlock = true;
+                        braceCount = 0;
+                    }
+                }
+
+                if (inUsedBlock) {
+                    filteredSchemaTsLines.push(line);
+                    braceCount += (line.match(/{/g) || []).length;
+                    braceCount -= (line.match(/}/g) || []).length;
+                    if (braceCount <= 0 && line.includes('}')) {
+                        inUsedBlock = false;
+                        filteredSchemaTsLines.push('');
+                    }
+                }
+            }
+
+            if (filteredSchemaTsLines.length > 0) {
+                await writeFile(join(integrationNangoDir, 'schema.ts'), filteredSchemaTsLines.join('\n'), 'utf8');
+            }
+        }
+
+        console.log(`  ${chalk.green('✓')} ${integrationName} (.nango files)`);
+    }
+
     // Step 3: Transform to ZeroFlow format
     // Each integration in nangoData already has providerConfigKey set
     // Filter jsonSchema to only include models used by each integration

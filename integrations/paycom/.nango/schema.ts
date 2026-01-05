@@ -1,0 +1,43 @@
+export interface StandardEmployee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  displayName: string;
+  employeeNumber?: string | undefined;
+  title?: string | undefined;
+  department: {  id: string;
+  name: string;};
+  employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+  employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+  startDate: string;
+  terminationDate?: string | undefined;
+  manager?: {  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  workLocation: {  name: string;
+  type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+  primaryAddress?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  type: 'WORK' | 'HOME';};};
+  addresses: ({  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  type: 'WORK' | 'HOME';})[];
+  phones: ({  type: 'WORK' | 'HOME' | 'MOBILE';
+  number: string;})[];
+  emails: ({  type: 'WORK' | 'PERSONAL';
+  address: string;})[];
+  providerSpecific: {};
+  createdAt: string;
+  updatedAt: string;
+};
+
+export interface SyncMetadata_paycom_unifiedemployees {
+};
