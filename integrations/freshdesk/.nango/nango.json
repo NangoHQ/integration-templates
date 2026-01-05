@@ -24,26 +24,6 @@
       },
       {
         "type": "action",
-        "description": "Deletes a contact in FreshDesk",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/contacts",
-          "group": "Contacts"
-        },
-        "input": "ActionInput_freshdesk_deletecontact",
-        "name": "delete-contact",
-        "output": [
-          "ActionOutput_freshdesk_deletecontact"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_freshdesk_deletecontact",
-          "ActionOutput_freshdesk_deletecontact"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Creates a user in FreshDesk",
         "endpoint": {
           "method": "POST",
@@ -59,6 +39,26 @@
         "usedModels": [
           "ActionInput_freshdesk_createuser",
           "ActionOutput_freshdesk_createuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a contact in FreshDesk",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_freshdesk_deletecontact",
+        "name": "delete-contact",
+        "output": [
+          "ActionOutput_freshdesk_deletecontact"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_freshdesk_deletecontact",
+          "ActionOutput_freshdesk_deletecontact"
         ],
         "version": "2.0.0"
       },

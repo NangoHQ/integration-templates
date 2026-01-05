@@ -32,33 +32,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of locations from sap success factors",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/locations",
-            "group": "Locations"
-          }
-        ],
-        "input": "SyncMetadata_sap_success_factors_locations",
-        "name": "locations",
-        "output": [
-          "Location"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Location",
-          "SyncMetadata_sap_success_factors_locations"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches a list of organizational groups from sap success factors",
         "auto_start": true,
         "endpoints": [
@@ -80,6 +53,33 @@
         "usedModels": [
           "Group",
           "SyncMetadata_sap_success_factors_groups"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of locations from sap success factors",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/locations",
+            "group": "Locations"
+          }
+        ],
+        "input": "SyncMetadata_sap_success_factors_locations",
+        "name": "locations",
+        "output": [
+          "Location"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Location",
+          "SyncMetadata_sap_success_factors_locations"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

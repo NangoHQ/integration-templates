@@ -4,27 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "An action to send an email in zoho mail",
-        "endpoint": {
-          "method": "POST",
-          "path": "/zoho-mail/send-email"
-        },
-        "input": "ActionInput_zoho_mail_sendemail",
-        "name": "send-email",
-        "output": [
-          "ActionOutput_zoho_mail_sendemail"
-        ],
-        "scopes": [
-          "ZohoMail.messages.CREATE"
-        ],
-        "usedModels": [
-          "ActionInput_zoho_mail_sendemail",
-          "ActionOutput_zoho_mail_sendemail"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "An action to add a user to the organization in zoho mail",
         "endpoint": {
           "method": "POST",
@@ -43,37 +22,30 @@
           "ActionOutput_zoho_mail_adduser"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "An action to send an email in zoho mail",
+        "endpoint": {
+          "method": "POST",
+          "path": "/zoho-mail/send-email"
+        },
+        "input": "ActionInput_zoho_mail_sendemail",
+        "name": "send-email",
+        "output": [
+          "ActionOutput_zoho_mail_sendemail"
+        ],
+        "scopes": [
+          "ZohoMail.messages.CREATE"
+        ],
+        "usedModels": [
+          "ActionInput_zoho_mail_sendemail",
+          "ActionOutput_zoho_mail_sendemail"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches a list of all your personal tasks in Zoho mail",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/zoho-mail/tasks"
-          }
-        ],
-        "input": "SyncMetadata_zoho_mail_tasks",
-        "name": "tasks",
-        "output": [
-          "ZohoMailTask"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "ZohoMail.tasks.READ"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "ZohoMailTask",
-          "SyncMetadata_zoho_mail_tasks"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches a list of all your account's emails in Zoho mail",
@@ -98,6 +70,34 @@
         "usedModels": [
           "ZohoMailEmail",
           "SyncMetadata_zoho_mail_emails"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all your personal tasks in Zoho mail",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-mail/tasks"
+          }
+        ],
+        "input": "SyncMetadata_zoho_mail_tasks",
+        "name": "tasks",
+        "output": [
+          "ZohoMailTask"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "ZohoMail.tasks.READ"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoMailTask",
+          "SyncMetadata_zoho_mail_tasks"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

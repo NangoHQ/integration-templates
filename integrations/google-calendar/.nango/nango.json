@@ -4,23 +4,707 @@
     "actions": [
       {
         "type": "action",
-        "description": "description: Fetch current user information",
+        "description": "Adds an attendee to an existing calendar event",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/attendee",
+          "group": "Attendees"
+        },
+        "input": "ActionInput_google_calendar_addattendee",
+        "name": "add-attendee",
+        "output": [
+          "ActionOutput_google_calendar_addattendee"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_addattendee",
+          "ActionOutput_google_calendar_addattendee"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clears a primary calendar by deleting all events",
+        "endpoint": {
+          "method": "POST",
+          "path": "/calendar/clear",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_clearcalendar",
+        "name": "clear-calendar",
+        "output": [
+          "ActionOutput_google_calendar_clearcalendar"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_clearcalendar",
+          "ActionOutput_google_calendar_clearcalendar"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates an access control rule granting calendar access",
+        "endpoint": {
+          "method": "POST",
+          "path": "/acl",
+          "group": "Access Control"
+        },
+        "input": "ActionInput_google_calendar_createaclrule",
+        "name": "create-acl-rule",
+        "output": [
+          "ActionOutput_google_calendar_createaclrule"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_createaclrule",
+          "ActionOutput_google_calendar_createaclrule"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates an all-day event on a calendar",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/allDay",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_createalldayevent",
+        "name": "create-all-day-event",
+        "output": [
+          "ActionOutput_google_calendar_createalldayevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_createalldayevent",
+          "ActionOutput_google_calendar_createalldayevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new secondary calendar with the specified title",
+        "endpoint": {
+          "method": "POST",
+          "path": "/calendars",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_createcalendar",
+        "name": "create-calendar",
+        "output": [
+          "ActionOutput_google_calendar_createcalendar"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_createcalendar",
+          "ActionOutput_google_calendar_createcalendar"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new event on a calendar",
+        "endpoint": {
+          "method": "POST",
+          "path": "/event",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_createevent",
+        "name": "create-event",
+        "output": [
+          "ActionOutput_google_calendar_createevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_createevent",
+          "ActionOutput_google_calendar_createevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a recurring event with RRULE specification",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/recurring",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_createrecurringevent",
+        "name": "create-recurring-event",
+        "output": [
+          "ActionOutput_google_calendar_createrecurringevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_createrecurringevent",
+          "ActionOutput_google_calendar_createrecurringevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes an access control rule",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/acl/rule",
+          "group": "Access Control"
+        },
+        "input": "ActionInput_google_calendar_deleteaclrule",
+        "name": "delete-acl-rule",
+        "output": [
+          "ActionOutput_google_calendar_deleteaclrule"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_deleteaclrule",
+          "ActionOutput_google_calendar_deleteaclrule"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a secondary calendar",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/calendar",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_deletecalendar",
+        "name": "delete-calendar",
+        "output": [
+          "ActionOutput_google_calendar_deletecalendar"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_deletecalendar",
+          "ActionOutput_google_calendar_deletecalendar"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes an event from a calendar",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/event",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_deleteevent",
+        "name": "delete-event",
+        "output": [
+          "ActionOutput_google_calendar_deleteevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_deleteevent",
+          "ActionOutput_google_calendar_deleteevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Finds available time slots across calendars within a time range",
+        "endpoint": {
+          "method": "POST",
+          "path": "/freeBusy/findSlots",
+          "group": "Scheduling"
+        },
+        "input": "ActionInput_google_calendar_findfreeslots",
+        "name": "find-free-slots",
+        "output": [
+          "ActionOutput_google_calendar_findfreeslots"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_findfreeslots",
+          "ActionOutput_google_calendar_findfreeslots"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns an access control rule by rule ID",
         "endpoint": {
           "method": "GET",
-          "path": "/whoami",
-          "group": "Users"
+          "path": "/acl/rule",
+          "group": "Access Control"
         },
-        "input": "ActionInput_google_calendar_whoami",
-        "name": "whoami",
+        "input": "ActionInput_google_calendar_getaclrule",
+        "name": "get-acl-rule",
         "output": [
-          "ActionOutput_google_calendar_whoami"
+          "ActionOutput_google_calendar_getaclrule"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
         "usedModels": [
-          "ActionInput_google_calendar_whoami",
-          "ActionOutput_google_calendar_whoami"
+          "ActionInput_google_calendar_getaclrule",
+          "ActionOutput_google_calendar_getaclrule"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns a calendar from the user's calendar list",
+        "endpoint": {
+          "method": "GET",
+          "path": "/calendarList/entry",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_getcalendarlistentry",
+        "name": "get-calendar-list-entry",
+        "output": [
+          "ActionOutput_google_calendar_getcalendarlistentry"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_getcalendarlistentry",
+          "ActionOutput_google_calendar_getcalendarlistentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns metadata for a calendar by calendar ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/calendar",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_getcalendar",
+        "name": "get-calendar",
+        "output": [
+          "ActionOutput_google_calendar_getcalendar"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_getcalendar",
+          "ActionOutput_google_calendar_getcalendar"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns the color definitions for calendars and events",
+        "endpoint": {
+          "method": "GET",
+          "path": "/colors",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_calendar_getcolors",
+        "name": "get-colors",
+        "output": [
+          "ActionOutput_google_calendar_getcolors"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_getcolors",
+          "ActionOutput_google_calendar_getcolors"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns instances of a recurring event",
+        "endpoint": {
+          "method": "GET",
+          "path": "/events/instances",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_geteventinstances",
+        "name": "get-event-instances",
+        "output": [
+          "ActionOutput_google_calendar_geteventinstances"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_geteventinstances",
+          "ActionOutput_google_calendar_geteventinstances"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns an event based on its calendar and event ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/event",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_getevent",
+        "name": "get-event",
+        "output": [
+          "ActionOutput_google_calendar_getevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_getevent",
+          "ActionOutput_google_calendar_getevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns a single user setting by setting ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/setting",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_calendar_getsetting",
+        "name": "get-setting",
+        "output": [
+          "ActionOutput_google_calendar_getsetting"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_getsetting",
+          "ActionOutput_google_calendar_getsetting"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Imports an event as a private copy using iCalendar UID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/import",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_importevent",
+        "name": "import-event",
+        "output": [
+          "ActionOutput_google_calendar_importevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_importevent",
+          "ActionOutput_google_calendar_importevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Inserts an existing calendar into the user's calendar list",
+        "endpoint": {
+          "method": "POST",
+          "path": "/calendarList",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_insertcalendartolist",
+        "name": "insert-calendar-to-list",
+        "output": [
+          "ActionOutput_google_calendar_insertcalendartolist"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_insertcalendartolist",
+          "ActionOutput_google_calendar_insertcalendartolist"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns the rules in the access control list for a calendar",
+        "endpoint": {
+          "method": "GET",
+          "path": "/acl",
+          "group": "Access Control"
+        },
+        "input": "ActionInput_google_calendar_listaclrules",
+        "name": "list-acl-rules",
+        "output": [
+          "ActionOutput_google_calendar_listaclrules"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listaclrules",
+          "ActionOutput_google_calendar_listaclrules"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns all calendars on the user's calendar list",
+        "endpoint": {
+          "method": "GET",
+          "path": "/calendars/list",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_listcalendars",
+        "name": "list-calendars",
+        "output": [
+          "ActionOutput_google_calendar_listcalendars"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listcalendars",
+          "ActionOutput_google_calendar_listcalendars"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns events on a specified calendar with optional filtering",
+        "endpoint": {
+          "method": "GET",
+          "path": "/events/list",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_listevents",
+        "name": "list-events",
+        "output": [
+          "ActionOutput_google_calendar_listevents"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listevents",
+          "ActionOutput_google_calendar_listevents"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns all user settings for the authenticated user",
+        "endpoint": {
+          "method": "GET",
+          "path": "/settings/list",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_calendar_listsettings",
+        "name": "list-settings",
+        "output": [
+          "ActionOutput_google_calendar_listsettings"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listsettings",
+          "ActionOutput_google_calendar_listsettings"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns upcoming events starting from now",
+        "endpoint": {
+          "method": "GET",
+          "path": "/events/upcoming",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_listupcomingevents",
+        "name": "list-upcoming-events",
+        "output": [
+          "ActionOutput_google_calendar_listupcomingevents"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listupcomingevents",
+          "ActionOutput_google_calendar_listupcomingevents"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Moves an event to another calendar changing its organizer",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/move",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_moveevent",
+        "name": "move-event",
+        "output": [
+          "ActionOutput_google_calendar_moveevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_moveevent",
+          "ActionOutput_google_calendar_moveevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Partially updates an event with only provided fields",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/event",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_patchevent",
+        "name": "patch-event",
+        "output": [
+          "ActionOutput_google_calendar_patchevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_patchevent",
+          "ActionOutput_google_calendar_patchevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Returns free/busy information for a set of calendars",
+        "endpoint": {
+          "method": "POST",
+          "path": "/freeBusy",
+          "group": "Scheduling"
+        },
+        "input": "ActionInput_google_calendar_queryfreebusy",
+        "name": "query-free-busy",
+        "output": [
+          "ActionOutput_google_calendar_queryfreebusy"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_queryfreebusy",
+          "ActionOutput_google_calendar_queryfreebusy"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates an event based on a simple text string like a natural language input",
+        "endpoint": {
+          "method": "POST",
+          "path": "/events/quickAdd",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_quickaddevent",
+        "name": "quick-add-event",
+        "output": [
+          "ActionOutput_google_calendar_quickaddevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_quickaddevent",
+          "ActionOutput_google_calendar_quickaddevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes an attendee from an existing calendar event",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/events/attendee",
+          "group": "Attendees"
+        },
+        "input": "ActionInput_google_calendar_removeattendee",
+        "name": "remove-attendee",
+        "output": [
+          "ActionOutput_google_calendar_removeattendee"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_removeattendee",
+          "ActionOutput_google_calendar_removeattendee"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes a calendar from the user's calendar list",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/calendarList/entry",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_removecalendarfromlist",
+        "name": "remove-calendar-from-list",
+        "output": [
+          "ActionOutput_google_calendar_removecalendarfromlist"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_removecalendarfromlist",
+          "ActionOutput_google_calendar_removecalendarfromlist"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches for events matching a text query across calendars",
+        "endpoint": {
+          "method": "GET",
+          "path": "/events/search",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_searchevents",
+        "name": "search-events",
+        "output": [
+          "ActionOutput_google_calendar_searchevents"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_searchevents",
+          "ActionOutput_google_calendar_searchevents"
+        ],
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -43,38 +727,139 @@
           "ActionOutput_google_calendar_settings"
         ],
         "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an access control rule",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/acl/rule",
+          "group": "Access Control"
+        },
+        "input": "ActionInput_google_calendar_updateaclrule",
+        "name": "update-acl-rule",
+        "output": [
+          "ActionOutput_google_calendar_updateaclrule"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_updateaclrule",
+          "ActionOutput_google_calendar_updateaclrule"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an attendee's response status for an event",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/events/attendee",
+          "group": "Attendees"
+        },
+        "input": "ActionInput_google_calendar_updateattendeeresponse",
+        "name": "update-attendee-response",
+        "output": [
+          "ActionOutput_google_calendar_updateattendeeresponse"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_updateattendeeresponse",
+          "ActionOutput_google_calendar_updateattendeeresponse"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing calendar on the user's calendar list",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/calendarList/entry",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_updatecalendarlistentry",
+        "name": "update-calendar-list-entry",
+        "output": [
+          "ActionOutput_google_calendar_updatecalendarlistentry"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_updatecalendarlistentry",
+          "ActionOutput_google_calendar_updatecalendarlistentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates metadata for a calendar",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/calendar",
+          "group": "Calendars"
+        },
+        "input": "ActionInput_google_calendar_updatecalendar",
+        "name": "update-calendar",
+        "output": [
+          "ActionOutput_google_calendar_updatecalendar"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_updatecalendar",
+          "ActionOutput_google_calendar_updatecalendar"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing event on a calendar",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/event",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_updateevent",
+        "name": "update-event",
+        "output": [
+          "ActionOutput_google_calendar_updateevent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_updateevent",
+          "ActionOutput_google_calendar_updateevent"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "description: Fetch current user information",
+        "endpoint": {
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
+        },
+        "input": "ActionInput_google_calendar_whoami",
+        "name": "whoami",
+        "output": [
+          "ActionOutput_google_calendar_whoami"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_google_calendar_whoami",
+          "ActionOutput_google_calendar_whoami"
+        ],
+        "version": "2.0.0"
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/events",
-            "group": "Events"
-          }
-        ],
-        "input": "SyncMetadata_google_calendar_events",
-        "name": "events",
-        "output": [
-          "GoogleCalendarEvent"
-        ],
-        "runs": "every 5 minutes",
-        "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "GoogleCalendarEvent",
-          "SyncMetadata_google_calendar_events"
-        ],
-        "version": "4.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Sync the calendars list of the user",
@@ -102,6 +887,35 @@
           "SyncMetadata_google_calendar_calendars"
         ],
         "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/events",
+            "group": "Events"
+          }
+        ],
+        "input": "SyncMetadata_google_calendar_events",
+        "name": "events",
+        "output": [
+          "GoogleCalendarEvent"
+        ],
+        "runs": "every 5 minutes",
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GoogleCalendarEvent",
+          "SyncMetadata_google_calendar_events"
+        ],
+        "version": "4.0.0",
         "webhookSubscriptions": []
       }
     ],

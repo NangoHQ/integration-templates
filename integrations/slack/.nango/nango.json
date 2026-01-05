@@ -4,28 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Adds a bookmark link to a channel.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/add-bookmark",
-          "group": "Actions"
-        },
-        "input": "ActionInput_slack_addbookmark",
-        "name": "add-bookmark",
-        "output": [
-          "ActionOutput_slack_addbookmark"
-        ],
-        "scopes": [
-          "bookmarks:write"
-        ],
-        "usedModels": [
-          "ActionInput_slack_addbookmark",
-          "ActionOutput_slack_addbookmark"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Adds an emoji reaction to a message.",
         "endpoint": {
           "method": "POST",
@@ -73,28 +51,6 @@
       },
       {
         "type": "action",
-        "description": "Finalizes and optionally shares an uploaded file.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/complete-file-upload",
-          "group": "Actions"
-        },
-        "input": "ActionInput_slack_completefileupload",
-        "name": "complete-file-upload",
-        "output": [
-          "ActionOutput_slack_completefileupload"
-        ],
-        "scopes": [
-          "files:write"
-        ],
-        "usedModels": [
-          "ActionInput_slack_completefileupload",
-          "ActionOutput_slack_completefileupload"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Creates a new public or private channel.",
         "endpoint": {
           "method": "POST",
@@ -112,28 +68,6 @@
         "usedModels": [
           "ActionInput_slack_createchannel",
           "ActionOutput_slack_createchannel"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Permanently deletes a file from the workspace.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/delete-file",
-          "group": "Actions"
-        },
-        "input": "ActionInput_slack_deletefile",
-        "name": "delete-file",
-        "output": [
-          "ActionOutput_slack_deletefile"
-        ],
-        "scopes": [
-          "files:write"
-        ],
-        "usedModels": [
-          "ActionInput_slack_deletefile",
-          "ActionOutput_slack_deletefile"
         ],
         "version": "1.0.0"
       },
@@ -492,28 +426,6 @@
         "usedModels": [
           "ActionInput_slack_leavechannel",
           "ActionOutput_slack_leavechannel"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Lists all bookmarks in a channel.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/list-bookmarks",
-          "group": "Actions"
-        },
-        "input": "ActionInput_slack_listbookmarks",
-        "name": "list-bookmarks",
-        "output": [
-          "ActionOutput_slack_listbookmarks"
-        ],
-        "scopes": [
-          "bookmarks:read"
-        ],
-        "usedModels": [
-          "ActionInput_slack_listbookmarks",
-          "ActionOutput_slack_listbookmarks"
         ],
         "version": "1.0.0"
       },
@@ -1120,35 +1032,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Syncs information about all Users on the Slack workspace",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users"
-          }
-        ],
-        "input": "SyncMetadata_slack_users",
-        "name": "users",
-        "output": [
-          "SlackUser"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "SlackUser",
-          "SyncMetadata_slack_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
         "auto_start": true,
         "endpoints": [
@@ -1216,6 +1099,35 @@
           "SyncMetadata_slack_messages"
         ],
         "version": "2.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Syncs information about all Users on the Slack workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
+        ],
+        "input": "SyncMetadata_slack_users",
+        "name": "users",
+        "output": [
+          "SlackUser"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "users:read",
+          "users:read.email"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackUser",
+          "SyncMetadata_slack_users"
+        ],
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -72,6 +72,34 @@
     "syncs": [
       {
         "type": "sync",
+        "description": "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/files"
+          }
+        ],
+        "input": "SyncMetadata_dropbox_files",
+        "name": "files",
+        "output": [
+          "Document"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "files.metadata.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Document",
+          "SyncMetadata_dropbox_files"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
         "description": "Fetches a list of users from Dropbox. Requires Dropbox Business.",
         "auto_start": true,
         "endpoints": [
@@ -95,34 +123,6 @@
         "usedModels": [
           "User",
           "SyncMetadata_dropbox_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/files"
-          }
-        ],
-        "input": "SyncMetadata_dropbox_files",
-        "name": "files",
-        "output": [
-          "Document"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "files.metadata.read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Document",
-          "SyncMetadata_dropbox_files"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

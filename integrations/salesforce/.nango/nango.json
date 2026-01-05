@@ -4,23 +4,24 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to \"Task\"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.",
+        "description": "Create a single account in salesforce",
         "endpoint": {
-          "method": "GET",
-          "path": "/fields"
+          "method": "POST",
+          "path": "/accounts",
+          "group": "Accounts"
         },
-        "input": "ActionInput_salesforce_fetchfields",
-        "name": "fetch-fields",
+        "input": "ActionInput_salesforce_createaccount",
+        "name": "create-account",
         "output": [
-          "ActionOutput_salesforce_fetchfields"
+          "ActionOutput_salesforce_createaccount"
         ],
         "scopes": [
           "offline_access",
           "api"
         ],
         "usedModels": [
-          "ActionInput_salesforce_fetchfields",
-          "ActionOutput_salesforce_fetchfields"
+          "ActionInput_salesforce_createaccount",
+          "ActionOutput_salesforce_createaccount"
         ],
         "version": "2.0.0"
       },
@@ -49,52 +50,6 @@
       },
       {
         "type": "action",
-        "description": "Update a single contact in salesforce",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/contacts",
-          "group": "Contacts"
-        },
-        "input": "ActionInput_salesforce_updatecontact",
-        "name": "update-contact",
-        "output": [
-          "ActionOutput_salesforce_updatecontact"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_updatecontact",
-          "ActionOutput_salesforce_updatecontact"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Delete a single contact in salesforce",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/contacts",
-          "group": "Contacts"
-        },
-        "input": "ActionInput_salesforce_deletecontact",
-        "name": "delete-contact",
-        "output": [
-          "ActionOutput_salesforce_deletecontact"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_deletecontact",
-          "ActionOutput_salesforce_deletecontact"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Create a single lead in salesforce",
         "endpoint": {
           "method": "POST",
@@ -113,121 +68,6 @@
         "usedModels": [
           "ActionInput_salesforce_createlead",
           "ActionOutput_salesforce_createlead"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update a single lead in salesforce",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/leads",
-          "group": "Leads"
-        },
-        "input": "ActionInput_salesforce_updatelead",
-        "name": "update-lead",
-        "output": [
-          "ActionOutput_salesforce_updatelead"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_updatelead",
-          "ActionOutput_salesforce_updatelead"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Delete a single lead in salesforce",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/leads",
-          "group": "Leads"
-        },
-        "input": "ActionInput_salesforce_deletelead",
-        "name": "delete-lead",
-        "output": [
-          "ActionOutput_salesforce_deletelead"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_deletelead",
-          "ActionOutput_salesforce_deletelead"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create a single account in salesforce",
-        "endpoint": {
-          "method": "POST",
-          "path": "/accounts",
-          "group": "Accounts"
-        },
-        "input": "ActionInput_salesforce_createaccount",
-        "name": "create-account",
-        "output": [
-          "ActionOutput_salesforce_createaccount"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_createaccount",
-          "ActionOutput_salesforce_createaccount"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Update a single account in salesforce",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/accounts",
-          "group": "Accounts"
-        },
-        "input": "ActionInput_salesforce_updateaccount",
-        "name": "update-account",
-        "output": [
-          "ActionOutput_salesforce_updateaccount"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_updateaccount",
-          "ActionOutput_salesforce_updateaccount"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Delete a single account in salesforce",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/accounts",
-          "group": "Accounts"
-        },
-        "input": "ActionInput_salesforce_deleteaccount",
-        "name": "delete-account",
-        "output": [
-          "ActionOutput_salesforce_deleteaccount"
-        ],
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "usedModels": [
-          "ActionInput_salesforce_deleteaccount",
-          "ActionOutput_salesforce_deleteaccount"
         ],
         "version": "2.0.0"
       },
@@ -256,24 +96,70 @@
       },
       {
         "type": "action",
-        "description": "Update a single opportunity in salesforce",
+        "description": "Delete a single account in salesforce",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/opportunities",
-          "group": "Opportunities"
+          "method": "DELETE",
+          "path": "/accounts",
+          "group": "Accounts"
         },
-        "input": "ActionInput_salesforce_updateopportunity",
-        "name": "update-opportunity",
+        "input": "ActionInput_salesforce_deleteaccount",
+        "name": "delete-account",
         "output": [
-          "ActionOutput_salesforce_updateopportunity"
+          "ActionOutput_salesforce_deleteaccount"
         ],
         "scopes": [
           "offline_access",
           "api"
         ],
         "usedModels": [
-          "ActionInput_salesforce_updateopportunity",
-          "ActionOutput_salesforce_updateopportunity"
+          "ActionInput_salesforce_deleteaccount",
+          "ActionOutput_salesforce_deleteaccount"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a single contact in salesforce",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_salesforce_deletecontact",
+        "name": "delete-contact",
+        "output": [
+          "ActionOutput_salesforce_deletecontact"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_deletecontact",
+          "ActionOutput_salesforce_deletecontact"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a single lead in salesforce",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_salesforce_deletelead",
+        "name": "delete-lead",
+        "output": [
+          "ActionOutput_salesforce_deletelead"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_deletelead",
+          "ActionOutput_salesforce_deletelead"
         ],
         "version": "2.0.0"
       },
@@ -297,6 +183,120 @@
         "usedModels": [
           "ActionInput_salesforce_deleteopportunity",
           "ActionOutput_salesforce_deleteopportunity"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to \"Task\"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fields"
+        },
+        "input": "ActionInput_salesforce_fetchfields",
+        "name": "fetch-fields",
+        "output": [
+          "ActionOutput_salesforce_fetchfields"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_fetchfields",
+          "ActionOutput_salesforce_fetchfields"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single account in salesforce",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/accounts",
+          "group": "Accounts"
+        },
+        "input": "ActionInput_salesforce_updateaccount",
+        "name": "update-account",
+        "output": [
+          "ActionOutput_salesforce_updateaccount"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_updateaccount",
+          "ActionOutput_salesforce_updateaccount"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single contact in salesforce",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_salesforce_updatecontact",
+        "name": "update-contact",
+        "output": [
+          "ActionOutput_salesforce_updatecontact"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_updatecontact",
+          "ActionOutput_salesforce_updatecontact"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single lead in salesforce",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_salesforce_updatelead",
+        "name": "update-lead",
+        "output": [
+          "ActionOutput_salesforce_updatelead"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_updatelead",
+          "ActionOutput_salesforce_updatelead"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a single opportunity in salesforce",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/opportunities",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_salesforce_updateopportunity",
+        "name": "update-opportunity",
+        "output": [
+          "ActionOutput_salesforce_updateopportunity"
+        ],
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
+        "usedModels": [
+          "ActionInput_salesforce_updateopportunity",
+          "ActionOutput_salesforce_updateopportunity"
         ],
         "version": "2.0.0"
       },
@@ -345,6 +345,32 @@
         "usedModels": [
           "Account",
           "SyncMetadata_salesforce_accounts"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of articles from salesforce",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/articles"
+          }
+        ],
+        "input": "SyncMetadata_salesforce_articles",
+        "name": "articles",
+        "output": [
+          "Article"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Article",
+          "SyncMetadata_salesforce_articles"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -411,26 +437,30 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of articles from salesforce",
-        "auto_start": false,
+        "description": "Fetches a list of opportunities from salesforce",
+        "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/articles"
+            "path": "/opportunities",
+            "group": "Opportunities"
           }
         ],
-        "input": "SyncMetadata_salesforce_articles",
-        "name": "articles",
+        "input": "SyncMetadata_salesforce_opportunities",
+        "name": "opportunities",
         "output": [
-          "Article"
+          "Opportunity"
         ],
-        "runs": "every day",
-        "scopes": [],
+        "runs": "every hour",
+        "scopes": [
+          "offline_access",
+          "api"
+        ],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "Article",
-          "SyncMetadata_salesforce_articles"
+          "Opportunity",
+          "SyncMetadata_salesforce_opportunities"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -457,36 +487,6 @@
         "usedModels": [
           "Ticket",
           "SyncMetadata_salesforce_tickets"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of opportunities from salesforce",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/opportunities",
-            "group": "Opportunities"
-          }
-        ],
-        "input": "SyncMetadata_salesforce_opportunities",
-        "name": "opportunities",
-        "output": [
-          "Opportunity"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "offline_access",
-          "api"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Opportunity",
-          "SyncMetadata_salesforce_opportunities"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

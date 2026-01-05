@@ -24,6 +24,25 @@
       },
       {
         "type": "action",
+        "description": "Introspection to retrieve available fields",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fields"
+        },
+        "input": "ActionInput_bamboohr_basic_fetchfields",
+        "name": "fetch-fields",
+        "output": [
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_fetchfields",
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Update an existing employee in the system",
         "endpoint": {
           "method": "PUT",
@@ -39,25 +58,6 @@
         "usedModels": [
           "ActionInput_bamboohr_basic_updateemployee",
           "ActionOutput_bamboohr_basic_updateemployee"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Introspection to retrieve available fields",
-        "endpoint": {
-          "method": "GET",
-          "path": "/fields"
-        },
-        "input": "ActionInput_bamboohr_basic_fetchfields",
-        "name": "fetch-fields",
-        "output": [
-          "ActionOutput_bamboohr_basic_fetchfields"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_bamboohr_basic_fetchfields",
-          "ActionOutput_bamboohr_basic_fetchfields"
         ],
         "version": "2.0.0"
       }

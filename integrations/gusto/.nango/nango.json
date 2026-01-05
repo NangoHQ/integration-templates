@@ -26,28 +26,6 @@
       },
       {
         "type": "action",
-        "description": "Updates an employee in Gusto.",
-        "endpoint": {
-          "method": "PUT",
-          "path": "/employees",
-          "group": "Employees"
-        },
-        "input": "ActionInput_gusto_updateemployee",
-        "name": "update-employee",
-        "output": [
-          "ActionOutput_gusto_updateemployee"
-        ],
-        "scopes": [
-          "employees:manage"
-        ],
-        "usedModels": [
-          "ActionInput_gusto_updateemployee",
-          "ActionOutput_gusto_updateemployee"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Terminates an employee in Gusto.",
         "endpoint": {
           "method": "DELETE",
@@ -65,6 +43,28 @@
         "usedModels": [
           "ActionInput_gusto_terminateemployee",
           "ActionOutput_gusto_terminateemployee"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an employee in Gusto.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_gusto_updateemployee",
+        "name": "update-employee",
+        "output": [
+          "ActionOutput_gusto_updateemployee"
+        ],
+        "scopes": [
+          "employees:manage"
+        ],
+        "usedModels": [
+          "ActionInput_gusto_updateemployee",
+          "ActionOutput_gusto_updateemployee"
         ],
         "version": "1.0.0"
       }

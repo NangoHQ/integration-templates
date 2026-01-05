@@ -4,6 +4,27 @@
     "actions": [
       {
         "type": "action",
+        "description": "List github repos from an organization.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/github/list-repos"
+        },
+        "input": "ActionInput_github_listrepos",
+        "name": "list-repos",
+        "output": [
+          "ActionOutput_github_listrepos"
+        ],
+        "scopes": [
+          "read:org"
+        ],
+        "usedModels": [
+          "ActionInput_github_listrepos",
+          "ActionOutput_github_listrepos"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Write content to a particular github file within a repo. If\nthe file doesn't exist it creates and then writes to it",
         "endpoint": {
           "method": "PUT",
@@ -21,27 +42,6 @@
         "usedModels": [
           "ActionInput_github_writefile",
           "ActionOutput_github_writefile"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "List github repos from an organization.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/github/list-repos"
-        },
-        "input": "ActionInput_github_listrepos",
-        "name": "list-repos",
-        "output": [
-          "ActionOutput_github_listrepos"
-        ],
-        "scopes": [
-          "read:org"
-        ],
-        "usedModels": [
-          "ActionInput_github_listrepos",
-          "ActionOutput_github_listrepos"
         ],
         "version": "2.0.0"
       }

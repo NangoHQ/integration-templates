@@ -28,6 +28,34 @@
     "syncs": [
       {
         "type": "sync",
+        "description": "Fetches a list of issue types for a project",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/issue-types"
+          }
+        ],
+        "input": "SyncMetadata_jira_issuetypes",
+        "name": "issue-types",
+        "output": [
+          "IssueType"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "read:jira-work"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "IssueType",
+          "SyncMetadata_jira_issuetypes"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
         "description": "Fetches a list of issues from Jira",
         "auto_start": false,
         "endpoints": [
@@ -81,34 +109,6 @@
           "SyncMetadata_jira_projects"
         ],
         "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of issue types for a project",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/issue-types"
-          }
-        ],
-        "input": "SyncMetadata_jira_issuetypes",
-        "name": "issue-types",
-        "output": [
-          "IssueType"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "read:jira-work"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "IssueType",
-          "SyncMetadata_jira_issuetypes"
-        ],
-        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

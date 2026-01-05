@@ -4,28 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch current user information",
-        "endpoint": {
-          "method": "GET",
-          "path": "/whoami",
-          "group": "Users"
-        },
-        "input": "ActionInput_airtable_whoami",
-        "name": "whoami",
-        "output": [
-          "ActionOutput_airtable_whoami"
-        ],
-        "scopes": [
-          "user.email:read"
-        ],
-        "usedModels": [
-          "ActionInput_airtable_whoami",
-          "ActionOutput_airtable_whoami"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Create a webhook for a particular base",
         "endpoint": {
           "method": "POST",
@@ -43,6 +21,28 @@
         "usedModels": [
           "ActionInput_airtable_createwebhook",
           "ActionOutput_airtable_createwebhook"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a webhook",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/webhooks",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_airtable_deletewebhook",
+        "name": "delete-webhook",
+        "output": [
+          "ActionOutput_airtable_deletewebhook"
+        ],
+        "scopes": [
+          "webhook:manage"
+        ],
+        "usedModels": [
+          "ActionInput_airtable_deletewebhook",
+          "ActionOutput_airtable_deletewebhook"
         ],
         "version": "1.0.0"
       },
@@ -70,56 +70,28 @@
       },
       {
         "type": "action",
-        "description": "Delete a webhook",
+        "description": "Fetch current user information",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/webhooks",
-          "group": "Webhooks"
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
         },
-        "input": "ActionInput_airtable_deletewebhook",
-        "name": "delete-webhook",
+        "input": "ActionInput_airtable_whoami",
+        "name": "whoami",
         "output": [
-          "ActionOutput_airtable_deletewebhook"
+          "ActionOutput_airtable_whoami"
         ],
         "scopes": [
-          "webhook:manage"
+          "user.email:read"
         ],
         "usedModels": [
-          "ActionInput_airtable_deletewebhook",
-          "ActionOutput_airtable_deletewebhook"
+          "ActionInput_airtable_whoami",
+          "ActionOutput_airtable_whoami"
         ],
         "version": "1.0.0"
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Lists all tables with their schema for all bases with a reference to the base id that\nthe table belongs to",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/tables"
-          }
-        ],
-        "input": "SyncMetadata_airtable_tables",
-        "name": "tables",
-        "output": [
-          "Table"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "schema.bases:read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Table",
-          "SyncMetadata_airtable_tables"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "List all bases",
@@ -144,6 +116,34 @@
         "usedModels": [
           "Base",
           "SyncMetadata_airtable_bases"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Lists all tables with their schema for all bases with a reference to the base id that\nthe table belongs to",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tables"
+          }
+        ],
+        "input": "SyncMetadata_airtable_tables",
+        "name": "tables",
+        "output": [
+          "Table"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "schema.bases:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Table",
+          "SyncMetadata_airtable_tables"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

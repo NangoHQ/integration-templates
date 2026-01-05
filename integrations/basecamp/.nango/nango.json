@@ -4,6 +4,26 @@
     "actions": [
       {
         "type": "action",
+        "description": "Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/todos",
+          "group": "Todos"
+        },
+        "input": "ActionInput_basecamp_createtodo",
+        "name": "create-todo",
+        "output": [
+          "ActionOutput_basecamp_createtodo"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_basecamp_createtodo",
+          "ActionOutput_basecamp_createtodo"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Fetch account list and user information from Basecamp",
         "endpoint": {
           "method": "GET",
@@ -59,26 +79,6 @@
         "usedModels": [
           "ActionInput_basecamp_fetchtodolists",
           "ActionOutput_basecamp_fetchtodolists"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/todos",
-          "group": "Todos"
-        },
-        "input": "ActionInput_basecamp_createtodo",
-        "name": "create-todo",
-        "output": [
-          "ActionOutput_basecamp_createtodo"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_basecamp_createtodo",
-          "ActionOutput_basecamp_createtodo"
         ],
         "version": "2.0.0"
       }

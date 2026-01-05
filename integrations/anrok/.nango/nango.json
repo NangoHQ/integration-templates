@@ -42,25 +42,6 @@
       },
       {
         "type": "action",
-        "description": "Voids a transaction in Anrok.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/transactions/void"
-        },
-        "input": "ActionInput_anrok_voidtransaction",
-        "name": "void-transaction",
-        "output": [
-          "ActionOutput_anrok_voidtransaction"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_anrok_voidtransaction",
-          "ActionOutput_anrok_voidtransaction"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Creates a negation in Anrok.",
         "endpoint": {
           "method": "POST",
@@ -75,6 +56,25 @@
         "usedModels": [
           "ActionInput_anrok_negatetransaction",
           "ActionOutput_anrok_negatetransaction"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Voids a transaction in Anrok.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/transactions/void"
+        },
+        "input": "ActionInput_anrok_voidtransaction",
+        "name": "void-transaction",
+        "output": [
+          "ActionOutput_anrok_voidtransaction"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_anrok_voidtransaction",
+          "ActionOutput_anrok_voidtransaction"
         ],
         "version": "1.0.0"
       }

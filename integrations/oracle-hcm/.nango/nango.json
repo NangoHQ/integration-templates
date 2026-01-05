@@ -5,33 +5,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetch all employees from Oracle HCM",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/employees/unified",
-            "group": "Unified HRIS API"
-          }
-        ],
-        "input": "SyncMetadata_oracle_hcm_unifiedemployees",
-        "name": "unified-employees",
-        "output": [
-          "StandardEmployee"
-        ],
-        "runs": "every hour",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "StandardEmployee",
-          "SyncMetadata_oracle_hcm_unifiedemployees"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetch all employees from Oracle HCM in the native Oracle data model",
         "auto_start": true,
         "endpoints": [
@@ -53,6 +26,33 @@
         "usedModels": [
           "Employee",
           "SyncMetadata_oracle_hcm_employees"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all employees from Oracle HCM",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
+          }
+        ],
+        "input": "SyncMetadata_oracle_hcm_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_oracle_hcm_unifiedemployees"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

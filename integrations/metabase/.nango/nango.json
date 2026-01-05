@@ -44,21 +44,21 @@
       },
       {
         "type": "action",
-        "description": "Updates an existing, active user in Metabase.",
+        "description": "Enables a disabled user.",
         "endpoint": {
           "method": "PUT",
-          "path": "/users",
+          "path": "/users/enable",
           "group": "Users"
         },
-        "input": "ActionInput_metabase_updateuser",
-        "name": "update-user",
+        "input": "ActionInput_metabase_enableuser",
+        "name": "enable-user",
         "output": [
-          "ActionOutput_metabase_updateuser"
+          "ActionOutput_metabase_enableuser"
         ],
         "scopes": [],
         "usedModels": [
-          "ActionInput_metabase_updateuser",
-          "ActionOutput_metabase_updateuser"
+          "ActionInput_metabase_enableuser",
+          "ActionOutput_metabase_enableuser"
         ],
         "version": "1.0.0"
       },
@@ -84,21 +84,21 @@
       },
       {
         "type": "action",
-        "description": "Enables a disabled user.",
+        "description": "Updates an existing, active user in Metabase.",
         "endpoint": {
           "method": "PUT",
-          "path": "/users/enable",
+          "path": "/users",
           "group": "Users"
         },
-        "input": "ActionInput_metabase_enableuser",
-        "name": "enable-user",
+        "input": "ActionInput_metabase_updateuser",
+        "name": "update-user",
         "output": [
-          "ActionOutput_metabase_enableuser"
+          "ActionOutput_metabase_updateuser"
         ],
         "scopes": [],
         "usedModels": [
-          "ActionInput_metabase_enableuser",
-          "ActionOutput_metabase_enableuser"
+          "ActionInput_metabase_updateuser",
+          "ActionOutput_metabase_updateuser"
         ],
         "version": "1.0.0"
       }

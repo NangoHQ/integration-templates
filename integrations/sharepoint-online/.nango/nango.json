@@ -4,6 +4,28 @@
     "actions": [
       {
         "type": "action",
+        "description": "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-file"
+        },
+        "input": "ActionInput_sharepoint_online_fetchfile",
+        "name": "fetch-file",
+        "output": [
+          "ActionOutput_sharepoint_online_fetchfile"
+        ],
+        "scopes": [
+          "MyFiles.Read",
+          "offline_access"
+        ],
+        "usedModels": [
+          "ActionInput_sharepoint_online_fetchfile",
+          "ActionOutput_sharepoint_online_fetchfile"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.\nThe connection metadata should be set based on the file selection.",
         "endpoint": {
           "method": "GET",
@@ -24,31 +46,42 @@
           "ActionOutput_sharepoint_online_listsharedsites"
         ],
         "version": "3.0.0"
-      },
-      {
-        "type": "action",
-        "description": "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/fetch-file"
-        },
-        "input": "ActionInput_sharepoint_online_fetchfile",
-        "name": "fetch-file",
-        "output": [
-          "ActionOutput_sharepoint_online_fetchfile"
-        ],
-        "scopes": [
-          "MyFiles.Read",
-          "offline_access"
-        ],
-        "usedModels": [
-          "ActionInput_sharepoint_online_fetchfile",
-          "ActionOutput_sharepoint_online_fetchfile"
-        ],
-        "version": "2.0.0"
       }
     ],
     "syncs": [
+      {
+        "type": "sync",
+        "description": "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/shared-files/selected"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_sharedsitesselection",
+        "name": "shared-sites-selection",
+        "output": [
+          "FileMetadata"
+        ],
+        "runs": "every 1 hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "FileMetadata",
+          "SyncMetadata_sharepoint_online_sharedsitesselection"
+        ],
+        "version": "3.0.0",
+        "webhookSubscriptions": []
+      },
       {
         "type": "sync",
         "description": "Fetch all files from the user's drive and sync the metadata for each file.",
@@ -113,39 +146,6 @@
           "SyncMetadata_sharepoint_online_userfilesselection"
         ],
         "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
-        "auto_start": false,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/shared-files/selected"
-          }
-        ],
-        "input": "SyncMetadata_sharepoint_online_sharedsitesselection",
-        "name": "shared-sites-selection",
-        "output": [
-          "FileMetadata"
-        ],
-        "runs": "every 1 hour",
-        "scopes": [
-          "Sites.Read.All",
-          "Sites.Selected",
-          "MyFiles.Read",
-          "Files.Read.All",
-          "Files.Read.Selected",
-          "offline_access"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "FileMetadata",
-          "SyncMetadata_sharepoint_online_sharedsitesselection"
-        ],
-        "version": "3.0.0",
         "webhookSubscriptions": []
       }
     ],

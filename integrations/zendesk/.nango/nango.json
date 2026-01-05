@@ -4,43 +4,23 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetch all help center articles metadata",
+        "description": "Create a category within the help center",
         "endpoint": {
-          "method": "GET",
-          "path": "/all-articles"
+          "method": "POST",
+          "path": "/categories",
+          "group": "Categories"
         },
-        "input": "ActionInput_zendesk_fetcharticles",
-        "name": "fetch-articles",
+        "input": "ActionInput_zendesk_createcategory",
+        "name": "create-category",
         "output": [
-          "ActionOutput_zendesk_fetcharticles"
+          "ActionOutput_zendesk_createcategory"
         ],
         "scopes": [
-          "hc:read"
+          "hc:write"
         ],
         "usedModels": [
-          "ActionInput_zendesk_fetcharticles",
-          "ActionOutput_zendesk_fetcharticles"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Fetch a single full help center article",
-        "endpoint": {
-          "method": "GET",
-          "path": "/single-article"
-        },
-        "input": "ActionInput_zendesk_fetcharticle",
-        "name": "fetch-article",
-        "output": [
-          "ActionOutput_zendesk_fetcharticle"
-        ],
-        "scopes": [
-          "hc:read"
-        ],
-        "usedModels": [
-          "ActionInput_zendesk_fetcharticle",
-          "ActionOutput_zendesk_fetcharticle"
+          "ActionInput_zendesk_createcategory",
+          "ActionOutput_zendesk_createcategory"
         ],
         "version": "1.0.0"
       },
@@ -68,28 +48,6 @@
       },
       {
         "type": "action",
-        "description": "Create a category within the help center",
-        "endpoint": {
-          "method": "POST",
-          "path": "/categories",
-          "group": "Categories"
-        },
-        "input": "ActionInput_zendesk_createcategory",
-        "name": "create-category",
-        "output": [
-          "ActionOutput_zendesk_createcategory"
-        ],
-        "scopes": [
-          "hc:write"
-        ],
-        "usedModels": [
-          "ActionInput_zendesk_createcategory",
-          "ActionOutput_zendesk_createcategory"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Create a Zendesk ticket",
         "endpoint": {
           "method": "POST",
@@ -109,28 +67,6 @@
           "ActionOutput_zendesk_createticket"
         ],
         "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Delete a user in Zendesk",
-        "endpoint": {
-          "method": "DELETE",
-          "path": "/users",
-          "group": "Users"
-        },
-        "input": "ActionInput_zendesk_deleteuser",
-        "name": "delete-user",
-        "output": [
-          "ActionOutput_zendesk_deleteuser"
-        ],
-        "scopes": [
-          "users:write"
-        ],
-        "usedModels": [
-          "ActionInput_zendesk_deleteuser",
-          "ActionOutput_zendesk_deleteuser"
-        ],
-        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -156,6 +92,70 @@
       },
       {
         "type": "action",
+        "description": "Delete a user in Zendesk",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_zendesk_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_zendesk_deleteuser"
+        ],
+        "scopes": [
+          "users:write"
+        ],
+        "usedModels": [
+          "ActionInput_zendesk_deleteuser",
+          "ActionOutput_zendesk_deleteuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch a single full help center article",
+        "endpoint": {
+          "method": "GET",
+          "path": "/single-article"
+        },
+        "input": "ActionInput_zendesk_fetcharticle",
+        "name": "fetch-article",
+        "output": [
+          "ActionOutput_zendesk_fetcharticle"
+        ],
+        "scopes": [
+          "hc:read"
+        ],
+        "usedModels": [
+          "ActionInput_zendesk_fetcharticle",
+          "ActionOutput_zendesk_fetcharticle"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all help center articles metadata",
+        "endpoint": {
+          "method": "GET",
+          "path": "/all-articles"
+        },
+        "input": "ActionInput_zendesk_fetcharticles",
+        "name": "fetch-articles",
+        "output": [
+          "ActionOutput_zendesk_fetcharticles"
+        ],
+        "scopes": [
+          "hc:read"
+        ],
+        "usedModels": [
+          "ActionInput_zendesk_fetcharticles",
+          "ActionOutput_zendesk_fetcharticles"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
         "endpoint": {
           "method": "GET",
@@ -177,35 +177,6 @@
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches a list of tickets from Zendesk",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/tickets",
-            "group": "Tickets"
-          }
-        ],
-        "input": "SyncMetadata_zendesk_tickets",
-        "name": "tickets",
-        "output": [
-          "Ticket"
-        ],
-        "runs": "every 1 hour",
-        "scopes": [
-          "tickets:read"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "Ticket",
-          "SyncMetadata_zendesk_tickets"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches a list of articles in Help center from Zendesk",
@@ -288,6 +259,35 @@
         "usedModels": [
           "Section",
           "SyncMetadata_zendesk_sections"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of tickets from Zendesk",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tickets",
+            "group": "Tickets"
+          }
+        ],
+        "input": "SyncMetadata_zendesk_tickets",
+        "name": "tickets",
+        "output": [
+          "Ticket"
+        ],
+        "runs": "every 1 hour",
+        "scopes": [
+          "tickets:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Ticket",
+          "SyncMetadata_zendesk_tickets"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

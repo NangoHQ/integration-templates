@@ -4,26 +4,6 @@
     "actions": [
       {
         "type": "action",
-        "description": "Sends an SMS message via ClickSend's API.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/sms/send",
-          "group": "SMS"
-        },
-        "input": "ActionInput_clicksend_sendsms",
-        "name": "send-sms",
-        "output": [
-          "ActionOutput_clicksend_sendsms"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_clicksend_sendsms",
-          "ActionOutput_clicksend_sendsms"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Fetches basic information about the ClickSend account.",
         "endpoint": {
           "method": "GET",
@@ -39,6 +19,26 @@
         "usedModels": [
           "ActionInput_clicksend_fetchaccount",
           "ActionOutput_clicksend_fetchaccount"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Sends an SMS message via ClickSend's API.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/sms/send",
+          "group": "SMS"
+        },
+        "input": "ActionInput_clicksend_sendsms",
+        "name": "send-sms",
+        "output": [
+          "ActionOutput_clicksend_sendsms"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_clicksend_sendsms",
+          "ActionOutput_clicksend_sendsms"
         ],
         "version": "2.0.0"
       }

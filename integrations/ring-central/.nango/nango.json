@@ -4,6 +4,28 @@
     "actions": [
       {
         "type": "action",
+        "description": "Creates a new external contact in RingCentral.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_ring_central_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_ring_central_createcontact"
+        ],
+        "scopes": [
+          "Contacts"
+        ],
+        "usedModels": [
+          "ActionInput_ring_central_createcontact",
+          "ActionOutput_ring_central_createcontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Creates a user in RingCentral",
         "endpoint": {
           "method": "POST",
@@ -65,60 +87,9 @@
           "ActionOutput_ring_central_getcompanyinfo"
         ],
         "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Creates a new external contact in RingCentral.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/contacts",
-          "group": "Contacts"
-        },
-        "input": "ActionInput_ring_central_createcontact",
-        "name": "create-contact",
-        "output": [
-          "ActionOutput_ring_central_createcontact"
-        ],
-        "scopes": [
-          "Contacts"
-        ],
-        "usedModels": [
-          "ActionInput_ring_central_createcontact",
-          "ActionOutput_ring_central_createcontact"
-        ],
-        "version": "1.0.0"
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches the list of users from RingCentral",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_ring_central_users",
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "ReadAccounts"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_ring_central_users"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches the list of external contacts from RingCentral",
@@ -144,6 +115,35 @@
         "usedModels": [
           "Contact",
           "SyncMetadata_ring_central_contacts"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches the list of users from RingCentral",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_ring_central_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "ReadAccounts"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_ring_central_users"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

@@ -44,6 +44,26 @@
       },
       {
         "type": "action",
+        "description": "Action to create a product in pennylane",
+        "endpoint": {
+          "method": "POST",
+          "path": "/products",
+          "group": "Products"
+        },
+        "input": "ActionInput_pennylane_createproduct",
+        "name": "create-product",
+        "output": [
+          "ActionOutput_pennylane_createproduct"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_createproduct",
+          "ActionOutput_pennylane_createproduct"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
         "description": "Action to create a supplier in pennylane",
         "endpoint": {
           "method": "POST",
@@ -104,46 +124,6 @@
       },
       {
         "type": "action",
-        "description": "Action to update a supplier in pennylane",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/suppliers",
-          "group": "Suppliers"
-        },
-        "input": "ActionInput_pennylane_updatesupplier",
-        "name": "update-supplier",
-        "output": [
-          "ActionOutput_pennylane_updatesupplier"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_pennylane_updatesupplier",
-          "ActionOutput_pennylane_updatesupplier"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Action to create a product in pennylane",
-        "endpoint": {
-          "method": "POST",
-          "path": "/products",
-          "group": "Products"
-        },
-        "input": "ActionInput_pennylane_createproduct",
-        "name": "create-product",
-        "output": [
-          "ActionOutput_pennylane_createproduct"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_pennylane_createproduct",
-          "ActionOutput_pennylane_createproduct"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Action to update a product in pennylane",
         "endpoint": {
           "method": "PATCH",
@@ -159,6 +139,26 @@
         "usedModels": [
           "ActionInput_pennylane_updateproduct",
           "ActionOutput_pennylane_updateproduct"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to update a supplier in pennylane",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/suppliers",
+          "group": "Suppliers"
+        },
+        "input": "ActionInput_pennylane_updatesupplier",
+        "name": "update-supplier",
+        "output": [
+          "ActionOutput_pennylane_updatesupplier"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_updatesupplier",
+          "ActionOutput_pennylane_updatesupplier"
         ],
         "version": "2.0.0"
       }
@@ -189,35 +189,6 @@
         "usedModels": [
           "PennylaneCustomer",
           "SyncMetadata_pennylane_customers"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of suppliers from pennylane",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/suppliers",
-            "group": "Suppliers"
-          }
-        ],
-        "input": "SyncMetadata_pennylane_suppliers",
-        "name": "suppliers",
-        "output": [
-          "PennylaneSupplier"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "supplier_invoices"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "PennylaneSupplier",
-          "SyncMetadata_pennylane_suppliers"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -276,6 +247,35 @@
         "usedModels": [
           "PennylaneProduct",
           "SyncMetadata_pennylane_products"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of suppliers from pennylane",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/suppliers",
+            "group": "Suppliers"
+          }
+        ],
+        "input": "SyncMetadata_pennylane_suppliers",
+        "name": "suppliers",
+        "output": [
+          "PennylaneSupplier"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "supplier_invoices"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PennylaneSupplier",
+          "SyncMetadata_pennylane_suppliers"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
