@@ -1,0 +1,32 @@
+{
+  "id": "2b6ce298-3121-8079-a497-d3eca16d875c",
+  "object": "database",
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "Updated Database Title",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "Updated Database Title",
+      "href": null
+    }
+  ],
+  "properties": {
+    "Name": {
+      "id": "title",
+      "name": "Name",
+      "description": null,
+      "type": "title",
+      "title": {}
+    }
+  }
+}

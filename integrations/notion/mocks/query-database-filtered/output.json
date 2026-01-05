@@ -1,0 +1,57 @@
+{
+  "object": "list",
+  "results": [
+    {
+      "object": "page",
+      "id": "2b6ce298-3121-81ef-9b79-d1e095d0af0e",
+      "created_time": "2025-11-25T13:53:00.000Z",
+      "last_edited_time": "2025-11-25T13:53:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "2b6ce298-3121-8079-a497-d3eca16d875c"
+      },
+      "archived": false,
+      "in_trash": false,
+      "is_locked": false,
+      "properties": {
+        "Name": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Test Page from Nango Action Builder",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Test Page from Nango Action Builder",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://www.notion.so/Test-Page-from-Nango-Action-Builder-2b6ce298312181ef9b79d1e095d0af0e",
+      "public_url": null
+    }
+  ],
+  "has_more": false,
+  "next_cursor": null
+}

@@ -1,0 +1,302 @@
+{
+  "method": "post",
+  "endpoint": "v1/search",
+  "requestIdentityHash": "2423856f51effebad9876fddb15dcf164e7415a8",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "v1/search",
+    "params": [],
+    "headers": [],
+    "data": "{\"query\":\"Test\",\"filter\":{\"property\":\"object\",\"value\":\"page\"}}"
+  },
+  "response": {
+    "object": "list",
+    "results": [
+      {
+        "object": "page",
+        "id": "2dfce298-3121-81e5-b6a7-e5c572cb2751",
+        "created_time": "2026-01-05T08:51:00.000Z",
+        "last_edited_time": "2026-01-05T08:51:00.000Z",
+        "created_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "last_edited_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "cover": null,
+        "icon": null,
+        "parent": {
+          "type": "page_id",
+          "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+        },
+        "archived": false,
+        "in_trash": false,
+        "is_locked": false,
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Test Page from Nango",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                },
+                "plain_text": "Test Page from Nango",
+                "href": null
+              }
+            ]
+          }
+        },
+        "url": "https://www.notion.so/Test-Page-from-Nango-2dfce298312181e5b6a7e5c572cb2751",
+        "public_url": null
+      },
+      {
+        "object": "page",
+        "id": "2dfce298-3121-818c-94fb-fe5c225e51c0",
+        "created_time": "2026-01-05T08:51:00.000Z",
+        "last_edited_time": "2026-01-05T08:51:00.000Z",
+        "created_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "last_edited_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "cover": null,
+        "icon": null,
+        "parent": {
+          "type": "page_id",
+          "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+        },
+        "archived": false,
+        "in_trash": false,
+        "is_locked": false,
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Test Page from Nango",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                },
+                "plain_text": "Test Page from Nango",
+                "href": null
+              }
+            ]
+          }
+        },
+        "url": "https://www.notion.so/Test-Page-from-Nango-2dfce2983121818c94fbfe5c225e51c0",
+        "public_url": null
+      },
+      {
+        "object": "page",
+        "id": "2dfce298-3121-8109-b50b-c91d72d50f24",
+        "created_time": "2026-01-05T08:50:00.000Z",
+        "last_edited_time": "2026-01-05T08:50:00.000Z",
+        "created_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "last_edited_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "cover": null,
+        "icon": null,
+        "parent": {
+          "type": "page_id",
+          "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+        },
+        "archived": false,
+        "in_trash": false,
+        "is_locked": false,
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Test Page from Nango",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                },
+                "plain_text": "Test Page from Nango",
+                "href": null
+              }
+            ]
+          }
+        },
+        "url": "https://www.notion.so/Test-Page-from-Nango-2dfce29831218109b50bc91d72d50f24",
+        "public_url": null
+      },
+      {
+        "object": "page",
+        "id": "2b6ce298-3121-81ef-9b79-d1e095d0af0e",
+        "created_time": "2025-11-25T13:53:00.000Z",
+        "last_edited_time": "2025-11-25T13:53:00.000Z",
+        "created_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "last_edited_by": {
+          "object": "user",
+          "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+        },
+        "cover": null,
+        "icon": null,
+        "parent": {
+          "type": "database_id",
+          "database_id": "2b6ce298-3121-8079-a497-d3eca16d875c"
+        },
+        "archived": false,
+        "in_trash": false,
+        "is_locked": false,
+        "properties": {
+          "Name": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Test Page from Nango Action Builder",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                },
+                "plain_text": "Test Page from Nango Action Builder",
+                "href": null
+              }
+            ]
+          }
+        },
+        "url": "https://www.notion.so/Test-Page-from-Nango-Action-Builder-2b6ce298312181ef9b79d1e095d0af0e",
+        "public_url": null
+      },
+      {
+        "object": "page",
+        "id": "2b6ce298-3121-8087-914a-d4fe743f6d69",
+        "created_time": "2025-11-25T13:20:00.000Z",
+        "last_edited_time": "2025-11-25T13:20:00.000Z",
+        "created_by": {
+          "object": "user",
+          "id": "d42542a8-a81c-4386-aa95-313aa4e818b3"
+        },
+        "last_edited_by": {
+          "object": "user",
+          "id": "d42542a8-a81c-4386-aa95-313aa4e818b3"
+        },
+        "cover": null,
+        "icon": null,
+        "parent": {
+          "type": "page_id",
+          "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+        },
+        "archived": false,
+        "in_trash": false,
+        "is_locked": false,
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "text": {
+                  "content": "Test Page",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                },
+                "plain_text": "Test Page",
+                "href": null
+              }
+            ]
+          }
+        },
+        "url": "https://www.notion.so/Test-Page-2b6ce29831218087914ad4fe743f6d69",
+        "public_url": null
+      }
+    ],
+    "next_cursor": null,
+    "has_more": false,
+    "type": "page_or_database",
+    "page_or_database": {},
+    "request_id": "54478cc9-617d-4692-85b7-bd920c8f525c"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Mon, 05 Jan 2026 08:56:31 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "994",
+    "x-ratelimit-reset": "1767603435",
+    "server": "cloudflare",
+    "cf-ray": "9b91c34cfe76fef1-PDX",
+    "cf-cache-status": "DYNAMIC",
+    "etag": "W/\"1170-zpQNXRzJj5jJbU/bCcQQIGURE74\"",
+    "vary": "Accept-Encoding",
+    "content-security-policy": "default-src 'none'",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-notion-request-id": "54478cc9-617d-4692-85b7-bd920c8f525c",
+    "x-permitted-cross-domain-policies": "none",
+    "set-cookie": "__cf_bm=tyGaniTIXqv7WabYw5TiChxWrjNurWDsA7zuW3NAe0s-1767603391-1.0.1.1-aN2hSeP1NcUGLd_wxTD5mj5eZmIGxdU7mPe9uYbyROnzHH_qJB6hLfA0NSq7.DBH3dxqf49.8nNTmZBgExbTsHiQI5Xi3bMoYjrwMdkTGic; path=/; expires=Mon, 05-Jan-26 09:26:31 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=yXkRlJ4XGdsAVeo2wR8KKl31MpuW1xmui6sc0.05V40-1767603391765-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  }
+}

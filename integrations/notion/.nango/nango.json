@@ -4,6 +4,186 @@
     "actions": [
       {
         "type": "action",
+        "description": "Adds new child blocks to a page or block (max 100 blocks).",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/append",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendblockchildren",
+        "name": "append-block-children",
+        "output": [
+          "ActionOutput_notion_appendblockchildren"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendblockchildren",
+          "ActionOutput_notion_appendblockchildren"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds bulleted list items to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/bulleted-list",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendbulletedlist",
+        "name": "append-bulleted-list",
+        "output": [
+          "ActionOutput_notion_appendbulletedlist"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendbulletedlist",
+          "ActionOutput_notion_appendbulletedlist"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a callout block with icon to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/callout",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendcalloutblock",
+        "name": "append-callout-block",
+        "output": [
+          "ActionOutput_notion_appendcalloutblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendcalloutblock",
+          "ActionOutput_notion_appendcalloutblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a code block with syntax highlighting to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/code",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendcodeblock",
+        "name": "append-code-block",
+        "output": [
+          "ActionOutput_notion_appendcodeblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendcodeblock",
+          "ActionOutput_notion_appendcodeblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a horizontal divider to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/divider",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appenddivider",
+        "name": "append-divider",
+        "output": [
+          "ActionOutput_notion_appenddivider"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appenddivider",
+          "ActionOutput_notion_appenddivider"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a heading block to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/heading",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendheadingblock",
+        "name": "append-heading-block",
+        "output": [
+          "ActionOutput_notion_appendheadingblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendheadingblock",
+          "ActionOutput_notion_appendheadingblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a to-do/checkbox item to a page.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/todo",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_appendtodoblock",
+        "name": "append-todo-block",
+        "output": [
+          "ActionOutput_notion_appendtodoblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_appendtodoblock",
+          "ActionOutput_notion_appendtodoblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Moves a page to trash by setting archived to true.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/pages/archive",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_archivepage",
+        "name": "archive-page",
+        "output": [
+          "ActionOutput_notion_archivepage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_archivepage",
+          "ActionOutput_notion_archivepage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a comment to a page or existing discussion thread.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/comments",
+          "group": "Comments"
+        },
+        "input": "ActionInput_notion_createcomment",
+        "name": "create-comment",
+        "output": [
+          "ActionOutput_notion_createcomment"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_createcomment",
+          "ActionOutput_notion_createcomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Create a new row in a specified Notion database. \nThe properties are mapped to Notion-compatible formats based on the database schema. \nSupported property types include:\n- `title` (string): Creates a title property.\n- `select` (string): Creates a select property.\n- `multi_select` (array of strings): Creates a multi-select property.\n- `status` (string): Creates a status property.\n- `date` (string or object): Supports ISO date strings or objects with a `start` field.\n- `checkbox` (boolean): Creates a checkbox property.\n- `number` (number): Creates a number property.\n- `url` (string): Creates a URL property.\n- `email` (string): Creates an email property.\n- `phone_number` (string): Creates a phone number property.\n- `rich_text` (string): Creates a rich text property.\n- `relation` (array of IDs): Creates a relation property.",
         "endpoint": {
           "method": "POST",
@@ -24,6 +204,86 @@
       },
       {
         "type": "action",
+        "description": "Creates a new database as subpage with defined properties schema.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/databases",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_createdatabase",
+        "name": "create-database",
+        "output": [
+          "ActionOutput_notion_createdatabase"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_createdatabase",
+          "ActionOutput_notion_createdatabase"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new page as child of a page or database with optional content blocks.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/pages",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_createpage",
+        "name": "create-page",
+        "output": [
+          "ActionOutput_notion_createpage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_createpage",
+          "ActionOutput_notion_createpage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Archives a block, moving it to trash.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/blocks/delete",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_deleteblock",
+        "name": "delete-block",
+        "output": [
+          "ActionOutput_notion_deleteblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_deleteblock",
+          "ActionOutput_notion_deleteblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a copy of a page including all content and properties.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/pages/duplicate",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_duplicatepage",
+        "name": "duplicate-page",
+        "output": [
+          "ActionOutput_notion_duplicatepage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_duplicatepage",
+          "ActionOutput_notion_duplicatepage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
         "endpoint": {
           "method": "GET",
@@ -41,6 +301,386 @@
           "ActionOutput_notion_fetchcontentmetadata"
         ],
         "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves the bot user associated with the current integration token.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/bot",
+          "group": "Users"
+        },
+        "input": "ActionInput_notion_getbotuser",
+        "name": "get-bot-user",
+        "output": [
+          "ActionOutput_notion_getbotuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_getbotuser",
+          "ActionOutput_notion_getbotuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves unresolved comments from a page or block.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/comments/list",
+          "group": "Comments"
+        },
+        "input": "ActionInput_notion_listcomments",
+        "name": "list-comments",
+        "output": [
+          "ActionOutput_notion_listcomments"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_listcomments",
+          "ActionOutput_notion_listcomments"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets paginated list of all workspace users excluding guests.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/list",
+          "group": "Users"
+        },
+        "input": "ActionInput_notion_listusers",
+        "name": "list-users",
+        "output": [
+          "ActionOutput_notion_listusers"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_listusers",
+          "ActionOutput_notion_listusers"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves pages from database matching filter conditions.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/databases/query-filtered",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_querydatabasefiltered",
+        "name": "query-database-filtered",
+        "output": [
+          "ActionOutput_notion_querydatabasefiltered"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_querydatabasefiltered",
+          "ActionOutput_notion_querydatabasefiltered"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves pages from database in sorted order.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/databases/query-sorted",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_querydatabasesorted",
+        "name": "query-database-sorted",
+        "output": [
+          "ActionOutput_notion_querydatabasesorted"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_querydatabasesorted",
+          "ActionOutput_notion_querydatabasesorted"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves filtered and sorted pages from a database with pagination.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/databases/query",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_querydatabase",
+        "name": "query-database",
+        "output": [
+          "ActionOutput_notion_querydatabase"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_querydatabase",
+          "ActionOutput_notion_querydatabase"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Restores a page from trash by setting archived to false.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/pages/restore",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_restorepage",
+        "name": "restore-page",
+        "output": [
+          "ActionOutput_notion_restorepage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_restorepage",
+          "ActionOutput_notion_restorepage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets paginated list of child blocks within a block or page.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/blocks/children",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_retrieveblockchildren",
+        "name": "retrieve-block-children",
+        "output": [
+          "ActionOutput_notion_retrieveblockchildren"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrieveblockchildren",
+          "ActionOutput_notion_retrieveblockchildren"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a block object by its ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/blocks/get",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_retrieveblock",
+        "name": "retrieve-block",
+        "output": [
+          "ActionOutput_notion_retrieveblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrieveblock",
+          "ActionOutput_notion_retrieveblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets database schema and column structure.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/databases/get",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_retrievedatabase",
+        "name": "retrieve-database",
+        "output": [
+          "ActionOutput_notion_retrievedatabase"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrievedatabase",
+          "ActionOutput_notion_retrievedatabase"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a specific property value from a page with pagination support.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/pages/property",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_retrievepageproperty",
+        "name": "retrieve-page-property",
+        "output": [
+          "ActionOutput_notion_retrievepageproperty"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrievepageproperty",
+          "ActionOutput_notion_retrievepageproperty"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches page properties and metadata by page ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/pages",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_retrievepage",
+        "name": "retrieve-page",
+        "output": [
+          "ActionOutput_notion_retrievepage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrievepage",
+          "ActionOutput_notion_retrievepage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a single user by their ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/get",
+          "group": "Users"
+        },
+        "input": "ActionInput_notion_retrieveuser",
+        "name": "retrieve-user",
+        "output": [
+          "ActionOutput_notion_retrieveuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_retrieveuser",
+          "ActionOutput_notion_retrieveuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches only databases shared with the integration.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/search/databases",
+          "group": "Search"
+        },
+        "input": "ActionInput_notion_searchdatabases",
+        "name": "search-databases",
+        "output": [
+          "ActionOutput_notion_searchdatabases"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_searchdatabases",
+          "ActionOutput_notion_searchdatabases"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches only pages shared with the integration.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/search/pages",
+          "group": "Search"
+        },
+        "input": "ActionInput_notion_searchpages",
+        "name": "search-pages",
+        "output": [
+          "ActionOutput_notion_searchpages"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_searchpages",
+          "ActionOutput_notion_searchpages"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Searches all pages and databases shared with the integration by title.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/search",
+          "group": "Search"
+        },
+        "input": "ActionInput_notion_search",
+        "name": "search",
+        "output": [
+          "ActionOutput_notion_search"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_search",
+          "ActionOutput_notion_search"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Modifies the content of a block based on its type.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/blocks/update",
+          "group": "Blocks"
+        },
+        "input": "ActionInput_notion_updateblock",
+        "name": "update-block",
+        "output": [
+          "ActionOutput_notion_updateblock"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_updateblock",
+          "ActionOutput_notion_updateblock"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Modifies database title, description, or properties schema.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/databases/update",
+          "group": "Databases"
+        },
+        "input": "ActionInput_notion_updatedatabase",
+        "name": "update-database",
+        "output": [
+          "ActionOutput_notion_updatedatabase"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_updatedatabase",
+          "ActionOutput_notion_updatedatabase"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Modifies page properties, icon, cover, or archived status.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/pages/update",
+          "group": "Pages"
+        },
+        "input": "ActionInput_notion_updatepage",
+        "name": "update-page",
+        "output": [
+          "ActionOutput_notion_updatepage"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_notion_updatepage",
+          "ActionOutput_notion_updatepage"
+        ],
+        "version": "1.0.0"
       }
     ],
     "syncs": [

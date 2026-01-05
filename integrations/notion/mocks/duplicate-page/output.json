@@ -1,0 +1,35 @@
+{
+  "id": "2dfce298-3121-81ac-84db-f607a56d5819",
+  "object": "page",
+  "created_time": "2026-01-05T09:06:00.000Z",
+  "parent": {
+    "type": "page_id",
+    "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639",
+    "database_id": null
+  },
+  "properties": {
+    "title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Copy of Page",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Copy of Page",
+          "href": null
+        }
+      ]
+    }
+  }
+}

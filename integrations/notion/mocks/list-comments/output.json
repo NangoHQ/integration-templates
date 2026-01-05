@@ -1,0 +1,45 @@
+{
+  "object": "list",
+  "results": [
+    {
+      "object": "comment",
+      "id": "2b7ce298-3121-816a-a2e3-001ddcd8d48a",
+      "parent": {
+        "type": "page_id",
+        "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+      },
+      "discussion_id": "2b7ce298-3121-8106-af9d-001cb07e6e7b",
+      "created_time": "2025-11-26T12:06:00.000Z",
+      "last_edited_time": "2025-11-26T12:06:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+      },
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Test comment from Nango API",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Test comment from Nango API",
+          "href": null
+        }
+      ],
+      "display_name": {
+        "type": "integration",
+        "resolved_name": "Nango Prod (Shared Dev)"
+      }
+    }
+  ],
+  "has_more": false,
+  "next_cursor": null
+}

@@ -1,0 +1,49 @@
+{
+  "id": "2b6ce298-3121-80ae-bfe1-f8984b993639",
+  "object": "page",
+  "created_time": "2025-11-25T13:20:00.000Z",
+  "last_edited_time": "2026-01-05T08:54:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "d42542a8-a81c-4386-aa95-313aa4e818b3"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+  },
+  "parent": {
+    "type": "page_id",
+    "page_id": "1bcce298-3121-8072-83e4-fd350c73da2a",
+    "database_id": null,
+    "workspace": null
+  },
+  "archived": false,
+  "in_trash": false,
+  "properties": {
+    "title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Updated Title",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Updated Title",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/Updated-Title-2b6ce298312180aebfe1f8984b993639",
+  "public_url": null
+}

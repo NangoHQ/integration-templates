@@ -1,0 +1,40 @@
+{
+  "id": "2dfce298-3121-81df-9390-d2120a7a8fcf",
+  "object": "database",
+  "created_time": "2026-01-05T09:05:00.000Z",
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "Test Database",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "Test Database",
+      "href": null
+    }
+  ],
+  "properties": {
+    "Description": {
+      "id": "_%3EPE",
+      "name": "Description",
+      "description": null,
+      "type": "rich_text",
+      "rich_text": {}
+    },
+    "Name": {
+      "id": "title",
+      "name": "Name",
+      "description": null,
+      "type": "title",
+      "title": {}
+    }
+  }
+}

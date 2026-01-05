@@ -1,0 +1,24 @@
+{
+  "id": "2dfce298-3121-8111-82f6-001d4bd7e997",
+  "object": "comment",
+  "created_time": "2026-01-05T09:06:00.000Z",
+  "rich_text": [
+    {
+      "type": "text",
+      "text": {
+        "content": "This is a comment from Nango",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "This is a comment from Nango",
+      "href": null
+    }
+  ]
+}

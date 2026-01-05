@@ -1,0 +1,48 @@
+{
+  "id": "2dfce298-3121-81e5-b6a7-e5c572cb2751",
+  "object": "page",
+  "created_time": "2026-01-05T08:51:00.000Z",
+  "last_edited_time": "2026-01-05T08:51:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+  },
+  "parent": {
+    "type": "page_id",
+    "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639",
+    "database_id": null
+  },
+  "archived": false,
+  "in_trash": false,
+  "properties": {
+    "title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Test Page from Nango",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Test Page from Nango",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/Test-Page-from-Nango-2dfce298312181e5b6a7e5c572cb2751",
+  "public_url": null
+}

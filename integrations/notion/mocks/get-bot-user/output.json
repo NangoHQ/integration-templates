@@ -1,0 +1,26 @@
+{
+  "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a",
+  "object": "user",
+  "type": "bot",
+  "name": "Nango Prod (Shared Dev)",
+  "bot": {
+    "owner": {
+      "type": "user",
+      "user": {
+        "object": "user",
+        "id": "d42542a8-a81c-4386-aa95-313aa4e818b3",
+        "name": "Khaliq Gant",
+        "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/97e35a83-3fd0-46d1-9a2b-7cb59f585a33/work_pic.jpg",
+        "type": "person",
+        "person": {
+          "email": "khaliq@nango.dev"
+        }
+      }
+    },
+    "workspace_name": "Nango",
+    "workspace_id": "774a3882-be26-43e1-a1f9-3fe4dad0a8fc",
+    "workspace_limits": {
+      "max_file_upload_size_in_bytes": 5368709120
+    }
+  }
+}
