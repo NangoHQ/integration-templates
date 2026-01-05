@@ -1,0 +1,93 @@
+{
+  "method": "patch",
+  "endpoint": "v1/pages/2dfce298-3121-8140-9388-e99422f36cd1",
+  "requestIdentityHash": "dd079bbfee77036be455778b64bf0fb1139dc54c",
+  "requestIdentity": {
+    "method": "patch",
+    "endpoint": "v1/pages/2dfce298-3121-8140-9388-e99422f36cd1",
+    "params": [],
+    "headers": [],
+    "data": "{\"archived\":true}"
+  },
+  "response": {
+    "object": "page",
+    "id": "2dfce298-3121-8140-9388-e99422f36cd1",
+    "created_time": "2026-01-05T09:08:00.000Z",
+    "last_edited_time": "2026-01-05T09:08:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a"
+    },
+    "cover": null,
+    "icon": null,
+    "parent": {
+      "type": "page_id",
+      "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+    },
+    "archived": true,
+    "in_trash": true,
+    "is_locked": false,
+    "properties": {
+      "title": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Page to Archive",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Page to Archive",
+            "href": null
+          }
+        ]
+      }
+    },
+    "url": "https://www.notion.so/Page-to-Archive-2dfce298312181409388e99422f36cd1",
+    "public_url": null,
+    "request_id": "ed3ce7ed-fc76-4528-9e74-76eeaa33b6ab"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Mon, 05 Jan 2026 09:08:57 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "997",
+    "x-ratelimit-reset": "1767604195",
+    "cf-ray": "9b91d5803d1b1bed-PDX",
+    "cf-cache-status": "DYNAMIC",
+    "etag": "W/\"37a-z2CTmAaiC06dVKa2uh2PAJU2HsA\"",
+    "vary": "Accept-Encoding",
+    "content-security-policy": "default-src 'none'",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-notion-request-id": "ed3ce7ed-fc76-4528-9e74-76eeaa33b6ab",
+    "x-permitted-cross-domain-policies": "none",
+    "set-cookie": "__cf_bm=jLUh_BhC3PZUGifbhz4.8LSMp2MHGxbY8y5c3OHs4Go-1767604137-1.0.1.1-3mhYb7lHwfrdluABYJl6Snd1wWOEQzxm6C.03BQcPNYwcljC_FTu4ITtNfzLatpV0z1FoJqMxwrrbAc2s9ws87AD0SJNk9ixza62OnIklfM; path=/; expires=Mon, 05-Jan-26 09:38:57 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=4koFJxytCajTvZAs19Jf1qD_9Jtg_Mr8kxOgys3r4Bc-1767604137599-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+    "server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "2b6ce298-3121-8079-a497-d3eca16d875c",
+  "object": "database",
+  "created_time": "2025-11-25T13:20:00.000Z",
+  "last_edited_time": "2025-11-25T13:20:00.000Z",
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "Foo",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "Foo",
+      "href": null
+    }
+  ],
+  "properties": {
+    "Name": {
+      "id": "title",
+      "name": "Name",
+      "description": null,
+      "type": "title",
+      "title": {}
+    }
+  }
+}

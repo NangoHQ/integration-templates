@@ -1,0 +1,20 @@
+{
+  "parent": {
+    "page_id": "2b6ce298-3121-80ae-bfe1-f8984b993639"
+  },
+  "title": [
+    {
+      "text": {
+        "content": "Test Database"
+      }
+    }
+  ],
+  "properties": {
+    "Name": {
+      "title": {}
+    },
+    "Description": {
+      "rich_text": {}
+    }
+  }
+}

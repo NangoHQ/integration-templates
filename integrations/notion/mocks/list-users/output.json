@@ -1,0 +1,262 @@
+{
+  "object": "list",
+  "results": [
+    {
+      "object": "user",
+      "id": "1bdd872b-594c-819b-bf80-000207ccad61",
+      "name": "Guilherme Bassa",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/eff7c0da-a3c5-4ffd-ad42-f0545005e730/B192FE85-6EED-47F2-B8C1-EBDF90F9A431.jpg",
+      "type": "person",
+      "person": {
+        "email": "gui@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "20378a48-03e3-4131-a5b2-0e8b90b80fb2",
+      "name": "Gabrielle Houeix",
+      "avatar_url": null,
+      "type": "person",
+      "person": {
+        "email": "gabrielle@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "206d872b-594c-8160-a6a7-0002996fb8b2",
+      "name": "Ross McEwan",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/db62d824-6b50-4c0e-98db-a39c1c6ec3ca/PXL_20250602_114001117.jpg",
+      "type": "person",
+      "person": {
+        "email": "ross@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "2bcd872b-594c-8153-bfb7-0002a684effb",
+      "name": "Marcin Dobrowolski",
+      "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocJrTAwG5Evz-yqkO46efh8W_IEb1fOgP5po_j8phv55dffUV8k=s100",
+      "type": "person",
+      "person": {
+        "email": "marcin@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "2bed872b-594c-81a7-8fb9-00026d069362",
+      "name": "Agustín Ayerza",
+      "avatar_url": null,
+      "type": "person",
+      "person": {
+        "email": "agustin@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "2cbd872b-594c-815b-81c1-00029635d6a4",
+      "name": "Oliver",
+      "avatar_url": null,
+      "type": "person",
+      "person": {
+        "email": "oliver@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "d42542a8-a81c-4386-aa95-313aa4e818b3",
+      "name": "Khaliq Gant",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/97e35a83-3fd0-46d1-9a2b-7cb59f585a33/work_pic.jpg",
+      "type": "person",
+      "person": {
+        "email": "khaliq@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "ec629886-9522-4a32-a91a-cc349cb8a8dd",
+      "name": "Thomas Bonnin",
+      "avatar_url": null,
+      "type": "person",
+      "person": {
+        "email": "thomas@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "949491bb-4d14-44c8-8d46-ea1c5f59488f",
+      "name": "Robin",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/edc564d7-1b6c-47ea-a3b5-8172f157aac0/rob.jpeg",
+      "type": "person",
+      "person": {
+        "email": "robin@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "a2fc3b8f-7c5a-4940-9890-8d9fd9c1783a",
+      "name": "Bastien Beurier",
+      "avatar_url": "https://lh3.googleusercontent.com/a-/AOh14GhkUlO-ZmptPSg3f4OvSyVPh4wX40POTq9_AfMT=s100",
+      "type": "person",
+      "person": {
+        "email": "bastien@nango.dev"
+      }
+    },
+    {
+      "object": "user",
+      "id": "eece2b6f-bb2b-4e69-8b2c-5b634d037237",
+      "name": "Fillout",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/549240ad-fc47-40f1-894c-e9aace5d35f2/Frame_432.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "5d4090f1-9630-4f2f-9556-f77b9a8842f6",
+      "name": "Nango Test Robin",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "1425ddb6-e99b-4eeb-b3fb-1a630601ac63",
+      "name": "Nango Development",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "69d43fbd-d3c3-43ac-8ee5-5b4a1eea52b5",
+      "name": "Nango Test",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "68f91e27-ba95-429a-a635-3b5904f6cb9b",
+      "name": "Nango Dev",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "4c65ecbc-e66f-4761-8afe-307d38d4d773",
+      "name": "Vanta",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/cd2a1c43-2726-4013-b785-c70b1037d6f1/vanta.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "b35aed66-8c8f-4d51-86c0-d98a183bc52e",
+      "name": "Nango Test",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "3748c6f0-ced7-425b-aadc-bbefefcd958e",
+      "name": "Robin test public new",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a",
+      "name": "Nango Prod (Shared Dev)",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/c8259241-51ca-4cbd-9d23-7d61f5d40cd3/8d60dbf2-57db-46da-a05c-64bd303e4ac9.png",
+      "type": "bot",
+      "bot": {
+        "owner": {
+          "type": "user",
+          "user": {
+            "object": "user",
+            "id": "d42542a8-a81c-4386-aa95-313aa4e818b3",
+            "name": "Khaliq Gant",
+            "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/97e35a83-3fd0-46d1-9a2b-7cb59f585a33/work_pic.jpg",
+            "type": "person",
+            "person": {
+              "email": "khaliq@nango.dev"
+            }
+          }
+        },
+        "workspace_name": "Nango",
+        "workspace_id": "774a3882-be26-43e1-a1f9-3fe4dad0a8fc",
+        "workspace_limits": {
+          "max_file_upload_size_in_bytes": 5368709120
+        }
+      }
+    },
+    {
+      "object": "user",
+      "id": "105d872b-594c-817f-a341-00275514a575",
+      "name": "Nango Prod (Shared Dev)",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/c8259241-51ca-4cbd-9d23-7d61f5d40cd3/8d60dbf2-57db-46da-a05c-64bd303e4ac9.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "11bd872b-594c-812b-8324-002729669ceb",
+      "name": "Knowledge Base",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/03b2776f-fd2b-4382-b482-a1340ee63eee/37cb9b5b-7ad5-4bcb-b496-d377649efd8c.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "160d872b-594c-8128-b89b-00277080eb4b",
+      "name": "Priority Integrations Table",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/b8602d68-aada-41c7-89fb-e2c6e367bd88/c461a3c4-3faf-4ec9-a502-a6ddd3602e59.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "1d7ce298-3121-8123-9c63-002729f2b09e",
+      "name": "Composio",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/8bfb711a-f2d4-4097-aad1-36286cd4dfd5/rounded-border_icon.png",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "223ce298-3121-81e7-8b3d-002703a636e3",
+      "name": "Nango Test Robin",
+      "avatar_url": null,
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "265ce298-3121-8115-9f4b-0027a1102e46",
+      "name": "Notion MCP",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/71948896-b1ca-44ee-91c4-152f541964ab/notion-logo-block-main.svg",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "28bce298-3121-8107-ba76-0027b6ae5701",
+      "name": "Notion MCP",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/71948896-b1ca-44ee-91c4-152f541964ab/notion-logo-block-main.svg",
+      "type": "bot",
+      "bot": {}
+    },
+    {
+      "object": "user",
+      "id": "28cce298-3121-8175-b65d-0027c41dd5b7",
+      "name": "Notion MCP",
+      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/71948896-b1ca-44ee-91c4-152f541964ab/notion-logo-block-main.svg",
+      "type": "bot",
+      "bot": {}
+    }
+  ],
+  "has_more": false,
+  "next_cursor": null
+}

@@ -1,0 +1,52 @@
+{
+  "method": "get",
+  "endpoint": "v1/users/d42542a8-a81c-4386-aa95-313aa4e818b3",
+  "requestIdentityHash": "6b77f623e72ac9012f1246b50c22a15905949587",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "v1/users/d42542a8-a81c-4386-aa95-313aa4e818b3",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "object": "user",
+    "id": "d42542a8-a81c-4386-aa95-313aa4e818b3",
+    "name": "Khaliq Gant",
+    "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/97e35a83-3fd0-46d1-9a2b-7cb59f585a33/work_pic.jpg",
+    "type": "person",
+    "person": {
+      "email": "khaliq@nango.dev"
+    },
+    "request_id": "80b16519-486e-4555-a598-cd865abb249f"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Mon, 05 Jan 2026 09:03:28 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "994",
+    "x-ratelimit-reset": "1767603857",
+    "cf-ray": "9b91cd784fd4a32d-PDX",
+    "cf-cache-status": "DYNAMIC",
+    "etag": "W/\"139-Qgftkf6lxDTvCO0SizSQviMJ/34\"",
+    "vary": "Accept-Encoding",
+    "content-security-policy": "default-src 'none'",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-notion-request-id": "80b16519-486e-4555-a598-cd865abb249f",
+    "x-permitted-cross-domain-policies": "none",
+    "set-cookie": "__cf_bm=MFyZjxWTXMVsgQAkG3hJEKWkfvt7EiNVoxzLbfg074Q-1767603808-1.0.1.1-GWvivhpqwigo_vWr40SBqGHUGZDF6XfuqZfmPpF.CyaqXlNXAl9V6CBVb9QWT1BFEmEI.c2hBFp4QJJd35RmGZov2RzXDS1VnoHoqhGNetE; path=/; expires=Mon, 05-Jan-26 09:33:28 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=_v09XJOnAXUKENRuS17EVi2I2eae1.F6N0IRtkafrhs-1767603808113-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+    "server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  }
+}

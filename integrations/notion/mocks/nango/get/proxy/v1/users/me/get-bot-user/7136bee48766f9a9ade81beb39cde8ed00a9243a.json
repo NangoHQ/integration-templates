@@ -1,0 +1,69 @@
+{
+  "method": "get",
+  "endpoint": "v1/users/me",
+  "requestIdentityHash": "7136bee48766f9a9ade81beb39cde8ed00a9243a",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "v1/users/me",
+    "params": [],
+    "headers": []
+  },
+  "response": {
+    "object": "user",
+    "id": "25906fa2-1fcf-4672-bc54-1c2d3096493a",
+    "name": "Nango Prod (Shared Dev)",
+    "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/c8259241-51ca-4cbd-9d23-7d61f5d40cd3/8d60dbf2-57db-46da-a05c-64bd303e4ac9.png",
+    "type": "bot",
+    "bot": {
+      "owner": {
+        "type": "user",
+        "user": {
+          "object": "user",
+          "id": "d42542a8-a81c-4386-aa95-313aa4e818b3",
+          "name": "Khaliq Gant",
+          "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/97e35a83-3fd0-46d1-9a2b-7cb59f585a33/work_pic.jpg",
+          "type": "person",
+          "person": {
+            "email": "khaliq@nango.dev"
+          }
+        }
+      },
+      "workspace_name": "Nango",
+      "workspace_id": "774a3882-be26-43e1-a1f9-3fe4dad0a8fc",
+      "workspace_limits": {
+        "max_file_upload_size_in_bytes": 5368709120
+      }
+    },
+    "request_id": "cbd14419-d2ec-4f14-8566-780d79998acc"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Mon, 05 Jan 2026 09:02:30 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "991",
+    "x-ratelimit-reset": "1767603789",
+    "cf-ray": "9b91cc124a904afe-PDX",
+    "cf-cache-status": "DYNAMIC",
+    "etag": "W/\"2f4-GnOL1LqwwB9PoXRFuCxJR+WJVOw\"",
+    "vary": "Accept-Encoding",
+    "content-security-policy": "default-src 'none'",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-notion-request-id": "cbd14419-d2ec-4f14-8566-780d79998acc",
+    "x-permitted-cross-domain-policies": "none",
+    "set-cookie": "__cf_bm=Uj_VNM9I1p1td.F77T_AarbxBSSJesg42d0cQbBrtZk-1767603750-1.0.1.1-qzypsFC.by8Gsj3sFYfZg3zo9kCoYzVwOPgLuGLTYf7Or2kXZUXr3SfmR682aTL54fxY3AtQUqr3c77wOY4MqIa0I7DNvnEjPHRk_OAvGz4; path=/; expires=Mon, 05-Jan-26 09:32:30 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=WGSP5ID7D6jPu_iXEIGYUulPasPRkZH2Wg0x5iNOiUw-1767603750824-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+    "server": "cloudflare",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  }
+}

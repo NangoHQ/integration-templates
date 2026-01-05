@@ -1,0 +1,34 @@
+{
+  "object": "list",
+  "type": "property_item",
+  "results": [
+    {
+      "object": "property_item",
+      "type": "title",
+      "id": "title",
+      "title": {
+        "type": "text",
+        "text": {
+          "content": "Updated Title",
+          "link": null
+        },
+        "annotations": {
+          "bold": false,
+          "italic": false,
+          "strikethrough": false,
+          "underline": false,
+          "code": false,
+          "color": "default"
+        },
+        "plain_text": "Updated Title",
+        "href": null
+      }
+    }
+  ],
+  "property_item": {
+    "id": "title",
+    "next_url": null,
+    "type": "title",
+    "title": {}
+  }
+}

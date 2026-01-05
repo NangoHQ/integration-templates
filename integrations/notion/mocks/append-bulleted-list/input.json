@@ -1,0 +1,27 @@
+{
+  "block_id": "2b6ce298-3121-80ae-bfe1-f8984b993639",
+  "children": [
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "First item"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Second item"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
