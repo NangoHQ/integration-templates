@@ -1,0 +1,17 @@
+{
+  "method": "post",
+  "endpoint": "calendar/v3/calendars/primary/clear",
+  "requestIdentityHash": "dc97df4f672a34cb85a3d2872e856bf1fe12360b",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "calendar/v3/calendars/primary/clear",
+    "params": [],
+    "headers": []
+  },
+  "response": "",
+  "status": 204,
+  "headers": {
+    "date": "Thu, 18 Dec 2025 19:50:00 GMT",
+    "content-type": "application/json"
+  }
+}

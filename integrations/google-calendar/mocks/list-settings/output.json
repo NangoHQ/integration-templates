@@ -1,0 +1,19 @@
+{
+  "kind": "calendar#settings",
+  "etag": "\"p33vsd8d3v73p20o\"",
+  "items": [
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "autoAddHangouts", "value": "true"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "defaultEventLength", "value": "50"},
+    {"kind": "calendar#setting", "etag": "\"1682001019770000\"", "id": "dateFieldOrder", "value": "MDY"},
+    {"kind": "calendar#setting", "etag": "\"1682001019770000\"", "id": "weekStart", "value": "0"},
+    {"kind": "calendar#setting", "etag": "\"1682001019770000\"", "id": "format24HourTime", "value": "false"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "hideInvitations", "value": "false"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "hideInvitationsSetting", "value": "NONE"},
+    {"kind": "calendar#setting", "etag": "\"1682001019770000\"", "id": "locale", "value": "en"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "remindOnRespondedEventsOnly", "value": "false"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "showDeclinedEvents", "value": "true"},
+    {"kind": "calendar#setting", "etag": "\"1753946300665887\"", "id": "timezone", "value": "Europe/Oslo"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "useKeyboardShortcuts", "value": "true"},
+    {"kind": "calendar#setting", "etag": "\"1589814000000000\"", "id": "hideWeekends", "value": "false"}
+  ]
+}

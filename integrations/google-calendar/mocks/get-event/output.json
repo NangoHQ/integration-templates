@@ -1,0 +1,15 @@
+{
+  "kind": "calendar#event",
+  "etag": "\"3532271093326014\"",
+  "id": "52ioipnl6747maniqelu3c6kkc",
+  "status": "confirmed",
+  "summary": "Test event for API testing",
+  "start": {
+    "dateTime": "2025-12-20T15:00:00+01:00",
+    "timeZone": "Europe/Oslo"
+  },
+  "end": {
+    "dateTime": "2025-12-20T15:50:00+01:00",
+    "timeZone": "Europe/Oslo"
+  }
+}

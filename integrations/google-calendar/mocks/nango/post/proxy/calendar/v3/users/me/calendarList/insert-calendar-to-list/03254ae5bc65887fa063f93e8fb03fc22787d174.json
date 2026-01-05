@@ -1,0 +1,24 @@
+{
+  "method": "post",
+  "endpoint": "calendar/v3/users/me/calendarList",
+  "requestIdentityHash": "03254ae5bc65887fa063f93e8fb03fc22787d174",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "calendar/v3/users/me/calendarList",
+    "params": [],
+    "headers": [],
+    "data": "{\"id\":\"en.jewish#holiday@group.v.calendar.google.com\"}"
+  },
+  "response": {
+    "kind": "calendar#calendarListEntry",
+    "etag": "\"1734551400000000\"",
+    "id": "en.jewish#holiday@group.v.calendar.google.com",
+    "summary": "Jewish Holidays",
+    "accessRole": "reader"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Thu, 18 Dec 2025 19:50:00 GMT",
+    "content-type": "application/json"
+  }
+}

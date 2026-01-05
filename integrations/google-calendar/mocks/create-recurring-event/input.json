@@ -1,0 +1,1 @@
+{"calendar_id":"primary","summary":"Recurring Test Event","start":{"dateTime":"2025-12-23T10:00:00Z"},"end":{"dateTime":"2025-12-23T11:00:00Z"},"recurrence":["RRULE:FREQ=WEEKLY;COUNT=4"]}

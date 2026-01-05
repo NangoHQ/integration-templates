@@ -1,0 +1,71 @@
+{
+  "method": "patch",
+  "endpoint": "calendar/v3/calendars/primary/events/8ru8moiqfpqp3gccjl01rts9as",
+  "requestIdentityHash": "a1b49fcd8f1be06205b2ca04d752ea8fcab640fe",
+  "requestIdentity": {
+    "method": "patch",
+    "endpoint": "calendar/v3/calendars/primary/events/8ru8moiqfpqp3gccjl01rts9as",
+    "params": [],
+    "headers": [],
+    "data": "{\"summary\":\"Patched Test Event\"}"
+  },
+  "response": {
+    "kind": "calendar#event",
+    "etag": "\"3532287769715998\"",
+    "id": "8ru8moiqfpqp3gccjl01rts9as",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=OHJ1OG1vaXFmcHFwM2djY2psMDFydHM5YXMga2hhbGlxQG5hbmdvLmRldg",
+    "created": "2025-12-19T11:20:08.000Z",
+    "updated": "2025-12-19T11:31:24.857Z",
+    "summary": "Patched Test Event",
+    "creator": {
+      "email": "khaliq@nango.dev",
+      "self": true
+    },
+    "organizer": {
+      "email": "khaliq@nango.dev",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2025-12-22T11:00:00+01:00",
+      "timeZone": "Europe/Oslo"
+    },
+    "end": {
+      "dateTime": "2025-12-22T12:00:00+01:00",
+      "timeZone": "Europe/Oslo"
+    },
+    "iCalUID": "8ru8moiqfpqp3gccjl01rts9as@google.com",
+    "sequence": 0,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  "status": 200,
+  "headers": {
+    "date": "Fri, 19 Dec 2025 11:31:24 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "997",
+    "x-ratelimit-reset": "1766143920",
+    "pragma": "no-cache",
+    "vary": "Origin,X-Origin,Referer",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+    "etag": "\"3532287769715998\"",
+    "server": "ESF",
+    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "x-l2-request-path": "l2-managed-14"
+  }
+}

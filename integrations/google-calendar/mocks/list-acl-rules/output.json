@@ -1,0 +1,36 @@
+{
+  "kind": "calendar#acl",
+  "etag": "\"p337o7ndlm74p20o\"",
+  "items": [
+    {
+      "kind": "calendar#aclRule",
+      "etag": "\"00000000000000000000\"",
+      "id": "user:khaliq@nango.dev",
+      "scope": {
+        "type": "user",
+        "value": "khaliq@nango.dev"
+      },
+      "role": "owner"
+    },
+    {
+      "kind": "calendar#aclRule",
+      "etag": "\"00001684861703062000\"",
+      "id": "user:magnusingrid@gmail.com",
+      "scope": {
+        "type": "user",
+        "value": "magnusingrid@gmail.com"
+      },
+      "role": "reader"
+    },
+    {
+      "kind": "calendar#aclRule",
+      "etag": "\"00001707724398454000\"",
+      "id": "domain:nango.dev",
+      "scope": {
+        "type": "domain",
+        "value": "nango.dev"
+      },
+      "role": "reader"
+    }
+  ]
+}

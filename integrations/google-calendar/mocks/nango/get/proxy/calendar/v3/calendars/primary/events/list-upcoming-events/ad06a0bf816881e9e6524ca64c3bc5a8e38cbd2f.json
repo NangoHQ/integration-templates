@@ -1,0 +1,333 @@
+{
+  "method": "get",
+  "endpoint": "calendar/v3/calendars/primary/events",
+  "requestIdentityHash": "ad06a0bf816881e9e6524ca64c3bc5a8e38cbd2f",
+  "requestIdentity": {
+    "method": "get",
+    "endpoint": "calendar/v3/calendars/primary/events",
+    "params": [
+      [
+        "maxResults",
+        "5"
+      ],
+      [
+        "orderBy",
+        "startTime"
+      ],
+      [
+        "singleEvents",
+        "true"
+      ],
+      [
+        "timeMin",
+        "2025-12-18T22:00:00.000Z"
+      ]
+    ],
+    "headers": []
+  },
+  "response": {
+    "kind": "calendar#events",
+    "etag": "\"p32vrlbdfi74920o\"",
+    "summary": "Khaliq's Nango Calendar",
+    "description": "",
+    "updated": "2025-12-18T22:00:14.828Z",
+    "timeZone": "Europe/Oslo",
+    "accessRole": "owner",
+    "defaultReminders": [],
+    "nextPageToken": "EiwKKhIoCgYI8NCVygYSHgocChpyMWU4NThudGU0bTc4c2ZxOG5vNGxqM240McA-AQ==",
+    "items": [
+      {
+        "kind": "calendar#event",
+        "etag": "\"3532189027993854\"",
+        "id": "10jic078r6msr6e91clbsggadu",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MTBqaWMwNzhyNm1zcjZlOTFjbGJzZ2dhZHUga2hhbGlxQG5hbmdvLmRldg",
+        "created": "2025-12-18T13:00:55.000Z",
+        "updated": "2025-12-18T21:48:33.996Z",
+        "summary": "Khaliq / Kelvin: Discussion on AI and Tooling",
+        "description": "~-~-~<br/>📆 <a href=\"https://fellow.link/yWhyi5o8\">Prepare for this meeting with Fellow</a><br/>~-~-~<br/>",
+        "creator": {
+          "email": "kelvin@nango.dev"
+        },
+        "organizer": {
+          "email": "kelvin@nango.dev"
+        },
+        "start": {
+          "dateTime": "2025-12-19T13:00:00+01:00",
+          "timeZone": "Africa/Nairobi"
+        },
+        "end": {
+          "dateTime": "2025-12-19T14:00:00+01:00",
+          "timeZone": "Africa/Nairobi"
+        },
+        "iCalUID": "10jic078r6msr6e91clbsggadu@google.com",
+        "sequence": 0,
+        "attendees": [
+          {
+            "email": "kelvin@nango.dev",
+            "organizer": true,
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "khaliq@nango.dev",
+            "self": true,
+            "responseStatus": "needsAction"
+          }
+        ],
+        "hangoutLink": "https://meet.google.com/mvz-affy-ypp",
+        "conferenceData": {
+          "entryPoints": [
+            {
+              "entryPointType": "video",
+              "uri": "https://meet.google.com/mvz-affy-ypp",
+              "label": "meet.google.com/mvz-affy-ypp"
+            },
+            {
+              "entryPointType": "more",
+              "uri": "https://tel.meet/mvz-affy-ypp?pin=8710593847500",
+              "pin": "8710593847500"
+            },
+            {
+              "regionCode": "KE",
+              "entryPointType": "phone",
+              "uri": "tel:+254-20-3893887",
+              "label": "+254 20 3893887",
+              "pin": "8710593847500"
+            }
+          ],
+          "conferenceSolution": {
+            "key": {
+              "type": "hangoutsMeet"
+            },
+            "name": "Google Meet",
+            "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+          },
+          "conferenceId": "mvz-affy-ypp"
+        },
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"3532189039062846\"",
+        "id": "0p1k7jjnqq3rhs2ipqpnehvaut_20251219T133000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MHAxazdqam5xcTNyaHMyaXBxcG5laHZhdXRfMjAyNTEyMTlUMTMzMDAwWiBraGFsaXFAbmFuZ28uZGV2",
+        "created": "2024-02-15T06:20:05.000Z",
+        "updated": "2025-12-18T21:48:39.531Z",
+        "summary": "EPW (Engineering Pow Wow)",
+        "description": "<a href=\"https://www.notion.so/nangohq/Engineering-Pow-Wow-EPW-f9c5715ab00a49de81162e375bb366ce?pvs=4\">https://www.notion.so/nangohq/Engineering-Pow-Wow-EPW-f9c5715ab00a49de81162e375bb366ce?pvs=4</a>",
+        "creator": {
+          "email": "khaliq@nango.dev",
+          "self": true
+        },
+        "organizer": {
+          "email": "ross@nango.dev"
+        },
+        "start": {
+          "dateTime": "2025-12-19T14:30:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "end": {
+          "dateTime": "2025-12-19T15:30:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "recurringEventId": "0p1k7jjnqq3rhs2ipqpnehvaut_R20251212T133000",
+        "originalStartTime": {
+          "dateTime": "2025-12-19T14:30:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "iCalUID": "0p1k7jjnqq3rhs2ipqpnehvaut_R20251212T133000@google.com",
+        "sequence": 2,
+        "attendees": [
+          {
+            "email": "khaliq@nango.dev",
+            "self": true,
+            "responseStatus": "needsAction"
+          },
+          {
+            "email": "samuel@nango.dev",
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "thomas@nango.dev",
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "gui@nango.dev",
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "ross@nango.dev",
+            "organizer": true,
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "kelvin@nango.dev",
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "marcin@nango.dev",
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "agustin@nango.dev",
+            "responseStatus": "needsAction"
+          }
+        ],
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"3532190428455966\"",
+        "id": "2vc1bh0sk0fg0jevjpo2vj1rf4",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MnZjMWJoMHNrMGZnMGpldmpwbzJ2ajFyZjQga2hhbGlxQG5hbmdvLmRldg",
+        "created": "2025-12-18T22:00:14.000Z",
+        "updated": "2025-12-18T22:00:14.227Z",
+        "summary": "Test meeting",
+        "creator": {
+          "email": "khaliq@nango.dev",
+          "self": true
+        },
+        "organizer": {
+          "email": "khaliq@nango.dev",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-12-19T15:00:00+01:00",
+          "timeZone": "Europe/Oslo"
+        },
+        "end": {
+          "dateTime": "2025-12-19T15:50:00+01:00",
+          "timeZone": "Europe/Oslo"
+        },
+        "iCalUID": "2vc1bh0sk0fg0jevjpo2vj1rf4@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"3532189032036350\"",
+        "id": "5fqsau0348ngv3oehnpcdqkb9v_20251219T144500Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NWZxc2F1MDM0OG5ndjNvZWhucGNkcWtiOXZfMjAyNTEyMTlUMTQ0NTAwWiBraGFsaXFAbmFuZ28uZGV2",
+        "created": "2025-12-03T09:57:25.000Z",
+        "updated": "2025-12-18T21:48:36.018Z",
+        "summary": "Product & eng planning",
+        "creator": {
+          "email": "bastien@nango.dev"
+        },
+        "organizer": {
+          "email": "bastien@nango.dev"
+        },
+        "start": {
+          "dateTime": "2025-12-19T15:45:00+01:00",
+          "timeZone": "Europe/Paris"
+        },
+        "end": {
+          "dateTime": "2025-12-19T16:15:00+01:00",
+          "timeZone": "Europe/Paris"
+        },
+        "recurringEventId": "5fqsau0348ngv3oehnpcdqkb9v",
+        "originalStartTime": {
+          "dateTime": "2025-12-19T15:45:00+01:00",
+          "timeZone": "Europe/Paris"
+        },
+        "iCalUID": "5fqsau0348ngv3oehnpcdqkb9v@google.com",
+        "sequence": 0,
+        "attendees": [
+          {
+            "email": "bastien@nango.dev",
+            "organizer": true,
+            "responseStatus": "accepted"
+          },
+          {
+            "email": "team@nango.dev",
+            "displayName": "Team",
+            "responseStatus": "needsAction"
+          },
+          {
+            "email": "khaliq@nango.dev",
+            "self": true,
+            "responseStatus": "needsAction"
+          }
+        ],
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"3532189265519454\"",
+        "id": "r1e858nte4m78sfq8no4lj3n41_20251219T150000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=cjFlODU4bnRlNG03OHNmcThubzRsajNuNDFfMjAyNTEyMTlUMTUwMDAwWiBraGFsaXFAbmFuZ28uZGV2",
+        "created": "2024-01-15T13:00:45.000Z",
+        "updated": "2025-12-18T21:50:32.759Z",
+        "summary": "Family Time (AFK)",
+        "creator": {
+          "email": "khaliq@nango.dev",
+          "self": true
+        },
+        "organizer": {
+          "email": "khaliq@nango.dev",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-12-19T16:00:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "end": {
+          "dateTime": "2025-12-19T21:00:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "recurringEventId": "r1e858nte4m78sfq8no4lj3n41",
+        "originalStartTime": {
+          "dateTime": "2025-12-19T16:00:00+01:00",
+          "timeZone": "Asia/Jerusalem"
+        },
+        "iCalUID": "r1e858nte4m78sfq8no4lj3n41@google.com",
+        "sequence": 3,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      }
+    ]
+  },
+  "status": 200,
+  "headers": {
+    "date": "Thu, 18 Dec 2025 22:03:40 GMT",
+    "content-type": "application/json; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "x-xss-protection": "0",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-dns-prefetch-control": "off",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "x-ratelimit-limit": "1000",
+    "x-ratelimit-remaining": "997",
+    "x-ratelimit-reset": "1766095479",
+    "cache-control": "private, max-age=0, must-revalidate, no-transform",
+    "expires": "Thu, 18 Dec 2025 22:03:40 GMT",
+    "vary": "Origin, X-Origin, Referer",
+    "server": "ESF",
+    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "x-l2-request-path": "l2-managed-14"
+  }
+}

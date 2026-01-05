@@ -22943,6 +22943,1395 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_google_calendar_addattendee": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "responseStatus": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_addattendee": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "attendees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_clearcalendar": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_clearcalendar": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_createaclrule": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scope_type": {
+          "type": "string"
+        },
+        "scope_value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "role",
+        "scope_type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_createaclrule": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "scope": {},
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_createalldayevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "end_date": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "summary",
+        "start_date",
+        "end_date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_createalldayevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_createcalendar": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_createcalendar": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "timeZone"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_createevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {},
+        "description": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {}
+        },
+        "reminders": {}
+      },
+      "required": [
+        "calendar_id",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_createevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "htmlLink": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "htmlLink",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_createrecurringevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {},
+        "recurrence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "summary",
+        "recurrence"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_createrecurringevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "recurrence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "recurrence"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_deleteaclrule": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_deleteaclrule": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_deletecalendar": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_deletecalendar": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_deleteevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "sendUpdates": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_deleteevent": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_findfreeslots": {
+      "type": "object",
+      "properties": {
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "calendar_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "duration_minutes": {
+          "type": "number"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "timeMin",
+        "timeMax",
+        "calendar_ids",
+        "duration_minutes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_findfreeslots": {
+      "type": "object",
+      "properties": {
+        "free_slots": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "free_slots"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getaclrule": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getaclrule": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "scope": {},
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getcalendarlistentry": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getcalendarlistentry": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "accessRole": {
+          "type": "string"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "foregroundColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "accessRole"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getcalendar": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getcalendar": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "timeZone"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getcolors": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getcolors": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "calendar": {},
+        "event": {}
+      },
+      "required": [
+        "kind",
+        "updated"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_geteventinstances": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_geteventinstances": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "summary",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_getsetting": {
+      "type": "object",
+      "properties": {
+        "setting_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "setting_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_getsetting": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_importevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "iCalUID": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {},
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "iCalUID"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_importevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "iCalUID": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "iCalUID",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_insertcalendartolist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "colorRgbFormat": {
+          "type": "boolean"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "foregroundColor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_insertcalendartolist": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "accessRole": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "accessRole"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_listaclrules": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_listaclrules": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_listcalendars": {
+      "type": "object",
+      "properties": {
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "showDeleted": {
+          "type": "boolean"
+        },
+        "showHidden": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_listcalendars": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_listevents": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "q": {
+          "type": "string"
+        },
+        "singleEvents": {
+          "type": "boolean"
+        },
+        "orderBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_listevents": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "summary",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_listsettings": {
+      "type": "object",
+      "properties": {
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_listsettings": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_listupcomingevents": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "number"
+        },
+        "singleEvents": {
+          "type": "boolean"
+        },
+        "timeMin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_listupcomingevents": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_moveevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "destination_calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id",
+        "destination_calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_moveevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "organizer": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_patchevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {},
+        "description": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_patchevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_queryfreebusy": {
+      "type": "object",
+      "properties": {
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "timeMin",
+        "timeMax",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_queryfreebusy": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "calendars": {}
+      },
+      "required": [
+        "kind",
+        "timeMin",
+        "timeMax"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_quickaddevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_quickaddevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_removeattendee": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_removeattendee": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "attendees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_removecalendarfromlist": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_removecalendarfromlist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_searchevents": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "q": {
+          "type": "string"
+        },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "q"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_searchevents": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "items"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_google_calendar_settings": {
       "type": "null"
     },
@@ -22979,6 +24368,272 @@
       },
       "required": [
         "settings"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_updateaclrule": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scope_type": {
+          "type": "string"
+        },
+        "scope_value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "rule_id",
+        "role",
+        "scope_type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_updateaclrule": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "scope": {},
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_updateattendeeresponse": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "responseStatus": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id",
+        "email",
+        "responseStatus"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_updateattendeeresponse": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "attendees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_updatecalendarlistentry": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "colorRgbFormat": {
+          "type": "boolean"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "foregroundColor": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "selected": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_updatecalendarlistentry": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "accessRole": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "accessRole"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_updatecalendar": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendar_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_updatecalendar": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "summary",
+        "timeZone"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_calendar_updateevent": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {},
+        "description": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "calendar_id",
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_calendar_updateevent": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "start": {},
+        "end": {}
+      },
+      "required": [
+        "kind",
+        "etag",
+        "id",
+        "status",
+        "summary"
       ],
       "additionalProperties": false
     },
