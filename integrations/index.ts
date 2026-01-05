@@ -50,6 +50,28 @@ import './ashby/actions/interview-stage.js';
 import './attio/syncs/companies.js';
 import './attio/syncs/deals.js';
 import './attio/syncs/people.js';
+import './attio/actions/create-company.js';
+import './attio/actions/create-list-entry.js';
+import './attio/actions/create-note.js';
+import './attio/actions/create-person.js';
+import './attio/actions/create-record.js';
+import './attio/actions/create-task.js';
+import './attio/actions/create-webhook.js';
+import './attio/actions/delete-list-entry.js';
+import './attio/actions/delete-note.js';
+import './attio/actions/delete-record.js';
+import './attio/actions/delete-webhook.js';
+import './attio/actions/get-object.js';
+import './attio/actions/get-record.js';
+import './attio/actions/get-webhook.js';
+import './attio/actions/list-lists.js';
+import './attio/actions/list-notes.js';
+import './attio/actions/list-objects.js';
+import './attio/actions/list-records.js';
+import './attio/actions/list-tasks.js';
+import './attio/actions/list-webhooks.js';
+import './attio/actions/update-record.js';
+import './attio/actions/update-webhook.js';
 
 // -- Integration: avalara
 import './avalara/syncs/transactions.js';

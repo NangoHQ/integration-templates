@@ -851,7 +851,494 @@
   },
   {
     "providerConfigKey": "attio",
-    "actions": [],
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a new company record in Attio",
+        "endpoint": {
+          "method": "POST",
+          "path": "/companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_attio_createcompany",
+        "name": "create-company",
+        "output": [
+          "ActionOutput_attio_createcompany"
+        ],
+        "scopes": [
+          "record_permission:read-write",
+          "object_configuration:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createcompany",
+          "ActionOutput_attio_createcompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a record as an entry to a list.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/lists/:list_id/entries",
+          "group": "Lists"
+        },
+        "input": "ActionInput_attio_createlistentry",
+        "name": "create-list-entry",
+        "output": [
+          "ActionOutput_attio_createlistentry"
+        ],
+        "scopes": [
+          "list_entry:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createlistentry",
+          "ActionOutput_attio_createlistentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a note on a record.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/notes",
+          "group": "Notes"
+        },
+        "input": "ActionInput_attio_createnote",
+        "name": "create-note",
+        "output": [
+          "ActionOutput_attio_createnote"
+        ],
+        "scopes": [
+          "note:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createnote",
+          "ActionOutput_attio_createnote"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new person record in Attio",
+        "endpoint": {
+          "method": "POST",
+          "path": "/people",
+          "group": "People"
+        },
+        "input": "ActionInput_attio_createperson",
+        "name": "create-person",
+        "output": [
+          "ActionOutput_attio_createperson"
+        ],
+        "scopes": [
+          "record_permission:read-write",
+          "object_configuration:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createperson",
+          "ActionOutput_attio_createperson"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new record for a specified object type.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/objects/:object_slug/records",
+          "group": "Records"
+        },
+        "input": "ActionInput_attio_createrecord",
+        "name": "create-record",
+        "output": [
+          "ActionOutput_attio_createrecord"
+        ],
+        "scopes": [
+          "record_permission:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createrecord",
+          "ActionOutput_attio_createrecord"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a task.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_attio_createtask",
+        "name": "create-task",
+        "output": [
+          "ActionOutput_attio_createtask"
+        ],
+        "scopes": [
+          "task:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createtask",
+          "ActionOutput_attio_createtask"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new webhook in the Attio workspace",
+        "endpoint": {
+          "method": "POST",
+          "path": "/webhooks",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_attio_createwebhook",
+        "name": "create-webhook",
+        "output": [
+          "ActionOutput_attio_createwebhook"
+        ],
+        "scopes": [
+          "webhook:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_createwebhook",
+          "ActionOutput_attio_createwebhook"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Removes an entry from a list.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/lists/:list_id/entries/:entry_id",
+          "group": "Lists"
+        },
+        "input": "ActionInput_attio_deletelistentry",
+        "name": "delete-list-entry",
+        "output": [
+          "ActionOutput_attio_deletelistentry"
+        ],
+        "scopes": [
+          "list_entry:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_deletelistentry",
+          "ActionOutput_attio_deletelistentry"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a note.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/notes/:note_id",
+          "group": "Notes"
+        },
+        "input": "ActionInput_attio_deletenote",
+        "name": "delete-note",
+        "output": [
+          "ActionOutput_attio_deletenote"
+        ],
+        "scopes": [
+          "note:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_deletenote",
+          "ActionOutput_attio_deletenote"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a record permanently.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/objects/:object_slug/records/:record_id",
+          "group": "Records"
+        },
+        "input": "ActionInput_attio_deleterecord",
+        "name": "delete-record",
+        "output": [
+          "ActionOutput_attio_deleterecord"
+        ],
+        "scopes": [
+          "record_permission:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_deleterecord",
+          "ActionOutput_attio_deleterecord"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a webhook from the Attio workspace",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/webhooks/{webhook_id}",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_attio_deletewebhook",
+        "name": "delete-webhook",
+        "output": [
+          "ActionOutput_attio_deletewebhook"
+        ],
+        "scopes": [
+          "webhook:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_deletewebhook",
+          "ActionOutput_attio_deletewebhook"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a specific object by ID or slug.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/objects/:object_id",
+          "group": "Objects"
+        },
+        "input": "ActionInput_attio_getobject",
+        "name": "get-object",
+        "output": [
+          "ActionOutput_attio_getobject"
+        ],
+        "scopes": [
+          "object_configuration:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_getobject",
+          "ActionOutput_attio_getobject"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a specific record by ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/objects/:object_slug/records/:record_id",
+          "group": "Records"
+        },
+        "input": "ActionInput_attio_getrecord",
+        "name": "get-record",
+        "output": [
+          "ActionOutput_attio_getrecord"
+        ],
+        "scopes": [
+          "record_permission:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_getrecord",
+          "ActionOutput_attio_getrecord"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Gets a single webhook by its ID from the Attio workspace",
+        "endpoint": {
+          "method": "GET",
+          "path": "/webhooks/{webhook_id}",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_attio_getwebhook",
+        "name": "get-webhook",
+        "output": [
+          "ActionOutput_attio_getwebhook"
+        ],
+        "scopes": [
+          "webhook:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_getwebhook",
+          "ActionOutput_attio_getwebhook"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all lists in the workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/lists",
+          "group": "Lists"
+        },
+        "input": "ActionInput_attio_listlists",
+        "name": "list-lists",
+        "output": [
+          "ActionOutput_attio_listlists"
+        ],
+        "scopes": [
+          "list_configuration:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listlists",
+          "ActionOutput_attio_listlists"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists notes for a record.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/notes",
+          "group": "Notes"
+        },
+        "input": "ActionInput_attio_listnotes",
+        "name": "list-notes",
+        "output": [
+          "ActionOutput_attio_listnotes"
+        ],
+        "scopes": [
+          "note:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listnotes",
+          "ActionOutput_attio_listnotes"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all available objects (system and custom-defined) in the Attio workspace.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/objects",
+          "group": "Objects"
+        },
+        "input": "ActionInput_attio_listobjects",
+        "name": "list-objects",
+        "output": [
+          "ActionOutput_attio_listobjects"
+        ],
+        "scopes": [
+          "object_configuration:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listobjects",
+          "ActionOutput_attio_listobjects"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists records from a specific object type.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/objects/:object_slug/records/query",
+          "group": "Records"
+        },
+        "input": "ActionInput_attio_listrecords",
+        "name": "list-records",
+        "output": [
+          "ActionOutput_attio_listrecords"
+        ],
+        "scopes": [
+          "record_permission:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listrecords",
+          "ActionOutput_attio_listrecords"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists tasks.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_attio_listtasks",
+        "name": "list-tasks",
+        "output": [
+          "ActionOutput_attio_listtasks"
+        ],
+        "scopes": [
+          "task:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listtasks",
+          "ActionOutput_attio_listtasks"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all webhooks configured in the Attio workspace",
+        "endpoint": {
+          "method": "GET",
+          "path": "/webhooks",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_attio_listwebhooks",
+        "name": "list-webhooks",
+        "output": [
+          "ActionOutput_attio_listwebhooks"
+        ],
+        "scopes": [
+          "webhook:read"
+        ],
+        "usedModels": [
+          "ActionInput_attio_listwebhooks",
+          "ActionOutput_attio_listwebhooks"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing record.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/objects/:object_slug/records/:record_id",
+          "group": "Records"
+        },
+        "input": "ActionInput_attio_updaterecord",
+        "name": "update-record",
+        "output": [
+          "ActionOutput_attio_updaterecord"
+        ],
+        "scopes": [
+          "record_permission:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_updaterecord",
+          "ActionOutput_attio_updaterecord"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing webhook configuration in Attio",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/webhooks/{webhook_id}",
+          "group": "Webhooks"
+        },
+        "input": "ActionInput_attio_updatewebhook",
+        "name": "update-webhook",
+        "output": [
+          "ActionOutput_attio_updatewebhook"
+        ],
+        "scopes": [
+          "webhook:read-write"
+        ],
+        "usedModels": [
+          "ActionInput_attio_updatewebhook",
+          "ActionOutput_attio_updatewebhook"
+        ],
+        "version": "1.0.0"
+      }
+    ],
     "syncs": [
       {
         "type": "sync",
