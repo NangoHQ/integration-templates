@@ -170,6 +170,7 @@ export interface ActionOutput_zendesk_createuser {
   firstName: string;
   lastName: string;
   email: string;
+  user_fields?: {  [key: string]: any | undefined;};
 };
 
 export interface ActionInput_zendesk_deleteuser {
