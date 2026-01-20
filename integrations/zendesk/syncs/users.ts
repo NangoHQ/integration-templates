@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of admin or agent users from Zendesk',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -58,7 +58,8 @@ const sync = createSync({
                     id: zUser.id.toString(),
                     firstName: firstName || '',
                     lastName: lastName || '',
-                    email: zUser.email
+                    email: zUser.email,
+                    user_fields: zUser.user_fields
                 };
             });
 

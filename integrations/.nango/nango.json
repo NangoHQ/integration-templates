@@ -16882,7 +16882,7 @@
           "User",
           "SyncMetadata_zendesk_users"
         ],
-        "version": "2.0.0",
+        "version": "2.0.1",
         "webhookSubscriptions": []
       }
     ],
