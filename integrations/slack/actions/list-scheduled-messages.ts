@@ -14,9 +14,17 @@ const ListScheduledMessagesInput = z.object({
     oldest_ts: z.number().optional().describe('Only include messages after this timestamp. Example: 1234567890')
 });
 
+const SlackScheduledMessageSchema = z.object({
+    id: z.string(),
+    channel_id: z.string(),
+    post_at: z.number(),
+    date_created: z.number(),
+    text: z.string().optional()
+});
+
 const ListScheduledMessagesOutput = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    scheduled_messages: z.array(z.any()).describe('Array of scheduled message objects')
+    scheduled_messages: z.array(SlackScheduledMessageSchema).describe('Array of scheduled message objects')
 });
 
 const action = createAction({

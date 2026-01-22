@@ -15,9 +15,72 @@ const GetThreadRepliesInput = z.object({
     cursor: z.string().optional().describe('Pagination cursor from previous response')
 });
 
+const SlackReactionSchema = z.object({
+    name: z.string(),
+    users: z.array(z.string()),
+    count: z.number()
+});
+
+const SlackFileSchema = z.object({
+    id: z.string(),
+    created: z.number().optional(),
+    timestamp: z.number().optional(),
+    name: z.string().optional(),
+    title: z.string().optional(),
+    mimetype: z.string().optional(),
+    filetype: z.string().optional(),
+    pretty_type: z.string().optional(),
+    user: z.string().optional(),
+    user_team: z.string().optional(),
+    size: z.number().optional(),
+    mode: z.string().optional(),
+    is_external: z.boolean().optional(),
+    is_public: z.boolean().optional(),
+    url_private: z.string().optional(),
+    url_private_download: z.string().optional(),
+    permalink: z.string().optional(),
+    permalink_public: z.string().optional()
+});
+
+const SlackBlockElementSchema = z.object({
+    type: z.string(),
+    text: z.string().optional(),
+    url: z.string().optional(),
+    channel_id: z.string().optional()
+});
+
+const SlackBlockSchema = z.object({
+    type: z.string(),
+    block_id: z.string().optional(),
+    elements: z.array(z.object({
+        type: z.string(),
+        elements: z.array(SlackBlockElementSchema).optional()
+    })).optional()
+});
+
+const SlackMessageSchema = z.object({
+    type: z.string(),
+    text: z.string().optional(),
+    user: z.string().optional(),
+    ts: z.string().optional(),
+    thread_ts: z.string().optional(),
+    team: z.string().optional(),
+    client_msg_id: z.string().optional(),
+    subtype: z.string().optional(),
+    blocks: z.array(SlackBlockSchema).optional(),
+    files: z.array(SlackFileSchema).optional(),
+    reactions: z.array(SlackReactionSchema).optional(),
+    reply_count: z.number().optional(),
+    reply_users_count: z.number().optional(),
+    reply_users: z.array(z.string()).optional(),
+    latest_reply: z.string().optional(),
+    is_locked: z.boolean().optional(),
+    subscribed: z.boolean().optional()
+});
+
 const GetThreadRepliesOutput = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    messages: z.array(z.any()).describe('Array of message objects in the thread'),
+    messages: z.array(SlackMessageSchema).describe('Array of message objects in the thread'),
     has_more: z.boolean().describe('Whether there are more replies to fetch'),
     next_cursor: z.union([z.string(), z.null()]).describe('Cursor for next page, null if no more pages')
 });

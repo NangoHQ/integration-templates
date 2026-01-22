@@ -7,12 +7,38 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+// Block Kit element schema - supports common block types
+const SlackBlockTextSchema = z.object({
+    type: z.enum(['plain_text', 'mrkdwn']),
+    text: z.string(),
+    emoji: z.boolean().optional(),
+    verbatim: z.boolean().optional()
+});
+
+const SlackBlockElementSchema = z.object({
+    type: z.string(),
+    text: SlackBlockTextSchema.optional(),
+    action_id: z.string().optional(),
+    url: z.string().optional(),
+    value: z.string().optional(),
+    style: z.enum(['primary', 'danger']).optional()
+});
+
+const SlackBlockSchema = z.object({
+    type: z.string(),
+    block_id: z.string().optional(),
+    text: SlackBlockTextSchema.optional(),
+    elements: z.array(SlackBlockElementSchema).optional(),
+    accessory: SlackBlockElementSchema.optional(),
+    fields: z.array(SlackBlockTextSchema).optional()
+});
+
 // Inline schema definitions
 const UpdateMessageInput = z.object({
     channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
     message_ts: z.string().describe('Timestamp of the message to update. Example: "1234567890.123456"'),
     text: z.string().optional().describe('New message text. Example: "Updated message content"'),
-    blocks: z.array(z.any()).optional().describe('Array of Block Kit blocks for rich formatting')
+    blocks: z.array(SlackBlockSchema).optional().describe('Array of Block Kit blocks for rich formatting')
 });
 
 const UpdateMessageOutput = z.object({
