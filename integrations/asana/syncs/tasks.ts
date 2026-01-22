@@ -28,7 +28,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        const lastSyncDate = nango.lastSyncDate;
+        const checkpoint = await nango.getCheckpoint<{ modifiedSince: string }>();
 
         for await (const workspaces of nango.paginate<BaseAsanaModel>({ endpoint: '/api/1.0/workspaces', params: { limit: 100 }, retries: 10 })) {
             for (const workspace of workspaces) {
@@ -40,6 +40,7 @@ const sync = createSync({
                     for (const project of projects) {
                         const params: Record<string, string> = {
                             project: project.gid,
+                            ...(checkpoint.modifiedSince ? { modified_since: checkpoint.modifiedSince} : {}),
                             limit: '100',
                             opt_fields: [
                                 'name',
@@ -57,9 +58,6 @@ const sync = createSync({
                             ].join(',')
                         };
 
-                        if (lastSyncDate) {
-                            params['modified_since'] = lastSyncDate.toISOString();
-                        }
                         for await (const tasks of nango.paginate<AsanaTask>({ endpoint: '/api/1.0/tasks', params, retries: 10 })) {
                             const normalizedTasks = tasks.map((task) => {
                                 return {
@@ -68,6 +66,7 @@ const sync = createSync({
                                 };
                             });
                             await nango.batchSave(normalizedTasks, 'Task');
+                            await nango.setCheckpoint({ modifiedSince: tasks.last().modified_at });
                         }
                     }
                 }

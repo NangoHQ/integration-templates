@@ -6,6 +6,11 @@ import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
 
+// Type defined by customer
+type Checkpoint = {
+    timestamp: Date; 
+}
+
 const sync = createSync({
     description: 'Fetches a list of users from Bill sandbox',
     version: '1.0.0',
@@ -32,8 +37,10 @@ const sync = createSync({
 
         const filters = ['archived:eq:false'];
 
-        if (nango.lastSyncDate) {
-            filters.push(`updatedTime:gte:"${nango.lastSyncDate.toISOString()}"`);
+        const checkpoint = await nango.getCheckpoint<Checkpoint>()
+
+        if (checkpoint?.timestamp) {
+            filters.push(`updatedTime:gte:"${checkpoint.timestamp.toISOString()}"`);
         }
 
         const config: ProxyConfiguration = {
@@ -68,6 +75,7 @@ const sync = createSync({
             });
 
             await nango.batchSave(users, 'User');
+            await nango.setCheckpoint<Checkpoint>({ timestamp: new Date(billUsers.last().updatedTime) });
         }
     }
 });

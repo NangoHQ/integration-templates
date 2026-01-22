@@ -6,6 +6,10 @@ import type { ProxyConfiguration } from 'nango';
 import { Item } from '../models.js';
 import { z } from 'zod';
 
+type Checkpoint = {
+    ifModifiedSince: string;
+}
+
 const sync = createSync({
     description: 'Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not\nrequired.',
     version: '2.0.0',
@@ -32,27 +36,28 @@ const sync = createSync({
     exec: async (nango) => {
         const tenant_id = await getTenantId(nango);
 
+        const checkpoint = await nango.getCheckpoint<Checkpoint>();
+
         const config: ProxyConfiguration = {
             // https://developer.xero.com/documentation/api/accounting/items/#get-items
             endpoint: 'api.xro/2.0/Items',
             headers: {
                 'xero-tenant-id': tenant_id,
-                'If-Modified-Since': ''
+                'If-Modified-Since': checkpoint.ifModifiedSince ?? ''
             },
             retries: 10
         };
 
-        // If it is an incremental sync, only fetch the changed payments
-        if (nango.lastSyncDate && config.headers) {
-            config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
-        }
-
+        const startedAt = new Date();
         // This endpoint does not support pagination.
         const res = await nango.get(config);
         const items = res.data.Items;
 
         const mappedItems = items.map(toItem);
         await nango.batchSave(mappedItems, 'Item');
+        await nango.setCheckpoint<Checkpoint>({
+            ifModifiedSince: startedAt.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
+        });
     }
 });
 
