@@ -64,6 +64,10 @@ export function toQuickBooksInvoice(invoice: CreateInvoice | UpdateInvoice): Par
         quickBooksInvoice.CustomerRef = customerRef;
     }
 
+    if (invoice.txn_date) {
+        quickbooksInvoice.TxnDate = toDate(invoice.txn_date);
+    }
+    
     if (invoice.due_date) {
         quickBooksInvoice.DueDate = toDate(invoice.due_date);
     }
