@@ -52,10 +52,14 @@ const SlackBlockElementSchema = z.object({
 const SlackBlockSchema = z.object({
     type: z.string(),
     block_id: z.string().optional(),
-    elements: z.array(z.object({
-        type: z.string(),
-        elements: z.array(SlackBlockElementSchema).optional()
-    })).optional()
+    elements: z
+        .array(
+            z.object({
+                type: z.string(),
+                elements: z.array(SlackBlockElementSchema).optional()
+            })
+        )
+        .optional()
 });
 
 const SlackMessageSchema = z.object({

@@ -53,10 +53,14 @@ const SlackBlockElementSchema = z.object({
 const SlackBlockSchema = z.object({
     type: z.string(),
     block_id: z.string().optional(),
-    elements: z.array(z.object({
-        type: z.string(),
-        elements: z.array(SlackBlockElementSchema).optional()
-    })).optional()
+    elements: z
+        .array(
+            z.object({
+                type: z.string(),
+                elements: z.array(SlackBlockElementSchema).optional()
+            })
+        )
+        .optional()
 });
 
 const SlackAttachmentSchema = z.object({
@@ -96,10 +100,12 @@ const SlackMessageSchema = z.object({
     latest_reply: z.string().optional(),
     is_locked: z.boolean().optional(),
     subscribed: z.boolean().optional(),
-    edited: z.object({
-        user: z.string(),
-        ts: z.string()
-    }).optional(),
+    edited: z
+        .object({
+            user: z.string(),
+            ts: z.string()
+        })
+        .optional(),
     upload: z.boolean().optional(),
     display_as_bot: z.boolean().optional()
 });
