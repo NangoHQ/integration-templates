@@ -11,9 +11,37 @@ const Input = z.object({
     include_count: z.boolean().optional().describe('Include member counts. Default: false')
 });
 
+const SlackUserGroupPrefsSchema = z.object({
+    channels: z.array(z.string()).optional(),
+    groups: z.array(z.string()).optional()
+});
+
+const SlackUserGroupSchema = z.object({
+    id: z.string(),
+    team_id: z.string(),
+    is_usergroup: z.boolean(),
+    is_subteam: z.boolean().optional(),
+    name: z.string(),
+    description: z.string().optional(),
+    handle: z.string(),
+    is_external: z.boolean().optional(),
+    date_create: z.number().optional(),
+    date_update: z.number().optional(),
+    date_delete: z.number().optional(),
+    auto_type: z.string().nullable().optional(),
+    auto_provision: z.boolean().optional(),
+    enterprise_subteam_id: z.string().optional(),
+    created_by: z.string().optional(),
+    updated_by: z.string().optional(),
+    deleted_by: z.string().nullable().optional(),
+    prefs: SlackUserGroupPrefsSchema.optional(),
+    user_count: z.number().optional(),
+    channel_count: z.number().optional()
+});
+
 const Output = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    usergroups: z.array(z.any()).describe('Array of user group objects')
+    usergroups: z.array(SlackUserGroupSchema).describe('Array of user group objects')
 });
 
 const action = createAction({

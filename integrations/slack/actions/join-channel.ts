@@ -29,7 +29,7 @@ const JoinChannelOutput = z.object({
         is_shared: z.boolean(),
         is_org_shared: z.boolean(),
         is_pending_ext_shared: z.boolean(),
-        pending_shared: z.array(z.any()),
+        pending_shared: z.array(z.string()),
         context_team_id: z.string(),
         updated: z.number(),
         parent_conversation: z.string().nullable(),

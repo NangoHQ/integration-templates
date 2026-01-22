@@ -8,9 +8,31 @@ import type { ProxyConfiguration } from 'nango';
 
 const Input = z.object({});
 
+const SlackTeamIconSchema = z.object({
+    image_default: z.boolean().optional(),
+    image_34: z.string().optional(),
+    image_44: z.string().optional(),
+    image_68: z.string().optional(),
+    image_88: z.string().optional(),
+    image_102: z.string().optional(),
+    image_132: z.string().optional(),
+    image_230: z.string().optional()
+});
+
+const SlackTeamSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    url: z.string().optional(),
+    domain: z.string(),
+    email_domain: z.string().optional(),
+    icon: SlackTeamIconSchema.optional(),
+    avatar_base_url: z.string().optional(),
+    is_verified: z.boolean().optional()
+});
+
 const Output = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    team: z.any().describe('The team object with workspace details like name, domain, icon')
+    team: SlackTeamSchema.describe('The team object with workspace details like name, domain, icon')
 });
 
 const action = createAction({
