@@ -253,6 +253,7 @@ export type Line = z.infer<typeof Line>;
 export const CreateInvoice = z.object({
   customer_ref: Reference,
   line: Line.array(),
+  txn_date: z.string().optional(),
   due_date: z.string().optional(),
   currency_ref: Reference,
   project_ref: Reference
@@ -263,6 +264,7 @@ export type CreateInvoice = z.infer<typeof CreateInvoice>;
 export const UpdateInvoice = z.object({
   customer_ref: Reference,
   line: Line.array(),
+  txn_date: z.string().optional(),
   due_date: z.string().optional(),
   currency_ref: Reference,
   project_ref: Reference,
