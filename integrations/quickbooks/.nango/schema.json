@@ -1736,6 +1736,9 @@
             "additionalProperties": false
           }
         },
+        "txn_date": {
+          "type": "string"
+        },
         "due_date": {
           "type": "string"
         },
@@ -4392,6 +4395,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "txn_date": {
+          "type": "string"
         },
         "due_date": {
           "type": "string"

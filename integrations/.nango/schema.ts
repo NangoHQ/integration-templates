@@ -10468,6 +10468,7 @@ export interface ActionInput_quickbooks_createinvoice {
   unit_price_cents?: number | undefined;
   discount_rate?: number | undefined;
   description?: string | undefined;})[];
+  txn_date?: string | undefined;
   due_date?: string | undefined;
   currency_ref: {  name?: string | undefined;
   value: string;};
@@ -10938,6 +10939,7 @@ export interface ActionInput_quickbooks_updateinvoice {
   unit_price_cents?: number | undefined;
   discount_rate?: number | undefined;
   description?: string | undefined;})[];
+  txn_date?: string | undefined;
   due_date?: string | undefined;
   currency_ref: {  name?: string | undefined;
   value: string;};

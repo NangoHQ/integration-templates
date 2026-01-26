@@ -47,6 +47,7 @@ _No request parameters_
       "description?": "<string>"
     }
   ],
+  "txn_date?": "<string>",
   "due_date?": "<string>",
   "currency_ref": {
     "name?": "<string>",
