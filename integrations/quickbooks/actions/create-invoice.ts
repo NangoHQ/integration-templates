@@ -19,7 +19,7 @@ import { Invoice, CreateInvoice } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a single invoice in QuickBooks.',
-    version: '1.0.0',
+    version: '1.0.1',
 
     endpoint: {
         method: 'POST',

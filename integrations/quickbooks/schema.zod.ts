@@ -210,6 +210,7 @@ export const lineSchema = z.object({
 export const createInvoiceSchema = z.object({
     customer_ref: referenceSchema.optional(),
     line: z.array(lineSchema).optional(),
+    txn_date: z.string.optional(),
     due_date: z.string().optional(),
     currency_ref: referenceSchema.optional(),
     project_ref: referenceSchema.optional()

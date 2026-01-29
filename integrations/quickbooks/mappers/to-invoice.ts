@@ -64,6 +64,10 @@ export function toQuickBooksInvoice(invoice: CreateInvoice | UpdateInvoice): Par
         quickBooksInvoice.CustomerRef = customerRef;
     }
 
+    if (invoice.txn_date) {
+        quickBooksInvoice.TxnDate = toDate(invoice.txn_date);
+    }
+
     if (invoice.due_date) {
         quickBooksInvoice.DueDate = toDate(invoice.due_date);
     }
@@ -77,10 +81,7 @@ export function toQuickBooksInvoice(invoice: CreateInvoice | UpdateInvoice): Par
 
             if (line.sales_item_line_detail) {
                 qbLine.SalesItemLineDetail = {
-                    ItemRef: {
-                        value: line.sales_item_line_detail.item_ref.value,
-                        name: line.sales_item_line_detail.item_ref.name ?? ''
-                    }
+                    ItemRef: { value: line.sales_item_line_detail.item_ref.value, name: line.sales_item_line_detail.item_ref.name ?? '' }
                 };
 
                 if (line.quantity) {
