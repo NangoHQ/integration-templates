@@ -110,7 +110,7 @@
           "ActionInput_quickbooks_createinvoice",
           "ActionOutput_quickbooks_createinvoice"
         ],
-        "version": "1.0.0"
+        "version": "1.0.1"
       },
       {
         "type": "action",
@@ -286,7 +286,7 @@
           "ActionInput_quickbooks_updateinvoice",
           "ActionOutput_quickbooks_updateinvoice"
         ],
-        "version": "1.0.0"
+        "version": "1.0.1"
       },
       {
         "type": "action",
