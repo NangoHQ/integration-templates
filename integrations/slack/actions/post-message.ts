@@ -7,12 +7,38 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+// Block Kit element schema - supports common block types
+const SlackBlockTextSchema = z.object({
+    type: z.enum(['plain_text', 'mrkdwn']),
+    text: z.string(),
+    emoji: z.boolean().optional(),
+    verbatim: z.boolean().optional()
+});
+
+const SlackBlockElementSchema = z.object({
+    type: z.string(),
+    text: SlackBlockTextSchema.optional(),
+    action_id: z.string().optional(),
+    url: z.string().optional(),
+    value: z.string().optional(),
+    style: z.enum(['primary', 'danger']).optional()
+});
+
+const SlackBlockSchema = z.object({
+    type: z.string(),
+    block_id: z.string().optional(),
+    text: SlackBlockTextSchema.optional(),
+    elements: z.array(SlackBlockElementSchema).optional(),
+    accessory: SlackBlockElementSchema.optional(),
+    fields: z.array(SlackBlockTextSchema).optional()
+});
+
 // Inline schema definitions
 const PostMessageInput = z.object({
     channel_id: z.string().describe('Channel, DM, or group to post to. Example: "C02MB5ZABA7"'),
     text: z.string().describe('Message text content. Supports Slack markdown. Example: "Hello *world*!"'),
     thread_ts: z.string().optional().describe('Parent message timestamp to reply in thread. Omit for top-level message. Example: "1763887648.424429"'),
-    blocks: z.array(z.any()).optional().describe('Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit')
+    blocks: z.array(SlackBlockSchema).optional().describe('Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit')
 });
 
 const MessageObject = z.object({

@@ -11,10 +11,24 @@ const Input = z.object({
     message_ts: z.string().describe('Timestamp of the message to get reactions for. Example: "1234567890.123456"')
 });
 
+const SlackReactionSchema = z.object({
+    name: z.string(),
+    users: z.array(z.string()),
+    count: z.number()
+});
+
+const SlackMessageSchema = z.object({
+    type: z.string(),
+    text: z.string().optional(),
+    user: z.string().optional(),
+    ts: z.string().optional(),
+    reactions: z.array(SlackReactionSchema).optional()
+});
+
 const Output = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
     type: z.string().optional().describe('The type of item (message or file)'),
-    message: z.any().optional().describe('The message object with reactions attached')
+    message: SlackMessageSchema.optional().describe('The message object with reactions attached')
 });
 
 const action = createAction({

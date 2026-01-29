@@ -10,9 +10,24 @@ const Input = z.object({
     channel_id: z.string().describe('The channel to list pinned items for. Example: "C02MB5ZABA7"')
 });
 
+const SlackPinnedMessageSchema = z.object({
+    type: z.string(),
+    text: z.string().optional(),
+    user: z.string().optional(),
+    ts: z.string().optional()
+});
+
+const SlackPinnedItemSchema = z.object({
+    type: z.string(),
+    created: z.number().optional(),
+    created_by: z.string().optional(),
+    message: SlackPinnedMessageSchema.optional(),
+    channel: z.string().optional()
+});
+
 const Output = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    items: z.array(z.any()).describe('Array of pinned items (messages, files)')
+    items: z.array(SlackPinnedItemSchema).describe('Array of pinned items (messages, files)')
 });
 
 const action = createAction({

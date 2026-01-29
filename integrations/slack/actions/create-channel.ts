@@ -13,9 +13,46 @@ const CreateChannelInput = z.object({
     is_private: z.boolean().optional().describe('Whether channel should be private. Default: false')
 });
 
+const SlackChannelPurposeTopicSchema = z.object({
+    value: z.string(),
+    creator: z.string(),
+    last_set: z.number()
+});
+
+const SlackChannelSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    name_normalized: z.string(),
+    created: z.number(),
+    creator: z.string(),
+    is_channel: z.boolean(),
+    is_group: z.boolean(),
+    is_im: z.boolean(),
+    is_mpim: z.boolean(),
+    is_private: z.boolean(),
+    is_archived: z.boolean(),
+    is_general: z.boolean(),
+    is_shared: z.boolean(),
+    is_ext_shared: z.boolean(),
+    is_org_shared: z.boolean(),
+    is_pending_ext_shared: z.boolean(),
+    is_member: z.boolean().optional(),
+    unlinked: z.number().optional(),
+    updated: z.number().optional(),
+    num_members: z.number().optional(),
+    context_team_id: z.string().optional(),
+    parent_conversation: z.string().nullable().optional(),
+    pending_shared: z.array(z.string()).optional(),
+    pending_connected_team_ids: z.array(z.string()).optional(),
+    shared_team_ids: z.array(z.string()).optional(),
+    previous_names: z.array(z.string()).optional(),
+    topic: SlackChannelPurposeTopicSchema.optional(),
+    purpose: SlackChannelPurposeTopicSchema.optional()
+});
+
 const CreateChannelOutput = z.object({
     ok: z.boolean().describe('Whether the channel was created successfully'),
-    channel: z.any().describe('The created channel object')
+    channel: SlackChannelSchema.describe('The created channel object')
 });
 
 const action = createAction({

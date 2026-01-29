@@ -10,7 +10,7 @@ const Input = z.object({});
 
 const Output = z.object({
     ok: z.boolean().describe('Whether the request was successful'),
-    emoji: z.any().describe('Object mapping emoji names to URLs or aliases')
+    emoji: z.record(z.string(), z.string()).describe('Object mapping emoji names to URLs or aliases (e.g., "alias:squirrel")')
 });
 
 const action = createAction({

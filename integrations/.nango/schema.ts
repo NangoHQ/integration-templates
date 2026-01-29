@@ -12020,7 +12020,38 @@ export interface ActionInput_slack_createchannel {
 
 export interface ActionOutput_slack_createchannel {
   ok: boolean;
-  channel?: any | undefined;
+  channel: {  id: string;
+  name: string;
+  name_normalized: string;
+  created: number;
+  creator: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_archived: boolean;
+  is_general: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  is_member?: boolean | undefined;
+  unlinked?: number | undefined;
+  updated?: number | undefined;
+  num_members?: number | undefined;
+  context_team_id?: string | undefined;
+  parent_conversation?: string | undefined;
+  pending_shared?: string[] | undefined;
+  pending_connected_team_ids?: string[] | undefined;
+  shared_team_ids?: string[] | undefined;
+  previous_names?: string[] | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;};
 };
 
 export interface ActionInput_slack_deletemessage {
@@ -12040,7 +12071,38 @@ export interface ActionInput_slack_getchannelinfo {
 
 export interface ActionOutput_slack_getchannelinfo {
   ok: boolean;
-  channel?: any | undefined;
+  channel: {  id: string;
+  name: string;
+  name_normalized: string;
+  created: number;
+  creator: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_archived: boolean;
+  is_general: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  is_member?: boolean | undefined;
+  unlinked?: number | undefined;
+  updated?: number | undefined;
+  num_members?: number | undefined;
+  context_team_id?: string | undefined;
+  parent_conversation?: string | undefined;
+  pending_shared?: string[] | undefined;
+  pending_connected_team_ids?: string[] | undefined;
+  shared_team_ids?: string[] | undefined;
+  previous_names?: string[] | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;};
 };
 
 export interface ActionInput_slack_getchannelmembers {
@@ -12065,7 +12127,67 @@ export interface ActionInput_slack_getconversationhistory {
 
 export interface ActionOutput_slack_getconversationhistory {
   ok: boolean;
-  messages: any[];
+  messages: ({  type: string;
+  text?: string | undefined;
+  user?: string | undefined;
+  ts?: string | undefined;
+  thread_ts?: string | undefined;
+  team?: string | undefined;
+  client_msg_id?: string | undefined;
+  subtype?: string | undefined;
+  blocks?: ({  type: string;
+  block_id?: string | undefined;
+  elements?: ({  type: string;
+  elements?: ({  type: string;
+  text?: string | undefined;
+  url?: string | undefined;
+  channel_id?: string | undefined;})[];})[];})[];
+  files?: ({  id: string;
+  created?: number | undefined;
+  timestamp?: number | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  mimetype?: string | undefined;
+  filetype?: string | undefined;
+  pretty_type?: string | undefined;
+  user?: string | undefined;
+  user_team?: string | undefined;
+  size?: number | undefined;
+  mode?: string | undefined;
+  is_external?: boolean | undefined;
+  is_public?: boolean | undefined;
+  url_private?: string | undefined;
+  url_private_download?: string | undefined;
+  permalink?: string | undefined;
+  permalink_public?: string | undefined;})[];
+  attachments?: ({  id?: number | undefined;
+  fallback?: string | undefined;
+  text?: string | undefined;
+  title?: string | undefined;
+  title_link?: string | undefined;
+  from_url?: string | undefined;
+  original_url?: string | undefined;
+  service_name?: string | undefined;
+  service_icon?: string | undefined;
+  image_url?: string | undefined;
+  image_width?: number | undefined;
+  image_height?: number | undefined;
+  thumb_url?: string | undefined;
+  thumb_width?: number | undefined;
+  thumb_height?: number | undefined;})[];
+  reactions?: ({  name: string;
+  users: string[];
+  count: number;})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  latest_reply?: string | undefined;
+  is_locked?: boolean | undefined;
+  subscribed?: boolean | undefined;
+  edited?: {  user: string;
+  ts: string;} | undefined;
+  upload?: boolean | undefined;
+  display_as_bot?: boolean | undefined;})[];
   has_more: boolean;
   next_cursor: string | null;
 };
@@ -12087,7 +12209,32 @@ export interface ActionInput_slack_getfileinfo {
 
 export interface ActionOutput_slack_getfileinfo {
   ok: boolean;
-  file?: any | undefined;
+  file: {  id: string;
+  created?: number | undefined;
+  timestamp?: number | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  mimetype?: string | undefined;
+  filetype?: string | undefined;
+  pretty_type?: string | undefined;
+  user?: string | undefined;
+  user_team?: string | undefined;
+  editable?: boolean | undefined;
+  size?: number | undefined;
+  mode?: string | undefined;
+  is_external?: boolean | undefined;
+  external_type?: string | undefined;
+  is_public?: boolean | undefined;
+  public_url_shared?: boolean | undefined;
+  display_as_bot?: boolean | undefined;
+  username?: string | undefined;
+  url_private?: string | undefined;
+  url_private_download?: string | undefined;
+  permalink?: string | undefined;
+  permalink_public?: string | undefined;
+  is_starred?: boolean | undefined;
+  has_rich_preview?: boolean | undefined;
+  file_access?: string | undefined;};
 };
 
 export interface ActionInput_slack_getreactions {
@@ -12098,7 +12245,13 @@ export interface ActionInput_slack_getreactions {
 export interface ActionOutput_slack_getreactions {
   ok: boolean;
   type?: string | undefined;
-  message?: any | undefined;
+  message?: {  type: string;
+  text?: string | undefined;
+  user?: string | undefined;
+  ts?: string | undefined;
+  reactions?: ({  name: string;
+  users: string[];
+  count: number;})[] | undefined;};
 };
 
 export interface ActionInput_slack_getteaminfo {
@@ -12106,7 +12259,21 @@ export interface ActionInput_slack_getteaminfo {
 
 export interface ActionOutput_slack_getteaminfo {
   ok: boolean;
-  team?: any | undefined;
+  team: {  id: string;
+  name: string;
+  url?: string | undefined;
+  domain: string;
+  email_domain?: string | undefined;
+  icon?: {  image_default?: boolean | undefined;
+  image_34?: string | undefined;
+  image_44?: string | undefined;
+  image_68?: string | undefined;
+  image_88?: string | undefined;
+  image_102?: string | undefined;
+  image_132?: string | undefined;
+  image_230?: string | undefined;};
+  avatar_base_url?: string | undefined;
+  is_verified?: boolean | undefined;};
 };
 
 export interface ActionInput_slack_getthreadreplies {
@@ -12118,7 +12285,48 @@ export interface ActionInput_slack_getthreadreplies {
 
 export interface ActionOutput_slack_getthreadreplies {
   ok: boolean;
-  messages: any[];
+  messages: ({  type: string;
+  text?: string | undefined;
+  user?: string | undefined;
+  ts?: string | undefined;
+  thread_ts?: string | undefined;
+  team?: string | undefined;
+  client_msg_id?: string | undefined;
+  subtype?: string | undefined;
+  blocks?: ({  type: string;
+  block_id?: string | undefined;
+  elements?: ({  type: string;
+  elements?: ({  type: string;
+  text?: string | undefined;
+  url?: string | undefined;
+  channel_id?: string | undefined;})[];})[];})[];
+  files?: ({  id: string;
+  created?: number | undefined;
+  timestamp?: number | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  mimetype?: string | undefined;
+  filetype?: string | undefined;
+  pretty_type?: string | undefined;
+  user?: string | undefined;
+  user_team?: string | undefined;
+  size?: number | undefined;
+  mode?: string | undefined;
+  is_external?: boolean | undefined;
+  is_public?: boolean | undefined;
+  url_private?: string | undefined;
+  url_private_download?: string | undefined;
+  permalink?: string | undefined;
+  permalink_public?: string | undefined;})[];
+  reactions?: ({  name: string;
+  users: string[];
+  count: number;})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  latest_reply?: string | undefined;
+  is_locked?: boolean | undefined;
+  subscribed?: boolean | undefined;})[];
   has_more: boolean;
   next_cursor: string | null;
 };
@@ -12140,7 +12348,46 @@ export interface ActionInput_slack_getuserinfo {
 
 export interface ActionOutput_slack_getuserinfo {
   ok: boolean;
-  user?: any | undefined;
+  user: {  id: string;
+  team_id?: string | undefined;
+  name?: string | undefined;
+  deleted?: boolean | undefined;
+  color?: string | undefined;
+  real_name?: string | undefined;
+  tz?: string | undefined;
+  tz_label?: string | undefined;
+  tz_offset?: number | undefined;
+  profile?: {  title?: string | undefined;
+  phone?: string | undefined;
+  skype?: string | undefined;
+  real_name?: string | undefined;
+  real_name_normalized?: string | undefined;
+  display_name?: string | undefined;
+  display_name_normalized?: string | undefined;
+  status_text?: string | undefined;
+  status_emoji?: string | undefined;
+  status_expiration?: number | undefined;
+  avatar_hash?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  image_24?: string | undefined;
+  image_32?: string | undefined;
+  image_48?: string | undefined;
+  image_72?: string | undefined;
+  image_192?: string | undefined;
+  image_512?: string | undefined;
+  team?: string | undefined;};
+  is_admin?: boolean | undefined;
+  is_owner?: boolean | undefined;
+  is_primary_owner?: boolean | undefined;
+  is_restricted?: boolean | undefined;
+  is_ultra_restricted?: boolean | undefined;
+  is_bot?: boolean | undefined;
+  is_app_user?: boolean | undefined;
+  updated?: number | undefined;
+  is_email_confirmed?: boolean | undefined;
+  who_can_share_contact_card?: string | undefined;};
 };
 
 export interface ActionInput_slack_getuserpresence {
@@ -12158,7 +12405,32 @@ export interface ActionInput_slack_getuserprofile {
 
 export interface ActionOutput_slack_getuserprofile {
   ok: boolean;
-  profile?: any | undefined;
+  profile: {  title?: string | undefined;
+  phone?: string | undefined;
+  skype?: string | undefined;
+  real_name?: string | undefined;
+  real_name_normalized?: string | undefined;
+  display_name?: string | undefined;
+  display_name_normalized?: string | undefined;
+  status_text?: string | undefined;
+  status_emoji?: string | undefined;
+  status_expiration?: number | undefined;
+  status_text_canonical?: string | undefined;
+  avatar_hash?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  image_original?: string | undefined;
+  image_24?: string | undefined;
+  image_32?: string | undefined;
+  image_48?: string | undefined;
+  image_72?: string | undefined;
+  image_192?: string | undefined;
+  image_512?: string | undefined;
+  image_1024?: string | undefined;
+  is_custom_image?: boolean | undefined;
+  huddle_state?: string | undefined;
+  huddle_state_expiration_ts?: number | undefined;};
 };
 
 export interface ActionInput_slack_invitetochannel {
@@ -12168,7 +12440,38 @@ export interface ActionInput_slack_invitetochannel {
 
 export interface ActionOutput_slack_invitetochannel {
   ok: boolean;
-  channel?: any | undefined;
+  channel: {  id: string;
+  name: string;
+  name_normalized: string;
+  created: number;
+  creator: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_archived: boolean;
+  is_general: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  is_member?: boolean | undefined;
+  unlinked?: number | undefined;
+  updated?: number | undefined;
+  num_members?: number | undefined;
+  context_team_id?: string | undefined;
+  parent_conversation?: string | undefined;
+  pending_shared?: string[] | undefined;
+  pending_connected_team_ids?: string[] | undefined;
+  shared_team_ids?: string[] | undefined;
+  previous_names?: string[] | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;};
 };
 
 export interface ActionInput_slack_joinchannel {
@@ -12192,7 +12495,7 @@ export interface ActionOutput_slack_joinchannel {
   is_shared: boolean;
   is_org_shared: boolean;
   is_pending_ext_shared: boolean;
-  pending_shared: any[];
+  pending_shared: string[];
   context_team_id: string;
   updated: number;
   parent_conversation: string;
@@ -12226,7 +12529,38 @@ export interface ActionInput_slack_listchannels {
 
 export interface ActionOutput_slack_listchannels {
   ok: boolean;
-  channels: any[];
+  channels: ({  id: string;
+  name: string;
+  name_normalized: string;
+  created: number;
+  creator: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_archived: boolean;
+  is_general: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  is_member?: boolean | undefined;
+  unlinked?: number | undefined;
+  updated?: number | undefined;
+  num_members?: number | undefined;
+  context_team_id?: string | undefined;
+  parent_conversation?: string | undefined;
+  pending_shared?: string[] | undefined;
+  pending_connected_team_ids?: string[] | undefined;
+  shared_team_ids?: string[] | undefined;
+  previous_names?: string[] | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;})[];
   next_cursor: string | null;
 };
 
@@ -12235,7 +12569,7 @@ export interface ActionInput_slack_listcustomemoji {
 
 export interface ActionOutput_slack_listcustomemoji {
   ok: boolean;
-  emoji?: any | undefined;
+  emoji: {  [key: string]: string;};
 };
 
 export interface ActionInput_slack_listfiles {
@@ -12268,7 +12602,14 @@ export interface ActionInput_slack_listpins {
 
 export interface ActionOutput_slack_listpins {
   ok: boolean;
-  items: any[];
+  items: ({  type: string;
+  created?: number | undefined;
+  created_by?: string | undefined;
+  message?: {  type: string;
+  text?: string | undefined;
+  user?: string | undefined;
+  ts?: string | undefined;};
+  channel?: string | undefined;})[];
 };
 
 export interface ActionInput_slack_listscheduledmessages {
@@ -12279,7 +12620,11 @@ export interface ActionInput_slack_listscheduledmessages {
 
 export interface ActionOutput_slack_listscheduledmessages {
   ok: boolean;
-  scheduled_messages: any[];
+  scheduled_messages: ({  id: string;
+  channel_id: string;
+  post_at: number;
+  date_created: number;
+  text?: string | undefined;})[];
 };
 
 export interface ActionInput_slack_listusergroupmembers {
@@ -12298,7 +12643,27 @@ export interface ActionInput_slack_listusergroups {
 
 export interface ActionOutput_slack_listusergroups {
   ok: boolean;
-  usergroups: any[];
+  usergroups: ({  id: string;
+  team_id: string;
+  is_usergroup: boolean;
+  is_subteam?: boolean | undefined;
+  name: string;
+  description?: string | undefined;
+  handle: string;
+  is_external?: boolean | undefined;
+  date_create?: number | undefined;
+  date_update?: number | undefined;
+  date_delete?: number | undefined;
+  auto_type?: string | undefined;
+  auto_provision?: boolean | undefined;
+  enterprise_subteam_id?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  deleted_by?: string | undefined;
+  prefs?: {  channels?: string[] | undefined;
+  groups?: string[] | undefined;};
+  user_count?: number | undefined;
+  channel_count?: number | undefined;})[];
 };
 
 export interface ActionInput_slack_listuserreactions {
@@ -12308,8 +12673,16 @@ export interface ActionInput_slack_listuserreactions {
 
 export interface ActionOutput_slack_listuserreactions {
   ok: boolean;
-  items: any[];
-  response_metadata?: any | undefined;
+  items: ({  type: string;
+  channel?: string | undefined;
+  message?: {  type: string;
+  text?: string | undefined;
+  user?: string | undefined;
+  ts?: string | undefined;
+  reactions?: ({  name: string;
+  users: string[];
+  count: number;})[] | undefined;};})[];
+  response_metadata: {  next_cursor?: string | undefined;};
 };
 
 export interface ActionInput_slack_listusers {
@@ -12319,8 +12692,47 @@ export interface ActionInput_slack_listusers {
 
 export interface ActionOutput_slack_listusers {
   ok: boolean;
-  members: any[];
-  response_metadata?: any | undefined;
+  members: ({  id: string;
+  team_id?: string | undefined;
+  name?: string | undefined;
+  deleted?: boolean | undefined;
+  color?: string | undefined;
+  real_name?: string | undefined;
+  tz?: string | undefined;
+  tz_label?: string | undefined;
+  tz_offset?: number | undefined;
+  profile?: {  title?: string | undefined;
+  phone?: string | undefined;
+  skype?: string | undefined;
+  real_name?: string | undefined;
+  real_name_normalized?: string | undefined;
+  display_name?: string | undefined;
+  display_name_normalized?: string | undefined;
+  status_text?: string | undefined;
+  status_emoji?: string | undefined;
+  status_expiration?: number | undefined;
+  avatar_hash?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  image_24?: string | undefined;
+  image_32?: string | undefined;
+  image_48?: string | undefined;
+  image_72?: string | undefined;
+  image_192?: string | undefined;
+  image_512?: string | undefined;
+  team?: string | undefined;};
+  is_admin?: boolean | undefined;
+  is_owner?: boolean | undefined;
+  is_primary_owner?: boolean | undefined;
+  is_restricted?: boolean | undefined;
+  is_ultra_restricted?: boolean | undefined;
+  is_bot?: boolean | undefined;
+  is_app_user?: boolean | undefined;
+  updated?: number | undefined;
+  is_email_confirmed?: boolean | undefined;
+  who_can_share_contact_card?: string | undefined;})[];
+  response_metadata: {  next_cursor?: string | undefined;};
 };
 
 export interface ActionInput_slack_lookupuserbyemail {
@@ -12329,7 +12741,46 @@ export interface ActionInput_slack_lookupuserbyemail {
 
 export interface ActionOutput_slack_lookupuserbyemail {
   ok: boolean;
-  user?: any | undefined;
+  user: {  id: string;
+  team_id?: string | undefined;
+  name?: string | undefined;
+  deleted?: boolean | undefined;
+  color?: string | undefined;
+  real_name?: string | undefined;
+  tz?: string | undefined;
+  tz_label?: string | undefined;
+  tz_offset?: number | undefined;
+  profile?: {  title?: string | undefined;
+  phone?: string | undefined;
+  skype?: string | undefined;
+  real_name?: string | undefined;
+  real_name_normalized?: string | undefined;
+  display_name?: string | undefined;
+  display_name_normalized?: string | undefined;
+  status_text?: string | undefined;
+  status_emoji?: string | undefined;
+  status_expiration?: number | undefined;
+  avatar_hash?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  image_24?: string | undefined;
+  image_32?: string | undefined;
+  image_48?: string | undefined;
+  image_72?: string | undefined;
+  image_192?: string | undefined;
+  image_512?: string | undefined;
+  team?: string | undefined;};
+  is_admin?: boolean | undefined;
+  is_owner?: boolean | undefined;
+  is_primary_owner?: boolean | undefined;
+  is_restricted?: boolean | undefined;
+  is_ultra_restricted?: boolean | undefined;
+  is_bot?: boolean | undefined;
+  is_app_user?: boolean | undefined;
+  updated?: number | undefined;
+  is_email_confirmed?: boolean | undefined;
+  who_can_share_contact_card?: string | undefined;};
 };
 
 export interface ActionInput_slack_markasread {
@@ -12364,7 +12815,34 @@ export interface ActionInput_slack_postmessage {
   channel_id: string;
   text: string;
   thread_ts?: string | undefined;
-  blocks?: any[] | undefined;
+  blocks?: ({  type: string;
+  block_id?: string | undefined;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  elements?: ({  type: string;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  action_id?: string | undefined;
+  url?: string | undefined;
+  value?: string | undefined;
+  style?: 'primary' | 'danger' | undefined;})[];
+  accessory?: {  type: string;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  action_id?: string | undefined;
+  url?: string | undefined;
+  value?: string | undefined;
+  style?: 'primary' | 'danger' | undefined;};
+  fields?: ({  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;})[];})[];
 };
 
 export interface ActionOutput_slack_postmessage {
@@ -12402,7 +12880,38 @@ export interface ActionInput_slack_renamechannel {
 
 export interface ActionOutput_slack_renamechannel {
   ok: boolean;
-  channel?: any | undefined;
+  channel: {  id: string;
+  name: string;
+  name_normalized: string;
+  created: number;
+  creator: string;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_archived: boolean;
+  is_general: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  is_pending_ext_shared: boolean;
+  is_member?: boolean | undefined;
+  unlinked?: number | undefined;
+  updated?: number | undefined;
+  num_members?: number | undefined;
+  context_team_id?: string | undefined;
+  parent_conversation?: string | undefined;
+  pending_shared?: string[] | undefined;
+  pending_connected_team_ids?: string[] | undefined;
+  shared_team_ids?: string[] | undefined;
+  previous_names?: string[] | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;};
 };
 
 export interface ActionInput_slack_schedulemessage {
@@ -12537,7 +13046,34 @@ export interface ActionInput_slack_updatemessage {
   channel_id: string;
   message_ts: string;
   text?: string | undefined;
-  blocks?: any[] | undefined;
+  blocks?: ({  type: string;
+  block_id?: string | undefined;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  elements?: ({  type: string;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  action_id?: string | undefined;
+  url?: string | undefined;
+  value?: string | undefined;
+  style?: 'primary' | 'danger' | undefined;})[];
+  accessory?: {  type: string;
+  text?: {  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;};
+  action_id?: string | undefined;
+  url?: string | undefined;
+  value?: string | undefined;
+  style?: 'primary' | 'danger' | undefined;};
+  fields?: ({  type: 'plain_text' | 'mrkdwn';
+  text: string;
+  emoji?: boolean | undefined;
+  verbatim?: boolean | undefined;})[];})[];
 };
 
 export interface ActionOutput_slack_updatemessage {
