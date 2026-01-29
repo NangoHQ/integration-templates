@@ -19,7 +19,7 @@ import { Invoice, UpdateInvoice } from '../models.js';
  */
 const action = createAction({
     description: 'Updates a single invoice in QuickBooks.',
-    version: '1.0.0',
+    version: '1.0.1',
 
     endpoint: {
         method: 'PUT',
