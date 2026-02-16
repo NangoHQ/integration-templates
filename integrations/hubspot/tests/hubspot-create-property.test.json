@@ -72,10 +72,39 @@
         "dataSensitivity": "non_sensitive"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/properties/companies": [
                 {
-                    "request": {},
+                    "request": {
+                        "data": {
+                            "hidden": false,
+                            "displayOrder": 1,
+                            "description": "string",
+                            "label": "My Company Property",
+                            "type": "enumeration",
+                            "formField": false,
+                            "groupName": "companyinformation",
+                            "name": "my_cool_company_property",
+                            "options": [
+                                {
+                                    "label": "Option A",
+                                    "value": "A",
+                                    "hidden": false,
+                                    "description": "Choice number one",
+                                    "displayOrder": 1
+                                },
+                                {
+                                    "label": "Option B",
+                                    "value": "B",
+                                    "hidden": false,
+                                    "description": "Choice number two",
+                                    "displayOrder": 2
+                                }
+                            ],
+                            "hasUniqueValue": false,
+                            "fieldType": "select"
+                        }
+                    },
                     "response": {
                         "updatedAt": "2024-10-23T12:40:46.602Z",
                         "createdAt": "2024-10-23T12:40:46.602Z",
@@ -117,7 +146,7 @@
                         "formField": false,
                         "dataSensitivity": "non_sensitive"
                     },
-                    "hash": ""
+                    "hash": "42198379a6e1139528ba1026ba3b789c46d4faec"
                 }
             ]
         }

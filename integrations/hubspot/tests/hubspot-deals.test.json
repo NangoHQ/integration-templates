@@ -296,10 +296,16 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/deals": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "associations": "contact,company",
+                            "limit": 100,
+                            "properties": "dealname,amount,closedate,description,hubspot_owner_id,dealstage,hs_deal_stage_probability"
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -708,12 +714,16 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "4d48bf5053c8fc74a8f1a63bbff6b057ccc28329"
                 }
             ],
             "crm/v3/objects/companies/23516293919": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,name"
+                        }
+                    },
                     "response": {
                         "id": "23516293919",
                         "properties": {
@@ -726,12 +736,16 @@
                         "updatedAt": "2024-10-09T12:21:23.765Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "880fb155ed30692d23648002d65b6971e7c2f7f7"
                 }
             ],
             "crm/v3/objects/contacts/64283084318": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
                     "response": {
                         "id": "64283084318",
                         "properties": {
@@ -745,12 +759,16 @@
                         "updatedAt": "2024-10-09T12:21:24.382Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "ba473bff96c2a363c94a51dc3f5a0e1c444693f3"
                 }
             ],
             "crm/v3/objects/contacts/64283084320": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
                     "response": {
                         "id": "64283084320",
                         "properties": {
@@ -764,7 +782,7 @@
                         "updatedAt": "2024-10-09T12:07:21.315Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "b1cd5c9ca56b0aaa26c6d2772b1cc9a0cec6e699"
                 }
             ]
         }

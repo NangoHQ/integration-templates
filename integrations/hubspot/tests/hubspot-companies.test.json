@@ -177,10 +177,15 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/companies": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "limit": 100,
+                            "properties": "name,industry,description,country,city,createdAt,hs_lead_status,lifecyclestage,hubspot_owner_id,founded_year,website"
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -437,7 +442,7 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "64fdd0cce1730aa30e77f930214cef54f741ed9f"
                 }
             ]
         }

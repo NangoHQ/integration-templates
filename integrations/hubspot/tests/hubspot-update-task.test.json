@@ -20,10 +20,29 @@
         "notes": "Follow-up for Brian Buyer after updating the prospect"
     },
     "api": {
-        "PATCH": {
+        "patch": {
             "crm/v3/objects/tasks/61710019858": [
                 {
-                    "request": {},
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "hs_task_body": "Follow-up for Brian Buyer after updating the prospect"
+                            },
+                            "associations": [
+                                {
+                                    "to": {
+                                        "id": 22943530616
+                                    },
+                                    "types": [
+                                        {
+                                            "associationCategory": "HUBSPOT_DEFINED",
+                                            "associationTypeId": 216
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
                     "response": {
                         "id": "61710019858",
                         "properties": {
@@ -48,7 +67,7 @@
                         "updatedAt": "2024-10-05T15:31:06.368Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "3e269caa6f94542bb218970599246af167817cc6"
                 }
             ]
         }

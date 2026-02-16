@@ -232,10 +232,16 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/tasks": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "associations": "contact,company,deal",
+                            "limit": 100,
+                            "properties": "hs_task_type,hs_task_subject,hs_task_priority,hubspot_owner_id,hs_timestamp,hs_task_body"
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -558,12 +564,16 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "0d3f72f4a39c81d4de778461d6d950c749e26399"
                 }
             ],
             "crm/v3/objects/contacts/64283084318": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
                     "response": {
                         "id": "64283084318",
                         "properties": {
@@ -577,12 +587,16 @@
                         "updatedAt": "2024-10-09T12:21:24.382Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "ba473bff96c2a363c94a51dc3f5a0e1c444693f3"
                 }
             ],
             "crm/v3/objects/contacts/64283084319": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,firstname,lastname"
+                        }
+                    },
                     "response": {
                         "id": "64283084319",
                         "properties": {
@@ -596,12 +610,16 @@
                         "updatedAt": "2024-10-05T13:42:51.197Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "a622f1c589c03b00bfa6b8a522365d4acb4f0cf0"
                 }
             ],
             "crm/v3/objects/companies/23516293919": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,name"
+                        }
+                    },
                     "response": {
                         "id": "23516293919",
                         "properties": {
@@ -614,12 +632,16 @@
                         "updatedAt": "2024-10-09T12:21:23.765Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "880fb155ed30692d23648002d65b6971e7c2f7f7"
                 }
             ],
             "crm/v3/objects/deals/22983893905": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "id,dealname"
+                        }
+                    },
                     "response": {
                         "id": "22983893905",
                         "properties": {
@@ -632,7 +654,7 @@
                         "updatedAt": "2024-10-09T12:21:23.651Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "05847f870273a68ee52e7e8f374dd5dab1c6acbc"
                 }
             ]
         }

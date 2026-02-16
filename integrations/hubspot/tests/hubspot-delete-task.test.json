@@ -6,8 +6,14 @@
         "success": true
     },
     "api": {
-        "DELETE": {
-            "crm/v3/objects/tasks/61688519345": []
+        "delete": {
+            "crm/v3/objects/tasks/61688519345": [
+                {
+                    "request": {},
+                    "response": "",
+                    "hash": "ece89348da2017adc6d9f6831770f0f36daa6528"
+                }
+            ]
         }
     },
     "_migrated": true

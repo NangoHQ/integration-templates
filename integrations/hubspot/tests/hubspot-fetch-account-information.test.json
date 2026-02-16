@@ -11,7 +11,7 @@
         "dataHostingLocation": "eu1"
     },
     "api": {
-        "GET": {
+        "get": {
             "account-info/v3/details": [
                 {
                     "request": {},
@@ -26,7 +26,7 @@
                         "uiDomain": "app-eu1.hubspot.com",
                         "dataHostingLocation": "eu1"
                     },
-                    "hash": ""
+                    "hash": "544a031e3e533cf4d8d8d7a39ae8a27e30d540fd"
                 }
             ]
         }

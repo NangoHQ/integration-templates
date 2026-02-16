@@ -12,10 +12,14 @@
         "superAdmin": false
     },
     "api": {
-        "POST": {
+        "post": {
             "settings/v3/users": [
                 {
-                    "request": {},
+                    "request": {
+                        "data": {
+                            "email": "foo@foo.com"
+                        }
+                    },
                     "response": {
                         "id": "010101",
                         "email": "foo@foo.com",
@@ -25,7 +29,7 @@
                         "sendWelcomeEmail": true,
                         "superAdmin": false
                     },
-                    "hash": ""
+                    "hash": "f5ae7aa4b87e1adb676d5475651f27d7fc9e2ac4"
                 }
             ]
         }

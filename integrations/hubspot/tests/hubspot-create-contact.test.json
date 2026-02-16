@@ -13,10 +13,18 @@
         "created_date": "2024-10-09T12:03:44.440Z"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/objects/contacts": [
                 {
-                    "request": {},
+                    "request": {
+                        "data": {
+                            "properties": {
+                                "firstname": "Mock-4",
+                                "lastname": "Testing",
+                                "website": "https://www.hubspot.com"
+                            }
+                        }
+                    },
                     "response": {
                         "id": "66010757645",
                         "properties": {
@@ -43,7 +51,7 @@
                         "updatedAt": "2024-10-09T12:03:44.440Z",
                         "archived": false
                     },
-                    "hash": ""
+                    "hash": "054f6add4f7fe8ef7f13ea72f397048b043f939f"
                 }
             ]
         }

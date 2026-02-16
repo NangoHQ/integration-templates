@@ -29,10 +29,14 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/owners": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "limit": 100
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -61,7 +65,7 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "34d54e3750463bd290425ce8902f53f6ee03631f"
                 }
             ]
         }

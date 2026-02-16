@@ -39,10 +39,14 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/products": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "properties": "amount,description,discount,hs_sku,hs_url,name,price,quantity,recurringbillingfrequency,tax"
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -89,7 +93,7 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "f5dc000e8c03b78aca45139ac0ae9ccbc8ca030e"
                 }
             ]
         }

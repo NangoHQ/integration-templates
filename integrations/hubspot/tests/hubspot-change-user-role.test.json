@@ -10,17 +10,21 @@
         "superAdmin": false
     },
     "api": {
-        "PUT": {
+        "put": {
             "settings/v3/users/010101": [
                 {
-                    "request": {},
+                    "request": {
+                        "data": {
+                            "superAdmin": false
+                        }
+                    },
                     "response": {
                         "id": "010101",
                         "email": "foo@foo.com",
                         "roleIds": [],
                         "superAdmin": false
                     },
-                    "hash": ""
+                    "hash": "e0b1f69488fe8f65de01cf51fdb2e7a132c08b7c"
                 }
             ]
         }

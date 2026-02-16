@@ -25,10 +25,14 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "settings/v3/users": [
                 {
-                    "request": {},
+                    "request": {
+                        "params": {
+                            "limit": 100
+                        }
+                    },
                     "response": {
                         "results": [
                             {
@@ -49,7 +53,7 @@
                             }
                         ]
                     },
-                    "hash": ""
+                    "hash": "128c176d3ea15d165bacb733a32d222421d3b9c9"
                 }
             ]
         }
