@@ -1,6 +1,4 @@
 {
-    "input": null,
-    "output": null,
     "nango": {
         "batchSave": {
             "Contact": [
@@ -246,14 +244,17 @@
                 }
             ]
         },
-        "batchDelete": {}
+        "batchDelete": {
+            "Contact": []
+        }
     },
     "api": {
-        "GET": {
-            "/crm/v3/objects/contacts": [
+        "get": {
+            "crm/v3/objects/contacts": [
                 {
                     "request": {
                         "params": {
+                            "limit": 100,
                             "properties": "firstname,lastname,email,jobtitle,notes_last_contacted,notes_last_updated,hs_lead_status,lifecyclestage,salutation,mobilephone,website,createdate,hubspot_owner_id"
                         }
                     },
@@ -605,9 +606,11 @@
                                 "archived": false
                             }
                         ]
-                    }
+                    },
+                    "hash": "201d5d20fb5d195e0bcbc8173c118d3d955e9e8d"
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

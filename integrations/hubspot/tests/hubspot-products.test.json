@@ -39,7 +39,7 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/products": [
                 {
                     "request": {
@@ -97,5 +97,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

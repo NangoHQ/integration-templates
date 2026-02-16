@@ -22,10 +22,9 @@
         "year_founded": "2016",
         "website_url": "https://www.techinnovations.com"
     },
-    "nango": {},
     "api": {
-        "POST": {
-            "/crm/v3/objects/companies": [
+        "post": {
+            "crm/v3/objects/companies": [
                 {
                     "request": {
                         "data": {
@@ -68,9 +67,11 @@
                         "createdAt": "2024-10-09T12:02:22.969Z",
                         "updatedAt": "2024-10-09T12:02:22.969Z",
                         "archived": false
-                    }
+                    },
+                    "hash": "2ac135206d05abc10dc406d63833b755e5b715ec"
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

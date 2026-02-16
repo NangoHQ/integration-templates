@@ -46,7 +46,7 @@
         "notes": "Follow-up for Brian Buyer"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/objects/tasks": [
                 {
                     "request": {
@@ -139,5 +139,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

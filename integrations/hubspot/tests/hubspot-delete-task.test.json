@@ -6,7 +6,7 @@
         "success": true
     },
     "api": {
-        "DELETE": {
+        "delete": {
             "crm/v3/objects/tasks/61688519345": [
                 {
                     "request": {},
@@ -15,5 +15,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

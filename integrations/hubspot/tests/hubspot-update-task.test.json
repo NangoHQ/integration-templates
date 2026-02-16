@@ -20,7 +20,7 @@
         "notes": "Follow-up for Brian Buyer after updating the prospect"
     },
     "api": {
-        "PATCH": {
+        "patch": {
             "crm/v3/objects/tasks/61710019858": [
                 {
                     "request": {
@@ -71,5 +71,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

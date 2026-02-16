@@ -296,7 +296,7 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/deals": [
                 {
                     "request": {
@@ -786,5 +786,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

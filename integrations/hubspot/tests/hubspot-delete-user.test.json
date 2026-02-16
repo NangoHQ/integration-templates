@@ -6,7 +6,7 @@
         "success": true
     },
     "api": {
-        "DELETE": {
+        "delete": {
             "settings/v3/users/71690856": [
                 {
                     "request": {},
@@ -15,5 +15,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

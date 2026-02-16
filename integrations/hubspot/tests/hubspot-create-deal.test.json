@@ -40,7 +40,7 @@
         "close_date": "2025-10-07T06:37:47.523Z"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/objects/deals": [
                 {
                     "request": {
@@ -122,5 +122,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

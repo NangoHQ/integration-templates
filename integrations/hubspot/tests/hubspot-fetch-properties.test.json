@@ -4899,7 +4899,7 @@
         ]
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/properties/deals": [
                 {
                     "request": {},
@@ -9803,5 +9803,6 @@
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

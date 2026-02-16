@@ -5,7 +5,7 @@ import fetchData from '../syncs/contacts.js';
 describe('hubspot contacts tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'hubspot-contacts',
+        name: 'contacts',
         Model: 'Contact'
     });
 
