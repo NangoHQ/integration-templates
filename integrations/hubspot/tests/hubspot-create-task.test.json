@@ -49,52 +49,7 @@
         "POST": {
             "crm/v3/objects/tasks": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "hs_task_subject": "Send Proposal",
-                                "hs_timestamp": "2024-10-30T03:30:17.883Z",
-                                "hs_task_priority": "HIGH",
-                                "hubspot_owner_id": "902942351",
-                                "hs_task_body": "Follow-up for Brian Buyer"
-                            },
-                            "associations": [
-                                {
-                                    "to": {
-                                        "id": 64283084318
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 204
-                                        }
-                                    ]
-                                },
-                                {
-                                    "to": {
-                                        "id": 23516293919
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 192
-                                        }
-                                    ]
-                                },
-                                {
-                                    "to": {
-                                        "id": 22983893905
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 216
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "61993360389",
                         "properties": {
@@ -135,9 +90,10 @@
                         "updatedAt": "2024-10-09T12:21:22.591Z",
                         "archived": false
                     },
-                    "hash": "9aee1ca16026ef617905de8ccd92340767734021"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

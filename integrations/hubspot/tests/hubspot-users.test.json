@@ -28,11 +28,7 @@
         "GET": {
             "settings/v3/users": [
                 {
-                    "request": {
-                        "params": {
-                            "limit": 100
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "results": [
                             {
@@ -53,9 +49,10 @@
                             }
                         ]
                     },
-                    "hash": "128c176d3ea15d165bacb733a32d222421d3b9c9"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

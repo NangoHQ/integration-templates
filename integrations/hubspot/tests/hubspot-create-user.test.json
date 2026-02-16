@@ -15,11 +15,7 @@
         "POST": {
             "settings/v3/users": [
                 {
-                    "request": {
-                        "data": {
-                            "email": "foo@foo.com"
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "010101",
                         "email": "foo@foo.com",
@@ -29,9 +25,10 @@
                         "sendWelcomeEmail": true,
                         "superAdmin": false
                     },
-                    "hash": "f5ae7aa4b87e1adb676d5475651f27d7fc9e2ac4"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

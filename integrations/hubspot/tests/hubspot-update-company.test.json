@@ -18,15 +18,7 @@
         "PATCH": {
             "crm/v3/objects/companies/23618222883": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "name": "Tech Innovations I.NC-1",
-                                "industry": "MOBILE_GAMES",
-                                "founded_year": "2020"
-                            }
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "23618222883",
                         "properties": {
@@ -50,9 +42,10 @@
                         "updatedAt": "2024-10-07T11:03:04.441Z",
                         "archived": false
                     },
-                    "hash": "e8465097632cffe6ba2a4cb79908d879590cb1f3"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

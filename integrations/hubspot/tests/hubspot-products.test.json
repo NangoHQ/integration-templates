@@ -42,11 +42,7 @@
         "GET": {
             "crm/v3/objects/products": [
                 {
-                    "request": {
-                        "params": {
-                            "properties": "amount,description,discount,hs_sku,hs_url,name,price,quantity,recurringbillingfrequency,tax"
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "results": [
                             {
@@ -93,9 +89,10 @@
                             }
                         ]
                     },
-                    "hash": "f5dc000e8c03b78aca45139ac0ae9ccbc8ca030e"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

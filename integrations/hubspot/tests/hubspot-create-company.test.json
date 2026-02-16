@@ -22,25 +22,11 @@
         "year_founded": "2016",
         "website_url": "https://www.techinnovations.com"
     },
-    "nango": {},
     "api": {
         "POST": {
-            "/crm/v3/objects/companies": [
+            "crm/v3/objects/companies": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "name": "Tech Innovations Inc.",
-                                "industry": "MOBILE_GAMES",
-                                "description": "A leading technology company specializing in innovative solutions.",
-                                "country": "USA",
-                                "city": "San Francisco",
-                                "hubspot_owner_id": "902942351",
-                                "founded_year": "2016",
-                                "website": "https://www.techinnovations.com"
-                            }
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "23735747388",
                         "properties": {
@@ -68,9 +54,11 @@
                         "createdAt": "2024-10-09T12:02:22.969Z",
                         "updatedAt": "2024-10-09T12:02:22.969Z",
                         "archived": false
-                    }
+                    },
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

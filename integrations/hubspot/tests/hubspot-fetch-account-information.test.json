@@ -26,9 +26,10 @@
                         "uiDomain": "app-eu1.hubspot.com",
                         "dataHostingLocation": "eu1"
                     },
-                    "hash": "544a031e3e533cf4d8d8d7a39ae8a27e30d540fd"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

@@ -46,51 +46,7 @@
         "POST": {
             "crm/v3/objects/notes": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "hs_timestamp": "2024-10-05T11:00:00Z",
-                                "hs_note_body": "Spoke with Jane and John regarding the proposal.",
-                                "hs_attachment_ids": "24332474034;24332474044",
-                                "hubspot_owner_id": "902942351"
-                            },
-                            "associations": [
-                                {
-                                    "to": {
-                                        "id": 64283084318
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 202
-                                        }
-                                    ]
-                                },
-                                {
-                                    "to": {
-                                        "id": 23516293919
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 190
-                                        }
-                                    ]
-                                },
-                                {
-                                    "to": {
-                                        "id": 23103329674
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 214
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "61975065190",
                         "properties": {
@@ -115,9 +71,10 @@
                         "updatedAt": "2024-10-09T12:07:45.207Z",
                         "archived": false
                     },
-                    "hash": "09dfb3ddd53f072cc319805b4e1db54010c35409"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

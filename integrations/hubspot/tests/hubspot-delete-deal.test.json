@@ -7,13 +7,8 @@
     },
     "api": {
         "DELETE": {
-            "crm/v3/objects/deals/22943530616": [
-                {
-                    "request": {},
-                    "response": "",
-                    "hash": "68e3ea27842b2dd6fbd753496d6ab78e057bb502"
-                }
-            ]
+            "crm/v3/objects/deals/22943530616": []
         }
-    }
+    },
+    "_migrated": true
 }

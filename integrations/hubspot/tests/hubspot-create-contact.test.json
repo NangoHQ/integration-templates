@@ -16,15 +16,7 @@
         "POST": {
             "crm/v3/objects/contacts": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "firstname": "Mock-4",
-                                "lastname": "Testing",
-                                "website": "https://www.hubspot.com"
-                            }
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "66010757645",
                         "properties": {
@@ -51,9 +43,10 @@
                         "updatedAt": "2024-10-09T12:03:44.440Z",
                         "archived": false
                     },
-                    "hash": "054f6add4f7fe8ef7f13ea72f397048b043f939f"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

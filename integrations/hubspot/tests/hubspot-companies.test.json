@@ -180,12 +180,7 @@
         "GET": {
             "crm/v3/objects/companies": [
                 {
-                    "request": {
-                        "params": {
-                            "limit": 100,
-                            "properties": "name,industry,description,country,city,createdAt,hs_lead_status,lifecyclestage,hubspot_owner_id,founded_year,website"
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "results": [
                             {
@@ -442,9 +437,10 @@
                             }
                         ]
                     },
-                    "hash": "64fdd0cce1730aa30e77f930214cef54f741ed9f"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }

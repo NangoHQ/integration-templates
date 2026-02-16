@@ -37,39 +37,7 @@
         "PATCH": {
             "crm/v3/objects/deals/22983893905": [
                 {
-                    "request": {
-                        "data": {
-                            "properties": {
-                                "dealname": "Mock testing Update-1",
-                                "amount": "10000",
-                                "closedate": "2025-10-07T05:01:36.281Z"
-                            },
-                            "associations": [
-                                {
-                                    "to": {
-                                        "id": 64283084318
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 3
-                                        }
-                                    ]
-                                },
-                                {
-                                    "to": {
-                                        "id": 23516293919
-                                    },
-                                    "types": [
-                                        {
-                                            "associationCategory": "HUBSPOT_DEFINED",
-                                            "associationTypeId": 341
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
+                    "request": {},
                     "response": {
                         "id": "22983893905",
                         "properties": {
@@ -107,9 +75,10 @@
                         "updatedAt": "2024-10-09T12:21:23.651Z",
                         "archived": false
                     },
-                    "hash": "5175d83ebd8709987e4b004d3484ab21b7d1049e"
+                    "hash": ""
                 }
             ]
         }
-    }
+    },
+    "_migrated": true
 }
