@@ -151,6 +151,24 @@ export const ModelResponse = z.object({
 
 export type ModelResponse = z.infer<typeof ModelResponse>;
 
+export const StandardTask = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().nullable(),
+  status: z.enum(['TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']),
+  priority: z.enum(['URGENT', 'HIGH', 'MEDIUM', 'LOW', 'NONE']),
+  assigneeId: z.string().nullable(),
+  projectId: z.string().nullable(),
+  labels: z.array(z.string()),
+  dueDate: z.string().nullable(),
+  url: z.string(),
+  providerSpecific: z.object({}).catchall(z.any()),
+  createdAt: z.string(),
+  updatedAt: z.string()
+});
+
+export type StandardTask = z.infer<typeof StandardTask>;
+
 export const models = {
   LinearIssue: LinearIssue,
   CreateIssue: CreateIssue,
@@ -166,5 +184,6 @@ export const models = {
   Field: Field,
   FieldResponse: FieldResponse,
   Model: Model,
-  ModelResponse: ModelResponse
+  ModelResponse: ModelResponse,
+  StandardTask: StandardTask
 };

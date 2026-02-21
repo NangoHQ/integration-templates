@@ -131,6 +131,35 @@
         ],
         "version": "2.0.1",
         "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches GitHub issues from all a user's repositories and maps them to the standard task model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tasks/unified",
+            "group": "Unified Task API"
+          }
+        ],
+        "input": "SyncMetadata_github_unifiedtasks",
+        "name": "unified-tasks",
+        "output": [
+          "StandardTask"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "public_repo"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardTask",
+          "SyncMetadata_github_unifiedtasks"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
       }
     ],
     "onEventScripts": {

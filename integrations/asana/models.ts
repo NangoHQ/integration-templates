@@ -178,6 +178,24 @@ export type Anonymous_asana_action_fetchprojects_output = z.infer<typeof Anonymo
 export const Anonymous_asana_action_deletetask_output = z.boolean();
 export type Anonymous_asana_action_deletetask_output = z.infer<typeof Anonymous_asana_action_deletetask_output>;
 
+export const StandardTask = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().nullable(),
+  status: z.enum(['TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']),
+  priority: z.enum(['URGENT', 'HIGH', 'MEDIUM', 'LOW', 'NONE']),
+  assigneeId: z.string().nullable(),
+  projectId: z.string().nullable(),
+  labels: z.array(z.string()),
+  dueDate: z.string().nullable(),
+  url: z.string(),
+  providerSpecific: z.object({}).catchall(z.any()),
+  createdAt: z.string(),
+  updatedAt: z.string()
+});
+
+export type StandardTask = z.infer<typeof StandardTask>;
+
 export const models = {
   Id: Id,
   Timestamps: Timestamps,
@@ -196,5 +214,6 @@ export const models = {
   AsanaProject: AsanaProject,
   Anonymous_asana_action_fetchworkspaces_output: Anonymous_asana_action_fetchworkspaces_output,
   Anonymous_asana_action_fetchprojects_output: Anonymous_asana_action_fetchprojects_output,
-  Anonymous_asana_action_deletetask_output: Anonymous_asana_action_deletetask_output
+  Anonymous_asana_action_deletetask_output: Anonymous_asana_action_deletetask_output,
+  StandardTask: StandardTask
 };

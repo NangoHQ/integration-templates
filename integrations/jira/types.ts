@@ -17,6 +17,14 @@ interface IssueFields {
     assignee: User | null;
     updated: string;
     status: Status;
+    priority: Priority | null;
+    labels: string[];
+    duedate: string | null;
+}
+
+interface Priority {
+    name: string;
+    id: string;
 }
 
 export interface AtlassianDocument {

@@ -96,6 +96,24 @@ export const GithubWriteFileActionResult = z.object({
 
 export type GithubWriteFileActionResult = z.infer<typeof GithubWriteFileActionResult>;
 
+export const StandardTask = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().nullable(),
+  status: z.enum(['TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']),
+  priority: z.enum(['URGENT', 'HIGH', 'MEDIUM', 'LOW', 'NONE']),
+  assigneeId: z.string().nullable(),
+  projectId: z.string().nullable(),
+  labels: z.array(z.string()),
+  dueDate: z.string().nullable(),
+  url: z.string(),
+  providerSpecific: z.object({}).catchall(z.any()),
+  createdAt: z.string(),
+  updatedAt: z.string()
+});
+
+export type StandardTask = z.infer<typeof StandardTask>;
+
 export const models = {
   GithubIssue: GithubIssue,
   Issue: Issue,
@@ -103,5 +121,6 @@ export const models = {
   GithubRepo: GithubRepo,
   GithubRepoFile: GithubRepoFile,
   GithubWriteFileInput: GithubWriteFileInput,
-  GithubWriteFileActionResult: GithubWriteFileActionResult
+  GithubWriteFileActionResult: GithubWriteFileActionResult,
+  StandardTask: StandardTask
 };

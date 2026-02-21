@@ -100,6 +100,24 @@ export const CreateIssueOutput = z.object({
 
 export type CreateIssueOutput = z.infer<typeof CreateIssueOutput>;
 
+export const StandardTask = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().nullable(),
+  status: z.enum(['TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']),
+  priority: z.enum(['URGENT', 'HIGH', 'MEDIUM', 'LOW', 'NONE']),
+  assigneeId: z.string().nullable(),
+  projectId: z.string().nullable(),
+  labels: z.array(z.string()),
+  dueDate: z.string().nullable(),
+  url: z.string(),
+  providerSpecific: z.object({}).catchall(z.any()),
+  createdAt: z.string(),
+  updatedAt: z.string()
+});
+
+export type StandardTask = z.infer<typeof StandardTask>;
+
 export const models = {
   JiraProjectId: JiraProjectId,
   JiraIssueMetadata: JiraIssueMetadata,
@@ -110,5 +128,6 @@ export const models = {
   Project: Project,
   IssueType: IssueType,
   CreateIssueInput: CreateIssueInput,
-  CreateIssueOutput: CreateIssueOutput
+  CreateIssueOutput: CreateIssueOutput,
+  StandardTask: StandardTask
 };
