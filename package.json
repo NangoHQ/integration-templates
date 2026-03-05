@@ -4,8 +4,6 @@
     "type": "module",
     "description": "",
     "scripts": {
-        "cli": "npx tsx internal/scripts/zero/cli.ts",
-        "build:flows": "npx tsx internal/scripts/zero/buildFlows.ts",
         "compile:integrations": "npx tsx internal/scripts/zero/compileIntegrationsJson.ts",
         "fix:zod-unions": "npx tsx internal/scripts/fix-zod-unions.ts",
         "lint": "eslint . --ext .ts",
