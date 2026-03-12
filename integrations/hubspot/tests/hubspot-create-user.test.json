@@ -12,7 +12,7 @@
         "superAdmin": false
     },
     "api": {
-        "POST": {
+        "post": {
             "settings/v3/users": [
                 {
                     "request": {

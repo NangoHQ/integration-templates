@@ -11,7 +11,7 @@
         "dataHostingLocation": "eu1"
     },
     "api": {
-        "GET": {
+        "get": {
             "account-info/v3/details": [
                 {
                     "request": {},

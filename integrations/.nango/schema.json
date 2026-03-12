@@ -7241,10 +7241,12 @@
       "type": "object",
       "properties": {
         "list_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The list slug or UUID to add the entry to. Example: \"my-sales-list\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to add to the list. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -7303,16 +7305,20 @@
       "type": "object",
       "properties": {
         "parent_object": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
         },
         "parent_record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to attach the note to. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "The note title. Example: \"Meeting Notes\""
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "description": "The note content in plain text or markdown. Example: \"Discussed Q4 planning...\""
         }
       },
       "required": [
@@ -7477,7 +7483,8 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug to create record in. Example: \"people\" or \"companies\""
         },
         "values": {
           "type": "object",
@@ -7488,7 +7495,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Object containing attribute values to set. Example: {\"name\": [{\"first_name\": \"John\", \"last_name\": \"Doe\"}]}"
         }
       },
       "required": [
@@ -7555,16 +7563,19 @@
       "type": "object",
       "properties": {
         "content": {
-          "type": "string"
+          "type": "string",
+          "description": "Task description. Example: \"Follow up with customer\""
         },
         "deadline": {
-          "type": "string"
+          "type": "string",
+          "description": "Due date in ISO format. Example: \"2025-12-31T23:59:59.000Z\""
         },
         "assignee_ids": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of workspace member IDs to assign. Example: [\"user-id-123\"]"
         },
         "linked_records": {
           "type": "array",
@@ -7575,7 +7586,8 @@
                 "type": "string"
               },
               "target_record_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Record ID"
               }
             },
             "required": [
@@ -7583,7 +7595,8 @@
               "target_record_id"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Records to link to this task"
         }
       },
       "required": [
@@ -7857,10 +7870,12 @@
       "type": "object",
       "properties": {
         "list_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The list slug or UUID. Example: \"my-sales-list\""
         },
         "entry_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The entry ID to remove. Example: \"abc123-def456\""
         }
       },
       "required": [
@@ -7873,7 +7888,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7885,7 +7901,8 @@
       "type": "object",
       "properties": {
         "note_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The note ID to delete. Example: \"abc123-def456\""
         }
       },
       "required": [
@@ -7897,7 +7914,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7909,10 +7927,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to delete. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -7925,7 +7945,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7961,7 +7982,8 @@
       "type": "object",
       "properties": {
         "object_id": {
-          "type": "string"
+          "type": "string",
+          "description": "UUID or slug to identify the object. Example: \"people\" or \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
         }
       },
       "required": [
@@ -7982,7 +8004,8 @@
                   "type": "string"
                 },
                 "object_id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
                 }
               },
               "required": [
@@ -7992,16 +8015,20 @@
               "additionalProperties": false
             },
             "api_slug": {
-              "type": "string"
+              "type": "string",
+              "description": "Unique, human-readable slug for the object. Example: \"people\""
             },
             "singular_noun": {
-              "type": "string"
+              "type": "string",
+              "description": "Singular form of the object name. Example: \"Person\""
             },
             "plural_noun": {
-              "type": "string"
+              "type": "string",
+              "description": "Plural form of the object name. Example: \"People\""
             },
             "created_at": {
-              "type": "string"
+              "type": "string",
+              "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
             }
           },
           "required": [
@@ -8023,10 +8050,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to retrieve. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -8248,19 +8277,23 @@
                 "additionalProperties": false
               },
               "api_slug": {
-                "type": "string"
+                "type": "string",
+                "description": "Unique slug for the list. Example: \"my-sales-list\""
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "Display name of the list. Example: \"My Sales List\""
               },
               "parent_object": {
                 "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "description": "Object types this list is for. Example: [\"people\"]"
               },
               "created_at": {
-                "type": "string"
+                "type": "string",
+                "description": "When the list was created"
               }
             },
             "required": [
@@ -8271,7 +8304,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of list objects"
         }
       },
       "required": [
@@ -8283,16 +8317,20 @@
       "type": "object",
       "properties": {
         "parent_object": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
         },
         "parent_record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to list notes for. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of notes to return"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of notes to skip"
         }
       },
       "required": [
@@ -8353,7 +8391,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of notes"
         }
       },
       "required": [
@@ -8380,7 +8419,8 @@
                     "type": "string"
                   },
                   "object_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
                   }
                 },
                 "required": [
@@ -8390,16 +8430,20 @@
                 "additionalProperties": false
               },
               "api_slug": {
-                "type": "string"
+                "type": "string",
+                "description": "Unique, human-readable slug for the object. Example: \"people\""
               },
               "singular_noun": {
-                "type": "string"
+                "type": "string",
+                "description": "Singular form of the object name. Example: \"Person\""
               },
               "plural_noun": {
-                "type": "string"
+                "type": "string",
+                "description": "Plural form of the object name. Example: \"People\""
               },
               "created_at": {
-                "type": "string"
+                "type": "string",
+                "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
               }
             },
             "required": [
@@ -8410,7 +8454,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of object definitions"
         }
       },
       "required": [
@@ -8422,13 +8467,16 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug to query records from. Example: \"people\" or \"companies\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of records to return. Default: 25"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of records to skip. Default: 0"
         }
       },
       "required": [
@@ -8476,7 +8524,8 @@
                       "not": {}
                     }
                   ]
-                }
+                },
+                "description": "Object containing attribute values keyed by attribute slug"
               }
             },
             "required": [
@@ -8485,7 +8534,8 @@
               "values"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of record objects"
         }
       },
       "required": [
@@ -8497,10 +8547,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of tasks to return"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of tasks to skip"
         }
       },
       "additionalProperties": false
@@ -8553,7 +8605,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of tasks"
         }
       },
       "required": [
@@ -8714,10 +8767,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to update. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "values": {
           "type": "object",
@@ -8728,7 +8783,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Object containing attribute values to update. Example: {\"job_title\": [{\"value\": \"CTO\"}]}"
         }
       },
       "required": [
@@ -41290,14 +41346,17 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of block objects to append (max 100)."
         },
         "after": {
-          "type": "string"
+          "type": "string",
+          "description": "Block ID to insert after."
         }
       },
       "required": [
@@ -41327,11 +41386,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of bulleted list item blocks."
         }
       },
       "required": [
@@ -41361,11 +41422,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of callout block objects."
         }
       },
       "required": [
@@ -41395,11 +41458,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of code block objects."
         }
       },
       "required": [
@@ -41429,11 +41494,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array containing divider block. Example: [{\"divider\":{}}]"
         }
       },
       "required": [
@@ -41463,11 +41530,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of heading block objects. Example: [{\"heading_2\":{\"rich_text\":[{\"text\":{\"content\":\"Section Title\"}}]}}]"
         }
       },
       "required": [
@@ -41497,11 +41566,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of to-do block objects."
         }
       },
       "required": [
@@ -41531,7 +41602,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to archive. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -41572,14 +41644,17 @@
           "required": [
             "page_id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page for the comment."
         },
         "rich_text": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Comment content as rich text array."
         },
         "discussion_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Discussion thread ID to reply to."
         }
       },
       "required": [
@@ -41672,7 +41747,8 @@
           "required": [
             "page_id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page where database will be created."
         },
         "title": {
           "type": "array",
@@ -41696,7 +41772,8 @@
               "text"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Database title as rich text array."
         },
         "properties": {
           "type": "object",
@@ -41707,7 +41784,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Database property schema. Example: {\"Name\":{\"title\":{}},\"Description\":{\"rich_text\":{}}}"
         }
       },
       "required": [
@@ -41764,10 +41842,12 @@
               "type": "string"
             },
             "database_id": {
-              "type": "string"
+              "type": "string",
+              "description": "Parent database ID. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page or database. Must include either page_id or database_id."
         },
         "properties": {
           "type": "object",
@@ -41778,11 +41858,13 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties. For pages with page parent, use title property. For database parents, use database property schema."
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of block objects to add as page content."
         },
         "icon": {
           "type": "object",
@@ -41806,7 +41888,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page icon as emoji or external URL."
         },
         "cover": {
           "type": "object",
@@ -41827,7 +41910,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page cover image as external URL."
         }
       },
       "required": [
@@ -41956,7 +42040,8 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to delete. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         }
       },
       "required": [
@@ -41994,10 +42079,12 @@
               "type": "string"
             },
             "database_id": {
-              "type": "string"
+              "type": "string",
+              "description": "Parent database ID."
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page or database for the duplicate."
         },
         "properties": {
           "type": "object",
@@ -42008,11 +42095,13 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties for the duplicate."
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Content blocks to include in the duplicate."
         }
       },
       "required": [
@@ -42158,13 +42247,16 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page or block. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42204,10 +42296,12 @@
       "type": "object",
       "properties": {
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42244,14 +42338,19 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
-        "filter": {},
+        "filter": {
+          "description": "Filter conditions. Example: {\"property\":\"Name\",\"title\":{\"contains\":\"test\"}}"
+        },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42291,17 +42390,21 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
         "sorts": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Sort criteria. Example: [{\"property\":\"Name\",\"direction\":\"ascending\"}]"
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42342,18 +42445,24 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
-        "filter": {},
+        "filter": {
+          "description": "Filter conditions for the query."
+        },
         "sorts": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Sort criteria for the results."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42393,7 +42502,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to restore. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -42425,13 +42535,16 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42471,7 +42584,8 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to retrieve. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         }
       },
       "required": [
@@ -42511,7 +42625,8 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to retrieve. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         }
       },
       "required": [
@@ -42564,10 +42679,12 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "property_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID or name of the property to retrieve. Example: \"title\""
         }
       },
       "required": [
@@ -42601,7 +42718,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to retrieve. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -42736,7 +42854,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the user to retrieve. Example: \"d42542a8-a81c-4386-aa95-313aa4e818b3\""
         }
       },
       "required": [
@@ -42779,13 +42898,16 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in database titles."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42822,13 +42944,16 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in page titles."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42865,7 +42990,8 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in page/database titles."
         },
         "filter": {
           "type": "object",
@@ -42881,7 +43007,8 @@
             "property",
             "value"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Filter to search only pages or databases. Example: {\"property\":\"object\",\"value\":\"page\"}"
         },
         "sort": {
           "type": "object",
@@ -42897,13 +43024,16 @@
             "direction",
             "timestamp"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Sort order. Example: {\"direction\":\"descending\",\"timestamp\":\"last_edited_time\"}"
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42940,19 +43070,42 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to update. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         },
-        "paragraph": {},
-        "heading_1": {},
-        "heading_2": {},
-        "heading_3": {},
-        "bulleted_list_item": {},
-        "numbered_list_item": {},
-        "to_do": {},
-        "toggle": {},
-        "code": {},
-        "callout": {},
-        "quote": {}
+        "paragraph": {
+          "description": "Paragraph block content."
+        },
+        "heading_1": {
+          "description": "Heading 1 block content."
+        },
+        "heading_2": {
+          "description": "Heading 2 block content."
+        },
+        "heading_3": {
+          "description": "Heading 3 block content."
+        },
+        "bulleted_list_item": {
+          "description": "Bulleted list item content."
+        },
+        "numbered_list_item": {
+          "description": "Numbered list item content."
+        },
+        "to_do": {
+          "description": "To-do block content."
+        },
+        "toggle": {
+          "description": "Toggle block content."
+        },
+        "code": {
+          "description": "Code block content."
+        },
+        "callout": {
+          "description": "Callout block content."
+        },
+        "quote": {
+          "description": "Quote block content."
+        }
       },
       "required": [
         "block_id"
@@ -42987,7 +43140,8 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to update. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
         "title": {
           "type": "array",
@@ -43011,11 +43165,13 @@
               "text"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "New database title as rich text array."
         },
         "description": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Database description as rich text array."
         },
         "properties": {
           "type": "object",
@@ -43026,7 +43182,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Property schema updates."
         }
       },
       "required": [
@@ -43071,7 +43228,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to update. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "properties": {
           "type": "object",
@@ -43082,7 +43240,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties to update."
         },
         "icon": {
           "type": "object",
@@ -43106,7 +43265,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page icon as emoji or external URL."
         },
         "cover": {
           "type": "object",
@@ -43127,10 +43287,12 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page cover image as external URL."
         },
         "archived": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Set to true to archive the page."
         }
       },
       "required": [
@@ -56618,13 +56780,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to react to in \"seconds.microseconds\" format. Example: \"1763887648.424429\""
         },
         "reaction_name": {
-          "type": "string"
+          "type": "string",
+          "description": "Emoji name without colons. Example: \"thumbsup\", \"heart\", \"eyes\""
         }
       },
       "required": [
@@ -56638,7 +56803,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the reaction was added successfully"
         }
       },
       "required": [
@@ -56650,7 +56816,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to archive. Example: \"C0A02F9NBCJ\""
         }
       },
       "required": [
@@ -56662,7 +56829,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the channel was archived successfully"
         }
       },
       "required": [
@@ -56674,10 +56842,12 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel name (lowercase, no spaces, max 80 chars). Example: \"test-channel-nango\""
         },
         "is_private": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether channel should be private. Default: false"
         }
       },
       "required": [
@@ -56689,7 +56859,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the channel was created successfully"
         },
         "channel": {
           "type": "object",
@@ -56843,7 +57014,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The created channel object"
         }
       },
       "required": [
@@ -56856,10 +57028,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to delete. Example: \"1764187268.105539\""
         }
       },
       "required": [
@@ -56872,13 +57046,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the message was deleted successfully"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the deleted message"
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where the message was deleted"
         }
       },
       "required": [
@@ -56892,7 +57069,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to get info for. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -56904,7 +57082,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -57058,7 +57237,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The channel object with details like name, topic, purpose, members count"
         }
       },
       "required": [
@@ -57071,13 +57251,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to get members for. Example: \"C02MB5ZABA7\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of members to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "required": [
@@ -57089,13 +57272,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "members": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of user IDs in the channel"
         },
         "response_metadata": {
           "type": "object",
@@ -57104,7 +57289,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata for next page"
         }
       },
       "required": [
@@ -57117,19 +57303,24 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to fetch history from. Example: \"C02MB5ZABA7\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of messages to return. Default: 100, max: 1000"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         },
         "oldest_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Only messages after this timestamp. Example: \"1234567890.123456\""
         },
         "latest_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Only messages before this timestamp. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -57141,7 +57332,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "array",
@@ -57423,16 +57615,19 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of message objects"
         },
         "has_more": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether there are more messages to fetch"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -57447,7 +57642,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "User to get DND info for. Defaults to current user. Example: \"U02MDCKS1N0\""
         }
       },
       "additionalProperties": false
@@ -57456,16 +57652,20 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "dnd_enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether DND is currently enabled"
         },
         "next_dnd_start_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when next DND period starts"
         },
         "next_dnd_end_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when next DND period ends"
         }
       },
       "required": [
@@ -57480,7 +57680,8 @@
       "type": "object",
       "properties": {
         "file": {
-          "type": "string"
+          "type": "string",
+          "description": "The file ID to get info for. Example: \"F09UG1QNMK7\""
         }
       },
       "required": [
@@ -57492,7 +57693,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "file": {
           "type": "object",
@@ -57579,7 +57781,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The file object with details like name, size, url, etc."
         }
       },
       "required": [
@@ -57592,10 +57795,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to get reactions for. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -57608,10 +57813,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "The type of item (message or file)"
         },
         "message": {
           "type": "object",
@@ -57658,7 +57865,8 @@
           "required": [
             "type"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The message object with reactions attached"
         }
       },
       "required": [
@@ -57674,7 +57882,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "team": {
           "type": "object",
@@ -57736,7 +57945,8 @@
             "name",
             "domain"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The team object with workspace details like name, domain, icon"
         }
       },
       "required": [
@@ -57749,16 +57959,20 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the thread. Example: \"C02MB5ZABA7\""
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the parent message. Example: \"1234567890.123456\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of replies to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "required": [
@@ -57771,7 +57985,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "array",
@@ -57977,16 +58192,19 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of message objects in the thread"
         },
         "has_more": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether there are more replies to fetch"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -58001,10 +58219,12 @@
       "type": "object",
       "properties": {
         "filename": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the file to upload. Example: \"document.pdf\""
         },
         "length": {
-          "type": "number"
+          "type": "number",
+          "description": "Size of the file in bytes. Example: 1024"
         }
       },
       "required": [
@@ -58017,13 +58237,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "upload_url": {
-          "type": "string"
+          "type": "string",
+          "description": "The URL to upload the file to"
         },
         "file_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The file ID to use when completing the upload"
         }
       },
       "required": [
@@ -58037,7 +58260,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to get info for. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -58049,7 +58273,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "user": {
           "type": "object",
@@ -58184,7 +58409,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user object with profile details like name, email, avatar"
         }
       },
       "required": [
@@ -58197,7 +58423,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to get presence for. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -58209,10 +58436,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "presence": {
-          "type": "string"
+          "type": "string",
+          "description": "The user presence status: \"active\" or \"away\""
         }
       },
       "required": [
@@ -58225,7 +58454,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "User ID to get profile for. Defaults to current user. Example: \"U02MDCKS1N0\""
         }
       },
       "additionalProperties": false
@@ -58234,7 +58464,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "profile": {
           "type": "object",
@@ -58318,7 +58549,8 @@
               "type": "number"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user profile object with fields like display_name, status_text, email"
         }
       },
       "required": [
@@ -58331,10 +58563,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to invite users to. Example: \"C02MB5ZABA7\""
         },
         "user_ids": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of user IDs to invite. Example: \"U02MDCKS1N0,U01ABC123\""
         }
       },
       "required": [
@@ -58347,7 +58581,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -58501,7 +58736,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The updated channel object"
         }
       },
       "required": [
@@ -58514,7 +58750,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to join. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -58526,7 +58763,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -58701,7 +58939,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to leave. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -58713,7 +58952,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -58725,13 +58965,16 @@
       "type": "object",
       "properties": {
         "types": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of channel types. Example: \"public_channel,private_channel\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of channels to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -58740,7 +58983,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channels": {
           "type": "array",
@@ -58897,13 +59141,15 @@
               "is_pending_ext_shared"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of channel objects"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -58921,13 +59167,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "emoji": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "description": "Object mapping emoji names to URLs or aliases (e.g., \"alias:squirrel\")"
         }
       },
       "required": [
@@ -58940,19 +59188,24 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by channel. Example: \"C02MB5ZABA7\""
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by user who created the file. Example: \"U02MDCKS1N0\""
         },
         "types": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by file types. Example: \"images,pdfs\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of files to return per page. Default: 100"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         }
       },
       "additionalProperties": false
@@ -58961,7 +59214,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "files": {
           "type": "array",
@@ -58975,43 +59229,50 @@
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The filename"
               },
               "title": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The file title"
               },
               "mimetype": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The MIME type"
               },
               "filetype": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The file type extension"
               },
               "size": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "File size in bytes"
               },
               "created": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "Unix timestamp when file was created"
               },
               "timestamp": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "Unix timestamp of the file"
               }
             },
             "required": [
@@ -59025,7 +59286,8 @@
               "timestamp"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of file objects"
         },
         "paging": {
           "type": "object",
@@ -59034,13 +59296,16 @@
               "type": "number"
             },
             "total": {
-              "type": "number"
+              "type": "number",
+              "description": "Total number of files"
             },
             "page": {
-              "type": "number"
+              "type": "number",
+              "description": "Current page number"
             },
             "pages": {
-              "type": "number"
+              "type": "number",
+              "description": "Total number of pages"
             }
           },
           "required": [
@@ -59049,7 +59314,8 @@
             "page",
             "pages"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination information"
         }
       },
       "required": [
@@ -59063,7 +59329,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to list pinned items for. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -59075,7 +59342,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "items": {
           "type": "array",
@@ -59120,7 +59388,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of pinned items (messages, files)"
         }
       },
       "required": [
@@ -59133,13 +59402,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by channel. Example: \"C02MB5ZABA7\""
         },
         "latest_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Only include messages before this timestamp. Example: 1234567890"
         },
         "oldest_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Only include messages after this timestamp. Example: 1234567890"
         }
       },
       "additionalProperties": false
@@ -59148,7 +59420,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "scheduled_messages": {
           "type": "array",
@@ -59178,7 +59451,8 @@
               "date_created"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of scheduled message objects"
         }
       },
       "required": [
@@ -59191,7 +59465,8 @@
       "type": "object",
       "properties": {
         "usergroup": {
-          "type": "string"
+          "type": "string",
+          "description": "The user group ID to get members for. Example: \"S0614TZR7\""
         }
       },
       "required": [
@@ -59203,13 +59478,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "users": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of user IDs in the group"
         }
       },
       "required": [
@@ -59222,10 +59499,12 @@
       "type": "object",
       "properties": {
         "include_disabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Include disabled user groups. Default: false"
         },
         "include_count": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Include member counts. Default: false"
         }
       },
       "additionalProperties": false
@@ -59234,7 +59513,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "usergroups": {
           "type": "array",
@@ -59325,7 +59605,8 @@
               "handle"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of user group objects"
         }
       },
       "required": [
@@ -59338,10 +59619,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of items to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -59350,7 +59633,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "items": {
           "type": "array",
@@ -59415,7 +59699,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of items the user has reacted to"
         },
         "response_metadata": {
           "type": "object",
@@ -59424,7 +59709,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata including next_cursor"
         }
       },
       "required": [
@@ -59438,10 +59724,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of users to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -59450,7 +59738,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "members": {
           "type": "array",
@@ -59588,7 +59877,8 @@
               "id"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of user objects"
         },
         "response_metadata": {
           "type": "object",
@@ -59597,7 +59887,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata including next_cursor"
         }
       },
       "required": [
@@ -59611,7 +59902,8 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "description": "The email address to lookup. Example: \"user@example.com\""
         }
       },
       "required": [
@@ -59623,7 +59915,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "user": {
           "type": "object",
@@ -59758,7 +60051,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user object if found"
         }
       },
       "required": [
@@ -59771,10 +60065,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to mark as read. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to mark as read. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -59787,7 +60083,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -59799,10 +60096,12 @@
       "type": "object",
       "properties": {
         "users": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of user IDs. Example: \"U02MDCKS1N0,U01ABC123\""
         },
         "return_im": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Return the full IM channel object. Default: false"
         }
       },
       "required": [
@@ -59814,7 +60113,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -59826,7 +60126,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The opened DM channel"
         }
       },
       "required": [
@@ -59839,10 +60140,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to pin. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -59855,7 +60158,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -59867,13 +60171,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel, DM, or group to post to. Example: \"C02MB5ZABA7\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "Message text content. Supports Slack markdown. Example: \"Hello *world*!\""
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Parent message timestamp to reply in thread. Omit for top-level message. Example: \"1763887648.424429\""
         },
         "blocks": {
           "type": "array",
@@ -60057,7 +60364,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit"
         }
       },
       "required": [
@@ -60070,13 +60378,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the message was posted successfully"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the posted message. Example: \"1763887648.424429\""
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where message was posted. Example: \"C02MB5ZABA7\""
         },
         "message": {
           "type": "object",
@@ -60085,10 +60396,12 @@
               "type": "string"
             },
             "type": {
-              "type": "string"
+              "type": "string",
+              "description": "Message type, typically \"message\""
             },
             "user": {
-              "type": "string"
+              "type": "string",
+              "description": "User ID who posted. Example: \"U07E8G7J57T\""
             }
           },
           "required": [
@@ -60111,10 +60424,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to remove the user from. Example: \"C02MB5ZABA7\""
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to remove. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -60127,7 +60442,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60139,13 +60455,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message. Example: \"1234567890.123456\""
         },
         "reaction_name": {
-          "type": "string"
+          "type": "string",
+          "description": "The emoji name without colons. Example: \"thumbsup\""
         }
       },
       "required": [
@@ -60159,7 +60478,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60171,10 +60491,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to rename. Example: \"C02MB5ZABA7\""
         },
         "channel_name": {
-          "type": "string"
+          "type": "string",
+          "description": "The new name for the channel. Example: \"new-channel-name\""
         }
       },
       "required": [
@@ -60187,7 +60509,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -60341,7 +60664,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The updated channel object"
         }
       },
       "required": [
@@ -60354,16 +60678,20 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to post to. Example: \"C02MB5ZABA7\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "The message text. Example: \"Hello, world!\""
         },
         "post_at": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp for when to post. Example: 1735689600"
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of thread to reply to. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -60377,13 +60705,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "scheduled_message_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the scheduled message"
         },
         "post_at": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when the message will be posted"
         }
       },
       "required": [
@@ -60397,27 +60728,32 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "The search query. Example: \"project report\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results per page. Default: 20"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         },
         "sort": {
           "type": "string",
           "enum": [
             "score",
             "timestamp"
-          ]
+          ],
+          "description": "Sort by relevance or recency. Default: \"score\""
         },
         "sort_dir": {
           "type": "string",
           "enum": [
             "asc",
             "desc"
-          ]
+          ],
+          "description": "Sort direction. Default: \"desc\""
         }
       },
       "required": [
@@ -60429,7 +60765,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "files": {
           "type": "object",
@@ -60446,28 +60783,36 @@
                     "type": "string"
                   },
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The filename"
                   },
                   "title": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The file title"
                   },
                   "mimetype": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The MIME type"
                   },
                   "filetype": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The file type extension"
                   },
                   "size": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "File size in bytes"
                   },
                   "url_private": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Private URL to access the file"
                   },
                   "permalink": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Permalink to the file in Slack"
                   },
                   "timestamp": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Unix timestamp when file was created"
                   }
                 },
                 "required": [
@@ -60482,7 +60827,8 @@
                   "timestamp"
                 ],
                 "additionalProperties": false
-              }
+              },
+              "description": "Array of matching file objects"
             },
             "pagination": {
               "type": "object",
@@ -60491,19 +60837,24 @@
                   "type": "number"
                 },
                 "page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Current page number"
                 },
                 "per_page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Results per page"
                 },
                 "page_count": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total number of pages"
                 },
                 "first": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "First result index"
                 },
                 "last": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Last result index"
                 }
               },
               "required": [
@@ -60514,7 +60865,8 @@
                 "first",
                 "last"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "description": "Pagination information"
             }
           },
           "required": [
@@ -60522,7 +60874,8 @@
             "matches",
             "pagination"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Search results"
         }
       },
       "required": [
@@ -60535,27 +60888,32 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "The search query. Example: \"important meeting\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results per page. Default: 20"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         },
         "sort": {
           "type": "string",
           "enum": [
             "score",
             "timestamp"
-          ]
+          ],
+          "description": "Sort by relevance or recency. Default: \"score\""
         },
         "sort_dir": {
           "type": "string",
           "enum": [
             "asc",
             "desc"
-          ]
+          ],
+          "description": "Sort direction. Default: \"desc\""
         }
       },
       "required": [
@@ -60567,7 +60925,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "object",
@@ -60584,10 +60943,12 @@
                     "type": "string"
                   },
                   "ts": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Message timestamp"
                   },
                   "text": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The message text"
                   },
                   "channel": {
                     "type": "object",
@@ -60596,29 +60957,34 @@
                         "type": "string"
                       },
                       "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The channel name"
                       }
                     },
                     "required": [
                       "id",
                       "name"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "description": "Channel information"
                   },
                   "user": {
                     "type": [
                       "string",
                       "null"
-                    ]
+                    ],
+                    "description": "The user ID who sent the message"
                   },
                   "username": {
                     "type": [
                       "string",
                       "null"
-                    ]
+                    ],
+                    "description": "The username who sent the message"
                   },
                   "permalink": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Permalink to the message in Slack"
                   }
                 },
                 "required": [
@@ -60631,7 +60997,8 @@
                   "permalink"
                 ],
                 "additionalProperties": false
-              }
+              },
+              "description": "Array of matching message objects"
             },
             "pagination": {
               "type": "object",
@@ -60640,19 +61007,24 @@
                   "type": "number"
                 },
                 "page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Current page number"
                 },
                 "per_page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Results per page"
                 },
                 "page_count": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total number of pages"
                 },
                 "first": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "First result index"
                 },
                 "last": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Last result index"
                 }
               },
               "required": [
@@ -60663,7 +61035,8 @@
                 "first",
                 "last"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "description": "Pagination information"
             }
           },
           "required": [
@@ -60671,7 +61044,8 @@
             "matches",
             "pagination"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Search results"
         }
       },
       "required": [
@@ -60731,10 +61105,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to update. Example: \"C02MB5ZABA7\""
         },
         "purpose": {
-          "type": "string"
+          "type": "string",
+          "description": "The new purpose text. Example: \"Discussion about project updates\""
         }
       },
       "required": [
@@ -60747,10 +61123,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "purpose": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated purpose text"
         }
       },
       "required": [
@@ -60763,10 +61141,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to update. Example: \"C02MB5ZABA7\""
         },
         "topic": {
-          "type": "string"
+          "type": "string",
+          "description": "The new topic text. Example: \"Q4 Planning Discussion\""
         }
       },
       "required": [
@@ -60779,10 +61159,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "topic": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated topic text"
         }
       },
       "required": [
@@ -60795,7 +61177,8 @@
       "type": "object",
       "properties": {
         "presence": {
-          "type": "string"
+          "type": "string",
+          "description": "The presence status to set: \"auto\" or \"away\". Example: \"away\""
         }
       },
       "required": [
@@ -60807,7 +61190,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60819,7 +61203,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to unarchive. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -60831,7 +61216,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60843,10 +61229,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the pinned message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to unpin. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -60859,7 +61247,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60871,13 +61260,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to update. Example: \"1234567890.123456\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "New message text. Example: \"Updated message content\""
         },
         "blocks": {
           "type": "array",
@@ -61061,7 +61453,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of Block Kit blocks for rich formatting"
         }
       },
       "required": [
@@ -61074,16 +61467,20 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the updated message"
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where the message was updated"
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated message text"
         }
       },
       "required": [
@@ -70566,5 +70963,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.69.20)"
+  "$comment": "This file was generated by Nango (v0.69.43)"
 }

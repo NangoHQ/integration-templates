@@ -24,7 +24,7 @@
     },
     "nango": {},
     "api": {
-        "POST": {
+        "post": {
             "/crm/v3/objects/companies": [
                 {
                     "request": {

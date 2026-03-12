@@ -108,7 +108,13 @@ export interface ActionOutput_attio_createcompany {
 };
 
 export interface ActionInput_attio_createlistentry {
+  /**
+   * The list slug or UUID to add the entry to. Example: "my-sales-list"
+   */
   list_id: string;
+  /**
+   * The record ID to add to the list. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   record_id: string;
 };
 
@@ -121,9 +127,21 @@ export interface ActionOutput_attio_createlistentry {
 };
 
 export interface ActionInput_attio_createnote {
+  /**
+   * The object type of the parent record. Example: "people" or "companies"
+   */
   parent_object: string;
+  /**
+   * The record ID to attach the note to. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   parent_record_id: string;
+  /**
+   * The note title. Example: "Meeting Notes"
+   */
   title: string;
+  /**
+   * The note content in plain text or markdown. Example: "Discussed Q4 planning..."
+   */
   content: string;
 };
 
@@ -158,7 +176,13 @@ export interface ActionOutput_attio_createperson {
 };
 
 export interface ActionInput_attio_createrecord {
+  /**
+   * The object type slug to create record in. Example: "people" or "companies"
+   */
   object_slug: string;
+  /**
+   * Object containing attribute values to set. Example: {"name": [{"first_name": "John", "last_name": "Doe"}]}
+   */
   values: {  [key: string]: any | undefined;};
 };
 
@@ -171,10 +195,28 @@ export interface ActionOutput_attio_createrecord {
 };
 
 export interface ActionInput_attio_createtask {
+  /**
+   * Task description. Example: "Follow up with customer"
+   */
   content: string;
+  /**
+   * Due date in ISO format. Example: "2025-12-31T23:59:59.000Z"
+   */
   deadline?: string | undefined;
+  /**
+   * Array of workspace member IDs to assign. Example: ["user-id-123"]
+   */
   assignee_ids?: string[] | undefined;
-  linked_records?: ({  target_object: string;
+  /**
+   * Records to link to this task
+   */
+  linked_records?: ({  /**
+   * Object type. Example: "people"
+   */
+  target_object: string;
+  /**
+   * Record ID
+   */
   target_record_id: string;})[] | undefined;
 };
 
@@ -215,28 +257,52 @@ export interface ActionOutput_attio_createwebhook {
 };
 
 export interface ActionInput_attio_deletelistentry {
+  /**
+   * The list slug or UUID. Example: "my-sales-list"
+   */
   list_id: string;
+  /**
+   * The entry ID to remove. Example: "abc123-def456"
+   */
   entry_id: string;
 };
 
 export interface ActionOutput_attio_deletelistentry {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 };
 
 export interface ActionInput_attio_deletenote {
+  /**
+   * The note ID to delete. Example: "abc123-def456"
+   */
   note_id: string;
 };
 
 export interface ActionOutput_attio_deletenote {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 };
 
 export interface ActionInput_attio_deleterecord {
+  /**
+   * The object type slug. Example: "people" or "companies"
+   */
   object_slug: string;
+  /**
+   * The record ID to delete. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   record_id: string;
 };
 
 export interface ActionOutput_attio_deleterecord {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 };
 
@@ -249,20 +315,47 @@ export interface ActionOutput_attio_deletewebhook {
 };
 
 export interface ActionInput_attio_getobject {
+  /**
+   * UUID or slug to identify the object. Example: "people" or "97052eb9-e65e-443f-a297-f2d9a4a7f795"
+   */
   object_id: string;
 };
 
 export interface ActionOutput_attio_getobject {
-  data: {  id: {  workspace_id: string;
+  data: {  id: {  /**
+   * Workspace ID. Example: "6f73b7c5-b2d4-48a9-a82b-e68b48c315a6"
+   */
+  workspace_id: string;
+  /**
+   * Object ID. Example: "97052eb9-e65e-443f-a297-f2d9a4a7f795"
+   */
   object_id: string;};
+  /**
+   * Unique, human-readable slug for the object. Example: "people"
+   */
   api_slug: string;
+  /**
+   * Singular form of the object name. Example: "Person"
+   */
   singular_noun: string;
+  /**
+   * Plural form of the object name. Example: "People"
+   */
   plural_noun: string;
+  /**
+   * When the object was created. Example: "2023-01-01T00:00:00.000Z"
+   */
   created_at: string;};
 };
 
 export interface ActionInput_attio_getrecord {
+  /**
+   * The object type slug. Example: "people" or "companies"
+   */
   object_slug: string;
+  /**
+   * The record ID to retrieve. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   record_id: string;
 };
 
@@ -297,22 +390,52 @@ export interface ActionInput_attio_listlists {
 };
 
 export interface ActionOutput_attio_listlists {
+  /**
+   * Array of list objects
+   */
   data: ({  id: {  workspace_id: string;
   list_id: string;};
+  /**
+   * Unique slug for the list. Example: "my-sales-list"
+   */
   api_slug: string;
+  /**
+   * Display name of the list. Example: "My Sales List"
+   */
   name: string;
+  /**
+   * Object types this list is for. Example: ["people"]
+   */
   parent_object: string[];
+  /**
+   * When the list was created
+   */
   created_at: string;})[];
 };
 
 export interface ActionInput_attio_listnotes {
+  /**
+   * The object type of the parent record. Example: "people" or "companies"
+   */
   parent_object: string;
+  /**
+   * The record ID to list notes for. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   parent_record_id: string;
+  /**
+   * Maximum number of notes to return
+   */
   limit?: number | undefined;
+  /**
+   * Number of notes to skip
+   */
   offset?: number | undefined;
 };
 
 export interface ActionOutput_attio_listnotes {
+  /**
+   * Array of notes
+   */
   data: ({  id: {  workspace_id: string;
   note_id: string;};
   title: string | null;
@@ -326,34 +449,79 @@ export interface ActionInput_attio_listobjects {
 };
 
 export interface ActionOutput_attio_listobjects {
-  data: ({  id: {  workspace_id: string;
+  /**
+   * Array of object definitions
+   */
+  data: ({  id: {  /**
+   * Workspace ID. Example: "6f73b7c5-b2d4-48a9-a82b-e68b48c315a6"
+   */
+  workspace_id: string;
+  /**
+   * Object ID. Example: "97052eb9-e65e-443f-a297-f2d9a4a7f795"
+   */
   object_id: string;};
+  /**
+   * Unique, human-readable slug for the object. Example: "people"
+   */
   api_slug: string;
+  /**
+   * Singular form of the object name. Example: "Person"
+   */
   singular_noun: string;
+  /**
+   * Plural form of the object name. Example: "People"
+   */
   plural_noun: string;
+  /**
+   * When the object was created. Example: "2023-01-01T00:00:00.000Z"
+   */
   created_at: string;})[];
 };
 
 export interface ActionInput_attio_listrecords {
+  /**
+   * The object type slug to query records from. Example: "people" or "companies"
+   */
   object_slug: string;
+  /**
+   * Maximum number of records to return. Default: 25
+   */
   limit?: number | undefined;
+  /**
+   * Number of records to skip. Default: 0
+   */
   offset?: number | undefined;
 };
 
 export interface ActionOutput_attio_listrecords {
+  /**
+   * Array of record objects
+   */
   data: ({  id: {  workspace_id: string;
   object_id: string;
   record_id: string;};
   created_at: string;
+  /**
+   * Object containing attribute values keyed by attribute slug
+   */
   values: {  [key: string]: any | undefined;};})[];
 };
 
 export interface ActionInput_attio_listtasks {
+  /**
+   * Maximum number of tasks to return
+   */
   limit?: number | undefined;
+  /**
+   * Number of tasks to skip
+   */
   offset?: number | undefined;
 };
 
 export interface ActionOutput_attio_listtasks {
+  /**
+   * Array of tasks
+   */
   data: ({  id: {  workspace_id: string;
   task_id: string;};
   content_plaintext: string;
@@ -384,8 +552,17 @@ export interface ActionOutput_attio_listwebhooks {
 };
 
 export interface ActionInput_attio_updaterecord {
+  /**
+   * The object type slug. Example: "people" or "companies"
+   */
   object_slug: string;
+  /**
+   * The record ID to update. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   */
   record_id: string;
+  /**
+   * Object containing attribute values to update. Example: {"job_title": [{"value": "CTO"}]}
+   */
   values: {  [key: string]: any | undefined;};
 };
 

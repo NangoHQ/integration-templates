@@ -33,8 +33,17 @@ export interface SyncMetadata_notion_users {
 };
 
 export interface ActionInput_notion_appendblockchildren {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of block objects to append (max 100).
+   */
   children: any[];
+  /**
+   * Block ID to insert after.
+   */
   after?: string | undefined;
 };
 
@@ -44,7 +53,13 @@ export interface ActionOutput_notion_appendblockchildren {
 };
 
 export interface ActionInput_notion_appendbulletedlist {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of bulleted list item blocks.
+   */
   children: any[];
 };
 
@@ -54,7 +69,13 @@ export interface ActionOutput_notion_appendbulletedlist {
 };
 
 export interface ActionInput_notion_appendcalloutblock {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of callout block objects.
+   */
   children: any[];
 };
 
@@ -64,7 +85,13 @@ export interface ActionOutput_notion_appendcalloutblock {
 };
 
 export interface ActionInput_notion_appendcodeblock {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of code block objects.
+   */
   children: any[];
 };
 
@@ -74,7 +101,13 @@ export interface ActionOutput_notion_appendcodeblock {
 };
 
 export interface ActionInput_notion_appenddivider {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array containing divider block. Example: [{"divider":{}}]
+   */
   children: any[];
 };
 
@@ -84,7 +117,13 @@ export interface ActionOutput_notion_appenddivider {
 };
 
 export interface ActionInput_notion_appendheadingblock {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of heading block objects. Example: [{"heading_2":{"rich_text":[{"text":{"content":"Section Title"}}]}}]
+   */
   children: any[];
 };
 
@@ -94,7 +133,13 @@ export interface ActionOutput_notion_appendheadingblock {
 };
 
 export interface ActionInput_notion_appendtodoblock {
+  /**
+   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Array of to-do block objects.
+   */
   children: any[];
 };
 
@@ -104,6 +149,9 @@ export interface ActionOutput_notion_appendtodoblock {
 };
 
 export interface ActionInput_notion_archivepage {
+  /**
+   * The ID of the page to archive. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   page_id: string;
 };
 
@@ -114,8 +162,20 @@ export interface ActionOutput_notion_archivepage {
 };
 
 export interface ActionInput_notion_createcomment {
-  parent: {  page_id: string;};
+  /**
+   * Parent page for the comment.
+   */
+  parent: {  /**
+   * Page ID to add comment to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
+  page_id: string;};
+  /**
+   * Comment content as rich text array.
+   */
   rich_text: any[];
+  /**
+   * Discussion thread ID to reply to.
+   */
   discussion_id?: string | undefined;
 };
 
@@ -138,8 +198,20 @@ export interface ActionOutput_notion_createdatabaserow {
 };
 
 export interface ActionInput_notion_createdatabase {
-  parent: {  page_id: string;};
+  /**
+   * Parent page where database will be created.
+   */
+  parent: {  /**
+   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
+  page_id: string;};
+  /**
+   * Database title as rich text array.
+   */
   title: ({  text: {  content: string;};})[];
+  /**
+   * Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}
+   */
   properties: {  [key: string]: any | undefined;};
 };
 
@@ -152,13 +224,34 @@ export interface ActionOutput_notion_createdatabase {
 };
 
 export interface ActionInput_notion_createpage {
-  parent: {  page_id?: string | undefined;
+  /**
+   * Parent page or database. Must include either page_id or database_id.
+   */
+  parent: {  /**
+   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
+  page_id?: string | undefined;
+  /**
+   * Parent database ID. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id?: string | undefined;};
+  /**
+   * Page properties. For pages with page parent, use title property. For database parents, use database property schema.
+   */
   properties: {  [key: string]: any | undefined;};
+  /**
+   * Array of block objects to add as page content.
+   */
   children?: any[] | undefined;
+  /**
+   * Page icon as emoji or external URL.
+   */
   icon?: {  type?: string | undefined;
   emoji?: string | undefined;
   external?: {  url: string;} | undefined;};
+  /**
+   * Page cover image as external URL.
+   */
   cover?: {  type?: string | undefined;
   external?: {  url: string;} | undefined;};
 };
@@ -183,6 +276,9 @@ export interface ActionOutput_notion_createpage {
 };
 
 export interface ActionInput_notion_deleteblock {
+  /**
+   * The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   */
   block_id: string;
 };
 
@@ -193,9 +289,24 @@ export interface ActionOutput_notion_deleteblock {
 };
 
 export interface ActionInput_notion_duplicatepage {
-  parent: {  page_id?: string | undefined;
+  /**
+   * Parent page or database for the duplicate.
+   */
+  parent: {  /**
+   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
+  page_id?: string | undefined;
+  /**
+   * Parent database ID.
+   */
   database_id?: string | undefined;};
+  /**
+   * Page properties for the duplicate.
+   */
   properties: {  [key: string]: any | undefined;};
+  /**
+   * Content blocks to include in the duplicate.
+   */
   children?: any[] | undefined;
 };
 
@@ -235,8 +346,17 @@ export interface ActionOutput_notion_getbotuser {
 };
 
 export interface ActionInput_notion_listcomments {
+  /**
+   * The ID of the page or block. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -248,7 +368,13 @@ export interface ActionOutput_notion_listcomments {
 };
 
 export interface ActionInput_notion_listusers {
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -260,9 +386,21 @@ export interface ActionOutput_notion_listusers {
 };
 
 export interface ActionInput_notion_querydatabasefiltered {
+  /**
+   * The ID of the database to query. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id: string;
+  /**
+   * Filter conditions. Example: {"property":"Name","title":{"contains":"test"}}
+   */
   filter?: any | undefined;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -274,9 +412,21 @@ export interface ActionOutput_notion_querydatabasefiltered {
 };
 
 export interface ActionInput_notion_querydatabasesorted {
+  /**
+   * The ID of the database to query. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id: string;
+  /**
+   * Sort criteria. Example: [{"property":"Name","direction":"ascending"}]
+   */
   sorts: any[];
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -288,10 +438,25 @@ export interface ActionOutput_notion_querydatabasesorted {
 };
 
 export interface ActionInput_notion_querydatabase {
+  /**
+   * The ID of the database to query. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id: string;
+  /**
+   * Filter conditions for the query.
+   */
   filter?: any | undefined;
+  /**
+   * Sort criteria for the results.
+   */
   sorts?: any[] | undefined;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -303,6 +468,9 @@ export interface ActionOutput_notion_querydatabase {
 };
 
 export interface ActionInput_notion_restorepage {
+  /**
+   * The ID of the page to restore. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   page_id: string;
 };
 
@@ -313,8 +481,17 @@ export interface ActionOutput_notion_restorepage {
 };
 
 export interface ActionInput_notion_retrieveblockchildren {
+  /**
+   * The ID of the block or page. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   block_id: string;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -326,6 +503,9 @@ export interface ActionOutput_notion_retrieveblockchildren {
 };
 
 export interface ActionInput_notion_retrieveblock {
+  /**
+   * The ID of the block to retrieve. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   */
   block_id: string;
 };
 
@@ -338,6 +518,9 @@ export interface ActionOutput_notion_retrieveblock {
 };
 
 export interface ActionInput_notion_retrievedatabase {
+  /**
+   * The ID of the database to retrieve. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id: string;
 };
 
@@ -351,7 +534,13 @@ export interface ActionOutput_notion_retrievedatabase {
 };
 
 export interface ActionInput_notion_retrievepageproperty {
+  /**
+   * The ID of the page. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   page_id: string;
+  /**
+   * The ID or name of the property to retrieve. Example: "title"
+   */
   property_id: string;
 };
 
@@ -363,6 +552,9 @@ export interface ActionOutput_notion_retrievepageproperty {
 };
 
 export interface ActionInput_notion_retrievepage {
+  /**
+   * The ID of the page to retrieve. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   page_id: string;
 };
 
@@ -387,6 +579,9 @@ export interface ActionOutput_notion_retrievepage {
 };
 
 export interface ActionInput_notion_retrieveuser {
+  /**
+   * The ID of the user to retrieve. Example: "d42542a8-a81c-4386-aa95-313aa4e818b3"
+   */
   user_id: string;
 };
 
@@ -399,8 +594,17 @@ export interface ActionOutput_notion_retrieveuser {
 };
 
 export interface ActionInput_notion_searchdatabases {
+  /**
+   * Text to search for in database titles.
+   */
   query?: string | undefined;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -412,8 +616,17 @@ export interface ActionOutput_notion_searchdatabases {
 };
 
 export interface ActionInput_notion_searchpages {
+  /**
+   * Text to search for in page titles.
+   */
   query?: string | undefined;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -425,12 +638,27 @@ export interface ActionOutput_notion_searchpages {
 };
 
 export interface ActionInput_notion_search {
+  /**
+   * Text to search for in page/database titles.
+   */
   query?: string | undefined;
+  /**
+   * Filter to search only pages or databases. Example: {"property":"object","value":"page"}
+   */
   filter?: {  property: string;
   value: string;} | undefined;
+  /**
+   * Sort order. Example: {"direction":"descending","timestamp":"last_edited_time"}
+   */
   sort?: {  direction: string;
   timestamp: string;} | undefined;
+  /**
+   * Number of results to return (max 100).
+   */
   page_size?: number | undefined;
+  /**
+   * Pagination cursor from previous response.
+   */
   cursor?: string | undefined;
 };
 
@@ -442,17 +670,53 @@ export interface ActionOutput_notion_search {
 };
 
 export interface ActionInput_notion_updateblock {
+  /**
+   * The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   */
   block_id: string;
+  /**
+   * Paragraph block content.
+   */
   paragraph?: any | undefined;
+  /**
+   * Heading 1 block content.
+   */
   heading_1?: any | undefined;
+  /**
+   * Heading 2 block content.
+   */
   heading_2?: any | undefined;
+  /**
+   * Heading 3 block content.
+   */
   heading_3?: any | undefined;
+  /**
+   * Bulleted list item content.
+   */
   bulleted_list_item?: any | undefined;
+  /**
+   * Numbered list item content.
+   */
   numbered_list_item?: any | undefined;
+  /**
+   * To-do block content.
+   */
   to_do?: any | undefined;
+  /**
+   * Toggle block content.
+   */
   toggle?: any | undefined;
+  /**
+   * Code block content.
+   */
   code?: any | undefined;
+  /**
+   * Callout block content.
+   */
   callout?: any | undefined;
+  /**
+   * Quote block content.
+   */
   quote?: any | undefined;
 };
 
@@ -464,9 +728,21 @@ export interface ActionOutput_notion_updateblock {
 };
 
 export interface ActionInput_notion_updatedatabase {
+  /**
+   * The ID of the database to update. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
+   */
   database_id: string;
+  /**
+   * New database title as rich text array.
+   */
   title?: ({  text: {  content: string;};})[] | undefined;
+  /**
+   * Database description as rich text array.
+   */
   description?: any[] | undefined;
+  /**
+   * Property schema updates.
+   */
   properties?: {  [key: string]: any | undefined;};
 };
 
@@ -478,13 +754,28 @@ export interface ActionOutput_notion_updatedatabase {
 };
 
 export interface ActionInput_notion_updatepage {
+  /**
+   * The ID of the page to update. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
   page_id: string;
+  /**
+   * Page properties to update.
+   */
   properties?: {  [key: string]: any | undefined;};
+  /**
+   * Page icon as emoji or external URL.
+   */
   icon?: {  type?: string | undefined;
   emoji?: string | undefined;
   external?: {  url: string;} | undefined;};
+  /**
+   * Page cover image as external URL.
+   */
   cover?: {  type?: string | undefined;
   external?: {  url: string;} | undefined;};
+  /**
+   * Set to true to archive the page.
+   */
   archived?: boolean | undefined;
 };
 

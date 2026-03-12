@@ -15,7 +15,7 @@
         "created_date": "2024-10-07T09:49:23.479Z"
     },
     "api": {
-        "PATCH": {
+        "patch": {
             "crm/v3/objects/contacts/65318450564": [
                 {
                     "request": {

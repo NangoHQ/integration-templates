@@ -889,7 +889,7 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "settings/v3/currencies/codes": [
                 {
                     "request": {},

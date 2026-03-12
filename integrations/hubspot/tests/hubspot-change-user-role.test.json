@@ -10,7 +10,7 @@
         "superAdmin": false
     },
     "api": {
-        "PUT": {
+        "put": {
             "settings/v3/users/010101": [
                 {
                     "request": {

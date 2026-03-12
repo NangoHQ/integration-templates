@@ -15,7 +15,7 @@
         "year_founded": "2020"
     },
     "api": {
-        "PATCH": {
+        "patch": {
             "crm/v3/objects/companies/23618222883": [
                 {
                     "request": {

@@ -43,7 +43,7 @@
         "owner": "902942351"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/objects/notes": [
                 {
                     "request": {

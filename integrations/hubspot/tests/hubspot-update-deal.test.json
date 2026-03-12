@@ -34,7 +34,7 @@
         "deal_probability": "0.90000000000000002220446049250313080847263336181640625"
     },
     "api": {
-        "PATCH": {
+        "patch": {
             "crm/v3/objects/deals/22983893905": [
                 {
                     "request": {

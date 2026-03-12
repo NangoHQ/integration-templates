@@ -6,7 +6,7 @@
         "success": true
     },
     "api": {
-        "DELETE": {
+        "delete": {
             "crm/v3/objects/companies/23735747388": [
                 {
                     "request": {},

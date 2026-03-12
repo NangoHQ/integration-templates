@@ -72,7 +72,7 @@
         "dataSensitivity": "non_sensitive"
     },
     "api": {
-        "POST": {
+        "post": {
             "crm/v3/properties/companies": [
                 {
                     "request": {

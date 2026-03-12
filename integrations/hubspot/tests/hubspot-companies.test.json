@@ -177,7 +177,7 @@
         }
     },
     "api": {
-        "GET": {
+        "get": {
             "crm/v3/objects/companies": [
                 {
                     "request": {

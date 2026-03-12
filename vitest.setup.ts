@@ -174,12 +174,23 @@ class UnifiedFixtureProvider implements FixtureProvider {
 
         const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
 
-        // The endpoint in the mock file can be stored with or without a leading slash.
-        // This ensures we can find it in both cases.
-        let apiMock = this.mockData.api?.[method.toUpperCase()]?.[normalizedEndpoint];
+        // The endpoint in the mock file can be stored with or without a leading slash,
+        // and method keys may be stored in either legacy uppercase or unified lowercase form.
+        const methodKeys = [method.toLowerCase(), method.toUpperCase()];
+        let apiMock;
 
-        if (!apiMock) {
-            apiMock = this.mockData.api?.[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
+        for (const methodKey of methodKeys) {
+            apiMock = this.mockData.api?.[methodKey]?.[normalizedEndpoint];
+
+            if (apiMock) {
+                break;
+            }
+
+            apiMock = this.mockData.api?.[methodKey]?.[`/${normalizedEndpoint}`];
+
+            if (apiMock) {
+                break;
+            }
         }
 
         if (apiMock) {
@@ -322,7 +333,7 @@ class RecordingFixtureProvider implements FixtureProvider {
     async getCachedResponse(identity: ConfigIdentity) {
         const data = await this.delegate.getCachedResponse(identity);
 
-        const method = identity.method.toUpperCase();
+        const method = identity.method.toLowerCase();
         const endpoint = identity.endpoint;
 
         if (!this.recordedData.api) this.recordedData.api = {};
