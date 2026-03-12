@@ -18,6 +18,11 @@ interface FixtureProvider {
     getCachedResponse(identity: ConfigIdentity): Promise<any>;
     getUpdateMetadata(): Promise<any>;
     getDeleteRecordsFromPreviousExecutions(): Promise<any>;
+    getCheckpoint(): Promise<any>;
+    saveCheckpoint(): Promise<any>;
+    clearCheckpoint(): Promise<any>;
+    trackDeletesStart(): Promise<any>;
+    trackDeletesEnd(): Promise<any>;
 }
 
 class LegacyFixtureProvider implements FixtureProvider {
@@ -94,6 +99,26 @@ class LegacyFixtureProvider implements FixtureProvider {
     async getDeleteRecordsFromPreviousExecutions() {
         return this.getMockFile('nango/deleteRecordsFromPreviousExecutions', false);
     }
+
+    async getCheckpoint() {
+        return this.getMockFile('nango/getCheckpoint', false);
+    }
+
+    async saveCheckpoint() {
+        return this.getMockFile('nango/saveCheckpoint', false);
+    }
+
+    async clearCheckpoint() {
+        return this.getMockFile('nango/clearCheckpoint', false);
+    }
+
+    async trackDeletesStart() {
+        return this.getMockFile('nango/trackDeletesStart', false);
+    }
+
+    async trackDeletesEnd() {
+        return this.getMockFile('nango/trackDeletesEnd', false);
+    }
 }
 
 interface ApiMockResponse {
@@ -118,6 +143,11 @@ interface UnifiedMockData {
         getMetadata?: any;
         updateMetadata?: any;
         deleteRecordsFromPreviousExecutions?: any;
+        getCheckpoint?: any;
+        saveCheckpoint?: any;
+        clearCheckpoint?: any;
+        trackDeletesStart?: any;
+        trackDeletesEnd?: any;
     };
     api?: Record<string, Record<string, ApiMockResponse | ApiMockResponse[]>>;
 }
@@ -169,17 +199,40 @@ class UnifiedFixtureProvider implements FixtureProvider {
         return this.mockData.nango?.deleteRecordsFromPreviousExecutions;
     }
 
+    async getCheckpoint() {
+        return this.mockData.nango?.getCheckpoint;
+    }
+
+    async saveCheckpoint() {
+        return this.mockData.nango?.saveCheckpoint;
+    }
+
+    async clearCheckpoint() {
+        return this.mockData.nango?.clearCheckpoint;
+    }
+
+    async trackDeletesStart() {
+        return this.mockData.nango?.trackDeletesStart;
+    }
+
+    async trackDeletesEnd() {
+        return this.mockData.nango?.trackDeletesEnd;
+    }
+
     async getCachedResponse(identity: ConfigIdentity) {
         const { method, endpoint, requestIdentityHash } = identity;
 
         const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+        const apiMocks = [this.mockData.api?.[method.toUpperCase()], this.mockData.api?.[method.toLowerCase()]].filter(Boolean);
 
         // The endpoint in the mock file can be stored with or without a leading slash.
         // This ensures we can find it in both cases.
-        let apiMock = this.mockData.api?.[method.toUpperCase()]?.[normalizedEndpoint];
-
-        if (!apiMock) {
-            apiMock = this.mockData.api?.[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
+        let apiMock: ApiMockResponse | ApiMockResponse[] | undefined;
+        for (const methodMocks of apiMocks) {
+            apiMock = methodMocks?.[normalizedEndpoint] ?? methodMocks?.[`/${normalizedEndpoint}`];
+            if (apiMock) {
+                break;
+            }
         }
 
         if (apiMock) {
@@ -319,6 +372,46 @@ class RecordingFixtureProvider implements FixtureProvider {
         return data;
     }
 
+    async getCheckpoint() {
+        const data = await this.delegate.getCheckpoint();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.getCheckpoint = data;
+        await this.save();
+        return data;
+    }
+
+    async saveCheckpoint() {
+        const data = await this.delegate.saveCheckpoint();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.saveCheckpoint = data;
+        await this.save();
+        return data;
+    }
+
+    async clearCheckpoint() {
+        const data = await this.delegate.clearCheckpoint();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.clearCheckpoint = data;
+        await this.save();
+        return data;
+    }
+
+    async trackDeletesStart() {
+        const data = await this.delegate.trackDeletesStart();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.trackDeletesStart = data;
+        await this.save();
+        return data;
+    }
+
+    async trackDeletesEnd() {
+        const data = await this.delegate.trackDeletesEnd();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.trackDeletesEnd = data;
+        await this.save();
+        return data;
+    }
+
     async getCachedResponse(identity: ConfigIdentity) {
         const data = await this.delegate.getCachedResponse(identity);
 
@@ -435,7 +528,7 @@ class NangoActionMock {
     Model: string;
 
     providerConfigKey: string;
-    private fixtureProvider: Promise<FixtureProvider>;
+    protected fixtureProvider: Promise<FixtureProvider>;
 
     log: ReturnType<typeof vi.fn>;
     ActionError = vi.fn();
@@ -765,11 +858,21 @@ class NangoSyncMock extends NangoActionMock {
 
     batchSave: ReturnType<typeof vi.fn>;
     batchDelete: ReturnType<typeof vi.fn>;
+    getCheckpoint: ReturnType<typeof vi.fn>;
+    saveCheckpoint: ReturnType<typeof vi.fn>;
+    clearCheckpoint: ReturnType<typeof vi.fn>;
+    trackDeletesStart: ReturnType<typeof vi.fn>;
+    trackDeletesEnd: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         super({ dirname, name, Model });
         this.batchSave = vi.fn();
         this.batchDelete = vi.fn();
+        this.getCheckpoint = vi.fn(async () => (await this.fixtureProvider).getCheckpoint());
+        this.saveCheckpoint = vi.fn(async () => (await this.fixtureProvider).saveCheckpoint());
+        this.clearCheckpoint = vi.fn(async () => (await this.fixtureProvider).clearCheckpoint());
+        this.trackDeletesStart = vi.fn(async () => (await this.fixtureProvider).trackDeletesStart());
+        this.trackDeletesEnd = vi.fn(async () => (await this.fixtureProvider).trackDeletesEnd());
     }
 }
 

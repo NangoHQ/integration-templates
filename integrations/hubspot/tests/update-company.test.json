@@ -1,0 +1,82 @@
+{
+  "input": {
+    "id": "407382956268",
+    "name": "Updated Company Name",
+    "city": "San Francisco",
+    "domain": "updated-example.com"
+  },
+  "output": {
+    "id": "407382956268",
+    "name": "Updated Company Name",
+    "domain": "updated-example.com",
+    "city": "San Francisco",
+    "state": null,
+    "country": null,
+    "industry": null,
+    "phone": null,
+    "website": null,
+    "description": null,
+    "created_at": "2026-02-25T16:14:38.964Z",
+    "updated_at": "2026-03-12T07:36:11.081Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/companies/407382956268": {
+        "response": {
+          "id": "407382956268",
+          "properties": {
+            "city": "San Francisco",
+            "createdate": "2026-02-25T16:14:38.964Z",
+            "domain": "updated-example.com",
+            "hs_lastmodifieddate": "2026-03-12T07:36:11.081Z",
+            "hs_object_id": "407382956268",
+            "hs_object_source": "COMPANIES",
+            "hs_object_source_id": "FetchAssociatedCompanyIdStep",
+            "hs_object_source_label": "CRM_SETTING",
+            "hs_pipeline": "companies-lifecycle-pipeline",
+            "hs_task_label": "Updated Company Name",
+            "hs_v2_date_entered_current_stage": "2026-02-25T16:14:38.964Z",
+            "hs_v2_time_in_current_stage": "2026-02-25T16:14:38.964Z",
+            "lifecyclestage": "lead",
+            "name": "Updated Company Name"
+          },
+          "createdAt": "2026-02-25T16:14:38.964Z",
+          "updatedAt": "2026-03-12T07:36:11.081Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-2/407382956268"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:36:22 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "763",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4903",
+          "x-ratelimit-reset": "1773301008",
+          "etag": "W/\"2fb-DiYSYsdlVEvdC5MRyNSpfsk9mTw\""
+        },
+        "hash": "1282881a797f1cc89aabfd5fa37b3b377b78fa41",
+        "request": {
+          "data": {
+            "properties": {
+              "name": "Updated Company Name",
+              "domain": "updated-example.com",
+              "city": "San Francisco"
+            }
+          }
+        }
+      }
+    }
+  }
+}

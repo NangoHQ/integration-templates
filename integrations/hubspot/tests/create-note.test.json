@@ -1,0 +1,94 @@
+{
+  "input": {
+    "body": "Test note created via Nango action",
+    "timestamp": "2026-03-12T10:00:00Z",
+    "owner_id": "88842095",
+    "association": {
+      "object_type": "contact",
+      "object_id": "713492963559"
+    }
+  },
+  "output": {
+    "id": "478016441536",
+    "body": "Test note created via Nango action",
+    "timestamp": "2026-03-12T10:00:00Z",
+    "owner_id": "88842095",
+    "created_at": "2026-03-12T07:34:23.259Z",
+    "updated_at": "2026-03-12T07:34:23.259Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/crm/v3/objects/notes": {
+        "response": {
+          "id": "478016441536",
+          "properties": {
+            "hs_all_owner_ids": "88842095",
+            "hs_body_preview": "Test note created via Nango action",
+            "hs_body_preview_html": "<html>\n<head></head>\n<body>\nTest note created via Nango action\n</body>\n</html>",
+            "hs_body_preview_is_truncated": "false",
+            "hs_createdate": "2026-03-12T07:34:23.259Z",
+            "hs_lastmodifieddate": "2026-03-12T07:34:23.259Z",
+            "hs_note_body": "Test note created via Nango action",
+            "hs_obj_coords": "0-46-478016441536",
+            "hs_object_id": "478016441536",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_timestamp": "2026-03-12T10:00:00Z",
+            "hs_user_ids_of_all_owners": "88842095",
+            "hubspot_owner_assigneddate": "2026-03-12T07:34:23.259Z",
+            "hubspot_owner_id": "88842095"
+          },
+          "createdAt": "2026-03-12T07:34:23.259Z",
+          "updatedAt": "2026-03-12T07:34:23.259Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/contacts/147893286/objects/0-46/views/all/list?filters=%5B%7B%22property%22%3A%22hs_object_id%22%2C%22operator%22%3A%22EQ%22%2C%22value%22%3A%22478016441536%22%7D%5D"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:34:23 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1044",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4804",
+          "x-ratelimit-reset": "1773300888",
+          "etag": "W/\"414-m84p/FMImAJ8Ff1NInOgyuc67oA\""
+        },
+        "hash": "5b7f6472ebdc90e349edbe93e99e9efb43b7d967",
+        "request": {
+          "data": {
+            "properties": {
+              "hs_timestamp": "2026-03-12T10:00:00Z",
+              "hs_note_body": "Test note created via Nango action",
+              "hubspot_owner_id": "88842095"
+            },
+            "associations": [
+              {
+                "to": {
+                  "id": "713492963559"
+                },
+                "types": [
+                  {
+                    "associationCategory": "HUBSPOT_DEFINED",
+                    "associationTypeId": 202
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

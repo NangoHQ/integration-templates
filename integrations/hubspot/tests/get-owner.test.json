@@ -1,0 +1,69 @@
+{
+  "input": {
+    "owner_id": "534941"
+  },
+  "output": {
+    "id": "534941",
+    "email": "test@example.com",
+    "first_name": "Group",
+    "last_name": "Grader",
+    "user_id": "534941",
+    "created_at": "2026-03-11T13:13:59.578Z",
+    "updated_at": "2026-03-11T13:13:59.578Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/v3/owners/534941": {
+        "response": {
+          "id": "534941",
+          "email": "test@example.com",
+          "type": "PERSON",
+          "firstName": "Group",
+          "lastName": "Grader",
+          "userId": 534941,
+          "userIdIncludingInactive": 534941,
+          "createdAt": "2026-03-11T13:13:59.578Z",
+          "updatedAt": "2026-03-11T13:13:59.578Z",
+          "archived": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:36:01 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1773301008",
+          "cf-ray": "9db1201dca16cfa2-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "origin, Accept-Encoding",
+          "access-control-allow-credentials": "false",
+          "server-timing": "hcid;desc=\"019ce0f9-4f0b-7879-a277-7ee20ad9b92b\", cfr;desc=\"9db1201dd781cfa2-FRA\"",
+          "x-hubspot-correlation-id": "019ce0f9-4f0b-7879-a277-7ee20ad9b92b",
+          "x-hubspot-ratelimit-interval-milliseconds": "10000",
+          "x-hubspot-ratelimit-max": "110",
+          "x-hubspot-ratelimit-remaining": "107",
+          "x-hubspot-ratelimit-secondly": "11",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=HW1C7Mpl731dbyGLIX6._TPJKYBxLvKadgAftG_OIFU-1773300961-1.0.1.1-h3drLldmmDoZK5vFfadq8IwzvL7p8ETsx7_ucqrZky3vetvJZgQ4YS4hh4eXMpsOcCKTq_4AqeHlCfpDnMdK2QLWQyhcawdkDKYC.aNqIcQ; path=/; expires=Thu, 12-Mar-26 08:06:01 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=CjAahi72TNU0vxxJq7AqbTvyoYLTxZT5wMD%2BEPE4Fm0skTQJywyyHw%2BtFF4MVFNhaAj5xe9afa%2BVKU302slb6BIuAqS5O7BetZ9LBtbkiH02NXiF%2BLhnDv%2BEIyBpWNwx\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare"
+        },
+        "hash": "35bd2058afd47c4a62dd05b05709def65c3323b2",
+        "request": {}
+      }
+    }
+  }
+}

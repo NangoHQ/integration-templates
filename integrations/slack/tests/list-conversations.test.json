@@ -1,0 +1,625 @@
+{
+  "input": {
+    "types": "public_channel",
+    "limit": 10
+  },
+  "output": {
+    "conversations": [
+      {
+        "id": "C0AGWLS4CQ3",
+        "name": "all-nango-test",
+        "created": 1772031275,
+        "creator": "U0AHG0C4AU9",
+        "is_archived": false,
+        "is_general": true,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 2
+      },
+      {
+        "id": "C0AGZKURX53",
+        "name": "social",
+        "created": 1772031275,
+        "creator": "U0AHG0C4AU9",
+        "is_archived": false,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 2
+      },
+      {
+        "id": "C0AH33PLXSN",
+        "name": "new-channel",
+        "created": 1772031474,
+        "creator": "U0AHG0C4AU9",
+        "is_archived": false,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 2
+      },
+      {
+        "id": "C0AH6AKECH5",
+        "name": "test-channel-to-archive",
+        "created": 1772214866,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AH6B93WQP",
+        "name": "test-invite-channel-3",
+        "created": 1772215065,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AHEU6KQ76",
+        "name": "nango-test-renamed-final",
+        "created": 1772113726,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AHKNL4J30",
+        "name": "test-invite-channel-2",
+        "created": 1772215021,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AHMPXT3EE",
+        "name": "test-channel-action",
+        "created": 1772214888,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AHRCD6RM2",
+        "name": "nango-action-test-channel",
+        "created": 1772214917,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      },
+      {
+        "id": "C0AJ0MU9P2M",
+        "name": "test-invite-channel",
+        "created": 1772214987,
+        "creator": "U0AH6N4H6MA",
+        "is_archived": true,
+        "is_general": false,
+        "is_private": false,
+        "is_mpim": false,
+        "is_im": false,
+        "num_members": 0
+      }
+    ],
+    "next_cursor": "dGVhbTpDMEFKNTRXUDYxNQ==",
+    "total": 10
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/conversations.list": {
+        "response": {
+          "ok": true,
+          "channels": [
+            {
+              "id": "C0AGWLS4CQ3",
+              "created": 1772031275,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773088761261,
+              "name": "all-nango-test",
+              "name_normalized": "all-nango-test",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": true,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "Share announcements and updates about company news, upcoming events, or teammates who deserve some kudos. ⭐",
+                "creator": "U0AHG0C4AU9",
+                "last_set": 1772031275
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "welcome"
+              },
+              "previous_names": [
+                "all-slack"
+              ]
+            },
+            {
+              "id": "C0AGZKURX53",
+              "created": 1772031275,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773236444873,
+              "name": "social",
+              "name_normalized": "social",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "Other channels are for work. This one’s just for fun. Get to know your teammates and show your lighter side. 🎈",
+                "creator": "U0AHG0C4AU9",
+                "last_set": 1772031275
+              },
+              "topic": {
+                "value": "Test topic set by Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773042273
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "random"
+              },
+              "previous_names": []
+            },
+            {
+              "id": "C0AH33PLXSN",
+              "created": 1772031474,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773088874994,
+              "name": "new-channel",
+              "name_normalized": "new-channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "This channel is for everything #new-channel. Hold meetings, share docs, and make decisions together with your team.",
+                "creator": "U0AHG0C4AU9",
+                "last_set": 1772031474
+              },
+              "topic": {
+                "value": "Test topic from Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773054620
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "project"
+              },
+              "previous_names": []
+            },
+            {
+              "id": "C0AH6AKECH5",
+              "created": 1772214866,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1772214884855,
+              "name": "test-channel-to-archive",
+              "name_normalized": "test-channel-to-archive",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            },
+            {
+              "id": "C0AH6B93WQP",
+              "created": 1772215065,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231853348,
+              "name": "test-invite-channel-3",
+              "name_normalized": "test-invite-channel-3",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            },
+            {
+              "id": "C0AHEU6KQ76",
+              "created": 1772113726,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231826023,
+              "name": "nango-test-renamed-final",
+              "name_normalized": "nango-test-renamed-final",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "Test topic for Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1772658985
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": [
+                "nango-test-renamed-new",
+                "nango-test-2026",
+                "nango-test-renamed"
+              ]
+            },
+            {
+              "id": "C0AHKNL4J30",
+              "created": 1772215021,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231851606,
+              "name": "test-invite-channel-2",
+              "name_normalized": "test-invite-channel-2",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            },
+            {
+              "id": "C0AHMPXT3EE",
+              "created": 1772214888,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231838117,
+              "name": "test-channel-action",
+              "name_normalized": "test-channel-action",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "This is the purpose set via Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773088765
+              },
+              "topic": {
+                "value": "Test topic from Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773088811
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            },
+            {
+              "id": "C0AHRCD6RM2",
+              "created": 1772214917,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231824345,
+              "name": "nango-action-test-channel",
+              "name_normalized": "nango-action-test-channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "Test topic set by Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1772215033
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            },
+            {
+              "id": "C0AJ0MU9P2M",
+              "created": 1772214987,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773231849898,
+              "name": "test-invite-channel",
+              "name_normalized": "test-invite-channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": true,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": false,
+              "num_members": 0,
+              "previous_names": []
+            }
+          ],
+          "response_metadata": {
+            "next_cursor": "dGVhbTpDMEFKNTRXUDYxNQ=="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:39:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "8043",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4897",
+          "x-ratelimit-reset": "1773301191",
+          "etag": "W/\"1f6b-MFnPaU0w7U+piCWYL5/o8FokEbA\""
+        },
+        "hash": "584b85d70e2fc2cdd1f620eb543aaa359a9255a6",
+        "request": {
+          "params": {
+            "limit": "10",
+            "types": "public_channel"
+          }
+        }
+      }
+    }
+  }
+}

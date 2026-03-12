@@ -1,0 +1,464 @@
+[
+  {
+    "providerConfigKey": "google-sheet",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Append values to the end of a spreadsheet table",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/append-values-to-spreadsheet",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_appendvaluestospreadsheet",
+        "name": "append-values-to-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_appendvaluestospreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_appendvaluestospreadsheet",
+          "ActionOutput_google_sheet_appendvaluestospreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from ranges matching data filters, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-clear-values-by-data-filter",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchclearvaluesbydatafilter",
+        "name": "batch-clear-values-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_batchclearvaluesbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchclearvaluesbydatafilter",
+          "ActionOutput_google_sheet_batchclearvaluesbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from one or more ranges in a spreadsheet, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-clear-values",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchclearvalues",
+        "name": "batch-clear-values",
+        "output": [
+          "ActionOutput_google_sheet_batchclearvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchclearvalues",
+          "ActionOutput_google_sheet_batchclearvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from ranges matching data filters",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-get-values-by-data-filter",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchgetvaluesbydatafilter",
+        "name": "batch-get-values-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_batchgetvaluesbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchgetvaluesbydatafilter",
+          "ActionOutput_google_sheet_batchgetvaluesbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from multiple ranges",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/batch-get-values",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_batchgetvalues",
+        "name": "batch-get-values",
+        "output": [
+          "ActionOutput_google_sheet_batchgetvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchgetvalues",
+          "ActionOutput_google_sheet_batchgetvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Apply multiple updates to a spreadsheet in a single request",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-update-spreadsheet",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_batchupdatespreadsheet",
+        "name": "batch-update-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_batchupdatespreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchupdatespreadsheet",
+          "ActionOutput_google_sheet_batchupdatespreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from a range, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/clear-values",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_clearvalues",
+        "name": "clear-values",
+        "output": [
+          "ActionOutput_google_sheet_clearvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_clearvalues",
+          "ActionOutput_google_sheet_clearvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Copy a sheet to another spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/copy-sheet",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_copysheet",
+        "name": "copy-sheet",
+        "output": [
+          "ActionOutput_google_sheet_copysheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_copysheet",
+          "ActionOutput_google_sheet_copysheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Insert a new column into a sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-column",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_createcolumn",
+        "name": "create-column",
+        "output": [
+          "ActionOutput_google_sheet_createcolumn"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createcolumn",
+          "ActionOutput_google_sheet_createcolumn"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Insert a new row at a given index in a Google Sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-spreadsheet-row",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_createspreadsheetrow",
+        "name": "create-spreadsheet-row",
+        "output": [
+          "ActionOutput_google_sheet_createspreadsheetrow"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createspreadsheetrow",
+          "ActionOutput_google_sheet_createspreadsheetrow"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a new spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-spreadsheet",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_createspreadsheet",
+        "name": "create-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_createspreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createspreadsheet",
+          "ActionOutput_google_sheet_createspreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a worksheet by name from a Google Spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-worksheet",
+          "group": "Worksheets"
+        },
+        "input": "ActionInput_google_sheet_deleteworksheet",
+        "name": "delete-worksheet",
+        "output": [
+          "ActionOutput_google_sheet_deleteworksheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_deleteworksheet",
+          "ActionOutput_google_sheet_deleteworksheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get spreadsheet data matching data filters",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-spreadsheet-by-data-filter",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_getspreadsheetbydatafilter",
+        "name": "get-spreadsheet-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_getspreadsheetbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_getspreadsheetbydatafilter",
+          "ActionOutput_google_sheet_getspreadsheetbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from a spreadsheet range",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-values",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_getvalues",
+        "name": "get-values",
+        "output": [
+          "ActionOutput_google_sheet_getvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_getvalues",
+          "ActionOutput_google_sheet_getvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search developer metadata by criteria",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/search-developer-metadata",
+          "group": "Developer Metadata"
+        },
+        "input": "ActionInput_google_sheet_searchdevelopermetadata",
+        "name": "search-developer-metadata",
+        "output": [
+          "ActionOutput_google_sheet_searchdevelopermetadata"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_searchdevelopermetadata",
+          "ActionOutput_google_sheet_searchdevelopermetadata"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update or move a conditional format rule",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-conditional-format-rule",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_updateconditionalformatrule",
+        "name": "update-conditional-format-rule",
+        "output": [
+          "ActionOutput_google_sheet_updateconditionalformatrule"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_updateconditionalformatrule",
+          "ActionOutput_google_sheet_updateconditionalformatrule"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update values in a spreadsheet range",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-values",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_updatevalues",
+        "name": "update-values",
+        "output": [
+          "ActionOutput_google_sheet_updatevalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_updatevalues",
+          "ActionOutput_google_sheet_updatevalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Append or update a row of values in a Google Sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/upsert-row",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_upsertrow",
+        "name": "upsert-row",
+        "output": [
+          "ActionOutput_google_sheet_upsertrow"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_upsertrow",
+          "ActionOutput_google_sheet_upsertrow"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync worksheet rows from a Google Sheet",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-rows",
+            "group": "Sheets"
+          }
+        ],
+        "input": "SyncMetadata_google_sheet_syncrows",
+        "name": "sync-rows",
+        "output": [
+          "Row"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Row",
+          "SyncMetadata_google_sheet_syncrows"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync worksheets from a Google Sheets spreadsheet",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/syncs/sync-worksheets",
+            "group": "Worksheets"
+          }
+        ],
+        "input": "SyncMetadata_google_sheet_syncworksheets",
+        "name": "sync-worksheets",
+        "output": [
+          "Worksheet"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Worksheet",
+          "SyncMetadata_google_sheet_syncworksheets"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": [],
+      "validate-connection": []
+    }
+  }
+]

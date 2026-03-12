@@ -1,75 +1,113 @@
-/**
- * Instructions: Adds an attendee to an existing calendar event
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/patch
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const AddAttendeeInput = z.object({
-    calendar_id: z.string(),
-    event_id: z.string(),
-    email: z.string(),
-    responseStatus: z.string().optional(),
-    optional: z.boolean().optional()
+const InputSchema = z.object({
+    calendar_id: z.string().describe('Calendar ID. Use "primary" for the default calendar. Example: "primary"'),
+    event_id: z.string().describe('Event ID to add attendee to. Example: "abc123xyz"'),
+    attendee_email: z.string().email().describe('Email address of the attendee to add. Example: "attendee@example.com"'),
+    attendee_name: z.string().optional().describe('Display name of the attendee (optional). Example: "John Doe"'),
+    optional: z.boolean().optional().describe('Whether the attendee is optional (optional). Default: false'),
+    response_status: z
+        .enum(['needsAction', 'declined', 'tentative', 'accepted'])
+        .optional()
+        .describe('Response status of the attendee (optional). Default: "needsAction"')
 });
 
-const AddAttendeeOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const AttendeeSchema = z.object({
+    email: z.string(),
+    displayName: z.union([z.string(), z.null()]),
+    optional: z.boolean().optional(),
+    responseStatus: z.string().optional()
+});
+
+const OutputSchema = z.object({
     id: z.string(),
-    attendees: z.array(z.any())
+    summary: z.union([z.string(), z.null()]),
+    attendees: z.array(AttendeeSchema)
 });
 
 const action = createAction({
-    description: 'Adds an attendee to an existing calendar event',
+    description: 'Add an attendee to an existing calendar event',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/patch
+
     endpoint: {
         method: 'POST',
-        path: '/events/attendee',
-        group: 'Attendees'
+        path: '/actions/add-attendee',
+        group: 'Events'
     },
-    input: AddAttendeeInput,
-    output: AddAttendeeOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof AddAttendeeOutput>> => {
-        // First get the existing event to get current attendees
-        const getConfig: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/get
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Step 1: Fetch the existing event
+        // https://developers.google.com/calendar/api/v3/reference/events/get
+        const getResponse = await nango.get({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
             retries: 3
+        });
+
+        if (!getResponse.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Event not found',
+                event_id: input.event_id,
+                calendar_id: input.calendar_id
+            });
+        }
+
+        const existingEvent = getResponse.data;
+        const existingAttendees = existingEvent.attendees || [];
+
+        // Step 2: Check if attendee already exists
+        const attendeeExists = existingAttendees.some((attendee: { email: string }) => attendee.email.toLowerCase() === input.attendee_email.toLowerCase());
+
+        if (attendeeExists) {
+            throw new nango.ActionError({
+                type: 'duplicate_attendee',
+                message: 'Attendee already exists in this event',
+                attendee_email: input.attendee_email
+            });
+        }
+
+        // Step 3: Create new attendee object
+        const newAttendee: {
+            email: string;
+            displayName?: string;
+            optional?: boolean;
+            responseStatus?: string;
+        } = {
+            email: input.attendee_email,
+            ...(input.attendee_name && { displayName: input.attendee_name }),
+            ...(input.optional !== undefined && { optional: input.optional }),
+            ...(input.response_status && { responseStatus: input.response_status })
         };
 
-        const existingEvent = await nango.get(getConfig);
-        const currentAttendees = existingEvent.data.attendees || [];
+        // Step 4: Append the new attendee to the list
+        const updatedAttendees = [...existingAttendees, newAttendee];
 
-        // Add new attendee
-        const newAttendee: Record<string, unknown> = {
-            email: input.email,
-            ...(input.responseStatus && { responseStatus: input.responseStatus }),
-            ...(input.optional !== undefined && { optional: input.optional })
-        };
-
-        const updatedAttendees = [...currentAttendees, newAttendee];
-
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/patch
+        // Step 5: Patch the event with the updated attendee list
+        // https://developers.google.com/calendar/api/v3/reference/events/patch
+        const patchResponse = await nango.patch({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
             data: {
                 attendees: updatedAttendees
             },
-            retries: 3
-        };
+            retries: 10 // Non-idempotent write - no retries
+        });
 
-        const response = await nango.patch(config);
+        const updatedEvent = patchResponse.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            attendees: response.data.attendees || []
+            id: updatedEvent.id,
+            summary: updatedEvent.summary ?? null,
+            attendees: (updatedEvent.attendees || []).map((attendee: { email: string; displayName?: string; optional?: boolean; responseStatus?: string }) => ({
+                email: attendee.email,
+                displayName: attendee.displayName ?? null,
+                optional: attendee.optional,
+                responseStatus: attendee.responseStatus
+            }))
         };
     }
 });

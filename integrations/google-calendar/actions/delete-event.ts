@@ -1,48 +1,40 @@
-/**
- * Instructions: Deletes an event from a calendar
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/delete
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const DeleteEventInput = z.object({
-    calendar_id: z.string(),
-    event_id: z.string(),
-    sendUpdates: z.string().optional()
+const InputSchema = z.object({
+    calendar_id: z.string().describe('Calendar ID. Example: "primary" or "abc123@group.calendar.google.com"'),
+    event_id: z.string().describe('Event ID to delete. Example: "tpv6jfth9cbnqhi1f570l45878"')
 });
 
-const DeleteEventOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    success: z.boolean(),
+    message: z.string()
 });
 
 const action = createAction({
-    description: 'Deletes an event from a calendar',
+    description: 'Delete a calendar event',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/delete
+
     endpoint: {
-        method: 'DELETE',
-        path: '/event',
+        method: 'POST',
+        path: '/actions/delete-event',
         group: 'Events'
     },
-    input: DeleteEventInput,
-    output: DeleteEventOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof DeleteEventOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/delete
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
-            params: {
-                ...(input.sendUpdates && { sendUpdates: input.sendUpdates })
-            },
-            retries: 3
-        };
 
-        await nango.delete(config);
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/events/delete
+        await nango.delete({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
+            retries: 3
+        });
 
         return {
-            success: true
+            success: true,
+            message: `Event ${input.event_id} successfully deleted from calendar ${input.calendar_id}`
         };
     }
 });

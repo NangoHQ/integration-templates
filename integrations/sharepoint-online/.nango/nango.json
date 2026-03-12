@@ -84,39 +84,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetch all files from the user's drive and sync the metadata for each file.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/user-files"
-          }
-        ],
-        "input": "SyncMetadata_sharepoint_online_userfiles",
-        "name": "user-files",
-        "output": [
-          "UserFileMetadata"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Sites.Read.All",
-          "Sites.Selected",
-          "MyFiles.Read",
-          "Files.Read.All",
-          "Files.Read.Selected",
-          "offline_access"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "UserFileMetadata",
-          "SyncMetadata_sharepoint_online_userfiles"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetch all selected files from a user's drive",
         "auto_start": false,
         "endpoints": [
@@ -144,6 +111,39 @@
         "usedModels": [
           "SelectedUserFileMetadata",
           "SyncMetadata_sharepoint_online_userfilesselection"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's drive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_userfiles",
+        "name": "user-files",
+        "output": [
+          "UserFileMetadata"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "UserFileMetadata",
+          "SyncMetadata_sharepoint_online_userfiles"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

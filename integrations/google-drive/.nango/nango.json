@@ -4,55 +4,654 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetches the top-level content (files and folders) of a folder given its ID.\nIf no folder ID is provided, it fetches content from the root folder.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/folder-content",
-          "group": "Folders"
-        },
-        "input": "ActionInput_google_drive_foldercontent",
-        "name": "folder-content",
-        "output": [
-          "ActionOutput_google_drive_foldercontent"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_drive_foldercontent",
-          "ActionOutput_google_drive_foldercontent"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/drives",
-          "group": "Drives"
-        },
-        "input": "ActionInput_google_drive_listdrives",
-        "name": "list-drives",
-        "output": [
-          "ActionOutput_google_drive_listdrives"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_drive_listdrives",
-          "ActionOutput_google_drive_listdrives"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+        "description": "Copy a file to a destination",
         "endpoint": {
           "method": "POST",
-          "path": "/upload-document",
-          "group": "Documents"
+          "path": "/actions/copy-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_copyfile",
+        "name": "copy-file",
+        "output": [
+          "ActionOutput_google_drive_copyfile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_copyfile",
+          "ActionOutput_google_drive_copyfile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Add a comment to a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_createcomment",
+        "name": "create-comment",
+        "output": [
+          "ActionOutput_google_drive_createcomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createcomment",
+          "ActionOutput_google_drive_createcomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a new folder in Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-folder",
+          "group": "Drive"
+        },
+        "input": "ActionInput_google_drive_createfolder",
+        "name": "create-folder",
+        "output": [
+          "ActionOutput_google_drive_createfolder"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createfolder",
+          "ActionOutput_google_drive_createfolder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a shared drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_createshareddrive",
+        "name": "create-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_createshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createshareddrive",
+          "ActionOutput_google_drive_createshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a comment from a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_deletecomment",
+        "name": "delete-comment",
+        "output": [
+          "ActionOutput_google_drive_deletecomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletecomment",
+          "ActionOutput_google_drive_deletecomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a file or folder from Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_deletefile",
+        "name": "delete-file",
+        "output": [
+          "ActionOutput_google_drive_deletefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletefile",
+          "ActionOutput_google_drive_deletefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Remove a permission from a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_deletepermission",
+        "name": "delete-permission",
+        "output": [
+          "ActionOutput_google_drive_deletepermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletepermission",
+          "ActionOutput_google_drive_deletepermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a shared drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_deleteshareddrive",
+        "name": "delete-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_deleteshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deleteshareddrive",
+          "ActionOutput_google_drive_deleteshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Permanently delete all trashed files",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/empty-trash",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_emptytrash",
+        "name": "empty-trash",
+        "output": [
+          "ActionOutput_google_drive_emptytrash"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_emptytrash",
+          "ActionOutput_google_drive_emptytrash"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for files by name or query in Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_findfile",
+        "name": "find-file",
+        "output": [
+          "ActionOutput_google_drive_findfile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_findfile",
+          "ActionOutput_google_drive_findfile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for a folder by name or query",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-folder",
+          "group": "Folders"
+        },
+        "input": "ActionInput_google_drive_findfolder",
+        "name": "find-folder",
+        "output": [
+          "ActionOutput_google_drive_findfolder"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_findfolder",
+          "ActionOutput_google_drive_findfolder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get the user's drive info and storage quota",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-about",
+          "group": "Drive"
+        },
+        "input": "ActionInput_google_drive_getabout",
+        "name": "get-about",
+        "output": [
+          "ActionOutput_google_drive_getabout"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getabout",
+          "ActionOutput_google_drive_getabout"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get the starting token for listing future changes",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-changes-start-page-token",
+          "group": "Changes"
+        },
+        "input": "ActionInput_google_drive_getchangesstartpagetoken",
+        "name": "get-changes-start-page-token",
+        "output": [
+          "ActionOutput_google_drive_getchangesstartpagetoken"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.metadata.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getchangesstartpagetoken",
+          "ActionOutput_google_drive_getchangesstartpagetoken"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a comment by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_getcomment",
+        "name": "get-comment",
+        "output": [
+          "ActionOutput_google_drive_getcomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getcomment",
+          "ActionOutput_google_drive_getcomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a permission by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_getpermission",
+        "name": "get-permission",
+        "output": [
+          "ActionOutput_google_drive_getpermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getpermission",
+          "ActionOutput_google_drive_getpermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a file revision by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-revision",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_getrevision",
+        "name": "get-revision",
+        "output": [
+          "ActionOutput_google_drive_getrevision"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getrevision",
+          "ActionOutput_google_drive_getrevision"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a shared drive by ID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_getshareddrive",
+        "name": "get-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_getshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getshareddrive",
+          "ActionOutput_google_drive_getshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Hide a shared drive from the default view",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/hide-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_hideshareddrive",
+        "name": "hide-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_hideshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_hideshareddrive",
+          "ActionOutput_google_drive_hideshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List changes to files and shared drives",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/list-changes",
+          "group": "Changes"
+        },
+        "input": "ActionInput_google_drive_listchanges",
+        "name": "list-changes",
+        "output": [
+          "ActionOutput_google_drive_listchanges"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.metadata.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listchanges",
+          "ActionOutput_google_drive_listchanges"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List comments on a file",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-comments",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_listcomments",
+        "name": "list-comments",
+        "output": [
+          "ActionOutput_google_drive_listcomments"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listcomments",
+          "ActionOutput_google_drive_listcomments"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List immediate files and folders for a folder ID, or root when omitted, with cursor pagination and shared-drive support.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-files-non-unified",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_listfilesnonunified",
+        "name": "list-files-non-unified",
+        "output": [
+          "ActionOutput_google_drive_listfilesnonunified"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listfilesnonunified",
+          "ActionOutput_google_drive_listfilesnonunified"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List permissions on a file",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-permissions",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_listpermissions",
+        "name": "list-permissions",
+        "output": [
+          "ActionOutput_google_drive_listpermissions"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listpermissions",
+          "ActionOutput_google_drive_listpermissions"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List shared drives the user can access, with cursor pagination and drive metadata like hidden, capabilities, and restrictions.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-shared-drives",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_listshareddrives",
+        "name": "list-shared-drives",
+        "output": [
+          "ActionOutput_google_drive_listshareddrives"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listshareddrives",
+          "ActionOutput_google_drive_listshareddrives"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Move a file to a different folder",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/move-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_movefile",
+        "name": "move-file",
+        "output": [
+          "ActionOutput_google_drive_movefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_movefile",
+          "ActionOutput_google_drive_movefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Restore a hidden shared drive to default view",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/unhide-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_unhideshareddrive",
+        "name": "unhide-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_unhideshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_unhideshareddrive",
+          "ActionOutput_google_drive_unhideshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a comment on a file",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/actions/update-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_updatecomment",
+        "name": "update-comment",
+        "output": [
+          "ActionOutput_google_drive_updatecomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatecomment",
+          "ActionOutput_google_drive_updatecomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a file's metadata",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_updatefile",
+        "name": "update-file",
+        "output": [
+          "ActionOutput_google_drive_updatefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatefile",
+          "ActionOutput_google_drive_updatefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a permission on a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_updatepermission",
+        "name": "update-permission",
+        "output": [
+          "ActionOutput_google_drive_updatepermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatepermission",
+          "ActionOutput_google_drive_updatepermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a shared drive's metadata",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_updateshareddrive",
+        "name": "update-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_updateshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updateshareddrive",
+          "ActionOutput_google_drive_updateshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/upload-document",
+          "group": "Files"
         },
         "input": "ActionInput_google_drive_uploaddocument",
         "name": "upload-document",
@@ -60,7 +659,7 @@
           "ActionOutput_google_drive_uploaddocument"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
+          "https://www.googleapis.com/auth/drive.file"
         ],
         "usedModels": [
           "ActionInput_google_drive_uploaddocument",
@@ -72,60 +671,107 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{\"files\": [\"<some-id>\"]}` OR\n`{\"folders\": [\"<some-id>\"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)",
-        "auto_start": false,
+        "description": "Sync file metadata for IDs in connection metadata files, or recursively for all files under folder IDs in folders. Supports shared drives.",
+        "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/documents",
-            "group": "Documents"
+            "method": "POST",
+            "path": "/syncs/sync-files",
+            "group": "Files"
           }
         ],
-        "input": "SyncMetadata_google_drive_documents",
-        "name": "documents",
+        "input": "SyncMetadata_google_drive_syncfiles",
+        "name": "sync-files",
         "output": [
-          "Document"
+          "File"
         ],
-        "runs": "every day",
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
+        "runs": "every 30 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Document",
-          "SyncMetadata_google_drive_documents"
+          "File",
+          "SyncMetadata_google_drive_syncfiles"
         ],
-        "version": "4.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Sync the folders at the root level of a google drive.",
+        "description": "Sync root-level Google Drive folders from My Drive and shared drives",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-folders",
+            "group": "Folders"
+          }
+        ],
+        "input": null,
+        "name": "sync-folders",
+        "output": [
+          "Folder"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Folder"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync file permissions from Google Drive",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/root-folders",
-            "group": "Folders"
+            "path": "/syncs/sync-permissions",
+            "group": "Permissions"
           }
         ],
-        "input": "SyncMetadata_google_drive_folders",
-        "name": "folders",
+        "input": null,
+        "name": "sync-permissions",
         "output": [
-          "Folder"
+          "Permission"
         ],
-        "runs": "every day",
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
+        "runs": "every hour",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Folder",
-          "SyncMetadata_google_drive_folders"
+          "Permission"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync shared drives from Google Drive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-shared-drives",
+            "group": "Shared Drives"
+          }
+        ],
+        "input": null,
+        "name": "sync-shared-drives",
+        "output": [
+          "SharedDrive"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SharedDrive"
+        ],
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

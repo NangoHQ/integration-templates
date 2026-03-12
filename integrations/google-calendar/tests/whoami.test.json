@@ -1,0 +1,706 @@
+{
+  "input": {},
+  "output": {
+    "id": "api@nango.dev",
+    "email": "api@nango.dev"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/calendar/v3/users/me/calendarList": {
+        "response": {
+          "kind": "calendar#calendarList",
+          "etag": "\"p32novndktecp60o\"",
+          "nextSyncToken": "CK-P3bTrmZMDEg1hcGlAbmFuZ28uZGV2",
+          "items": [
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1772658114789295\"",
+              "id": "c_b96a1f1f3790d88746a1872726ccee8b8e3c353221c908e213c4bbd26f9f4b74@group.calendar.google.com",
+              "summary": "Test Calendar for Delete Event Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "24",
+              "backgroundColor": "#a47ae2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1772658114948607\"",
+              "id": "c_6ba0c8cc00c746b1641a64436c9f0a5a2497d69efa8572e570595b370490f1ec@group.calendar.google.com",
+              "summary": "Test Calendar for Clearing",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1772658138511007\"",
+              "id": "c_190b760daec5418fbb775a0f329513752dec787e0a7547334f5fe2f0e701cb5f@group.calendar.google.com",
+              "summary": "Test Calendar from Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "16",
+              "backgroundColor": "#4986e7",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1772658207138431\"",
+              "id": "c_4c9c6bab17fa39ca283d5b9fb814ee35b08024bd712765d2d9eac2b060e321f6@group.calendar.google.com",
+              "summary": "Test Calendar Updated",
+              "description": "Updated via Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "summaryOverride": "Test Calendar Updated via Nango",
+              "colorId": "24",
+              "backgroundColor": "#a47ae2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053613747887\"",
+              "id": "c_fde0cee9c59147df053d89281eb4f000e284505b62dbf8a1089e93e91a823269@group.calendar.google.com",
+              "summary": "Test Calendar for Delete Event Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053639737359\"",
+              "id": "c_791255f6a2ecb83c557b97cfa9601fa5d3647fcc087d00530726c37601fc3a4e@group.calendar.google.com",
+              "summary": "Test Calendar for Clear Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "7",
+              "backgroundColor": "#42d692",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053642692559\"",
+              "id": "c_373d989ef47de1104090c88d1460b0ee4a99c557be58e3cab857ad8001692b3c@group.calendar.google.com",
+              "summary": "Test Calendar for Delete Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053693325087\"",
+              "id": "c_d5e1a480a74c63ca2c089450e4ac3fec60286d8f177790201c099c1047c96fe9@group.calendar.google.com",
+              "summary": "Test Calendar",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053721203215\"",
+              "id": "c_c34b23ab90541ab8f581372cbd411dcb808a50b688a47d02c07a0db0d08cef58@group.calendar.google.com",
+              "summary": "Test Calendar from Nango Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "22",
+              "backgroundColor": "#f691b2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053724082207\"",
+              "id": "c_26f7166acc7ad92e075db01bb867df356ab308d9ca5f7da82717d1dd13fd00da@group.calendar.google.com",
+              "summary": "Test Calendar",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053754544207\"",
+              "id": "c_01f0d10328038d06fb1e0644278a446de133ee063070c154181bd71fa9d70115@group.calendar.google.com",
+              "summary": "Test Calendar from Nango Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "15",
+              "backgroundColor": "#9fc6e7",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053763276223\"",
+              "id": "c_1f04a8e9f8562735c8249c8a1ec33122e0990a70cfc96fbba5057766bf07650e@group.calendar.google.com",
+              "summary": "Test Calendar For Deletion",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "summaryOverride": "Updated via Nango Action",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773053791754223\"",
+              "id": "c_140c26f46847aaea63fa97e3b59513d2b1b6b6c242019ce0708008874ec92d0c@group.calendar.google.com",
+              "summary": "Test Calendar for Clear Action Save",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "2",
+              "backgroundColor": "#d06b64",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087235705471\"",
+              "id": "c_687866a8b7a14d9dd3a9d5acc4b4a2fb51366153dc0cbb0b62b801a54f1ab734@group.calendar.google.com",
+              "summary": "Updated Test Calendar from Nango",
+              "description": "Updated via update-calendar action",
+              "location": "San Francisco",
+              "timeZone": "America/Los_Angeles",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087252155247\"",
+              "id": "c_92174f1ccc6590d71b840e56f5567f8ebe6ba6101339b5ccef8d6af2d46d9510@group.calendar.google.com",
+              "summary": "Test Calendar for Events",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "22",
+              "backgroundColor": "#f691b2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087263115247\"",
+              "id": "c_c07cf475a0cf438c93bb07ac8ace979ba996dc07efc4fc3b08d77c90028380bf@group.calendar.google.com",
+              "summary": "Test Calendar from Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087284352335\"",
+              "id": "c_1b62b7667b91ad5f18e46bbe686038f8b4a38a09a2f530168b699f8c2e021e99@group.calendar.google.com",
+              "summary": "Test Calendar for Events",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087399886031\"",
+              "id": "c_22a3b19086acaaae9d332f1c56ff4f95796be5ca21ce72c4124002b78407f2df@group.calendar.google.com",
+              "summary": "Test Calendar Updated via Nango",
+              "description": "Updated via Nango action",
+              "timeZone": "America/New_York",
+              "dataOwner": "api@nango.dev",
+              "summaryOverride": "Updated via Nango Update Action",
+              "colorId": "6",
+              "backgroundColor": "#ffad46",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [
+                {
+                  "method": "email",
+                  "minutes": 15
+                }
+              ],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773087631954927\"",
+              "id": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
+              "summary": "Target Calendar For Move",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "24",
+              "backgroundColor": "#a47ae2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134870528095\"",
+              "id": "c_a1e6cea055f25a0db830766b8cb10af30c6130a5f82490601c4502b970bdc5fc@group.calendar.google.com",
+              "summary": "Test Calendar for Delete Event Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134904377391\"",
+              "id": "c_87ad07c318c0e3363ec90953aace3924288c1b5d6a4717cfd43da84304db0394@group.calendar.google.com",
+              "summary": "Test Calendar for Create Event",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134923921263\"",
+              "id": "api@nango.dev",
+              "summary": "Updated Test Calendar",
+              "timeZone": "America/Sao_Paulo",
+              "summaryOverride": "My Primary Calendar",
+              "colorId": "14",
+              "backgroundColor": "#9fe1e7",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "notificationSettings": {
+                "notifications": [
+                  {
+                    "type": "eventCreation",
+                    "method": "email"
+                  },
+                  {
+                    "type": "eventChange",
+                    "method": "email"
+                  }
+                ]
+              },
+              "primary": true,
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134927944015\"",
+              "id": "c_1c43767af24b5632888299c7968e40d7df32e421828bdfbfd6d3735ff7cc8743@group.calendar.google.com",
+              "summary": "Test Calendar for Insert List Action",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "5",
+              "backgroundColor": "#ff7537",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134949669295\"",
+              "id": "c_e1a12fa8ab5db0ba27d6e3943bb7fbc55ea4bf8cd29d8961b706ab0bcb1314d3@group.calendar.google.com",
+              "summary": "Test Calendar Created by Opencode",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134963018783\"",
+              "id": "c_af49a4b2aa5af3b27772e393bef9f29e696fb774a5c01ba67d7bb030dd4bb5e5@group.calendar.google.com",
+              "summary": "Test Calendar for Insert List Mock",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "3",
+              "backgroundColor": "#f83a22",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773134972971487\"",
+              "id": "c_e6c69ebcbb075bef8fd144b501689c93a314891e75bedce7b9d3e59b576446de@group.calendar.google.com",
+              "summary": "Test Calendar Created by Opencode",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "17",
+              "backgroundColor": "#9a9cff",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773232564179055\"",
+              "id": "c_a6955d2cd0f07da00482745ed55d2a77548c027010801652e772d0dfad842d2f@group.calendar.google.com",
+              "summary": "Test Calendar from Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "23",
+              "backgroundColor": "#cd74e6",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773232608858655\"",
+              "id": "c_c5f81a8ebbc31c622abd7ba66f64d47cd20971704e0958a0b16ddfbbad974dff@group.calendar.google.com",
+              "summary": "Test Calendar from Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "20",
+              "backgroundColor": "#cabdbf",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773232894518895\"",
+              "id": "c_a18712c7528d61f28d1793b561b7b04a3f68dd5ebef74315c1f6f8900cccbc00@group.calendar.google.com",
+              "summary": "Test Calendar for Create Event Action Updated",
+              "description": "Updated via Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "summaryOverride": "Updated via Nango Action",
+              "colorId": "4",
+              "backgroundColor": "#fa573c",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773233970947215\"",
+              "id": "c_d009a8863abefbaab9c77b7da9486524d620630ca36d379bb5303abbcc8c27ac@group.calendar.google.com",
+              "summary": "Test Calendar for Insert Action",
+              "description": "Test calendar for insert-calendar-to-list action",
+              "timeZone": "America/Los_Angeles",
+              "dataOwner": "api@nango.dev",
+              "colorId": "19",
+              "backgroundColor": "#c2c2c2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773300394323359\"",
+              "id": "c_343fb7dd921b3d4fc72452222fc65aa60bc85bef3ccf8a6c6f9ed81a23ab658d@group.calendar.google.com",
+              "summary": "Test Calendar From Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "22",
+              "backgroundColor": "#f691b2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773300414199663\"",
+              "id": "c_3c24cbd6cce3c7b6f8e64124b5ce496b50c862c0a2c9e8c1a8f8008f9c4b4ccd@group.calendar.google.com",
+              "summary": "Test Calendar From Nango",
+              "timeZone": "UTC",
+              "dataOwner": "api@nango.dev",
+              "colorId": "24",
+              "backgroundColor": "#a47ae2",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            },
+            {
+              "kind": "calendar#calendarListEntry",
+              "etag": "\"1773300476661055\"",
+              "id": "c_8376dbfcd33b366586ccc31000966204dc977be63c143e5750dfffac566d9157@group.calendar.google.com",
+              "summary": "Test Calendar Updated via Nango",
+              "description": "Updated description",
+              "location": "New York",
+              "timeZone": "America/New_York",
+              "dataOwner": "api@nango.dev",
+              "summaryOverride": "Updated via Nango Action",
+              "colorId": "21",
+              "backgroundColor": "#cca6ac",
+              "foregroundColor": "#000000",
+              "selected": true,
+              "accessRole": "owner",
+              "defaultReminders": [],
+              "conferenceProperties": {
+                "allowedConferenceSolutionTypes": [
+                  "hangoutsMeet"
+                ]
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:29:33 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4813",
+          "x-ratelimit-reset": "1773300586",
+          "cache-control": "private, max-age=0, must-revalidate, no-transform",
+          "expires": "Thu, 12 Mar 2026 07:29:33 GMT",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-14"
+        },
+        "hash": "554229bb50b231ff309c9f59fc00c4f7078e8494",
+        "request": {}
+      }
+    }
+  }
+}

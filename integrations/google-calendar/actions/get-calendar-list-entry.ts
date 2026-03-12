@@ -1,55 +1,67 @@
-/**
- * Instructions: Returns a calendar from the user's calendar list
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendarList/get
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const GetCalendarListEntryInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    calendar_id: z.string().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary" or "abc123@group.calendar.google.com"')
 });
 
-const GetCalendarListEntryOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const OutputSchema = z.object({
     id: z.string(),
-    summary: z.string(),
-    accessRole: z.string(),
-    backgroundColor: z.string().optional(),
-    foregroundColor: z.string().optional()
+    summary: z.union([z.string(), z.null()]),
+    description: z.union([z.string(), z.null()]),
+    access_role: z.union([z.string(), z.null()]),
+    color_id: z.union([z.string(), z.null()]),
+    background_color: z.union([z.string(), z.null()]),
+    foreground_color: z.union([z.string(), z.null()]),
+    primary: z.boolean(),
+    selected: z.boolean(),
+    time_zone: z.union([z.string(), z.null()]),
+    hidden: z.boolean()
 });
 
 const action = createAction({
-    description: "Returns a calendar from the user's calendar list",
+    description: 'Retrieve a calendar list entry with access role and colors',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendarList/get
+
     endpoint: {
         method: 'GET',
-        path: '/calendarList/entry',
+        path: '/actions/get-calendar-list-entry',
         group: 'Calendars'
     },
-    input: GetCalendarListEntryInput,
-    output: GetCalendarListEntryOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-    exec: async (nango, input): Promise<z.infer<typeof GetCalendarListEntryOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendarList/get
-            endpoint: `/calendar/v3/users/me/calendarList/${encodeURIComponent(input.calendar_id)}`,
-            retries: 3
-        };
 
-        const response = await nango.get(config);
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/get
+        const response = await nango.get({
+            endpoint: `/calendar/v3/users/me/calendarList/${input.calendar_id}`,
+            retries: 3
+        });
+
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Calendar not found',
+                calendar_id: input.calendar_id
+            });
+        }
+
+        const calendar = response.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            summary: response.data.summary,
-            accessRole: response.data.accessRole,
-            backgroundColor: response.data.backgroundColor,
-            foregroundColor: response.data.foregroundColor
+            id: calendar.id,
+            summary: calendar.summary ?? null,
+            description: calendar.description ?? null,
+            access_role: calendar.accessRole ?? null,
+            color_id: calendar.colorId ?? null,
+            background_color: calendar.backgroundColor ?? null,
+            foreground_color: calendar.foregroundColor ?? null,
+            primary: calendar.primary ?? false,
+            selected: calendar.selected ?? false,
+            time_zone: calendar.timeZone ?? null,
+            hidden: calendar.hidden ?? false
         };
     }
 });

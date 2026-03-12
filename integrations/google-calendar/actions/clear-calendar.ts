@@ -1,42 +1,82 @@
-/**
- * Instructions: Clears a primary calendar by deleting all events
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendars/clear
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const ClearCalendarInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    // No input required - clears the primary calendar
 });
 
-const ClearCalendarOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    deleted_count: z.number().describe('Number of events deleted'),
+    calendar_id: z.string().describe('The calendar ID that was cleared')
 });
 
 const action = createAction({
-    description: 'Clears a primary calendar by deleting all events',
+    description: 'Clear the primary calendar by deleting all events',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendars/clear
+
     endpoint: {
         method: 'POST',
-        path: '/calendar/clear',
+        path: '/actions/clear-calendar',
         group: 'Calendars'
     },
-    input: ClearCalendarInput,
-    output: ClearCalendarOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof ClearCalendarOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendars/clear
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/clear`,
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = 'primary';
+
+        // https://developers.google.com/calendar/api/v3/reference/events/list
+        const listResponse = await nango.get({
+            endpoint: `calendar/v3/calendars/${calendarId}/events`,
+            params: {
+                maxResults: '2500'
+                // Note: Not using singleEvents=true to avoid expanding recurring events
+                // Deleting parent recurring events removes all instances
+            },
             retries: 3
+        });
+
+        const events = listResponse.data.items || [];
+
+        if (events.length === 0) {
+            return {
+                deleted_count: 0,
+                calendar_id: calendarId
+            };
+        }
+
+        // Delete events in parallel batches for efficiency
+        const batchSize = 10;
+        let deletedCount = 0;
+
+        for (let i = 0; i < events.length; i += batchSize) {
+            const batch = events.slice(i, i + batchSize);
+            const deletePromises = batch
+                .filter((event: { id?: string }) => event.id)
+                .map((event: { id: string }) =>
+                    // https://developers.google.com/calendar/api/v3/reference/events/delete
+                    nango
+                        .delete({
+                            endpoint: `calendar/v3/calendars/${calendarId}/events/${event.id}`,
+                            retries: 1
+                        })
+                        .then(() => {
+                            deletedCount++;
+                        })
+                        .catch(() => {
+                            // Continue even if one delete fails
+                        })
+                );
+
+            await Promise.all(deletePromises);
+        }
+
+        return {
+            deleted_count: deletedCount,
+            calendar_id: calendarId
         };
-
-        await nango.post(config);
-
-        return { success: true };
     }
 });
 

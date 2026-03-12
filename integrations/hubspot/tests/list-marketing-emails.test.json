@@ -1,0 +1,1862 @@
+{
+  "input": {},
+  "output": {
+    "emails": [
+      {
+        "id": "369218116794",
+        "name": "Updated Test Email via Action",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-02-25T16:26:00.955Z",
+        "updated_at": "2026-03-09T20:32:17.449Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "370552107234",
+        "name": "Test Newsletter",
+        "subject": "Test Subject",
+        "created_at": "2026-02-27T17:52:42.358Z",
+        "updated_at": "2026-02-27T17:52:42.358Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "370563038439",
+        "name": "Test Get Marketing Email",
+        "subject": "Test Subject for Get",
+        "created_at": "2026-02-27T17:51:11.708Z",
+        "updated_at": "2026-02-27T17:51:11.708Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "370563038442",
+        "name": "Test Get Marketing Email",
+        "subject": "Test Subject for Get",
+        "created_at": "2026-02-27T17:51:25.006Z",
+        "updated_at": "2026-02-27T17:51:25.006Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "370563038445",
+        "name": "Test Newsletter",
+        "subject": "Test Subject",
+        "created_at": "2026-02-27T17:53:00.312Z",
+        "updated_at": "2026-02-27T17:53:00.312Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "374461676768",
+        "name": "Test Marketing Email",
+        "subject": "Updated Subject via Nango",
+        "created_at": "2026-03-04T21:09:06.105Z",
+        "updated_at": "2026-03-05T10:39:29.623Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "374461896945",
+        "name": "Cloned Test Email",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-04T21:08:12.257Z",
+        "updated_at": "2026-03-04T21:08:12.257Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "374461897917",
+        "name": "Test Marketing Email",
+        "subject": "Updated via Nango Action",
+        "created_at": "2026-03-04T21:09:33.401Z",
+        "updated_at": "2026-03-09T11:08:08.907Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "374670435521",
+        "name": "Cloned Email Test",
+        "subject": "",
+        "created_at": "2026-03-05T10:34:33.525Z",
+        "updated_at": "2026-03-05T10:34:33.525Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376273003734",
+        "name": "Cloned Test Email",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-09T11:02:46.200Z",
+        "updated_at": "2026-03-09T11:02:46.200Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376273003737",
+        "name": "Cloned Test Email",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-09T11:03:04.154Z",
+        "updated_at": "2026-03-09T11:03:04.154Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376273003741",
+        "name": "Test Marketing Email 2",
+        "subject": "Test Subject 2",
+        "created_at": "2026-03-09T11:06:37.724Z",
+        "updated_at": "2026-03-09T11:06:37.724Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376274828514",
+        "name": "Test Marketing Email",
+        "subject": "Test Subject for Marketing Email",
+        "created_at": "2026-03-09T11:05:33.473Z",
+        "updated_at": "2026-03-09T11:05:33.473Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376274828517",
+        "name": "Test Marketing Email 2",
+        "subject": "Test Subject 2",
+        "created_at": "2026-03-09T11:06:19.487Z",
+        "updated_at": "2026-03-09T11:06:19.487Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376460354805",
+        "name": "Test Marketing Email",
+        "subject": "Test Subject",
+        "created_at": "2026-03-09T20:24:31.837Z",
+        "updated_at": "2026-03-09T20:24:31.837Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376460354808",
+        "name": "Test Marketing Email",
+        "subject": "Test Subject",
+        "created_at": "2026-03-09T20:24:49.093Z",
+        "updated_at": "2026-03-09T20:24:49.093Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376460355786",
+        "name": "Cloned Email via Action",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-09T20:28:28.281Z",
+        "updated_at": "2026-03-09T20:28:28.281Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "376475658484",
+        "name": "Cloned Email via Action",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-09T20:28:09.117Z",
+        "updated_at": "2026-03-09T20:28:09.117Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377346811092",
+        "name": "Test Marketing Email",
+        "subject": "Test Subject",
+        "created_at": "2026-03-11T13:05:51.132Z",
+        "updated_at": "2026-03-11T13:05:51.132Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377346811127",
+        "name": "Cloned Test Newsletter",
+        "subject": "Test Subject",
+        "created_at": "2026-03-11T13:15:24.004Z",
+        "updated_at": "2026-03-11T13:15:24.004Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377346812090",
+        "name": "Test Email for Get Action",
+        "subject": "Test Subject",
+        "created_at": "2026-03-11T13:18:55.163Z",
+        "updated_at": "2026-03-11T13:18:55.163Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377380388039",
+        "name": "Test Marketing Email",
+        "subject": "Test Subject",
+        "created_at": "2026-03-11T13:06:17.001Z",
+        "updated_at": "2026-03-11T13:06:17.001Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377380388070",
+        "name": "Cloned Test Newsletter",
+        "subject": "Test Subject",
+        "created_at": "2026-03-11T13:14:48.372Z",
+        "updated_at": "2026-03-11T13:14:48.372Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377401962722",
+        "name": "Updated Test Email Name",
+        "subject": "Updated Subject",
+        "created_at": "2026-03-11T13:34:23.081Z",
+        "updated_at": "2026-03-11T13:38:28.736Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377762643187",
+        "name": "Cloned Email via Nango",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-12T07:32:46.228Z",
+        "updated_at": "2026-03-12T07:32:46.228Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377765164263",
+        "name": "Cloned Email via Nango",
+        "subject": "Updated Subject via API",
+        "created_at": "2026-03-12T07:33:04.017Z",
+        "updated_at": "2026-03-12T07:33:04.017Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377765164267",
+        "name": "Test Marketing Email",
+        "subject": "Check out our latest updates!",
+        "created_at": "2026-03-12T07:33:55.758Z",
+        "updated_at": "2026-03-12T07:33:55.758Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      },
+      {
+        "id": "377765164270",
+        "name": "Test Marketing Email",
+        "subject": "Check out our latest updates!",
+        "created_at": "2026-03-12T07:34:11.129Z",
+        "updated_at": "2026-03-12T07:34:11.129Z",
+        "type": "BATCH_EMAIL",
+        "state": "DRAFT"
+      }
+    ],
+    "next_cursor": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/marketing/v3/emails": {
+        "response": {
+          "total": 28,
+          "results": [
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-02-25T16:26:00.955Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "369218116794",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Updated Test Email via Action",
+              "previewKey": "tCFdHsgl",
+              "publishDate": "2026-03-09T20:32:17Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T20:32:17.449Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-9fd7e58c-c4bd-4635-8e76-6abe8f0e49fe"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-02-27T17:52:42.358Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "370552107234",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Newsletter",
+              "previewKey": "jhdyoHjk",
+              "publishDate": "2026-02-27T17:52:42Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-02-27T17:52:42.358Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-837fe53d-4fae-4680-b093-f9a7c051e281"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-02-27T17:51:11.708Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "370563038439",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Get Marketing Email",
+              "previewKey": "GPBUEllw",
+              "publishDate": "2026-02-27T17:51:11Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject for Get",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-02-27T17:51:11.708Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-9ab6ad10-9488-4e77-99d2-d851a4c8c362"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-02-27T17:51:25.006Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "370563038442",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Get Marketing Email",
+              "previewKey": "PlgNwzar",
+              "publishDate": "2026-02-27T17:51:25Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject for Get",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-02-27T17:51:25.006Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-c85f726a-7c03-4cad-9a13-8f78de14580d"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-02-27T17:53:00.312Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "370563038445",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Newsletter",
+              "previewKey": "BUaODmZY",
+              "publishDate": "2026-02-27T17:53:00Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-02-27T17:53:00.312Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-a75f2c01-d720-4aaf-ad61-80aacafa8095"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-04T21:09:06.105Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "374461676768",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "ZOctZpid",
+              "publishDate": "2026-03-05T10:39:29Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via Nango",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-05T10:39:29.623Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-9f3a2a8c-4814-4731-aee3-b765b8ca4725"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-04T21:08:12.257Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "374461896945",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Test Email",
+              "previewKey": "TzgyRwVX",
+              "publishDate": "2026-03-04T21:08:12Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-04T21:08:12.257Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-6b748267-9041-4f39-9e4e-5c08b331395f"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-04T21:09:33.401Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "374461897917",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "XmyHAVwW",
+              "publishDate": "2026-03-09T11:08:08Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated via Nango Action",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:08:08.907Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-e6a4009f-9225-47a6-b377-d741e67d2871"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "374461676768",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-05T10:34:33.525Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "374670435521",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Email Test",
+              "previewKey": "ciJEjmhD",
+              "publishDate": "2026-03-05T10:34:33Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-05T10:34:33.525Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-f2026a75-9938-4bc6-9331-61f1d8cf30cc"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T11:02:46.200Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376273003734",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Test Email",
+              "previewKey": "nDbzYJFc",
+              "publishDate": "2026-03-09T11:02:46Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:02:46.200Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-42f0749a-fb2d-4cfe-8a17-0d396ec27893"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T11:03:04.154Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376273003737",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Test Email",
+              "previewKey": "OPGnzyDk",
+              "publishDate": "2026-03-09T11:03:04Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:03:04.154Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-a0cb5ac5-8622-4783-8116-4c6e49fccf44"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T11:06:37.724Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376273003741",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email 2",
+              "previewKey": "rxGIWTxB",
+              "publishDate": "2026-03-09T11:06:37Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject 2",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:06:37.724Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-d2626acf-8295-4e97-8de8-ad781060487a"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T11:05:33.473Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376274828514",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "nAbgXNTP",
+              "publishDate": "2026-03-09T11:05:33Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject for Marketing Email",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:05:33.473Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-5c26b4a6-21b5-443a-abc6-5921828cb30b"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T11:06:19.487Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376274828517",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email 2",
+              "previewKey": "AaToLAgG",
+              "publishDate": "2026-03-09T11:06:19Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject 2",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T11:06:19.487Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-296e7351-30fa-4efc-90c7-2a12b400e898"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T20:24:31.837Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376460354805",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "FHZrGvzK",
+              "publishDate": "2026-03-09T20:24:32Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T20:24:31.837Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-1b7c2cd7-12e4-44f6-813b-a085f65a5f55"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T20:24:49.093Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376460354808",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "EGRuWazC",
+              "publishDate": "2026-03-09T20:24:49Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T20:24:49.093Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-92b7f4a0-bc90-4c77-8206-351eafe30854"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T20:28:28.281Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376460355786",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Email via Action",
+              "previewKey": "zjhzHQrM",
+              "publishDate": "2026-03-09T20:28:28Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T20:28:28.281Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-c25fa522-3f6b-44cb-861a-e7a3a195d3c5"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-09T20:28:09.117Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "376475658484",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Email via Action",
+              "previewKey": "XOXfVdHl",
+              "publishDate": "2026-03-09T20:28:09Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-09T20:28:09.117Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-c27f3291-8bcb-45ec-ad31-99e70cb23fa2"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:05:51.132Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377346811092",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "ryXPjbaA",
+              "publishDate": "2026-03-11T13:05:51Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:05:51.132Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-a4a9d364-9218-4998-a56c-d9125665f65d"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "370552107234",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:15:24.004Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377346811127",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Test Newsletter",
+              "previewKey": "LBEIRkca",
+              "publishDate": "2026-03-11T13:15:24Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:15:24.004Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-cd77ef68-39f4-469d-b1a9-f0c5326f2faa"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:18:55.163Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377346812090",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Email for Get Action",
+              "previewKey": "MyGNPvML",
+              "publishDate": "2026-03-11T13:18:55Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:18:55.163Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-84df2bbf-1c69-4b49-9e31-552c21c603b4"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:06:17.001Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377380388039",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "ePdDyEGv",
+              "publishDate": "2026-03-11T13:06:17Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:06:17.001Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-abc0ca42-028f-424c-b9c6-52ec67006953"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "370552107234",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:14:48.372Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377380388070",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Test Newsletter",
+              "previewKey": "yWHUDsUa",
+              "publishDate": "2026-03-11T13:14:48Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Test Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:14:48.372Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-263fbf93-0744-451b-9678-7585dd3cf227"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-11T13:34:23.081Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377401962722",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Updated Test Email Name",
+              "previewKey": "hDhLFeIM",
+              "publishDate": "2026-03-11T13:38:28Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-11T13:38:28.736Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-62ed033c-c942-460a-a5cd-773a494da630"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-12T07:32:46.228Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377762643187",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Email via Nango",
+              "previewKey": "SafPrQTn",
+              "publishDate": "2026-03-12T07:32:46Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-12T07:32:46.228Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-36a0bb16-d875-48d5-b367-6ffd174d81cd"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "clonedFrom": "369218116794",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-12T07:33:04.017Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377765164263",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Cloned Email via Nango",
+              "previewKey": "IdyoSZzb",
+              "publishDate": "2026-03-12T07:33:04Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Updated Subject via API",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-12T07:33:04.017Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-079362cf-5348-4c09-a7d1-4c1c3379b441"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-12T07:33:55.758Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377765164267",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "cJyZboLY",
+              "publishDate": "2026-03-12T07:33:55Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Check out our latest updates!",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-12T07:33:55.758Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-8ff75c1f-7f8e-42f0-91dc-50cd3de6eaf2"
+              }
+            },
+            {
+              "activeDomain": "147893286.hs-sites-eu1.com",
+              "archived": false,
+              "businessUnitId": "0",
+              "content": {
+                "templatePath": "@hubspot/email/dnd/plain_text.html",
+                "widgets": {}
+              },
+              "createdAt": "2026-03-12T07:34:11.129Z",
+              "createdById": "88842095",
+              "emailTemplateMode": "DRAG_AND_DROP",
+              "from": {
+                "fromName": "",
+                "replyTo": ""
+              },
+              "id": "377765164270",
+              "isAb": false,
+              "isPublished": false,
+              "jitterSendTime": true,
+              "language": "en",
+              "name": "Test Marketing Email",
+              "previewKey": "iOveWKHn",
+              "publishDate": "2026-03-12T07:34:11Z",
+              "sendOnPublish": true,
+              "state": "DRAFT",
+              "subcategory": "batch",
+              "subject": "Check out our latest updates!",
+              "subscriptionDetails": {
+                "officeLocationId": "369226069226"
+              },
+              "to": {
+                "contactIds": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactIlsLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "contactLists": {
+                  "exclude": [],
+                  "include": []
+                },
+                "suppressGraymail": true
+              },
+              "type": "BATCH_EMAIL",
+              "updatedAt": "2026-03-12T07:34:11.129Z",
+              "updatedById": "88842095",
+              "webversion": {
+                "domain": "147893286.hs-sites-eu1.com",
+                "enabled": false,
+                "isPageRedirected": false,
+                "slug": "-temporary-slug-f6fffbc7-e91e-47ac-8ee7-1fcb945211d3"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:36:04 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1773301008",
+          "cf-ray": "9db120328cc8b248-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "origin, accept-encoding",
+          "access-control-allow-credentials": "false",
+          "server-timing": "hcid;desc=\"019ce0f9-5c0c-7ffa-a256-f2dd606e752b\", cfr;desc=\"9db12032c63eb248-FRA\"",
+          "x-hubspot-correlation-id": "019ce0f9-5c0c-7ffa-a256-f2dd606e752b",
+          "x-hubspot-ratelimit-interval-milliseconds": "10000",
+          "x-hubspot-ratelimit-max": "110",
+          "x-hubspot-ratelimit-remaining": "105",
+          "x-hubspot-ratelimit-secondly": "11",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=E.040qAV9R9BtPcBMMeZ_OoQo5FSjtE277b3nZ_m3uI-1773300964-1.0.1.1-At6PhsF5N_U3O6QZwzNE0tG9_CiD7LJruHnWNRDsfv28veOJWYIPJ73yDZnW1s1hjdcLZaTXtP35rb7gB4QqvMZHi4UrFrvjMzemS8WaG.0; path=/; expires=Thu, 12-Mar-26 08:06:04 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=bhZ3pP5fneP31O%2FymPaPF7F2Y6qnQc%2FS8LogxD563QorG%2FNPSyST%2Bfmz%2F486kxmrUMpXHVVn2rfr23b5Zu%2BGHwbspF1gf2rJod%2BoE56lv7XcnObEoUtSJWMOHblqK%2FIM\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare"
+        },
+        "hash": "55bc97099e81a3b8e7eed963a63191635c6fe616",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

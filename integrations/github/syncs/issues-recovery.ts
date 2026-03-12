@@ -1,6 +1,6 @@
 import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
-import { GithubIssue } from '../models.js';
+import { GithubIssueRecovery } from '../models.js';
 import { z } from 'zod';
 
 /**
@@ -66,7 +66,7 @@ const sync = createSync({
     scopes: ['public_repo'],
 
     models: {
-        GithubIssue: GithubIssue
+        GithubIssueRecovery: GithubIssueRecovery
     },
 
     metadata: SyncMetadata,
@@ -230,7 +230,7 @@ async function syncRepositoryIssues(nango: NangoSyncLocal, repository: GithubRep
             }));
 
         if (mappedIssues.length > 0) {
-            await nango.batchSave(mappedIssues, 'GithubIssue');
+            await nango.batchSave(mappedIssues, 'GithubIssueRecovery');
             savedCount += mappedIssues.length;
         }
     }

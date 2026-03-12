@@ -49,34 +49,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches Github issues from all a user's repositories",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/github/issues"
-          }
-        ],
-        "input": "SyncMetadata_github_issues",
-        "name": "issues",
-        "output": [
-          "GithubIssue"
-        ],
-        "runs": "every half hour",
-        "scopes": [
-          "public_repo"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "GithubIssue",
-          "SyncMetadata_github_issues"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches Github issues but up to a maximum of 15",
         "auto_start": false,
         "endpoints": [
@@ -99,6 +71,62 @@
         "usedModels": [
           "Issue",
           "SyncMetadata_github_issueslite"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Demonstrates long-running sync recovery by persisting offset, sync window and run start timestamp.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/github/issues-recovery"
+          }
+        ],
+        "input": "SyncMetadata_github_issuesrecovery",
+        "name": "issues-recovery",
+        "output": [
+          "GithubIssueRecovery"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "public_repo"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GithubIssueRecovery",
+          "SyncMetadata_github_issuesrecovery"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches Github issues from all a user's repositories",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/github/issues"
+          }
+        ],
+        "input": "SyncMetadata_github_issues",
+        "name": "issues",
+        "output": [
+          "GithubIssue"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "public_repo"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "GithubIssue",
+          "SyncMetadata_github_issues"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

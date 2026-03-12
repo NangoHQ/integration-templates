@@ -1,31 +1,64 @@
-import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { CustomObject } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
+
+const CustomObjectSchema = z.object({
+    id: z.string(),
+    name: z.union([z.string(), z.null()]),
+    object_type_id: z.union([z.string(), z.null()]),
+    fully_qualified_name: z.union([z.string(), z.null()]),
+    singular_label: z.union([z.string(), z.null()]),
+    plural_label: z.union([z.string(), z.null()]),
+    description: z.union([z.string(), z.null()]),
+    primary_display_property: z.union([z.string(), z.null()]),
+    secondary_display_properties: z.array(z.string()).optional(),
+    required_properties: z.array(z.string()).optional(),
+    searchable_properties: z.array(z.string()).optional()
+});
+
+const OutputSchema = z.object({
+    custom_objects: z.array(CustomObjectSchema)
+});
 
 const action = createAction({
-    description: 'Fetch custom objects in Hubspot. Requires Hubspot enterprise',
+    description: 'Retrieve HubSpot custom object schemas for enterprise accounts',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/custom-objects'
+        path: '/actions/fetch-custom-objects',
+        group: 'CRM'
     },
 
-    input: z.void(),
-    output: CustomObject,
-    scopes: ['oauth', 'crm.schemas.custom.read'],
+    input: z.object({}),
+    output: OutputSchema,
+    scopes: ['crm.schemas.custom.read'],
 
-    exec: async (nango): Promise<CustomObject> => {
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/crm-custom-objects
-            endpoint: '/crm-object-schemas/v3/schemas',
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/crm-schemas-v3/core/get-crm-object-schemas-v3-schemas
+        const response = await nango.get({
+            endpoint: '/crm/v3/schemas',
             retries: 3
+        });
+
+        const results = response.data?.results || [];
+
+        const customObjects = results.map((schema: any) => ({
+            id: schema.objectTypeId || schema.fullyQualifiedName || '',
+            name: schema.name ?? null,
+            object_type_id: schema.objectTypeId ?? null,
+            fully_qualified_name: schema.fullyQualifiedName ?? null,
+            singular_label: schema.labels?.singular ?? null,
+            plural_label: schema.labels?.plural ?? null,
+            description: schema.description ?? null,
+            primary_display_property: schema.primaryDisplayProperty ?? null,
+            secondary_display_properties: schema.secondaryDisplayProperties || [],
+            required_properties: schema.requiredProperties || [],
+            searchable_properties: schema.searchableProperties || []
+        }));
+
+        return {
+            custom_objects: customObjects
         };
-
-        const response = await nango.get(config);
-
-        return response.data;
     }
 });
 

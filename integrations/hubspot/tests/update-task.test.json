@@ -1,0 +1,100 @@
+{
+  "input": {
+    "task_id": "477950799045",
+    "subject": "Updated Test Task",
+    "body": "This task has been updated via the action",
+    "status": "COMPLETED",
+    "priority": "HIGH"
+  },
+  "output": {
+    "id": "477950799045",
+    "subject": "Updated Test Task",
+    "body": "This task has been updated via the action",
+    "due_date": "2026-03-15T10:00:00Z",
+    "status": "COMPLETED",
+    "priority": "HIGH",
+    "task_type": "TODO",
+    "owner_id": null,
+    "reminder": null,
+    "created_at": "2026-03-12T07:36:25.514Z",
+    "updated_at": "2026-03-12T07:36:50.568Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/tasks/477950799045": {
+        "response": {
+          "id": "477950799045",
+          "properties": {
+            "hs_body_preview": "This task has been updated via the action",
+            "hs_body_preview_html": "<html>\n<head></head>\n<body>\nThis task has been updated via the action\n</body>\n</html>",
+            "hs_body_preview_is_truncated": "false",
+            "hs_createdate": "2026-03-12T07:36:25.514Z",
+            "hs_lastmodifieddate": "2026-03-12T07:36:50.568Z",
+            "hs_obj_coords": "0-27-477950799045",
+            "hs_object_id": "477950799045",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_pipeline": "3d314325-1b2a-4225-9388-375f49c57ec3",
+            "hs_pipeline_stage": "61bafb31-e7fa-46ed-aaa9-1322438d6e67",
+            "hs_start_date_with_fallback": "2026-03-12T07:36:25.514Z",
+            "hs_task_body": "This task has been updated via the action",
+            "hs_task_completion_count": "1",
+            "hs_task_completion_date": "2026-03-12T07:36:50.568Z",
+            "hs_task_is_completed": "1",
+            "hs_task_is_completed_call": "0",
+            "hs_task_is_completed_email": "0",
+            "hs_task_is_completed_linked_in": "0",
+            "hs_task_is_completed_sequence": "0",
+            "hs_task_is_open": "false",
+            "hs_task_is_overdue": "false",
+            "hs_task_is_past_due_date": "false",
+            "hs_task_missed_due_date": "false",
+            "hs_task_missed_due_date_count": "0",
+            "hs_task_priority": "HIGH",
+            "hs_task_status": "COMPLETED",
+            "hs_task_subject": "Updated Test Task",
+            "hs_task_type": "TODO",
+            "hs_timestamp": "2026-03-15T10:00:00Z"
+          },
+          "createdAt": "2026-03-12T07:36:25.514Z",
+          "updatedAt": "2026-03-12T07:36:50.568Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/tasks/147893286/view/all/task/477950799045"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:36:50 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1480",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1773301069",
+          "etag": "W/\"5c8-bYVcs+36nnQOKej/eB1mfw2fSdc\""
+        },
+        "hash": "6c14d4015ee85164478e1cf96d3dd3f48a4d99ac",
+        "request": {
+          "data": {
+            "properties": {
+              "hs_task_subject": "Updated Test Task",
+              "hs_task_body": "This task has been updated via the action",
+              "hs_task_status": "COMPLETED",
+              "hs_task_priority": "HIGH"
+            }
+          }
+        }
+      }
+    }
+  }
+}

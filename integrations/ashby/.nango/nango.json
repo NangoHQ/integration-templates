@@ -48,28 +48,6 @@
       },
       {
         "type": "action",
-        "description": "Action to update an application.",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/applications",
-          "group": "Applications"
-        },
-        "input": "ActionInput_ashby_applicationupdate",
-        "name": "application-update",
-        "output": [
-          "ActionOutput_ashby_applicationupdate"
-        ],
-        "scopes": [
-          "candidatesWrite"
-        ],
-        "usedModels": [
-          "ActionInput_ashby_applicationupdate",
-          "ActionOutput_ashby_applicationupdate"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Action to update history an application stage.",
         "endpoint": {
           "method": "POST",
@@ -89,6 +67,28 @@
           "ActionOutput_ashby_applicationupdatehistory"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to update an application.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/applications",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationupdate",
+        "name": "application-update",
+        "output": [
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationupdate",
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "version": "2.0.0"
       },
       {
         "type": "action",

@@ -20,10 +20,13 @@ export interface FileMetadata {
   blob_size: number;
 };
 
-export interface SyncMetadata_sharepoint_online_userfiles {
+export interface SyncMetadata_sharepoint_online_userfilesselection {
+  sharedSites: string[];
+  pickedFiles: ({  siteId: string;
+  fileIds: string[];})[];
 };
 
-export interface UserFileMetadata {
+export interface SelectedUserFileMetadata {
   siteId: string;
   id: string;
   name: string;
@@ -39,13 +42,10 @@ export interface UserFileMetadata {
   blob_size: number;
 };
 
-export interface SyncMetadata_sharepoint_online_userfilesselection {
-  sharedSites: string[];
-  pickedFiles: ({  siteId: string;
-  fileIds: string[];})[];
+export interface SyncMetadata_sharepoint_online_userfiles {
 };
 
-export interface SelectedUserFileMetadata {
+export interface UserFileMetadata {
   siteId: string;
   id: string;
   name: string;

@@ -1,0 +1,36 @@
+{
+  "input": {
+    "calendar_id": "c_bc29bcc1b5130f5c7cb726ba174b1b2606ac3320e5eacd70b4909d1b19dff642@group.calendar.google.com"
+  },
+  "output": {
+    "success": true,
+    "calendar_id": "c_bc29bcc1b5130f5c7cb726ba174b1b2606ac3320e5eacd70b4909d1b19dff642@group.calendar.google.com"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/calendar/v3/calendars/c_bc29bcc1b5130f5c7cb726ba174b1b2606ac3320e5eacd70b4909d1b19dff642%40group.calendar.google.com": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:27:03 GMT",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4922",
+          "x-ratelimit-reset": "1773300465"
+        },
+        "hash": "2c2dc67da4e0146d95c8f5620a6060428c7c84e1",
+        "request": {}
+      }
+    }
+  }
+}

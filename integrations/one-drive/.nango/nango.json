@@ -52,37 +52,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetch all files from the user's OneDrive and sync the metadata for each file.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/user-files",
-            "group": "Files"
-          }
-        ],
-        "input": "SyncMetadata_one_drive_userfiles",
-        "name": "user-files",
-        "output": [
-          "OneDriveFile"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Files.Read",
-          "Files.Read.All",
-          "offline_access"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "OneDriveFile",
-          "SyncMetadata_one_drive_userfiles"
-        ],
-        "version": "2.0.1",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetch selected files from a user's OneDrive based on provided metadata.",
         "auto_start": false,
         "endpoints": [
@@ -110,6 +79,37 @@
           "SyncMetadata_one_drive_userfilesselection"
         ],
         "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's OneDrive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_one_drive_userfiles",
+        "name": "user-files",
+        "output": [
+          "OneDriveFile"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Files.Read",
+          "Files.Read.All",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "OneDriveFile",
+          "SyncMetadata_one_drive_userfiles"
+        ],
+        "version": "2.0.1",
         "webhookSubscriptions": []
       }
     ],

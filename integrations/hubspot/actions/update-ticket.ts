@@ -1,0 +1,82 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    ticket_id: z.string().describe('The ID of the ticket to update. Example: "12345"'),
+    subject: z.string().optional().describe('The subject of the ticket. Example: "Support Request"'),
+    content: z.string().optional().describe('The content/body of the ticket. Example: "Issue details here"'),
+    status: z.string().optional().describe('The status of the ticket. Example: "OPEN", "CLOSED", "WAITING"'),
+    priority: z.string().optional().describe('The priority of the ticket. Example: "LOW", "MEDIUM", "HIGH"'),
+    category: z.string().optional().describe('The category of the ticket. Example: "BUG", "FEATURE_REQUEST"'),
+    pipeline: z.string().optional().describe('The pipeline the ticket belongs to. Example: "123"'),
+    pipeline_stage: z.string().optional().describe('The stage of the ticket in the pipeline. Example: "456"'),
+    owner_id: z.string().optional().describe('The ID of the ticket owner. Example: "12345"')
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    subject: z.union([z.string(), z.null()]),
+    content: z.union([z.string(), z.null()]),
+    status: z.union([z.string(), z.null()]),
+    priority: z.union([z.string(), z.null()]),
+    category: z.union([z.string(), z.null()]),
+    pipeline: z.union([z.string(), z.null()]),
+    pipeline_stage: z.union([z.string(), z.null()]),
+    owner_id: z.union([z.string(), z.null()]),
+    created_at: z.union([z.string(), z.null()]),
+    updated_at: z.union([z.string(), z.null()])
+});
+
+const action = createAction({
+    description: 'Update a support ticket',
+    version: '1.0.0',
+
+    endpoint: {
+        method: 'POST',
+        path: '/actions/update-ticket',
+        group: 'Tickets'
+    },
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.tickets.write'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const properties: Record<string, string> = {};
+
+        if (input.subject) properties['subject'] = input.subject;
+        if (input.content) properties['content'] = input.content;
+        if (input.status) properties['hs_ticket_priority'] = input.status;
+        if (input.priority) properties['hs_ticket_priority'] = input.priority;
+        if (input.category) properties['hs_ticket_category'] = input.category;
+        if (input.pipeline) properties['hs_pipeline'] = input.pipeline;
+        if (input.pipeline_stage) properties['hs_pipeline_stage'] = input.pipeline_stage;
+        if (input.owner_id) properties['hubspot_owner_id'] = input.owner_id;
+
+        // https://developers.hubspot.com/docs/api-reference/crm/objects/tickets
+        const response = await nango.patch({
+            endpoint: `/crm/v3/objects/tickets/${input.ticket_id}`,
+            data: { properties },
+            retries: 10
+        });
+
+        const data = response.data;
+
+        return {
+            id: data.id,
+            subject: data.properties?.['subject'] ?? null,
+            content: data.properties?.['content'] ?? null,
+            status: data.properties?.['hs_ticket_priority'] ?? null,
+            priority: data.properties?.['hs_ticket_priority'] ?? null,
+            category: data.properties?.['hs_ticket_category'] ?? null,
+            pipeline: data.properties?.['hs_pipeline'] ?? null,
+            pipeline_stage: data.properties?.['hs_pipeline_stage'] ?? null,
+            owner_id: data.properties?.['hubspot_owner_id'] ?? null,
+            created_at: data.createdAt ?? null,
+            updated_at: data.updatedAt ?? null
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

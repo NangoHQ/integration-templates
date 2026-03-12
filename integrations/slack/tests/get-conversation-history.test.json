@@ -1,0 +1,582 @@
+{
+  "input": {
+    "channel_id": "C0AH33PLXSN",
+    "limit": 10
+  },
+  "output": {
+    "messages": [
+      {
+        "type": "message",
+        "ts": "1773301231.714899",
+        "user": "U0AH6N4H6MA",
+        "text": "Another test message for pinning"
+      },
+      {
+        "type": "message",
+        "ts": "1773301199.998369",
+        "user": "U0AH6N4H6MA",
+        "text": "Test parent message for thread replies",
+        "thread_ts": "1773301199.998369",
+        "reply_count": 2
+      },
+      {
+        "type": "message",
+        "ts": "1773301192.439149",
+        "user": "U0AH6N4H6MA",
+        "text": "Test message for pinning"
+      },
+      {
+        "type": "message",
+        "ts": "1773301156.700019",
+        "user": "U0AH6N4H6MA",
+        "text": "Second test message for reaction",
+        "reactions": [
+          {
+            "name": "fire",
+            "users": [
+              "U0AH6N4H6MA"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "ts": "1773301114.998399",
+        "user": "U0AH6N4H6MA",
+        "text": "Test message for reaction testing",
+        "reactions": [
+          {
+            "name": "+1",
+            "users": [
+              "U0AH6N4H6MA"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "ts": "1773235918.589649",
+        "user": "U0AH6N4H6MA",
+        "text": "Test scheduled message for deletion"
+      },
+      {
+        "type": "message",
+        "ts": "1773088899.684519",
+        "user": "U0AH6N4H6MA",
+        "text": "Test message for reaction testing - remove reaction action"
+      },
+      {
+        "type": "message",
+        "ts": "1773088870.582639",
+        "user": "U0AH6N4H6MA",
+        "text": "Final test message for unpin action mock"
+      },
+      {
+        "type": "message",
+        "ts": "1773088815.555389",
+        "user": "U0AH6N4H6MA",
+        "text": "Test message for unpin action - will be unpinned via action"
+      },
+      {
+        "type": "message",
+        "ts": "1773088737.882459",
+        "user": "U0AH6N4H6MA",
+        "text": "Test message for pinning - will be unpinned shortly"
+      }
+    ],
+    "has_more": true,
+    "next_cursor": "bmV4dF90czoxNzczMDg4NTAxODg3MjY5",
+    "pin_count": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/conversations.history": {
+        "response": {
+          "ok": true,
+          "messages": [
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301231.714899",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Another test message for pinning",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "deleted": false,
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "updated": 1772031587,
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "Lvx",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Another test message for pinning"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "pinned_to": [
+                "C0AH33PLXSN"
+              ],
+              "pinned_info": {
+                "channel": "C0AH33PLXSN",
+                "pinned_by": "U0AH6N4H6MA",
+                "pinned_ts": 1773301242
+              }
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301199.998369",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test parent message for thread replies",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "thread_ts": "1773301199.998369",
+              "reply_count": 2,
+              "reply_users_count": 1,
+              "latest_reply": "1773301215.497889",
+              "reply_users": [
+                "U0AH6N4H6MA"
+              ],
+              "is_locked": false,
+              "subscribed": false,
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "isEV",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test parent message for thread replies"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301192.439149",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test message for pinning",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "Ww7",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test message for pinning"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "pinned_to": [
+                "C0AH33PLXSN"
+              ],
+              "pinned_info": {
+                "channel": "C0AH33PLXSN",
+                "pinned_by": "U0AH6N4H6MA",
+                "pinned_ts": 1773301209
+              }
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301156.700019",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Second test message for reaction",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "fZGmD",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Second test message for reaction"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "reactions": [
+                {
+                  "name": "fire",
+                  "users": [
+                    "U0AH6N4H6MA"
+                  ],
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301114.998399",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test message for reaction testing",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "WtN3G",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test message for reaction testing"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "reactions": [
+                {
+                  "name": "+1",
+                  "users": [
+                    "U0AH6N4H6MA"
+                  ],
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773235918.589649",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test scheduled message for deletion",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "1Sot",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test scheduled message for deletion"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773088899.684519",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test message for reaction testing - remove reaction action",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "016m8",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test message for reaction testing - remove reaction action"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773088870.582639",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Final test message for unpin action mock",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "iOF",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Final test message for unpin action mock"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773088815.555389",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test message for unpin action - will be unpinned via action",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "oi0",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test message for unpin action - will be unpinned via action"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773088737.882459",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Test message for pinning - will be unpinned shortly",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "jZ7",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Test message for pinning - will be unpinned shortly"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "has_more": true,
+          "pin_count": 2,
+          "channel_actions_ts": null,
+          "channel_actions_count": 0,
+          "response_metadata": {
+            "next_cursor": "bmV4dF90czoxNzczMDg4NTAxODg3MjY5"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:40:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "9251",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4805",
+          "x-ratelimit-reset": "1773301252",
+          "etag": "W/\"2423-1ytlLBqm5QDJblDKVydNcX6ZXKg\""
+        },
+        "hash": "fe304ee8c0f294c327dd61752ddb239e8b5abd10",
+        "request": {
+          "params": {
+            "channel": "C0AH33PLXSN",
+            "limit": "10"
+          }
+        }
+      }
+    }
+  }
+}

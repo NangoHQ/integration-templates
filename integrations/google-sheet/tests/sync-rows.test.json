@@ -1,0 +1,675 @@
+{
+  "nango": {
+    "getMetadata": {
+      "spreadsheet_id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+      "sheet_name": "Class Data"
+    },
+    "batchSave": {
+      "Row": [
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_1",
+          "row_index": 1,
+          "values": [
+            "Student Name",
+            "Gender",
+            "Class Level",
+            "Home State",
+            "Major",
+            "Extracurricular Activity"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_2",
+          "row_index": 2,
+          "values": [
+            "Alexandra",
+            "Female",
+            "4. Senior",
+            "CA",
+            "English",
+            "Drama Club"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_3",
+          "row_index": 3,
+          "values": [
+            "Andrew",
+            "Male",
+            "1. Freshman",
+            "SD",
+            "Math",
+            "Lacrosse"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_4",
+          "row_index": 4,
+          "values": [
+            "Anna",
+            "Female",
+            "1. Freshman",
+            "NC",
+            "English",
+            "Basketball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_5",
+          "row_index": 5,
+          "values": [
+            "Becky",
+            "Female",
+            "2. Sophomore",
+            "SD",
+            "Art",
+            "Baseball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_6",
+          "row_index": 6,
+          "values": [
+            "Benjamin",
+            "Male",
+            "4. Senior",
+            "WI",
+            "English",
+            "Basketball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_7",
+          "row_index": 7,
+          "values": [
+            "Carl",
+            "Male",
+            "3. Junior",
+            "MD",
+            "Art",
+            "Debate"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_8",
+          "row_index": 8,
+          "values": [
+            "Carrie",
+            "Female",
+            "3. Junior",
+            "NE",
+            "English",
+            "Track & Field"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_9",
+          "row_index": 9,
+          "values": [
+            "Dorothy",
+            "Female",
+            "4. Senior",
+            "MD",
+            "Math",
+            "Lacrosse"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_10",
+          "row_index": 10,
+          "values": [
+            "Dylan",
+            "Male",
+            "1. Freshman",
+            "MA",
+            "Math",
+            "Baseball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_11",
+          "row_index": 11,
+          "values": [
+            "Edward",
+            "Male",
+            "3. Junior",
+            "FL",
+            "English",
+            "Drama Club"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_12",
+          "row_index": 12,
+          "values": [
+            "Ellen",
+            "Female",
+            "1. Freshman",
+            "WI",
+            "Physics",
+            "Drama Club"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_13",
+          "row_index": 13,
+          "values": [
+            "Fiona",
+            "Female",
+            "1. Freshman",
+            "MA",
+            "Art",
+            "Debate"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_14",
+          "row_index": 14,
+          "values": [
+            "John",
+            "Male",
+            "3. Junior",
+            "CA",
+            "Physics",
+            "Basketball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_15",
+          "row_index": 15,
+          "values": [
+            "Jonathan",
+            "Male",
+            "2. Sophomore",
+            "SC",
+            "Math",
+            "Debate"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_16",
+          "row_index": 16,
+          "values": [
+            "Joseph",
+            "Male",
+            "1. Freshman",
+            "AK",
+            "English",
+            "Drama Club"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_17",
+          "row_index": 17,
+          "values": [
+            "Josephine",
+            "Female",
+            "1. Freshman",
+            "NY",
+            "Math",
+            "Debate"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_18",
+          "row_index": 18,
+          "values": [
+            "Karen",
+            "Female",
+            "2. Sophomore",
+            "NH",
+            "English",
+            "Basketball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_19",
+          "row_index": 19,
+          "values": [
+            "Kevin",
+            "Male",
+            "2. Sophomore",
+            "NE",
+            "Physics",
+            "Drama Club"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_20",
+          "row_index": 20,
+          "values": [
+            "Lisa",
+            "Female",
+            "3. Junior",
+            "SC",
+            "Art",
+            "Lacrosse"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_21",
+          "row_index": 21,
+          "values": [
+            "Mary",
+            "Female",
+            "2. Sophomore",
+            "AK",
+            "Physics",
+            "Track & Field"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_22",
+          "row_index": 22,
+          "values": [
+            "Maureen",
+            "Female",
+            "1. Freshman",
+            "CA",
+            "Physics",
+            "Basketball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_23",
+          "row_index": 23,
+          "values": [
+            "Nick",
+            "Male",
+            "4. Senior",
+            "NY",
+            "Art",
+            "Baseball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_24",
+          "row_index": 24,
+          "values": [
+            "Olivia",
+            "Female",
+            "4. Senior",
+            "NC",
+            "Physics",
+            "Track & Field"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_25",
+          "row_index": 25,
+          "values": [
+            "Pamela",
+            "Female",
+            "3. Junior",
+            "RI",
+            "Math",
+            "Baseball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_26",
+          "row_index": 26,
+          "values": [
+            "Patrick",
+            "Male",
+            "1. Freshman",
+            "NY",
+            "Art",
+            "Lacrosse"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_27",
+          "row_index": 27,
+          "values": [
+            "Robert",
+            "Male",
+            "1. Freshman",
+            "CA",
+            "English",
+            "Track & Field"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_28",
+          "row_index": 28,
+          "values": [
+            "Sean",
+            "Male",
+            "1. Freshman",
+            "NH",
+            "Physics",
+            "Track & Field"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_29",
+          "row_index": 29,
+          "values": [
+            "Stacy",
+            "Female",
+            "1. Freshman",
+            "NY",
+            "Math",
+            "Baseball"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_30",
+          "row_index": 30,
+          "values": [
+            "Thomas",
+            "Male",
+            "2. Sophomore",
+            "RI",
+            "Art",
+            "Lacrosse"
+          ]
+        },
+        {
+          "id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms_Class Data_31",
+          "row_index": 31,
+          "values": [
+            "Will",
+            "Male",
+            "4. Senior",
+            "FL",
+            "Math",
+            "Debate"
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Row": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v4/spreadsheets/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/values/Class%20Data": {
+        "response": {
+          "range": "'Class Data'!A1:V101",
+          "majorDimension": "ROWS",
+          "values": [
+            [
+              "Student Name",
+              "Gender",
+              "Class Level",
+              "Home State",
+              "Major",
+              "Extracurricular Activity"
+            ],
+            [
+              "Alexandra",
+              "Female",
+              "4. Senior",
+              "CA",
+              "English",
+              "Drama Club"
+            ],
+            [
+              "Andrew",
+              "Male",
+              "1. Freshman",
+              "SD",
+              "Math",
+              "Lacrosse"
+            ],
+            [
+              "Anna",
+              "Female",
+              "1. Freshman",
+              "NC",
+              "English",
+              "Basketball"
+            ],
+            [
+              "Becky",
+              "Female",
+              "2. Sophomore",
+              "SD",
+              "Art",
+              "Baseball"
+            ],
+            [
+              "Benjamin",
+              "Male",
+              "4. Senior",
+              "WI",
+              "English",
+              "Basketball"
+            ],
+            [
+              "Carl",
+              "Male",
+              "3. Junior",
+              "MD",
+              "Art",
+              "Debate"
+            ],
+            [
+              "Carrie",
+              "Female",
+              "3. Junior",
+              "NE",
+              "English",
+              "Track & Field"
+            ],
+            [
+              "Dorothy",
+              "Female",
+              "4. Senior",
+              "MD",
+              "Math",
+              "Lacrosse"
+            ],
+            [
+              "Dylan",
+              "Male",
+              "1. Freshman",
+              "MA",
+              "Math",
+              "Baseball"
+            ],
+            [
+              "Edward",
+              "Male",
+              "3. Junior",
+              "FL",
+              "English",
+              "Drama Club"
+            ],
+            [
+              "Ellen",
+              "Female",
+              "1. Freshman",
+              "WI",
+              "Physics",
+              "Drama Club"
+            ],
+            [
+              "Fiona",
+              "Female",
+              "1. Freshman",
+              "MA",
+              "Art",
+              "Debate"
+            ],
+            [
+              "John",
+              "Male",
+              "3. Junior",
+              "CA",
+              "Physics",
+              "Basketball"
+            ],
+            [
+              "Jonathan",
+              "Male",
+              "2. Sophomore",
+              "SC",
+              "Math",
+              "Debate"
+            ],
+            [
+              "Joseph",
+              "Male",
+              "1. Freshman",
+              "AK",
+              "English",
+              "Drama Club"
+            ],
+            [
+              "Josephine",
+              "Female",
+              "1. Freshman",
+              "NY",
+              "Math",
+              "Debate"
+            ],
+            [
+              "Karen",
+              "Female",
+              "2. Sophomore",
+              "NH",
+              "English",
+              "Basketball"
+            ],
+            [
+              "Kevin",
+              "Male",
+              "2. Sophomore",
+              "NE",
+              "Physics",
+              "Drama Club"
+            ],
+            [
+              "Lisa",
+              "Female",
+              "3. Junior",
+              "SC",
+              "Art",
+              "Lacrosse"
+            ],
+            [
+              "Mary",
+              "Female",
+              "2. Sophomore",
+              "AK",
+              "Physics",
+              "Track & Field"
+            ],
+            [
+              "Maureen",
+              "Female",
+              "1. Freshman",
+              "CA",
+              "Physics",
+              "Basketball"
+            ],
+            [
+              "Nick",
+              "Male",
+              "4. Senior",
+              "NY",
+              "Art",
+              "Baseball"
+            ],
+            [
+              "Olivia",
+              "Female",
+              "4. Senior",
+              "NC",
+              "Physics",
+              "Track & Field"
+            ],
+            [
+              "Pamela",
+              "Female",
+              "3. Junior",
+              "RI",
+              "Math",
+              "Baseball"
+            ],
+            [
+              "Patrick",
+              "Male",
+              "1. Freshman",
+              "NY",
+              "Art",
+              "Lacrosse"
+            ],
+            [
+              "Robert",
+              "Male",
+              "1. Freshman",
+              "CA",
+              "English",
+              "Track & Field"
+            ],
+            [
+              "Sean",
+              "Male",
+              "1. Freshman",
+              "NH",
+              "Physics",
+              "Track & Field"
+            ],
+            [
+              "Stacy",
+              "Female",
+              "1. Freshman",
+              "NY",
+              "Math",
+              "Baseball"
+            ],
+            [
+              "Thomas",
+              "Male",
+              "2. Sophomore",
+              "RI",
+              "Art",
+              "Lacrosse"
+            ],
+            [
+              "Will",
+              "Male",
+              "4. Senior",
+              "FL",
+              "Math",
+              "Debate"
+            ]
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:37:53 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1773301130",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "d8f1017997eb789ad4f6360f2df6fb6525bbd551",
+        "request": {
+          "params": {
+            "valueRenderOption": "FORMATTED_VALUE"
+          }
+        }
+      }
+    }
+  }
+}

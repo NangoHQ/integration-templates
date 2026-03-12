@@ -1,45 +1,54 @@
-/**
- * Instructions: Removes an emoji reaction from a message
- * API: https://api.slack.com/methods/reactions.remove
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const RemoveReactionInput = z.object({
-    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string().describe('Timestamp of the message. Example: "1234567890.123456"'),
-    reaction_name: z.string().describe('The emoji name without colons. Example: "thumbsup"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('Channel ID where the message was posted. Example: "C1234567890"'),
+    timestamp: z.string().describe('Timestamp of the message to remove the reaction from. Example: "1234567890.123456"'),
+    reaction_name: z.string().describe('Name of the emoji reaction to remove. Example: "thumbsup"')
 });
 
-const RemoveReactionOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the operation was successful'),
+    error: z.union([z.string(), z.null()]).describe('Error message if the operation failed')
 });
 
 const action = createAction({
-    description: 'Removes an emoji reaction from a message.',
+    description: 'Remove an emoji reaction from a specific message',
     version: '1.0.0',
+
     endpoint: {
         method: 'POST',
-        path: '/reactions/remove',
+        path: '/actions/remove-reaction',
         group: 'Reactions'
     },
-    input: RemoveReactionInput,
-    output: RemoveReactionOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['reactions:write'],
-    exec: async (nango, input): Promise<z.infer<typeof RemoveReactionOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/reactions.remove
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/reactions.remove
+        const response = await nango.post({
             endpoint: 'reactions.remove',
             data: {
                 channel: input.channel_id,
-                timestamp: input.message_ts,
+                timestamp: input.timestamp,
                 name: input.reaction_name
             },
-            retries: 3
+            retries: 10
+        });
+
+        if (!response.data || response.data.ok !== true) {
+            return {
+                ok: false,
+                error: response.data?.error || 'Unknown error'
+            };
+        }
+
+        return {
+            ok: true,
+            error: null
         };
-        const response = await nango.post(config);
-        return { ok: response.data.ok };
     }
 });
 

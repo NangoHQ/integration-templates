@@ -1,32 +1,39 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, Id } from '../models.js';
+
+const InputSchema = z.object({
+    id: z.string().describe('HubSpot Company ID to delete. Example: "123456789"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    id: z.string()
+});
 
 const action = createAction({
-    description: 'Deletes a company in Hubspot',
-    version: '2.0.0',
+    description: 'Delete a company record',
+    version: '1.0.0',
 
     endpoint: {
-        method: 'DELETE',
-        path: '/companies',
+        method: 'POST',
+        path: '/actions/delete-company',
         group: 'Companies'
     },
 
-    input: Id,
-    output: SuccessResponse,
-    scopes: ['crm.objects.companies.write', 'oauth'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.companies.write'],
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/companies#delete-companies
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/delete-crm-v3-objects-companies-companyId
+        await nango.delete({
             endpoint: `/crm/v3/objects/companies/${input.id}`,
-            retries: 3
-        };
-
-        await nango.delete(config);
+            retries: 10
+        });
 
         return {
-            success: true
+            success: true,
+            id: input.id
         };
     }
 });

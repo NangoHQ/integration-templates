@@ -1,0 +1,1187 @@
+{
+  "nango": {
+    "batchSave": {
+      "Message": [
+        {
+          "id": "C0AGWLS4CQ3-1773301324.033409",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango send-message action!",
+          "timestamp": "1773301324.033409",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:42:04.033Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301317.518489",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango send-message action!",
+          "timestamp": "1773301317.518489",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:41:57.518Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301297.205969",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango send-message action!",
+          "timestamp": "1773301297.205969",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:41:37.205Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301271.701149",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango send-message action!",
+          "timestamp": "1773301271.701149",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:41:11.701Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301243.651609",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango post-message action",
+          "timestamp": "1773301243.651609",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:40:43.651Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301231.283709",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango post-message action",
+          "timestamp": "1773301231.283709",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:40:31.283Z"
+        },
+        {
+          "id": "C0AGWLS4CQ3-1773301230.865789",
+          "channel_id": "C0AGWLS4CQ3",
+          "channel_name": "all-nango-test",
+          "user_id": "U0AH6N4H6MA",
+          "text": "Hello from Nango send-message action!",
+          "timestamp": "1773301230.865789",
+          "is_thread_reply": false,
+          "created_at": "2026-03-12T07:40:30.865Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Message": []
+    }
+  },
+  "api": {
+    "get": {
+      "/conversations.list": {
+        "response": {
+          "ok": true,
+          "channels": [
+            {
+              "id": "C0AGWLS4CQ3",
+              "created": 1772031275,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301260632,
+              "name": "all-nango-test",
+              "name_normalized": "all-nango-test",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": true,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "This is a test channel for Nango integration testing - updated via action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773301260
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "welcome"
+              },
+              "previous_names": [
+                "all-slack"
+              ]
+            },
+            {
+              "id": "C0AGZKURX53",
+              "created": 1772031275,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773236444873,
+              "name": "social",
+              "name_normalized": "social",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "Other channels are for work. This one’s just for fun. Get to know your teammates and show your lighter side. 🎈",
+                "creator": "U0AHG0C4AU9",
+                "last_set": 1772031275
+              },
+              "topic": {
+                "value": "Test topic set by Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773042273
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "random"
+              },
+              "previous_names": []
+            },
+            {
+              "id": "C0AH33PLXSN",
+              "created": 1772031474,
+              "creator": "U0AHG0C4AU9",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301346372,
+              "name": "new-channel",
+              "name_normalized": "new-channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "This channel is for everything #new-channel. Hold meetings, share docs, and make decisions together with your team.",
+                "creator": "U0AHG0C4AU9",
+                "last_set": 1772031474
+              },
+              "topic": {
+                "value": "Test topic set by Nango action",
+                "creator": "U0AH6N4H6MA",
+                "last_set": 1773301346
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "properties": {
+                "tabs": [
+                  {
+                    "type": "bookmarks",
+                    "label": "",
+                    "id": "bookmarks"
+                  }
+                ],
+                "tabz": [
+                  {
+                    "type": "bookmarks"
+                  }
+                ],
+                "use_case": "project"
+              },
+              "previous_names": []
+            },
+            {
+              "id": "C0AJWENCT5M",
+              "created": 1773042110,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773042138433,
+              "name": "renamed-channel-12345",
+              "name_normalized": "renamed-channel-12345",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": [
+                "renamed-channel-12345",
+                "test-rename-channel-12345"
+              ]
+            },
+            {
+              "id": "C0AK2STUC83",
+              "created": 1772988881,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1772988881282,
+              "name": "auto-channel-1772988867",
+              "name_normalized": "auto-channel-1772988867",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": []
+            },
+            {
+              "id": "C0AKU87D4ER",
+              "created": 1773235715,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773235715866,
+              "name": "test-channel-from-opencode",
+              "name_normalized": "test-channel-from-opencode",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": []
+            },
+            {
+              "id": "C0AKXP70S10",
+              "created": 1773236276,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773236276067,
+              "name": "test-invite-channel-1773236275",
+              "name_normalized": "test-invite-channel-1773236275",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "previous_names": []
+            },
+            {
+              "id": "C0AKXV9HB4K",
+              "created": 1773301188,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301188451,
+              "name": "test-invite-channel-1773301187",
+              "name_normalized": "test-invite-channel-1773301187",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "previous_names": []
+            },
+            {
+              "id": "C0AL0UF5YG5",
+              "created": 1773301319,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301319318,
+              "name": "invite-valid-1773301318",
+              "name_normalized": "invite-valid-1773301318",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "previous_names": []
+            },
+            {
+              "id": "C0AL29S6RB8",
+              "created": 1773301247,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301247262,
+              "name": "test-remove-user-action",
+              "name_normalized": "test-remove-user-action",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": []
+            },
+            {
+              "id": "C0AL29T95C6",
+              "created": 1773301256,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301256083,
+              "name": "invite-test-1773301255",
+              "name_normalized": "invite-test-1773301255",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "previous_names": []
+            },
+            {
+              "id": "C0AL7V2C39A",
+              "created": 1773301337,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301337348,
+              "name": "mock-channel-1773301336",
+              "name_normalized": "mock-channel-1773301336",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 2,
+              "previous_names": []
+            },
+            {
+              "id": "C0ALBRFM02U",
+              "created": 1773088692,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773088711495,
+              "name": "mock-renamed-channel",
+              "name_normalized": "mock-renamed-channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": [
+                "channel-for-mock-test"
+              ]
+            },
+            {
+              "id": "C0ALH8A40JV",
+              "created": 1773301091,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301091702,
+              "name": "test-channel-123",
+              "name_normalized": "test-channel-123",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": []
+            },
+            {
+              "id": "C0ALH8CKCN5",
+              "created": 1773301123,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301123444,
+              "name": "test-channel-12345",
+              "name_normalized": "test-channel-12345",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": []
+            },
+            {
+              "id": "C0ALYKEFWBS",
+              "created": 1773301267,
+              "creator": "U0AH6N4H6MA",
+              "is_org_shared": false,
+              "is_im": false,
+              "context_team_id": "T0AH32UST18",
+              "updated": 1773301303830,
+              "name": "test-rename-saved",
+              "name_normalized": "test-rename-saved",
+              "is_channel": true,
+              "is_group": false,
+              "is_mpim": false,
+              "is_private": false,
+              "is_archived": false,
+              "is_general": false,
+              "is_shared": false,
+              "is_ext_shared": false,
+              "unlinked": 0,
+              "is_pending_ext_shared": false,
+              "pending_shared": [],
+              "parent_conversation": null,
+              "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+              },
+              "shared_team_ids": [
+                "T0AH32UST18"
+              ],
+              "pending_connected_team_ids": [],
+              "is_member": true,
+              "num_members": 1,
+              "previous_names": [
+                "test-rename-validated",
+                "test-rename-channel",
+                "test-renamed-successfully",
+                "test-rename-channel-"
+              ]
+            }
+          ],
+          "response_metadata": {
+            "next_cursor": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:52:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "12022",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1773302030",
+          "etag": "W/\"2ef6-ivlnF/hKrYxKfmkmOLvf14oMwfk\""
+        },
+        "hash": "d3747a3dc80fd95b312084cbe422fe169ffda3a3",
+        "request": {
+          "params": {
+            "exclude_archived": "true",
+            "limit": "100",
+            "types": "public_channel,private_channel"
+          }
+        }
+      },
+      "/conversations.history": {
+        "response": {
+          "ok": true,
+          "messages": [
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301324.033409",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango send-message action!",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "deleted": false,
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "updated": 1772031587,
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "KXV",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango send-message action!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301317.518489",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango send-message action!",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "Fzu5H",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango send-message action!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301297.205969",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango send-message action!",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "C70G",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango send-message action!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301271.701149",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango send-message action!",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "Z3a",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango send-message action!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subtype": "channel_purpose",
+              "user": "U0AH6N4H6MA",
+              "purpose": "This is a test channel for Nango integration testing - updated via action",
+              "text": "set the channel description: This is a test channel for Nango integration testing - updated via action",
+              "type": "message",
+              "ts": "1773301260.659649"
+            },
+            {
+              "subtype": "channel_purpose",
+              "user": "U0AH6N4H6MA",
+              "purpose": "This is a test channel for Nango integration testing - updated via action",
+              "text": "set the channel description: This is a test channel for Nango integration testing - updated via action",
+              "type": "message",
+              "ts": "1773301250.430369"
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301243.651609",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango post-message action",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "fd3",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango post-message action"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301231.283709",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango post-message action",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "AP9U",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango post-message action"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "user": "U0AH6N4H6MA",
+              "type": "message",
+              "ts": "1773301230.865789",
+              "bot_id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "text": "Hello from Nango send-message action!",
+              "team": "T0AH32UST18",
+              "bot_profile": {
+                "id": "B0AHXCCPN2U",
+                "app_id": "A09BGMXLWL9",
+                "user_id": "U0AH6N4H6MA",
+                "name": "NangoDevelopersOnlyNotForProduction",
+                "icons": {
+                  "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                  "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                  "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+                },
+                "deleted": false,
+                "updated": 1772031587,
+                "team_id": "T0AH32UST18"
+              },
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "5E/+",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello from Nango send-message action!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subtype": "channel_join",
+              "user": "U0AH6N4H6MA",
+              "text": "<@U0AH6N4H6MA> has joined the channel",
+              "type": "message",
+              "ts": "1773088497.868329",
+              "reactions": [
+                {
+                  "name": "+1",
+                  "users": [
+                    "U0AH6N4H6MA"
+                  ],
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "subtype": "channel_join",
+              "user": "U0AHG0C4AU9",
+              "text": "<@U0AHG0C4AU9> has joined the channel",
+              "type": "message",
+              "ts": "1772031275.701419",
+              "reactions": [
+                {
+                  "name": "+1",
+                  "users": [
+                    "U0AH6N4H6MA"
+                  ],
+                  "count": 1
+                }
+              ]
+            }
+          ],
+          "has_more": false,
+          "pin_count": 0,
+          "channel_actions_ts": null,
+          "channel_actions_count": 0
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:52:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "7018",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1773302030",
+          "etag": "W/\"1b6a-0l6CghcGPIQFo1Z7m9+pWtmOdBo\""
+        },
+        "hash": "4fdecf3c61b4af25b45c232d59ca64cd502dab50",
+        "request": {
+          "params": {
+            "channel": "C0AGWLS4CQ3",
+            "limit": "100",
+            "oldest": "0"
+          }
+        }
+      }
+    }
+  }
+}

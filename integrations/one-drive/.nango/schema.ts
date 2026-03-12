@@ -1,7 +1,10 @@
-export interface SyncMetadata_one_drive_userfiles {
+export interface SyncMetadata_one_drive_userfilesselection {
+  drives: string[];
+  pickedFiles: ({  driveId: string;
+  fileIds: string[];})[];
 };
 
-export interface OneDriveFile {
+export interface OneDriveFileSelection {
   id: string;
   name: string;
   etag: string;
@@ -16,13 +19,10 @@ export interface OneDriveFile {
   drive_id: string;
 };
 
-export interface SyncMetadata_one_drive_userfilesselection {
-  drives: string[];
-  pickedFiles: ({  driveId: string;
-  fileIds: string[];})[];
+export interface SyncMetadata_one_drive_userfiles {
 };
 
-export interface OneDriveFileSelection {
+export interface OneDriveFile {
   id: string;
   name: string;
   etag: string;

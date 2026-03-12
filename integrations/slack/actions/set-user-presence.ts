@@ -1,42 +1,53 @@
-/**
- * Instructions: Sets the calling users manual presence status
- * API: https://api.slack.com/methods/users.setPresence
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const SetUserPresenceInput = z.object({
-    presence: z.string().describe('The presence status to set: "auto" or "away". Example: "away"')
+const InputSchema = z.object({
+    presence: z.enum(['online', 'away']).describe('User presence status. Use "online" to set presence to auto (active) or "away" to set presence to away.')
 });
 
-const SetUserPresenceOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the presence was set successfully'),
+    error: z.union([z.string(), z.null()]).optional().describe('Error message if the request failed')
 });
 
 const action = createAction({
-    description: "Sets the calling user's manual presence status.",
+    description: "Set a user's presence to online or away",
     version: '1.0.0',
+
     endpoint: {
         method: 'POST',
-        path: '/users/presence',
+        path: '/actions/set-user-presence',
         group: 'Users'
     },
-    input: SetUserPresenceInput,
-    output: SetUserPresenceOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['users:write'],
-    exec: async (nango, input): Promise<z.infer<typeof SetUserPresenceOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/users.setPresence
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/users.setPresence
+        // Map "online" to "auto" (Slack's term for activity-based presence)
+        const presenceValue = input.presence === 'online' ? 'auto' : 'away';
+
+        const response = await nango.post({
             endpoint: 'users.setPresence',
             data: {
-                presence: input.presence
+                presence: presenceValue
             },
-            retries: 3
-        };
-        const response = await nango.post(config);
+            retries: 10 // Non-idempotent write, avoid retries
+        });
+
+        if (!response.data || response.data.ok !== true) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to set user presence',
+                presence: input.presence
+            });
+        }
+
         return {
-            ok: response.data.ok
+            ok: response.data.ok,
+            error: response.data.error || null
         };
     }
 });

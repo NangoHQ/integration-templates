@@ -1,0 +1,232 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "USLACKBOT",
+          "team_id": "T0AH32UST18",
+          "name": "slackbot",
+          "real_name": "Slackbot",
+          "email": null,
+          "is_admin": false,
+          "is_owner": false,
+          "is_bot": false,
+          "deleted": false,
+          "updated": 0
+        },
+        {
+          "id": "U0AH6N4H6MA",
+          "team_id": "T0AH32UST18",
+          "name": "nangodevelopersonlyno",
+          "real_name": "NangoDevelopersOnlyNotForProduction",
+          "email": null,
+          "is_admin": false,
+          "is_owner": false,
+          "is_bot": true,
+          "deleted": false,
+          "updated": 1772031589
+        },
+        {
+          "id": "U0AHG0C4AU9",
+          "team_id": "T0AH32UST18",
+          "name": "marcinnango",
+          "real_name": "marcin",
+          "email": "marcinnango@gmail.com",
+          "is_admin": true,
+          "is_owner": true,
+          "is_bot": false,
+          "deleted": false,
+          "updated": 1772031292
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/users.list": {
+        "response": {
+          "ok": true,
+          "members": [
+            {
+              "id": "USLACKBOT",
+              "name": "slackbot",
+              "is_bot": false,
+              "updated": 0,
+              "is_app_user": false,
+              "team_id": "T0AH32UST18",
+              "deleted": false,
+              "color": "757575",
+              "is_email_confirmed": false,
+              "real_name": "Slackbot",
+              "tz": "America/Los_Angeles",
+              "tz_label": "Pacific Daylight Time",
+              "tz_offset": -25200,
+              "is_admin": false,
+              "is_owner": false,
+              "is_primary_owner": false,
+              "is_restricted": false,
+              "is_ultra_restricted": false,
+              "who_can_share_contact_card": "EVERYONE",
+              "profile": {
+                "real_name": "Slackbot",
+                "display_name": "Slackbot",
+                "avatar_hash": "sv41d8cd98f0",
+                "real_name_normalized": "Slackbot",
+                "display_name_normalized": "Slackbot",
+                "image_24": "https://a.slack-edge.com/80588/img/slackbot_24.png",
+                "image_32": "https://a.slack-edge.com/80588/img/slackbot_32.png",
+                "image_48": "https://a.slack-edge.com/80588/img/slackbot_48.png",
+                "image_72": "https://a.slack-edge.com/80588/img/slackbot_72.png",
+                "image_192": "https://a.slack-edge.com/80588/marketing/img/avatars/slackbot/avatar-slackbot.png",
+                "image_512": "https://a.slack-edge.com/80588/img/slackbot_512.png",
+                "first_name": "slackbot",
+                "last_name": "",
+                "team": "T0AH32UST18",
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "fields": {},
+                "status_text": "",
+                "status_text_canonical": "",
+                "status_emoji": "",
+                "status_emoji_display_info": [],
+                "status_expiration": 0,
+                "always_active": true
+              }
+            },
+            {
+              "id": "U0AH6N4H6MA",
+              "name": "nangodevelopersonlyno",
+              "is_bot": true,
+              "updated": 1772031589,
+              "is_app_user": false,
+              "team_id": "T0AH32UST18",
+              "deleted": false,
+              "color": "de5f24",
+              "is_email_confirmed": false,
+              "real_name": "NangoDevelopersOnlyNotForProduction",
+              "tz": "America/Los_Angeles",
+              "tz_label": "Pacific Daylight Time",
+              "tz_offset": -25200,
+              "is_admin": false,
+              "is_owner": false,
+              "is_primary_owner": false,
+              "is_restricted": false,
+              "is_ultra_restricted": false,
+              "who_can_share_contact_card": "EVERYONE",
+              "profile": {
+                "real_name": "NangoDevelopersOnlyNotForProduction",
+                "display_name": "",
+                "avatar_hash": "2952baf4c309",
+                "real_name_normalized": "NangoDevelopersOnlyNotForProduction",
+                "display_name_normalized": "",
+                "image_24": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_24.png",
+                "image_32": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_32.png",
+                "image_48": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_48.png",
+                "image_72": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_72.png",
+                "image_192": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_192.png",
+                "image_512": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_512.png",
+                "image_1024": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_1024.png",
+                "image_original": "https://avatars.slack-edge.com/2026-02-25/10609415872400_2952baf4c309ab8e3417_original.png",
+                "is_custom_image": true,
+                "first_name": "NangoDevelopersOnlyNotForProduction",
+                "last_name": "",
+                "team": "T0AH32UST18",
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "status_text": "",
+                "status_text_canonical": "",
+                "status_emoji": "",
+                "status_emoji_display_info": [],
+                "status_expiration": 0,
+                "bot_id": "B0AHXCCPN2U",
+                "api_app_id": "A09BGMXLWL9",
+                "always_active": false
+              }
+            },
+            {
+              "id": "U0AHG0C4AU9",
+              "name": "marcinnango",
+              "is_bot": false,
+              "updated": 1772031292,
+              "is_app_user": false,
+              "team_id": "T0AH32UST18",
+              "deleted": false,
+              "color": "8469bc",
+              "is_email_confirmed": true,
+              "real_name": "marcin",
+              "tz": "Europe/Warsaw",
+              "tz_label": "Central European Time",
+              "tz_offset": 3600,
+              "is_admin": true,
+              "is_owner": true,
+              "is_primary_owner": true,
+              "is_restricted": false,
+              "is_ultra_restricted": false,
+              "who_can_share_contact_card": "EVERYONE",
+              "profile": {
+                "real_name": "marcin",
+                "display_name": "",
+                "avatar_hash": "g48ab6849019",
+                "real_name_normalized": "marcin",
+                "display_name_normalized": "",
+                "image_24": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-24.png",
+                "image_32": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-32.png",
+                "image_48": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-48.png",
+                "image_72": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+                "image_192": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-192.png",
+                "image_512": "https://secure.gravatar.com/avatar/48ab6849019221b72a5ce6b0ebc41e73.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-512.png",
+                "first_name": "marcin",
+                "last_name": "",
+                "team": "T0AH32UST18",
+                "email": "marcinnango@gmail.com",
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "status_text": "",
+                "status_text_canonical": "",
+                "status_emoji": "",
+                "status_emoji_display_info": [],
+                "status_expiration": 0
+              }
+            }
+          ],
+          "cache_ts": 1773301321,
+          "response_metadata": {
+            "next_cursor": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:42:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "5017",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1773301372",
+          "etag": "W/\"1399-LxJpg+C1oIDp1Jf1IF7xzqyKSMU\""
+        },
+        "hash": "cca62fb21b7e8bfb6e718ba35c7b971b5ad3c6f2",
+        "request": {
+          "params": {
+            "limit": "200"
+          }
+        }
+      }
+    }
+  }
+}

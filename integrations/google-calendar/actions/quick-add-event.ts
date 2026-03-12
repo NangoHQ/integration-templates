@@ -1,59 +1,112 @@
-/**
- * Instructions: Creates an event based on a simple text string like a natural language input
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/quickAdd
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const QuickAddEventInput = z.object({
-    calendar_id: z.string(),
-    text: z.string()
+const InputSchema = z.object({
+    calendar_id: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary"'),
+    text: z.string().describe('The text describing the event to be created. Example: "Meeting with John tomorrow at 2pm"'),
+    send_updates: z
+        .enum(['all', 'externalOnly', 'none'])
+        .optional()
+        .describe('Guests who should receive notifications about the creation of the new event. Acceptable values: "all", "externalOnly", "none".')
 });
 
-const QuickAddEventOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
-    id: z.string(),
-    status: z.string(),
-    summary: z.string(),
-    start: z.any(),
-    end: z.any()
+const OutputSchema = z.object({
+    id: z.string().describe('The unique ID of the event.'),
+    summary: z.union([z.string(), z.null()]).describe('The title of the event.'),
+    description: z.union([z.string(), z.null()]).describe('The description of the event.'),
+    start: z
+        .object({
+            dateTime: z.union([z.string(), z.null()]),
+            date: z.union([z.string(), z.null()]),
+            timeZone: z.union([z.string(), z.null()])
+        })
+        .describe('The start time of the event.'),
+    end: z
+        .object({
+            dateTime: z.union([z.string(), z.null()]),
+            date: z.union([z.string(), z.null()]),
+            timeZone: z.union([z.string(), z.null()])
+        })
+        .describe('The end time of the event.'),
+    htmlLink: z.union([z.string(), z.null()]).describe('A link to the event in Google Calendar.'),
+    created: z.union([z.string(), z.null()]).describe('The creation time of the event.'),
+    updated: z.union([z.string(), z.null()]).describe('The last modification time of the event.'),
+    status: z.union([z.string(), z.null()]).describe('The status of the event.'),
+    creator: z
+        .object({
+            email: z.union([z.string(), z.null()]),
+            displayName: z.union([z.string(), z.null()])
+        })
+        .optional()
+        .describe('The creator of the event.'),
+    organizer: z
+        .object({
+            email: z.union([z.string(), z.null()]),
+            displayName: z.union([z.string(), z.null()])
+        })
+        .optional()
+        .describe('The organizer of the event.')
 });
 
 const action = createAction({
-    description: 'Creates an event based on a simple text string like a natural language input',
+    description: 'Create an event from a text string',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/quickAdd
+
     endpoint: {
         method: 'POST',
-        path: '/events/quickAdd',
+        path: '/actions/quick-add-event',
         group: 'Events'
     },
-    input: QuickAddEventInput,
-    output: QuickAddEventOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof QuickAddEventOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/quickAdd
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/quickAdd`,
-            params: {
-                text: input.text
-            },
-            retries: 3
-        };
 
-        const response = await nango.post(config);
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendar_id || 'primary';
+
+        const response = await nango.post({
+            // https://developers.google.com/calendar/api/v3/reference/events/quickAdd
+            endpoint: `/calendar/v3/calendars/${calendarId}/events/quickAdd`,
+            params: {
+                text: input.text,
+                ...(input.send_updates && { sendUpdates: input.send_updates })
+            },
+            retries: 10
+        });
+
+        const event = response.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            status: response.data.status,
-            summary: response.data.summary,
-            start: response.data.start,
-            end: response.data.end
+            id: event.id,
+            summary: event.summary ?? null,
+            description: event.description ?? null,
+            start: {
+                dateTime: event.start?.dateTime ?? null,
+                date: event.start?.date ?? null,
+                timeZone: event.start?.timeZone ?? null
+            },
+            end: {
+                dateTime: event.end?.dateTime ?? null,
+                date: event.end?.date ?? null,
+                timeZone: event.end?.timeZone ?? null
+            },
+            htmlLink: event.htmlLink ?? null,
+            created: event.created ?? null,
+            updated: event.updated ?? null,
+            status: event.status ?? null,
+            creator: event.creator
+                ? {
+                      email: event.creator.email ?? null,
+                      displayName: event.creator.displayName ?? null
+                  }
+                : undefined,
+            organizer: event.organizer
+                ? {
+                      email: event.organizer.email ?? null,
+                      displayName: event.organizer.displayName ?? null
+                  }
+                : undefined
         };
     }
 });

@@ -1,40 +1,36 @@
-/**
- * Instructions: Removes a calendar from the user's calendar list
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendarList/delete
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const RemoveCalendarFromListInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    calendar_id: z
+        .string()
+        .describe('Calendar ID to remove from the user\'s calendar list. Example: "primary" or a calendar ID like "abc123xyz@group.calendar.google.com"')
 });
 
-const RemoveCalendarFromListOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the calendar was successfully removed from the list')
 });
 
 const action = createAction({
-    description: "Removes a calendar from the user's calendar list",
+    description: "Remove a calendar from the user's calendar list",
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendarList/delete
+
     endpoint: {
-        method: 'DELETE',
-        path: '/calendarList/entry',
+        method: 'POST',
+        path: '/actions/remove-calendar-from-list',
         group: 'Calendars'
     },
-    input: RemoveCalendarFromListInput,
-    output: RemoveCalendarFromListOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof RemoveCalendarFromListOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendarList/delete
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/calendar/api/v3/reference/calendarList/delete
+        await nango.delete({
             endpoint: `/calendar/v3/users/me/calendarList/${encodeURIComponent(input.calendar_id)}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
             success: true

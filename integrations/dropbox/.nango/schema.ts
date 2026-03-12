@@ -12,10 +12,9 @@ export interface SyncMetadata_dropbox_files {
 
 export interface Document {
   id: string;
-  url: string;
+  path: string;
   title: string;
-  mimeType: string;
-  updatedAt: string;
+  modified_date: string;
 };
 
 export interface SyncMetadata_dropbox_users {

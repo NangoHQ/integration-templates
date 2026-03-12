@@ -1,86 +1,100 @@
-/**
- * Instructions: Joins a public or private channel.
- * API: https://api.slack.com/methods/conversations.join
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const JoinChannelInput = z.object({
-    channel_id: z.string().describe('The channel to join. Example: "C02MB5ZABA7"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('ID of the channel to join. Example: C061EG9SL')
 });
 
-const JoinChannelOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    channel: z.object({
-        id: z.string(),
-        name: z.string(),
-        is_channel: z.boolean(),
-        is_group: z.boolean(),
-        is_im: z.boolean(),
-        is_mpim: z.boolean(),
-        is_private: z.boolean(),
-        created: z.number(),
-        is_archived: z.boolean(),
-        is_general: z.boolean(),
-        unlinked: z.number(),
-        name_normalized: z.string(),
-        is_shared: z.boolean(),
-        is_org_shared: z.boolean(),
-        is_pending_ext_shared: z.boolean(),
-        pending_shared: z.array(z.string()),
-        context_team_id: z.string(),
-        updated: z.number(),
-        parent_conversation: z.string().nullable(),
-        creator: z.string(),
-        is_ext_shared: z.boolean(),
-        shared_team_ids: z.array(z.string()),
-        pending_connected_team_ids: z.array(z.string()),
-        is_member: z.boolean(),
-        topic: z.object({
+const OutputSchema = z.object({
+    id: z.string(),
+    name: z.union([z.string(), z.null()]),
+    is_channel: z.boolean().optional(),
+    is_group: z.boolean().optional(),
+    is_im: z.boolean().optional(),
+    is_private: z.boolean().optional(),
+    is_archived: z.boolean().optional(),
+    is_general: z.boolean().optional(),
+    created: z.union([z.number(), z.null()]),
+    creator: z.union([z.string(), z.null()]),
+    is_member: z.boolean().optional(),
+    num_members: z.union([z.number(), z.null()]),
+    topic: z
+        .object({
             value: z.string(),
             creator: z.string(),
             last_set: z.number()
-        }),
-        purpose: z.object({
+        })
+        .optional(),
+    purpose: z
+        .object({
             value: z.string(),
             creator: z.string(),
             last_set: z.number()
-        }),
-        previous_names: z.array(z.string())
-    })
+        })
+        .optional()
 });
 
 const action = createAction({
-    description: 'Joins a public or private channel.',
+    description: 'Join a public or private channel and return its conversation details',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/channels/join',
-        group: 'Channels'
+        path: '/actions/join-channel',
+        group: 'Conversations'
     },
 
-    input: JoinChannelInput,
-    output: JoinChannelOutput,
-    scopes: ['channels:write'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['channels:join', 'groups:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof JoinChannelOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/conversations.join
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.slack.dev/reference/methods/conversations.join
+        const response = await nango.post({
             endpoint: 'conversations.join',
             data: {
                 channel: input.channel_id
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data || !response.data.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to join channel',
+                channel_id: input.channel_id
+            });
+        }
+
+        const channel = response.data.channel;
 
         return {
-            ok: response.data.ok,
-            channel: response.data.channel
+            id: channel.id,
+            name: channel.name ?? null,
+            is_channel: channel.is_channel,
+            is_group: channel.is_group,
+            is_im: channel.is_im,
+            is_private: channel.is_private,
+            is_archived: channel.is_archived,
+            is_general: channel.is_general,
+            created: channel.created ?? null,
+            creator: channel.creator ?? null,
+            is_member: channel.is_member,
+            num_members: channel.num_members ?? null,
+            topic: channel.topic
+                ? {
+                      value: channel.topic.value ?? '',
+                      creator: channel.topic.creator ?? '',
+                      last_set: channel.topic.last_set ?? 0
+                  }
+                : undefined,
+            purpose: channel.purpose
+                ? {
+                      value: channel.purpose.value ?? '',
+                      creator: channel.purpose.creator ?? '',
+                      last_set: channel.purpose.last_set ?? 0
+                  }
+                : undefined
         };
     }
 });

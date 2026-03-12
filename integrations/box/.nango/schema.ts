@@ -22,10 +22,9 @@ export interface SyncMetadata_box_folders {
 
 export interface Folder {
   id: string;
-  url: string;
-  title: string;
-  mimeType: string;
-  updatedAt: string;
+  name: string | null;
+  created_at: string | null;
+  modified_at: string | null;
 };
 
 export interface SyncMetadata_box_users {

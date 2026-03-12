@@ -1,53 +1,61 @@
-/**
- * Instructions: Returns metadata for a calendar by calendar ID
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendars/get
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const GetCalendarInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    calendar_id: z
+        .string()
+        .describe(
+            'Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.'
+        )
 });
 
-const GetCalendarOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const OutputSchema = z.object({
     id: z.string(),
     summary: z.string(),
-    description: z.string().optional(),
-    timeZone: z.string()
+    description: z.union([z.string(), z.null()]),
+    location: z.union([z.string(), z.null()]),
+    timeZone: z.union([z.string(), z.null()]),
+    etag: z.string(),
+    kind: z.string()
 });
 
 const action = createAction({
-    description: 'Returns metadata for a calendar by calendar ID',
+    description: 'Get a calendar by ID',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendars/get
+
     endpoint: {
         method: 'GET',
-        path: '/calendar',
+        path: '/actions/get-calendar',
         group: 'Calendars'
     },
-    input: GetCalendarInput,
-    output: GetCalendarOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-    exec: async (nango, input): Promise<z.infer<typeof GetCalendarOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendars/get
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/get
+        const response = await nango.get({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}`,
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Calendar not found',
+                calendar_id: input.calendar_id
+            });
+        }
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
             id: response.data.id,
             summary: response.data.summary,
-            description: response.data.description,
-            timeZone: response.data.timeZone
+            description: response.data.description ?? null,
+            location: response.data.location ?? null,
+            timeZone: response.data.timeZone ?? null,
+            etag: response.data.etag,
+            kind: response.data.kind
         };
     }
 });

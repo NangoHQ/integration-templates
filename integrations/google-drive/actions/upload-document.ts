@@ -1,131 +1,110 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { GoogleDocument, UploadFileInput } from '../models.js';
 
-/**
- * Uploads a file to Google Drive using simple upload.
- * Uploads the file using simple upload then sets metadata if provided.
- *
- * @param nango - An instance of NangoAction.
- * @param input - Object containing file details (content, name, optional mimeType and folderId).
- * @returns Metadata about the uploaded file.
- */
+const InputSchema = z.object({
+    name: z.string().describe('The name of the file to create. Example: "document.txt"'),
+    content: z.string().describe('The file content as plain text or base64 encoded string'),
+    mime_type: z.string().describe('The MIME type of the file. Example: "text/plain", "application/pdf"'),
+    is_base64: z.boolean().optional().describe('Whether the content is base64 encoded. Defaults to false'),
+    folder_id: z.string().optional().describe('The ID of the folder to upload the file into. If not provided, defaults to root. Example: "1a2b3c4d5e6f7g8h"'),
+    description: z.string().optional().describe('A description of the file')
+});
+
+const OutputSchema = z.object({
+    id: z.string().describe('The ID of the created file'),
+    name: z.string().describe('The name of the created file'),
+    mime_type: z.string().describe('The MIME type of the file'),
+    web_view_link: z.union([z.string(), z.null()]).describe('A link for opening the file in a relevant Google editor or viewer'),
+    web_content_link: z.union([z.string(), z.null()]).describe('A link for downloading the content of the file in a browser')
+});
+
 const action = createAction({
-    description:
-        "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+    description: 'Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/upload-document',
-        group: 'Documents'
+        path: '/actions/upload-document',
+        group: 'Files'
     },
 
-    input: UploadFileInput,
-    output: GoogleDocument,
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.file'],
 
-    scopes: ['https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Decode base64 content if needed
+        let fileContent: string;
+        if (input.is_base64) {
+            fileContent = Buffer.from(input.content, 'base64').toString('binary');
+        } else {
+            fileContent = input.content;
+        }
 
-    exec: async (nango, input): Promise<GoogleDocument> => {
-        if (!input.content) {
+        // Step 1: Create file metadata
+        // https://developers.google.com/workspace/drive/api/reference/rest/v3/files/create
+        const metadataBody: Record<string, unknown> = {
+            name: input.name,
+            mimeType: input.mime_type
+        };
+
+        if (input.description) {
+            metadataBody['description'] = input.description;
+        }
+
+        if (input.folder_id) {
+            metadataBody['parents'] = [input.folder_id];
+        }
+
+        const createResponse = await nango.post({
+            endpoint: '/drive/v3/files',
+            params: {
+                fields: 'id,name,mimeType,webViewLink,webContentLink'
+            },
+            data: metadataBody,
+            retries: 10
+        });
+
+        if (!createResponse.data || !createResponse.data.id) {
             throw new nango.ActionError({
-                message: 'Invalid input',
-                details: 'File content is required.'
+                type: 'create_failed',
+                message: 'Failed to create file metadata in Google Drive'
             });
         }
 
-        if (!input.name) {
+        const fileId = createResponse.data.id;
+
+        // Step 2: Upload content using media upload
+        // https://developers.google.com/workspace/drive/api/reference/rest/v3/files/update
+        const contentResponse = await nango.patch({
+            endpoint: `/upload/drive/v3/files/${fileId}`,
+            params: {
+                uploadType: 'media',
+                fields: 'id,name,mimeType,webViewLink,webContentLink'
+            },
+            headers: {
+                'Content-Type': input.mime_type
+            },
+            data: fileContent,
+            retries: 10
+        });
+
+        if (!contentResponse.data) {
             throw new nango.ActionError({
-                message: 'Invalid input',
-                details: 'File name is required.'
+                type: 'upload_failed',
+                message: 'Failed to upload file content to Google Drive'
             });
         }
 
-        // Set default MIME type
-        const mimeType = input.mimeType || 'application/octet-stream';
+        const file = contentResponse.data;
 
-        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
-        try {
-            let fileContent: Buffer;
-            if (input.isBase64 === true) {
-                fileContent = Buffer.from(input.content, 'base64');
-            } else {
-                fileContent = Buffer.from(input.content);
-            }
-
-            const fileSizeInBytes = fileContent.length;
-            const maxFileSizeInBytes = 5 * 1024 * 1024; // 5 MB
-
-            if (fileSizeInBytes > maxFileSizeInBytes) {
-                throw new nango.ActionError({
-                    message: 'File size exceeds limit',
-                    details: 'The file size exceeds the 5 MB limit for simple uploads.'
-                });
-            }
-
-            const uploadConfig: ProxyConfiguration = {
-                // https://developers.google.com/drive/api/reference/rest/v3/files/create
-                endpoint: 'upload/drive/v3/files',
-                method: 'POST',
-                params: {
-                    uploadType: 'media'
-                },
-                headers: {
-                    'Content-Type': mimeType,
-                    'Content-Length': fileContent.length.toString()
-                },
-                data: fileContent,
-                retries: 3
-            };
-
-            const uploadResponse = await nango.post<GoogleDocument>(uploadConfig);
-
-            if (uploadResponse.status !== 200 && uploadResponse.status !== 201) {
-                throw new nango.ActionError(`Failed to upload file: Status ${uploadResponse.status}`);
-            }
-
-            const fileId = uploadResponse.data.id;
-
-            // If a name or folder ID is provided, update metadata to move the file to that folder
-            if (input.folderId || input.name) {
-                const metadata: Record<string, any> = {
-                    name: input.name
-                };
-
-                if (input.description) {
-                    metadata['description'] = [input.description];
-                }
-
-                const updateConfig: ProxyConfiguration = {
-                    // https://developers.google.com/drive/api/reference/rest/v3/files/update
-                    endpoint: `drive/v3/files/${fileId}`,
-                    method: 'PATCH',
-                    params: {
-                        ...(input.folderId ? { addParents: input.folderId, removeParents: 'root' } : {}),
-                        supportsAllDrives: 'true'
-                    },
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    data: metadata,
-                    retries: 3
-                };
-
-                const updateResponse = await nango.patch<GoogleDocument>(updateConfig);
-
-                if (updateResponse.status !== 200) {
-                    throw new Error(`Failed to update file metadata: Status Code ${updateResponse.status}`);
-                }
-                return updateResponse.data;
-            }
-
-            return uploadResponse.data;
-        } catch (error) {
-            throw new nango.ActionError({
-                message: 'Failed to upload file to Google Drive',
-                details: error instanceof Error ? error.message : String(error)
-            });
-        }
+        return {
+            id: file.id,
+            name: file.name,
+            mime_type: file.mimeType,
+            web_view_link: file.webViewLink ?? null,
+            web_content_link: file.webContentLink ?? null
+        };
     }
 });
 

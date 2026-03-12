@@ -16,6 +16,10 @@ export const GithubIssue = z.object({
 
 export type GithubIssue = z.infer<typeof GithubIssue>;
 
+export const GithubIssueRecovery = GithubIssue;
+
+export type GithubIssueRecovery = z.infer<typeof GithubIssueRecovery>;
+
 export const Issue = z.object({
   id: z.string(),
   owner: z.string(),
@@ -98,6 +102,7 @@ export type GithubWriteFileActionResult = z.infer<typeof GithubWriteFileActionRe
 
 export const models = {
   GithubIssue: GithubIssue,
+  GithubIssueRecovery: GithubIssueRecovery,
   Issue: Issue,
   GithubIssueRepoInput: GithubIssueRepoInput,
   GithubRepo: GithubRepo,

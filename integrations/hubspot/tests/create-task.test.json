@@ -1,0 +1,94 @@
+{
+  "input": {
+    "subject": "Test task from Nango",
+    "due_date": "2024-12-31T23:59:59Z"
+  },
+  "output": {
+    "id": "477970581703",
+    "subject": "Test task from Nango",
+    "type": "TODO",
+    "priority": "MEDIUM",
+    "due_date": "2024-12-31T23:59:59Z",
+    "notes": null,
+    "status": "NOT_STARTED",
+    "assignee_id": null,
+    "created_at": "2026-03-12T07:34:48.168Z",
+    "updated_at": "2026-03-12T07:34:48.168Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/crm/v3/objects/tasks": {
+        "response": {
+          "id": "477970581703",
+          "properties": {
+            "hs_createdate": "2026-03-12T07:34:48.168Z",
+            "hs_engagements_last_contacted": "2024-12-31T23:59:59Z",
+            "hs_lastmodifieddate": "2026-03-12T07:34:48.168Z",
+            "hs_obj_coords": "0-27-477970581703",
+            "hs_object_id": "477970581703",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_start_date_with_fallback": "2026-03-12T07:34:48.168Z",
+            "hs_task_completion_count": "0",
+            "hs_task_family": "SALES",
+            "hs_task_for_object_type": "OWNER",
+            "hs_task_is_all_day": "false",
+            "hs_task_is_completed": "0",
+            "hs_task_is_completed_call": "0",
+            "hs_task_is_completed_email": "0",
+            "hs_task_is_completed_linked_in": "0",
+            "hs_task_is_completed_sequence": "0",
+            "hs_task_is_overdue": "true",
+            "hs_task_is_past_due_date": "true",
+            "hs_task_is_sub_task": "false",
+            "hs_task_missed_due_date": "true",
+            "hs_task_missed_due_date_count": "1",
+            "hs_task_priority": "MEDIUM",
+            "hs_task_status": "NOT_STARTED",
+            "hs_task_subject": "Test task from Nango",
+            "hs_task_type": "TODO",
+            "hs_timestamp": "2024-12-31T23:59:59Z"
+          },
+          "createdAt": "2026-03-12T07:34:48.168Z",
+          "updatedAt": "2026-03-12T07:34:48.168Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/tasks/147893286/view/all/task/477970581703"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:34:48 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1190",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4665",
+          "x-ratelimit-reset": "1773300888",
+          "etag": "W/\"4a6-jDQ1uYxfCSDPVFB4eZWFg9UqFts\""
+        },
+        "hash": "59eeff5b47e8e388f1c4f0446bbac4c3d35c3a2e",
+        "request": {
+          "data": {
+            "properties": {
+              "hs_task_subject": "Test task from Nango",
+              "hs_task_type": "TODO",
+              "hs_task_priority": "MEDIUM",
+              "hs_timestamp": "2024-12-31T23:59:59Z",
+              "hs_task_status": "NOT_STARTED"
+            }
+          }
+        }
+      }
+    }
+  }
+}

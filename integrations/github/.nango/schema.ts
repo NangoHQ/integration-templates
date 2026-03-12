@@ -1,20 +1,3 @@
-export interface SyncMetadata_github_issues {
-};
-
-export interface GithubIssue {
-  id: string;
-  owner: string;
-  repo: string;
-  issue_number: number;
-  title: string;
-  author: string;
-  author_id: string;
-  state: string;
-  date_created: Date;
-  date_last_modified: Date;
-  body: string;
-};
-
 export interface SyncMetadata_github_issueslite {
 };
 
@@ -40,6 +23,47 @@ export interface Issue {
   displayName: string;
   emailAddress: string | null;};
   body: {};})[];
+};
+
+export interface SyncMetadata_github_issuesrecovery {
+  /**
+   * Optional cap for demo/testing. Example: 50
+   */
+  max_repositories_per_execution?: number | undefined;
+  _nango_internal?: {  lastOffset?: number | undefined;
+  lastSyncDate?: string | undefined;
+  runStartTime?: string | undefined;};
+};
+
+export interface GithubIssueRecovery {
+  id: string;
+  owner: string;
+  repo: string;
+  issue_number: number;
+  title: string;
+  author: string;
+  author_id: string;
+  state: string;
+  date_created: Date;
+  date_last_modified: Date;
+  body: string;
+};
+
+export interface SyncMetadata_github_issues {
+};
+
+export interface GithubIssue {
+  id: string;
+  owner: string;
+  repo: string;
+  issue_number: number;
+  title: string;
+  author: string;
+  author_id: string;
+  state: string;
+  date_created: Date;
+  date_last_modified: Date;
+  body: string;
 };
 
 export interface SyncMetadata_github_listfiles {

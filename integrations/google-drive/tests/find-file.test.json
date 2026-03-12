@@ -1,0 +1,1620 @@
+{
+  "input": {
+    "query": ""
+  },
+  "output": {
+    "files": [
+      {
+        "id": "17hh4JKep6M45KgJHp1zDwHz5nRmmyhmQ4ZRF4UFsvX8",
+        "name": "Test Document for Delete Permission",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:30:26.263Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/17hh4JKep6M45KgJHp1zDwHz5nRmmyhmQ4ZRF4UFsvX8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1mlzflxHXQkoCj-3p1T_O762TNAfGGr_iIb5C9uwnIwk",
+        "name": "Test Document for Comment Update",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:30:25.120Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1mlzflxHXQkoCj-3p1T_O762TNAfGGr_iIb5C9uwnIwk/edit?usp=drivesdk"
+      },
+      {
+        "id": "1dApZc-Y4F7D7JDB9vZhq2NmX31iM1oPM0e1yZp8LoIA",
+        "name": "Test Document for Update Permission Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:30:12.758Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1dApZc-Y4F7D7JDB9vZhq2NmX31iM1oPM0e1yZp8LoIA/edit?usp=drivesdk"
+      },
+      {
+        "id": "1gdUL2131fuKTwpx0s8DfyiyPpfDhzvrx",
+        "name": "Test Folder Nango 2",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:30:07.415Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1gdUL2131fuKTwpx0s8DfyiyPpfDhzvrx"
+      },
+      {
+        "id": "1JzRI0wQXepzv4Xqsk5KUybBkv4VWERQT",
+        "name": "Test Folder Nango 2",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:49.358Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1JzRI0wQXepzv4Xqsk5KUybBkv4VWERQT"
+      },
+      {
+        "id": "16-9xmBm2tug-8ZbCIldx5IhTj74r85AoX_T9A5Jad_8",
+        "name": "Copy of Test Document 2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:48.653Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/16-9xmBm2tug-8ZbCIldx5IhTj74r85AoX_T9A5Jad_8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1AP_6Q_RoMHUR5ctzFV7Wy_XsG3JZXwen6eZ746N8TT8",
+        "name": "Test Document for List Changes Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:43.578Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1AP_6Q_RoMHUR5ctzFV7Wy_XsG3JZXwen6eZ746N8TT8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1OurUdR4_SuOA4QkuiDNM-dO8YghjexIWO90qeSVTaCg",
+        "name": "Test Doc for Delete Comment Save",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:41.115Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1OurUdR4_SuOA4QkuiDNM-dO8YghjexIWO90qeSVTaCg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Mcb16WYfc8c5HKPzs5ZSTKAS0Qf79TjjlukLpDnDoLQ",
+        "name": "Copy of Test Document 2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:30.558Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1Mcb16WYfc8c5HKPzs5ZSTKAS0Qf79TjjlukLpDnDoLQ/edit?usp=drivesdk"
+      },
+      {
+        "id": "1wwU5Dhr-6_3SHgtSQnXJ7HBPkgW-shalzdc0pfRL-Yk",
+        "name": "Test Document for Comments",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:29.683Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1wwU5Dhr-6_3SHgtSQnXJ7HBPkgW-shalzdc0pfRL-Yk/edit?usp=drivesdk"
+      },
+      {
+        "id": "1b8NrdGlUZ2lbIpC8cRrsKk-qkCq9onqjKS7xox8iT6s",
+        "name": "Test Document for Permission Testing",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:28.248Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1b8NrdGlUZ2lbIpC8cRrsKk-qkCq9onqjKS7xox8iT6s/edit?usp=drivesdk"
+      },
+      {
+        "id": "1mD3ukEAmRqo8u0RF_Cr6IJl9f_uWTYH03vesDhB5Svw",
+        "name": "Test Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:24.367Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1mD3ukEAmRqo8u0RF_Cr6IJl9f_uWTYH03vesDhB5Svw/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD",
+        "name": "Test Folder B",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:17.100Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD"
+      },
+      {
+        "id": "1oD5i7NbLYQ6_mzEjNIXSqFvKXvvRNETwkfLrlDooFV0",
+        "name": "Test Document for Delete Comment",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:17.043Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1oD5i7NbLYQ6_mzEjNIXSqFvKXvvRNETwkfLrlDooFV0/edit?usp=drivesdk"
+      },
+      {
+        "id": "1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k",
+        "name": "Test Folder A",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:16.161Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k"
+      },
+      {
+        "id": "16_cQZtzcBVUXOFoykWRwvQvaAcrQ9ok0",
+        "name": "Test Subfolder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:10.356Z",
+        "web_view_link": "https://drive.google.com/drive/folders/16_cQZtzcBVUXOFoykWRwvQvaAcrQ9ok0"
+      },
+      {
+        "id": "1X2oaJnzevQ5j9dsKKwxzGZV3TT7Dn6UDIeNJGZfROhs",
+        "name": "Test Document 2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:10.062Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1X2oaJnzevQ5j9dsKKwxzGZV3TT7Dn6UDIeNJGZfROhs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1AoQyTafvg1p_cqzJTTGmdbMTQ6jolnJ7J_mQBlPcFec",
+        "name": "Test File for List Permissions",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:09.504Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1AoQyTafvg1p_cqzJTTGmdbMTQ6jolnJ7J_mQBlPcFec/edit?usp=drivesdk"
+      },
+      {
+        "id": "1MfqsUDzxAIQpRynm7YMgj0NB_2kBYRKwadSvQDsWqOE",
+        "name": "Test Document 1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:29:09.033Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1MfqsUDzxAIQpRynm7YMgj0NB_2kBYRKwadSvQDsWqOE/edit?usp=drivesdk"
+      },
+      {
+        "id": "17gmYj-GAOhrAkWVAAHDau5K_ZOqy2Hub",
+        "name": "Test Folder - List Files Action",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:02.272Z",
+        "web_view_link": "https://drive.google.com/drive/folders/17gmYj-GAOhrAkWVAAHDau5K_ZOqy2Hub"
+      },
+      {
+        "id": "18YmybCT12bZWPeHVJAoxCylKNZ2puVhU",
+        "name": "Test Folder from Nango Action",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:29:01.790Z",
+        "web_view_link": "https://drive.google.com/drive/folders/18YmybCT12bZWPeHVJAoxCylKNZ2puVhU"
+      },
+      {
+        "id": "1wq8ZDQoyyww-v2VkDonKYixr1pSpx_9FwRAK_2K05mg",
+        "name": "Test Document for Get Comment Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:28:53.923Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1wq8ZDQoyyww-v2VkDonKYixr1pSpx_9FwRAK_2K05mg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1zpWYuzY5S65OUGNBZQXmJf4FZnIWLJHBkC2xBamBzvw",
+        "name": "Test Document for Comments",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:28:48.992Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1zpWYuzY5S65OUGNBZQXmJf4FZnIWLJHBkC2xBamBzvw/edit?usp=drivesdk"
+      },
+      {
+        "id": "1w3yNkewq7rAIyOvlWBlKADzvsTtVNh0QV_DCfGEHzwQ",
+        "name": "Copy of Test Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:28:42.046Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1w3yNkewq7rAIyOvlWBlKADzvsTtVNh0QV_DCfGEHzwQ/edit?usp=drivesdk"
+      },
+      {
+        "id": "1tkizpI8tJ6eO2KdoqObKkPnfIwRWkcRy",
+        "name": "Test Folder Gamma",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:28:28.873Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1tkizpI8tJ6eO2KdoqObKkPnfIwRWkcRy"
+      },
+      {
+        "id": "1eURgxfFDIrF99n26Yf1LCaN3zLt_6XrQ",
+        "name": "Test Folder Beta",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:28:28.071Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1eURgxfFDIrF99n26Yf1LCaN3zLt_6XrQ"
+      },
+      {
+        "id": "1G3klaYBkuw_GR6wtRgXMNlLd0I8hXm5-",
+        "name": "Test Folder Alpha",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-12T07:28:27.518Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1G3klaYBkuw_GR6wtRgXMNlLd0I8hXm5-"
+      },
+      {
+        "id": "1JuRvvSBLi3EYDdoqS_wyzuWnVOSNh-hMe5NU5hllhXg",
+        "name": "Test Document for Copy Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-12T07:28:03.320Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1JuRvvSBLi3EYDdoqS_wyzuWnVOSNh-hMe5NU5hllhXg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8",
+        "name": "Nested Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T19:29:53.041Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+        "name": "Nested Folder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T19:29:47.331Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG"
+      },
+      {
+        "id": "1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4",
+        "name": "Test PDF.pdf",
+        "mime_type": "application/pdf",
+        "modified_time": "2026-03-11T19:29:40.454Z",
+        "size": "0",
+        "web_view_link": "https://drive.google.com/file/d/1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4/view?usp=drivesdk"
+      },
+      {
+        "id": "1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404",
+        "name": "Test Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T19:29:39.282Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404/edit?usp=drivesdk"
+      },
+      {
+        "id": "1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY",
+        "name": "Test Document 1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T19:29:30.575Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY/edit?usp=drivesdk"
+      },
+      {
+        "id": "1eq2x4nRidJ9z2Bx9Ku-jWXXb5p5R2ntjCrLe003QPAs",
+        "name": "Standalone Test Doc",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T17:59:13.150Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1eq2x4nRidJ9z2Bx9Ku-jWXXb5p5R2ntjCrLe003QPAs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1xDjYLGeDpL2bHGbw4kloFDthew9hroeiSio_fD0GbBA",
+        "name": "Test Document 2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T17:59:08.276Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1xDjYLGeDpL2bHGbw4kloFDthew9hroeiSio_fD0GbBA/edit?usp=drivesdk"
+      },
+      {
+        "id": "1wnST6NsP1aqc3VzxuVx8KpYNxDVt5svvNtLGue-Cp60",
+        "name": "Test Document 1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T17:59:03.237Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1wnST6NsP1aqc3VzxuVx8KpYNxDVt5svvNtLGue-Cp60/edit?usp=drivesdk"
+      },
+      {
+        "id": "1j1R6Y2rj9KyO-cLFjhtNeMHUjmfEldQT",
+        "name": "Test Sync Folder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T17:58:52.404Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1j1R6Y2rj9KyO-cLFjhtNeMHUjmfEldQT"
+      },
+      {
+        "id": "1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E",
+        "name": "Sync Files Nested Doc 20260311-160412",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:04:16.889Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E/edit?usp=drivesdk"
+      },
+      {
+        "id": "1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc",
+        "name": "Sync Files Root Doc 20260311-160412",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:04:14.214Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc/edit?usp=drivesdk"
+      },
+      {
+        "id": "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+        "name": "Sync Files Nested Folder 20260311-160347",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T15:03:47.903Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV"
+      },
+      {
+        "id": "1Fmhw2EtZIFLSn_Yq97SKOP7v6Xskhd2ObHxEvHZ04yk",
+        "name": "Nango Sync Permissions Inspect Changes",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:02:00.521Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1Fmhw2EtZIFLSn_Yq97SKOP7v6Xskhd2ObHxEvHZ04yk/edit?usp=drivesdk"
+      },
+      {
+        "id": "1DfnzYKKhMouC1UmUC4KWw2KBOES1G_RxAaa7Ku7hVYc",
+        "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #3",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:01:30.220Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1DfnzYKKhMouC1UmUC4KWw2KBOES1G_RxAaa7Ku7hVYc/edit?usp=drivesdk"
+      },
+      {
+        "id": "1dFvgCRCLOIMGAkX0ZB7MeceqA6aZxEh-ZKUdGH1kWUk",
+        "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:01:28.172Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1dFvgCRCLOIMGAkX0ZB7MeceqA6aZxEh-ZKUdGH1kWUk/edit?usp=drivesdk"
+      },
+      {
+        "id": "1IfH1Ri6sqrJ5-kf9Jl3tgvCbrc69mqg2AM1RVi1UfVI",
+        "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T15:01:26.002Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1IfH1Ri6sqrJ5-kf9Jl3tgvCbrc69mqg2AM1RVi1UfVI/edit?usp=drivesdk"
+      },
+      {
+        "id": "1fahUPQMEX6Jbv_H8MnvWt3AmWaBHWODBIL7or4Hlo18",
+        "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T14:33:57.248Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1fahUPQMEX6Jbv_H8MnvWt3AmWaBHWODBIL7or4Hlo18/edit?usp=drivesdk"
+      },
+      {
+        "id": "1E3XmbuWsLNGwWWLc9LpJVEOji85y8omCkcAQw1klhEs",
+        "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #3",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T14:33:56.327Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1E3XmbuWsLNGwWWLc9LpJVEOji85y8omCkcAQw1klhEs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1CTdz_Tn1PA6wMufbFc_aw22y3MOf93hPxZb_gkw1hZs",
+        "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T14:33:55.155Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1CTdz_Tn1PA6wMufbFc_aw22y3MOf93hPxZb_gkw1hZs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1bY4j7Oywn8CERF0w_7ym7FDQuT9qdBGSVaM-hIqsmAA",
+        "name": "Test Spreadsheet for Developer Metadata Search",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:11:24.957Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1bY4j7Oywn8CERF0w_7ym7FDQuT9qdBGSVaM-hIqsmAA/edit?usp=drivesdk"
+      },
+      {
+        "id": "1hGcNl5ASm1Pmk9tQOZADrIiTIamOk4emmwmM2hH1eeY",
+        "name": "Test Conditional Format Rule",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:10:49.192Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1hGcNl5ASm1Pmk9tQOZADrIiTIamOk4emmwmM2hH1eeY/edit?usp=drivesdk"
+      },
+      {
+        "id": "1lH8n2M188GwPbr_DJcUPsnL1hlPK_qywjLXHi_Gh_ic",
+        "name": "Test Spreadsheet for Batch Get Values",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:05:00.838Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1lH8n2M188GwPbr_DJcUPsnL1hlPK_qywjLXHi_Gh_ic/edit?usp=drivesdk"
+      },
+      {
+        "id": "1JaeqtYOT-Pl_h43VpcuhqWx6qpK9GgXii6wsdOjvdoI",
+        "name": "Test Upsert Row Sheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:04:12.013Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1JaeqtYOT-Pl_h43VpcuhqWx6qpK9GgXii6wsdOjvdoI/edit?usp=drivesdk"
+      },
+      {
+        "id": "1ToQPMzkqgMDU_-oNktnGAdiENK2umr34",
+        "name": "test-document.txt",
+        "mime_type": "text/plain",
+        "modified_time": "2026-03-11T13:03:20.547Z",
+        "size": "31",
+        "web_view_link": "https://drive.google.com/file/d/1ToQPMzkqgMDU_-oNktnGAdiENK2umr34/view?usp=drivesdk"
+      },
+      {
+        "id": "1-jN91ZCQnAhj3D0UfUOtRQFi0jb9Dl8Ahnvx381lXvQ",
+        "name": "Batch Update Test",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:03:16.033Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1-jN91ZCQnAhj3D0UfUOtRQFi0jb9Dl8Ahnvx381lXvQ/edit?usp=drivesdk"
+      },
+      {
+        "id": "1WXAQ9xgRbCnxNt-3HSztlBXPc3oVjIxe",
+        "name": "test-document.txt",
+        "mime_type": "text/plain",
+        "modified_time": "2026-03-11T13:02:43.595Z",
+        "size": "31",
+        "web_view_link": "https://drive.google.com/file/d/1WXAQ9xgRbCnxNt-3HSztlBXPc3oVjIxe/view?usp=drivesdk"
+      },
+      {
+        "id": "1rRJhDamxWinPTzDFGak9qlJraAOfi43CTDrl1QC32eg",
+        "name": "Test Spreadsheet for Update Values",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:02:42.871Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1rRJhDamxWinPTzDFGak9qlJraAOfi43CTDrl1QC32eg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1RacxjzoyG8ujTA7HPawFM3-mZj55bgFgWGVdxZ9V-9M",
+        "name": "Test Spreadsheet for Data Filter",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T13:01:20.472Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1RacxjzoyG8ujTA7HPawFM3-mZj55bgFgWGVdxZ9V-9M/edit?usp=drivesdk"
+      },
+      {
+        "id": "1B0pnlLGzAXy1qzz7evbuKwmEc2jOTF7d",
+        "name": "Untitled",
+        "mime_type": "text/plain",
+        "modified_time": "2026-03-11T13:00:26.082Z",
+        "size": "44",
+        "web_view_link": "https://drive.google.com/file/d/1B0pnlLGzAXy1qzz7evbuKwmEc2jOTF7d/view?usp=drivesdk"
+      },
+      {
+        "id": "1eychDgE9D1k_f2n8h4EIHmvRdrrm-mpO9qKM_Pqf_pg",
+        "name": "Test Sheet for Create Row Action",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:59:03.104Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1eychDgE9D1k_f2n8h4EIHmvRdrrm-mpO9qKM_Pqf_pg/edit?usp=drivesdk"
+      },
+      {
+        "id": "15hQFInnYwtPa1BDmJc1FqLxb8FOOPFNMKdRByq94YQY",
+        "name": "Mock Delete Worksheet Test",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:58:29.989Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/15hQFInnYwtPa1BDmJc1FqLxb8FOOPFNMKdRByq94YQY/edit?usp=drivesdk"
+      },
+      {
+        "id": "1nn9_L1xcrJGMx4GczjdaC0LO-zZGk7qrO8O4OLOHTVM",
+        "name": "Batch Clear Test Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:58:19.201Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1nn9_L1xcrJGMx4GczjdaC0LO-zZGk7qrO8O4OLOHTVM/edit?usp=drivesdk"
+      },
+      {
+        "id": "1igVmGnUxnmMgS2O3ikVfzXOVHGBWL7r4_i1H6l5pmrw",
+        "name": "Delete Worksheet Test",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:57:56.650Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1igVmGnUxnmMgS2O3ikVfzXOVHGBWL7r4_i1H6l5pmrw/edit?usp=drivesdk"
+      },
+      {
+        "id": "1LD7VTZSviNzgJXmmVdrO3U0lUsL1bQF5O8RfvQU7Okw",
+        "name": "Test Document for Get Revision",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:57:52.466Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1LD7VTZSviNzgJXmmVdrO3U0lUsL1bQF5O8RfvQU7Okw/edit?usp=drivesdk"
+      },
+      {
+        "id": "1SGLf62A6ICCz6ZigFvYyDT8myuOXALDURGFiVFhFrk4",
+        "name": "Test Clear Values",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:57:47.474Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1SGLf62A6ICCz6ZigFvYyDT8myuOXALDURGFiVFhFrk4/edit?usp=drivesdk"
+      },
+      {
+        "id": "140xz0N4XyqTda6PPVs5MnWgBN5sCgcPh6beJEigCXFA",
+        "name": "Test Spreadsheet for Batch Clear Values",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:57:46.776Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/140xz0N4XyqTda6PPVs5MnWgBN5sCgcPh6beJEigCXFA/edit?usp=drivesdk"
+      },
+      {
+        "id": "19DL2nURkactFZV8UmKfWrpIpDY1lRtuLO2cK2MEfk-s",
+        "name": "Test Spreadsheet for Create Column Action",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:56:53.866Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/19DL2nURkactFZV8UmKfWrpIpDY1lRtuLO2cK2MEfk-s/edit?usp=drivesdk"
+      },
+      {
+        "id": "1LFPo8CerBMc8K0mMwgXBEpv4fyivzo7iyfdDA8Ccul0",
+        "name": "Test Destination Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:56:49.375Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1LFPo8CerBMc8K0mMwgXBEpv4fyivzo7iyfdDA8Ccul0/edit?usp=drivesdk"
+      },
+      {
+        "id": "15a7m8wVuULRTH3Q1LEf5OCuY6A4n78ktC1KFTTGC-is",
+        "name": "Test Document for Get Revision",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:56:32.824Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/15a7m8wVuULRTH3Q1LEf5OCuY6A4n78ktC1KFTTGC-is/edit?usp=drivesdk"
+      },
+      {
+        "id": "1e1pPVyH8Ecnq16EjV6aJyAW80j4S1Mgb-NZW3ZctXcM",
+        "name": "Test Document for Delete Permission Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:56:31.240Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1e1pPVyH8Ecnq16EjV6aJyAW80j4S1Mgb-NZW3ZctXcM/edit?usp=drivesdk"
+      },
+      {
+        "id": "1zxLh9FTHfqdysHsyPJ4O2bQO9EmEITB4uCoSMFGU1cs",
+        "name": "Test Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:56:30.566Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1zxLh9FTHfqdysHsyPJ4O2bQO9EmEITB4uCoSMFGU1cs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Z_ecAccxhBzye7vuhdU7NWqjKhqrv9lSj5Uq7brlsKY",
+        "name": "Test Spreadsheet for BatchGet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:56:15.252Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1Z_ecAccxhBzye7vuhdU7NWqjKhqrv9lSj5Uq7brlsKY/edit?usp=drivesdk"
+      },
+      {
+        "id": "14vC2xXBjTNYeY8H5Guty_edD3sozGvchr13xhSJErUM",
+        "name": "Test Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:56:05.340Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/14vC2xXBjTNYeY8H5Guty_edD3sozGvchr13xhSJErUM/edit?usp=drivesdk"
+      },
+      {
+        "id": "1D8SwxDV3ocOzM_E1rda0MH780LiRNdXCOeMu1p2EE-k",
+        "name": "Test Spreadsheet for Append Action",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:55:53.404Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1D8SwxDV3ocOzM_E1rda0MH780LiRNdXCOeMu1p2EE-k/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Byw1gK2VrpuN-nHIbbO9SodD3VeTgzmL_CJCoBpr1dM",
+        "name": "Test Source Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:55:46.299Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1Byw1gK2VrpuN-nHIbbO9SodD3VeTgzmL_CJCoBpr1dM/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Nf-SApVkO0G8nSr8mA_XAfDYg6ZGkIwPhOrh288GZyE",
+        "name": "Test Document for Get Comment Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:55:43.031Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1Nf-SApVkO0G8nSr8mA_XAfDYg6ZGkIwPhOrh288GZyE/edit?usp=drivesdk"
+      },
+      {
+        "id": "1oS8q5nfaYOtZaqUy7XsupLxaW4jO9yyv04EZB9Wyd7w",
+        "name": "Test Document for Comment Update",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:55:35.982Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1oS8q5nfaYOtZaqUy7XsupLxaW4jO9yyv04EZB9Wyd7w/edit?usp=drivesdk"
+      },
+      {
+        "id": "1ldcXmL0pegB8rVVH4-xqWaTh7ciI0w6lAYf9nbQyfDU",
+        "name": "Test Document for Delete Permission Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:55:34.077Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1ldcXmL0pegB8rVVH4-xqWaTh7ciI0w6lAYf9nbQyfDU/edit?usp=drivesdk"
+      },
+      {
+        "id": "1YGsdKlYjhpOLxYUNMtvMCeyHwWbrbN1KHT9Z3sZ0VGg",
+        "name": "Test Document for Update Permission Action - 2026-03-11",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:55:29.083Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1YGsdKlYjhpOLxYUNMtvMCeyHwWbrbN1KHT9Z3sZ0VGg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Fe0clX8pLaquJ-ngLvkdzDxMjfkE9a8sTQ3DFcKVz7o",
+        "name": "Updated Test Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:55:11.381Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1Fe0clX8pLaquJ-ngLvkdzDxMjfkE9a8sTQ3DFcKVz7o/edit?usp=drivesdk"
+      },
+      {
+        "id": "1BW_rIPyPqKUpBwRSmecJT5Vp0ND95Ol62XSpmDV89IM",
+        "name": "Copied Test Document for Mock",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:54:03.542Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1BW_rIPyPqKUpBwRSmecJT5Vp0ND95Ol62XSpmDV89IM/edit?usp=drivesdk"
+      },
+      {
+        "id": "1R1foibAae_iXaKkNtz-eYE0SYeRHr1FtFz_2xUqPUnQ",
+        "name": "Test Document for Delete Comment",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:53:52.641Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1R1foibAae_iXaKkNtz-eYE0SYeRHr1FtFz_2xUqPUnQ/edit?usp=drivesdk"
+      },
+      {
+        "id": "1l4_mL2WU7AXVNsxs_NvrycwQjjWkdTMuiher8RQ3KJU",
+        "name": "Test Document for Delete Permission Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:53:21.787Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1l4_mL2WU7AXVNsxs_NvrycwQjjWkdTMuiher8RQ3KJU/edit?usp=drivesdk"
+      },
+      {
+        "id": "1BzLumLBLoG8SmwnLsCtBVc3vl9m8odtPyCTLVyliC3I",
+        "name": "Test Document for Comments 2026-03-11T12:52:09.446Z",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:53:06.809Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1BzLumLBLoG8SmwnLsCtBVc3vl9m8odtPyCTLVyliC3I/edit?usp=drivesdk"
+      },
+      {
+        "id": "18eaUnofdTSWjOKFMKSga2yNBgSWbE2-LIC89YPLOltE",
+        "name": "Copied Test Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:52:34.144Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/18eaUnofdTSWjOKFMKSga2yNBgSWbE2-LIC89YPLOltE/edit?usp=drivesdk"
+      },
+      {
+        "id": "1C2ywkwpJbK-Rj3_0TOR5mGAWvyFwwQukpB7GFFGYYk8",
+        "name": "Test Document for Copy",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:52:10.911Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1C2ywkwpJbK-Rj3_0TOR5mGAWvyFwwQukpB7GFFGYYk8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1htd6rHubt-S5jtBMGVZWN4RU9XSoBie4NU7MOn0yDzI",
+        "name": "Test Document for Delete Permission Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:51:37.564Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1htd6rHubt-S5jtBMGVZWN4RU9XSoBie4NU7MOn0yDzI/edit?usp=drivesdk"
+      },
+      {
+        "id": "1GHYyTrhH4poG7h9EcVf8M4Z24AW7xzIXEb2eQA8NKH8",
+        "name": "Test File for List Permissions Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:47:23.157Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1GHYyTrhH4poG7h9EcVf8M4Z24AW7xzIXEb2eQA8NKH8/edit?usp=drivesdk"
+      },
+      {
+        "id": "1TdAeNNmIjJmKLaBtLA4sCy4Ucrb5PoJzS1XM8CJXuKs",
+        "name": "Test Document for Delete Action",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:47:21.361Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1TdAeNNmIjJmKLaBtLA4sCy4Ucrb5PoJzS1XM8CJXuKs/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Z_dW02BTFidVxsLUsHXTq-Ifrb6vztd_dzTRGTEK1TQ",
+        "name": "Test Document for Comments",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:47:17.989Z",
+        "size": "2080",
+        "web_view_link": "https://docs.google.com/document/d/1Z_dW02BTFidVxsLUsHXTq-Ifrb6vztd_dzTRGTEK1TQ/edit?usp=drivesdk"
+      },
+      {
+        "id": "18JPRH3BiKx2_B32EN498gr3tlp7UJBtubkiCMvGu6hY",
+        "name": "Test Document for Comments",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:45:33.989Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/18JPRH3BiKx2_B32EN498gr3tlp7UJBtubkiCMvGu6hY/edit?usp=drivesdk"
+      },
+      {
+        "id": "1lcBklGDRPAu3FShcUs_zO8p9jx6vVm2omTEMMQ5A7_4",
+        "name": "Nango Test Document",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:45:30.455Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1lcBklGDRPAu3FShcUs_zO8p9jx6vVm2omTEMMQ5A7_4/edit?usp=drivesdk"
+      },
+      {
+        "id": "11So94endOdoAm8NW0LrSh8qQEnDi1iJM",
+        "name": "Nango Test Destination Folder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T12:45:29.703Z",
+        "web_view_link": "https://drive.google.com/drive/folders/11So94endOdoAm8NW0LrSh8qQEnDi1iJM"
+      },
+      {
+        "id": "13BjTIRj1OQA7IW5oavmyIFXBaG3dkNz3",
+        "name": "Nango Test Source Folder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T12:45:12.583Z",
+        "web_view_link": "https://drive.google.com/drive/folders/13BjTIRj1OQA7IW5oavmyIFXBaG3dkNz3"
+      },
+      {
+        "id": "1mEtRKgMg5_xtx8Ynnp3kPaR8ypXESdkb",
+        "name": "Test Folder Created by Agent",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T12:44:37.785Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1mEtRKgMg5_xtx8Ynnp3kPaR8ypXESdkb"
+      },
+      {
+        "id": "1rrZuBnk7KQJhBoHXMZjuUPS1z9AaAxYixRTN0--Rl3Q",
+        "name": "Test Spreadsheet Beta",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T12:44:26.657Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1rrZuBnk7KQJhBoHXMZjuUPS1z9AaAxYixRTN0--Rl3Q/edit?usp=drivesdk"
+      },
+      {
+        "id": "1b0--_MEshaBTqdekUik6Xxgjjp05elx0",
+        "name": "Test Folder Created by Agent",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T12:43:55.046Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1b0--_MEshaBTqdekUik6Xxgjjp05elx0"
+      },
+      {
+        "id": "15vI5mJEUTDbgwTI0IRfUdBfcnmHkBhZODYHtPNsR9PI",
+        "name": "Test Document Alpha",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T12:43:52.070Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/15vI5mJEUTDbgwTI0IRfUdBfcnmHkBhZODYHtPNsR9PI/edit?usp=drivesdk"
+      },
+      {
+        "id": "1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k",
+        "name": "Test Document 2",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T11:24:06.345Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k/edit?usp=drivesdk"
+      },
+      {
+        "id": "1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68",
+        "name": "Test Spreadsheet",
+        "mime_type": "application/vnd.google-apps.spreadsheet",
+        "modified_time": "2026-03-11T11:24:04.634Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/spreadsheets/d/1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68/edit?usp=drivesdk"
+      },
+      {
+        "id": "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E",
+        "name": "Test Folder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "modified_time": "2026-03-11T11:23:59.950Z",
+        "web_view_link": "https://drive.google.com/drive/folders/1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+      },
+      {
+        "id": "1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE",
+        "name": "Test Document 1",
+        "mime_type": "application/vnd.google-apps.document",
+        "modified_time": "2026-03-11T11:23:55.560Z",
+        "size": "1024",
+        "web_view_link": "https://docs.google.com/document/d/1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE/edit?usp=drivesdk"
+      }
+    ],
+    "next_cursor": "~!!~AI9FV7RNjVeIP590lfEI3C22fRt3NkUPUa77GrXAAUoxtQnPv7sRr7Pgj6RujM9lhb6U061BifS69KeQqlaHtPqKMF7KmOtqNR2h03AjYk22TNgEsGV6bTh17tbvUhxx9ZcF4EcmtrUO4NoioBLBfjYAbxxvEvgz74QwAo45gyCoUzPyv47Ls2rO2ga3Uo6-FAWHciLtovh0XnMqv7fyuu3siQ_JGS0p5_BHq8uMjeX9teBw3bjW-aTtfR-BbZPawiZbYUpmi-mW11DpVlvB0SgUlc1gXIWv61WdtCSTn1JcXZFtvTSzMqXy5iEzLKw5IN9vPA6EH2MTcZkNOJZ-t_jpuAeEh4kWmA==",
+    "total_results": 100
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/drive/v3/files": {
+        "response": {
+          "files": [
+            {
+              "id": "17hh4JKep6M45KgJHp1zDwHz5nRmmyhmQ4ZRF4UFsvX8",
+              "name": "Test Document for Delete Permission",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/17hh4JKep6M45KgJHp1zDwHz5nRmmyhmQ4ZRF4UFsvX8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:30:26.263Z",
+              "size": "1024"
+            },
+            {
+              "id": "1mlzflxHXQkoCj-3p1T_O762TNAfGGr_iIb5C9uwnIwk",
+              "name": "Test Document for Comment Update",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1mlzflxHXQkoCj-3p1T_O762TNAfGGr_iIb5C9uwnIwk/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:30:25.120Z",
+              "size": "1024"
+            },
+            {
+              "id": "1dApZc-Y4F7D7JDB9vZhq2NmX31iM1oPM0e1yZp8LoIA",
+              "name": "Test Document for Update Permission Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1dApZc-Y4F7D7JDB9vZhq2NmX31iM1oPM0e1yZp8LoIA/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:30:12.758Z",
+              "size": "1024"
+            },
+            {
+              "id": "1gdUL2131fuKTwpx0s8DfyiyPpfDhzvrx",
+              "name": "Test Folder Nango 2",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1gdUL2131fuKTwpx0s8DfyiyPpfDhzvrx",
+              "modifiedTime": "2026-03-12T07:30:07.415Z"
+            },
+            {
+              "id": "1JzRI0wQXepzv4Xqsk5KUybBkv4VWERQT",
+              "name": "Test Folder Nango 2",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1JzRI0wQXepzv4Xqsk5KUybBkv4VWERQT",
+              "modifiedTime": "2026-03-12T07:29:49.358Z"
+            },
+            {
+              "id": "16-9xmBm2tug-8ZbCIldx5IhTj74r85AoX_T9A5Jad_8",
+              "name": "Copy of Test Document 2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/16-9xmBm2tug-8ZbCIldx5IhTj74r85AoX_T9A5Jad_8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:48.653Z",
+              "size": "1024"
+            },
+            {
+              "id": "1AP_6Q_RoMHUR5ctzFV7Wy_XsG3JZXwen6eZ746N8TT8",
+              "name": "Test Document for List Changes Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1AP_6Q_RoMHUR5ctzFV7Wy_XsG3JZXwen6eZ746N8TT8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:43.578Z",
+              "size": "1024"
+            },
+            {
+              "id": "1OurUdR4_SuOA4QkuiDNM-dO8YghjexIWO90qeSVTaCg",
+              "name": "Test Doc for Delete Comment Save",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1OurUdR4_SuOA4QkuiDNM-dO8YghjexIWO90qeSVTaCg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:41.115Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Mcb16WYfc8c5HKPzs5ZSTKAS0Qf79TjjlukLpDnDoLQ",
+              "name": "Copy of Test Document 2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1Mcb16WYfc8c5HKPzs5ZSTKAS0Qf79TjjlukLpDnDoLQ/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:30.558Z",
+              "size": "1024"
+            },
+            {
+              "id": "1wwU5Dhr-6_3SHgtSQnXJ7HBPkgW-shalzdc0pfRL-Yk",
+              "name": "Test Document for Comments",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1wwU5Dhr-6_3SHgtSQnXJ7HBPkgW-shalzdc0pfRL-Yk/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:29.683Z",
+              "size": "1024"
+            },
+            {
+              "id": "1b8NrdGlUZ2lbIpC8cRrsKk-qkCq9onqjKS7xox8iT6s",
+              "name": "Test Document for Permission Testing",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1b8NrdGlUZ2lbIpC8cRrsKk-qkCq9onqjKS7xox8iT6s/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:28.248Z",
+              "size": "1024"
+            },
+            {
+              "id": "1mD3ukEAmRqo8u0RF_Cr6IJl9f_uWTYH03vesDhB5Svw",
+              "name": "Test Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1mD3ukEAmRqo8u0RF_Cr6IJl9f_uWTYH03vesDhB5Svw/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:24.367Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD",
+              "name": "Test Folder B",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD",
+              "modifiedTime": "2026-03-12T07:29:17.100Z"
+            },
+            {
+              "id": "1oD5i7NbLYQ6_mzEjNIXSqFvKXvvRNETwkfLrlDooFV0",
+              "name": "Test Document for Delete Comment",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1oD5i7NbLYQ6_mzEjNIXSqFvKXvvRNETwkfLrlDooFV0/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:17.043Z",
+              "size": "1024"
+            },
+            {
+              "id": "1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k",
+              "name": "Test Folder A",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k",
+              "modifiedTime": "2026-03-12T07:29:16.161Z"
+            },
+            {
+              "id": "16_cQZtzcBVUXOFoykWRwvQvaAcrQ9ok0",
+              "name": "Test Subfolder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/16_cQZtzcBVUXOFoykWRwvQvaAcrQ9ok0",
+              "modifiedTime": "2026-03-12T07:29:10.356Z"
+            },
+            {
+              "id": "1X2oaJnzevQ5j9dsKKwxzGZV3TT7Dn6UDIeNJGZfROhs",
+              "name": "Test Document 2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1X2oaJnzevQ5j9dsKKwxzGZV3TT7Dn6UDIeNJGZfROhs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:10.062Z",
+              "size": "1024"
+            },
+            {
+              "id": "1AoQyTafvg1p_cqzJTTGmdbMTQ6jolnJ7J_mQBlPcFec",
+              "name": "Test File for List Permissions",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1AoQyTafvg1p_cqzJTTGmdbMTQ6jolnJ7J_mQBlPcFec/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:09.504Z",
+              "size": "1024"
+            },
+            {
+              "id": "1MfqsUDzxAIQpRynm7YMgj0NB_2kBYRKwadSvQDsWqOE",
+              "name": "Test Document 1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1MfqsUDzxAIQpRynm7YMgj0NB_2kBYRKwadSvQDsWqOE/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:29:09.033Z",
+              "size": "1024"
+            },
+            {
+              "id": "17gmYj-GAOhrAkWVAAHDau5K_ZOqy2Hub",
+              "name": "Test Folder - List Files Action",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/17gmYj-GAOhrAkWVAAHDau5K_ZOqy2Hub",
+              "modifiedTime": "2026-03-12T07:29:02.272Z"
+            },
+            {
+              "id": "18YmybCT12bZWPeHVJAoxCylKNZ2puVhU",
+              "name": "Test Folder from Nango Action",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/18YmybCT12bZWPeHVJAoxCylKNZ2puVhU",
+              "modifiedTime": "2026-03-12T07:29:01.790Z"
+            },
+            {
+              "id": "1wq8ZDQoyyww-v2VkDonKYixr1pSpx_9FwRAK_2K05mg",
+              "name": "Test Document for Get Comment Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1wq8ZDQoyyww-v2VkDonKYixr1pSpx_9FwRAK_2K05mg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:28:53.923Z",
+              "size": "1024"
+            },
+            {
+              "id": "1zpWYuzY5S65OUGNBZQXmJf4FZnIWLJHBkC2xBamBzvw",
+              "name": "Test Document for Comments",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1zpWYuzY5S65OUGNBZQXmJf4FZnIWLJHBkC2xBamBzvw/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:28:48.992Z",
+              "size": "1024"
+            },
+            {
+              "id": "1w3yNkewq7rAIyOvlWBlKADzvsTtVNh0QV_DCfGEHzwQ",
+              "name": "Copy of Test Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1w3yNkewq7rAIyOvlWBlKADzvsTtVNh0QV_DCfGEHzwQ/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:28:42.046Z",
+              "size": "1024"
+            },
+            {
+              "id": "1tkizpI8tJ6eO2KdoqObKkPnfIwRWkcRy",
+              "name": "Test Folder Gamma",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1tkizpI8tJ6eO2KdoqObKkPnfIwRWkcRy",
+              "modifiedTime": "2026-03-12T07:28:28.873Z"
+            },
+            {
+              "id": "1eURgxfFDIrF99n26Yf1LCaN3zLt_6XrQ",
+              "name": "Test Folder Beta",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1eURgxfFDIrF99n26Yf1LCaN3zLt_6XrQ",
+              "modifiedTime": "2026-03-12T07:28:28.071Z"
+            },
+            {
+              "id": "1G3klaYBkuw_GR6wtRgXMNlLd0I8hXm5-",
+              "name": "Test Folder Alpha",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1G3klaYBkuw_GR6wtRgXMNlLd0I8hXm5-",
+              "modifiedTime": "2026-03-12T07:28:27.518Z"
+            },
+            {
+              "id": "1JuRvvSBLi3EYDdoqS_wyzuWnVOSNh-hMe5NU5hllhXg",
+              "name": "Test Document for Copy Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1JuRvvSBLi3EYDdoqS_wyzuWnVOSNh-hMe5NU5hllhXg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-12T07:28:03.320Z",
+              "size": "1024"
+            },
+            {
+              "id": "1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8",
+              "name": "Nested Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T19:29:53.041Z",
+              "size": "1024"
+            },
+            {
+              "id": "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+              "name": "Nested Folder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+              "modifiedTime": "2026-03-11T19:29:47.331Z"
+            },
+            {
+              "id": "1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4",
+              "name": "Test PDF.pdf",
+              "mimeType": "application/pdf",
+              "webViewLink": "https://drive.google.com/file/d/1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4/view?usp=drivesdk",
+              "modifiedTime": "2026-03-11T19:29:40.454Z",
+              "size": "0"
+            },
+            {
+              "id": "1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404",
+              "name": "Test Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T19:29:39.282Z",
+              "size": "1024"
+            },
+            {
+              "id": "1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY",
+              "name": "Test Document 1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T19:29:30.575Z",
+              "size": "1024"
+            },
+            {
+              "id": "1eq2x4nRidJ9z2Bx9Ku-jWXXb5p5R2ntjCrLe003QPAs",
+              "name": "Standalone Test Doc",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1eq2x4nRidJ9z2Bx9Ku-jWXXb5p5R2ntjCrLe003QPAs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T17:59:13.150Z",
+              "size": "1024"
+            },
+            {
+              "id": "1xDjYLGeDpL2bHGbw4kloFDthew9hroeiSio_fD0GbBA",
+              "name": "Test Document 2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1xDjYLGeDpL2bHGbw4kloFDthew9hroeiSio_fD0GbBA/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T17:59:08.276Z",
+              "size": "1024"
+            },
+            {
+              "id": "1wnST6NsP1aqc3VzxuVx8KpYNxDVt5svvNtLGue-Cp60",
+              "name": "Test Document 1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1wnST6NsP1aqc3VzxuVx8KpYNxDVt5svvNtLGue-Cp60/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T17:59:03.237Z",
+              "size": "1024"
+            },
+            {
+              "id": "1j1R6Y2rj9KyO-cLFjhtNeMHUjmfEldQT",
+              "name": "Test Sync Folder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1j1R6Y2rj9KyO-cLFjhtNeMHUjmfEldQT",
+              "modifiedTime": "2026-03-11T17:58:52.404Z"
+            },
+            {
+              "id": "1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E",
+              "name": "Sync Files Nested Doc 20260311-160412",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:04:16.889Z",
+              "size": "1024"
+            },
+            {
+              "id": "1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc",
+              "name": "Sync Files Root Doc 20260311-160412",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:04:14.214Z",
+              "size": "1024"
+            },
+            {
+              "id": "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+              "name": "Sync Files Nested Folder 20260311-160347",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+              "modifiedTime": "2026-03-11T15:03:47.903Z"
+            },
+            {
+              "id": "1Fmhw2EtZIFLSn_Yq97SKOP7v6Xskhd2ObHxEvHZ04yk",
+              "name": "Nango Sync Permissions Inspect Changes",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1Fmhw2EtZIFLSn_Yq97SKOP7v6Xskhd2ObHxEvHZ04yk/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:02:00.521Z",
+              "size": "1024"
+            },
+            {
+              "id": "1DfnzYKKhMouC1UmUC4KWw2KBOES1G_RxAaa7Ku7hVYc",
+              "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #3",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1DfnzYKKhMouC1UmUC4KWw2KBOES1G_RxAaa7Ku7hVYc/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:01:30.220Z",
+              "size": "1024"
+            },
+            {
+              "id": "1dFvgCRCLOIMGAkX0ZB7MeceqA6aZxEh-ZKUdGH1kWUk",
+              "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1dFvgCRCLOIMGAkX0ZB7MeceqA6aZxEh-ZKUdGH1kWUk/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:01:28.172Z",
+              "size": "1024"
+            },
+            {
+              "id": "1IfH1Ri6sqrJ5-kf9Jl3tgvCbrc69mqg2AM1RVi1UfVI",
+              "name": "Nango Sync Permissions Test 2026-03-11T15-01-24-698574Z #1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1IfH1Ri6sqrJ5-kf9Jl3tgvCbrc69mqg2AM1RVi1UfVI/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T15:01:26.002Z",
+              "size": "1024"
+            },
+            {
+              "id": "1fahUPQMEX6Jbv_H8MnvWt3AmWaBHWODBIL7or4Hlo18",
+              "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1fahUPQMEX6Jbv_H8MnvWt3AmWaBHWODBIL7or4Hlo18/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T14:33:57.248Z",
+              "size": "1024"
+            },
+            {
+              "id": "1E3XmbuWsLNGwWWLc9LpJVEOji85y8omCkcAQw1klhEs",
+              "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #3",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1E3XmbuWsLNGwWWLc9LpJVEOji85y8omCkcAQw1klhEs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T14:33:56.327Z",
+              "size": "1024"
+            },
+            {
+              "id": "1CTdz_Tn1PA6wMufbFc_aw22y3MOf93hPxZb_gkw1hZs",
+              "name": "Nango Sync Permissions Test 2026-03-11T14-33-53-004Z #2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1CTdz_Tn1PA6wMufbFc_aw22y3MOf93hPxZb_gkw1hZs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T14:33:55.155Z",
+              "size": "1024"
+            },
+            {
+              "id": "1bY4j7Oywn8CERF0w_7ym7FDQuT9qdBGSVaM-hIqsmAA",
+              "name": "Test Spreadsheet for Developer Metadata Search",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1bY4j7Oywn8CERF0w_7ym7FDQuT9qdBGSVaM-hIqsmAA/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:11:24.957Z",
+              "size": "1024"
+            },
+            {
+              "id": "1hGcNl5ASm1Pmk9tQOZADrIiTIamOk4emmwmM2hH1eeY",
+              "name": "Test Conditional Format Rule",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1hGcNl5ASm1Pmk9tQOZADrIiTIamOk4emmwmM2hH1eeY/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:10:49.192Z",
+              "size": "1024"
+            },
+            {
+              "id": "1lH8n2M188GwPbr_DJcUPsnL1hlPK_qywjLXHi_Gh_ic",
+              "name": "Test Spreadsheet for Batch Get Values",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1lH8n2M188GwPbr_DJcUPsnL1hlPK_qywjLXHi_Gh_ic/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:05:00.838Z",
+              "size": "1024"
+            },
+            {
+              "id": "1JaeqtYOT-Pl_h43VpcuhqWx6qpK9GgXii6wsdOjvdoI",
+              "name": "Test Upsert Row Sheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1JaeqtYOT-Pl_h43VpcuhqWx6qpK9GgXii6wsdOjvdoI/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:04:12.013Z",
+              "size": "1024"
+            },
+            {
+              "id": "1ToQPMzkqgMDU_-oNktnGAdiENK2umr34",
+              "name": "test-document.txt",
+              "mimeType": "text/plain",
+              "webViewLink": "https://drive.google.com/file/d/1ToQPMzkqgMDU_-oNktnGAdiENK2umr34/view?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:03:20.547Z",
+              "size": "31"
+            },
+            {
+              "id": "1-jN91ZCQnAhj3D0UfUOtRQFi0jb9Dl8Ahnvx381lXvQ",
+              "name": "Batch Update Test",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1-jN91ZCQnAhj3D0UfUOtRQFi0jb9Dl8Ahnvx381lXvQ/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:03:16.033Z",
+              "size": "1024"
+            },
+            {
+              "id": "1WXAQ9xgRbCnxNt-3HSztlBXPc3oVjIxe",
+              "name": "test-document.txt",
+              "mimeType": "text/plain",
+              "webViewLink": "https://drive.google.com/file/d/1WXAQ9xgRbCnxNt-3HSztlBXPc3oVjIxe/view?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:02:43.595Z",
+              "size": "31"
+            },
+            {
+              "id": "1rRJhDamxWinPTzDFGak9qlJraAOfi43CTDrl1QC32eg",
+              "name": "Test Spreadsheet for Update Values",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1rRJhDamxWinPTzDFGak9qlJraAOfi43CTDrl1QC32eg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:02:42.871Z",
+              "size": "1024"
+            },
+            {
+              "id": "1RacxjzoyG8ujTA7HPawFM3-mZj55bgFgWGVdxZ9V-9M",
+              "name": "Test Spreadsheet for Data Filter",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1RacxjzoyG8ujTA7HPawFM3-mZj55bgFgWGVdxZ9V-9M/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:01:20.472Z",
+              "size": "1024"
+            },
+            {
+              "id": "1B0pnlLGzAXy1qzz7evbuKwmEc2jOTF7d",
+              "name": "Untitled",
+              "mimeType": "text/plain",
+              "webViewLink": "https://drive.google.com/file/d/1B0pnlLGzAXy1qzz7evbuKwmEc2jOTF7d/view?usp=drivesdk",
+              "modifiedTime": "2026-03-11T13:00:26.082Z",
+              "size": "44"
+            },
+            {
+              "id": "1eychDgE9D1k_f2n8h4EIHmvRdrrm-mpO9qKM_Pqf_pg",
+              "name": "Test Sheet for Create Row Action",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1eychDgE9D1k_f2n8h4EIHmvRdrrm-mpO9qKM_Pqf_pg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:59:03.104Z",
+              "size": "1024"
+            },
+            {
+              "id": "15hQFInnYwtPa1BDmJc1FqLxb8FOOPFNMKdRByq94YQY",
+              "name": "Mock Delete Worksheet Test",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/15hQFInnYwtPa1BDmJc1FqLxb8FOOPFNMKdRByq94YQY/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:58:29.989Z",
+              "size": "1024"
+            },
+            {
+              "id": "1nn9_L1xcrJGMx4GczjdaC0LO-zZGk7qrO8O4OLOHTVM",
+              "name": "Batch Clear Test Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1nn9_L1xcrJGMx4GczjdaC0LO-zZGk7qrO8O4OLOHTVM/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:58:19.201Z",
+              "size": "1024"
+            },
+            {
+              "id": "1igVmGnUxnmMgS2O3ikVfzXOVHGBWL7r4_i1H6l5pmrw",
+              "name": "Delete Worksheet Test",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1igVmGnUxnmMgS2O3ikVfzXOVHGBWL7r4_i1H6l5pmrw/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:57:56.650Z",
+              "size": "1024"
+            },
+            {
+              "id": "1LD7VTZSviNzgJXmmVdrO3U0lUsL1bQF5O8RfvQU7Okw",
+              "name": "Test Document for Get Revision",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1LD7VTZSviNzgJXmmVdrO3U0lUsL1bQF5O8RfvQU7Okw/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:57:52.466Z",
+              "size": "1024"
+            },
+            {
+              "id": "1SGLf62A6ICCz6ZigFvYyDT8myuOXALDURGFiVFhFrk4",
+              "name": "Test Clear Values",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1SGLf62A6ICCz6ZigFvYyDT8myuOXALDURGFiVFhFrk4/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:57:47.474Z",
+              "size": "1024"
+            },
+            {
+              "id": "140xz0N4XyqTda6PPVs5MnWgBN5sCgcPh6beJEigCXFA",
+              "name": "Test Spreadsheet for Batch Clear Values",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/140xz0N4XyqTda6PPVs5MnWgBN5sCgcPh6beJEigCXFA/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:57:46.776Z",
+              "size": "1024"
+            },
+            {
+              "id": "19DL2nURkactFZV8UmKfWrpIpDY1lRtuLO2cK2MEfk-s",
+              "name": "Test Spreadsheet for Create Column Action",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/19DL2nURkactFZV8UmKfWrpIpDY1lRtuLO2cK2MEfk-s/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:53.866Z",
+              "size": "1024"
+            },
+            {
+              "id": "1LFPo8CerBMc8K0mMwgXBEpv4fyivzo7iyfdDA8Ccul0",
+              "name": "Test Destination Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1LFPo8CerBMc8K0mMwgXBEpv4fyivzo7iyfdDA8Ccul0/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:49.375Z",
+              "size": "1024"
+            },
+            {
+              "id": "15a7m8wVuULRTH3Q1LEf5OCuY6A4n78ktC1KFTTGC-is",
+              "name": "Test Document for Get Revision",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/15a7m8wVuULRTH3Q1LEf5OCuY6A4n78ktC1KFTTGC-is/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:32.824Z",
+              "size": "1024"
+            },
+            {
+              "id": "1e1pPVyH8Ecnq16EjV6aJyAW80j4S1Mgb-NZW3ZctXcM",
+              "name": "Test Document for Delete Permission Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1e1pPVyH8Ecnq16EjV6aJyAW80j4S1Mgb-NZW3ZctXcM/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:31.240Z",
+              "size": "1024"
+            },
+            {
+              "id": "1zxLh9FTHfqdysHsyPJ4O2bQO9EmEITB4uCoSMFGU1cs",
+              "name": "Test Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1zxLh9FTHfqdysHsyPJ4O2bQO9EmEITB4uCoSMFGU1cs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:30.566Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Z_ecAccxhBzye7vuhdU7NWqjKhqrv9lSj5Uq7brlsKY",
+              "name": "Test Spreadsheet for BatchGet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1Z_ecAccxhBzye7vuhdU7NWqjKhqrv9lSj5Uq7brlsKY/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:15.252Z",
+              "size": "1024"
+            },
+            {
+              "id": "14vC2xXBjTNYeY8H5Guty_edD3sozGvchr13xhSJErUM",
+              "name": "Test Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/14vC2xXBjTNYeY8H5Guty_edD3sozGvchr13xhSJErUM/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:56:05.340Z",
+              "size": "1024"
+            },
+            {
+              "id": "1D8SwxDV3ocOzM_E1rda0MH780LiRNdXCOeMu1p2EE-k",
+              "name": "Test Spreadsheet for Append Action",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1D8SwxDV3ocOzM_E1rda0MH780LiRNdXCOeMu1p2EE-k/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:53.404Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Byw1gK2VrpuN-nHIbbO9SodD3VeTgzmL_CJCoBpr1dM",
+              "name": "Test Source Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1Byw1gK2VrpuN-nHIbbO9SodD3VeTgzmL_CJCoBpr1dM/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:46.299Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Nf-SApVkO0G8nSr8mA_XAfDYg6ZGkIwPhOrh288GZyE",
+              "name": "Test Document for Get Comment Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1Nf-SApVkO0G8nSr8mA_XAfDYg6ZGkIwPhOrh288GZyE/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:43.031Z",
+              "size": "1024"
+            },
+            {
+              "id": "1oS8q5nfaYOtZaqUy7XsupLxaW4jO9yyv04EZB9Wyd7w",
+              "name": "Test Document for Comment Update",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1oS8q5nfaYOtZaqUy7XsupLxaW4jO9yyv04EZB9Wyd7w/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:35.982Z",
+              "size": "1024"
+            },
+            {
+              "id": "1ldcXmL0pegB8rVVH4-xqWaTh7ciI0w6lAYf9nbQyfDU",
+              "name": "Test Document for Delete Permission Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1ldcXmL0pegB8rVVH4-xqWaTh7ciI0w6lAYf9nbQyfDU/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:34.077Z",
+              "size": "1024"
+            },
+            {
+              "id": "1YGsdKlYjhpOLxYUNMtvMCeyHwWbrbN1KHT9Z3sZ0VGg",
+              "name": "Test Document for Update Permission Action - 2026-03-11",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1YGsdKlYjhpOLxYUNMtvMCeyHwWbrbN1KHT9Z3sZ0VGg/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:29.083Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Fe0clX8pLaquJ-ngLvkdzDxMjfkE9a8sTQ3DFcKVz7o",
+              "name": "Updated Test Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1Fe0clX8pLaquJ-ngLvkdzDxMjfkE9a8sTQ3DFcKVz7o/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:55:11.381Z",
+              "size": "1024"
+            },
+            {
+              "id": "1BW_rIPyPqKUpBwRSmecJT5Vp0ND95Ol62XSpmDV89IM",
+              "name": "Copied Test Document for Mock",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1BW_rIPyPqKUpBwRSmecJT5Vp0ND95Ol62XSpmDV89IM/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:54:03.542Z",
+              "size": "1024"
+            },
+            {
+              "id": "1R1foibAae_iXaKkNtz-eYE0SYeRHr1FtFz_2xUqPUnQ",
+              "name": "Test Document for Delete Comment",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1R1foibAae_iXaKkNtz-eYE0SYeRHr1FtFz_2xUqPUnQ/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:53:52.641Z",
+              "size": "1024"
+            },
+            {
+              "id": "1l4_mL2WU7AXVNsxs_NvrycwQjjWkdTMuiher8RQ3KJU",
+              "name": "Test Document for Delete Permission Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1l4_mL2WU7AXVNsxs_NvrycwQjjWkdTMuiher8RQ3KJU/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:53:21.787Z",
+              "size": "1024"
+            },
+            {
+              "id": "1BzLumLBLoG8SmwnLsCtBVc3vl9m8odtPyCTLVyliC3I",
+              "name": "Test Document for Comments 2026-03-11T12:52:09.446Z",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1BzLumLBLoG8SmwnLsCtBVc3vl9m8odtPyCTLVyliC3I/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:53:06.809Z",
+              "size": "1024"
+            },
+            {
+              "id": "18eaUnofdTSWjOKFMKSga2yNBgSWbE2-LIC89YPLOltE",
+              "name": "Copied Test Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/18eaUnofdTSWjOKFMKSga2yNBgSWbE2-LIC89YPLOltE/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:52:34.144Z",
+              "size": "1024"
+            },
+            {
+              "id": "1C2ywkwpJbK-Rj3_0TOR5mGAWvyFwwQukpB7GFFGYYk8",
+              "name": "Test Document for Copy",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1C2ywkwpJbK-Rj3_0TOR5mGAWvyFwwQukpB7GFFGYYk8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:52:10.911Z",
+              "size": "1024"
+            },
+            {
+              "id": "1htd6rHubt-S5jtBMGVZWN4RU9XSoBie4NU7MOn0yDzI",
+              "name": "Test Document for Delete Permission Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1htd6rHubt-S5jtBMGVZWN4RU9XSoBie4NU7MOn0yDzI/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:51:37.564Z",
+              "size": "1024"
+            },
+            {
+              "id": "1GHYyTrhH4poG7h9EcVf8M4Z24AW7xzIXEb2eQA8NKH8",
+              "name": "Test File for List Permissions Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1GHYyTrhH4poG7h9EcVf8M4Z24AW7xzIXEb2eQA8NKH8/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:47:23.157Z",
+              "size": "1024"
+            },
+            {
+              "id": "1TdAeNNmIjJmKLaBtLA4sCy4Ucrb5PoJzS1XM8CJXuKs",
+              "name": "Test Document for Delete Action",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1TdAeNNmIjJmKLaBtLA4sCy4Ucrb5PoJzS1XM8CJXuKs/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:47:21.361Z",
+              "size": "1024"
+            },
+            {
+              "id": "1Z_dW02BTFidVxsLUsHXTq-Ifrb6vztd_dzTRGTEK1TQ",
+              "name": "Test Document for Comments",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1Z_dW02BTFidVxsLUsHXTq-Ifrb6vztd_dzTRGTEK1TQ/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:47:17.989Z",
+              "size": "2080"
+            },
+            {
+              "id": "18JPRH3BiKx2_B32EN498gr3tlp7UJBtubkiCMvGu6hY",
+              "name": "Test Document for Comments",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/18JPRH3BiKx2_B32EN498gr3tlp7UJBtubkiCMvGu6hY/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:45:33.989Z",
+              "size": "1024"
+            },
+            {
+              "id": "1lcBklGDRPAu3FShcUs_zO8p9jx6vVm2omTEMMQ5A7_4",
+              "name": "Nango Test Document",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1lcBklGDRPAu3FShcUs_zO8p9jx6vVm2omTEMMQ5A7_4/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:45:30.455Z",
+              "size": "1024"
+            },
+            {
+              "id": "11So94endOdoAm8NW0LrSh8qQEnDi1iJM",
+              "name": "Nango Test Destination Folder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/11So94endOdoAm8NW0LrSh8qQEnDi1iJM",
+              "modifiedTime": "2026-03-11T12:45:29.703Z"
+            },
+            {
+              "id": "13BjTIRj1OQA7IW5oavmyIFXBaG3dkNz3",
+              "name": "Nango Test Source Folder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/13BjTIRj1OQA7IW5oavmyIFXBaG3dkNz3",
+              "modifiedTime": "2026-03-11T12:45:12.583Z"
+            },
+            {
+              "id": "1mEtRKgMg5_xtx8Ynnp3kPaR8ypXESdkb",
+              "name": "Test Folder Created by Agent",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1mEtRKgMg5_xtx8Ynnp3kPaR8ypXESdkb",
+              "modifiedTime": "2026-03-11T12:44:37.785Z"
+            },
+            {
+              "id": "1rrZuBnk7KQJhBoHXMZjuUPS1z9AaAxYixRTN0--Rl3Q",
+              "name": "Test Spreadsheet Beta",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1rrZuBnk7KQJhBoHXMZjuUPS1z9AaAxYixRTN0--Rl3Q/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:44:26.657Z",
+              "size": "1024"
+            },
+            {
+              "id": "1b0--_MEshaBTqdekUik6Xxgjjp05elx0",
+              "name": "Test Folder Created by Agent",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1b0--_MEshaBTqdekUik6Xxgjjp05elx0",
+              "modifiedTime": "2026-03-11T12:43:55.046Z"
+            },
+            {
+              "id": "15vI5mJEUTDbgwTI0IRfUdBfcnmHkBhZODYHtPNsR9PI",
+              "name": "Test Document Alpha",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/15vI5mJEUTDbgwTI0IRfUdBfcnmHkBhZODYHtPNsR9PI/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T12:43:52.070Z",
+              "size": "1024"
+            },
+            {
+              "id": "1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k",
+              "name": "Test Document 2",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T11:24:06.345Z",
+              "size": "1024"
+            },
+            {
+              "id": "1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68",
+              "name": "Test Spreadsheet",
+              "mimeType": "application/vnd.google-apps.spreadsheet",
+              "webViewLink": "https://docs.google.com/spreadsheets/d/1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T11:24:04.634Z",
+              "size": "1024"
+            },
+            {
+              "id": "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E",
+              "name": "Test Folder",
+              "mimeType": "application/vnd.google-apps.folder",
+              "webViewLink": "https://drive.google.com/drive/folders/1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E",
+              "modifiedTime": "2026-03-11T11:23:59.950Z"
+            },
+            {
+              "id": "1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE",
+              "name": "Test Document 1",
+              "mimeType": "application/vnd.google-apps.document",
+              "webViewLink": "https://docs.google.com/document/d/1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE/edit?usp=drivesdk",
+              "modifiedTime": "2026-03-11T11:23:55.560Z",
+              "size": "1024"
+            }
+          ],
+          "nextPageToken": "~!!~AI9FV7RNjVeIP590lfEI3C22fRt3NkUPUa77GrXAAUoxtQnPv7sRr7Pgj6RujM9lhb6U061BifS69KeQqlaHtPqKMF7KmOtqNR2h03AjYk22TNgEsGV6bTh17tbvUhxx9ZcF4EcmtrUO4NoioBLBfjYAbxxvEvgz74QwAo45gyCoUzPyv47Ls2rO2ga3Uo6-FAWHciLtovh0XnMqv7fyuu3siQ_JGS0p5_BHq8uMjeX9teBw3bjW-aTtfR-BbZPawiZbYUpmi-mW11DpVlvB0SgUlc1gXIWv61WdtCSTn1JcXZFtvTSzMqXy5iEzLKw5IN9vPA6EH2MTcZkNOJZ-t_jpuAeEh4kWmA=="
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:30:32 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4838",
+          "x-ratelimit-reset": "1773300647",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "vary": "Origin, X-Origin",
+          "pragma": "no-cache",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "18601a20516728dcdc2327975c5659bd4729cf87",
+        "request": {
+          "params": {
+            "fields": "nextPageToken, files(id, name, mimeType, modifiedTime, size, webViewLink)",
+            "orderBy": "modifiedTime desc",
+            "pageSize": "100"
+          }
+        }
+      }
+    }
+  }
+}

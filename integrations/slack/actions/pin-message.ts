@@ -1,43 +1,51 @@
-/**
- * Instructions: Pins a message to a channel
- * API: https://api.slack.com/methods/pins.add
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const Input = z.object({
-    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string().describe('Timestamp of the message to pin. Example: "1234567890.123456"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('Channel ID where the message was posted. Example: "C1234567890"'),
+    message_timestamp: z.string().describe('Timestamp of the message to pin. Example: "1355517523.000005"')
 });
 
-const Output = z.object({
-    ok: z.boolean().describe('Whether the request was successful')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the pin was successfully added')
 });
 
 const action = createAction({
-    description: 'Pins a message to a channel.',
+    description: 'Pin a specific message in a channel',
     version: '1.0.0',
+
     endpoint: {
         method: 'POST',
-        path: '/pin-message',
-        group: 'Actions'
+        path: '/actions/pin-message',
+        group: 'Pins'
     },
-    input: Input,
-    output: Output,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['pins:write'],
-    exec: async (nango, input): Promise<z.infer<typeof Output>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/pins.add
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
+            // https://docs.slack.dev/reference/methods/pins.add/
             endpoint: 'pins.add',
             data: {
                 channel: input.channel_id,
-                timestamp: input.message_ts
+                timestamp: input.message_timestamp
             },
-            retries: 3
+            retries: 10
+        });
+
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_error',
+                message: response.data.error || 'Failed to pin message',
+                slack_error: response.data.error
+            });
+        }
+
+        return {
+            ok: response.data.ok
         };
-        const response = await nango.post(config);
-        return { ok: response.data.ok };
     }
 });
 

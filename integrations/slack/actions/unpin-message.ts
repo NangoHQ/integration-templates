@@ -1,43 +1,45 @@
-/**
- * Instructions: Removes a pinned item from a channel
- * API: https://api.slack.com/methods/pins.remove
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const Input = z.object({
-    channel_id: z.string().describe('The channel containing the pinned message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string().describe('Timestamp of the message to unpin. Example: "1234567890.123456"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('The channel ID to unpin the message from. Example: "C1234567890"'),
+    timestamp: z.string().describe('Timestamp of the message to unpin. Example: "1234567890.123456"')
 });
 
-const Output = z.object({
-    ok: z.boolean().describe('Whether the request was successful')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the request was successful'),
+    error: z.union([z.string(), z.null()]).optional().describe('Error message if the request failed')
 });
 
 const action = createAction({
-    description: 'Removes a pinned item from a channel.',
+    description: 'Remove a pinned message from a channel',
     version: '1.0.0',
+
     endpoint: {
         method: 'POST',
-        path: '/unpin-message',
-        group: 'Actions'
+        path: '/actions/unpin-message',
+        group: 'Pins'
     },
-    input: Input,
-    output: Output,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['pins:write'],
-    exec: async (nango, input): Promise<z.infer<typeof Output>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/pins.remove
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/pins.remove
+        const response = await nango.post({
             endpoint: 'pins.remove',
             data: {
                 channel: input.channel_id,
-                timestamp: input.message_ts
+                timestamp: input.timestamp
             },
             retries: 3
+        });
+
+        return {
+            ok: response.data.ok ?? true,
+            error: response.data.error ?? null
         };
-        const response = await nango.post(config);
-        return { ok: response.data.ok };
     }
 });
 

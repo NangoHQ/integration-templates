@@ -35,5 +35,22 @@
         ],
         "@typescript-eslint/no-explicit-any": "warn",
         "no-constant-condition": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": [
+                "integrations/google-calendar/**/*.ts",
+                "integrations/google-drive/**/*.ts",
+                "integrations/hubspot/**/*.ts",
+                "integrations/slack/**/*.ts",
+                "nango-integrations/google-calendar/**/*.ts",
+                "nango-integrations/google-drive/**/*.ts",
+                "nango-integrations/hubspot/**/*.ts",
+                "nango-integrations/slack/**/*.ts"
+            ],
+            "rules": {
+                "@nangohq/custom-integrations-linting/no-object-casting": "off"
+            }
+        }
+    ]
 }

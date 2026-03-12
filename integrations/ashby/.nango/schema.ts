@@ -291,21 +291,16 @@ export interface ActionOutput_ashby_applicationchangestage {
   moreDataAvailable?: boolean | undefined;
 };
 
-export interface ActionInput_ashby_applicationupdate {
-  0: {  applicationId: string;
-  sourceId: string;};
-  1: {  applicationId: string;
-  interviewStageId: string;
-  archiveReasonId?: string | undefined;};
-  2: {  applicationId: string;
+export interface ActionInput_ashby_applicationupdatehistory {
+  applicationId: string;
   applicationHistory: ({  stageId: string;
   stageNumber: number;
   enteredStageAt: Date;
   applicationHistoryId?: string | undefined;
-  archiveReasonId?: string | undefined;})[];};
+  archiveReasonId?: string | undefined;})[];
 };
 
-export interface ActionOutput_ashby_applicationupdate {
+export interface ActionOutput_ashby_applicationupdatehistory {
   success: boolean;
   errors: string[];
   results?: {  id: string;
@@ -410,16 +405,21 @@ export interface ActionOutput_ashby_applicationupdate {
   moreDataAvailable?: boolean | undefined;
 };
 
-export interface ActionInput_ashby_applicationupdatehistory {
-  applicationId: string;
+export interface ActionInput_ashby_applicationupdate {
+  0: {  applicationId: string;
+  sourceId: string;};
+  1: {  applicationId: string;
+  interviewStageId: string;
+  archiveReasonId?: string | undefined;};
+  2: {  applicationId: string;
   applicationHistory: ({  stageId: string;
   stageNumber: number;
   enteredStageAt: Date;
   applicationHistoryId?: string | undefined;
-  archiveReasonId?: string | undefined;})[];
+  archiveReasonId?: string | undefined;})[];};
 };
 
-export interface ActionOutput_ashby_applicationupdatehistory {
+export interface ActionOutput_ashby_applicationupdate {
   success: boolean;
   errors: string[];
   results?: {  id: string;

@@ -1,30 +1,3 @@
-export interface SyncMetadata_workable_candidates {
-};
-
-export interface WorkableCandidate {
-  id: string;
-  name: string;
-  firstname: string;
-  lastname: string;
-  headline: string;
-  account: {  subdomain: string;
-  name: string;};
-  job: {  shortcode: string;
-  title: string;};
-  stage: string;
-  disqualified: boolean;
-  disqualification_reason: string;
-  hired_at: Date;
-  sourced: boolean;
-  profile_url: string;
-  address: string;
-  phone: string;
-  email: string;
-  domain: string;
-  created_at: Date;
-  updated_at: Date;
-};
-
 export interface SyncMetadata_workable_candidatesactivities {
 };
 
@@ -52,36 +25,31 @@ export interface WorkableCandidateOffer {
   state: string;
 };
 
-export interface SyncMetadata_workable_jobs {
+export interface SyncMetadata_workable_candidates {
 };
 
-export interface WorkableJob {
+export interface WorkableCandidate {
   id: string;
-  title: string;
-  full_title: string;
-  shortcode: string;
-  code: string;
-  state: string;
-  sample: boolean;
-  department: string;
-  department_hierarchy: any[];
-  url: string;
-  application_url: string;
-  shortlink: string;
-  location: {  location_str: string;
-  country: string;
-  country_code: string;
-  region: string;
-  region_code: string;
-  city: string;
-  zip_code: string;
-  telecommuting: boolean;
-  workplace_type: string;};
-  locations: any[];
-  salary: {  salary_from: number;
-  salary_to: number;
-  salary_currency: string;};
+  name: string;
+  firstname: string;
+  lastname: string;
+  headline: string;
+  account: {  subdomain: string;
+  name: string;};
+  job: {  shortcode: string;
+  title: string;};
+  stage: string;
+  disqualified: boolean;
+  disqualification_reason: string;
+  hired_at: Date;
+  sourced: boolean;
+  profile_url: string;
+  address: string;
+  phone: string;
+  email: string;
+  domain: string;
   created_at: Date;
+  updated_at: Date;
 };
 
 export interface SyncMetadata_workable_jobscandidates {
@@ -124,6 +92,38 @@ export interface WorkableJobQuestion {
   body: string;};
   supported_file_types: any[];
   max_file_size: number;
+};
+
+export interface SyncMetadata_workable_jobs {
+};
+
+export interface WorkableJob {
+  id: string;
+  title: string;
+  full_title: string;
+  shortcode: string;
+  code: string;
+  state: string;
+  sample: boolean;
+  department: string;
+  department_hierarchy: any[];
+  url: string;
+  application_url: string;
+  shortlink: string;
+  location: {  location_str: string;
+  country: string;
+  country_code: string;
+  region: string;
+  region_code: string;
+  city: string;
+  zip_code: string;
+  telecommuting: boolean;
+  workplace_type: string;};
+  locations: any[];
+  salary: {  salary_from: number;
+  salary_to: number;
+  salary_currency: string;};
+  created_at: Date;
 };
 
 export interface SyncMetadata_workable_members {

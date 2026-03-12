@@ -52,10 +52,12 @@ export interface BookAnalytics {
   taggedUsers: number;};};
 };
 
-export interface SyncMetadata_brightcrowd_books {
+export interface SyncMetadata_brightcrowd_booksbyid {
+  bookIds: string[];
+  timeframe?: any | undefined | any | undefined | any | undefined | 'all';
 };
 
-export interface Book {
+export interface BookById {
   id: string;
   alias: string;
   name: string;
@@ -115,12 +117,10 @@ export interface Book {
   pictures?: string[] | null | undefined;} | null;
 };
 
-export interface SyncMetadata_brightcrowd_booksbyid {
-  bookIds: string[];
-  timeframe?: any | undefined | any | undefined | any | undefined | 'all';
+export interface SyncMetadata_brightcrowd_books {
 };
 
-export interface BookById {
+export interface Book {
   id: string;
   alias: string;
   name: string;

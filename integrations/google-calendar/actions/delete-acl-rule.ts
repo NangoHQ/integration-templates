@@ -1,44 +1,43 @@
-/**
- * Instructions: Deletes an access control rule
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/acl/delete
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const DeleteAclRuleInput = z.object({
-    calendar_id: z.string(),
-    rule_id: z.string()
+const InputSchema = z.object({
+    calendar_id: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.'),
+    rule_id: z.string().describe('ACL rule identifier to delete.')
 });
 
-const DeleteAclRuleOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the deletion was successful.'),
+    calendar_id: z.string().describe('The calendar ID from the request.'),
+    rule_id: z.string().describe('The ACL rule ID that was deleted.')
 });
 
 const action = createAction({
-    description: 'Deletes an access control rule',
+    description: 'Delete an access control rule from a calendar',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/acl/delete
+
     endpoint: {
-        method: 'DELETE',
-        path: '/acl/rule',
-        group: 'Access Control'
+        method: 'POST',
+        path: '/actions/delete-acl-rule',
+        group: 'ACL'
     },
-    input: DeleteAclRuleInput,
-    output: DeleteAclRuleOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof DeleteAclRuleOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/acl/delete
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.acls'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/acl/delete
+        await nango.delete({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/acl/${encodeURIComponent(input.rule_id)}`,
-            retries: 3
-        };
+            retries: 10 // Delete is non-idempotent
+        });
 
-        await nango.delete(config);
-
+        // On success, the API returns an empty response body
         return {
-            success: true
+            success: true,
+            calendar_id: input.calendar_id,
+            rule_id: input.rule_id
         };
     }
 });

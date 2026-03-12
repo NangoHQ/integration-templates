@@ -1,0 +1,84 @@
+{
+  "input": {
+    "name": "Test Company Inc",
+    "domain": "testcompany.com"
+  },
+  "output": {
+    "id": "421369711816",
+    "name": "Test Company Inc",
+    "domain": "testcompany.com",
+    "city": null,
+    "industry": null,
+    "phone": null,
+    "website": "testcompany.com",
+    "created_at": "2026-03-12T07:32:59.531Z",
+    "updated_at": "2026-03-12T07:32:59.531Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/crm/v3/objects/companies": {
+        "response": {
+          "id": "421369711816",
+          "properties": {
+            "createdate": "2026-03-12T07:32:59.531Z",
+            "domain": "testcompany.com",
+            "hs_annual_revenue_currency_code": "USD",
+            "hs_lastmodifieddate": "2026-03-12T07:32:59.531Z",
+            "hs_num_blockers": "0",
+            "hs_num_child_companies": "0",
+            "hs_num_contacts_with_buying_roles": "0",
+            "hs_num_decision_makers": "0",
+            "hs_num_open_deals": "0",
+            "hs_object_id": "421369711816",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_pipeline": "companies-lifecycle-pipeline",
+            "hs_task_label": "Test Company Inc",
+            "hs_v2_date_entered_current_stage": "2026-03-12T07:32:59.531Z",
+            "hs_v2_time_in_current_stage": "2026-03-12T07:32:59.531Z",
+            "lifecyclestage": "lead",
+            "name": "Test Company Inc",
+            "num_associated_contacts": "0",
+            "num_notes": "0",
+            "website": "testcompany.com"
+          },
+          "createdAt": "2026-03-12T07:32:59.531Z",
+          "updatedAt": "2026-03-12T07:32:59.531Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-2/421369711816"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:32:59 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "968",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4909",
+          "x-ratelimit-reset": "1773300828",
+          "etag": "W/\"3c8-aMEMoFFWHrr8Xy2yfpz2SGocl8E\""
+        },
+        "hash": "f7c66d037b2f08e984e7a26567f41b8d6ffeb0bb",
+        "request": {
+          "data": {
+            "properties": {
+              "name": "Test Company Inc",
+              "domain": "testcompany.com"
+            }
+          }
+        }
+      }
+    }
+  }
+}

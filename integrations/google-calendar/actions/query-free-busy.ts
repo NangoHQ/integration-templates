@@ -1,57 +1,100 @@
-/**
- * Instructions: Returns free/busy information for a set of calendars
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/freebusy/query
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const QueryFreeBusyInput = z.object({
-    timeMin: z.string(),
-    timeMax: z.string(),
-    items: z.array(z.any()),
-    timeZone: z.string().optional()
+const CalendarItemSchema = z.object({
+    id: z.string().describe('The identifier of a calendar or a group')
 });
 
-const QueryFreeBusyOutput = z.object({
+const InputSchema = z.object({
+    time_min: z.string().describe('The start of the interval for the query formatted as per RFC3339. Example: "2024-01-01T00:00:00Z"'),
+    time_max: z.string().describe('The end of the interval for the query formatted as per RFC3339. Example: "2024-01-02T00:00:00Z"'),
+    time_zone: z.string().optional().describe('Time zone used in the response. The default is UTC. Example: "UTC"'),
+    group_expansion_max: z.number().optional().describe('Maximal number of calendar identifiers to be provided for a single group. Maximum value is 100.'),
+    calendar_expansion_max: z
+        .number()
+        .optional()
+        .describe('Maximal number of calendars for which FreeBusy information is to be provided. Maximum value is 50.'),
+    items: z.array(CalendarItemSchema).describe('List of calendars and/or groups to query')
+});
+
+const ErrorSchema = z.object({
+    domain: z.string(),
+    reason: z.string()
+});
+
+const BusyPeriodSchema = z.object({
+    start: z.string(),
+    end: z.string()
+});
+
+const CalendarFreeBusySchema = z.object({
+    errors: z.array(ErrorSchema).optional(),
+    busy: z.array(BusyPeriodSchema)
+});
+
+const GroupSchema = z.object({
+    errors: z.array(ErrorSchema).optional(),
+    calendars: z.array(z.string())
+});
+
+const OutputSchema = z.object({
     kind: z.string(),
-    timeMin: z.string(),
-    timeMax: z.string(),
-    calendars: z.any()
+    time_min: z.string(),
+    time_max: z.string(),
+    groups: z.record(z.string(), GroupSchema).optional(),
+    calendars: z.record(z.string(), CalendarFreeBusySchema)
 });
 
 const action = createAction({
-    description: 'Returns free/busy information for a set of calendars',
+    description: 'Return free/busy blocks for one or more calendars in a time range',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/freebusy/query
+
     endpoint: {
         method: 'POST',
-        path: '/freeBusy',
-        group: 'Scheduling'
+        path: '/actions/query-free-busy',
+        group: 'Calendars'
     },
-    input: QueryFreeBusyInput,
-    output: QueryFreeBusyOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-    exec: async (nango, input): Promise<z.infer<typeof QueryFreeBusyOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/freebusy/query
-            endpoint: '/calendar/v3/freeBusy',
-            data: {
-                timeMin: input.timeMin,
-                timeMax: input.timeMax,
-                items: input.items,
-                ...(input.timeZone && { timeZone: input.timeZone })
-            },
-            retries: 3
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const requestBody: {
+            timeMin: string;
+            timeMax: string;
+            timeZone?: string;
+            groupExpansionMax?: number;
+            calendarExpansionMax?: number;
+            items: { id: string }[];
+        } = {
+            timeMin: input.time_min,
+            timeMax: input.time_max,
+            items: input.items
         };
 
-        const response = await nango.post(config);
+        if (input.time_zone) {
+            requestBody.timeZone = input.time_zone;
+        }
+        if (input.group_expansion_max !== undefined) {
+            requestBody.groupExpansionMax = input.group_expansion_max;
+        }
+        if (input.calendar_expansion_max !== undefined) {
+            requestBody.calendarExpansionMax = input.calendar_expansion_max;
+        }
+
+        const response = await nango.post({
+            // https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query
+            endpoint: '/calendar/v3/freeBusy',
+            data: requestBody,
+            retries: 3
+        });
 
         return {
             kind: response.data.kind,
-            timeMin: response.data.timeMin,
-            timeMax: response.data.timeMax,
+            time_min: response.data.timeMin,
+            time_max: response.data.timeMax,
+            groups: response.data.groups,
             calendars: response.data.calendars
         };
     }

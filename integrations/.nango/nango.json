@@ -656,28 +656,6 @@
       },
       {
         "type": "action",
-        "description": "Action to update an application.",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/applications",
-          "group": "Applications"
-        },
-        "input": "ActionInput_ashby_applicationupdate",
-        "name": "application-update",
-        "output": [
-          "ActionOutput_ashby_applicationupdate"
-        ],
-        "scopes": [
-          "candidatesWrite"
-        ],
-        "usedModels": [
-          "ActionInput_ashby_applicationupdate",
-          "ActionOutput_ashby_applicationupdate"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
         "description": "Action to update history an application stage.",
         "endpoint": {
           "method": "POST",
@@ -697,6 +675,28 @@
           "ActionOutput_ashby_applicationupdatehistory"
         ],
         "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to update an application.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/applications",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationupdate",
+        "name": "application-update",
+        "output": [
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationupdate",
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -2188,35 +2188,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of all books in an account from Brightcrowd.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/books",
-            "group": "Books"
-          }
-        ],
-        "input": "SyncMetadata_brightcrowd_books",
-        "name": "books",
-        "output": [
-          "Book"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "bcb.partner/book.read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Book",
-          "SyncMetadata_brightcrowd_books"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches a list of specified books from Brightcrowd.",
         "auto_start": false,
         "endpoints": [
@@ -2240,6 +2211,35 @@
         "usedModels": [
           "BookById",
           "SyncMetadata_brightcrowd_booksbyid"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all books in an account from Brightcrowd.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/books",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_books",
+        "name": "books",
+        "output": [
+          "Book"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Book",
+          "SyncMetadata_brightcrowd_books"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -4368,34 +4368,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches Github issues from all a user's repositories",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/github/issues"
-          }
-        ],
-        "input": "SyncMetadata_github_issues",
-        "name": "issues",
-        "output": [
-          "GithubIssue"
-        ],
-        "runs": "every half hour",
-        "scopes": [
-          "public_repo"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "GithubIssue",
-          "SyncMetadata_github_issues"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches Github issues but up to a maximum of 15",
         "auto_start": false,
         "endpoints": [
@@ -4418,6 +4390,62 @@
         "usedModels": [
           "Issue",
           "SyncMetadata_github_issueslite"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Demonstrates long-running sync recovery by persisting offset, sync window and run start timestamp.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/github/issues-recovery"
+          }
+        ],
+        "input": "SyncMetadata_github_issuesrecovery",
+        "name": "issues-recovery",
+        "output": [
+          "GithubIssueRecovery"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "public_repo"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GithubIssueRecovery",
+          "SyncMetadata_github_issuesrecovery"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches Github issues from all a user's repositories",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/github/issues"
+          }
+        ],
+        "input": "SyncMetadata_github_issues",
+        "name": "issues",
+        "output": [
+          "GithubIssue"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "public_repo"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "GithubIssue",
+          "SyncMetadata_github_issues"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -4767,11 +4795,11 @@
     "actions": [
       {
         "type": "action",
-        "description": "Adds an attendee to an existing calendar event",
+        "description": "Add an attendee to an existing calendar event",
         "endpoint": {
           "method": "POST",
-          "path": "/events/attendee",
-          "group": "Attendees"
+          "path": "/actions/add-attendee",
+          "group": "Events"
         },
         "input": "ActionInput_google_calendar_addattendee",
         "name": "add-attendee",
@@ -4789,10 +4817,10 @@
       },
       {
         "type": "action",
-        "description": "Clears a primary calendar by deleting all events",
+        "description": "Clear the primary calendar by deleting all events",
         "endpoint": {
           "method": "POST",
-          "path": "/calendar/clear",
+          "path": "/actions/clear-calendar",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_clearcalendar",
@@ -4801,7 +4829,7 @@
           "ActionOutput_google_calendar_clearcalendar"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_clearcalendar",
@@ -4811,11 +4839,11 @@
       },
       {
         "type": "action",
-        "description": "Creates an access control rule granting calendar access",
+        "description": "Create an access control rule",
         "endpoint": {
           "method": "POST",
-          "path": "/acl",
-          "group": "Access Control"
+          "path": "/actions/create-acl-rule",
+          "group": "Calendar"
         },
         "input": "ActionInput_google_calendar_createaclrule",
         "name": "create-acl-rule",
@@ -4823,7 +4851,8 @@
           "ActionOutput_google_calendar_createaclrule"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.acls"
         ],
         "usedModels": [
           "ActionInput_google_calendar_createaclrule",
@@ -4833,10 +4862,10 @@
       },
       {
         "type": "action",
-        "description": "Creates an all-day event on a calendar",
+        "description": "Create an all-day calendar event using start and end dates",
         "endpoint": {
           "method": "POST",
-          "path": "/events/allDay",
+          "path": "/actions/create-all-day-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_createalldayevent",
@@ -4845,7 +4874,7 @@
           "ActionOutput_google_calendar_createalldayevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_createalldayevent",
@@ -4855,10 +4884,10 @@
       },
       {
         "type": "action",
-        "description": "Creates a new secondary calendar with the specified title",
+        "description": "Create a new secondary Google Calendar with the specified title.",
         "endpoint": {
           "method": "POST",
-          "path": "/calendars",
+          "path": "/actions/create-calendar",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_createcalendar",
@@ -4877,10 +4906,10 @@
       },
       {
         "type": "action",
-        "description": "Creates a new event on a calendar",
+        "description": "Create a calendar event",
         "endpoint": {
           "method": "POST",
-          "path": "/event",
+          "path": "/actions/create-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_createevent",
@@ -4889,7 +4918,8 @@
           "ActionOutput_google_calendar_createevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_createevent",
@@ -4899,10 +4929,10 @@
       },
       {
         "type": "action",
-        "description": "Creates a recurring event with RRULE specification",
+        "description": "Create a recurring event with supplied start, end, and RRULE values",
         "endpoint": {
           "method": "POST",
-          "path": "/events/recurring",
+          "path": "/actions/create-recurring-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_createrecurringevent",
@@ -4911,7 +4941,7 @@
           "ActionOutput_google_calendar_createrecurringevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_createrecurringevent",
@@ -4921,11 +4951,11 @@
       },
       {
         "type": "action",
-        "description": "Deletes an access control rule",
+        "description": "Delete an access control rule from a calendar",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/acl/rule",
-          "group": "Access Control"
+          "method": "POST",
+          "path": "/actions/delete-acl-rule",
+          "group": "ACL"
         },
         "input": "ActionInput_google_calendar_deleteaclrule",
         "name": "delete-acl-rule",
@@ -4933,7 +4963,8 @@
           "ActionOutput_google_calendar_deleteaclrule"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.acls"
         ],
         "usedModels": [
           "ActionInput_google_calendar_deleteaclrule",
@@ -4943,10 +4974,10 @@
       },
       {
         "type": "action",
-        "description": "Deletes a secondary calendar",
+        "description": "Delete a secondary calendar",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/calendar",
+          "method": "POST",
+          "path": "/actions/delete-calendar",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_deletecalendar",
@@ -4965,10 +4996,10 @@
       },
       {
         "type": "action",
-        "description": "Deletes an event from a calendar",
+        "description": "Delete a calendar event",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/event",
+          "method": "POST",
+          "path": "/actions/delete-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_deleteevent",
@@ -4977,7 +5008,7 @@
           "ActionOutput_google_calendar_deleteevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_deleteevent",
@@ -4987,11 +5018,11 @@
       },
       {
         "type": "action",
-        "description": "Finds available time slots across calendars within a time range",
+        "description": "Query free/busy data and return gaps meeting a minimum duration",
         "endpoint": {
           "method": "POST",
-          "path": "/freeBusy/findSlots",
-          "group": "Scheduling"
+          "path": "/actions/find-free-slots",
+          "group": "Calendar"
         },
         "input": "ActionInput_google_calendar_findfreeslots",
         "name": "find-free-slots",
@@ -4999,7 +5030,8 @@
           "ActionOutput_google_calendar_findfreeslots"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/calendar.freebusy"
         ],
         "usedModels": [
           "ActionInput_google_calendar_findfreeslots",
@@ -5009,11 +5041,11 @@
       },
       {
         "type": "action",
-        "description": "Returns an access control rule by rule ID",
+        "description": "Get an access control rule by ID",
         "endpoint": {
           "method": "GET",
-          "path": "/acl/rule",
-          "group": "Access Control"
+          "path": "/actions/get-acl-rule",
+          "group": "ACL"
         },
         "input": "ActionInput_google_calendar_getaclrule",
         "name": "get-acl-rule",
@@ -5021,7 +5053,7 @@
           "ActionOutput_google_calendar_getaclrule"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "usedModels": [
           "ActionInput_google_calendar_getaclrule",
@@ -5031,10 +5063,10 @@
       },
       {
         "type": "action",
-        "description": "Returns a calendar from the user's calendar list",
+        "description": "Retrieve a calendar list entry with access role and colors",
         "endpoint": {
           "method": "GET",
-          "path": "/calendarList/entry",
+          "path": "/actions/get-calendar-list-entry",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_getcalendarlistentry",
@@ -5053,10 +5085,10 @@
       },
       {
         "type": "action",
-        "description": "Returns metadata for a calendar by calendar ID",
+        "description": "Get a calendar by ID",
         "endpoint": {
           "method": "GET",
-          "path": "/calendar",
+          "path": "/actions/get-calendar",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_getcalendar",
@@ -5075,11 +5107,11 @@
       },
       {
         "type": "action",
-        "description": "Returns the color definitions for calendars and events",
+        "description": "Return available calendar and event color definitions",
         "endpoint": {
-          "method": "GET",
-          "path": "/colors",
-          "group": "Settings"
+          "method": "POST",
+          "path": "/actions/get-colors",
+          "group": "Calendar"
         },
         "input": "ActionInput_google_calendar_getcolors",
         "name": "get-colors",
@@ -5097,32 +5129,10 @@
       },
       {
         "type": "action",
-        "description": "Returns instances of a recurring event",
+        "description": "Get an event by ID from Google Calendar",
         "endpoint": {
           "method": "GET",
-          "path": "/events/instances",
-          "group": "Events"
-        },
-        "input": "ActionInput_google_calendar_geteventinstances",
-        "name": "get-event-instances",
-        "output": [
-          "ActionOutput_google_calendar_geteventinstances"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_calendar_geteventinstances",
-          "ActionOutput_google_calendar_geteventinstances"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Returns an event based on its calendar and event ID",
-        "endpoint": {
-          "method": "GET",
-          "path": "/event",
+          "path": "/actions/get-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_getevent",
@@ -5141,10 +5151,10 @@
       },
       {
         "type": "action",
-        "description": "Returns a single user setting by setting ID",
+        "description": "Retrieve a single Google Calendar user setting by ID",
         "endpoint": {
           "method": "GET",
-          "path": "/setting",
+          "path": "/actions/get-setting",
           "group": "Settings"
         },
         "input": "ActionInput_google_calendar_getsetting",
@@ -5153,7 +5163,7 @@
           "ActionOutput_google_calendar_getsetting"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
+          "https://www.googleapis.com/auth/calendar.settings.readonly"
         ],
         "usedModels": [
           "ActionInput_google_calendar_getsetting",
@@ -5163,10 +5173,10 @@
       },
       {
         "type": "action",
-        "description": "Imports an event as a private copy using iCalendar UID",
+        "description": "Import an event as a private copy using an iCalendar UID",
         "endpoint": {
           "method": "POST",
-          "path": "/events/import",
+          "path": "/actions/import-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_importevent",
@@ -5175,7 +5185,10 @@
           "ActionOutput_google_calendar_importevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.events",
+          "https://www.googleapis.com/auth/calendar.app.created",
+          "https://www.googleapis.com/auth/calendar.events.owned"
         ],
         "usedModels": [
           "ActionInput_google_calendar_importevent",
@@ -5185,11 +5198,11 @@
       },
       {
         "type": "action",
-        "description": "Inserts an existing calendar into the user's calendar list",
+        "description": "Add an existing calendar to the user's calendar list with optional colors",
         "endpoint": {
           "method": "POST",
-          "path": "/calendarList",
-          "group": "Calendars"
+          "path": "/actions/insert-calendar-to-list",
+          "group": "Calendar List"
         },
         "input": "ActionInput_google_calendar_insertcalendartolist",
         "name": "insert-calendar-to-list",
@@ -5207,11 +5220,11 @@
       },
       {
         "type": "action",
-        "description": "Returns the rules in the access control list for a calendar",
+        "description": "List ACL rules for a calendar with pagination support",
         "endpoint": {
-          "method": "GET",
-          "path": "/acl",
-          "group": "Access Control"
+          "method": "POST",
+          "path": "/actions/list-acl-rules",
+          "group": "ACL"
         },
         "input": "ActionInput_google_calendar_listaclrules",
         "name": "list-acl-rules",
@@ -5219,7 +5232,9 @@
           "ActionOutput_google_calendar_listaclrules"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.acls",
+          "https://www.googleapis.com/auth/calendar.acls.readonly"
         ],
         "usedModels": [
           "ActionInput_google_calendar_listaclrules",
@@ -5229,32 +5244,54 @@
       },
       {
         "type": "action",
-        "description": "Returns all calendars on the user's calendar list",
+        "description": "List calendars in the user's calendar list",
         "endpoint": {
           "method": "GET",
-          "path": "/calendars/list",
+          "path": "/actions/list-calendar-list",
           "group": "Calendars"
         },
-        "input": "ActionInput_google_calendar_listcalendars",
-        "name": "list-calendars",
+        "input": "ActionInput_google_calendar_listcalendarlist",
+        "name": "list-calendar-list",
         "output": [
-          "ActionOutput_google_calendar_listcalendars"
+          "ActionOutput_google_calendar_listcalendarlist"
         ],
         "scopes": [
           "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "usedModels": [
-          "ActionInput_google_calendar_listcalendars",
-          "ActionOutput_google_calendar_listcalendars"
+          "ActionInput_google_calendar_listcalendarlist",
+          "ActionOutput_google_calendar_listcalendarlist"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Returns events on a specified calendar with optional filtering",
+        "description": "List instances of a recurring event",
         "endpoint": {
           "method": "GET",
-          "path": "/events/list",
+          "path": "/actions/list-event-instances",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_listeventinstances",
+        "name": "list-event-instances",
+        "output": [
+          "ActionOutput_google_calendar_listeventinstances"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_listeventinstances",
+          "ActionOutput_google_calendar_listeventinstances"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List events on a calendar",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/list-events",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_listevents",
@@ -5273,10 +5310,10 @@
       },
       {
         "type": "action",
-        "description": "Returns all user settings for the authenticated user",
+        "description": "List calendar settings",
         "endpoint": {
           "method": "GET",
-          "path": "/settings/list",
+          "path": "/actions/list-settings",
           "group": "Settings"
         },
         "input": "ActionInput_google_calendar_listsettings",
@@ -5285,7 +5322,9 @@
           "ActionOutput_google_calendar_listsettings"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
+          "https://www.googleapis.com/auth/calendar.settings.readonly",
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/calendar"
         ],
         "usedModels": [
           "ActionInput_google_calendar_listsettings",
@@ -5295,10 +5334,10 @@
       },
       {
         "type": "action",
-        "description": "Returns upcoming events starting from now",
+        "description": "List upcoming events from now, ordered by start time",
         "endpoint": {
           "method": "GET",
-          "path": "/events/upcoming",
+          "path": "/actions/list-upcoming-events",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_listupcomingevents",
@@ -5317,10 +5356,10 @@
       },
       {
         "type": "action",
-        "description": "Moves an event to another calendar changing its organizer",
+        "description": "Move an event to another calendar, changing its organizer",
         "endpoint": {
           "method": "POST",
-          "path": "/events/move",
+          "path": "/actions/move-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_moveevent",
@@ -5329,7 +5368,7 @@
           "ActionOutput_google_calendar_moveevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_moveevent",
@@ -5339,10 +5378,10 @@
       },
       {
         "type": "action",
-        "description": "Partially updates an event with only provided fields",
+        "description": "Partially update only provided event fields like time, location, or description",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/event",
+          "method": "POST",
+          "path": "/actions/patch-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_patchevent",
@@ -5351,7 +5390,7 @@
           "ActionOutput_google_calendar_patchevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_patchevent",
@@ -5361,11 +5400,11 @@
       },
       {
         "type": "action",
-        "description": "Returns free/busy information for a set of calendars",
+        "description": "Return free/busy blocks for one or more calendars in a time range",
         "endpoint": {
           "method": "POST",
-          "path": "/freeBusy",
-          "group": "Scheduling"
+          "path": "/actions/query-free-busy",
+          "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_queryfreebusy",
         "name": "query-free-busy",
@@ -5383,10 +5422,10 @@
       },
       {
         "type": "action",
-        "description": "Creates an event based on a simple text string like a natural language input",
+        "description": "Create an event from a text string",
         "endpoint": {
           "method": "POST",
-          "path": "/events/quickAdd",
+          "path": "/actions/quick-add-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_quickaddevent",
@@ -5395,7 +5434,7 @@
           "ActionOutput_google_calendar_quickaddevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_quickaddevent",
@@ -5405,11 +5444,11 @@
       },
       {
         "type": "action",
-        "description": "Removes an attendee from an existing calendar event",
+        "description": "Fetch an event, remove an attendee by email, and patch attendees",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/events/attendee",
-          "group": "Attendees"
+          "method": "POST",
+          "path": "/actions/remove-attendee",
+          "group": "Events"
         },
         "input": "ActionInput_google_calendar_removeattendee",
         "name": "remove-attendee",
@@ -5417,7 +5456,7 @@
           "ActionOutput_google_calendar_removeattendee"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_removeattendee",
@@ -5427,10 +5466,10 @@
       },
       {
         "type": "action",
-        "description": "Removes a calendar from the user's calendar list",
+        "description": "Remove a calendar from the user's calendar list",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/calendarList/entry",
+          "method": "POST",
+          "path": "/actions/remove-calendar-from-list",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_removecalendarfromlist",
@@ -5449,10 +5488,10 @@
       },
       {
         "type": "action",
-        "description": "Searches for events matching a text query across calendars",
+        "description": "Search a calendar's events by text query and optional time bounds",
         "endpoint": {
-          "method": "GET",
-          "path": "/events/search",
+          "method": "POST",
+          "path": "/actions/search-events",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_searchevents",
@@ -5461,7 +5500,9 @@
           "ActionOutput_google_calendar_searchevents"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
+          "https://www.googleapis.com/auth/calendar.events.readonly",
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/calendar"
         ],
         "usedModels": [
           "ActionInput_google_calendar_searchevents",
@@ -5471,11 +5512,11 @@
       },
       {
         "type": "action",
-        "description": "Fetch all user settings from Google Calendar",
+        "description": "Fetch all user settings across pages from Google Calendar",
         "endpoint": {
           "method": "GET",
-          "path": "/settings",
-          "group": "Users"
+          "path": "/actions/settings",
+          "group": "Settings"
         },
         "input": "ActionInput_google_calendar_settings",
         "name": "settings",
@@ -5483,21 +5524,41 @@
           "ActionOutput_google_calendar_settings"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar.settings.readonly"
+          "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "usedModels": [
           "ActionInput_google_calendar_settings",
           "ActionOutput_google_calendar_settings"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Updates an access control rule",
+        "description": "Stop push notifications for a channel",
         "endpoint": {
-          "method": "PUT",
-          "path": "/acl/rule",
-          "group": "Access Control"
+          "method": "POST",
+          "path": "/actions/stop-channel",
+          "group": "Channels"
+        },
+        "input": "ActionInput_google_calendar_stopchannel",
+        "name": "stop-channel",
+        "output": [
+          "ActionOutput_google_calendar_stopchannel"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_google_calendar_stopchannel",
+          "ActionOutput_google_calendar_stopchannel"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update an access control rule",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-acl-rule",
+          "group": "ACL"
         },
         "input": "ActionInput_google_calendar_updateaclrule",
         "name": "update-acl-rule",
@@ -5505,7 +5566,8 @@
           "ActionOutput_google_calendar_updateaclrule"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.acls"
         ],
         "usedModels": [
           "ActionInput_google_calendar_updateaclrule",
@@ -5515,11 +5577,11 @@
       },
       {
         "type": "action",
-        "description": "Updates an attendee's response status for an event",
+        "description": "Fetch an event and update one attendee response status",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/events/attendee",
-          "group": "Attendees"
+          "method": "POST",
+          "path": "/actions/update-attendee-response",
+          "group": "Events"
         },
         "input": "ActionInput_google_calendar_updateattendeeresponse",
         "name": "update-attendee-response",
@@ -5527,7 +5589,7 @@
           "ActionOutput_google_calendar_updateattendeeresponse"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_updateattendeeresponse",
@@ -5537,10 +5599,10 @@
       },
       {
         "type": "action",
-        "description": "Updates an existing calendar on the user's calendar list",
+        "description": "Update a calendar list entry's settings",
         "endpoint": {
-          "method": "PUT",
-          "path": "/calendarList/entry",
+          "method": "POST",
+          "path": "/actions/update-calendar-list-entry",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_updatecalendarlistentry",
@@ -5559,10 +5621,10 @@
       },
       {
         "type": "action",
-        "description": "Updates metadata for a calendar",
+        "description": "Update a calendar's metadata",
         "endpoint": {
-          "method": "PUT",
-          "path": "/calendar",
+          "method": "POST",
+          "path": "/actions/update-calendar",
           "group": "Calendars"
         },
         "input": "ActionInput_google_calendar_updatecalendar",
@@ -5571,7 +5633,9 @@
           "ActionOutput_google_calendar_updatecalendar"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.app.created",
+          "https://www.googleapis.com/auth/calendar.calendars"
         ],
         "usedModels": [
           "ActionInput_google_calendar_updatecalendar",
@@ -5581,10 +5645,10 @@
       },
       {
         "type": "action",
-        "description": "Updates an existing event on a calendar",
+        "description": "Update a calendar event",
         "endpoint": {
-          "method": "PUT",
-          "path": "/event",
+          "method": "POST",
+          "path": "/actions/update-event",
           "group": "Events"
         },
         "input": "ActionInput_google_calendar_updateevent",
@@ -5593,7 +5657,8 @@
           "ActionOutput_google_calendar_updateevent"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/calendar"
+          "https://www.googleapis.com/auth/calendar",
+          "https://www.googleapis.com/auth/calendar.events"
         ],
         "usedModels": [
           "ActionInput_google_calendar_updateevent",
@@ -5603,10 +5668,79 @@
       },
       {
         "type": "action",
-        "description": "description: Fetch current user information",
+        "description": "Subscribe to changes in the calendar list",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/watch-calendar-list",
+          "group": "CalendarList"
+        },
+        "input": "ActionInput_google_calendar_watchcalendarlist",
+        "name": "watch-calendar-list",
+        "output": [
+          "ActionOutput_google_calendar_watchcalendarlist"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_watchcalendarlist",
+          "ActionOutput_google_calendar_watchcalendarlist"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Subscribe to event changes on a calendar",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/watch-events",
+          "group": "Events"
+        },
+        "input": "ActionInput_google_calendar_watchevents",
+        "name": "watch-events",
+        "output": [
+          "ActionOutput_google_calendar_watchevents"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_watchevents",
+          "ActionOutput_google_calendar_watchevents"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Subscribe to changes in calendar settings",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/watch-settings",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_calendar_watchsettings",
+        "name": "watch-settings",
+        "output": [
+          "ActionOutput_google_calendar_watchsettings"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.settings.readonly",
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/calendar"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_watchsettings",
+          "ActionOutput_google_calendar_watchsettings"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Return the current user's Google account ID and email",
         "endpoint": {
           "method": "GET",
-          "path": "/whoami",
+          "path": "/actions/whoami",
           "group": "Users"
         },
         "input": "ActionInput_google_calendar_whoami",
@@ -5614,71 +5748,93 @@
         "output": [
           "ActionOutput_google_calendar_whoami"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
         "usedModels": [
           "ActionInput_google_calendar_whoami",
           "ActionOutput_google_calendar_whoami"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
       {
         "type": "sync",
-        "description": "Sync the calendars list of the user",
+        "description": "Incrementally sync full Google Calendar event objects, defaulting to the primary calendar with an initial one-month lookback",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/calendars",
-            "group": "Calendars"
+            "method": "POST",
+            "path": "/syncs/calendar-events"
           }
         ],
-        "input": "SyncMetadata_google_calendar_calendars",
-        "name": "calendars",
+        "input": "SyncMetadata_google_calendar_calendarevents",
+        "name": "calendar-events",
         "output": [
-          "GoogleCalendar"
+          "CalendarEvent"
         ],
-        "runs": "every hour",
-        "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
-        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "GoogleCalendar",
-          "SyncMetadata_google_calendar_calendars"
+          "CalendarEvent",
+          "SyncMetadata_google_calendar_calendarevents"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
+        "description": "Full sync of the user's calendar list, including access role, colors, primary/selected flags, and deleted status.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/calendar-list",
+            "group": "CalendarList"
+          }
+        ],
+        "input": null,
+        "name": "calendar-list",
+        "output": [
+          "Calendar"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Calendar"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync calendar settings",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/events",
-            "group": "Events"
+            "path": "/syncs/settings",
+            "group": "Settings"
           }
         ],
-        "input": "SyncMetadata_google_calendar_events",
-        "name": "events",
+        "input": null,
+        "name": "settings",
         "output": [
-          "GoogleCalendarEvent"
+          "Setting"
         ],
-        "runs": "every 5 minutes",
-        "scopes": [
-          "https://www.googleapis.com/auth/calendar.readonly"
-        ],
-        "sync_type": "incremental",
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "GoogleCalendarEvent",
-          "SyncMetadata_google_calendar_events"
+          "Setting"
         ],
-        "version": "4.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],
@@ -5693,55 +5849,654 @@
     "actions": [
       {
         "type": "action",
-        "description": "Fetches the top-level content (files and folders) of a folder given its ID.\nIf no folder ID is provided, it fetches content from the root folder.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/folder-content",
-          "group": "Folders"
-        },
-        "input": "ActionInput_google_drive_foldercontent",
-        "name": "folder-content",
-        "output": [
-          "ActionOutput_google_drive_foldercontent"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_drive_foldercontent",
-          "ActionOutput_google_drive_foldercontent"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/drives",
-          "group": "Drives"
-        },
-        "input": "ActionInput_google_drive_listdrives",
-        "name": "list-drives",
-        "output": [
-          "ActionOutput_google_drive_listdrives"
-        ],
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
-        "usedModels": [
-          "ActionInput_google_drive_listdrives",
-          "ActionOutput_google_drive_listdrives"
-        ],
-        "version": "2.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+        "description": "Copy a file to a destination",
         "endpoint": {
           "method": "POST",
-          "path": "/upload-document",
-          "group": "Documents"
+          "path": "/actions/copy-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_copyfile",
+        "name": "copy-file",
+        "output": [
+          "ActionOutput_google_drive_copyfile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_copyfile",
+          "ActionOutput_google_drive_copyfile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Add a comment to a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_createcomment",
+        "name": "create-comment",
+        "output": [
+          "ActionOutput_google_drive_createcomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createcomment",
+          "ActionOutput_google_drive_createcomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a new folder in Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-folder",
+          "group": "Drive"
+        },
+        "input": "ActionInput_google_drive_createfolder",
+        "name": "create-folder",
+        "output": [
+          "ActionOutput_google_drive_createfolder"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createfolder",
+          "ActionOutput_google_drive_createfolder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a shared drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_createshareddrive",
+        "name": "create-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_createshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_createshareddrive",
+          "ActionOutput_google_drive_createshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a comment from a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_deletecomment",
+        "name": "delete-comment",
+        "output": [
+          "ActionOutput_google_drive_deletecomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletecomment",
+          "ActionOutput_google_drive_deletecomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a file or folder from Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_deletefile",
+        "name": "delete-file",
+        "output": [
+          "ActionOutput_google_drive_deletefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletefile",
+          "ActionOutput_google_drive_deletefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Remove a permission from a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_deletepermission",
+        "name": "delete-permission",
+        "output": [
+          "ActionOutput_google_drive_deletepermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deletepermission",
+          "ActionOutput_google_drive_deletepermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a shared drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_deleteshareddrive",
+        "name": "delete-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_deleteshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_deleteshareddrive",
+          "ActionOutput_google_drive_deleteshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Permanently delete all trashed files",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/empty-trash",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_emptytrash",
+        "name": "empty-trash",
+        "output": [
+          "ActionOutput_google_drive_emptytrash"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_emptytrash",
+          "ActionOutput_google_drive_emptytrash"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for files by name or query in Google Drive",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_findfile",
+        "name": "find-file",
+        "output": [
+          "ActionOutput_google_drive_findfile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_findfile",
+          "ActionOutput_google_drive_findfile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for a folder by name or query",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-folder",
+          "group": "Folders"
+        },
+        "input": "ActionInput_google_drive_findfolder",
+        "name": "find-folder",
+        "output": [
+          "ActionOutput_google_drive_findfolder"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_findfolder",
+          "ActionOutput_google_drive_findfolder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get the user's drive info and storage quota",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-about",
+          "group": "Drive"
+        },
+        "input": "ActionInput_google_drive_getabout",
+        "name": "get-about",
+        "output": [
+          "ActionOutput_google_drive_getabout"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getabout",
+          "ActionOutput_google_drive_getabout"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get the starting token for listing future changes",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-changes-start-page-token",
+          "group": "Changes"
+        },
+        "input": "ActionInput_google_drive_getchangesstartpagetoken",
+        "name": "get-changes-start-page-token",
+        "output": [
+          "ActionOutput_google_drive_getchangesstartpagetoken"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.metadata.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getchangesstartpagetoken",
+          "ActionOutput_google_drive_getchangesstartpagetoken"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a comment by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_getcomment",
+        "name": "get-comment",
+        "output": [
+          "ActionOutput_google_drive_getcomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getcomment",
+          "ActionOutput_google_drive_getcomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a permission by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_getpermission",
+        "name": "get-permission",
+        "output": [
+          "ActionOutput_google_drive_getpermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getpermission",
+          "ActionOutput_google_drive_getpermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a file revision by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-revision",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_getrevision",
+        "name": "get-revision",
+        "output": [
+          "ActionOutput_google_drive_getrevision"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getrevision",
+          "ActionOutput_google_drive_getrevision"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a shared drive by ID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-shared-drive",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_getshareddrive",
+        "name": "get-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_getshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_getshareddrive",
+          "ActionOutput_google_drive_getshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Hide a shared drive from the default view",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/hide-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_hideshareddrive",
+        "name": "hide-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_hideshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_hideshareddrive",
+          "ActionOutput_google_drive_hideshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List changes to files and shared drives",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/list-changes",
+          "group": "Changes"
+        },
+        "input": "ActionInput_google_drive_listchanges",
+        "name": "list-changes",
+        "output": [
+          "ActionOutput_google_drive_listchanges"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.metadata.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listchanges",
+          "ActionOutput_google_drive_listchanges"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List comments on a file",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-comments",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_listcomments",
+        "name": "list-comments",
+        "output": [
+          "ActionOutput_google_drive_listcomments"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listcomments",
+          "ActionOutput_google_drive_listcomments"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List immediate files and folders for a folder ID, or root when omitted, with cursor pagination and shared-drive support.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-files-non-unified",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_listfilesnonunified",
+        "name": "list-files-non-unified",
+        "output": [
+          "ActionOutput_google_drive_listfilesnonunified"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listfilesnonunified",
+          "ActionOutput_google_drive_listfilesnonunified"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List permissions on a file",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-permissions",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_listpermissions",
+        "name": "list-permissions",
+        "output": [
+          "ActionOutput_google_drive_listpermissions"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listpermissions",
+          "ActionOutput_google_drive_listpermissions"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List shared drives the user can access, with cursor pagination and drive metadata like hidden, capabilities, and restrictions.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-shared-drives",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_listshareddrives",
+        "name": "list-shared-drives",
+        "output": [
+          "ActionOutput_google_drive_listshareddrives"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listshareddrives",
+          "ActionOutput_google_drive_listshareddrives"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Move a file to a different folder",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/move-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_movefile",
+        "name": "move-file",
+        "output": [
+          "ActionOutput_google_drive_movefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_movefile",
+          "ActionOutput_google_drive_movefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Restore a hidden shared drive to default view",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/unhide-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_unhideshareddrive",
+        "name": "unhide-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_unhideshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_unhideshareddrive",
+          "ActionOutput_google_drive_unhideshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a comment on a file",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/actions/update-comment",
+          "group": "Comments"
+        },
+        "input": "ActionInput_google_drive_updatecomment",
+        "name": "update-comment",
+        "output": [
+          "ActionOutput_google_drive_updatecomment"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatecomment",
+          "ActionOutput_google_drive_updatecomment"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a file's metadata",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_google_drive_updatefile",
+        "name": "update-file",
+        "output": [
+          "ActionOutput_google_drive_updatefile"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatefile",
+          "ActionOutput_google_drive_updatefile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a permission on a file",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-permission",
+          "group": "Permissions"
+        },
+        "input": "ActionInput_google_drive_updatepermission",
+        "name": "update-permission",
+        "output": [
+          "ActionOutput_google_drive_updatepermission"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updatepermission",
+          "ActionOutput_google_drive_updatepermission"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a shared drive's metadata",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-shared-drive",
+          "group": "Shared Drives"
+        },
+        "input": "ActionInput_google_drive_updateshareddrive",
+        "name": "update-shared-drive",
+        "output": [
+          "ActionOutput_google_drive_updateshareddrive"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_updateshareddrive",
+          "ActionOutput_google_drive_updateshareddrive"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/upload-document",
+          "group": "Files"
         },
         "input": "ActionInput_google_drive_uploaddocument",
         "name": "upload-document",
@@ -5749,7 +6504,7 @@
           "ActionOutput_google_drive_uploaddocument"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
+          "https://www.googleapis.com/auth/drive.file"
         ],
         "usedModels": [
           "ActionInput_google_drive_uploaddocument",
@@ -5761,60 +6516,107 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{\"files\": [\"<some-id>\"]}` OR\n`{\"folders\": [\"<some-id>\"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)",
-        "auto_start": false,
+        "description": "Sync file metadata for IDs in connection metadata files, or recursively for all files under folder IDs in folders. Supports shared drives.",
+        "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/documents",
-            "group": "Documents"
+            "method": "POST",
+            "path": "/syncs/sync-files",
+            "group": "Files"
           }
         ],
-        "input": "SyncMetadata_google_drive_documents",
-        "name": "documents",
+        "input": "SyncMetadata_google_drive_syncfiles",
+        "name": "sync-files",
         "output": [
-          "Document"
+          "File"
         ],
-        "runs": "every day",
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
+        "runs": "every 30 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Document",
-          "SyncMetadata_google_drive_documents"
+          "File",
+          "SyncMetadata_google_drive_syncfiles"
         ],
-        "version": "4.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Sync the folders at the root level of a google drive.",
+        "description": "Sync root-level Google Drive folders from My Drive and shared drives",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-folders",
+            "group": "Folders"
+          }
+        ],
+        "input": null,
+        "name": "sync-folders",
+        "output": [
+          "Folder"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Folder"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync file permissions from Google Drive",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/root-folders",
-            "group": "Folders"
+            "path": "/syncs/sync-permissions",
+            "group": "Permissions"
           }
         ],
-        "input": "SyncMetadata_google_drive_folders",
-        "name": "folders",
+        "input": null,
+        "name": "sync-permissions",
         "output": [
-          "Folder"
+          "Permission"
         ],
-        "runs": "every day",
-        "scopes": [
-          "https://www.googleapis.com/auth/drive.readonly"
-        ],
+        "runs": "every hour",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Folder",
-          "SyncMetadata_google_drive_folders"
+          "Permission"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync shared drives from Google Drive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-shared-drives",
+            "group": "Shared Drives"
+          }
+        ],
+        "input": null,
+        "name": "sync-shared-drives",
+        "output": [
+          "SharedDrive"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SharedDrive"
+        ],
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],
@@ -5928,6 +6730,468 @@
           "SyncMetadata_google_mail_labels"
         ],
         "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": [],
+      "validate-connection": []
+    }
+  },
+  {
+    "providerConfigKey": "google-sheet",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Append values to the end of a spreadsheet table",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/append-values-to-spreadsheet",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_appendvaluestospreadsheet",
+        "name": "append-values-to-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_appendvaluestospreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_appendvaluestospreadsheet",
+          "ActionOutput_google_sheet_appendvaluestospreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from ranges matching data filters, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-clear-values-by-data-filter",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchclearvaluesbydatafilter",
+        "name": "batch-clear-values-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_batchclearvaluesbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchclearvaluesbydatafilter",
+          "ActionOutput_google_sheet_batchclearvaluesbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from one or more ranges in a spreadsheet, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-clear-values",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchclearvalues",
+        "name": "batch-clear-values",
+        "output": [
+          "ActionOutput_google_sheet_batchclearvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchclearvalues",
+          "ActionOutput_google_sheet_batchclearvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from ranges matching data filters",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-get-values-by-data-filter",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_batchgetvaluesbydatafilter",
+        "name": "batch-get-values-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_batchgetvaluesbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchgetvaluesbydatafilter",
+          "ActionOutput_google_sheet_batchgetvaluesbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from multiple ranges",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/batch-get-values",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_batchgetvalues",
+        "name": "batch-get-values",
+        "output": [
+          "ActionOutput_google_sheet_batchgetvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchgetvalues",
+          "ActionOutput_google_sheet_batchgetvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Apply multiple updates to a spreadsheet in a single request",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-update-spreadsheet",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_batchupdatespreadsheet",
+        "name": "batch-update-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_batchupdatespreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_batchupdatespreadsheet",
+          "ActionOutput_google_sheet_batchupdatespreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Clear values from a range, preserving formatting",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/clear-values",
+          "group": "Values"
+        },
+        "input": "ActionInput_google_sheet_clearvalues",
+        "name": "clear-values",
+        "output": [
+          "ActionOutput_google_sheet_clearvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_clearvalues",
+          "ActionOutput_google_sheet_clearvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Copy a sheet to another spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/copy-sheet",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_copysheet",
+        "name": "copy-sheet",
+        "output": [
+          "ActionOutput_google_sheet_copysheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_copysheet",
+          "ActionOutput_google_sheet_copysheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Insert a new column into a sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-column",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_createcolumn",
+        "name": "create-column",
+        "output": [
+          "ActionOutput_google_sheet_createcolumn"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createcolumn",
+          "ActionOutput_google_sheet_createcolumn"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Insert a new row at a given index in a Google Sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-spreadsheet-row",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_createspreadsheetrow",
+        "name": "create-spreadsheet-row",
+        "output": [
+          "ActionOutput_google_sheet_createspreadsheetrow"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createspreadsheetrow",
+          "ActionOutput_google_sheet_createspreadsheetrow"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a new spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-spreadsheet",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_createspreadsheet",
+        "name": "create-spreadsheet",
+        "output": [
+          "ActionOutput_google_sheet_createspreadsheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_createspreadsheet",
+          "ActionOutput_google_sheet_createspreadsheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a worksheet by name from a Google Spreadsheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-worksheet",
+          "group": "Worksheets"
+        },
+        "input": "ActionInput_google_sheet_deleteworksheet",
+        "name": "delete-worksheet",
+        "output": [
+          "ActionOutput_google_sheet_deleteworksheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_deleteworksheet",
+          "ActionOutput_google_sheet_deleteworksheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get spreadsheet data matching data filters",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-spreadsheet-by-data-filter",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_getspreadsheetbydatafilter",
+        "name": "get-spreadsheet-by-data-filter",
+        "output": [
+          "ActionOutput_google_sheet_getspreadsheetbydatafilter"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_getspreadsheetbydatafilter",
+          "ActionOutput_google_sheet_getspreadsheetbydatafilter"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get values from a spreadsheet range",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-values",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_getvalues",
+        "name": "get-values",
+        "output": [
+          "ActionOutput_google_sheet_getvalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_getvalues",
+          "ActionOutput_google_sheet_getvalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search developer metadata by criteria",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/search-developer-metadata",
+          "group": "Developer Metadata"
+        },
+        "input": "ActionInput_google_sheet_searchdevelopermetadata",
+        "name": "search-developer-metadata",
+        "output": [
+          "ActionOutput_google_sheet_searchdevelopermetadata"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_searchdevelopermetadata",
+          "ActionOutput_google_sheet_searchdevelopermetadata"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update or move a conditional format rule",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-conditional-format-rule",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_updateconditionalformatrule",
+        "name": "update-conditional-format-rule",
+        "output": [
+          "ActionOutput_google_sheet_updateconditionalformatrule"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_updateconditionalformatrule",
+          "ActionOutput_google_sheet_updateconditionalformatrule"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update values in a spreadsheet range",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-values",
+          "group": "Spreadsheets"
+        },
+        "input": "ActionInput_google_sheet_updatevalues",
+        "name": "update-values",
+        "output": [
+          "ActionOutput_google_sheet_updatevalues"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_updatevalues",
+          "ActionOutput_google_sheet_updatevalues"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Append or update a row of values in a Google Sheet",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/upsert-row",
+          "group": "Sheets"
+        },
+        "input": "ActionInput_google_sheet_upsertrow",
+        "name": "upsert-row",
+        "output": [
+          "ActionOutput_google_sheet_upsertrow"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets"
+        ],
+        "usedModels": [
+          "ActionInput_google_sheet_upsertrow",
+          "ActionOutput_google_sheet_upsertrow"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync worksheet rows from a Google Sheet",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-rows",
+            "group": "Sheets"
+          }
+        ],
+        "input": "SyncMetadata_google_sheet_syncrows",
+        "name": "sync-rows",
+        "output": [
+          "Row"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Row",
+          "SyncMetadata_google_sheet_syncrows"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync worksheets from a Google Sheets spreadsheet",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/syncs/sync-worksheets",
+            "group": "Worksheets"
+          }
+        ],
+        "input": "SyncMetadata_google_sheet_syncworksheets",
+        "name": "sync-worksheets",
+        "output": [
+          "Worksheet"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Worksheet",
+          "SyncMetadata_google_sheet_syncworksheets"
+        ],
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],
@@ -6671,11 +7935,55 @@
     "actions": [
       {
         "type": "action",
-        "description": "Change a user role. Requires an enterprise account.",
+        "description": "Create multiple companies at once",
         "endpoint": {
-          "method": "PUT",
-          "path": "/roles",
-          "group": "Roles"
+          "method": "POST",
+          "path": "/actions/batch-create-companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_batchcreatecompanies",
+        "name": "batch-create-companies",
+        "output": [
+          "ActionOutput_hubspot_batchcreatecompanies"
+        ],
+        "scopes": [
+          "crm.objects.companies.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_batchcreatecompanies",
+          "ActionOutput_hubspot_batchcreatecompanies"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update multiple companies at once",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/batch-update-companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_batchupdatecompanies",
+        "name": "batch-update-companies",
+        "output": [
+          "ActionOutput_hubspot_batchupdatecompanies"
+        ],
+        "scopes": [
+          "crm.objects.companies.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_batchupdatecompanies",
+          "ActionOutput_hubspot_batchupdatecompanies"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a HubSpot user's role and team assignments",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/change-user-role",
+          "group": "Users"
         },
         "input": "ActionInput_hubspot_changeuserrole",
         "name": "change-user-role",
@@ -6683,9 +7991,7 @@
           "ActionOutput_hubspot_changeuserrole"
         ],
         "scopes": [
-          "oauth",
-          "settings.users.write (standard scope)",
-          "crm.objects.users.write (granular scope)"
+          "settings.users.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_changeuserrole",
@@ -6695,10 +8001,56 @@
       },
       {
         "type": "action",
-        "description": "Create a single company in Hubspot",
+        "description": "Clone an existing marketing email",
         "endpoint": {
           "method": "POST",
-          "path": "/companies",
+          "path": "/actions/clone-marketing-email",
+          "group": "Marketing Emails"
+        },
+        "input": "ActionInput_hubspot_clonemarketingemail",
+        "name": "clone-marketing-email",
+        "output": [
+          "ActionOutput_hubspot_clonemarketingemail"
+        ],
+        "scopes": [
+          "content"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_clonemarketingemail",
+          "ActionOutput_hubspot_clonemarketingemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Associate two records together",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-association",
+          "group": "Associations"
+        },
+        "input": "ActionInput_hubspot_createassociation",
+        "name": "create-association",
+        "output": [
+          "ActionOutput_hubspot_createassociation"
+        ],
+        "scopes": [
+          "crm.objects.contacts.write",
+          "crm.objects.companies.write",
+          "crm.objects.deals.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createassociation",
+          "ActionOutput_hubspot_createassociation"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a company record",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-company",
           "group": "Companies"
         },
         "input": "ActionInput_hubspot_createcompany",
@@ -6707,21 +8059,20 @@
           "ActionOutput_hubspot_createcompany"
         ],
         "scopes": [
-          "crm.objects.companies.write",
-          "oauth"
+          "crm.objects.companies.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createcompany",
           "ActionOutput_hubspot_createcompany"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Create a single contact in Hubspot",
+        "description": "Create a contact record",
         "endpoint": {
           "method": "POST",
-          "path": "/contact",
+          "path": "/actions/create-contact",
           "group": "Contacts"
         },
         "input": "ActionInput_hubspot_createcontact",
@@ -6730,8 +8081,7 @@
           "ActionOutput_hubspot_createcontact"
         ],
         "scopes": [
-          "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createcontact",
@@ -6741,10 +8091,10 @@
       },
       {
         "type": "action",
-        "description": "Creates a single deal in Hubspot",
+        "description": "Create a deal record in HubSpot",
         "endpoint": {
           "method": "POST",
-          "path": "/deals",
+          "path": "/actions/create-deal",
           "group": "Deals"
         },
         "input": "ActionInput_hubspot_createdeal",
@@ -6753,22 +8103,44 @@
           "ActionOutput_hubspot_createdeal"
         ],
         "scopes": [
-          "oauth",
-          "crm.objects.deals.write",
-          "oauth"
+          "crm.objects.deals.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createdeal",
           "ActionOutput_hubspot_createdeal"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Creates a single note in Hubspot",
+        "description": "Create a marketing email in HubSpot",
         "endpoint": {
           "method": "POST",
-          "path": "/note"
+          "path": "/actions/create-marketing-email",
+          "group": "Marketing Emails"
+        },
+        "input": "ActionInput_hubspot_createmarketingemail",
+        "name": "create-marketing-email",
+        "output": [
+          "ActionOutput_hubspot_createmarketingemail"
+        ],
+        "scopes": [
+          "content",
+          "crm.objects.contacts.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createmarketingemail",
+          "ActionOutput_hubspot_createmarketingemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a HubSpot note with body, timestamp, owner, optional attachments, and an explicit association to a contact, company, deal, or ticket.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-note",
+          "group": "Notes"
         },
         "input": "ActionInput_hubspot_createnote",
         "name": "create-note",
@@ -6777,7 +8149,7 @@
         ],
         "scopes": [
           "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.read"
         ],
         "usedModels": [
           "ActionInput_hubspot_createnote",
@@ -6787,10 +8159,10 @@
       },
       {
         "type": "action",
-        "description": "Create a property in Hubspot",
+        "description": "Create a custom CRM property for a specified HubSpot object type",
         "endpoint": {
           "method": "POST",
-          "path": "/properties",
+          "path": "/actions/create-property",
           "group": "Properties"
         },
         "input": "ActionInput_hubspot_createproperty",
@@ -6799,28 +8171,23 @@
           "ActionOutput_hubspot_createproperty"
         ],
         "scopes": [
-          "oauth",
-          "crm.schemas.orders.write",
-          "crm.objects.orders.write",
-          "crm.schemas.contacts.write",
-          "crm.schemas.carts.write",
-          "crm.schemas.deals.write",
-          "crm.objects.users.write",
-          "crm.schemas.companies.write",
-          "crm.objects.carts.write"
+          "crm.objects.contacts.write",
+          "crm.objects.companies.write",
+          "crm.objects.deals.write",
+          "crm.schemas.custom.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createproperty",
           "ActionOutput_hubspot_createproperty"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Creates a single task in Hubspot",
+        "description": "Create a HubSpot task with type, title, priority, assignee, due date, notes, and optional associations to contacts, companies, or deals",
         "endpoint": {
           "method": "POST",
-          "path": "/tasks",
+          "path": "/actions/create-task",
           "group": "Tasks"
         },
         "input": "ActionInput_hubspot_createtask",
@@ -6829,21 +8196,43 @@
           "ActionOutput_hubspot_createtask"
         ],
         "scopes": [
-          "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createtask",
           "ActionOutput_hubspot_createtask"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Creates a single user in Hubspot",
+        "description": "Create a support ticket in HubSpot CRM",
         "endpoint": {
           "method": "POST",
-          "path": "/users",
+          "path": "/actions/create-ticket",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_createticket",
+        "name": "create-ticket",
+        "output": [
+          "ActionOutput_hubspot_createticket"
+        ],
+        "scopes": [
+          "tickets",
+          "crm.objects.tickets.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_createticket",
+          "ActionOutput_hubspot_createticket"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Provision a HubSpot user with email, role, and team assignments",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-user",
           "group": "Users"
         },
         "input": "ActionInput_hubspot_createuser",
@@ -6852,9 +8241,8 @@
           "ActionOutput_hubspot_createuser"
         ],
         "scopes": [
-          "oauth",
-          "settings.users.write (standard scope)",
-          "crm.objects.users.write (granular)"
+          "settings.users.write",
+          "settings.users.teams.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_createuser",
@@ -6864,10 +8252,32 @@
       },
       {
         "type": "action",
-        "description": "Deletes a company in Hubspot",
+        "description": "Delete an automation workflow",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/companies",
+          "method": "POST",
+          "path": "/actions/delete-a-workflow",
+          "group": "Workflows"
+        },
+        "input": "ActionInput_hubspot_deleteaworkflow",
+        "name": "delete-a-workflow",
+        "output": [
+          "ActionOutput_hubspot_deleteaworkflow"
+        ],
+        "scopes": [
+          "automation"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deleteaworkflow",
+          "ActionOutput_hubspot_deleteaworkflow"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a company record",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-company",
           "group": "Companies"
         },
         "input": "ActionInput_hubspot_deletecompany",
@@ -6876,21 +8286,20 @@
           "ActionOutput_hubspot_deletecompany"
         ],
         "scopes": [
-          "crm.objects.companies.write",
-          "oauth"
+          "crm.objects.companies.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_deletecompany",
           "ActionOutput_hubspot_deletecompany"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Deletes a contact in Hubspot",
+        "description": "Delete a contact record",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/contact",
+          "method": "POST",
+          "path": "/actions/delete-contact",
           "group": "Contacts"
         },
         "input": "ActionInput_hubspot_deletecontact",
@@ -6899,8 +8308,7 @@
           "ActionOutput_hubspot_deletecontact"
         ],
         "scopes": [
-          "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_deletecontact",
@@ -6910,10 +8318,10 @@
       },
       {
         "type": "action",
-        "description": "Deletes a deal in Hubspot",
+        "description": "Delete a deal record",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/deal",
+          "method": "POST",
+          "path": "/actions/delete-deal",
           "group": "Deals"
         },
         "input": "ActionInput_hubspot_deletedeal",
@@ -6922,8 +8330,7 @@
           "ActionOutput_hubspot_deletedeal"
         ],
         "scopes": [
-          "crm.objects.deals.write",
-          "oauth"
+          "crm.objects.deals.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_deletedeal",
@@ -6933,10 +8340,32 @@
       },
       {
         "type": "action",
-        "description": "Deletes a task in Hubspot",
+        "description": "Delete a marketing email",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/tasks",
+          "method": "POST",
+          "path": "/actions/delete-marketing-email",
+          "group": "Marketing Emails"
+        },
+        "input": "ActionInput_hubspot_deletemarketingemail",
+        "name": "delete-marketing-email",
+        "output": [
+          "ActionOutput_hubspot_deletemarketingemail"
+        ],
+        "scopes": [
+          "crm.objects.marketing_emails.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deletemarketingemail",
+          "ActionOutput_hubspot_deletemarketingemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a HubSpot task by record ID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-task",
           "group": "Tasks"
         },
         "input": "ActionInput_hubspot_deletetask",
@@ -6945,21 +8374,42 @@
           "ActionOutput_hubspot_deletetask"
         ],
         "scopes": [
-          "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_deletetask",
           "ActionOutput_hubspot_deletetask"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Deletes a user in Hubspot",
+        "description": "Delete a support ticket",
         "endpoint": {
-          "method": "DELETE",
-          "path": "/users",
+          "method": "POST",
+          "path": "/actions/delete-ticket",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_deleteticket",
+        "name": "delete-ticket",
+        "output": [
+          "ActionOutput_hubspot_deleteticket"
+        ],
+        "scopes": [
+          "tickets"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_deleteticket",
+          "ActionOutput_hubspot_deleteticket"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a HubSpot provisioned user by ID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-user",
           "group": "Users"
         },
         "input": "ActionInput_hubspot_deleteuser",
@@ -6968,9 +8418,7 @@
           "ActionOutput_hubspot_deleteuser"
         ],
         "scopes": [
-          "oauth",
-          "settings.users.write (standard scope)",
-          "crm.objects.users.write (granular)"
+          "settings.users.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_deleteuser",
@@ -6980,10 +8428,11 @@
       },
       {
         "type": "action",
-        "description": "Fetch the account information from Hubspot",
+        "description": "Retrieve portal account details, currency settings, timezone, and hosting region",
         "endpoint": {
           "method": "GET",
-          "path": "/account-information"
+          "path": "/actions/fetch-account-information",
+          "group": "Account"
         },
         "input": "ActionInput_hubspot_fetchaccountinformation",
         "name": "fetch-account-information",
@@ -6991,7 +8440,7 @@
           "ActionOutput_hubspot_fetchaccountinformation"
         ],
         "scopes": [
-          "oauth"
+          "settings.account.read"
         ],
         "usedModels": [
           "ActionInput_hubspot_fetchaccountinformation",
@@ -7001,10 +8450,11 @@
       },
       {
         "type": "action",
-        "description": "Fetch custom objects in Hubspot. Requires Hubspot enterprise",
+        "description": "Retrieve HubSpot custom object schemas for enterprise accounts",
         "endpoint": {
           "method": "GET",
-          "path": "/custom-objects"
+          "path": "/actions/fetch-custom-objects",
+          "group": "CRM"
         },
         "input": "ActionInput_hubspot_fetchcustomobjects",
         "name": "fetch-custom-objects",
@@ -7012,7 +8462,6 @@
           "ActionOutput_hubspot_fetchcustomobjects"
         ],
         "scopes": [
-          "oauth",
           "crm.schemas.custom.read"
         ],
         "usedModels": [
@@ -7023,10 +8472,10 @@
       },
       {
         "type": "action",
-        "description": "Fetch all pipelines for an object type. Defaults to deals",
+        "description": "List pipelines and stages for an object type, defaulting to deals",
         "endpoint": {
           "method": "GET",
-          "path": "/pipelines",
+          "path": "/actions/fetch-pipelines",
           "group": "Pipelines"
         },
         "input": "ActionInput_hubspot_fetchpipelines",
@@ -7035,7 +8484,6 @@
           "ActionOutput_hubspot_fetchpipelines"
         ],
         "scopes": [
-          "oauth",
           "crm.objects.deals.read"
         ],
         "usedModels": [
@@ -7046,11 +8494,11 @@
       },
       {
         "type": "action",
-        "description": "Fetch the properties of a specified object",
+        "description": "List CRM property metadata for a specified HubSpot object type",
         "endpoint": {
-          "method": "GET",
-          "path": "/properties",
-          "group": "Properties"
+          "method": "POST",
+          "path": "/actions/fetch-properties",
+          "group": "CRM"
         },
         "input": "ActionInput_hubspot_fetchproperties",
         "name": "fetch-properties",
@@ -7058,34 +8506,23 @@
           "ActionOutput_hubspot_fetchproperties"
         ],
         "scopes": [
-          "oauth",
-          "media_bridge.read",
-          "crm.objects.marketing_events.write",
-          "crm.schemas.custom.read",
-          "crm.pipelines.orders.read",
-          "tickets",
-          "crm.objects.feedback_submissions.read",
-          "crm.objects.goals.read",
-          "crm.objects.custom.write",
-          "crm.objects.custom.read",
-          "crm.objects.marketing_events.read",
-          "timeline",
-          "e-commerce",
-          "automation"
+          "crm.objects.contacts.read",
+          "crm.objects.companies.read",
+          "crm.objects.deals.read"
         ],
         "usedModels": [
           "ActionInput_hubspot_fetchproperties",
           "ActionOutput_hubspot_fetchproperties"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Fetch the roles on an account. Requires an enterprise account.",
+        "description": "List available user roles for a HubSpot enterprise account",
         "endpoint": {
           "method": "GET",
-          "path": "/roles",
-          "group": "Roles"
+          "path": "/actions/fetch-roles",
+          "group": "Users"
         },
         "input": "ActionInput_hubspot_fetchroles",
         "name": "fetch-roles",
@@ -7093,9 +8530,7 @@
           "ActionOutput_hubspot_fetchroles"
         ],
         "scopes": [
-          "oauth",
-          "settings.users.read (standard scope)",
-          "crm.objects.users.read (granular scope)"
+          "settings.users.read"
         ],
         "usedModels": [
           "ActionInput_hubspot_fetchroles",
@@ -7105,10 +8540,340 @@
       },
       {
         "type": "action",
-        "description": "Update a single company in Hubspot",
+        "description": "Get a company by ID",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/companies",
+          "method": "GET",
+          "path": "/actions/get-company",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_getcompany",
+        "name": "get-company",
+        "output": [
+          "ActionOutput_hubspot_getcompany"
+        ],
+        "scopes": [
+          "crm.objects.companies.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getcompany",
+          "ActionOutput_hubspot_getcompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a contact by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-contact",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_getcontact",
+        "name": "get-contact",
+        "output": [
+          "ActionOutput_hubspot_getcontact"
+        ],
+        "scopes": [
+          "crm.objects.contacts.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getcontact",
+          "ActionOutput_hubspot_getcontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a deal by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-deal",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_getdeal",
+        "name": "get-deal",
+        "output": [
+          "ActionOutput_hubspot_getdeal"
+        ],
+        "scopes": [
+          "crm.objects.deals.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getdeal",
+          "ActionOutput_hubspot_getdeal"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a marketing email by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-marketing-email",
+          "group": "Marketing"
+        },
+        "input": "ActionInput_hubspot_getmarketingemail",
+        "name": "get-marketing-email",
+        "output": [
+          "ActionOutput_hubspot_getmarketingemail"
+        ],
+        "scopes": [
+          "content"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getmarketingemail",
+          "ActionOutput_hubspot_getmarketingemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get an owner by ID",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-owner",
+          "group": "Owners"
+        },
+        "input": "ActionInput_hubspot_getowner",
+        "name": "get-owner",
+        "output": [
+          "ActionOutput_hubspot_getowner"
+        ],
+        "scopes": [
+          "crm.objects.owners.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getowner",
+          "ActionOutput_hubspot_getowner"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get a ticket by ID",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-ticket",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_getticket",
+        "name": "get-ticket",
+        "output": [
+          "ActionOutput_hubspot_getticket"
+        ],
+        "scopes": [
+          "tickets"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_getticket",
+          "ActionOutput_hubspot_getticket"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List company records",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_listcompanies",
+        "name": "list-companies",
+        "output": [
+          "ActionOutput_hubspot_listcompanies"
+        ],
+        "scopes": [
+          "crm.objects.companies.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_listcompanies",
+          "ActionOutput_hubspot_listcompanies"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List contact records",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_listcontacts",
+        "name": "list-contacts",
+        "output": [
+          "ActionOutput_hubspot_listcontacts"
+        ],
+        "scopes": [
+          "crm.objects.contacts.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_listcontacts",
+          "ActionOutput_hubspot_listcontacts"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List deal records from HubSpot CRM",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/list-deals",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_listdeals",
+        "name": "list-deals",
+        "output": [
+          "ActionOutput_hubspot_listdeals"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_hubspot_listdeals",
+          "ActionOutput_hubspot_listdeals"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List forms",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-forms",
+          "group": "Forms"
+        },
+        "input": "ActionInput_hubspot_listforms",
+        "name": "list-forms",
+        "output": [
+          "ActionOutput_hubspot_listforms"
+        ],
+        "scopes": [
+          "forms"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_listforms",
+          "ActionOutput_hubspot_listforms"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List marketing emails",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-marketing-emails",
+          "group": "Marketing"
+        },
+        "input": "ActionInput_hubspot_listmarketingemails",
+        "name": "list-marketing-emails",
+        "output": [
+          "ActionOutput_hubspot_listmarketingemails"
+        ],
+        "scopes": [
+          "content"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_listmarketingemails",
+          "ActionOutput_hubspot_listmarketingemails"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List support tickets",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-tickets",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_listtickets",
+        "name": "list-tickets",
+        "output": [
+          "ActionOutput_hubspot_listtickets"
+        ],
+        "scopes": [
+          "tickets"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_listtickets",
+          "ActionOutput_hubspot_listtickets"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search companies by criteria",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/search-companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_searchcompanies",
+        "name": "search-companies",
+        "output": [
+          "ActionOutput_hubspot_searchcompanies"
+        ],
+        "scopes": [
+          "crm.objects.companies.read",
+          "crm.schemas.companies.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_searchcompanies",
+          "ActionOutput_hubspot_searchcompanies"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search deals by criteria",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/search-deals",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_searchdeals",
+        "name": "search-deals",
+        "output": [
+          "ActionOutput_hubspot_searchdeals"
+        ],
+        "scopes": [
+          "crm.objects.deals.read",
+          "crm.schemas.deals.read"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_searchdeals",
+          "ActionOutput_hubspot_searchdeals"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search tickets by criteria",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/search-tickets",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_searchtickets",
+        "name": "search-tickets",
+        "output": [
+          "ActionOutput_hubspot_searchtickets"
+        ],
+        "scopes": [
+          "tickets"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_searchtickets",
+          "ActionOutput_hubspot_searchtickets"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a company record",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-company",
           "group": "Companies"
         },
         "input": "ActionInput_hubspot_updatecompany",
@@ -7117,8 +8882,7 @@
           "ActionOutput_hubspot_updatecompany"
         ],
         "scopes": [
-          "crm.objects.companies.write",
-          "oauth"
+          "crm.objects.companies.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_updatecompany",
@@ -7128,10 +8892,10 @@
       },
       {
         "type": "action",
-        "description": "Updates a single contact in Hubspot",
+        "description": "Update a contact record",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/contact",
+          "method": "POST",
+          "path": "/actions/update-contact",
           "group": "Contacts"
         },
         "input": "ActionInput_hubspot_updatecontact",
@@ -7140,8 +8904,7 @@
           "ActionOutput_hubspot_updatecontact"
         ],
         "scopes": [
-          "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_updatecontact",
@@ -7151,10 +8914,10 @@
       },
       {
         "type": "action",
-        "description": "Updates a single deal in Hubspot",
+        "description": "Update a deal record in HubSpot CRM",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/deal",
+          "method": "POST",
+          "path": "/actions/update-deal",
           "group": "Deals"
         },
         "input": "ActionInput_hubspot_updatedeal",
@@ -7163,21 +8926,43 @@
           "ActionOutput_hubspot_updatedeal"
         ],
         "scopes": [
-          "crm.objects.deals.write",
-          "oauth"
+          "crm.objects.deals.write"
         ],
         "usedModels": [
           "ActionInput_hubspot_updatedeal",
           "ActionOutput_hubspot_updatedeal"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Updates a single company in Hubspot",
+        "description": "Update a marketing email",
         "endpoint": {
-          "method": "PATCH",
-          "path": "/tasks",
+          "method": "POST",
+          "path": "/actions/update-marketing-email",
+          "group": "Marketing Emails"
+        },
+        "input": "ActionInput_hubspot_updatemarketingemail",
+        "name": "update-marketing-email",
+        "output": [
+          "ActionOutput_hubspot_updatemarketingemail"
+        ],
+        "scopes": [
+          "content",
+          "crm.objects.marketing_events.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updatemarketingemail",
+          "ActionOutput_hubspot_updatemarketingemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a HubSpot task's fields, owner, due date, and associations",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-task",
           "group": "Tasks"
         },
         "input": "ActionInput_hubspot_updatetask",
@@ -7187,20 +8972,42 @@
         ],
         "scopes": [
           "crm.objects.contacts.write",
-          "oauth"
+          "crm.objects.contacts.read"
         ],
         "usedModels": [
           "ActionInput_hubspot_updatetask",
           "ActionOutput_hubspot_updatetask"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Fetch current user information",
+        "description": "Update a support ticket",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-ticket",
+          "group": "Tickets"
+        },
+        "input": "ActionInput_hubspot_updateticket",
+        "name": "update-ticket",
+        "output": [
+          "ActionOutput_hubspot_updateticket"
+        ],
+        "scopes": [
+          "crm.objects.tickets.write"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_updateticket",
+          "ActionOutput_hubspot_updateticket"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve the current authenticated HubSpot user's ID and email",
         "endpoint": {
           "method": "GET",
-          "path": "/whoami",
+          "path": "/actions/whoami",
           "group": "Users"
         },
         "input": "ActionInput_hubspot_whoami",
@@ -7208,303 +9015,251 @@
         "output": [
           "ActionOutput_hubspot_whoami"
         ],
-        "scopes": [],
+        "scopes": [
+          "oauth"
+        ],
         "usedModels": [
           "ActionInput_hubspot_whoami",
           "ActionOutput_hubspot_whoami"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of companies from Hubspot",
+        "description": "Sync companies from HubSpot CRM",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/companies",
+            "method": "POST",
+            "path": "/syncs/sync-companies",
             "group": "Companies"
           }
         ],
-        "input": "SyncMetadata_hubspot_companies",
-        "name": "companies",
+        "input": null,
+        "name": "sync-companies",
         "output": [
           "Company"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.companies.read",
-          "oauth"
-        ],
+        "runs": "every hour",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Company",
-          "SyncMetadata_hubspot_companies"
+          "Company"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of contacts from Hubspot",
+        "description": "Sync contacts",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/contacts",
+            "method": "POST",
+            "path": "/syncs/sync-contacts",
             "group": "Contacts"
           }
         ],
-        "input": "SyncMetadata_hubspot_contacts",
-        "name": "contacts",
+        "input": null,
+        "name": "sync-contacts",
         "output": [
           "Contact"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.contacts.read",
-          "oauth"
-        ],
+        "runs": "every hour",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Contact",
-          "SyncMetadata_hubspot_contacts"
+          "Contact"
         ],
-        "version": "3.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetch hubspot deals",
+        "description": "Sync deals with amount, close date, stage, owner, description, and associated companies and contacts",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/currency-codes"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_currencycodes",
-        "name": "currency-codes",
-        "output": [
-          "CurrencyCode"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "oauth",
-          "settings.currencies.read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "CurrencyCode",
-          "SyncMetadata_hubspot_currencycodes"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of deals from Hubspot with their associated companies and contacts",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/deals",
+            "path": "/syncs/sync-deals",
             "group": "Deals"
           }
         ],
-        "input": "SyncMetadata_hubspot_deals",
-        "name": "deals",
+        "input": null,
+        "name": "sync-deals",
         "output": [
           "Deal"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.deals.read",
-          "oauth",
-          "e-commerce (standard scope)",
-          "crm.objects.line_items.read (granular scope)"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Deal",
-          "SyncMetadata_hubspot_deals"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of knowledge base from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/knowledge-base"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_knowledgebase",
-        "name": "knowledge-base",
-        "output": [
-          "HubspotKnowledgeBase"
-        ],
-        "runs": "every day",
+        "runs": "every 5 minutes",
         "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "HubspotKnowledgeBase",
-          "SyncMetadata_hubspot_knowledgebase"
+          "Deal"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of owners from Hubspot",
+        "description": "Sync marketing emails from HubSpot",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/owners",
+            "path": "/syncs/sync-marketing-emails",
+            "group": "Marketing Emails"
+          }
+        ],
+        "input": null,
+        "name": "sync-marketing-emails",
+        "output": [
+          "MarketingEmail"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "content"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "MarketingEmail"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync HubSpot owners with names, email, user IDs, and archive status",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/syncs/sync-owners",
             "group": "Owners"
           }
         ],
-        "input": "SyncMetadata_hubspot_owners",
-        "name": "owners",
+        "input": null,
+        "name": "sync-owners",
         "output": [
-          "HubspotOwner"
+          "Owner"
         ],
-        "runs": "every day",
+        "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "HubspotOwner",
-          "SyncMetadata_hubspot_owners"
+          "Owner"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of products from Hubspot",
+        "description": "Sync product records with pricing, SKU, quantity, and billing details",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/products",
+            "method": "POST",
+            "path": "/syncs/sync-products",
             "group": "Products"
           }
         ],
-        "input": "SyncMetadata_hubspot_products",
-        "name": "products",
+        "input": null,
+        "name": "sync-products",
         "output": [
           "Product"
         ],
-        "runs": "every day",
-        "scopes": [
-          "e-commerce"
-        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Product",
-          "SyncMetadata_hubspot_products"
+          "Product"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of service tickets from Hubspot",
+        "description": "Sync tasks with type, title, priority, assignee, due date, notes, and related contacts, companies, and deals",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/service-tickets"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_servicetickets",
-        "name": "service-tickets",
-        "output": [
-          "HubspotServiceTicket"
-        ],
-        "runs": "every half hour",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "HubspotServiceTicket",
-          "SyncMetadata_hubspot_servicetickets"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of tasks from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/tasks",
+            "path": "/syncs/sync-tasks",
             "group": "Tasks"
           }
         ],
-        "input": "SyncMetadata_hubspot_tasks",
-        "name": "tasks",
+        "input": null,
+        "name": "sync-tasks",
         "output": [
           "Task"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.contacts.read",
-          "oauth"
-        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "Task",
-          "SyncMetadata_hubspot_tasks"
+          "Task"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Fetches a list of users from Hubspot",
+        "description": "Sync service tickets with subject, content, owner, pipeline, stage, category, and priority",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-tickets",
+            "group": "Tickets"
+          }
+        ],
+        "input": null,
+        "name": "sync-tickets",
+        "output": [
+          "Ticket"
+        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Ticket"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync provisioned users with role IDs, primary team, and admin status",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/users",
+            "path": "/syncs/sync-users",
             "group": "Users"
           }
         ],
-        "input": "SyncMetadata_hubspot_users",
-        "name": "users",
+        "input": null,
+        "name": "sync-users",
         "output": [
           "User"
         ],
-        "runs": "every day",
-        "scopes": [
-          "oauth",
-          "settings.users.read (standard scope)",
-          "crm.objects.users.read (granular scope)"
-        ],
+        "runs": "every hour",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "User",
-          "SyncMetadata_hubspot_users"
+          "User"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],
@@ -8399,26 +10154,6 @@
       },
       {
         "type": "action",
-        "description": "Update an opportunity",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/opportunities",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunity",
-        "name": "update-opportunity",
-        "output": [
-          "ActionOutput_lever_updateopportunity"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunity",
-          "ActionOutput_lever_updateopportunity"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Update the archived state of an opportunity",
         "endpoint": {
           "method": "PUT",
@@ -8519,6 +10254,26 @@
       },
       {
         "type": "action",
+        "description": "Update an opportunity",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/opportunities",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunity",
+        "name": "update-opportunity",
+        "output": [
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunity",
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Lists all the users in your Lever account. Only active users are included by default.",
         "endpoint": {
           "method": "GET",
@@ -8539,35 +10294,6 @@
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches all opportunities",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/opportunities",
-            "group": "Opportunities"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunities",
-        "name": "opportunities",
-        "output": [
-          "LeverOpportunity"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "opportunities:read:admin"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunity",
-          "SyncMetadata_lever_opportunities"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches a list of all applications for a candidate in Lever",
@@ -8715,31 +10441,31 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of all postings in Lever",
+        "description": "Fetches all opportunities",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/postings",
-            "group": "Postings"
+            "path": "/opportunities",
+            "group": "Opportunities"
           }
         ],
-        "input": "SyncMetadata_lever_postings",
-        "name": "postings",
+        "input": "SyncMetadata_lever_opportunities",
+        "name": "opportunities",
         "output": [
-          "LeverPosting"
+          "LeverOpportunity"
         ],
         "runs": "every 6 hours",
         "scopes": [
-          "postings:read:admin"
+          "opportunities:read:admin"
         ],
-        "sync_type": "full",
+        "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "LeverPosting",
-          "SyncMetadata_lever_postings"
+          "LeverOpportunity",
+          "SyncMetadata_lever_opportunities"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -8767,6 +10493,35 @@
         "usedModels": [
           "LeverPostingApply",
           "SyncMetadata_lever_postingsquestions"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all postings in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/postings",
+            "group": "Postings"
+          }
+        ],
+        "input": "SyncMetadata_lever_postings",
+        "name": "postings",
+        "output": [
+          "LeverPosting"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "postings:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverPosting",
+          "SyncMetadata_lever_postings"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []
@@ -10867,37 +12622,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetch all files from the user's OneDrive and sync the metadata for each file.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/user-files",
-            "group": "Files"
-          }
-        ],
-        "input": "SyncMetadata_one_drive_userfiles",
-        "name": "user-files",
-        "output": [
-          "OneDriveFile"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Files.Read",
-          "Files.Read.All",
-          "offline_access"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "OneDriveFile",
-          "SyncMetadata_one_drive_userfiles"
-        ],
-        "version": "2.0.1",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetch selected files from a user's OneDrive based on provided metadata.",
         "auto_start": false,
         "endpoints": [
@@ -10925,6 +12649,37 @@
           "SyncMetadata_one_drive_userfilesselection"
         ],
         "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's OneDrive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_one_drive_userfiles",
+        "name": "user-files",
+        "output": [
+          "OneDriveFile"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Files.Read",
+          "Files.Read.All",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "OneDriveFile",
+          "SyncMetadata_one_drive_userfiles"
+        ],
+        "version": "2.0.1",
         "webhookSubscriptions": []
       }
     ],
@@ -13899,39 +15654,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetch all files from the user's drive and sync the metadata for each file.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/user-files"
-          }
-        ],
-        "input": "SyncMetadata_sharepoint_online_userfiles",
-        "name": "user-files",
-        "output": [
-          "UserFileMetadata"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "Sites.Read.All",
-          "Sites.Selected",
-          "MyFiles.Read",
-          "Files.Read.All",
-          "Files.Read.Selected",
-          "offline_access"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "UserFileMetadata",
-          "SyncMetadata_sharepoint_online_userfiles"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetch all selected files from a user's drive",
         "auto_start": false,
         "endpoints": [
@@ -13959,6 +15681,39 @@
         "usedModels": [
           "SelectedUserFileMetadata",
           "SyncMetadata_sharepoint_online_userfilesselection"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's drive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_userfiles",
+        "name": "user-files",
+        "output": [
+          "UserFileMetadata"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "UserFileMetadata",
+          "SyncMetadata_sharepoint_online_userfiles"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []
@@ -14016,10 +15771,10 @@
     "actions": [
       {
         "type": "action",
-        "description": "Adds an emoji reaction to a message.",
+        "description": "Add an emoji reaction to a specific Slack message",
         "endpoint": {
           "method": "POST",
-          "path": "/reactions",
+          "path": "/actions/add-reaction",
           "group": "Reactions"
         },
         "input": "ActionInput_slack_addreaction",
@@ -14038,10 +15793,10 @@
       },
       {
         "type": "action",
-        "description": "Archives a conversation making it read-only.",
+        "description": "Archive a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/archive-channel",
+          "path": "/actions/archive-channel",
           "group": "Channels"
         },
         "input": "ActionInput_slack_archivechannel",
@@ -14050,6 +15805,7 @@
           "ActionOutput_slack_archivechannel"
         ],
         "scopes": [
+          "channels:manage",
           "channels:write",
           "groups:write",
           "im:write",
@@ -14063,32 +15819,56 @@
       },
       {
         "type": "action",
-        "description": "Creates a new public or private channel.",
+        "description": "Create a new public or private Slack channel by name; does not create DMs or other conversation types.",
         "endpoint": {
           "method": "POST",
-          "path": "/channels",
-          "group": "Channels"
+          "path": "/actions/create-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_createchannel",
-        "name": "create-channel",
+        "input": "ActionInput_slack_createconversation",
+        "name": "create-conversation",
         "output": [
-          "ActionOutput_slack_createchannel"
+          "ActionOutput_slack_createconversation"
         ],
         "scopes": [
-          "channels:manage"
+          "channels:manage",
+          "channels:write",
+          "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_createchannel",
-          "ActionOutput_slack_createchannel"
+          "ActionInput_slack_createconversation",
+          "ActionOutput_slack_createconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Removes a message from a conversation.",
+        "description": "Create a reminder for a user",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/delete",
+          "path": "/actions/create-reminder",
+          "group": "Reminders"
+        },
+        "input": "ActionInput_slack_createreminder",
+        "name": "create-reminder",
+        "output": [
+          "ActionOutput_slack_createreminder"
+        ],
+        "scopes": [
+          "reminders:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_createreminder",
+          "ActionOutput_slack_createreminder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a message from a channel",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_deletemessage",
@@ -14107,10 +15887,76 @@
       },
       {
         "type": "action",
-        "description": "Retrieves detailed information about a conversation.",
+        "description": "Cancel a scheduled message",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-scheduled-message",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_deletescheduledmessage",
+        "name": "delete-scheduled-message",
+        "output": [
+          "ActionOutput_slack_deletescheduledmessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_deletescheduledmessage",
+          "ActionOutput_slack_deletescheduledmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for messages matching a query",
         "endpoint": {
           "method": "GET",
-          "path": "/channels/info",
+          "path": "/actions/find-message",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_findmessage",
+        "name": "find-message",
+        "output": [
+          "ActionOutput_slack_findmessage"
+        ],
+        "scopes": [
+          "search:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_findmessage",
+          "ActionOutput_slack_findmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Look up a user by email address",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-user-by-email",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_finduserbyemail",
+        "name": "find-user-by-email",
+        "output": [
+          "ActionOutput_slack_finduserbyemail"
+        ],
+        "scopes": [
+          "users:read.email"
+        ],
+        "usedModels": [
+          "ActionInput_slack_finduserbyemail",
+          "ActionOutput_slack_finduserbyemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve conversation details including topic, purpose, and membership state",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-channel-info",
           "group": "Channels"
         },
         "input": "ActionInput_slack_getchannelinfo",
@@ -14119,7 +15965,10 @@
           "ActionOutput_slack_getchannelinfo"
         ],
         "scopes": [
-          "channels:read"
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
         ],
         "usedModels": [
           "ActionInput_slack_getchannelinfo",
@@ -14129,36 +15978,11 @@
       },
       {
         "type": "action",
-        "description": "Lists members of a conversation with pagination.",
+        "description": "Fetch paginated message history for a conversation within optional time bounds",
         "endpoint": {
-          "method": "GET",
-          "path": "/channels/members",
-          "group": "Channels"
-        },
-        "input": "ActionInput_slack_getchannelmembers",
-        "name": "get-channel-members",
-        "output": [
-          "ActionOutput_slack_getchannelmembers"
-        ],
-        "scopes": [
-          "channels:read",
-          "groups:read",
-          "im:read",
-          "mpim:read"
-        ],
-        "usedModels": [
-          "ActionInput_slack_getchannelmembers",
-          "ActionOutput_slack_getchannelmembers"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Fetches message history from a channel or conversation.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/conversations/history",
-          "group": "Channels"
+          "method": "POST",
+          "path": "/actions/get-conversation-history",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_getconversationhistory",
         "name": "get-conversation-history",
@@ -14166,7 +15990,10 @@
           "ActionOutput_slack_getconversationhistory"
         ],
         "scopes": [
-          "channels:history"
+          "channels:history",
+          "groups:history",
+          "im:history",
+          "mpim:history"
         ],
         "usedModels": [
           "ActionInput_slack_getconversationhistory",
@@ -14176,11 +16003,11 @@
       },
       {
         "type": "action",
-        "description": "Gets Do Not Disturb settings for a user.",
+        "description": "Get a user's Do Not Disturb status and next scheduled DND window",
         "endpoint": {
           "method": "GET",
-          "path": "/get-dnd-info",
-          "group": "Actions"
+          "path": "/actions/get-dnd-info",
+          "group": "DND"
         },
         "input": "ActionInput_slack_getdndinfo",
         "name": "get-dnd-info",
@@ -14198,33 +16025,31 @@
       },
       {
         "type": "action",
-        "description": "Retrieves details about a specific file.",
+        "description": "Get a permanent URL for a message",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-file-info",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-message-permalink",
+          "group": "Messages"
         },
-        "input": "ActionInput_slack_getfileinfo",
-        "name": "get-file-info",
+        "input": "ActionInput_slack_getmessagepermalink",
+        "name": "get-message-permalink",
         "output": [
-          "ActionOutput_slack_getfileinfo"
+          "ActionOutput_slack_getmessagepermalink"
         ],
-        "scopes": [
-          "files:read"
-        ],
+        "scopes": [],
         "usedModels": [
-          "ActionInput_slack_getfileinfo",
-          "ActionOutput_slack_getfileinfo"
+          "ActionInput_slack_getmessagepermalink",
+          "ActionOutput_slack_getmessagepermalink"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Gets all reactions for a single message or file.",
+        "description": "Retrieve all reactions attached to a specific message",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-reactions",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-reactions",
+          "group": "Reactions"
         },
         "input": "ActionInput_slack_getreactions",
         "name": "get-reactions",
@@ -14242,11 +16067,11 @@
       },
       {
         "type": "action",
-        "description": "Retrieves information about the workspace.",
+        "description": "Retrieve workspace details such as name, domain, and icon",
         "endpoint": {
           "method": "GET",
-          "path": "/get-team-info",
-          "group": "Actions"
+          "path": "/actions/get-team-info",
+          "group": "Team"
         },
         "input": "ActionInput_slack_getteaminfo",
         "name": "get-team-info",
@@ -14264,11 +16089,11 @@
       },
       {
         "type": "action",
-        "description": "Retrieves a thread of messages posted as replies to a message.",
+        "description": "Fetch paginated thread replies and parent message for a conversation thread",
         "endpoint": {
           "method": "GET",
-          "path": "/conversations/replies",
-          "group": "Channels"
+          "path": "/actions/get-thread-replies",
+          "group": "Messages"
         },
         "input": "ActionInput_slack_getthreadreplies",
         "name": "get-thread-replies",
@@ -14276,7 +16101,10 @@
           "ActionOutput_slack_getthreadreplies"
         ],
         "scopes": [
-          "channels:history"
+          "channels:history",
+          "groups:history",
+          "im:history",
+          "mpim:history"
         ],
         "usedModels": [
           "ActionInput_slack_getthreadreplies",
@@ -14286,11 +16114,11 @@
       },
       {
         "type": "action",
-        "description": "Gets a URL for uploading files to Slack.",
+        "description": "Generate an external upload URL and file ID for Slack uploads",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-upload-url",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-upload-url",
+          "group": "Files"
         },
         "input": "ActionInput_slack_getuploadurl",
         "name": "get-upload-url",
@@ -14308,10 +16136,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves information about a specific user.",
+        "description": "Retrieve a user's account details, including profile and avatar fields",
         "endpoint": {
           "method": "GET",
-          "path": "/users/info",
+          "path": "/actions/get-user-info",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserinfo",
@@ -14330,10 +16158,10 @@
       },
       {
         "type": "action",
-        "description": "Gets a user's current presence status and activity.",
+        "description": "Check if a user is online or away",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/presence",
+          "method": "POST",
+          "path": "/actions/get-user-presence",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserpresence",
@@ -14352,10 +16180,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves detailed user profile including custom fields.",
+        "description": "Retrieve a user's detailed profile, status, and custom fields",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/profile",
+          "method": "POST",
+          "path": "/actions/get-user-profile",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserprofile",
@@ -14364,7 +16192,8 @@
           "ActionOutput_slack_getuserprofile"
         ],
         "scopes": [
-          "users:read"
+          "users:read",
+          "users:read.email"
         ],
         "usedModels": [
           "ActionInput_slack_getuserprofile",
@@ -14374,36 +16203,34 @@
       },
       {
         "type": "action",
-        "description": "Invites 1-1000 users to a public or private channel.",
+        "description": "Invite users to a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/invite",
+          "path": "/actions/invite-users-to-conversation",
           "group": "Channels"
         },
-        "input": "ActionInput_slack_invitetochannel",
-        "name": "invite-to-channel",
+        "input": "ActionInput_slack_inviteuserstoconversation",
+        "name": "invite-users-to-conversation",
         "output": [
-          "ActionOutput_slack_invitetochannel"
+          "ActionOutput_slack_inviteuserstoconversation"
         ],
         "scopes": [
-          "channels:write",
-          "groups:write",
-          "im:write",
-          "mpim:write"
+          "channels:manage",
+          "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_invitetochannel",
-          "ActionOutput_slack_invitetochannel"
+          "ActionInput_slack_inviteuserstoconversation",
+          "ActionOutput_slack_inviteuserstoconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Joins a public or private channel.",
+        "description": "Join a public or private channel and return its conversation details",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/join",
-          "group": "Channels"
+          "path": "/actions/join-channel",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_joinchannel",
         "name": "join-channel",
@@ -14411,7 +16238,8 @@
           "ActionOutput_slack_joinchannel"
         ],
         "scopes": [
-          "channels:write"
+          "channels:join",
+          "groups:write"
         ],
         "usedModels": [
           "ActionInput_slack_joinchannel",
@@ -14421,55 +16249,86 @@
       },
       {
         "type": "action",
-        "description": "Leaves a public or private channel.",
+        "description": "Leave a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/leave",
-          "group": "Channels"
+          "path": "/actions/leave-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_leavechannel",
-        "name": "leave-channel",
+        "input": "ActionInput_slack_leaveconversation",
+        "name": "leave-conversation",
         "output": [
-          "ActionOutput_slack_leavechannel"
+          "ActionOutput_slack_leaveconversation"
         ],
         "scopes": [
-          "channels:write"
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_leavechannel",
-          "ActionOutput_slack_leavechannel"
+          "ActionInput_slack_leaveconversation",
+          "ActionOutput_slack_leaveconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Lists all channel-like conversations in a workspace.",
+        "description": "List members in a Slack channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/channels/list",
-          "group": "Channels"
+          "method": "POST",
+          "path": "/actions/list-conversation-members",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_listchannels",
-        "name": "list-channels",
+        "input": "ActionInput_slack_listconversationmembers",
+        "name": "list-conversation-members",
         "output": [
-          "ActionOutput_slack_listchannels"
+          "ActionOutput_slack_listconversationmembers"
         ],
         "scopes": [
-          "channels:read"
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
         ],
         "usedModels": [
-          "ActionInput_slack_listchannels",
-          "ActionOutput_slack_listchannels"
+          "ActionInput_slack_listconversationmembers",
+          "ActionOutput_slack_listconversationmembers"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Lists all custom emoji for the workspace.",
+        "description": "List Slack conversations with optional type filters and cursor pagination.",
         "endpoint": {
           "method": "GET",
-          "path": "/list-custom-emoji",
-          "group": "Actions"
+          "path": "/actions/list-conversations",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_slack_listconversations",
+        "name": "list-conversations",
+        "output": [
+          "ActionOutput_slack_listconversations"
+        ],
+        "scopes": [
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listconversations",
+          "ActionOutput_slack_listconversations"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List workspace custom emoji mappings, including alias-based emoji entries",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-custom-emoji",
+          "group": "Emoji"
         },
         "input": "ActionInput_slack_listcustomemoji",
         "name": "list-custom-emoji",
@@ -14487,10 +16346,10 @@
       },
       {
         "type": "action",
-        "description": "Lists files in a workspace with optional filtering.",
+        "description": "List files shared in the workspace",
         "endpoint": {
           "method": "GET",
-          "path": "/files/list",
+          "path": "/actions/list-files",
           "group": "Files"
         },
         "input": "ActionInput_slack_listfiles",
@@ -14509,11 +16368,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all items pinned to a channel.",
+        "description": "List all items pinned in a specific channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-pins",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-pins",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_listpins",
         "name": "list-pins",
@@ -14531,10 +16390,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves pending scheduled messages from workspace.",
+        "description": "List pending scheduled messages",
         "endpoint": {
           "method": "GET",
-          "path": "/messages/scheduled",
+          "path": "/actions/list-scheduled-messages",
           "group": "Messages"
         },
         "input": "ActionInput_slack_listscheduledmessages",
@@ -14553,10 +16412,10 @@
       },
       {
         "type": "action",
-        "description": "Lists users within a specific user group.",
+        "description": "List member user IDs for a specific Slack user group",
         "endpoint": {
           "method": "GET",
-          "path": "/user-group-members",
+          "path": "/actions/list-user-group-members",
           "group": "User Groups"
         },
         "input": "ActionInput_slack_listusergroupmembers",
@@ -14575,11 +16434,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all user groups in the workspace.",
+        "description": "List workspace user groups with optional disabled and membership counts",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-user-groups",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-user-groups",
+          "group": "User Groups"
         },
         "input": "ActionInput_slack_listusergroups",
         "name": "list-user-groups",
@@ -14597,11 +16456,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all items with reactions made by the user.",
+        "description": "List items the user reacted to with cursor-based pagination",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-user-reactions",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-user-reactions",
+          "group": "Reactions"
         },
         "input": "ActionInput_slack_listuserreactions",
         "name": "list-user-reactions",
@@ -14619,10 +16478,10 @@
       },
       {
         "type": "action",
-        "description": "Lists all users in a workspace including active and deactivated.",
+        "description": "List all users in the workspace",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/list",
+          "method": "POST",
+          "path": "/actions/list-users",
           "group": "Users"
         },
         "input": "ActionInput_slack_listusers",
@@ -14641,34 +16500,11 @@
       },
       {
         "type": "action",
-        "description": "Finds a user by their registered email address.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/users/lookup",
-          "group": "Users"
-        },
-        "input": "ActionInput_slack_lookupuserbyemail",
-        "name": "lookup-user-by-email",
-        "output": [
-          "ActionOutput_slack_lookupuserbyemail"
-        ],
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
-        "usedModels": [
-          "ActionInput_slack_lookupuserbyemail",
-          "ActionOutput_slack_lookupuserbyemail"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Moves the read cursor in a conversation.",
+        "description": "Move a conversation's read cursor to a specific message timestamp",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/mark",
-          "group": "Channels"
+          "path": "/actions/mark-as-read",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_markasread",
         "name": "mark-as-read",
@@ -14676,10 +16512,7 @@
           "ActionOutput_slack_markasread"
         ],
         "scopes": [
-          "channels:write",
-          "groups:write",
-          "im:write",
-          "mpim:write"
+          "channels:read"
         ],
         "usedModels": [
           "ActionInput_slack_markasread",
@@ -14689,10 +16522,10 @@
       },
       {
         "type": "action",
-        "description": "Opens a direct message or multi-person direct message.",
+        "description": "Open a direct or multi-person DM for specified users",
         "endpoint": {
           "method": "POST",
-          "path": "/conversations/dm/open",
+          "path": "/actions/open-dm",
           "group": "Conversations"
         },
         "input": "ActionInput_slack_opendm",
@@ -14712,11 +16545,11 @@
       },
       {
         "type": "action",
-        "description": "Pins a message to a channel.",
+        "description": "Pin a specific message in a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/pin-message",
-          "group": "Actions"
+          "path": "/actions/pin-message",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_pinmessage",
         "name": "pin-message",
@@ -14734,11 +16567,11 @@
       },
       {
         "type": "action",
-        "description": "Posts a message to a public channel, private channel, or direct message.",
+        "description": "Post a message to a channel, DM, or thread",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/post",
-          "group": "Messages"
+          "path": "/actions/post-message",
+          "group": "Messaging"
         },
         "input": "ActionInput_slack_postmessage",
         "name": "post-message",
@@ -14756,32 +16589,10 @@
       },
       {
         "type": "action",
-        "description": "Removes a user from a channel.",
+        "description": "Remove an emoji reaction from a specific message",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/members/remove",
-          "group": "Channels"
-        },
-        "input": "ActionInput_slack_removefromchannel",
-        "name": "remove-from-channel",
-        "output": [
-          "ActionOutput_slack_removefromchannel"
-        ],
-        "scopes": [
-          "channels:write"
-        ],
-        "usedModels": [
-          "ActionInput_slack_removefromchannel",
-          "ActionOutput_slack_removefromchannel"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Removes an emoji reaction from a message.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/reactions/remove",
+          "path": "/actions/remove-reaction",
           "group": "Reactions"
         },
         "input": "ActionInput_slack_removereaction",
@@ -14800,32 +16611,61 @@
       },
       {
         "type": "action",
-        "description": "Renames a conversation with proper permissions.",
+        "description": "Remove a user from a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/rename",
-          "group": "Channels"
+          "path": "/actions/remove-user-from-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_renamechannel",
-        "name": "rename-channel",
+        "input": "ActionInput_slack_removeuserfromconversation",
+        "name": "remove-user-from-conversation",
         "output": [
-          "ActionOutput_slack_renamechannel"
+          "ActionOutput_slack_removeuserfromconversation"
         ],
         "scopes": [
-          "channels:manage"
+          "channels:manage",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_renamechannel",
-          "ActionOutput_slack_renamechannel"
+          "ActionInput_slack_removeuserfromconversation",
+          "ActionOutput_slack_removeuserfromconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Schedules a message for future delivery up to 120 days ahead.",
+        "description": "Rename a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/schedule",
+          "path": "/actions/rename-conversation",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_slack_renameconversation",
+        "name": "rename-conversation",
+        "output": [
+          "ActionOutput_slack_renameconversation"
+        ],
+        "scopes": [
+          "channels:manage",
+          "channels:write",
+          "groups:write",
+          "mpim:write",
+          "im:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_renameconversation",
+          "ActionOutput_slack_renameconversation"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Schedule a Slack message to a channel or thread, subject to Slack's 120-day scheduling limit.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/schedule-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_schedulemessage",
@@ -14844,11 +16684,11 @@
       },
       {
         "type": "action",
-        "description": "Searches for files matching a query in Slack workspace (requires user token).",
+        "description": "Search workspace files with pagination",
         "endpoint": {
-          "method": "GET",
-          "path": "/search-files",
-          "group": "Search"
+          "method": "POST",
+          "path": "/actions/search-files",
+          "group": "Files"
         },
         "input": "ActionInput_slack_searchfiles",
         "name": "search-files",
@@ -14866,32 +16706,32 @@
       },
       {
         "type": "action",
-        "description": "Searches for messages matching a query in Slack workspace (requires user token).",
+        "description": "Send a message visible only to one user in a channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/search-messages",
-          "group": "Search"
+          "method": "POST",
+          "path": "/actions/send-ephemeral-message",
+          "group": "Messaging"
         },
-        "input": "ActionInput_slack_searchmessages",
-        "name": "search-messages",
+        "input": "ActionInput_slack_sendephemeralmessage",
+        "name": "send-ephemeral-message",
         "output": [
-          "ActionOutput_slack_searchmessages"
+          "ActionOutput_slack_sendephemeralmessage"
         ],
         "scopes": [
-          "search:read"
+          "chat:write"
         ],
         "usedModels": [
-          "ActionInput_slack_searchmessages",
-          "ActionOutput_slack_searchmessages"
+          "ActionInput_slack_sendephemeralmessage",
+          "ActionOutput_slack_sendephemeralmessage"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "An action that sends a message to a slack channel.",
+        "description": "Send a message to a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages",
+          "path": "/actions/send-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_sendmessage",
@@ -14906,14 +16746,14 @@
           "ActionInput_slack_sendmessage",
           "ActionOutput_slack_sendmessage"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Updates a channel's description or purpose.",
+        "description": "Update a channel's purpose text for a conversation",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/purpose",
+          "path": "/actions/set-channel-purpose",
           "group": "Channels"
         },
         "input": "ActionInput_slack_setchannelpurpose",
@@ -14922,7 +16762,11 @@
           "ActionOutput_slack_setchannelpurpose"
         ],
         "scopes": [
-          "channels:write"
+          "chat:write",
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
           "ActionInput_slack_setchannelpurpose",
@@ -14932,10 +16776,10 @@
       },
       {
         "type": "action",
-        "description": "Updates a channel's topic.",
+        "description": "Set the topic of a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/topic",
+          "path": "/actions/set-channel-topic",
           "group": "Channels"
         },
         "input": "ActionInput_slack_setchanneltopic",
@@ -14944,7 +16788,8 @@
           "ActionOutput_slack_setchanneltopic"
         ],
         "scopes": [
-          "channels:write"
+          "channels:write.topic",
+          "groups:write.topic"
         ],
         "usedModels": [
           "ActionInput_slack_setchanneltopic",
@@ -14954,10 +16799,32 @@
       },
       {
         "type": "action",
-        "description": "Sets the calling user's manual presence status.",
+        "description": "Set a user's status",
         "endpoint": {
           "method": "POST",
-          "path": "/users/presence",
+          "path": "/actions/set-status",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_setstatus",
+        "name": "set-status",
+        "output": [
+          "ActionOutput_slack_setstatus"
+        ],
+        "scopes": [
+          "users.profile:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_setstatus",
+          "ActionOutput_slack_setstatus"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Set a user's presence to online or away",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/set-user-presence",
           "group": "Users"
         },
         "input": "ActionInput_slack_setuserpresence",
@@ -14976,10 +16843,10 @@
       },
       {
         "type": "action",
-        "description": "Restores an archived conversation.",
+        "description": "Restore an archived conversation so members can use it again",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/unarchive",
+          "path": "/actions/unarchive-channel",
           "group": "Channels"
         },
         "input": "ActionInput_slack_unarchivechannel",
@@ -14998,11 +16865,11 @@
       },
       {
         "type": "action",
-        "description": "Removes a pinned item from a channel.",
+        "description": "Remove a pinned message from a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/unpin-message",
-          "group": "Actions"
+          "path": "/actions/unpin-message",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_unpinmessage",
         "name": "unpin-message",
@@ -15020,10 +16887,10 @@
       },
       {
         "type": "action",
-        "description": "Modifies an existing message in a channel.",
+        "description": "Edit an existing message in a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/update",
+          "path": "/actions/update-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_updatemessage",
@@ -15044,102 +16911,106 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
+        "description": "Sync conversations allowed by granted scopes - public/private channels, DMs, and group DMs",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/channels"
+            "method": "POST",
+            "path": "/syncs/sync-channels",
+            "group": "Channels"
           }
         ],
-        "input": "SyncMetadata_slack_channels",
-        "name": "channels",
+        "input": "SyncMetadata_slack_syncchannels",
+        "name": "sync-channels",
         "output": [
-          "SlackChannel"
+          "Channel"
         ],
-        "runs": "every hour",
-        "scopes": [
-          "channels:read",
-          "channels:join"
-        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackChannel",
-          "SyncMetadata_slack_channels"
+          "Channel",
+          "SyncMetadata_slack_syncchannels"
         ],
-        "version": "2.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
+        "description": "Sync Slack conversations including channel members",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/messages",
+            "path": "/syncs/sync-conversations"
+          }
+        ],
+        "input": null,
+        "name": "sync-conversations",
+        "output": [
+          "Conversation"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Conversation"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync messages, thread replies, and reactions for conversations the bot can access; fully backfill new channels, then resync the last 10 days using channelsLastSyncDate metadata.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-messages-received",
             "group": "Messages"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reply"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reaction"
           }
         ],
-        "input": "SyncMetadata_slack_messages",
-        "name": "messages",
+        "input": null,
+        "name": "sync-messages-received",
         "output": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction"
+          "Message"
         ],
         "runs": "every hour",
-        "scopes": [
-          "channels:read",
-          "channels:history"
-        ],
-        "sync_type": "incremental",
+        "scopes": [],
+        "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction",
-          "SyncMetadata_slack_messages"
+          "Message"
         ],
-        "version": "2.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Syncs information about all Users on the Slack workspace",
+        "description": "Sync all workspace users including deactivated accounts with email and profile fields",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/users"
+            "method": "POST",
+            "path": "/syncs/sync-users",
+            "group": "Users"
           }
         ],
-        "input": "SyncMetadata_slack_users",
-        "name": "users",
+        "input": null,
+        "name": "sync-users",
         "output": [
-          "SlackUser"
+          "User"
         ],
         "runs": "every hour",
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackUser",
-          "SyncMetadata_slack_users"
+          "User"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],
@@ -15751,35 +17622,6 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Fetches a list of candidates from workable",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/candidates",
-            "group": "Candidates"
-          }
-        ],
-        "input": "SyncMetadata_workable_candidates",
-        "name": "candidates",
-        "output": [
-          "WorkableCandidate"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "r_candidates"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "WorkableCandidate",
-          "SyncMetadata_workable_candidates"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches a list of activity streams of the given candidate",
         "auto_start": true,
         "endpoints": [
@@ -15836,30 +17678,31 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of jobs from workable",
+        "description": "Fetches a list of candidates from workable",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/workable/jobs"
+            "path": "/candidates",
+            "group": "Candidates"
           }
         ],
-        "input": "SyncMetadata_workable_jobs",
-        "name": "jobs",
+        "input": "SyncMetadata_workable_candidates",
+        "name": "candidates",
         "output": [
-          "WorkableJob"
+          "WorkableCandidate"
         ],
         "runs": "every 6 hours",
         "scopes": [
-          "r_jobs"
+          "r_candidates"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "WorkableJob",
-          "SyncMetadata_workable_jobs"
+          "WorkableCandidate",
+          "SyncMetadata_workable_candidates"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -15914,6 +17757,34 @@
         "usedModels": [
           "WorkableJobQuestion",
           "SyncMetadata_workable_jobsquestions"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of jobs from workable",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workable/jobs"
+          }
+        ],
+        "input": "SyncMetadata_workable_jobs",
+        "name": "jobs",
+        "output": [
+          "WorkableJob"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "r_jobs"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "WorkableJob",
+          "SyncMetadata_workable_jobs"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": []

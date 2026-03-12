@@ -34,35 +34,6 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of all books in an account from Brightcrowd.",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/books",
-            "group": "Books"
-          }
-        ],
-        "input": "SyncMetadata_brightcrowd_books",
-        "name": "books",
-        "output": [
-          "Book"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "bcb.partner/book.read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Book",
-          "SyncMetadata_brightcrowd_books"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
         "description": "Fetches a list of specified books from Brightcrowd.",
         "auto_start": false,
         "endpoints": [
@@ -86,6 +57,35 @@
         "usedModels": [
           "BookById",
           "SyncMetadata_brightcrowd_booksbyid"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all books in an account from Brightcrowd.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/books",
+            "group": "Books"
+          }
+        ],
+        "input": "SyncMetadata_brightcrowd_books",
+        "name": "books",
+        "output": [
+          "Book"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "bcb.partner/book.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Book",
+          "SyncMetadata_brightcrowd_books"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

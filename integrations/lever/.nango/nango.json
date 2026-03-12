@@ -148,26 +148,6 @@
       },
       {
         "type": "action",
-        "description": "Update an opportunity",
-        "endpoint": {
-          "method": "PATCH",
-          "path": "/opportunities",
-          "group": "Opportunities"
-        },
-        "input": "ActionInput_lever_updateopportunity",
-        "name": "update-opportunity",
-        "output": [
-          "ActionOutput_lever_updateopportunity"
-        ],
-        "scopes": [],
-        "usedModels": [
-          "ActionInput_lever_updateopportunity",
-          "ActionOutput_lever_updateopportunity"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
         "description": "Update the archived state of an opportunity",
         "endpoint": {
           "method": "PUT",
@@ -268,6 +248,26 @@
       },
       {
         "type": "action",
+        "description": "Update an opportunity",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/opportunities",
+          "group": "Opportunities"
+        },
+        "input": "ActionInput_lever_updateopportunity",
+        "name": "update-opportunity",
+        "output": [
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lever_updateopportunity",
+          "ActionOutput_lever_updateopportunity"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
         "description": "Lists all the users in your Lever account. Only active users are included by default.",
         "endpoint": {
           "method": "GET",
@@ -288,35 +288,6 @@
       }
     ],
     "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches all opportunities",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/opportunities",
-            "group": "Opportunities"
-          }
-        ],
-        "input": "SyncMetadata_lever_opportunities",
-        "name": "opportunities",
-        "output": [
-          "LeverOpportunity"
-        ],
-        "runs": "every 6 hours",
-        "scopes": [
-          "opportunities:read:admin"
-        ],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "LeverOpportunity",
-          "SyncMetadata_lever_opportunities"
-        ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
-      },
       {
         "type": "sync",
         "description": "Fetches a list of all applications for a candidate in Lever",
@@ -464,31 +435,31 @@
       },
       {
         "type": "sync",
-        "description": "Fetches a list of all postings in Lever",
+        "description": "Fetches all opportunities",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/postings",
-            "group": "Postings"
+            "path": "/opportunities",
+            "group": "Opportunities"
           }
         ],
-        "input": "SyncMetadata_lever_postings",
-        "name": "postings",
+        "input": "SyncMetadata_lever_opportunities",
+        "name": "opportunities",
         "output": [
-          "LeverPosting"
+          "LeverOpportunity"
         ],
         "runs": "every 6 hours",
         "scopes": [
-          "postings:read:admin"
+          "opportunities:read:admin"
         ],
-        "sync_type": "full",
+        "sync_type": "incremental",
         "track_deletes": false,
         "usedModels": [
-          "LeverPosting",
-          "SyncMetadata_lever_postings"
+          "LeverOpportunity",
+          "SyncMetadata_lever_opportunities"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -516,6 +487,35 @@
         "usedModels": [
           "LeverPostingApply",
           "SyncMetadata_lever_postingsquestions"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all postings in Lever",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/postings",
+            "group": "Postings"
+          }
+        ],
+        "input": "SyncMetadata_lever_postings",
+        "name": "postings",
+        "output": [
+          "LeverPosting"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "postings:read:admin"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "LeverPosting",
+          "SyncMetadata_lever_postings"
         ],
         "version": "2.0.0",
         "webhookSubscriptions": []

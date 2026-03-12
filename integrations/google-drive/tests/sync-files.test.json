@@ -1,0 +1,537 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "files": [
+        "1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE",
+        "1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k"
+      ],
+      "folders": [
+        "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+      ]
+    },
+    "batchSave": {
+      "File": [
+        {
+          "id": "1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE",
+          "name": "Test Document 1",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "0AN1h4oAN_CPaUk9PVA"
+          ],
+          "createdTime": "2026-03-11T11:23:55.007Z",
+          "modifiedTime": "2026-03-11T11:23:55.560Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k",
+          "name": "Test Document 2",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "0AN1h4oAN_CPaUk9PVA"
+          ],
+          "createdTime": "2026-03-11T11:24:05.915Z",
+          "modifiedTime": "2026-03-11T11:24:06.345Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+          "name": "Nested Folder",
+          "mimeType": "application/vnd.google-apps.folder",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T19:29:47.331Z",
+          "modifiedTime": "2026-03-11T19:29:47.331Z",
+          "webViewLink": "https://drive.google.com/drive/folders/1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+          "trashed": false
+        },
+        {
+          "id": "1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4",
+          "name": "Test PDF.pdf",
+          "mimeType": "application/pdf",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T19:29:40.454Z",
+          "modifiedTime": "2026-03-11T19:29:40.454Z",
+          "size": "0",
+          "webViewLink": "https://drive.google.com/file/d/1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4/view?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404",
+          "name": "Test Spreadsheet",
+          "mimeType": "application/vnd.google-apps.spreadsheet",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T19:29:38.262Z",
+          "modifiedTime": "2026-03-11T19:29:39.282Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/spreadsheets/d/1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY",
+          "name": "Test Document 1",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T19:29:29.677Z",
+          "modifiedTime": "2026-03-11T19:29:30.575Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc",
+          "name": "Sync Files Root Doc 20260311-160412",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T15:04:13.342Z",
+          "modifiedTime": "2026-03-11T15:04:14.214Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+          "name": "Sync Files Nested Folder 20260311-160347",
+          "mimeType": "application/vnd.google-apps.folder",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T15:03:47.903Z",
+          "modifiedTime": "2026-03-11T15:03:47.903Z",
+          "webViewLink": "https://drive.google.com/drive/folders/1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+          "trashed": false
+        },
+        {
+          "id": "1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68",
+          "name": "Test Spreadsheet",
+          "mimeType": "application/vnd.google-apps.spreadsheet",
+          "parents": [
+            "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+          ],
+          "createdTime": "2026-03-11T11:24:03.958Z",
+          "modifiedTime": "2026-03-11T11:24:04.634Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/spreadsheets/d/1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E",
+          "name": "Sync Files Nested Doc 20260311-160412",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV"
+          ],
+          "createdTime": "2026-03-11T15:04:15.734Z",
+          "modifiedTime": "2026-03-11T15:04:16.889Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E/edit?usp=drivesdk",
+          "trashed": false
+        },
+        {
+          "id": "1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8",
+          "name": "Nested Document",
+          "mimeType": "application/vnd.google-apps.document",
+          "parents": [
+            "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG"
+          ],
+          "createdTime": "2026-03-11T19:29:52.430Z",
+          "modifiedTime": "2026-03-11T19:29:53.041Z",
+          "size": "1024",
+          "webViewLink": "https://docs.google.com/document/d/1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8/edit?usp=drivesdk",
+          "trashed": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "File": []
+    }
+  },
+  "api": {
+    "get": {
+      "/drive/v3/files/1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE": {
+        "response": {
+          "id": "1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE",
+          "name": "Test Document 1",
+          "mimeType": "application/vnd.google-apps.document",
+          "trashed": false,
+          "parents": [
+            "0AN1h4oAN_CPaUk9PVA"
+          ],
+          "webViewLink": "https://docs.google.com/document/d/1eMxM4V09Hmh62EHkC4J08ZN7KamniewjJkGaq_8MIiE/edit?usp=drivesdk",
+          "createdTime": "2026-03-11T11:23:55.007Z",
+          "modifiedTime": "2026-03-11T11:23:55.560Z",
+          "size": "1024"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 08:45:05 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1773305156",
+          "vary": "Origin, X-Origin",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "pragma": "no-cache",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "a59dc1a2332795c9d7acf1151af89403b0919898",
+        "request": {
+          "params": {
+            "fields": "id,name,mimeType,parents,driveId,createdTime,modifiedTime,size,webViewLink,trashed",
+            "supportsAllDrives": "true"
+          }
+        }
+      },
+      "/drive/v3/files/1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k": {
+        "response": {
+          "id": "1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k",
+          "name": "Test Document 2",
+          "mimeType": "application/vnd.google-apps.document",
+          "trashed": false,
+          "parents": [
+            "0AN1h4oAN_CPaUk9PVA"
+          ],
+          "webViewLink": "https://docs.google.com/document/d/1CXg9vFisgIwR6_gNA2Pvxp5taiifNsndyWwKdfSY70k/edit?usp=drivesdk",
+          "createdTime": "2026-03-11T11:24:05.915Z",
+          "modifiedTime": "2026-03-11T11:24:06.345Z",
+          "size": "1024"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 08:45:05 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1773305156",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "vary": "Origin, X-Origin",
+          "pragma": "no-cache",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "15013417ff6094d8303c1ab57e82e8d815072907",
+        "request": {
+          "params": {
+            "fields": "id,name,mimeType,parents,driveId,createdTime,modifiedTime,size,webViewLink,trashed",
+            "supportsAllDrives": "true"
+          }
+        }
+      },
+      "/drive/v3/files": [
+        {
+          "response": {
+            "files": [
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+                "name": "Nested Folder",
+                "mimeType": "application/vnd.google-apps.folder",
+                "trashed": false,
+                "webViewLink": "https://drive.google.com/drive/folders/1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG",
+                "createdTime": "2026-03-11T19:29:47.331Z",
+                "modifiedTime": "2026-03-11T19:29:47.331Z"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4",
+                "name": "Test PDF.pdf",
+                "mimeType": "application/pdf",
+                "trashed": false,
+                "webViewLink": "https://drive.google.com/file/d/1MhzChRwJxAsOPiVZM8mr_z98ZfeO9kI4/view?usp=drivesdk",
+                "createdTime": "2026-03-11T19:29:40.454Z",
+                "modifiedTime": "2026-03-11T19:29:40.454Z",
+                "size": "0"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404",
+                "name": "Test Spreadsheet",
+                "mimeType": "application/vnd.google-apps.spreadsheet",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/spreadsheets/d/1O8Xtu5VkKPngiWLOWpshfDV61dyoeDewqXJQ1f1_404/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T19:29:38.262Z",
+                "modifiedTime": "2026-03-11T19:29:39.282Z",
+                "size": "1024"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY",
+                "name": "Test Document 1",
+                "mimeType": "application/vnd.google-apps.document",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/document/d/1-S9sVBkhfJf-hqHXXIpBZt9mswaHef_RxqJhPU6PNiY/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T19:29:29.677Z",
+                "modifiedTime": "2026-03-11T19:29:30.575Z",
+                "size": "1024"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc",
+                "name": "Sync Files Root Doc 20260311-160412",
+                "mimeType": "application/vnd.google-apps.document",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/document/d/1-RFNOiq1RCrWcz7_DbkQVrYisWp3w5MTmXW8iHuJ-bc/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T15:04:13.342Z",
+                "modifiedTime": "2026-03-11T15:04:14.214Z",
+                "size": "1024"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+                "name": "Sync Files Nested Folder 20260311-160347",
+                "mimeType": "application/vnd.google-apps.folder",
+                "trashed": false,
+                "webViewLink": "https://drive.google.com/drive/folders/1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV",
+                "createdTime": "2026-03-11T15:03:47.903Z",
+                "modifiedTime": "2026-03-11T15:03:47.903Z"
+              },
+              {
+                "parents": [
+                  "1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E"
+                ],
+                "id": "1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68",
+                "name": "Test Spreadsheet",
+                "mimeType": "application/vnd.google-apps.spreadsheet",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/spreadsheets/d/1bc-wHobR0IMHX02U2-mTTM410lCYL5IwoX8V1nSUm68/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T11:24:03.958Z",
+                "modifiedTime": "2026-03-11T11:24:04.634Z",
+                "size": "1024"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 12 Mar 2026 08:45:06 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4985",
+            "x-ratelimit-reset": "1773305156",
+            "vary": "Origin, X-Origin",
+            "pragma": "no-cache",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "0a481d3c227e7db68482edf868f55e2e7056dbae",
+          "request": {
+            "params": {
+              "fields": "nextPageToken,files(id,name,mimeType,parents,driveId,createdTime,modifiedTime,size,webViewLink,trashed)",
+              "includeItemsFromAllDrives": "true",
+              "pageSize": "100",
+              "q": "'1kuClAwr6TAurtUk54PVJTX3j0GN8EJ_E' in parents and trashed = false",
+              "supportsAllDrives": "true"
+            }
+          }
+        },
+        {
+          "response": {
+            "files": [
+              {
+                "parents": [
+                  "1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV"
+                ],
+                "id": "1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E",
+                "name": "Sync Files Nested Doc 20260311-160412",
+                "mimeType": "application/vnd.google-apps.document",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/document/d/1ZmuEi0FPKbqrv5qGfRYjRcNx_AIbNVUFYpZt7nman5E/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T15:04:15.734Z",
+                "modifiedTime": "2026-03-11T15:04:16.889Z",
+                "size": "1024"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 12 Mar 2026 08:45:06 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4984",
+            "x-ratelimit-reset": "1773305156",
+            "pragma": "no-cache",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "vary": "Origin, X-Origin",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "bb33a779d9ef6a4ab786666cd8486fadef012836",
+          "request": {
+            "params": {
+              "fields": "nextPageToken,files(id,name,mimeType,parents,driveId,createdTime,modifiedTime,size,webViewLink,trashed)",
+              "includeItemsFromAllDrives": "true",
+              "pageSize": "100",
+              "q": "'1G2MC5UAwMW4xPXTGwAyNlN_rCNzGaPkV' in parents and trashed = false",
+              "supportsAllDrives": "true"
+            }
+          }
+        },
+        {
+          "response": {
+            "files": [
+              {
+                "parents": [
+                  "1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG"
+                ],
+                "id": "1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8",
+                "name": "Nested Document",
+                "mimeType": "application/vnd.google-apps.document",
+                "trashed": false,
+                "webViewLink": "https://docs.google.com/document/d/1ydTF01x1GVEe5IUt0HCBDwRR6_hLTgqjJLWyzod3zI8/edit?usp=drivesdk",
+                "createdTime": "2026-03-11T19:29:52.430Z",
+                "modifiedTime": "2026-03-11T19:29:53.041Z",
+                "size": "1024"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 12 Mar 2026 08:45:07 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1773305156",
+            "vary": "Origin, X-Origin",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "pragma": "no-cache",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "60a9d9efafc8b39bc99f13bcf3cc9f8b9d94c485",
+          "request": {
+            "params": {
+              "fields": "nextPageToken,files(id,name,mimeType,parents,driveId,createdTime,modifiedTime,size,webViewLink,trashed)",
+              "includeItemsFromAllDrives": "true",
+              "pageSize": "100",
+              "q": "'1ulFj7t--GYwStTr08JUp8gIbtYnBdqQG' in parents and trashed = false",
+              "supportsAllDrives": "true"
+            }
+          }
+        }
+      ],
+      "/drive/v3/changes/startPageToken": {
+        "response": {
+          "kind": "drive#startPageToken",
+          "startPageToken": "2498"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 08:45:07 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1773305156",
+          "vary": "Origin, X-Origin",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "pragma": "no-cache",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "6b8ae1c2dbb1a94ac3afe1e99df96101354bdb58",
+        "request": {
+          "params": {
+            "supportsAllDrives": "true"
+          }
+        }
+      }
+    }
+  }
+}

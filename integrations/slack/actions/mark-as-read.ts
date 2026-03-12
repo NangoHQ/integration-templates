@@ -1,38 +1,31 @@
-/**
- * Instructions: Moves the read cursor in a conversation
- * API: https://api.slack.com/methods/conversations.mark
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const MarkAsReadInput = z.object({
-    channel_id: z.string().describe('The channel to mark as read. Example: "C02MB5ZABA7"'),
+const InputSchema = z.object({
+    channel_id: z.string().describe('The channel ID to mark as read. Example: "C02MB5ZABA7"'),
     message_ts: z.string().describe('Timestamp of the message to mark as read. Example: "1234567890.123456"')
 });
 
-const MarkAsReadOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the operation succeeded')
 });
 
 const action = createAction({
-    description: 'Moves the read cursor in a conversation.',
+    description: "Move a conversation's read cursor to a specific message timestamp",
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/channels/mark',
-        group: 'Channels'
+        path: '/actions/mark-as-read',
+        group: 'Conversations'
     },
 
-    input: MarkAsReadInput,
-    output: MarkAsReadOutput,
-    scopes: ['channels:write', 'groups:write', 'im:write', 'mpim:write'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['channels:read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof MarkAsReadOutput>> => {
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const config = {
             // https://api.slack.com/methods/conversations.mark
             endpoint: 'conversations.mark',
             data: {
@@ -43,6 +36,15 @@ const action = createAction({
         };
 
         const response = await nango.post(config);
+
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_error',
+                message: response.data.error || 'Failed to mark conversation as read',
+                channel_id: input.channel_id,
+                message_ts: input.message_ts
+            });
+        }
 
         return {
             ok: response.data.ok

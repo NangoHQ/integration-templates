@@ -1,39 +1,76 @@
-/**
- * Instructions: Lists all custom emoji for the workspace
- * API: https://api.slack.com/methods/emoji.list
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const Input = z.object({});
+const InputSchema = z.object({
+    include_categories: z.boolean().optional().describe('Include a list of categories for Unicode emoji and the emoji in each category')
+});
 
-const Output = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    emoji: z.record(z.string(), z.string()).describe('Object mapping emoji names to URLs or aliases (e.g., "alias:squirrel")')
+const EmojiSchema = z.object({
+    name: z.string(),
+    type: z.enum(['custom', 'alias']),
+    url: z.union([z.string(), z.null()]),
+    alias_for: z.union([z.string(), z.null()])
+});
+
+const OutputSchema = z.object({
+    emoji: z.array(EmojiSchema),
+    total_count: z.number()
 });
 
 const action = createAction({
-    description: 'Lists all custom emoji for the workspace.',
+    description: 'List workspace custom emoji mappings, including alias-based emoji entries',
     version: '1.0.0',
+
     endpoint: {
         method: 'GET',
-        path: '/list-custom-emoji',
-        group: 'Actions'
+        path: '/actions/list-custom-emoji',
+        group: 'Emoji'
     },
-    input: Input,
-    output: Output,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['emoji:read'],
-    exec: async (nango, _input): Promise<z.infer<typeof Output>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/emoji.list
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/emoji.list
+        const response = await nango.get({
             endpoint: 'emoji.list',
+            params: {
+                ...(input.include_categories && { include_categories: String(input.include_categories) })
+            },
             retries: 3
-        };
-        const response = await nango.get(config);
+        });
+
+        if (!response.data?.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to fetch emoji list'
+            });
+        }
+
+        const emojiMap: Record<string, string> = response.data.emoji || {};
+
+        const emoji = Object.entries(emojiMap).map(([name, value]) => {
+            if (value.startsWith('alias:')) {
+                return {
+                    name,
+                    type: 'alias' as const,
+                    url: null,
+                    alias_for: value.replace('alias:', '')
+                };
+            }
+
+            return {
+                name,
+                type: 'custom' as const,
+                url: value,
+                alias_for: null
+            };
+        });
+
         return {
-            ok: response.data.ok,
-            emoji: response.data.emoji
+            emoji,
+            total_count: emoji.length
         };
     }
 });

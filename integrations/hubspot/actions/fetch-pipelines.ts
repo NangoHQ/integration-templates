@@ -1,33 +1,71 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { PipelineOutput, OptionalObjectType } from '../models.js';
+
+const InputSchema = z.object({
+    object_type: z.string().optional().describe('The object type for which to fetch pipelines (e.g., "deals", "tickets"). Defaults to "deals".')
+});
+
+const StageSchema = z.object({
+    id: z.string(),
+    label: z.union([z.string(), z.null()]),
+    display_order: z.union([z.number(), z.null()]),
+    metadata: z.record(z.string(), z.any()).optional()
+});
+
+const PipelineSchema = z.object({
+    id: z.string(),
+    label: z.union([z.string(), z.null()]),
+    display_order: z.union([z.number(), z.null()]),
+    active: z.union([z.boolean(), z.null()]),
+    stages: z.array(StageSchema),
+    created_at: z.union([z.string(), z.null()]),
+    updated_at: z.union([z.string(), z.null()])
+});
+
+const OutputSchema = z.object({
+    pipelines: z.array(PipelineSchema)
+});
 
 const action = createAction({
-    description: 'Fetch all pipelines for an object type. Defaults to deals',
+    description: 'List pipelines and stages for an object type, defaulting to deals',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/pipelines',
+        path: '/actions/fetch-pipelines',
         group: 'Pipelines'
     },
 
-    input: OptionalObjectType,
-    output: PipelineOutput,
-    scopes: ['oauth', 'crm.objects.deals.read'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.deals.read'],
 
-    exec: async (nango, input): Promise<PipelineOutput> => {
-        const objectType = input?.objectType || 'deal';
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const objectType = input.object_type || 'deals';
 
+        // https://developers.hubspot.com/docs/api/crm/pipelines
         const response = await nango.get({
-            // https://developers.hubspot.com/docs/api/crm/pipelines
             endpoint: `/crm/v3/pipelines/${objectType}`,
             retries: 3
         });
 
-        const { data } = response;
+        const pipelines = response.data.results || [];
 
         return {
-            pipelines: data.results
+            pipelines: pipelines.map((pipeline: any) => ({
+                id: pipeline.id,
+                label: pipeline.label ?? null,
+                display_order: pipeline.displayOrder ?? null,
+                active: pipeline.active ?? null,
+                stages: (pipeline.stages || []).map((stage: any) => ({
+                    id: stage.id,
+                    label: stage.label ?? null,
+                    display_order: stage.displayOrder ?? null,
+                    metadata: stage.metadata || {}
+                })),
+                created_at: pipeline.createdAt ?? null,
+                updated_at: pipeline.updatedAt ?? null
+            }))
         };
     }
 });

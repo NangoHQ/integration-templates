@@ -1,0 +1,68 @@
+{
+  "input": {},
+  "output": {
+    "portal_id": 147893286,
+    "account_type": "STANDARD",
+    "timezone": "US/Eastern",
+    "company_currency": "USD",
+    "additional_currencies": [],
+    "data_hosting_location": "eu1",
+    "ui_domain": "app-eu1.hubspot.com",
+    "utc_offset": "-04:00",
+    "utc_offset_milliseconds": -14400000
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/account-info/v3/details": {
+        "response": {
+          "portalId": 147893286,
+          "accountType": "STANDARD",
+          "timeZone": "US/Eastern",
+          "companyCurrency": "USD",
+          "additionalCurrencies": [],
+          "utcOffset": "-04:00",
+          "utcOffsetMilliseconds": -14400000,
+          "uiDomain": "app-eu1.hubspot.com",
+          "dataHostingLocation": "eu1"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:35:05 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4889",
+          "x-ratelimit-reset": "1773300948",
+          "cf-ray": "9db11ec26971ff0f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "origin, Accept-Encoding",
+          "access-control-allow-credentials": "false",
+          "server-timing": "hcid;desc=\"019ce0f8-75e5-7fd1-a864-f149d8be2a55\", cfr;desc=\"9db11ec27653ff0f-FRA\"",
+          "x-hubspot-correlation-id": "019ce0f8-75e5-7fd1-a864-f149d8be2a55",
+          "x-hubspot-ratelimit-interval-milliseconds": "10000",
+          "x-hubspot-ratelimit-max": "110",
+          "x-hubspot-ratelimit-remaining": "101",
+          "x-hubspot-ratelimit-secondly": "11",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=ylKeI0XK4Su0yhcMZeaPOW2Rk_N93mcS_0KG.v4bxjU-1773300905-1.0.1.1-qMocIrERbXdi9sds_ofA18o76iTgaQDXSFfE6FxFq25MQH8bYImALOAMn8tmwdPPgfE0PV.UX3OQ3oH2_3X.n6HDcFq4uFY6ZY3wUlabHQI; path=/; expires=Thu, 12-Mar-26 08:05:05 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=lkYwET%2BF739Aq%2FSdZrSyMbx1SDQOwne1%2FynKZpspErvth9NjbG9AOmbF4BVI750HiXrym5NrrFF981GFpj%2B5hckfW4efRCmpjteJcUHwZ1hOH%2BiG68iTRdFsHzjBbZA1\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare"
+        },
+        "hash": "544a031e3e533cf4d8d8d7a39ae8a27e30d540fd",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,63 +1,75 @@
-/**
- * Instructions: Creates a recurring event with RRULE specification
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/insert
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const CreateRecurringEventInput = z.object({
-    calendar_id: z.string(),
-    summary: z.string(),
-    start: z.any(),
-    end: z.any(),
-    recurrence: z.array(z.string()),
-    description: z.string().optional()
+const InputSchema = z.object({
+    calendar_id: z.string().optional().describe('Calendar ID. Defaults to "primary". Example: "primary"'),
+    summary: z.string().describe('Event title/summary. Example: "Weekly Team Meeting"'),
+    description: z.string().optional().describe('Event description. Example: "Discuss project progress"'),
+    location: z.string().optional().describe('Event location. Example: "Conference Room A"'),
+    start: z.string().describe('Event start time in RFC3339 format. Example: "2024-03-15T09:00:00-07:00"'),
+    end: z.string().describe('Event end time in RFC3339 format. Example: "2024-03-15T10:00:00-07:00"'),
+    rrule: z.string().describe('iCalendar RRULE for recurrence. Example: "FREQ=WEEKLY;BYDAY=MO,WE,FR"'),
+    timezone: z.string().optional().describe('Timezone for the event. Defaults to "UTC". Example: "America/Los_Angeles"')
 });
 
-const CreateRecurringEventOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const OutputSchema = z.object({
     id: z.string(),
+    html_link: z.string(),
     summary: z.string(),
-    recurrence: z.array(z.string())
+    start: z.string(),
+    end: z.string(),
+    recurrence: z.array(z.string()).optional(),
+    status: z.string()
 });
 
 const action = createAction({
-    description: 'Creates a recurring event with RRULE specification',
+    description: 'Create a recurring event with supplied start, end, and RRULE values',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/insert
+
     endpoint: {
         method: 'POST',
-        path: '/events/recurring',
+        path: '/actions/create-recurring-event',
         group: 'Events'
     },
-    input: CreateRecurringEventInput,
-    output: CreateRecurringEventOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof CreateRecurringEventOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/insert
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events`,
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendar_id || 'primary';
+        const timezone = input.timezone || 'UTC';
+
+        // https://developers.google.com/calendar/api/v3/reference/events/insert
+        const response = await nango.post({
+            endpoint: `/calendar/v3/calendars/${calendarId}/events`,
             data: {
                 summary: input.summary,
-                start: input.start,
-                end: input.end,
-                recurrence: input.recurrence,
-                ...(input.description && { description: input.description })
+                description: input.description,
+                location: input.location,
+                start: {
+                    dateTime: input.start,
+                    timeZone: timezone
+                },
+                end: {
+                    dateTime: input.end,
+                    timeZone: timezone
+                },
+                recurrence: [`RRULE:${input.rrule}`]
             },
-            retries: 3
-        };
+            retries: 10
+        });
 
-        const response = await nango.post(config);
+        const event = response.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            summary: response.data.summary,
-            recurrence: response.data.recurrence || []
+            id: event.id,
+            html_link: event.htmlLink,
+            summary: event.summary,
+            start: event.start?.dateTime || event.start?.date,
+            end: event.end?.dateTime || event.end?.date,
+            recurrence: event.recurrence,
+            status: event.status
         };
     }
 });

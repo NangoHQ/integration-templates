@@ -1,0 +1,91 @@
+{
+  "nango": {
+    "batchSave": {
+      "Owner": [
+        {
+          "id": "32900489",
+          "email": "test-delete-action@example.com",
+          "first_name": "Test",
+          "last_name": "Delete",
+          "user_id": 32900489,
+          "archived": false,
+          "created_at": "2026-03-12T07:37:29.818Z",
+          "updated_at": "2026-03-12T07:37:29.818Z"
+        },
+        {
+          "id": "88842095",
+          "email": "marcinnango@gmail.com",
+          "first_name": "Marcin",
+          "last_name": "Nango",
+          "user_id": 88842095,
+          "archived": false,
+          "created_at": "2026-02-25T15:16:54.974Z",
+          "updated_at": "2026-02-25T15:17:01.810Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Owner": []
+    }
+  },
+  "api": {
+    "get": {
+      "/crm/v3/owners": {
+        "response": {
+          "results": [
+            {
+              "id": "32900489",
+              "email": "test-delete-action@example.com",
+              "type": "PERSON",
+              "firstName": "Test",
+              "lastName": "Delete",
+              "userId": 32900489,
+              "userIdIncludingInactive": 32900489,
+              "createdAt": "2026-03-12T07:37:29.818Z",
+              "updatedAt": "2026-03-12T07:37:29.818Z",
+              "archived": false
+            },
+            {
+              "id": "88842095",
+              "email": "marcinnango@gmail.com",
+              "type": "PERSON",
+              "firstName": "Marcin",
+              "lastName": "Nango",
+              "userId": 88842095,
+              "userIdIncludingInactive": 88842095,
+              "createdAt": "2026-02-25T15:16:54.974Z",
+              "updatedAt": "2026-02-25T15:17:01.810Z",
+              "archived": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:37:51 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "529",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1773301130",
+          "etag": "W/\"211-PoEvPYGjobChNQjE1NvhQWGDyqc\""
+        },
+        "hash": "a1eb64e1cff7c80db925945bf52895e291e9a35a",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

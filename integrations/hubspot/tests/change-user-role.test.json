@@ -1,0 +1,66 @@
+{
+  "input": {
+    "user_id": "534941"
+  },
+  "output": {
+    "id": "534941",
+    "email": "test@example.com",
+    "first_name": null,
+    "last_name": null,
+    "role_ids": [],
+    "primary_team_id": null,
+    "secondary_team_ids": [],
+    "super_admin": false
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/settings/v3/users/534941": {
+        "response": {
+          "id": "534941",
+          "email": "test@example.com",
+          "roleIds": [],
+          "superAdmin": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:35:03 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4899",
+          "x-ratelimit-reset": "1773300948",
+          "cf-ray": "9db11eb48b41b395-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "origin, Accept-Encoding",
+          "access-control-allow-credentials": "false",
+          "server-timing": "hcid;desc=\"019ce0f8-6d3a-7898-a39b-6aa71a4c5887\", cfr;desc=\"9db11eb496b4b395-FRA\"",
+          "x-hubspot-correlation-id": "019ce0f8-6d3a-7898-a39b-6aa71a4c5887",
+          "x-hubspot-ratelimit-interval-milliseconds": "10000",
+          "x-hubspot-ratelimit-max": "110",
+          "x-hubspot-ratelimit-remaining": "102",
+          "x-hubspot-ratelimit-secondly": "11",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=dlbBhiqvbEuWiJ2qEEysjzR7zFF2F.fAwaMkKujWwVc-1773300903-1.0.1.1-lLq4ehjMuMTKm21d.19doWjZNVFO7XKlBErx40t8pqwxjmztZEVDT5kXKOHms1Rr4B0_sTzfEq11LuNBFUJfBLZ1E0zVq5Thnj.zi3P.7_s; path=/; expires=Thu, 12-Mar-26 08:05:03 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=n9E1ez99XBvPyBKjMJ1qbgrfoMyNXVm7a1Kix0SHWVCuOCizRzlDHzX0o%2Bhfm7%2BJeIB4DPCph9ZnT4SP4Mh%2BbAizDnq9ofF0mpyStJBhqlPjfAjIEWuZkXW5jornjXRm\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare"
+        },
+        "hash": "b90fbe5f36ea9e68acd84c9b7fcbbc441ffc0b8d",
+        "request": {
+          "data": {}
+        }
+      }
+    }
+  }
+}

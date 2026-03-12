@@ -1,0 +1,157 @@
+{
+  "input": {
+    "calendar_id": "api@nango.dev",
+    "max_results": 5
+  },
+  "output": {
+    "items": [
+      {
+        "kind": "calendar#aclRule",
+        "etag": "\"00000000000000000000\"",
+        "id": "user:api@nango.dev",
+        "scope": {
+          "type": "user",
+          "value": "api@nango.dev"
+        },
+        "role": "owner"
+      },
+      {
+        "kind": "calendar#aclRule",
+        "etag": "\"00001772658131438591\"",
+        "id": "user:test-acl-user@example.com",
+        "scope": {
+          "type": "user",
+          "value": "test-acl-user@example.com"
+        },
+        "role": "reader"
+      },
+      {
+        "kind": "calendar#aclRule",
+        "etag": "\"00001773053808262207\"",
+        "id": "domain:nango.dev",
+        "scope": {
+          "type": "domain",
+          "value": "nango.dev"
+        },
+        "role": "writer"
+      },
+      {
+        "kind": "calendar#aclRule",
+        "etag": "\"00001773087250987199\"",
+        "id": "user:testuser@example.com",
+        "scope": {
+          "type": "user",
+          "value": "testuser@example.com"
+        },
+        "role": "writer"
+      },
+      {
+        "kind": "calendar#aclRule",
+        "etag": "\"00001773300427137263\"",
+        "id": "default",
+        "scope": {
+          "type": "default",
+          "value": "__public_principal__@public.calendar.google.com"
+        },
+        "role": "reader"
+      }
+    ],
+    "next_cursor": "EI-jy4frmZMDGAAgADIRCgsIy9XJzQYQmO-5QRICIAE=",
+    "next_sync_token": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/calendar/v3/calendars/api@nango.dev/acl": {
+        "response": {
+          "kind": "calendar#acl",
+          "etag": "\"p327q7is7tecp60o\"",
+          "nextPageToken": "EI-jy4frmZMDGAAgADIRCgsIy9XJzQYQmO-5QRICIAE=",
+          "items": [
+            {
+              "kind": "calendar#aclRule",
+              "etag": "\"00000000000000000000\"",
+              "id": "user:api@nango.dev",
+              "scope": {
+                "type": "user",
+                "value": "api@nango.dev"
+              },
+              "role": "owner"
+            },
+            {
+              "kind": "calendar#aclRule",
+              "etag": "\"00001772658131438591\"",
+              "id": "user:test-acl-user@example.com",
+              "scope": {
+                "type": "user",
+                "value": "test-acl-user@example.com"
+              },
+              "role": "reader"
+            },
+            {
+              "kind": "calendar#aclRule",
+              "etag": "\"00001773053808262207\"",
+              "id": "domain:nango.dev",
+              "scope": {
+                "type": "domain",
+                "value": "nango.dev"
+              },
+              "role": "writer"
+            },
+            {
+              "kind": "calendar#aclRule",
+              "etag": "\"00001773087250987199\"",
+              "id": "user:testuser@example.com",
+              "scope": {
+                "type": "user",
+                "value": "testuser@example.com"
+              },
+              "role": "writer"
+            },
+            {
+              "kind": "calendar#aclRule",
+              "etag": "\"00001773300427137263\"",
+              "id": "default",
+              "scope": {
+                "type": "default",
+                "value": "__public_principal__@public.calendar.google.com"
+              },
+              "role": "reader"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:27:56 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4961",
+          "x-ratelimit-reset": "1773300525",
+          "expires": "Thu, 12 Mar 2026 07:27:56 GMT",
+          "cache-control": "private, max-age=0, must-revalidate, no-transform",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-14"
+        },
+        "hash": "8db7c6caf9498c6d6f3d24e8e6a985123845f9c4",
+        "request": {
+          "params": {
+            "maxResults": "5"
+          }
+        }
+      }
+    }
+  }
+}

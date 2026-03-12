@@ -1,56 +1,55 @@
-/**
- * Instructions: Opens a direct message or multi-person direct message.
- * API: https://api.slack.com/methods/conversations.open
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const OpenDmInput = z.object({
-    users: z.string().describe('Comma-separated list of user IDs. Example: "U02MDCKS1N0,U01ABC123"'),
-    return_im: z.boolean().optional().describe('Return the full IM channel object. Default: false')
+const InputSchema = z.object({
+    user_ids: z
+        .array(z.string())
+        .min(1)
+        .describe(
+            'User IDs to open a direct message with. For a 1:1 DM, provide a single user ID. For a multi-person DM, provide multiple user IDs. Example: ["U1234567890"]'
+        )
 });
 
-const OpenDmOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    channel: z
-        .object({
-            id: z.string().describe('The DM channel ID')
-        })
-        .describe('The opened DM channel')
+const OutputSchema = z.object({
+    channel_id: z.string().describe('The ID of the opened DM channel'),
+    channel_name: z.string().describe('The name of the channel (for multi-person DMs this will be a generated name)')
 });
 
 const action = createAction({
-    description: 'Opens a direct message or multi-person direct message.',
+    description: 'Open a direct or multi-person DM for specified users',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/conversations/dm/open',
+        path: '/actions/open-dm',
         group: 'Conversations'
     },
 
-    input: OpenDmInput,
-    output: OpenDmOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['im:write', 'mpim:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof OpenDmOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/conversations.open
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/conversations.open
+        const response = await nango.post({
             endpoint: 'conversations.open',
             data: {
-                users: input.users,
-                ...(input.return_im !== undefined && { return_im: input.return_im })
+                users: input.user_ids.join(',')
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_api_error',
+                message: response.data.error || 'Failed to open DM',
+                user_ids: input.user_ids
+            });
+        }
 
         return {
-            ok: response.data.ok,
-            channel: response.data.channel
+            channel_id: response.data.channel.id,
+            channel_name: response.data.channel.name || 'direct-message'
         };
     }
 });

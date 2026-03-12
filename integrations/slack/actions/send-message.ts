@@ -1,67 +1,79 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { toMessage } from '../mappers/to-message.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { SendMessageOutput, SendMessageInput } from '../models.js';
+const InputSchema = z.object({
+    channel_id: z.string().describe('Channel ID to send the message to. Example: "C1234567890"'),
+    text: z.string().describe('Text content of the message to send. Example: "Hello world"')
+});
 
-/**
- * This function handles sending a message to a Slack channel via the Nango action.
- * It validates the input message data, maps it to the appropriate Slack message structure,
- * and sends a request to post the message in the specified Slack channel.
- *
- * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {SendMessageInput} input - The message data input that will be sent to Slack.
- * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<SendMessageOutput>} - Returns the response object representing the status of the sent message.
- */
+const OutputSchema = z.object({
+    ok: z.boolean(),
+    channel: z.string(),
+    ts: z.string().describe('Timestamp ID of the sent message'),
+    message: z
+        .object({
+            type: z.string(),
+            user: z.string(),
+            text: z.string(),
+            ts: z.string(),
+            team: z.string().optional(),
+            bot_id: z.string().optional(),
+            app_id: z.string().optional()
+        })
+        .optional()
+});
+
 const action = createAction({
-    description: 'An action that sends a message to a slack channel.',
-    version: '2.0.0',
+    description: 'Send a message to a channel',
+    version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/messages',
+        path: '/actions/send-message',
         group: 'Messages'
     },
 
-    input: SendMessageInput,
-    output: SendMessageOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['chat:write'],
 
-    exec: async (nango, input): Promise<SendMessageOutput> => {
-        // Validate if input is present
-        if (!input) {
-            throw new nango.ActionError({
-                message: `Input message object is required. Received: ${JSON.stringify(input)}`
-            });
-        }
-
-        // Ensure that the required fields are present to send a message to a Slack channel
-        if (!input.channel || !input.text) {
-            throw new nango.ActionError({
-                message: `Please provide a 'channel' and 'text' for the message. Received: ${JSON.stringify(input)}`
-            });
-        }
-
-        const slackMessage = {
-            channel: input.channel,
-            text: input.text
-        };
-
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/chat.postMessage
-            endpoint: '/chat.postMessage',
-            data: slackMessage,
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/chat.postMessage
+        const response = await nango.post({
+            endpoint: 'chat.postMessage',
+            data: {
+                channel: input.channel_id,
+                text: input.text
             },
-            retries: 3
+            retries: 10
+        });
+
+        if (!response.data || !response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_error',
+                message: response.data?.error || 'Failed to send message',
+                response: response.data
+            });
+        }
+
+        const message = response.data.message;
+
+        return {
+            ok: response.data.ok,
+            channel: response.data.channel,
+            ts: response.data.ts,
+            message: message
+                ? {
+                      type: message.type,
+                      user: message.user,
+                      text: message.text,
+                      ts: message.ts,
+                      team: message.team,
+                      bot_id: message.bot_id,
+                      app_id: message.app_id
+                  }
+                : undefined
         };
-
-        //https://api.slack.com/methods/chat.postMessage
-        const response = await nango.post(config);
-
-        return toMessage(response.data);
     }
 });
 

@@ -4,10 +4,10 @@
     "actions": [
       {
         "type": "action",
-        "description": "Adds an emoji reaction to a message.",
+        "description": "Add an emoji reaction to a specific Slack message",
         "endpoint": {
           "method": "POST",
-          "path": "/reactions",
+          "path": "/actions/add-reaction",
           "group": "Reactions"
         },
         "input": "ActionInput_slack_addreaction",
@@ -26,10 +26,10 @@
       },
       {
         "type": "action",
-        "description": "Archives a conversation making it read-only.",
+        "description": "Archive a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/archive-channel",
+          "path": "/actions/archive-channel",
           "group": "Channels"
         },
         "input": "ActionInput_slack_archivechannel",
@@ -38,6 +38,7 @@
           "ActionOutput_slack_archivechannel"
         ],
         "scopes": [
+          "channels:manage",
           "channels:write",
           "groups:write",
           "im:write",
@@ -51,32 +52,56 @@
       },
       {
         "type": "action",
-        "description": "Creates a new public or private channel.",
+        "description": "Create a new public or private Slack channel by name; does not create DMs or other conversation types.",
         "endpoint": {
           "method": "POST",
-          "path": "/channels",
-          "group": "Channels"
+          "path": "/actions/create-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_createchannel",
-        "name": "create-channel",
+        "input": "ActionInput_slack_createconversation",
+        "name": "create-conversation",
         "output": [
-          "ActionOutput_slack_createchannel"
+          "ActionOutput_slack_createconversation"
         ],
         "scopes": [
-          "channels:manage"
+          "channels:manage",
+          "channels:write",
+          "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_createchannel",
-          "ActionOutput_slack_createchannel"
+          "ActionInput_slack_createconversation",
+          "ActionOutput_slack_createconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Removes a message from a conversation.",
+        "description": "Create a reminder for a user",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/delete",
+          "path": "/actions/create-reminder",
+          "group": "Reminders"
+        },
+        "input": "ActionInput_slack_createreminder",
+        "name": "create-reminder",
+        "output": [
+          "ActionOutput_slack_createreminder"
+        ],
+        "scopes": [
+          "reminders:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_createreminder",
+          "ActionOutput_slack_createreminder"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a message from a channel",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_deletemessage",
@@ -95,10 +120,76 @@
       },
       {
         "type": "action",
-        "description": "Retrieves detailed information about a conversation.",
+        "description": "Cancel a scheduled message",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-scheduled-message",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_deletescheduledmessage",
+        "name": "delete-scheduled-message",
+        "output": [
+          "ActionOutput_slack_deletescheduledmessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_deletescheduledmessage",
+          "ActionOutput_slack_deletescheduledmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Search for messages matching a query",
         "endpoint": {
           "method": "GET",
-          "path": "/channels/info",
+          "path": "/actions/find-message",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_findmessage",
+        "name": "find-message",
+        "output": [
+          "ActionOutput_slack_findmessage"
+        ],
+        "scopes": [
+          "search:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_findmessage",
+          "ActionOutput_slack_findmessage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Look up a user by email address",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/find-user-by-email",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_finduserbyemail",
+        "name": "find-user-by-email",
+        "output": [
+          "ActionOutput_slack_finduserbyemail"
+        ],
+        "scopes": [
+          "users:read.email"
+        ],
+        "usedModels": [
+          "ActionInput_slack_finduserbyemail",
+          "ActionOutput_slack_finduserbyemail"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve conversation details including topic, purpose, and membership state",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-channel-info",
           "group": "Channels"
         },
         "input": "ActionInput_slack_getchannelinfo",
@@ -107,7 +198,10 @@
           "ActionOutput_slack_getchannelinfo"
         ],
         "scopes": [
-          "channels:read"
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
         ],
         "usedModels": [
           "ActionInput_slack_getchannelinfo",
@@ -117,36 +211,11 @@
       },
       {
         "type": "action",
-        "description": "Lists members of a conversation with pagination.",
+        "description": "Fetch paginated message history for a conversation within optional time bounds",
         "endpoint": {
-          "method": "GET",
-          "path": "/channels/members",
-          "group": "Channels"
-        },
-        "input": "ActionInput_slack_getchannelmembers",
-        "name": "get-channel-members",
-        "output": [
-          "ActionOutput_slack_getchannelmembers"
-        ],
-        "scopes": [
-          "channels:read",
-          "groups:read",
-          "im:read",
-          "mpim:read"
-        ],
-        "usedModels": [
-          "ActionInput_slack_getchannelmembers",
-          "ActionOutput_slack_getchannelmembers"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Fetches message history from a channel or conversation.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/conversations/history",
-          "group": "Channels"
+          "method": "POST",
+          "path": "/actions/get-conversation-history",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_getconversationhistory",
         "name": "get-conversation-history",
@@ -154,7 +223,10 @@
           "ActionOutput_slack_getconversationhistory"
         ],
         "scopes": [
-          "channels:history"
+          "channels:history",
+          "groups:history",
+          "im:history",
+          "mpim:history"
         ],
         "usedModels": [
           "ActionInput_slack_getconversationhistory",
@@ -164,11 +236,11 @@
       },
       {
         "type": "action",
-        "description": "Gets Do Not Disturb settings for a user.",
+        "description": "Get a user's Do Not Disturb status and next scheduled DND window",
         "endpoint": {
           "method": "GET",
-          "path": "/get-dnd-info",
-          "group": "Actions"
+          "path": "/actions/get-dnd-info",
+          "group": "DND"
         },
         "input": "ActionInput_slack_getdndinfo",
         "name": "get-dnd-info",
@@ -186,33 +258,31 @@
       },
       {
         "type": "action",
-        "description": "Retrieves details about a specific file.",
+        "description": "Get a permanent URL for a message",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-file-info",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-message-permalink",
+          "group": "Messages"
         },
-        "input": "ActionInput_slack_getfileinfo",
-        "name": "get-file-info",
+        "input": "ActionInput_slack_getmessagepermalink",
+        "name": "get-message-permalink",
         "output": [
-          "ActionOutput_slack_getfileinfo"
+          "ActionOutput_slack_getmessagepermalink"
         ],
-        "scopes": [
-          "files:read"
-        ],
+        "scopes": [],
         "usedModels": [
-          "ActionInput_slack_getfileinfo",
-          "ActionOutput_slack_getfileinfo"
+          "ActionInput_slack_getmessagepermalink",
+          "ActionOutput_slack_getmessagepermalink"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Gets all reactions for a single message or file.",
+        "description": "Retrieve all reactions attached to a specific message",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-reactions",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-reactions",
+          "group": "Reactions"
         },
         "input": "ActionInput_slack_getreactions",
         "name": "get-reactions",
@@ -230,11 +300,11 @@
       },
       {
         "type": "action",
-        "description": "Retrieves information about the workspace.",
+        "description": "Retrieve workspace details such as name, domain, and icon",
         "endpoint": {
           "method": "GET",
-          "path": "/get-team-info",
-          "group": "Actions"
+          "path": "/actions/get-team-info",
+          "group": "Team"
         },
         "input": "ActionInput_slack_getteaminfo",
         "name": "get-team-info",
@@ -252,11 +322,11 @@
       },
       {
         "type": "action",
-        "description": "Retrieves a thread of messages posted as replies to a message.",
+        "description": "Fetch paginated thread replies and parent message for a conversation thread",
         "endpoint": {
           "method": "GET",
-          "path": "/conversations/replies",
-          "group": "Channels"
+          "path": "/actions/get-thread-replies",
+          "group": "Messages"
         },
         "input": "ActionInput_slack_getthreadreplies",
         "name": "get-thread-replies",
@@ -264,7 +334,10 @@
           "ActionOutput_slack_getthreadreplies"
         ],
         "scopes": [
-          "channels:history"
+          "channels:history",
+          "groups:history",
+          "im:history",
+          "mpim:history"
         ],
         "usedModels": [
           "ActionInput_slack_getthreadreplies",
@@ -274,11 +347,11 @@
       },
       {
         "type": "action",
-        "description": "Gets a URL for uploading files to Slack.",
+        "description": "Generate an external upload URL and file ID for Slack uploads",
         "endpoint": {
-          "method": "GET",
-          "path": "/get-upload-url",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/get-upload-url",
+          "group": "Files"
         },
         "input": "ActionInput_slack_getuploadurl",
         "name": "get-upload-url",
@@ -296,10 +369,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves information about a specific user.",
+        "description": "Retrieve a user's account details, including profile and avatar fields",
         "endpoint": {
           "method": "GET",
-          "path": "/users/info",
+          "path": "/actions/get-user-info",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserinfo",
@@ -318,10 +391,10 @@
       },
       {
         "type": "action",
-        "description": "Gets a user's current presence status and activity.",
+        "description": "Check if a user is online or away",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/presence",
+          "method": "POST",
+          "path": "/actions/get-user-presence",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserpresence",
@@ -340,10 +413,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves detailed user profile including custom fields.",
+        "description": "Retrieve a user's detailed profile, status, and custom fields",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/profile",
+          "method": "POST",
+          "path": "/actions/get-user-profile",
           "group": "Users"
         },
         "input": "ActionInput_slack_getuserprofile",
@@ -352,7 +425,8 @@
           "ActionOutput_slack_getuserprofile"
         ],
         "scopes": [
-          "users:read"
+          "users:read",
+          "users:read.email"
         ],
         "usedModels": [
           "ActionInput_slack_getuserprofile",
@@ -362,36 +436,34 @@
       },
       {
         "type": "action",
-        "description": "Invites 1-1000 users to a public or private channel.",
+        "description": "Invite users to a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/invite",
+          "path": "/actions/invite-users-to-conversation",
           "group": "Channels"
         },
-        "input": "ActionInput_slack_invitetochannel",
-        "name": "invite-to-channel",
+        "input": "ActionInput_slack_inviteuserstoconversation",
+        "name": "invite-users-to-conversation",
         "output": [
-          "ActionOutput_slack_invitetochannel"
+          "ActionOutput_slack_inviteuserstoconversation"
         ],
         "scopes": [
-          "channels:write",
-          "groups:write",
-          "im:write",
-          "mpim:write"
+          "channels:manage",
+          "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_invitetochannel",
-          "ActionOutput_slack_invitetochannel"
+          "ActionInput_slack_inviteuserstoconversation",
+          "ActionOutput_slack_inviteuserstoconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Joins a public or private channel.",
+        "description": "Join a public or private channel and return its conversation details",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/join",
-          "group": "Channels"
+          "path": "/actions/join-channel",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_joinchannel",
         "name": "join-channel",
@@ -399,7 +471,8 @@
           "ActionOutput_slack_joinchannel"
         ],
         "scopes": [
-          "channels:write"
+          "channels:join",
+          "groups:write"
         ],
         "usedModels": [
           "ActionInput_slack_joinchannel",
@@ -409,55 +482,86 @@
       },
       {
         "type": "action",
-        "description": "Leaves a public or private channel.",
+        "description": "Leave a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/leave",
-          "group": "Channels"
+          "path": "/actions/leave-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_leavechannel",
-        "name": "leave-channel",
+        "input": "ActionInput_slack_leaveconversation",
+        "name": "leave-conversation",
         "output": [
-          "ActionOutput_slack_leavechannel"
+          "ActionOutput_slack_leaveconversation"
         ],
         "scopes": [
-          "channels:write"
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_leavechannel",
-          "ActionOutput_slack_leavechannel"
+          "ActionInput_slack_leaveconversation",
+          "ActionOutput_slack_leaveconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Lists all channel-like conversations in a workspace.",
+        "description": "List members in a Slack channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/channels/list",
-          "group": "Channels"
+          "method": "POST",
+          "path": "/actions/list-conversation-members",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_listchannels",
-        "name": "list-channels",
+        "input": "ActionInput_slack_listconversationmembers",
+        "name": "list-conversation-members",
         "output": [
-          "ActionOutput_slack_listchannels"
+          "ActionOutput_slack_listconversationmembers"
         ],
         "scopes": [
-          "channels:read"
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
         ],
         "usedModels": [
-          "ActionInput_slack_listchannels",
-          "ActionOutput_slack_listchannels"
+          "ActionInput_slack_listconversationmembers",
+          "ActionOutput_slack_listconversationmembers"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Lists all custom emoji for the workspace.",
+        "description": "List Slack conversations with optional type filters and cursor pagination.",
         "endpoint": {
           "method": "GET",
-          "path": "/list-custom-emoji",
-          "group": "Actions"
+          "path": "/actions/list-conversations",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_slack_listconversations",
+        "name": "list-conversations",
+        "output": [
+          "ActionOutput_slack_listconversations"
+        ],
+        "scopes": [
+          "channels:read",
+          "groups:read",
+          "im:read",
+          "mpim:read"
+        ],
+        "usedModels": [
+          "ActionInput_slack_listconversations",
+          "ActionOutput_slack_listconversations"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List workspace custom emoji mappings, including alias-based emoji entries",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/list-custom-emoji",
+          "group": "Emoji"
         },
         "input": "ActionInput_slack_listcustomemoji",
         "name": "list-custom-emoji",
@@ -475,10 +579,10 @@
       },
       {
         "type": "action",
-        "description": "Lists files in a workspace with optional filtering.",
+        "description": "List files shared in the workspace",
         "endpoint": {
           "method": "GET",
-          "path": "/files/list",
+          "path": "/actions/list-files",
           "group": "Files"
         },
         "input": "ActionInput_slack_listfiles",
@@ -497,11 +601,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all items pinned to a channel.",
+        "description": "List all items pinned in a specific channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-pins",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-pins",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_listpins",
         "name": "list-pins",
@@ -519,10 +623,10 @@
       },
       {
         "type": "action",
-        "description": "Retrieves pending scheduled messages from workspace.",
+        "description": "List pending scheduled messages",
         "endpoint": {
           "method": "GET",
-          "path": "/messages/scheduled",
+          "path": "/actions/list-scheduled-messages",
           "group": "Messages"
         },
         "input": "ActionInput_slack_listscheduledmessages",
@@ -541,10 +645,10 @@
       },
       {
         "type": "action",
-        "description": "Lists users within a specific user group.",
+        "description": "List member user IDs for a specific Slack user group",
         "endpoint": {
           "method": "GET",
-          "path": "/user-group-members",
+          "path": "/actions/list-user-group-members",
           "group": "User Groups"
         },
         "input": "ActionInput_slack_listusergroupmembers",
@@ -563,11 +667,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all user groups in the workspace.",
+        "description": "List workspace user groups with optional disabled and membership counts",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-user-groups",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-user-groups",
+          "group": "User Groups"
         },
         "input": "ActionInput_slack_listusergroups",
         "name": "list-user-groups",
@@ -585,11 +689,11 @@
       },
       {
         "type": "action",
-        "description": "Lists all items with reactions made by the user.",
+        "description": "List items the user reacted to with cursor-based pagination",
         "endpoint": {
-          "method": "GET",
-          "path": "/list-user-reactions",
-          "group": "Actions"
+          "method": "POST",
+          "path": "/actions/list-user-reactions",
+          "group": "Reactions"
         },
         "input": "ActionInput_slack_listuserreactions",
         "name": "list-user-reactions",
@@ -607,10 +711,10 @@
       },
       {
         "type": "action",
-        "description": "Lists all users in a workspace including active and deactivated.",
+        "description": "List all users in the workspace",
         "endpoint": {
-          "method": "GET",
-          "path": "/users/list",
+          "method": "POST",
+          "path": "/actions/list-users",
           "group": "Users"
         },
         "input": "ActionInput_slack_listusers",
@@ -629,34 +733,11 @@
       },
       {
         "type": "action",
-        "description": "Finds a user by their registered email address.",
-        "endpoint": {
-          "method": "GET",
-          "path": "/users/lookup",
-          "group": "Users"
-        },
-        "input": "ActionInput_slack_lookupuserbyemail",
-        "name": "lookup-user-by-email",
-        "output": [
-          "ActionOutput_slack_lookupuserbyemail"
-        ],
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
-        "usedModels": [
-          "ActionInput_slack_lookupuserbyemail",
-          "ActionOutput_slack_lookupuserbyemail"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Moves the read cursor in a conversation.",
+        "description": "Move a conversation's read cursor to a specific message timestamp",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/mark",
-          "group": "Channels"
+          "path": "/actions/mark-as-read",
+          "group": "Conversations"
         },
         "input": "ActionInput_slack_markasread",
         "name": "mark-as-read",
@@ -664,10 +745,7 @@
           "ActionOutput_slack_markasread"
         ],
         "scopes": [
-          "channels:write",
-          "groups:write",
-          "im:write",
-          "mpim:write"
+          "channels:read"
         ],
         "usedModels": [
           "ActionInput_slack_markasread",
@@ -677,10 +755,10 @@
       },
       {
         "type": "action",
-        "description": "Opens a direct message or multi-person direct message.",
+        "description": "Open a direct or multi-person DM for specified users",
         "endpoint": {
           "method": "POST",
-          "path": "/conversations/dm/open",
+          "path": "/actions/open-dm",
           "group": "Conversations"
         },
         "input": "ActionInput_slack_opendm",
@@ -700,11 +778,11 @@
       },
       {
         "type": "action",
-        "description": "Pins a message to a channel.",
+        "description": "Pin a specific message in a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/pin-message",
-          "group": "Actions"
+          "path": "/actions/pin-message",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_pinmessage",
         "name": "pin-message",
@@ -722,11 +800,11 @@
       },
       {
         "type": "action",
-        "description": "Posts a message to a public channel, private channel, or direct message.",
+        "description": "Post a message to a channel, DM, or thread",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/post",
-          "group": "Messages"
+          "path": "/actions/post-message",
+          "group": "Messaging"
         },
         "input": "ActionInput_slack_postmessage",
         "name": "post-message",
@@ -744,32 +822,10 @@
       },
       {
         "type": "action",
-        "description": "Removes a user from a channel.",
+        "description": "Remove an emoji reaction from a specific message",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/members/remove",
-          "group": "Channels"
-        },
-        "input": "ActionInput_slack_removefromchannel",
-        "name": "remove-from-channel",
-        "output": [
-          "ActionOutput_slack_removefromchannel"
-        ],
-        "scopes": [
-          "channels:write"
-        ],
-        "usedModels": [
-          "ActionInput_slack_removefromchannel",
-          "ActionOutput_slack_removefromchannel"
-        ],
-        "version": "1.0.0"
-      },
-      {
-        "type": "action",
-        "description": "Removes an emoji reaction from a message.",
-        "endpoint": {
-          "method": "POST",
-          "path": "/reactions/remove",
+          "path": "/actions/remove-reaction",
           "group": "Reactions"
         },
         "input": "ActionInput_slack_removereaction",
@@ -788,32 +844,61 @@
       },
       {
         "type": "action",
-        "description": "Renames a conversation with proper permissions.",
+        "description": "Remove a user from a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/rename",
-          "group": "Channels"
+          "path": "/actions/remove-user-from-conversation",
+          "group": "Conversations"
         },
-        "input": "ActionInput_slack_renamechannel",
-        "name": "rename-channel",
+        "input": "ActionInput_slack_removeuserfromconversation",
+        "name": "remove-user-from-conversation",
         "output": [
-          "ActionOutput_slack_renamechannel"
+          "ActionOutput_slack_removeuserfromconversation"
         ],
         "scopes": [
-          "channels:manage"
+          "channels:manage",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_renamechannel",
-          "ActionOutput_slack_renamechannel"
+          "ActionInput_slack_removeuserfromconversation",
+          "ActionOutput_slack_removeuserfromconversation"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Schedules a message for future delivery up to 120 days ahead.",
+        "description": "Rename a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/schedule",
+          "path": "/actions/rename-conversation",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_slack_renameconversation",
+        "name": "rename-conversation",
+        "output": [
+          "ActionOutput_slack_renameconversation"
+        ],
+        "scopes": [
+          "channels:manage",
+          "channels:write",
+          "groups:write",
+          "mpim:write",
+          "im:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_renameconversation",
+          "ActionOutput_slack_renameconversation"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Schedule a Slack message to a channel or thread, subject to Slack's 120-day scheduling limit.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/schedule-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_schedulemessage",
@@ -832,11 +917,11 @@
       },
       {
         "type": "action",
-        "description": "Searches for files matching a query in Slack workspace (requires user token).",
+        "description": "Search workspace files with pagination",
         "endpoint": {
-          "method": "GET",
-          "path": "/search-files",
-          "group": "Search"
+          "method": "POST",
+          "path": "/actions/search-files",
+          "group": "Files"
         },
         "input": "ActionInput_slack_searchfiles",
         "name": "search-files",
@@ -854,32 +939,32 @@
       },
       {
         "type": "action",
-        "description": "Searches for messages matching a query in Slack workspace (requires user token).",
+        "description": "Send a message visible only to one user in a channel",
         "endpoint": {
-          "method": "GET",
-          "path": "/search-messages",
-          "group": "Search"
+          "method": "POST",
+          "path": "/actions/send-ephemeral-message",
+          "group": "Messaging"
         },
-        "input": "ActionInput_slack_searchmessages",
-        "name": "search-messages",
+        "input": "ActionInput_slack_sendephemeralmessage",
+        "name": "send-ephemeral-message",
         "output": [
-          "ActionOutput_slack_searchmessages"
+          "ActionOutput_slack_sendephemeralmessage"
         ],
         "scopes": [
-          "search:read"
+          "chat:write"
         ],
         "usedModels": [
-          "ActionInput_slack_searchmessages",
-          "ActionOutput_slack_searchmessages"
+          "ActionInput_slack_sendephemeralmessage",
+          "ActionOutput_slack_sendephemeralmessage"
         ],
         "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "An action that sends a message to a slack channel.",
+        "description": "Send a message to a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages",
+          "path": "/actions/send-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_sendmessage",
@@ -894,14 +979,14 @@
           "ActionInput_slack_sendmessage",
           "ActionOutput_slack_sendmessage"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
-        "description": "Updates a channel's description or purpose.",
+        "description": "Update a channel's purpose text for a conversation",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/purpose",
+          "path": "/actions/set-channel-purpose",
           "group": "Channels"
         },
         "input": "ActionInput_slack_setchannelpurpose",
@@ -910,7 +995,11 @@
           "ActionOutput_slack_setchannelpurpose"
         ],
         "scopes": [
-          "channels:write"
+          "chat:write",
+          "channels:write",
+          "groups:write",
+          "im:write",
+          "mpim:write"
         ],
         "usedModels": [
           "ActionInput_slack_setchannelpurpose",
@@ -920,10 +1009,10 @@
       },
       {
         "type": "action",
-        "description": "Updates a channel's topic.",
+        "description": "Set the topic of a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/topic",
+          "path": "/actions/set-channel-topic",
           "group": "Channels"
         },
         "input": "ActionInput_slack_setchanneltopic",
@@ -932,7 +1021,8 @@
           "ActionOutput_slack_setchanneltopic"
         ],
         "scopes": [
-          "channels:write"
+          "channels:write.topic",
+          "groups:write.topic"
         ],
         "usedModels": [
           "ActionInput_slack_setchanneltopic",
@@ -942,10 +1032,32 @@
       },
       {
         "type": "action",
-        "description": "Sets the calling user's manual presence status.",
+        "description": "Set a user's status",
         "endpoint": {
           "method": "POST",
-          "path": "/users/presence",
+          "path": "/actions/set-status",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_setstatus",
+        "name": "set-status",
+        "output": [
+          "ActionOutput_slack_setstatus"
+        ],
+        "scopes": [
+          "users.profile:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_setstatus",
+          "ActionOutput_slack_setstatus"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Set a user's presence to online or away",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/set-user-presence",
           "group": "Users"
         },
         "input": "ActionInput_slack_setuserpresence",
@@ -964,10 +1076,10 @@
       },
       {
         "type": "action",
-        "description": "Restores an archived conversation.",
+        "description": "Restore an archived conversation so members can use it again",
         "endpoint": {
           "method": "POST",
-          "path": "/channels/unarchive",
+          "path": "/actions/unarchive-channel",
           "group": "Channels"
         },
         "input": "ActionInput_slack_unarchivechannel",
@@ -986,11 +1098,11 @@
       },
       {
         "type": "action",
-        "description": "Removes a pinned item from a channel.",
+        "description": "Remove a pinned message from a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/unpin-message",
-          "group": "Actions"
+          "path": "/actions/unpin-message",
+          "group": "Pins"
         },
         "input": "ActionInput_slack_unpinmessage",
         "name": "unpin-message",
@@ -1008,10 +1120,10 @@
       },
       {
         "type": "action",
-        "description": "Modifies an existing message in a channel.",
+        "description": "Edit an existing message in a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/messages/update",
+          "path": "/actions/update-message",
           "group": "Messages"
         },
         "input": "ActionInput_slack_updatemessage",
@@ -1032,102 +1144,106 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
+        "description": "Sync conversations allowed by granted scopes - public/private channels, DMs, and group DMs",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/channels"
+            "method": "POST",
+            "path": "/syncs/sync-channels",
+            "group": "Channels"
           }
         ],
-        "input": "SyncMetadata_slack_channels",
-        "name": "channels",
+        "input": "SyncMetadata_slack_syncchannels",
+        "name": "sync-channels",
         "output": [
-          "SlackChannel"
+          "Channel"
         ],
-        "runs": "every hour",
-        "scopes": [
-          "channels:read",
-          "channels:join"
-        ],
+        "runs": "every 5 minutes",
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackChannel",
-          "SyncMetadata_slack_channels"
+          "Channel",
+          "SyncMetadata_slack_syncchannels"
         ],
-        "version": "2.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
+        "description": "Sync Slack conversations including channel members",
         "auto_start": true,
         "endpoints": [
           {
             "method": "GET",
-            "path": "/messages",
+            "path": "/syncs/sync-conversations"
+          }
+        ],
+        "input": null,
+        "name": "sync-conversations",
+        "output": [
+          "Conversation"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "Conversation"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync messages, thread replies, and reactions for conversations the bot can access; fully backfill new channels, then resync the last 10 days using channelsLastSyncDate metadata.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "POST",
+            "path": "/syncs/sync-messages-received",
             "group": "Messages"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reply"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reaction"
           }
         ],
-        "input": "SyncMetadata_slack_messages",
-        "name": "messages",
+        "input": null,
+        "name": "sync-messages-received",
         "output": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction"
+          "Message"
         ],
         "runs": "every hour",
-        "scopes": [
-          "channels:read",
-          "channels:history"
-        ],
-        "sync_type": "incremental",
+        "scopes": [],
+        "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction",
-          "SyncMetadata_slack_messages"
+          "Message"
         ],
-        "version": "2.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
         "type": "sync",
-        "description": "Syncs information about all Users on the Slack workspace",
+        "description": "Sync all workspace users including deactivated accounts with email and profile fields",
         "auto_start": true,
         "endpoints": [
           {
-            "method": "GET",
-            "path": "/users"
+            "method": "POST",
+            "path": "/syncs/sync-users",
+            "group": "Users"
           }
         ],
-        "input": "SyncMetadata_slack_users",
-        "name": "users",
+        "input": null,
+        "name": "sync-users",
         "output": [
-          "SlackUser"
+          "User"
         ],
         "runs": "every hour",
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
+        "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
-          "SlackUser",
-          "SyncMetadata_slack_users"
+          "User"
         ],
-        "version": "2.0.0",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

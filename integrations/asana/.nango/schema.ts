@@ -20,19 +20,17 @@ export interface SyncMetadata_asana_tasks {
 
 export interface Task {
   id: string;
-  task_type: string | null;
+  type: string | null;
   title: string | null;
   priority: string | null;
-  assigned_to: string | null;
+  assignee_id: string | null;
   due_date: string | null;
   notes: string | null;
-  returned_associations?: {  companies?: ({  id: string;
-  name: string | null;})[] | undefined;
-  contacts?: ({  id: string;
-  first_name: string | null;
-  last_name: string | null;})[] | undefined;
-  deals?: ({  id: string;
-  name: string | null;})[] | undefined;};
+  contact_ids: string[];
+  company_ids: string[];
+  deal_ids: string[];
+  created_at: string | null;
+  updated_at: string | null;
 };
 
 export interface SyncMetadata_asana_users {

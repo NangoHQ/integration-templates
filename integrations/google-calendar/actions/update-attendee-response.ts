@@ -1,73 +1,92 @@
-/**
- * Instructions: Updates an attendee's response status for an event
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/patch
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const UpdateAttendeeResponseInput = z.object({
-    calendar_id: z.string(),
-    event_id: z.string(),
-    email: z.string(),
-    responseStatus: z.string()
+const InputSchema = z.object({
+    calendar_id: z.string().optional().describe('Calendar ID. Defaults to "primary". Example: "primary"'),
+    event_id: z.string().describe('Event ID. Example: "abc123"'),
+    attendee_email: z.string().describe('Email of the attendee to update. Example: "user@example.com"'),
+    response_status: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).describe('Response status for the attendee')
 });
 
-const UpdateAttendeeResponseOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const OutputSchema = z.object({
     id: z.string(),
-    attendees: z.array(z.any())
+    htmlLink: z.string(),
+    summary: z.union([z.string(), z.null()]),
+    attendees: z.array(
+        z.object({
+            email: z.string(),
+            responseStatus: z.string()
+        })
+    )
 });
 
 const action = createAction({
-    description: "Updates an attendee's response status for an event",
+    description: 'Fetch an event and update one attendee response status',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/patch
+
     endpoint: {
-        method: 'PATCH',
-        path: '/events/attendee',
-        group: 'Attendees'
+        method: 'POST',
+        path: '/actions/update-attendee-response',
+        group: 'Events'
     },
-    input: UpdateAttendeeResponseInput,
-    output: UpdateAttendeeResponseOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof UpdateAttendeeResponseOutput>> => {
-        // First get the existing event to get current attendees
-        const getConfig: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/get
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendar_id || 'primary';
+
+        // https://developers.google.com/calendar/api/v3/reference/events/get
+        const getResponse = await nango.get({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(input.event_id)}`,
             retries: 3
-        };
-
-        const existingEvent = await nango.get(getConfig);
-        const currentAttendees = existingEvent.data.attendees || [];
-
-        // Update attendee response status
-        const updatedAttendees = currentAttendees.map((attendee: { email: string; responseStatus?: string }) => {
-            if (attendee.email === input.email) {
-                return { ...attendee, responseStatus: input.responseStatus };
-            }
-            return attendee;
         });
 
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/patch
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
-            data: {
-                attendees: updatedAttendees
-            },
-            retries: 3
-        };
+        const event = getResponse.data;
 
-        const response = await nango.patch(config);
+        if (!event) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Event not found',
+                event_id: input.event_id
+            });
+        }
+
+        const attendees = event.attendees || [];
+        const attendeeIndex = attendees.findIndex((a: { email: string }) => a.email.toLowerCase() === input.attendee_email.toLowerCase());
+
+        if (attendeeIndex === -1) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Attendee not found in event',
+                attendee_email: input.attendee_email,
+                event_id: input.event_id
+            });
+        }
+
+        attendees[attendeeIndex].responseStatus = input.response_status;
+
+        // https://developers.google.com/calendar/api/v3/reference/events/update
+        const updateResponse = await nango.put({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(input.event_id)}`,
+            data: {
+                ...event,
+                attendees: attendees
+            },
+            retries: 1
+        });
+
+        const updatedEvent = updateResponse.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            attendees: response.data.attendees || []
+            id: updatedEvent.id,
+            htmlLink: updatedEvent.htmlLink,
+            summary: updatedEvent.summary ?? null,
+            attendees: (updatedEvent.attendees || []).map((a: { email: string; responseStatus?: string }) => ({
+                email: a.email,
+                responseStatus: a.responseStatus || 'needsAction'
+            }))
         };
     }
 });

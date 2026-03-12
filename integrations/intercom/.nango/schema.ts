@@ -50,16 +50,28 @@ export interface Contact {
 
 export interface Conversation {
   id: string;
-  created_at: string;
-  updated_at: string;
-  waiting_since: string | null;
-  snoozed_until: string | null;
-  title: string | null;
-  contacts: ({  contact_id: string;})[];
-  state: string;
-  open: boolean;
-  read: boolean;
-  priority: string;
+  name: string | null;
+  created: number;
+  creator: string | null;
+  is_archived: boolean;
+  is_general: boolean;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  updated: number;
+  num_members: number | null;
+  topic: {  value: string;
+  creator: string;
+  last_set: number;} | null;
+  purpose: {  value: string;
+  creator: string;
+  last_set: number;} | null;
+  members: string[];
 };
 
 export interface SyncMetadata_intercom_articles {
