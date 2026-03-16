@@ -4,8 +4,6 @@
     "type": "module",
     "description": "",
     "scripts": {
-        "cli": "npx tsx internal/scripts/zero/cli.ts",
-        "build:flows": "npx tsx internal/scripts/zero/buildFlows.ts",
         "compile:integrations": "npx tsx internal/scripts/zero/compileIntegrationsJson.ts",
         "fix:zod-unions": "npx tsx internal/scripts/fix-zod-unions.ts",
         "lint": "eslint . --ext .ts",
@@ -38,7 +36,7 @@
         "js-yaml": "4.1.0",
         "lint-staged": "15.2.9",
         "lodash-es": "^4.17.21",
-        "nango": "^0.69.20",
+        "nango": "0.69.44",
         "onchange": "7.1.0",
         "parse-link-header": "^2.0.0",
         "soap": "1.1.2",
@@ -46,7 +44,7 @@
         "tsx": "^4.19.0",
         "typescript": "5.7.2",
         "vitest": "^2.0.5",
-        "zod": "4.0.5"
+        "zod": "4.3.6"
     },
     "lint-staged": {
         "*.{html,css,json,yaml,ts}": [

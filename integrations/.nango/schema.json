@@ -1,10 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_adp_unifiedemployees": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "StandardEmployee": {
       "type": "object",
       "properties": {
@@ -252,9 +248,10 @@
         "createdAt",
         "updatedAt"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "! ** DEPRECATION NOTICE ** ! This file will stop being generated in future versions of nango. ! For access to function types, please export types directly from your code. ! You can leverage `zod.infer` to generate types from your zod schemas. ! See the official zod documentation: https://zod.dev/basics?id=inferring-types"
     },
-    "SyncMetadata_aircall_users": {
+    "SyncMetadata_adp_unifiedemployees": {
       "type": "object",
       "additionalProperties": false
     },
@@ -280,6 +277,10 @@
         "lastName",
         "email"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_aircall_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_aircall_createuser": {
@@ -350,10 +351,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_airtable_bases": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Base": {
       "type": "object",
       "properties": {
@@ -381,7 +378,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_airtable_tables": {
+    "SyncMetadata_airtable_bases": {
       "type": "object",
       "additionalProperties": false
     },
@@ -467,6 +464,10 @@
         "fields",
         "primaryFieldId"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_airtable_tables": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_airtable_createwebhook": {
@@ -1663,10 +1664,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_asana_projects": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "AsanaProject": {
       "type": "object",
       "properties": {
@@ -1691,7 +1688,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_asana_tasks": {
+    "SyncMetadata_asana_projects": {
       "type": "object",
       "additionalProperties": false
     },
@@ -1828,11 +1825,11 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_asana_users": {
+    "SyncMetadata_asana_tasks": {
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_asana_workspaces": {
+    "SyncMetadata_asana_users": {
       "type": "object",
       "additionalProperties": false
     },
@@ -1862,6 +1859,10 @@
         "id",
         "is_organization"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_asana_workspaces": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_asana_createtask": {
@@ -2256,15 +2257,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_ashby_candidates": {
-      "type": "object",
-      "properties": {
-        "candidatelastsyncToken": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
     "AshbyCandidate": {
       "type": "object",
       "properties": {
@@ -2494,10 +2486,10 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_ashby_jobs": {
+    "SyncMetadata_ashby_candidates": {
       "type": "object",
       "properties": {
-        "jobslastsyncToken": {
+        "candidatelastsyncToken": {
           "type": "string"
         }
       },
@@ -2640,6 +2632,15 @@
         "location",
         "openings"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_ashby_jobs": {
+      "type": "object",
+      "properties": {
+        "jobslastsyncToken": {
+          "type": "string"
+        }
+      },
       "additionalProperties": false
     },
     "ActionInput_ashby_applicationchangesource": {
@@ -6688,10 +6689,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_companies": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "AttioCompany": {
       "type": "object",
       "properties": {
@@ -6831,7 +6828,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_deals": {
+    "SyncMetadata_attio_companies": {
       "type": "object",
       "additionalProperties": false
     },
@@ -6886,7 +6883,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_people": {
+    "SyncMetadata_attio_deals": {
       "type": "object",
       "additionalProperties": false
     },
@@ -7158,6 +7155,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_attio_people": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "ActionInput_attio_createcompany": {
       "type": "object",
       "properties": {
@@ -7241,10 +7242,12 @@
       "type": "object",
       "properties": {
         "list_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The list slug or UUID to add the entry to. Example: \"my-sales-list\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to add to the list. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -7303,16 +7306,20 @@
       "type": "object",
       "properties": {
         "parent_object": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
         },
         "parent_record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to attach the note to. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "The note title. Example: \"Meeting Notes\""
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "description": "The note content in plain text or markdown. Example: \"Discussed Q4 planning...\""
         }
       },
       "required": [
@@ -7477,7 +7484,8 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug to create record in. Example: \"people\" or \"companies\""
         },
         "values": {
           "type": "object",
@@ -7488,7 +7496,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Object containing attribute values to set. Example: {\"name\": [{\"first_name\": \"John\", \"last_name\": \"Doe\"}]}"
         }
       },
       "required": [
@@ -7555,16 +7564,19 @@
       "type": "object",
       "properties": {
         "content": {
-          "type": "string"
+          "type": "string",
+          "description": "Task description. Example: \"Follow up with customer\""
         },
         "deadline": {
-          "type": "string"
+          "type": "string",
+          "description": "Due date in ISO format. Example: \"2025-12-31T23:59:59.000Z\""
         },
         "assignee_ids": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of workspace member IDs to assign. Example: [\"user-id-123\"]"
         },
         "linked_records": {
           "type": "array",
@@ -7575,7 +7587,8 @@
                 "type": "string"
               },
               "target_record_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Record ID"
               }
             },
             "required": [
@@ -7583,7 +7596,8 @@
               "target_record_id"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Records to link to this task"
         }
       },
       "required": [
@@ -7857,10 +7871,12 @@
       "type": "object",
       "properties": {
         "list_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The list slug or UUID. Example: \"my-sales-list\""
         },
         "entry_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The entry ID to remove. Example: \"abc123-def456\""
         }
       },
       "required": [
@@ -7873,7 +7889,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7885,7 +7902,8 @@
       "type": "object",
       "properties": {
         "note_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The note ID to delete. Example: \"abc123-def456\""
         }
       },
       "required": [
@@ -7897,7 +7915,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7909,10 +7928,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to delete. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -7925,7 +7946,8 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
         }
       },
       "required": [
@@ -7961,7 +7983,8 @@
       "type": "object",
       "properties": {
         "object_id": {
-          "type": "string"
+          "type": "string",
+          "description": "UUID or slug to identify the object. Example: \"people\" or \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
         }
       },
       "required": [
@@ -7982,7 +8005,8 @@
                   "type": "string"
                 },
                 "object_id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
                 }
               },
               "required": [
@@ -7992,16 +8016,20 @@
               "additionalProperties": false
             },
             "api_slug": {
-              "type": "string"
+              "type": "string",
+              "description": "Unique, human-readable slug for the object. Example: \"people\""
             },
             "singular_noun": {
-              "type": "string"
+              "type": "string",
+              "description": "Singular form of the object name. Example: \"Person\""
             },
             "plural_noun": {
-              "type": "string"
+              "type": "string",
+              "description": "Plural form of the object name. Example: \"People\""
             },
             "created_at": {
-              "type": "string"
+              "type": "string",
+              "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
             }
           },
           "required": [
@@ -8023,10 +8051,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to retrieve. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         }
       },
       "required": [
@@ -8248,19 +8278,23 @@
                 "additionalProperties": false
               },
               "api_slug": {
-                "type": "string"
+                "type": "string",
+                "description": "Unique slug for the list. Example: \"my-sales-list\""
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "Display name of the list. Example: \"My Sales List\""
               },
               "parent_object": {
                 "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "description": "Object types this list is for. Example: [\"people\"]"
               },
               "created_at": {
-                "type": "string"
+                "type": "string",
+                "description": "When the list was created"
               }
             },
             "required": [
@@ -8271,7 +8305,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of list objects"
         }
       },
       "required": [
@@ -8283,16 +8318,20 @@
       "type": "object",
       "properties": {
         "parent_object": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
         },
         "parent_record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to list notes for. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of notes to return"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of notes to skip"
         }
       },
       "required": [
@@ -8353,7 +8392,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of notes"
         }
       },
       "required": [
@@ -8380,7 +8420,8 @@
                     "type": "string"
                   },
                   "object_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
                   }
                 },
                 "required": [
@@ -8390,16 +8431,20 @@
                 "additionalProperties": false
               },
               "api_slug": {
-                "type": "string"
+                "type": "string",
+                "description": "Unique, human-readable slug for the object. Example: \"people\""
               },
               "singular_noun": {
-                "type": "string"
+                "type": "string",
+                "description": "Singular form of the object name. Example: \"Person\""
               },
               "plural_noun": {
-                "type": "string"
+                "type": "string",
+                "description": "Plural form of the object name. Example: \"People\""
               },
               "created_at": {
-                "type": "string"
+                "type": "string",
+                "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
               }
             },
             "required": [
@@ -8410,7 +8455,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of object definitions"
         }
       },
       "required": [
@@ -8422,13 +8468,16 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug to query records from. Example: \"people\" or \"companies\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of records to return. Default: 25"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of records to skip. Default: 0"
         }
       },
       "required": [
@@ -8476,7 +8525,8 @@
                       "not": {}
                     }
                   ]
-                }
+                },
+                "description": "Object containing attribute values keyed by attribute slug"
               }
             },
             "required": [
@@ -8485,7 +8535,8 @@
               "values"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of record objects"
         }
       },
       "required": [
@@ -8497,10 +8548,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of tasks to return"
         },
         "offset": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of tasks to skip"
         }
       },
       "additionalProperties": false
@@ -8553,7 +8606,8 @@
               "created_at"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of tasks"
         }
       },
       "required": [
@@ -8714,10 +8768,12 @@
       "type": "object",
       "properties": {
         "object_slug": {
-          "type": "string"
+          "type": "string",
+          "description": "The object type slug. Example: \"people\" or \"companies\""
         },
         "record_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The record ID to update. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
         },
         "values": {
           "type": "object",
@@ -8728,7 +8784,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Object containing attribute values to update. Example: {\"job_title\": [{\"value\": \"CTO\"}]}"
         }
       },
       "required": [
@@ -8996,21 +9053,6 @@
         "id",
         "status",
         "created_at"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_avalara_transactions": {
-      "type": "object",
-      "properties": {
-        "company": {
-          "type": "string"
-        },
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "company"
       ],
       "additionalProperties": false
     },
@@ -9661,6 +9703,21 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_avalara_transactions": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "backfillPeriodMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "company"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_avalara_committransaction": {
       "type": "object",
       "properties": {
@@ -10167,10 +10224,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_bamboohr_basic_employees": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "BamboohrEmployee": {
       "type": "object",
       "properties": {
@@ -10293,6 +10346,10 @@
         "workPhone",
         "homePhone"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_bamboohr_basic_employees": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_bamboohr_basic_unifiedemployees": {
@@ -10571,34 +10628,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_basecamp_todos": {
-      "type": "object",
-      "properties": {
-        "projects": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "projectId": {
-                "type": "number"
-              },
-              "todoSetId": {
-                "type": "number"
-              }
-            },
-            "required": [
-              "projectId",
-              "todoSetId"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "projects"
-      ],
-      "additionalProperties": false
-    },
     "BasecampTodo": {
       "type": "object",
       "properties": {
@@ -10699,6 +10728,34 @@
         "created_at",
         "updated_at",
         "bucket_id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_basecamp_todos": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "projectId": {
+                "type": "number"
+              },
+              "todoSetId": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "projectId",
+              "todoSetId"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "projects"
       ],
       "additionalProperties": false
     },
@@ -11351,28 +11408,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_box_files": {
-      "type": "object",
-      "properties": {
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "folders": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "files",
-        "folders"
-      ],
-      "additionalProperties": false
-    },
     "BoxDocument": {
       "type": "object",
       "properties": {
@@ -11397,8 +11432,26 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_box_folders": {
+    "SyncMetadata_box_files": {
       "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "files",
+        "folders"
+      ],
       "additionalProperties": false
     },
     "Folder": {
@@ -11427,6 +11480,10 @@
         "mimeType",
         "updatedAt"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_box_folders": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_box_users": {
@@ -11661,30 +11718,6 @@
       "required": [
         "files",
         "folders"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_brightcrowd_bookanalytics": {
-      "type": "object",
-      "properties": {
-        "bookIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "timeframe": {
-          "anyOf": [
-            {},
-            {
-              "type": "string",
-              "const": "all"
-            }
-          ]
-        }
-      },
-      "required": [
-        "bookIds"
       ],
       "additionalProperties": false
     },
@@ -12018,11 +12051,493 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_brightcrowd_bookanalytics": {
+      "type": "object",
+      "properties": {
+        "bookIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeframe": {
+          "anyOf": [
+            {},
+            {
+              "type": "string",
+              "const": "all"
+            }
+          ]
+        }
+      },
+      "required": [
+        "bookIds"
+      ],
+      "additionalProperties": false
+    },
+    "Book": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pictureId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "config": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coverPictureId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bannerPictureId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "affiliation": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "OtherAffiliation",
+                    "UniversityAffiliation",
+                    "CompanyAffiliation"
+                  ]
+                },
+                "organization": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "major": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "degree": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "school": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "graduationYear": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "specialty": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "category": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "title": {
+                  "type": "string"
+                },
+                "startYear": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "endYear": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "office": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "group": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "warning": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "route": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "questionHeader": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "questionSubheader": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "adminOnly": {
+                "type": "boolean"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "headline": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "placeholder": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "maxcount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "maxlength": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "allowMentions": {
+                      "type": "boolean"
+                    },
+                    "customizable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "type",
+                    "active",
+                    "required",
+                    "allowMentions",
+                    "customizable"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "name",
+              "route",
+              "questionHeader",
+              "active",
+              "required",
+              "adminOnly",
+              "fields"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "publishedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lockedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "frontMatter": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "sections": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "uri": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "snippet": {
+                        "type": "string"
+                      },
+                      "disabled": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "uri",
+                      "title",
+                      "snippet"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "sections"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "preface": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "docId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "video": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "pictures": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "text"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "alias",
+        "name",
+        "pictureId",
+        "config",
+        "coverPictureId",
+        "bannerPictureId",
+        "affiliation",
+        "questions",
+        "flags",
+        "created",
+        "modified",
+        "frontMatter"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_brightcrowd_books": {
       "type": "object",
       "additionalProperties": false
     },
-    "Book": {
+    "BookById": {
       "type": "object",
       "properties": {
         "id": {
@@ -12504,488 +13019,6 @@
       ],
       "additionalProperties": false
     },
-    "BookById": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "alias": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "pictureId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "config": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "coverPictureId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "bannerPictureId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "affiliation": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "OtherAffiliation",
-                    "UniversityAffiliation",
-                    "CompanyAffiliation"
-                  ]
-                },
-                "organization": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "major": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "degree": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "school": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "graduationYear": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
-                },
-                "specialty": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "category": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "title": {
-                  "type": "string"
-                },
-                "startYear": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
-                },
-                "endYear": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
-                },
-                "office": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                },
-                "group": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "type"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "questions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "type": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "name": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "description": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "warning": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "route": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "questionHeader": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "questionSubheader": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "headline": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "active": {
-                "type": "boolean"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "adminOnly": {
-                "type": "boolean"
-              },
-              "fields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "label": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "headline": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "placeholder": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "active": {
-                      "type": "boolean"
-                    },
-                    "required": {
-                      "type": "boolean"
-                    },
-                    "maxcount": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "maxlength": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "allowMentions": {
-                      "type": "boolean"
-                    },
-                    "customizable": {
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "label",
-                    "type",
-                    "active",
-                    "required",
-                    "allowMentions",
-                    "customizable"
-                  ],
-                  "additionalProperties": false
-                }
-              }
-            },
-            "required": [
-              "id",
-              "type",
-              "name",
-              "route",
-              "questionHeader",
-              "active",
-              "required",
-              "adminOnly",
-              "fields"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "flags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "publishedAt": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "closedAt": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "lockedAt": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "created": {
-          "type": "string"
-        },
-        "modified": {
-          "type": "string"
-        },
-        "frontMatter": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "sections": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "uri": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "snippet": {
-                        "type": "string"
-                      },
-                      "disabled": {
-                        "type": "boolean"
-                      }
-                    },
-                    "required": [
-                      "uri",
-                      "title",
-                      "snippet"
-                    ],
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "required": [
-                "sections"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "preface": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "text": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "docId": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "video": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "pictures": {
-                  "anyOf": [
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "text"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "alias",
-        "name",
-        "pictureId",
-        "config",
-        "coverPictureId",
-        "bannerPictureId",
-        "affiliation",
-        "questions",
-        "flags",
-        "created",
-        "modified",
-        "frontMatter"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_brightcrowd_pages": {
-      "type": "object",
-      "properties": {
-        "bookIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "timeframe": {
-          "anyOf": [
-            {},
-            {
-              "type": "string",
-              "const": "all"
-            }
-          ]
-        }
-      },
-      "required": [
-        "bookIds"
-      ],
-      "additionalProperties": false
-    },
     "Page": {
       "type": "object",
       "properties": {
@@ -13336,8 +13369,28 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_cal_com_v2_eventtypes": {
+    "SyncMetadata_brightcrowd_pages": {
       "type": "object",
+      "properties": {
+        "bookIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeframe": {
+          "anyOf": [
+            {},
+            {
+              "type": "string",
+              "const": "all"
+            }
+          ]
+        }
+      },
+      "required": [
+        "bookIds"
+      ],
       "additionalProperties": false
     },
     "EventType": {
@@ -13573,7 +13626,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_cal_com_v2_events": {
+    "SyncMetadata_cal_com_v2_eventtypes": {
       "type": "object",
       "additionalProperties": false
     },
@@ -13736,7 +13789,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_calendly_eventinvitees": {
+    "SyncMetadata_cal_com_v2_events": {
       "type": "object",
       "additionalProperties": false
     },
@@ -14026,6 +14079,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_calendly_eventinvitees": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_calendly_eventtypes": {
       "type": "object",
       "additionalProperties": false
@@ -14117,10 +14174,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_checkr_partner_backgroundchecks": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "BackgroundCheck": {
       "type": "object",
       "properties": {
@@ -14154,6 +14207,10 @@
         "candidate_id",
         "created_at"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_checkr_partner_backgroundchecks": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_checkr_partner_backgroundcheckparameters": {
@@ -14585,10 +14642,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_checkr_partner_staging_account": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "CheckrPartnerStagingAccount": {
       "type": "object",
       "properties": {
@@ -14701,7 +14754,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_clari_copilot_calls": {
+    "SyncMetadata_checkr_partner_staging_account": {
       "type": "object",
       "additionalProperties": false
     },
@@ -14945,7 +14998,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_clicksend_smshistory": {
+    "SyncMetadata_clari_copilot_calls": {
       "type": "object",
       "additionalProperties": false
     },
@@ -14995,6 +15048,10 @@
         "createdAt",
         "updatedAt"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_clicksend_smshistory": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_clicksend_fetchaccount": {
@@ -15108,10 +15165,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_confluence_pages": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "ConfluencePage": {
       "type": "object",
       "properties": {
@@ -15217,7 +15270,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_confluence_spaces": {
+    "SyncMetadata_confluence_pages": {
       "type": "object",
       "additionalProperties": false
     },
@@ -15263,6 +15316,10 @@
         "homepageId",
         "description"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_confluence_spaces": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_databricks_workspace_listwarehouses": {
@@ -15528,10 +15585,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_discourse_categories": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Category": {
       "type": "object",
       "properties": {
@@ -15554,6 +15607,10 @@
         "name",
         "description"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_discourse_categories": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_discourse_createcategory": {
@@ -15803,28 +15860,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_dropbox_files": {
-      "type": "object",
-      "properties": {
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "folders": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "files",
-        "folders"
-      ],
-      "additionalProperties": false
-    },
     "Document": {
       "type": "object",
       "properties": {
@@ -15850,6 +15885,28 @@
         "title",
         "mimeType",
         "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_dropbox_files": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "files",
+        "folders"
       ],
       "additionalProperties": false
     },
@@ -16004,10 +16061,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_evaluagent_groups": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "EvaluAgentGroup": {
       "type": "object",
       "properties": {
@@ -16044,7 +16097,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_evaluagent_roles": {
+    "SyncMetadata_evaluagent_groups": {
       "type": "object",
       "additionalProperties": false
     },
@@ -16068,7 +16121,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_evaluagent_users": {
+    "SyncMetadata_evaluagent_roles": {
       "type": "object",
       "additionalProperties": false
     },
@@ -16116,7 +16169,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_exact_online_customers": {
+    "SyncMetadata_evaluagent_users": {
       "type": "object",
       "additionalProperties": false
     },
@@ -16206,7 +16259,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_exact_online_payments": {
+    "SyncMetadata_exact_online_customers": {
       "type": "object",
       "additionalProperties": false
     },
@@ -16297,6 +16350,10 @@
         "status",
         "transactionID"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_exact_online_payments": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_exact_online_attachfileinvoice": {
@@ -16607,10 +16664,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_expensify_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "ExpsensifyNullableUser": {
       "type": "object",
       "properties": {
@@ -16639,6 +16692,10 @@
         "lastName",
         "email"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_expensify_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_expensify_createuser": {
@@ -16868,10 +16925,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_freshdesk_articles": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Article": {
       "type": "object",
       "properties": {
@@ -16988,7 +17041,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_freshdesk_contacts": {
+    "SyncMetadata_freshdesk_articles": {
       "type": "object",
       "additionalProperties": false
     },
@@ -17082,7 +17135,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_freshdesk_tickets": {
+    "SyncMetadata_freshdesk_contacts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -17517,6 +17570,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_freshdesk_tickets": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_freshdesk_users": {
       "type": "object",
       "additionalProperties": false
@@ -17817,10 +17874,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_front_conversations": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Conversation": {
       "type": "object",
       "properties": {
@@ -17892,6 +17945,10 @@
         "read",
         "priority"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_front_conversations": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_front_conversation": {
@@ -18342,10 +18399,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_applications": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Application": {
       "type": "object",
       "properties": {
@@ -18491,7 +18544,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_candidates": {
+    "SyncMetadata_gem_applications": {
       "type": "object",
       "additionalProperties": false
     },
@@ -18884,7 +18937,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_jobposts": {
+    "SyncMetadata_gem_candidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -18942,7 +18995,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_jobstages": {
+    "SyncMetadata_gem_jobposts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -19097,7 +19150,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_jobs": {
+    "SyncMetadata_gem_jobstages": {
       "type": "object",
       "additionalProperties": false
     },
@@ -19429,7 +19482,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_locations": {
+    "SyncMetadata_gem_jobs": {
       "type": "object",
       "additionalProperties": false
     },
@@ -19523,7 +19576,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gem_users": {
+    "SyncMetadata_gem_locations": {
       "type": "object",
       "additionalProperties": false
     },
@@ -19545,6 +19598,10 @@
         "name",
         "email"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_gem_createcandidate": {
@@ -20519,10 +20576,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_github_issues": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "GithubIssue": {
       "type": "object",
       "properties": {
@@ -20577,7 +20630,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_github_issueslite": {
+    "SyncMetadata_github_issues": {
       "type": "object",
       "additionalProperties": false
     },
@@ -20704,24 +20757,8 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_github_listfiles": {
+    "SyncMetadata_github_issueslite": {
       "type": "object",
-      "properties": {
-        "owner": {
-          "type": "string"
-        },
-        "repo": {
-          "type": "string"
-        },
-        "branch": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "owner",
-        "repo",
-        "branch"
-      ],
       "additionalProperties": false
     },
     "GithubRepoFile": {
@@ -20746,6 +20783,26 @@
         "name",
         "url",
         "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_github_listfiles": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "branch"
       ],
       "additionalProperties": false
     },
@@ -20858,28 +20915,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_github_app_commits": {
-      "type": "object",
-      "properties": {
-        "owner": {
-          "type": "string"
-        },
-        "repo": {
-          "type": "string"
-        },
-        "syncWindowMinutes": {
-          "type": "number"
-        },
-        "branch": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "owner",
-        "repo"
-      ],
-      "additionalProperties": false
-    },
     "GithubCommit": {
       "type": "object",
       "properties": {
@@ -20924,7 +20959,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_github_app_pullrequests": {
+    "SyncMetadata_github_app_commits": {
       "type": "object",
       "properties": {
         "owner": {
@@ -21078,6 +21113,28 @@
         "labels",
         "reviewDecision",
         "latestComment"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_github_app_pullrequests": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "syncWindowMinutes": {
+          "type": "number"
+        },
+        "branch": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo"
       ],
       "additionalProperties": false
     },
@@ -21585,27 +21642,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gong_calltranscripts": {
-      "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        },
-        "lastSyncBackfillPeriod": {
-          "type": "number"
-        },
-        "callIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "workspaceId": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
     "GongCallTranscriptSyncOutput": {
       "type": "object",
       "properties": {
@@ -21665,7 +21701,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gong_calls": {
+    "SyncMetadata_gong_calltranscripts": {
       "type": "object",
       "properties": {
         "backfillPeriodMs": {
@@ -21673,6 +21709,15 @@
         },
         "lastSyncBackfillPeriod": {
           "type": "number"
+        },
+        "callIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workspaceId": {
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -22025,6 +22070,18 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_gong_calls": {
+      "type": "object",
+      "properties": {
+        "backfillPeriodMs": {
+          "type": "number"
+        },
+        "lastSyncBackfillPeriod": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
     "SyncMetadata_gong_users": {
       "type": "object",
       "additionalProperties": false
@@ -22127,10 +22184,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_workspaceorgunits": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "OrganizationalUnit": {
       "type": "object",
       "properties": {
@@ -22189,7 +22242,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_workspaceuseraccesstokens": {
+    "SyncMetadata_google_workspaceorgunits": {
       "type": "object",
       "additionalProperties": false
     },
@@ -22221,6 +22274,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_google_workspaceuseraccesstokens": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_google_workspaceusers": {
       "type": "object",
       "properties": {
@@ -22247,10 +22304,6 @@
       "required": [
         "orgsToSync"
       ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_google_calendar_calendars": {
-      "type": "object",
       "additionalProperties": false
     },
     "GoogleCalendar": {
@@ -22390,28 +22443,8 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_calendar_events": {
+    "SyncMetadata_google_calendar_calendars": {
       "type": "object",
-      "properties": {
-        "calendarsToSync": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "timeMin": {
-          "type": "string"
-        },
-        "timeMax": {
-          "type": "string"
-        },
-        "singleEvents": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "calendarsToSync"
-      ],
       "additionalProperties": false
     },
     "GoogleCalendarEvent": {
@@ -22940,6 +22973,30 @@
         "summary",
         "start",
         "end"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_google_calendar_events": {
+      "type": "object",
+      "properties": {
+        "calendarsToSync": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeMin": {
+          "type": "string"
+        },
+        "timeMax": {
+          "type": "string"
+        },
+        "singleEvents": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "calendarsToSync"
       ],
       "additionalProperties": false
     },
@@ -25041,18 +25098,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_mail_emails": {
-      "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
-      "additionalProperties": false
-    },
     "GmailEmail": {
       "type": "object",
       "properties": {
@@ -25115,8 +25160,16 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_mail_labels": {
+    "SyncMetadata_google_mail_emails": {
       "type": "object",
+      "properties": {
+        "backfillPeriodMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "backfillPeriodMs"
+      ],
       "additionalProperties": false
     },
     "GmailLabel": {
@@ -25193,6 +25246,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_google_mail_labels": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "ActionInput_google_mail_fetchattachment": {
       "type": "object",
       "properties": {
@@ -25263,10 +25320,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_gorgias_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "GorgiasUser": {
       "type": "object",
       "properties": {
@@ -25289,6 +25342,10 @@
         "lastName",
         "email"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gorgias_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_gorgias_createticket": {
@@ -26226,10 +26283,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_greenhouse_basic_applications": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "GreenhouseApplication": {
       "type": "object",
       "properties": {
@@ -26572,7 +26625,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_greenhouse_basic_candidates": {
+    "SyncMetadata_greenhouse_basic_applications": {
       "type": "object",
       "additionalProperties": false
     },
@@ -26776,7 +26829,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_greenhouse_basic_jobs": {
+    "SyncMetadata_greenhouse_basic_candidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -26908,7 +26961,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_gusto_employees": {
+    "SyncMetadata_greenhouse_basic_jobs": {
       "type": "object",
       "additionalProperties": false
     },
@@ -27056,6 +27109,10 @@
         "custom_fields",
         "jobs"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gusto_employees": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_gusto_unifiedemployees": {
@@ -27216,10 +27273,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hackerrank_work_interviews": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "HackerRankWorkInterview": {
       "type": "object",
       "properties": {
@@ -27338,7 +27391,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hackerrank_work_teams": {
+    "SyncMetadata_hackerrank_work_interviews": {
       "type": "object",
       "additionalProperties": false
     },
@@ -27417,7 +27470,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hackerrank_work_tests": {
+    "SyncMetadata_hackerrank_work_teams": {
       "type": "object",
       "additionalProperties": false
     },
@@ -27511,7 +27564,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hackerrank_work_users": {
+    "SyncMetadata_hackerrank_work_tests": {
       "type": "object",
       "additionalProperties": false
     },
@@ -27620,6 +27673,10 @@
         "activated",
         "last_activity_time"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hackerrank_work_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_hackerrank_work_createinterview": {
@@ -28221,10 +28278,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hibob_service_user_employees": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "HibobEmployee": {
       "type": "object",
       "properties": {
@@ -28417,11 +28470,11 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hibob_service_user_unifiedemployees": {
+    "SyncMetadata_hibob_service_user_employees": {
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_companies": {
+    "SyncMetadata_hibob_service_user_unifiedemployees": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28514,11 +28567,11 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_contacts": {
+    "SyncMetadata_hubspot_companies": {
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_currencycodes": {
+    "SyncMetadata_hubspot_contacts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28542,7 +28595,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_deals": {
+    "SyncMetadata_hubspot_currencycodes": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28686,7 +28739,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_knowledgebase": {
+    "SyncMetadata_hubspot_deals": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28722,7 +28775,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_owners": {
+    "SyncMetadata_hubspot_knowledgebase": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28768,7 +28821,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_products": {
+    "SyncMetadata_hubspot_owners": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28856,7 +28909,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_hubspot_servicetickets": {
+    "SyncMetadata_hubspot_products": {
       "type": "object",
       "additionalProperties": false
     },
@@ -28919,6 +28972,10 @@
         "ticketCategory",
         "ticketPriority"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_hubspot_servicetickets": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_hubspot_tasks": {
@@ -30754,10 +30811,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_intercom_conversations": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "ConversationMessage": {
       "type": "object",
       "properties": {
@@ -30809,6 +30862,10 @@
         "updated_at",
         "author"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_intercom_conversations": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_intercom_users": {
@@ -33120,6 +33177,37 @@
       ],
       "additionalProperties": false
     },
+    "IssueType": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectId",
+        "id",
+        "name",
+        "description",
+        "url"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_jira_issuetypes": {
       "type": "object",
       "properties": {
@@ -33153,71 +33241,7 @@
       ],
       "additionalProperties": false
     },
-    "IssueType": {
-      "type": "object",
-      "properties": {
-        "projectId": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "projectId",
-        "id",
-        "name",
-        "description",
-        "url"
-      ],
-      "additionalProperties": false
-    },
     "SyncMetadata_jira_issues": {
-      "type": "object",
-      "properties": {
-        "projectIdsToSync": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "cloudId": {
-          "type": "string"
-        },
-        "baseUrl": {
-          "type": "string"
-        },
-        "timeZone": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "projectIdsToSync"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_jira_projects": {
       "type": "object",
       "properties": {
         "projectIdsToSync": {
@@ -33279,6 +33303,39 @@
         "url",
         "projectTypeKey",
         "webUrl"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_jira_projects": {
+      "type": "object",
+      "properties": {
+        "projectIdsToSync": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "cloudId": {
+          "type": "string"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectIdsToSync"
       ],
       "additionalProperties": false
     },
@@ -33615,10 +33672,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_kustomer_conversations": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "KustomerConversation": {
       "type": "object",
       "properties": {
@@ -33648,6 +33701,10 @@
         "relationships",
         "links"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_kustomer_conversations": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_lastpass_users": {
@@ -33810,10 +33867,6 @@
       "required": [
         "success"
       ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_lever_opportunities": {
-      "type": "object",
       "additionalProperties": false
     },
     "LeverOpportunity": {
@@ -33999,7 +34052,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_opportunitiesapplications": {
+    "SyncMetadata_lever_opportunities": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34140,7 +34193,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_opportunitiesfeedbacks": {
+    "SyncMetadata_lever_opportunitiesapplications": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34207,7 +34260,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_opportunitiesinterviews": {
+    "SyncMetadata_lever_opportunitiesfeedbacks": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34300,7 +34353,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_opportunitiesnotes": {
+    "SyncMetadata_lever_opportunitiesinterviews": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34347,7 +34400,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_opportunitiesoffers": {
+    "SyncMetadata_lever_opportunitiesnotes": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34424,7 +34477,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_postings": {
+    "SyncMetadata_lever_opportunitiesoffers": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34637,7 +34690,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_postingsquestions": {
+    "SyncMetadata_lever_postings": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34685,7 +34738,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_lever_stages": {
+    "SyncMetadata_lever_postingsquestions": {
       "type": "object",
       "additionalProperties": false
     },
@@ -34703,6 +34756,10 @@
         "id",
         "text"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_lever_stages": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_lever_applyposting": {
@@ -37593,10 +37650,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_issues": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "LinearIssue": {
       "type": "object",
       "properties": {
@@ -37671,7 +37724,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_milestones": {
+    "SyncMetadata_linear_issues": {
       "type": "object",
       "additionalProperties": false
     },
@@ -37731,7 +37784,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_projects": {
+    "SyncMetadata_linear_milestones": {
       "type": "object",
       "additionalProperties": false
     },
@@ -37774,7 +37827,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_roadmaps": {
+    "SyncMetadata_linear_projects": {
       "type": "object",
       "additionalProperties": false
     },
@@ -37817,7 +37870,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_teams": {
+    "SyncMetadata_linear_roadmaps": {
       "type": "object",
       "additionalProperties": false
     },
@@ -37852,7 +37905,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_users": {
+    "SyncMetadata_linear_teams": {
       "type": "object",
       "additionalProperties": false
     },
@@ -37888,6 +37941,10 @@
         "firstName",
         "avatarUrl"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_linear_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_linear_createissue": {
@@ -38119,10 +38176,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linkedin_messages": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "LinkedInMessage": {
       "type": "object",
       "properties": {
@@ -38330,6 +38383,10 @@
         "isDeleted",
         "configVersion"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_linkedin_messages": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_linkedin_post": {
@@ -38573,29 +38630,6 @@
       },
       "required": [
         "success"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_microsoft_teams_messages": {
-      "type": "object",
-      "properties": {
-        "orgsToSync": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "channelsLastSyncDate": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "chatsLastSyncDate": {
-          "type": "object",
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "orgsToSync"
       ],
       "additionalProperties": false
     },
@@ -38893,6 +38927,29 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_microsoft_teams_messages": {
+      "type": "object",
+      "properties": {
+        "orgsToSync": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channelsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "chatsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "orgsToSync"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_microsoft_teams_orgunits": {
       "type": "object",
       "additionalProperties": false
@@ -38922,15 +38979,6 @@
     },
     "SyncMetadata_namely_pat_unifiedemployees": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_netsuite_tba_creditnotes": {
-      "type": "object",
-      "properties": {
-        "timezone": {
-          "type": "string"
-        }
-      },
       "additionalProperties": false
     },
     "NetsuiteCreditNote": {
@@ -39005,7 +39053,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_netsuite_tba_customers": {
+    "SyncMetadata_netsuite_tba_creditnotes": {
       "type": "object",
       "properties": {
         "timezone": {
@@ -39100,7 +39148,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_netsuite_tba_generalledger": {
+    "SyncMetadata_netsuite_tba_customers": {
       "type": "object",
       "properties": {
         "timezone": {
@@ -39244,7 +39292,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_netsuite_tba_invoices": {
+    "SyncMetadata_netsuite_tba_generalledger": {
       "type": "object",
       "properties": {
         "timezone": {
@@ -39325,7 +39373,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_netsuite_tba_locations": {
+    "SyncMetadata_netsuite_tba_invoices": {
       "type": "object",
       "properties": {
         "timezone": {
@@ -39422,7 +39470,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_netsuite_tba_payments": {
+    "SyncMetadata_netsuite_tba_locations": {
       "type": "object",
       "properties": {
         "timezone": {
@@ -39493,6 +39541,15 @@
         "status",
         "applyTo"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_netsuite_tba_payments": {
+      "type": "object",
+      "properties": {
+        "timezone": {
+          "type": "string"
+        }
+      },
       "additionalProperties": false
     },
     "ActionInput_netsuite_tba_billcreate": {
@@ -40977,10 +41034,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_next_cloud_ocs_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "NextCloudUser": {
       "type": "object",
       "properties": {
@@ -41199,7 +41252,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_notion_contentmetadata": {
+    "SyncMetadata_next_cloud_ocs_users": {
       "type": "object",
       "additionalProperties": false
     },
@@ -41236,7 +41289,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_notion_databases": {
+    "SyncMetadata_notion_contentmetadata": {
       "type": "object",
       "additionalProperties": false
     },
@@ -41282,6 +41335,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_notion_databases": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_notion_users": {
       "type": "object",
       "additionalProperties": false
@@ -41290,14 +41347,17 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of block objects to append (max 100)."
         },
         "after": {
-          "type": "string"
+          "type": "string",
+          "description": "Block ID to insert after."
         }
       },
       "required": [
@@ -41327,11 +41387,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of bulleted list item blocks."
         }
       },
       "required": [
@@ -41361,11 +41423,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of callout block objects."
         }
       },
       "required": [
@@ -41395,11 +41459,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of code block objects."
         }
       },
       "required": [
@@ -41429,11 +41495,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array containing divider block. Example: [{\"divider\":{}}]"
         }
       },
       "required": [
@@ -41463,11 +41531,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of heading block objects. Example: [{\"heading_2\":{\"rich_text\":[{\"text\":{\"content\":\"Section Title\"}}]}}]"
         }
       },
       "required": [
@@ -41497,11 +41567,13 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page to append to. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of to-do block objects."
         }
       },
       "required": [
@@ -41531,7 +41603,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to archive. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -41572,14 +41645,17 @@
           "required": [
             "page_id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page for the comment."
         },
         "rich_text": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Comment content as rich text array."
         },
         "discussion_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Discussion thread ID to reply to."
         }
       },
       "required": [
@@ -41672,7 +41748,8 @@
           "required": [
             "page_id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page where database will be created."
         },
         "title": {
           "type": "array",
@@ -41696,7 +41773,8 @@
               "text"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Database title as rich text array."
         },
         "properties": {
           "type": "object",
@@ -41707,7 +41785,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Database property schema. Example: {\"Name\":{\"title\":{}},\"Description\":{\"rich_text\":{}}}"
         }
       },
       "required": [
@@ -41764,10 +41843,12 @@
               "type": "string"
             },
             "database_id": {
-              "type": "string"
+              "type": "string",
+              "description": "Parent database ID. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page or database. Must include either page_id or database_id."
         },
         "properties": {
           "type": "object",
@@ -41778,11 +41859,13 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties. For pages with page parent, use title property. For database parents, use database property schema."
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Array of block objects to add as page content."
         },
         "icon": {
           "type": "object",
@@ -41806,7 +41889,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page icon as emoji or external URL."
         },
         "cover": {
           "type": "object",
@@ -41827,7 +41911,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page cover image as external URL."
         }
       },
       "required": [
@@ -41956,7 +42041,8 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to delete. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         }
       },
       "required": [
@@ -41994,10 +42080,12 @@
               "type": "string"
             },
             "database_id": {
-              "type": "string"
+              "type": "string",
+              "description": "Parent database ID."
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Parent page or database for the duplicate."
         },
         "properties": {
           "type": "object",
@@ -42008,11 +42096,13 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties for the duplicate."
         },
         "children": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Content blocks to include in the duplicate."
         }
       },
       "required": [
@@ -42158,13 +42248,16 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page or block. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42204,10 +42297,12 @@
       "type": "object",
       "properties": {
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42244,14 +42339,19 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
-        "filter": {},
+        "filter": {
+          "description": "Filter conditions. Example: {\"property\":\"Name\",\"title\":{\"contains\":\"test\"}}"
+        },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42291,17 +42391,21 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
         "sorts": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Sort criteria. Example: [{\"property\":\"Name\",\"direction\":\"ascending\"}]"
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42342,18 +42446,24 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to query. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
-        "filter": {},
+        "filter": {
+          "description": "Filter conditions for the query."
+        },
         "sorts": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Sort criteria for the results."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42393,7 +42503,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to restore. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -42425,13 +42536,16 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block or page. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "required": [
@@ -42471,7 +42585,8 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to retrieve. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         }
       },
       "required": [
@@ -42511,7 +42626,8 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to retrieve. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         }
       },
       "required": [
@@ -42564,10 +42680,12 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "property_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID or name of the property to retrieve. Example: \"title\""
         }
       },
       "required": [
@@ -42601,7 +42719,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to retrieve. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         }
       },
       "required": [
@@ -42736,7 +42855,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the user to retrieve. Example: \"d42542a8-a81c-4386-aa95-313aa4e818b3\""
         }
       },
       "required": [
@@ -42779,13 +42899,16 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in database titles."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42822,13 +42945,16 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in page titles."
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42865,7 +42991,8 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Text to search for in page/database titles."
         },
         "filter": {
           "type": "object",
@@ -42881,7 +43008,8 @@
             "property",
             "value"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Filter to search only pages or databases. Example: {\"property\":\"object\",\"value\":\"page\"}"
         },
         "sort": {
           "type": "object",
@@ -42897,13 +43025,16 @@
             "direction",
             "timestamp"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Sort order. Example: {\"direction\":\"descending\",\"timestamp\":\"last_edited_time\"}"
         },
         "page_size": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results to return (max 100)."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response."
         }
       },
       "additionalProperties": false
@@ -42940,19 +43071,42 @@
       "type": "object",
       "properties": {
         "block_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the block to update. Example: \"2b6ce298-3121-8087-914a-d4fe743f6d69\""
         },
-        "paragraph": {},
-        "heading_1": {},
-        "heading_2": {},
-        "heading_3": {},
-        "bulleted_list_item": {},
-        "numbered_list_item": {},
-        "to_do": {},
-        "toggle": {},
-        "code": {},
-        "callout": {},
-        "quote": {}
+        "paragraph": {
+          "description": "Paragraph block content."
+        },
+        "heading_1": {
+          "description": "Heading 1 block content."
+        },
+        "heading_2": {
+          "description": "Heading 2 block content."
+        },
+        "heading_3": {
+          "description": "Heading 3 block content."
+        },
+        "bulleted_list_item": {
+          "description": "Bulleted list item content."
+        },
+        "numbered_list_item": {
+          "description": "Numbered list item content."
+        },
+        "to_do": {
+          "description": "To-do block content."
+        },
+        "toggle": {
+          "description": "Toggle block content."
+        },
+        "code": {
+          "description": "Code block content."
+        },
+        "callout": {
+          "description": "Callout block content."
+        },
+        "quote": {
+          "description": "Quote block content."
+        }
       },
       "required": [
         "block_id"
@@ -42987,7 +43141,8 @@
       "type": "object",
       "properties": {
         "database_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the database to update. Example: \"2b6ce298-3121-8079-a497-d3eca16d875c\""
         },
         "title": {
           "type": "array",
@@ -43011,11 +43166,13 @@
               "text"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "New database title as rich text array."
         },
         "description": {
           "type": "array",
-          "items": {}
+          "items": {},
+          "description": "Database description as rich text array."
         },
         "properties": {
           "type": "object",
@@ -43026,7 +43183,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Property schema updates."
         }
       },
       "required": [
@@ -43071,7 +43229,8 @@
       "type": "object",
       "properties": {
         "page_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the page to update. Example: \"2b6ce298-3121-80ae-bfe1-f8984b993639\""
         },
         "properties": {
           "type": "object",
@@ -43082,7 +43241,8 @@
                 "not": {}
               }
             ]
-          }
+          },
+          "description": "Page properties to update."
         },
         "icon": {
           "type": "object",
@@ -43106,7 +43266,8 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page icon as emoji or external URL."
         },
         "cover": {
           "type": "object",
@@ -43127,10 +43288,12 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Page cover image as external URL."
         },
         "archived": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Set to true to archive the page."
         }
       },
       "required": [
@@ -43566,11 +43729,71 @@
       ],
       "additionalProperties": false
     },
+    "OneDriveFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        },
+        "drive_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "created_at",
+        "blob_size",
+        "drive_id"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_one_drive_userfiles": {
       "type": "object",
       "additionalProperties": false
     },
-    "OneDriveFile": {
+    "OneDriveFileSelection": {
       "type": "object",
       "properties": {
         "id": {
@@ -43668,66 +43891,6 @@
       ],
       "additionalProperties": false
     },
-    "OneDriveFileSelection": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "etag": {
-          "type": "string"
-        },
-        "cTag": {
-          "type": "string"
-        },
-        "is_folder": {
-          "type": "boolean"
-        },
-        "mime_type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "path": {
-          "type": "string"
-        },
-        "raw_source": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "blob_size": {
-          "type": "number"
-        },
-        "drive_id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "etag",
-        "cTag",
-        "is_folder",
-        "mime_type",
-        "path",
-        "raw_source",
-        "updated_at",
-        "created_at",
-        "blob_size",
-        "drive_id"
-      ],
-      "additionalProperties": false
-    },
     "ActionInput_one_drive_fetchfile": {
       "type": "object",
       "properties": {
@@ -43817,10 +43980,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_oracle_hcm_employees": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Employee": {
       "type": "object",
       "properties": {
@@ -43884,11 +44043,11 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_oracle_hcm_unifiedemployees": {
+    "SyncMetadata_oracle_hcm_employees": {
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_calendars": {
+    "SyncMetadata_oracle_hcm_unifiedemployees": {
       "type": "object",
       "additionalProperties": false
     },
@@ -43985,16 +44144,8 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_emails": {
+    "SyncMetadata_outlook_calendars": {
       "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
       "additionalProperties": false
     },
     "OutlookEmail": {
@@ -44059,7 +44210,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_events": {
+    "SyncMetadata_outlook_emails": {
       "type": "object",
       "properties": {
         "backfillPeriodMs": {
@@ -44558,8 +44709,16 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_folders": {
+    "SyncMetadata_outlook_events": {
       "type": "object",
+      "properties": {
+        "backfillPeriodMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "backfillPeriodMs"
+      ],
       "additionalProperties": false
     },
     "OutlookFolder": {
@@ -44596,6 +44755,10 @@
         "totalItemCount",
         "isHidden"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_outlook_folders": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_outlook_fetchattachment": {
@@ -44654,10 +44817,6 @@
       "additionalProperties": false
     },
     "SyncMetadata_paylocity_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_pennylane_customers": {
       "type": "object",
       "additionalProperties": false
     },
@@ -44810,7 +44969,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pennylane_invoices": {
+    "SyncMetadata_pennylane_customers": {
       "type": "object",
       "additionalProperties": false
     },
@@ -45485,7 +45644,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pennylane_products": {
+    "SyncMetadata_pennylane_invoices": {
       "type": "object",
       "additionalProperties": false
     },
@@ -45543,7 +45702,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pennylane_suppliers": {
+    "SyncMetadata_pennylane_products": {
       "type": "object",
       "additionalProperties": false
     },
@@ -45611,6 +45770,10 @@
         "country_alpha2",
         "emails"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_pennylane_suppliers": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_pennylane_createcustomer": {
@@ -47273,10 +47436,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_activities": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "PipeDriveActivity": {
       "type": "object",
       "properties": {
@@ -47435,7 +47594,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_deals": {
+    "SyncMetadata_pipedrive_activities": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47537,7 +47696,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_organizations": {
+    "SyncMetadata_pipedrive_deals": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47636,7 +47795,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_persons": {
+    "SyncMetadata_pipedrive_organizations": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47713,7 +47872,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_accounts": {
+    "SyncMetadata_pipedrive_persons": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47770,7 +47929,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_billpayments": {
+    "SyncMetadata_quickbooks_accounts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47843,7 +48002,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_bills": {
+    "SyncMetadata_quickbooks_billpayments": {
       "type": "object",
       "additionalProperties": false
     },
@@ -47933,7 +48092,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_creditmemos": {
+    "SyncMetadata_quickbooks_bills": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48063,7 +48222,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_customers": {
+    "SyncMetadata_quickbooks_creditmemos": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48099,7 +48258,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_deposits": {
+    "SyncMetadata_quickbooks_customers": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48172,7 +48331,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_invoices": {
+    "SyncMetadata_quickbooks_deposits": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48313,7 +48472,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_items": {
+    "SyncMetadata_quickbooks_invoices": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48354,7 +48513,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_journalentries": {
+    "SyncMetadata_quickbooks_items": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48457,7 +48616,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_payments": {
+    "SyncMetadata_quickbooks_journalentries": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48511,7 +48670,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_purchases": {
+    "SyncMetadata_quickbooks_payments": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48611,7 +48770,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_quickbooks_transfers": {
+    "SyncMetadata_quickbooks_purchases": {
       "type": "object",
       "additionalProperties": false
     },
@@ -48660,6 +48819,10 @@
         "currency",
         "txn_date"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_quickbooks_transfers": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_quickbooks_createaccount": {
@@ -53221,10 +53384,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_candidateactivitytypes": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "RecruiterFlowCandidateActivityType": {
       "type": "object",
       "properties": {
@@ -53265,7 +53424,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_candidates": {
+    "SyncMetadata_recruiterflow_candidateactivitytypes": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53437,7 +53596,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_employmenttypes": {
+    "SyncMetadata_recruiterflow_candidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53457,7 +53616,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_jobdepartments": {
+    "SyncMetadata_recruiterflow_employmenttypes": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53481,7 +53640,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_jobremotestatuses": {
+    "SyncMetadata_recruiterflow_jobdepartments": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53501,7 +53660,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_jobstagenames": {
+    "SyncMetadata_recruiterflow_jobremotestatuses": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53521,7 +53680,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_jobstatuses": {
+    "SyncMetadata_recruiterflow_jobstagenames": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53545,7 +53704,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_jobs": {
+    "SyncMetadata_recruiterflow_jobstatuses": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53743,7 +53902,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_locations": {
+    "SyncMetadata_recruiterflow_jobs": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53792,7 +53951,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_organizationlocations": {
+    "SyncMetadata_recruiterflow_locations": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53827,7 +53986,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_recruiterflow_users": {
+    "SyncMetadata_recruiterflow_organizationlocations": {
       "type": "object",
       "additionalProperties": false
     },
@@ -53866,6 +54025,10 @@
         "last_name",
         "img_link"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_recruiterflow_users": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_recruiterflow_candidateactivitieslist": {
@@ -54855,10 +55018,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_salesforce_leads": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Lead": {
       "type": "object",
       "properties": {
@@ -54940,7 +55099,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_salesforce_opportunities": {
+    "SyncMetadata_salesforce_leads": {
       "type": "object",
       "additionalProperties": false
     },
@@ -55028,6 +55187,10 @@
         "type",
         "last_modified_date"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_opportunities": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_salesforce_tickets": {
@@ -55701,10 +55864,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_sap_success_factors_groups": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Group": {
       "type": "object",
       "properties": {
@@ -55732,50 +55891,16 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_sap_success_factors_groups": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_sap_success_factors_locations": {
       "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_sap_success_factors_unifiedemployees": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_sharepoint_online_sharedsitesselection": {
-      "type": "object",
-      "properties": {
-        "sharedSites": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "pickedFiles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "siteId": {
-                "type": "string"
-              },
-              "fileIds": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "siteId",
-              "fileIds"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "sharedSites",
-        "pickedFiles"
-      ],
       "additionalProperties": false
     },
     "FileMetadata": {
@@ -55841,11 +55966,116 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_sharepoint_online_sharedsitesselection": {
+      "type": "object",
+      "properties": {
+        "sharedSites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pickedFiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "siteId": {
+                "type": "string"
+              },
+              "fileIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "siteId",
+              "fileIds"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "sharedSites",
+        "pickedFiles"
+      ],
+      "additionalProperties": false
+    },
+    "UserFileMetadata": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "siteId",
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_sharepoint_online_userfiles": {
       "type": "object",
       "additionalProperties": false
     },
-    "UserFileMetadata": {
+    "SelectedUserFileMetadata": {
       "type": "object",
       "properties": {
         "siteId": {
@@ -55950,73 +56180,6 @@
       ],
       "additionalProperties": false
     },
-    "SelectedUserFileMetadata": {
-      "type": "object",
-      "properties": {
-        "siteId": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "etag": {
-          "type": "string"
-        },
-        "cTag": {
-          "type": "string"
-        },
-        "is_folder": {
-          "type": "boolean"
-        },
-        "mime_type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "path": {
-          "type": "string"
-        },
-        "raw_source": {
-          "type": "object",
-          "additionalProperties": false
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "download_url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "blob_size": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "siteId",
-        "id",
-        "name",
-        "etag",
-        "cTag",
-        "is_folder",
-        "mime_type",
-        "path",
-        "raw_source",
-        "updated_at",
-        "download_url",
-        "created_at",
-        "blob_size"
-      ],
-      "additionalProperties": false
-    },
     "ActionInput_sharepoint_online_fetchfile": {
       "type": "object",
       "properties": {
@@ -56091,10 +56254,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_shopify_orders": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Order": {
       "type": "object",
       "properties": {
@@ -56127,7 +56286,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_slack_channels": {
+    "SyncMetadata_shopify_orders": {
       "type": "object",
       "additionalProperties": false
     },
@@ -56203,16 +56362,8 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_slack_messages": {
+    "SyncMetadata_slack_channels": {
       "type": "object",
-      "properties": {
-        "channelsLastSyncDate": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
       "additionalProperties": false
     },
     "SlackMessage": {
@@ -56484,8 +56635,16 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_slack_users": {
+    "SyncMetadata_slack_messages": {
       "type": "object",
+      "properties": {
+        "channelsLastSyncDate": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
       "additionalProperties": false
     },
     "SlackUser": {
@@ -56614,17 +56773,24 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_slack_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "ActionInput_slack_addreaction": {
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to react to in \"seconds.microseconds\" format. Example: \"1763887648.424429\""
         },
         "reaction_name": {
-          "type": "string"
+          "type": "string",
+          "description": "Emoji name without colons. Example: \"thumbsup\", \"heart\", \"eyes\""
         }
       },
       "required": [
@@ -56638,7 +56804,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the reaction was added successfully"
         }
       },
       "required": [
@@ -56650,7 +56817,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to archive. Example: \"C0A02F9NBCJ\""
         }
       },
       "required": [
@@ -56662,7 +56830,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the channel was archived successfully"
         }
       },
       "required": [
@@ -56674,10 +56843,12 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel name (lowercase, no spaces, max 80 chars). Example: \"test-channel-nango\""
         },
         "is_private": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether channel should be private. Default: false"
         }
       },
       "required": [
@@ -56689,7 +56860,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the channel was created successfully"
         },
         "channel": {
           "type": "object",
@@ -56843,7 +57015,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The created channel object"
         }
       },
       "required": [
@@ -56856,10 +57029,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to delete. Example: \"1764187268.105539\""
         }
       },
       "required": [
@@ -56872,13 +57047,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the message was deleted successfully"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the deleted message"
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where the message was deleted"
         }
       },
       "required": [
@@ -56892,7 +57070,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to get info for. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -56904,7 +57083,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -57058,7 +57238,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The channel object with details like name, topic, purpose, members count"
         }
       },
       "required": [
@@ -57071,13 +57252,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to get members for. Example: \"C02MB5ZABA7\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of members to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "required": [
@@ -57089,13 +57273,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "members": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of user IDs in the channel"
         },
         "response_metadata": {
           "type": "object",
@@ -57104,7 +57290,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata for next page"
         }
       },
       "required": [
@@ -57117,19 +57304,24 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to fetch history from. Example: \"C02MB5ZABA7\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of messages to return. Default: 100, max: 1000"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         },
         "oldest_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Only messages after this timestamp. Example: \"1234567890.123456\""
         },
         "latest_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Only messages before this timestamp. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -57141,7 +57333,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "array",
@@ -57423,16 +57616,19 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of message objects"
         },
         "has_more": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether there are more messages to fetch"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -57447,7 +57643,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "User to get DND info for. Defaults to current user. Example: \"U02MDCKS1N0\""
         }
       },
       "additionalProperties": false
@@ -57456,16 +57653,20 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "dnd_enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether DND is currently enabled"
         },
         "next_dnd_start_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when next DND period starts"
         },
         "next_dnd_end_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when next DND period ends"
         }
       },
       "required": [
@@ -57480,7 +57681,8 @@
       "type": "object",
       "properties": {
         "file": {
-          "type": "string"
+          "type": "string",
+          "description": "The file ID to get info for. Example: \"F09UG1QNMK7\""
         }
       },
       "required": [
@@ -57492,7 +57694,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "file": {
           "type": "object",
@@ -57579,7 +57782,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The file object with details like name, size, url, etc."
         }
       },
       "required": [
@@ -57592,10 +57796,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to get reactions for. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -57608,10 +57814,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "The type of item (message or file)"
         },
         "message": {
           "type": "object",
@@ -57658,7 +57866,8 @@
           "required": [
             "type"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The message object with reactions attached"
         }
       },
       "required": [
@@ -57674,7 +57883,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "team": {
           "type": "object",
@@ -57736,7 +57946,8 @@
             "name",
             "domain"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The team object with workspace details like name, domain, icon"
         }
       },
       "required": [
@@ -57749,16 +57960,20 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the thread. Example: \"C02MB5ZABA7\""
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the parent message. Example: \"1234567890.123456\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of replies to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "required": [
@@ -57771,7 +57986,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "array",
@@ -57977,16 +58193,19 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of message objects in the thread"
         },
         "has_more": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether there are more replies to fetch"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -58001,10 +58220,12 @@
       "type": "object",
       "properties": {
         "filename": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the file to upload. Example: \"document.pdf\""
         },
         "length": {
-          "type": "number"
+          "type": "number",
+          "description": "Size of the file in bytes. Example: 1024"
         }
       },
       "required": [
@@ -58017,13 +58238,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "upload_url": {
-          "type": "string"
+          "type": "string",
+          "description": "The URL to upload the file to"
         },
         "file_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The file ID to use when completing the upload"
         }
       },
       "required": [
@@ -58037,7 +58261,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to get info for. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -58049,7 +58274,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "user": {
           "type": "object",
@@ -58184,7 +58410,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user object with profile details like name, email, avatar"
         }
       },
       "required": [
@@ -58197,7 +58424,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to get presence for. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -58209,10 +58437,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "presence": {
-          "type": "string"
+          "type": "string",
+          "description": "The user presence status: \"active\" or \"away\""
         }
       },
       "required": [
@@ -58225,7 +58455,8 @@
       "type": "object",
       "properties": {
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "User ID to get profile for. Defaults to current user. Example: \"U02MDCKS1N0\""
         }
       },
       "additionalProperties": false
@@ -58234,7 +58465,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "profile": {
           "type": "object",
@@ -58318,7 +58550,8 @@
               "type": "number"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user profile object with fields like display_name, status_text, email"
         }
       },
       "required": [
@@ -58331,10 +58564,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to invite users to. Example: \"C02MB5ZABA7\""
         },
         "user_ids": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of user IDs to invite. Example: \"U02MDCKS1N0,U01ABC123\""
         }
       },
       "required": [
@@ -58347,7 +58582,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -58501,7 +58737,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The updated channel object"
         }
       },
       "required": [
@@ -58514,7 +58751,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to join. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -58526,7 +58764,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -58701,7 +58940,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to leave. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -58713,7 +58953,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -58725,13 +58966,16 @@
       "type": "object",
       "properties": {
         "types": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of channel types. Example: \"public_channel,private_channel\""
         },
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of channels to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -58740,7 +58984,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channels": {
           "type": "array",
@@ -58897,13 +59142,15 @@
               "is_pending_ext_shared"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of channel objects"
         },
         "next_cursor": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Cursor for next page, null if no more pages"
         }
       },
       "required": [
@@ -58921,13 +59168,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "emoji": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "description": "Object mapping emoji names to URLs or aliases (e.g., \"alias:squirrel\")"
         }
       },
       "required": [
@@ -58940,19 +59189,24 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by channel. Example: \"C02MB5ZABA7\""
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by user who created the file. Example: \"U02MDCKS1N0\""
         },
         "types": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by file types. Example: \"images,pdfs\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of files to return per page. Default: 100"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         }
       },
       "additionalProperties": false
@@ -58961,7 +59215,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "files": {
           "type": "array",
@@ -58975,43 +59230,50 @@
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The filename"
               },
               "title": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The file title"
               },
               "mimetype": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The MIME type"
               },
               "filetype": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "description": "The file type extension"
               },
               "size": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "File size in bytes"
               },
               "created": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "Unix timestamp when file was created"
               },
               "timestamp": {
                 "type": [
                   "number",
                   "null"
-                ]
+                ],
+                "description": "Unix timestamp of the file"
               }
             },
             "required": [
@@ -59025,7 +59287,8 @@
               "timestamp"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of file objects"
         },
         "paging": {
           "type": "object",
@@ -59034,13 +59297,16 @@
               "type": "number"
             },
             "total": {
-              "type": "number"
+              "type": "number",
+              "description": "Total number of files"
             },
             "page": {
-              "type": "number"
+              "type": "number",
+              "description": "Current page number"
             },
             "pages": {
-              "type": "number"
+              "type": "number",
+              "description": "Total number of pages"
             }
           },
           "required": [
@@ -59049,7 +59315,8 @@
             "page",
             "pages"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination information"
         }
       },
       "required": [
@@ -59063,7 +59330,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to list pinned items for. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -59075,7 +59343,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "items": {
           "type": "array",
@@ -59120,7 +59389,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of pinned items (messages, files)"
         }
       },
       "required": [
@@ -59133,13 +59403,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Filter by channel. Example: \"C02MB5ZABA7\""
         },
         "latest_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Only include messages before this timestamp. Example: 1234567890"
         },
         "oldest_ts": {
-          "type": "number"
+          "type": "number",
+          "description": "Only include messages after this timestamp. Example: 1234567890"
         }
       },
       "additionalProperties": false
@@ -59148,7 +59421,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "scheduled_messages": {
           "type": "array",
@@ -59178,7 +59452,8 @@
               "date_created"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of scheduled message objects"
         }
       },
       "required": [
@@ -59191,7 +59466,8 @@
       "type": "object",
       "properties": {
         "usergroup": {
-          "type": "string"
+          "type": "string",
+          "description": "The user group ID to get members for. Example: \"S0614TZR7\""
         }
       },
       "required": [
@@ -59203,13 +59479,15 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "users": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Array of user IDs in the group"
         }
       },
       "required": [
@@ -59222,10 +59500,12 @@
       "type": "object",
       "properties": {
         "include_disabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Include disabled user groups. Default: false"
         },
         "include_count": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Include member counts. Default: false"
         }
       },
       "additionalProperties": false
@@ -59234,7 +59514,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "usergroups": {
           "type": "array",
@@ -59325,7 +59606,8 @@
               "handle"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of user group objects"
         }
       },
       "required": [
@@ -59338,10 +59620,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of items to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -59350,7 +59634,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "items": {
           "type": "array",
@@ -59415,7 +59700,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of items the user has reacted to"
         },
         "response_metadata": {
           "type": "object",
@@ -59424,7 +59710,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata including next_cursor"
         }
       },
       "required": [
@@ -59438,10 +59725,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum number of users to return. Default: 100"
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from previous response"
         }
       },
       "additionalProperties": false
@@ -59450,7 +59739,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "members": {
           "type": "array",
@@ -59588,7 +59878,8 @@
               "id"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of user objects"
         },
         "response_metadata": {
           "type": "object",
@@ -59597,7 +59888,8 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Pagination metadata including next_cursor"
         }
       },
       "required": [
@@ -59611,7 +59903,8 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "description": "The email address to lookup. Example: \"user@example.com\""
         }
       },
       "required": [
@@ -59623,7 +59916,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "user": {
           "type": "object",
@@ -59758,7 +60052,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The user object if found"
         }
       },
       "required": [
@@ -59771,10 +60066,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to mark as read. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to mark as read. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -59787,7 +60084,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -59799,10 +60097,12 @@
       "type": "object",
       "properties": {
         "users": {
-          "type": "string"
+          "type": "string",
+          "description": "Comma-separated list of user IDs. Example: \"U02MDCKS1N0,U01ABC123\""
         },
         "return_im": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Return the full IM channel object. Default: false"
         }
       },
       "required": [
@@ -59814,7 +60114,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -59826,7 +60127,8 @@
           "required": [
             "id"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The opened DM channel"
         }
       },
       "required": [
@@ -59839,10 +60141,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to pin. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -59855,7 +60159,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -59867,13 +60172,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel, DM, or group to post to. Example: \"C02MB5ZABA7\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "Message text content. Supports Slack markdown. Example: \"Hello *world*!\""
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Parent message timestamp to reply in thread. Omit for top-level message. Example: \"1763887648.424429\""
         },
         "blocks": {
           "type": "array",
@@ -60057,7 +60365,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit"
         }
       },
       "required": [
@@ -60070,13 +60379,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the message was posted successfully"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the posted message. Example: \"1763887648.424429\""
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where message was posted. Example: \"C02MB5ZABA7\""
         },
         "message": {
           "type": "object",
@@ -60085,10 +60397,12 @@
               "type": "string"
             },
             "type": {
-              "type": "string"
+              "type": "string",
+              "description": "Message type, typically \"message\""
             },
             "user": {
-              "type": "string"
+              "type": "string",
+              "description": "User ID who posted. Example: \"U07E8G7J57T\""
             }
           },
           "required": [
@@ -60111,10 +60425,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to remove the user from. Example: \"C02MB5ZABA7\""
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The user ID to remove. Example: \"U02MDCKS1N0\""
         }
       },
       "required": [
@@ -60127,7 +60443,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60139,13 +60456,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message. Example: \"1234567890.123456\""
         },
         "reaction_name": {
-          "type": "string"
+          "type": "string",
+          "description": "The emoji name without colons. Example: \"thumbsup\""
         }
       },
       "required": [
@@ -60159,7 +60479,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60171,10 +60492,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to rename. Example: \"C02MB5ZABA7\""
         },
         "channel_name": {
-          "type": "string"
+          "type": "string",
+          "description": "The new name for the channel. Example: \"new-channel-name\""
         }
       },
       "required": [
@@ -60187,7 +60510,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "channel": {
           "type": "object",
@@ -60341,7 +60665,8 @@
             "is_org_shared",
             "is_pending_ext_shared"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "The updated channel object"
         }
       },
       "required": [
@@ -60354,16 +60679,20 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to post to. Example: \"C02MB5ZABA7\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "The message text. Example: \"Hello, world!\""
         },
         "post_at": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp for when to post. Example: 1735689600"
         },
         "thread_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of thread to reply to. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -60377,13 +60706,16 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "scheduled_message_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the scheduled message"
         },
         "post_at": {
-          "type": "number"
+          "type": "number",
+          "description": "Unix timestamp when the message will be posted"
         }
       },
       "required": [
@@ -60397,27 +60729,32 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "The search query. Example: \"project report\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results per page. Default: 20"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         },
         "sort": {
           "type": "string",
           "enum": [
             "score",
             "timestamp"
-          ]
+          ],
+          "description": "Sort by relevance or recency. Default: \"score\""
         },
         "sort_dir": {
           "type": "string",
           "enum": [
             "asc",
             "desc"
-          ]
+          ],
+          "description": "Sort direction. Default: \"desc\""
         }
       },
       "required": [
@@ -60429,7 +60766,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "files": {
           "type": "object",
@@ -60446,28 +60784,36 @@
                     "type": "string"
                   },
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The filename"
                   },
                   "title": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The file title"
                   },
                   "mimetype": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The MIME type"
                   },
                   "filetype": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The file type extension"
                   },
                   "size": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "File size in bytes"
                   },
                   "url_private": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Private URL to access the file"
                   },
                   "permalink": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Permalink to the file in Slack"
                   },
                   "timestamp": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Unix timestamp when file was created"
                   }
                 },
                 "required": [
@@ -60482,7 +60828,8 @@
                   "timestamp"
                 ],
                 "additionalProperties": false
-              }
+              },
+              "description": "Array of matching file objects"
             },
             "pagination": {
               "type": "object",
@@ -60491,19 +60838,24 @@
                   "type": "number"
                 },
                 "page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Current page number"
                 },
                 "per_page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Results per page"
                 },
                 "page_count": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total number of pages"
                 },
                 "first": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "First result index"
                 },
                 "last": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Last result index"
                 }
               },
               "required": [
@@ -60514,7 +60866,8 @@
                 "first",
                 "last"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "description": "Pagination information"
             }
           },
           "required": [
@@ -60522,7 +60875,8 @@
             "matches",
             "pagination"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Search results"
         }
       },
       "required": [
@@ -60535,27 +60889,32 @@
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "The search query. Example: \"important meeting\""
         },
         "count": {
-          "type": "number"
+          "type": "number",
+          "description": "Number of results per page. Default: 20"
         },
         "page": {
-          "type": "number"
+          "type": "number",
+          "description": "Page number of results. Default: 1"
         },
         "sort": {
           "type": "string",
           "enum": [
             "score",
             "timestamp"
-          ]
+          ],
+          "description": "Sort by relevance or recency. Default: \"score\""
         },
         "sort_dir": {
           "type": "string",
           "enum": [
             "asc",
             "desc"
-          ]
+          ],
+          "description": "Sort direction. Default: \"desc\""
         }
       },
       "required": [
@@ -60567,7 +60926,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "messages": {
           "type": "object",
@@ -60584,10 +60944,12 @@
                     "type": "string"
                   },
                   "ts": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Message timestamp"
                   },
                   "text": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The message text"
                   },
                   "channel": {
                     "type": "object",
@@ -60596,29 +60958,34 @@
                         "type": "string"
                       },
                       "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The channel name"
                       }
                     },
                     "required": [
                       "id",
                       "name"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "description": "Channel information"
                   },
                   "user": {
                     "type": [
                       "string",
                       "null"
-                    ]
+                    ],
+                    "description": "The user ID who sent the message"
                   },
                   "username": {
                     "type": [
                       "string",
                       "null"
-                    ]
+                    ],
+                    "description": "The username who sent the message"
                   },
                   "permalink": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Permalink to the message in Slack"
                   }
                 },
                 "required": [
@@ -60631,7 +60998,8 @@
                   "permalink"
                 ],
                 "additionalProperties": false
-              }
+              },
+              "description": "Array of matching message objects"
             },
             "pagination": {
               "type": "object",
@@ -60640,19 +61008,24 @@
                   "type": "number"
                 },
                 "page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Current page number"
                 },
                 "per_page": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Results per page"
                 },
                 "page_count": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total number of pages"
                 },
                 "first": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "First result index"
                 },
                 "last": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Last result index"
                 }
               },
               "required": [
@@ -60663,7 +61036,8 @@
                 "first",
                 "last"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "description": "Pagination information"
             }
           },
           "required": [
@@ -60671,7 +61045,8 @@
             "matches",
             "pagination"
           ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Search results"
         }
       },
       "required": [
@@ -60731,10 +61106,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to update. Example: \"C02MB5ZABA7\""
         },
         "purpose": {
-          "type": "string"
+          "type": "string",
+          "description": "The new purpose text. Example: \"Discussion about project updates\""
         }
       },
       "required": [
@@ -60747,10 +61124,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "purpose": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated purpose text"
         }
       },
       "required": [
@@ -60763,10 +61142,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to update. Example: \"C02MB5ZABA7\""
         },
         "topic": {
-          "type": "string"
+          "type": "string",
+          "description": "The new topic text. Example: \"Q4 Planning Discussion\""
         }
       },
       "required": [
@@ -60779,10 +61160,12 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "topic": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated topic text"
         }
       },
       "required": [
@@ -60795,7 +61178,8 @@
       "type": "object",
       "properties": {
         "presence": {
-          "type": "string"
+          "type": "string",
+          "description": "The presence status to set: \"auto\" or \"away\". Example: \"away\""
         }
       },
       "required": [
@@ -60807,7 +61191,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60819,7 +61204,8 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel to unarchive. Example: \"C02MB5ZABA7\""
         }
       },
       "required": [
@@ -60831,7 +61217,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60843,10 +61230,12 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the pinned message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to unpin. Example: \"1234567890.123456\""
         }
       },
       "required": [
@@ -60859,7 +61248,8 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         }
       },
       "required": [
@@ -60871,13 +61261,16 @@
       "type": "object",
       "properties": {
         "channel_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The channel containing the message. Example: \"C02MB5ZABA7\""
         },
         "message_ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the message to update. Example: \"1234567890.123456\""
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "New message text. Example: \"Updated message content\""
         },
         "blocks": {
           "type": "array",
@@ -61061,7 +61454,8 @@
               "type"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "Array of Block Kit blocks for rich formatting"
         }
       },
       "required": [
@@ -61074,16 +61468,20 @@
       "type": "object",
       "properties": {
         "ok": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the request was successful"
         },
         "ts": {
-          "type": "string"
+          "type": "string",
+          "description": "Timestamp of the updated message"
         },
         "channel": {
-          "type": "string"
+          "type": "string",
+          "description": "Channel where the message was updated"
         },
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "The updated message text"
         }
       },
       "required": [
@@ -61188,10 +61586,6 @@
       "required": [
         "success"
       ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_stripe_app_subscriptions": {
-      "type": "object",
       "additionalProperties": false
     },
     "Subscription": {
@@ -61727,7 +62121,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_teamtailor_candidates": {
+    "SyncMetadata_stripe_app_subscriptions": {
       "type": "object",
       "additionalProperties": false
     },
@@ -62162,6 +62556,10 @@
         "attributes",
         "relationships"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_teamtailor_candidates": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_ukg_pro_unifiedemployees": {
@@ -63642,10 +64040,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_wildix_pbx_colleagues": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "WildixPbxColleague": {
       "type": "object",
       "properties": {
@@ -63682,15 +64076,15 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_wildix_pbx_colleagues": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_woocommerce_customers": {
       "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_woocommerce_orders": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_workable_candidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -63807,7 +64201,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_candidatesactivities": {
+    "SyncMetadata_workable_candidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -63862,7 +64256,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_candidatesoffer": {
+    "SyncMetadata_workable_candidatesactivities": {
       "type": "object",
       "additionalProperties": false
     },
@@ -63914,7 +64308,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_jobs": {
+    "SyncMetadata_workable_candidatesoffer": {
       "type": "object",
       "additionalProperties": false
     },
@@ -64051,7 +64445,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_jobscandidates": {
+    "SyncMetadata_workable_jobs": {
       "type": "object",
       "additionalProperties": false
     },
@@ -64168,7 +64562,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_jobsquestions": {
+    "SyncMetadata_workable_jobscandidates": {
       "type": "object",
       "additionalProperties": false
     },
@@ -64226,7 +64620,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workable_members": {
+    "SyncMetadata_workable_jobsquestions": {
       "type": "object",
       "additionalProperties": false
     },
@@ -64256,6 +64650,10 @@
         "email",
         "role"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_workable_members": {
+      "type": "object",
       "additionalProperties": false
     },
     "ActionInput_workable_createcandidate": {
@@ -64812,10 +65210,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_xero_banktransactions": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "BankTransaction": {
       "type": "object",
       "properties": {
@@ -65015,11 +65409,11 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_xero_contacts": {
+    "SyncMetadata_xero_banktransactions": {
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_xero_creditnotes": {
+    "SyncMetadata_xero_contacts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -65139,6 +65533,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_xero_creditnotes": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "SyncMetadata_xero_generalledger": {
       "type": "object",
       "additionalProperties": false
@@ -65148,10 +65546,6 @@
       "additionalProperties": false
     },
     "SyncMetadata_xero_items": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_xero_organisations": {
       "type": "object",
       "additionalProperties": false
     },
@@ -65371,6 +65765,10 @@
         "externalLinks",
         "paymentTerms"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_organisations": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_xero_payments": {
@@ -68043,10 +68441,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_zendesk_sections": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Section": {
       "type": "object",
       "properties": {
@@ -68073,6 +68467,10 @@
         "name",
         "description"
       ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zendesk_sections": {
+      "type": "object",
       "additionalProperties": false
     },
     "SyncMetadata_zendesk_tickets": {
@@ -68674,10 +69072,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoho_crm_accounts": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "ZohoCRMAccount": {
       "type": "object",
       "properties": {
@@ -68992,7 +69386,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoho_crm_contacts": {
+    "SyncMetadata_zoho_crm_accounts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -69378,7 +69772,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoho_crm_deals": {
+    "SyncMetadata_zoho_crm_contacts": {
       "type": "object",
       "additionalProperties": false
     },
@@ -69684,7 +70078,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoho_mail_emails": {
+    "SyncMetadata_zoho_crm_deals": {
       "type": "object",
       "additionalProperties": false
     },
@@ -69772,7 +70166,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoho_mail_tasks": {
+    "SyncMetadata_zoho_mail_emails": {
       "type": "object",
       "additionalProperties": false
     },
@@ -69948,6 +70342,10 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_zoho_mail_tasks": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "ActionInput_zoho_mail_adduser": {
       "type": "object",
       "properties": {
@@ -70079,10 +70477,6 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoom_meetings": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "Meeting": {
       "type": "object",
       "properties": {
@@ -70119,16 +70513,8 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zoom_recordingfiles": {
+    "SyncMetadata_zoom_meetings": {
       "type": "object",
-      "properties": {
-        "backfillPeriodDays": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodDays"
-      ],
       "additionalProperties": false
     },
     "RecordingFile": {
@@ -70239,6 +70625,18 @@
         "recordingType",
         "status",
         "playPasscode"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoom_recordingfiles": {
+      "type": "object",
+      "properties": {
+        "backfillPeriodDays": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "backfillPeriodDays"
       ],
       "additionalProperties": false
     },
@@ -70566,5 +70964,5 @@
       "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.69.20)"
+  "$comment": "This file was generated by Nango (v0.69.44)"
 }
