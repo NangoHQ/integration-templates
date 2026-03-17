@@ -1,2 +1,0 @@
-Retrieves information about the workspace
-API: https://api.slack.com/methods/team.info

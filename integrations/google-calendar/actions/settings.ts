@@ -1,50 +1,58 @@
-import { createAction } from 'nango';
-import type { GoogleCalendarSettingsResponse } from '../types.js';
-
-import type { ProxyConfiguration } from 'nango';
-import type { CalendarSetting } from '../models.js';
-import { SettingsResponse } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (pageToken) from previous response. Omit for first page.')
+});
+
+const SettingSchema = z.object({
+    id: z.string().describe('The id of the user setting'),
+    value: z.string().describe('Value of the user setting'),
+    etag: z.string().optional().describe('ETag of the resource'),
+    kind: z.string().optional().describe('Type of the resource')
+});
+
+const OutputSchema = z.object({
+    settings: z.array(SettingSchema).describe('List of user settings'),
+    nextPageToken: z.string().optional().describe('Pagination cursor for next page, or omitted if no more pages')
+});
 
 const action = createAction({
-    description: 'Fetch all user settings from Google Calendar',
-    version: '2.0.0',
+    description: 'Fetch all user settings across pages from Google Calendar',
+    version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/settings',
-        group: 'Users'
+        path: '/actions/settings',
+        group: 'Settings'
     },
 
-    input: z.void(),
-    output: SettingsResponse,
-    scopes: ['https://www.googleapis.com/auth/calendar.settings.readonly'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
-    exec: async (nango): Promise<SettingsResponse> => {
-        const settings: CalendarSetting[] = [];
-        let pageToken: string | undefined;
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/settings/list
+        const response = await nango.get({
+            endpoint: '/calendar/v3/users/me/settings',
+            params: {
+                maxResults: 250,
+                ...(input.cursor && { pageToken: input.cursor })
+            },
+            retries: 3
+        });
 
-        do {
-            const proxyConfig: ProxyConfiguration = {
-                // https://developers.google.com/calendar/api/v3/reference/settings/list
-                endpoint: '/calendar/v3/users/me/settings',
-                params: pageToken ? { pageToken: pageToken } : '',
-                retries: 3
-            };
+        const data = response.data;
 
-            const { data: response } = await nango.get<GoogleCalendarSettingsResponse>(proxyConfig);
-
-            if (!response || !response.items) {
-                throw new nango.ActionError({
-                    message: 'Invalid response format from Google Calendar API'
-                });
-            }
-
-            settings.push(...response.items);
-            pageToken = response.nextPageToken;
-        } while (pageToken);
-
-        return { settings };
+        return {
+            settings: (data.items || []).map((item: any) => ({
+                id: item.id,
+                value: item.value,
+                etag: item.etag,
+                kind: item.kind
+            })),
+            nextPageToken: data.nextPageToken || undefined
+        };
     }
 });
 

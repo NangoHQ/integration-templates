@@ -18,6 +18,8 @@ interface FixtureProvider {
     getCachedResponse(identity: ConfigIdentity): Promise<any>;
     getUpdateMetadata(): Promise<any>;
     getDeleteRecordsFromPreviousExecutions(): Promise<any>;
+    getTrackDeletesStart(): Promise<any>;
+    getTrackDeletesEnd(): Promise<any>;
 }
 
 class LegacyFixtureProvider implements FixtureProvider {
@@ -94,6 +96,14 @@ class LegacyFixtureProvider implements FixtureProvider {
     async getDeleteRecordsFromPreviousExecutions() {
         return this.getMockFile('nango/deleteRecordsFromPreviousExecutions', false);
     }
+
+    async getTrackDeletesStart() {
+        return this.getMockFile('nango/trackDeletesStart', false);
+    }
+
+    async getTrackDeletesEnd() {
+        return this.getMockFile('nango/trackDeletesEnd', false);
+    }
 }
 
 interface ApiMockResponse {
@@ -118,6 +128,8 @@ interface UnifiedMockData {
         getMetadata?: any;
         updateMetadata?: any;
         deleteRecordsFromPreviousExecutions?: any;
+        trackDeletesStart?: any;
+        trackDeletesEnd?: any;
     };
     api?: Record<string, Record<string, ApiMockResponse | ApiMockResponse[]>>;
 }
@@ -169,17 +181,36 @@ class UnifiedFixtureProvider implements FixtureProvider {
         return this.mockData.nango?.deleteRecordsFromPreviousExecutions;
     }
 
+    async getTrackDeletesStart() {
+        return this.mockData.nango?.trackDeletesStart;
+    }
+
+    async getTrackDeletesEnd() {
+        return this.mockData.nango?.trackDeletesEnd;
+    }
+
     async getCachedResponse(identity: ConfigIdentity) {
         const { method, endpoint, requestIdentityHash } = identity;
 
         const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
 
-        // The endpoint in the mock file can be stored with or without a leading slash.
-        // This ensures we can find it in both cases.
-        let apiMock = this.mockData.api?.[method.toUpperCase()]?.[normalizedEndpoint];
+        // The endpoint in the mock file can be stored with or without a leading slash,
+        // and method keys may be stored in either legacy uppercase or unified lowercase form.
+        const methodKeys = [method.toLowerCase(), method.toUpperCase()];
+        let apiMock;
 
-        if (!apiMock) {
-            apiMock = this.mockData.api?.[method.toUpperCase()]?.[`/${normalizedEndpoint}`];
+        for (const methodKey of methodKeys) {
+            apiMock = this.mockData.api?.[methodKey]?.[normalizedEndpoint];
+
+            if (apiMock) {
+                break;
+            }
+
+            apiMock = this.mockData.api?.[methodKey]?.[`/${normalizedEndpoint}`];
+
+            if (apiMock) {
+                break;
+            }
         }
 
         if (apiMock) {
@@ -319,10 +350,26 @@ class RecordingFixtureProvider implements FixtureProvider {
         return data;
     }
 
+    async getTrackDeletesStart() {
+        const data = await this.delegate.getTrackDeletesStart();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.trackDeletesStart = data;
+        await this.save();
+        return data;
+    }
+
+    async getTrackDeletesEnd() {
+        const data = await this.delegate.getTrackDeletesEnd();
+        if (!this.recordedData.nango) this.recordedData.nango = {};
+        this.recordedData.nango.trackDeletesEnd = data;
+        await this.save();
+        return data;
+    }
+
     async getCachedResponse(identity: ConfigIdentity) {
         const data = await this.delegate.getCachedResponse(identity);
 
-        const method = identity.method.toUpperCase();
+        const method = identity.method.toLowerCase();
         const endpoint = identity.endpoint;
 
         if (!this.recordedData.api) this.recordedData.api = {};
@@ -452,6 +499,8 @@ class NangoActionMock {
     getWebhookURL: ReturnType<typeof vi.fn>;
     zodValidateInput: ReturnType<typeof vi.fn>;
     deleteRecordsFromPreviousExecutions: ReturnType<typeof vi.fn>;
+    trackDeletesStart: ReturnType<typeof vi.fn>;
+    trackDeletesEnd: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         this.dirname = dirname;
@@ -465,6 +514,8 @@ class NangoActionMock {
         this.getMetadata = vi.fn(this.getMetadataData.bind(this));
         this.updateMetadata = vi.fn(this.getUpdateMetadata.bind(this));
         this.deleteRecordsFromPreviousExecutions = vi.fn(this.getDeleteRecordsFromPreviousExecutions.bind(this));
+        this.trackDeletesStart = vi.fn(this.getTrackDeletesStart.bind(this));
+        this.trackDeletesEnd = vi.fn(this.getTrackDeletesEnd.bind(this));
 
         this.paginate = vi.fn(this.getProxyPaginateData.bind(this));
         this.get = vi.fn(this.proxyGetData.bind(this));
@@ -513,6 +564,14 @@ class NangoActionMock {
 
     private async getDeleteRecordsFromPreviousExecutions() {
         return (await this.fixtureProvider).getDeleteRecordsFromPreviousExecutions();
+    }
+
+    private async getTrackDeletesStart() {
+        return (await this.fixtureProvider).getTrackDeletesStart();
+    }
+
+    private async getTrackDeletesEnd() {
+        return (await this.fixtureProvider).getTrackDeletesEnd();
     }
 
     private async *getProxyPaginateData(args: Configish) {
@@ -762,14 +821,33 @@ class NangoActionMock {
 }
 class NangoSyncMock extends NangoActionMock {
     lastSyncDate = null;
+    private checkpoint: unknown = null;
 
     batchSave: ReturnType<typeof vi.fn>;
     batchDelete: ReturnType<typeof vi.fn>;
+    getCheckpoint: ReturnType<typeof vi.fn>;
+    saveCheckpoint: ReturnType<typeof vi.fn>;
+    clearCheckpoint: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         super({ dirname, name, Model });
         this.batchSave = vi.fn();
         this.batchDelete = vi.fn();
+        this.getCheckpoint = vi.fn(this.getCheckpointData.bind(this));
+        this.saveCheckpoint = vi.fn(this.saveCheckpointData.bind(this));
+        this.clearCheckpoint = vi.fn(this.clearCheckpointData.bind(this));
+    }
+
+    private async getCheckpointData() {
+        return this.checkpoint;
+    }
+
+    private async saveCheckpointData(checkpoint: unknown) {
+        this.checkpoint = checkpoint;
+    }
+
+    private async clearCheckpointData() {
+        this.checkpoint = null;
     }
 }
 

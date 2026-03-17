@@ -1,0 +1,129 @@
+{
+  "input": {
+    "user_id": "USLACKBOT"
+  },
+  "output": {
+    "id": "USLACKBOT",
+    "team_id": "T0AH32UST18",
+    "name": "slackbot",
+    "real_name": "Slackbot",
+    "display_name": "Slackbot",
+    "profile": {
+      "avatar_hash": "sv41d8cd98f0",
+      "status_text": "",
+      "status_emoji": "",
+      "status_expiration": 0,
+      "real_name": "Slackbot",
+      "display_name": "Slackbot",
+      "real_name_normalized": "Slackbot",
+      "display_name_normalized": "Slackbot",
+      "title": "",
+      "phone": "",
+      "skype": "",
+      "first_name": "slackbot",
+      "last_name": "",
+      "image_24": "https://a.slack-edge.com/80588/img/slackbot_24.png",
+      "image_32": "https://a.slack-edge.com/80588/img/slackbot_32.png",
+      "image_48": "https://a.slack-edge.com/80588/img/slackbot_48.png",
+      "image_72": "https://a.slack-edge.com/80588/img/slackbot_72.png",
+      "image_192": "https://a.slack-edge.com/80588/marketing/img/avatars/slackbot/avatar-slackbot.png",
+      "image_512": "https://a.slack-edge.com/80588/img/slackbot_512.png",
+      "team": "T0AH32UST18"
+    },
+    "deleted": false,
+    "is_admin": false,
+    "is_owner": false,
+    "is_primary_owner": false,
+    "is_restricted": false,
+    "is_ultra_restricted": false,
+    "is_bot": false,
+    "is_app_user": false,
+    "has_2fa": false,
+    "tz": "America/Los_Angeles",
+    "tz_label": "Pacific Daylight Time",
+    "tz_offset": -25200,
+    "updated": 0
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/users.info": {
+        "response": {
+          "ok": true,
+          "user": {
+            "id": "USLACKBOT",
+            "name": "slackbot",
+            "is_bot": false,
+            "updated": 0,
+            "is_app_user": false,
+            "team_id": "T0AH32UST18",
+            "deleted": false,
+            "color": "757575",
+            "is_email_confirmed": false,
+            "real_name": "Slackbot",
+            "tz": "America/Los_Angeles",
+            "tz_label": "Pacific Daylight Time",
+            "tz_offset": -25200,
+            "is_admin": false,
+            "is_owner": false,
+            "is_primary_owner": false,
+            "is_restricted": false,
+            "is_ultra_restricted": false,
+            "who_can_share_contact_card": "EVERYONE",
+            "profile": {
+              "real_name": "Slackbot",
+              "display_name": "Slackbot",
+              "avatar_hash": "sv41d8cd98f0",
+              "real_name_normalized": "Slackbot",
+              "display_name_normalized": "Slackbot",
+              "image_24": "https://a.slack-edge.com/80588/img/slackbot_24.png",
+              "image_32": "https://a.slack-edge.com/80588/img/slackbot_32.png",
+              "image_48": "https://a.slack-edge.com/80588/img/slackbot_48.png",
+              "image_72": "https://a.slack-edge.com/80588/img/slackbot_72.png",
+              "image_192": "https://a.slack-edge.com/80588/marketing/img/avatars/slackbot/avatar-slackbot.png",
+              "image_512": "https://a.slack-edge.com/80588/img/slackbot_512.png",
+              "first_name": "slackbot",
+              "last_name": "",
+              "team": "T0AH32UST18",
+              "title": "",
+              "phone": "",
+              "skype": "",
+              "status_text": "",
+              "status_text_canonical": "",
+              "status_emoji": "",
+              "status_emoji_display_info": [],
+              "status_expiration": 0,
+              "always_active": true
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:40:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1281",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4954",
+          "x-ratelimit-reset": "1773301252",
+          "etag": "W/\"501-tyZl+sbv8+D6dzuU9j3qyG3mwjw\""
+        },
+        "hash": "936c0b83f5c1f85661651d511e02c56dee173fc7",
+        "request": {
+          "params": {
+            "user": "USLACKBOT"
+          }
+        }
+      }
+    }
+  }
+}

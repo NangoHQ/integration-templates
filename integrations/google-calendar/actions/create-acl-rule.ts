@@ -1,61 +1,90 @@
-/**
- * Instructions: Creates an access control rule granting calendar access
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/acl/insert
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const CreateAclRuleInput = z.object({
-    calendar_id: z.string(),
-    role: z.string(),
-    scope_type: z.string(),
-    scope_value: z.string().optional()
+const InputSchema = z.object({
+    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.'),
+    role: z
+        .enum(['none', 'freeBusyReader', 'reader', 'writer', 'owner'])
+        .describe(
+            'The role assigned to the scope. Possible values: "none" - Provides no access, "freeBusyReader" - Provides read access to free/busy information, "reader" - Provides read access to the calendar, "writer" - Provides read and write access to the calendar, "owner" - Provides manager access to the calendar.'
+        ),
+    scopeType: z
+        .enum(['default', 'user', 'group', 'domain'])
+        .describe(
+            'The type of the scope. Possible values: "default" - The public scope, "user" - Limits the scope to a single user, "group" - Limits the scope to a group, "domain" - Limits the scope to a domain.'
+        ),
+    scopeValue: z
+        .string()
+        .optional()
+        .describe('The email address of a user or group, or the name of a domain, depending on the scope type. Omitted for type "default".'),
+    sendNotifications: z.boolean().optional().describe('Whether to send notifications about the calendar sharing change. Optional. The default is True.')
 });
 
-const CreateAclRuleOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
-    id: z.string(),
-    scope: z.any(),
-    role: z.string()
+const OutputSchema = z.object({
+    id: z.string().describe('The identifier of the ACL rule.'),
+    etag: z.string().describe('ETag of the resource.'),
+    kind: z.string().describe('Type of the resource ("calendar#aclRule").'),
+    role: z.enum(['none', 'freeBusyReader', 'reader', 'writer', 'owner']).describe('The role assigned to the scope.'),
+    scope: z
+        .object({
+            type: z.enum(['default', 'user', 'group', 'domain']).describe('The type of the scope.'),
+            value: z.string().optional().describe('The email address of a user or group, or the name of a domain.')
+        })
+        .describe('The extent to which calendar access is granted by this ACL rule.')
 });
 
 const action = createAction({
-    description: 'Creates an access control rule granting calendar access',
+    description: 'Create an access control rule',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/acl/insert
+
     endpoint: {
         method: 'POST',
-        path: '/acl',
-        group: 'Access Control'
+        path: '/actions/create-acl-rule',
+        group: 'Calendar'
     },
-    input: CreateAclRuleInput,
-    output: CreateAclRuleOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof CreateAclRuleOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/acl/insert
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/acl`,
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.acls'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/acl/insert
+        const params: Record<string, string> = {};
+        if (input.sendNotifications !== undefined) {
+            params['sendNotifications'] = String(input.sendNotifications);
+        }
+
+        const config = {
+            endpoint: `/calendar/v3/calendars/${input.calendarId}/acl`,
             data: {
                 role: input.role,
                 scope: {
-                    type: input.scope_type,
-                    ...(input.scope_value && { value: input.scope_value })
+                    type: input.scopeType,
+                    ...(input.scopeValue && { value: input.scopeValue })
                 }
             },
+            ...(Object.keys(params).length > 0 && { params }),
             retries: 3
         };
 
         const response = await nango.post(config);
 
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: 'Failed to create ACL rule - no data returned'
+            });
+        }
+
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
             id: response.data.id,
-            scope: response.data.scope,
-            role: response.data.role
+            etag: response.data.etag,
+            kind: response.data.kind,
+            role: response.data.role,
+            scope: {
+                type: response.data.scope.type,
+                value: response.data.scope.value
+            }
         };
     }
 });

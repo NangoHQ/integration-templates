@@ -1,31 +1,39 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, Id } from '../models.js';
+
+const InputSchema = z.object({
+    contactId: z.string().describe('The ID of the contact to delete. Example: "12345"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    contactId: z.string()
+});
 
 const action = createAction({
-    description: 'Deletes a contact in Hubspot',
+    description: 'Delete a contact record',
     version: '1.0.0',
 
     endpoint: {
-        method: 'DELETE',
-        path: '/contact',
+        method: 'POST',
+        path: '/actions/delete-contact',
         group: 'Contacts'
     },
 
-    input: Id,
-    output: SuccessResponse,
-    scopes: ['crm.objects.contacts.write', 'oauth'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.contacts.write'],
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/contacts#delete-contacts
-            endpoint: `/crm/v3/objects/contacts/${input.id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api/crm/contacts#delete-contacts
+        await nango.delete({
+            endpoint: `/crm/v3/objects/contacts/${input.contactId}`,
             retries: 3
-        };
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            success: true,
+            contactId: input.contactId
         };
     }
 });

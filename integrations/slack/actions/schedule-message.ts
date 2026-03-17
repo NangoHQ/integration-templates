@@ -1,42 +1,35 @@
-/**
- * Instructions: Schedules a message for future delivery up to 120 days ahead.
- * API: https://api.slack.com/methods/chat.scheduleMessage
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ScheduleMessageInput = z.object({
+const InputSchema = z.object({
     channel_id: z.string().describe('The channel to post to. Example: "C02MB5ZABA7"'),
-    text: z.string().describe('The message text. Example: "Hello, world!"'),
+    text: z.string().describe('The message text to schedule'),
     post_at: z.number().describe('Unix timestamp for when to post. Example: 1735689600'),
-    thread_ts: z.string().optional().describe('Timestamp of thread to reply to. Example: "1234567890.123456"')
+    thread_ts: z.string().optional().describe('Optional thread timestamp to post in a thread. Example: "1234567890.123456"')
 });
 
-const ScheduleMessageOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    scheduled_message_id: z.string().describe('The ID of the scheduled message'),
-    post_at: z.number().describe('Unix timestamp when the message will be posted')
+const OutputSchema = z.object({
+    scheduled_message_id: z.string(),
+    channel: z.string(),
+    post_at: z.number()
 });
 
 const action = createAction({
-    description: 'Schedules a message for future delivery up to 120 days ahead.',
+    description: "Schedule a Slack message to a channel or thread, subject to Slack's 120-day scheduling limit.",
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/messages/schedule',
+        path: '/actions/schedule-message',
         group: 'Messages'
     },
 
-    input: ScheduleMessageInput,
-    output: ScheduleMessageOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['chat:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof ScheduleMessageOutput>> => {
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
             // https://api.slack.com/methods/chat.scheduleMessage
             endpoint: 'chat.scheduleMessage',
             data: {
@@ -46,14 +39,20 @@ const action = createAction({
                 ...(input.thread_ts && { thread_ts: input.thread_ts })
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_api_error',
+                message: response.data.error || 'Unknown Slack API error',
+                error: response.data.error
+            });
+        }
 
         return {
-            ok: response.data.ok,
             scheduled_message_id: response.data.scheduled_message_id,
-            post_at: response.data.post_at
+            channel: response.data.channel,
+            post_at: parseInt(response.data.post_at, 10)
         };
     }
 });

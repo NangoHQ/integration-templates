@@ -1,41 +1,40 @@
-/**
- * Instructions: Returns the color definitions for calendars and events
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/colors/get
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const GetColorsInput = z.object({});
+const InputSchema = z.object({});
 
-const GetColorsOutput = z.object({
-    kind: z.string(),
-    updated: z.string(),
-    calendar: z.any(),
-    event: z.any()
+const ColorDefinitionSchema = z.object({
+    background: z.string().describe('The background color associated with this color definition'),
+    foreground: z.string().describe('The foreground color that can be used to write on top of the background color')
+});
+
+const OutputSchema = z.object({
+    kind: z.string().describe('Type of the resource'),
+    updated: z.string().describe('Last modification time of the color palette (as a RFC3339 timestamp)'),
+    calendar: z.record(z.string(), ColorDefinitionSchema).describe('A global palette of calendar colors, mapping from the color ID to its definition'),
+    event: z.record(z.string(), ColorDefinitionSchema).describe('A global palette of event colors, mapping from the color ID to its definition')
 });
 
 const action = createAction({
-    description: 'Returns the color definitions for calendars and events',
+    description: 'Return available calendar and event color definitions',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/colors/get
+
     endpoint: {
-        method: 'GET',
-        path: '/colors',
-        group: 'Settings'
+        method: 'POST',
+        path: '/actions/get-colors',
+        group: 'Calendar'
     },
-    input: GetColorsInput,
-    output: GetColorsOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-    exec: async (nango, _input): Promise<z.infer<typeof GetColorsOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/colors/get
+
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/colors/get
+        const response = await nango.get({
             endpoint: '/calendar/v3/colors',
             retries: 3
-        };
-
-        const response = await nango.get(config);
+        });
 
         return {
             kind: response.data.kind,

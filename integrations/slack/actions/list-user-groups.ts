@@ -1,74 +1,75 @@
-/**
- * Instructions: Lists all user groups in the workspace
- * API: https://api.slack.com/methods/usergroups.list
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const Input = z.object({
-    include_disabled: z.boolean().optional().describe('Include disabled user groups. Default: false'),
-    include_count: z.boolean().optional().describe('Include member counts. Default: false')
-});
-
-const SlackUserGroupPrefsSchema = z.object({
-    channels: z.array(z.string()).optional(),
-    groups: z.array(z.string()).optional()
-});
-
-const SlackUserGroupSchema = z.object({
+const UserGroupSchema = z.object({
     id: z.string(),
     team_id: z.string(),
     is_usergroup: z.boolean(),
-    is_subteam: z.boolean().optional(),
     name: z.string(),
     description: z.string().optional(),
     handle: z.string(),
-    is_external: z.boolean().optional(),
-    date_create: z.number().optional(),
-    date_update: z.number().optional(),
-    date_delete: z.number().optional(),
-    auto_type: z.string().nullable().optional(),
-    auto_provision: z.boolean().optional(),
-    enterprise_subteam_id: z.string().optional(),
-    created_by: z.string().optional(),
+    is_external: z.boolean(),
+    date_create: z.number(),
+    date_update: z.number(),
+    date_delete: z.number(),
+    auto_type: z.string().optional(),
+    created_by: z.string(),
     updated_by: z.string().optional(),
-    deleted_by: z.string().nullable().optional(),
-    prefs: SlackUserGroupPrefsSchema.optional(),
+    deleted_by: z.string().optional(),
+    prefs: z.object({
+        channels: z.array(z.string()),
+        groups: z.array(z.string())
+    }),
     user_count: z.number().optional(),
-    channel_count: z.number().optional()
+    users: z.array(z.string()).optional()
 });
 
-const Output = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    usergroups: z.array(SlackUserGroupSchema).describe('Array of user group objects')
+const InputSchema = z.object({
+    include_disabled: z.boolean().optional().describe('Include results for disabled User Groups'),
+    include_count: z.boolean().optional().describe('Include the number of users in each User Group'),
+    include_users: z.boolean().optional().describe('Include the list of users for each User Group')
+});
+
+const OutputSchema = z.object({
+    usergroups: z.array(UserGroupSchema)
 });
 
 const action = createAction({
-    description: 'Lists all user groups in the workspace.',
+    description: 'List workspace user groups with optional disabled and membership counts',
     version: '1.0.0',
+
     endpoint: {
-        method: 'GET',
-        path: '/list-user-groups',
-        group: 'Actions'
+        method: 'POST',
+        path: '/actions/list-user-groups',
+        group: 'User Groups'
     },
-    input: Input,
-    output: Output,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['usergroups:read'],
-    exec: async (nango, input): Promise<z.infer<typeof Output>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/usergroups.list
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.slack.dev/reference/methods/usergroups.list
+        const response = await nango.get({
             endpoint: 'usergroups.list',
             params: {
-                ...(input.include_disabled !== undefined && { include_disabled: input.include_disabled.toString() }),
-                ...(input.include_count !== undefined && { include_count: input.include_count.toString() })
+                ...(input.include_disabled && { include_disabled: input.include_disabled.toString() }),
+                ...(input.include_count && { include_count: input.include_count.toString() }),
+                ...(input.include_users && { include_users: input.include_users.toString() })
             },
             retries: 3
-        };
-        const response = await nango.get(config);
+        });
+
+        if (!response.data?.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to list user groups',
+                response: response.data
+            });
+        }
+
         return {
-            ok: response.data.ok,
-            usergroups: response.data.usergroups
+            usergroups: response.data.usergroups || []
         };
     }
 });

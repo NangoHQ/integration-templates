@@ -1,67 +1,69 @@
-/**
- * Instructions: Creates an all-day event on a calendar
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/events/insert
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const CreateAllDayEventInput = z.object({
-    calendar_id: z.string(),
-    summary: z.string(),
-    start_date: z.string(),
-    end_date: z.string(),
-    description: z.string().optional()
+const InputSchema = z.object({
+    calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar.'),
+    summary: z.string().describe('Title of the event'),
+    startDate: z.string().describe('Start date in yyyy-mm-dd format (inclusive)'),
+    endDate: z.string().describe('End date in yyyy-mm-dd format (exclusive)'),
+    description: z.string().optional().describe('Description of the event'),
+    location: z.string().optional().describe('Location of the event')
 });
 
-const CreateAllDayEventOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
+const OutputSchema = z.object({
     id: z.string(),
     summary: z.string(),
-    start: z.any(),
-    end: z.any()
+    startDate: z.string(),
+    endDate: z.string(),
+    description: z.string().optional(),
+    location: z.string().optional(),
+    htmlLink: z.string()
 });
 
 const action = createAction({
-    description: 'Creates an all-day event on a calendar',
+    description: 'Create an all-day calendar event using start and end dates',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/events/insert
+
     endpoint: {
         method: 'POST',
-        path: '/events/allDay',
+        path: '/actions/create-all-day-event',
         group: 'Events'
     },
-    input: CreateAllDayEventInput,
-    output: CreateAllDayEventOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof CreateAllDayEventOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/insert
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events`,
+
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendarId || 'primary';
+
+        // https://developers.google.com/calendar/api/v3/reference/events/insert
+        const response = await nango.post({
+            endpoint: `/calendar/v3/calendars/${calendarId}/events`,
             data: {
                 summary: input.summary,
                 start: {
-                    date: input.start_date
+                    date: input.startDate
                 },
                 end: {
-                    date: input.end_date
+                    date: input.endDate
                 },
-                ...(input.description && { description: input.description })
+                ...(input.description && { description: input.description }),
+                ...(input.location && { location: input.location })
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        const event = response.data;
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
-            id: response.data.id,
-            summary: response.data.summary,
-            start: response.data.start,
-            end: response.data.end
+            id: event.id,
+            summary: event.summary,
+            startDate: event.start.date,
+            endDate: event.end.date,
+            description: event.description ?? undefined,
+            location: event.location ?? undefined,
+            htmlLink: event.htmlLink
         };
     }
 });

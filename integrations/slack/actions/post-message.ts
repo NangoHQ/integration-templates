@@ -1,96 +1,77 @@
-/**
- * Instructions: Posts a message to a public channel private channel or direct message.
- * API: https://api.slack.com/methods/chat.postMessage
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Block Kit element schema - supports common block types
-const SlackBlockTextSchema = z.object({
-    type: z.enum(['plain_text', 'mrkdwn']),
-    text: z.string(),
-    emoji: z.boolean().optional(),
-    verbatim: z.boolean().optional()
+const InputSchema = z.object({
+    channel: z.string().describe('Channel, private group, or IM channel ID to send message to. Example: "C1234567890"'),
+    text: z.string().describe('Text of the message to send'),
+    thread_ts: z.string().optional().describe('Timestamp of parent message to reply in thread. Example: "1234567890.123456"')
 });
 
-const SlackBlockElementSchema = z.object({
-    type: z.string(),
-    text: SlackBlockTextSchema.optional(),
-    action_id: z.string().optional(),
-    url: z.string().optional(),
-    value: z.string().optional(),
-    style: z.enum(['primary', 'danger']).optional()
-});
-
-const SlackBlockSchema = z.object({
-    type: z.string(),
-    block_id: z.string().optional(),
-    text: SlackBlockTextSchema.optional(),
-    elements: z.array(SlackBlockElementSchema).optional(),
-    accessory: SlackBlockElementSchema.optional(),
-    fields: z.array(SlackBlockTextSchema).optional()
-});
-
-// Inline schema definitions
-const PostMessageInput = z.object({
-    channel_id: z.string().describe('Channel, DM, or group to post to. Example: "C02MB5ZABA7"'),
-    text: z.string().describe('Message text content. Supports Slack markdown. Example: "Hello *world*!"'),
-    thread_ts: z.string().optional().describe('Parent message timestamp to reply in thread. Omit for top-level message. Example: "1763887648.424429"'),
-    blocks: z.array(SlackBlockSchema).optional().describe('Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit')
-});
-
-const MessageObject = z.object({
-    text: z.string().describe('The message text as stored'),
-    type: z.string().describe('Message type, typically "message"'),
-    user: z.string().describe('User ID who posted. Example: "U07E8G7J57T"')
-});
-
-const PostMessageOutput = z.object({
-    ok: z.boolean().describe('Whether the message was posted successfully'),
-    ts: z.string().describe('Timestamp of the posted message. Example: "1763887648.424429"'),
-    channel: z.string().describe('Channel where message was posted. Example: "C02MB5ZABA7"'),
-    message: MessageObject
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the API request succeeded'),
+    channel: z.string().describe('ID of the channel the message was sent to'),
+    ts: z.string().describe('Timestamp of the sent message'),
+    message: z
+        .object({
+            type: z.string().describe('Message type'),
+            subtype: z.string().optional().describe('Message subtype'),
+            text: z.string().describe('Text of the message'),
+            ts: z.string().describe('Timestamp of the message'),
+            username: z.string().optional().describe('Username of the sender'),
+            bot_id: z.string().optional().describe('ID of the bot if sent by bot')
+        })
+        .describe('The message object that was sent')
 });
 
 const action = createAction({
-    description: 'Posts a message to a public channel, private channel, or direct message.',
+    description: 'Post a message to a channel, DM, or thread',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/messages/post',
-        group: 'Messages'
+        path: '/actions/post-message',
+        group: 'Messaging'
     },
 
-    input: PostMessageInput,
-    output: PostMessageOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['chat:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof PostMessageOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/chat.postMessage
-            endpoint: 'chat.postMessage',
-            data: {
-                channel: input.channel_id,
-                text: input.text,
-                ...(input.thread_ts && { thread_ts: input.thread_ts }),
-                ...(input.blocks && { blocks: input.blocks })
-            },
-            retries: 3
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const payload: { channel: string; text: string; thread_ts?: string } = {
+            channel: input.channel,
+            text: input.text
         };
 
-        const response = await nango.post(config);
+        if (input.thread_ts) {
+            payload.thread_ts = input.thread_ts;
+        }
+
+        const response = await nango.post({
+            endpoint: 'chat.postMessage',
+            data: payload,
+            retries: 3
+        });
+
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_api_error',
+                message: response.data.error || 'Unknown Slack API error',
+                error: response.data.error
+            });
+        }
 
         return {
             ok: response.data.ok,
-            ts: response.data.ts,
             channel: response.data.channel,
+            ts: response.data.ts,
             message: {
-                text: response.data.message.text,
                 type: response.data.message.type,
-                user: response.data.message.user
+                subtype: response.data.message.subtype || undefined,
+                text: response.data.message.text,
+                ts: response.data.message.ts,
+                username: response.data.message.username || undefined,
+                bot_id: response.data.message.bot_id || undefined
             }
         };
     }

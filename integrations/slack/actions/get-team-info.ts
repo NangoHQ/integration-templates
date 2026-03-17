@@ -1,14 +1,11 @@
-/**
- * Instructions: Retrieves information about the workspace
- * API: https://api.slack.com/methods/team.info
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const Input = z.object({});
+const InputSchema = z.object({
+    // No input required for team.info
+});
 
-const SlackTeamIconSchema = z.object({
+const TeamIconSchema = z.object({
     image_default: z.boolean().optional(),
     image_34: z.string().optional(),
     image_44: z.string().optional(),
@@ -16,46 +13,72 @@ const SlackTeamIconSchema = z.object({
     image_88: z.string().optional(),
     image_102: z.string().optional(),
     image_132: z.string().optional(),
-    image_230: z.string().optional()
+    image_230: z.string().optional(),
+    image_original: z.string().optional()
 });
 
-const SlackTeamSchema = z.object({
+const TeamSchema = z.object({
     id: z.string(),
     name: z.string(),
-    url: z.string().optional(),
     domain: z.string(),
     email_domain: z.string().optional(),
-    icon: SlackTeamIconSchema.optional(),
-    avatar_base_url: z.string().optional(),
-    is_verified: z.boolean().optional()
+    icon: TeamIconSchema.optional()
 });
 
-const Output = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    team: SlackTeamSchema.describe('The team object with workspace details like name, domain, icon')
+const OutputSchema = z.object({
+    team: TeamSchema
 });
 
 const action = createAction({
-    description: 'Retrieves information about the workspace.',
+    description: 'Retrieve workspace details such as name, domain, and icon',
     version: '1.0.0',
+
     endpoint: {
         method: 'GET',
-        path: '/get-team-info',
-        group: 'Actions'
+        path: '/actions/get-team-info',
+        group: 'Team'
     },
-    input: Input,
-    output: Output,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['team:read'],
-    exec: async (nango, _input): Promise<z.infer<typeof Output>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/team.info
+
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/team.info
+        const response = await nango.get({
             endpoint: 'team.info',
             retries: 3
-        };
-        const response = await nango.get(config);
+        });
+
+        if (!response.data?.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to retrieve team info'
+            });
+        }
+
+        const team = response.data.team;
+
         return {
-            ok: response.data.ok,
-            team: response.data.team
+            team: {
+                id: team.id,
+                name: team.name,
+                domain: team.domain,
+                email_domain: team.email_domain ?? undefined,
+                icon: team.icon
+                    ? {
+                          image_default: team.icon.image_default ?? undefined,
+                          image_34: team.icon.image_34 ?? undefined,
+                          image_44: team.icon.image_44 ?? undefined,
+                          image_68: team.icon.image_68 ?? undefined,
+                          image_88: team.icon.image_88 ?? undefined,
+                          image_102: team.icon.image_102 ?? undefined,
+                          image_132: team.icon.image_132 ?? undefined,
+                          image_230: team.icon.image_230 ?? undefined,
+                          image_original: team.icon.image_original ?? undefined
+                      }
+                    : undefined
+            }
         };
     }
 });

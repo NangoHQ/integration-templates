@@ -1,52 +1,54 @@
-/**
- * Instructions: Updates a channels description or purpose.
- * API: https://api.slack.com/methods/conversations.setPurpose
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const SetChannelPurposeInput = z.object({
-    channel_id: z.string().describe('The channel to update. Example: "C02MB5ZABA7"'),
-    purpose: z.string().describe('The new purpose text. Example: "Discussion about project updates"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('Channel ID to set the purpose for. Example: "C1234567890"'),
+    purpose: z.string().describe('The new purpose text for the channel.')
 });
 
-const SetChannelPurposeOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    purpose: z.string().describe('The updated purpose text')
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the purpose was successfully updated'),
+    channel_id: z.string().describe('The ID of the channel that was updated'),
+    purpose: z.string().describe('The new purpose that was set')
 });
 
 const action = createAction({
-    description: "Updates a channel's description or purpose.",
+    description: "Update a channel's purpose text for a conversation",
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/channels/purpose',
+        path: '/actions/set-channel-purpose',
         group: 'Channels'
     },
 
-    input: SetChannelPurposeInput,
-    output: SetChannelPurposeOutput,
-    scopes: ['channels:write'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['chat:write', 'channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof SetChannelPurposeOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/conversations.setPurpose
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.slack.dev/reference/methods/conversations.setPurpose/
+        const response = await nango.post({
             endpoint: 'conversations.setPurpose',
             data: {
                 channel: input.channel_id,
                 purpose: input.purpose
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data?.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to set channel purpose',
+                channel_id: input.channel_id
+            });
+        }
 
         return {
-            ok: response.data.ok,
-            purpose: response.data.purpose
+            success: true,
+            channel_id: input.channel_id,
+            purpose: input.purpose
         };
     }
 });

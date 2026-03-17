@@ -1,49 +1,48 @@
-/**
- * Instructions: Lists users within a specific user group. API: https://api.slack.com/methods/usergroups.users.list. Input: usergroup: string. Output: ok: boolean, users: array.
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const ListUserGroupMembersInput = z.object({
-    usergroup: z.string().describe('The user group ID to get members for. Example: "S0614TZR7"')
+const InputSchema = z.object({
+    usergroup_id: z.string().describe('The encoded ID of the User Group. Example: "S0604QSJC"')
 });
 
-const ListUserGroupMembersOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    users: z.array(z.string()).describe('Array of user IDs in the group')
+const OutputSchema = z.object({
+    users: z.array(z.string()).describe('List of user IDs that are members of the user group')
 });
 
 const action = createAction({
-    description: 'Lists users within a specific user group.',
+    description: 'List member user IDs for a specific Slack user group',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/user-group-members',
+        path: '/actions/list-user-group-members',
         group: 'User Groups'
     },
 
-    input: ListUserGroupMembersInput,
-    output: ListUserGroupMembersOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['usergroups:read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof ListUserGroupMembersOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/usergroups.users.list
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/usergroups.users.list
+        const response = await nango.get({
             endpoint: 'usergroups.users.list',
             params: {
-                usergroup: input.usergroup
+                usergroup: input.usergroup_id
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
+        if (!response.data?.ok) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: response.data?.error || 'Failed to list user group members',
+                usergroup_id: input.usergroup_id
+            });
+        }
 
         return {
-            ok: response.data.ok,
-            users: response.data.users
+            users: response.data.users || []
         };
     }
 });

@@ -1,31 +1,64 @@
-import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { CustomObject } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
+
+const CustomObjectSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    objectTypeId: z.string().optional(),
+    fullyQualifiedName: z.string().optional(),
+    singularLabel: z.string().optional(),
+    pluralLabel: z.string().optional(),
+    description: z.string().optional(),
+    primaryDisplayProperty: z.string().optional(),
+    secondaryDisplayProperties: z.array(z.string()).optional(),
+    requiredProperties: z.array(z.string()).optional(),
+    searchableProperties: z.array(z.string()).optional()
+});
+
+const OutputSchema = z.object({
+    customObjects: z.array(CustomObjectSchema)
+});
 
 const action = createAction({
-    description: 'Fetch custom objects in Hubspot. Requires Hubspot enterprise',
+    description: 'Retrieve HubSpot custom object schemas for enterprise accounts',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/custom-objects'
+        path: '/actions/fetch-custom-objects',
+        group: 'CRM'
     },
 
-    input: z.void(),
-    output: CustomObject,
-    scopes: ['oauth', 'crm.schemas.custom.read'],
+    input: z.object({}),
+    output: OutputSchema,
+    scopes: ['crm.schemas.custom.read'],
 
-    exec: async (nango): Promise<CustomObject> => {
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/crm-custom-objects
-            endpoint: '/crm-object-schemas/v3/schemas',
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/crm-schemas-v3/core/get-crm-object-schemas-v3-schemas
+        const response = await nango.get({
+            endpoint: '/crm/v3/schemas',
             retries: 3
+        });
+
+        const results = response.data?.results || [];
+
+        const customObjects = results.map((schema: any) => ({
+            id: schema.objectTypeId || schema.fullyQualifiedName || '',
+            name: schema.name ?? undefined,
+            objectTypeId: schema.objectTypeId ?? undefined,
+            fullyQualifiedName: schema.fullyQualifiedName ?? undefined,
+            singularLabel: schema.labels?.singular ?? undefined,
+            pluralLabel: schema.labels?.plural ?? undefined,
+            description: schema.description ?? undefined,
+            primaryDisplayProperty: schema.primaryDisplayProperty ?? undefined,
+            secondaryDisplayProperties: schema.secondaryDisplayProperties || [],
+            requiredProperties: schema.requiredProperties || [],
+            searchableProperties: schema.searchableProperties || []
+        }));
+
+        return {
+            customObjects: customObjects
         };
-
-        const response = await nango.get(config);
-
-        return response.data;
     }
 });
 

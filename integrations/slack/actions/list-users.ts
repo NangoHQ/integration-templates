@@ -1,95 +1,61 @@
-/**
- * Instructions: Lists all users in a workspace including active and deactivated
- * API: https://api.slack.com/methods/users.list
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ListUsersInput = z.object({
-    limit: z.number().optional().describe('Maximum number of users to return. Default: 100'),
-    cursor: z.string().optional().describe('Pagination cursor from previous response')
-});
-
-const SlackUserProfileSchema = z.object({
-    title: z.string().optional(),
-    phone: z.string().optional(),
-    skype: z.string().optional(),
-    real_name: z.string().optional(),
-    real_name_normalized: z.string().optional(),
-    display_name: z.string().optional(),
-    display_name_normalized: z.string().optional(),
-    status_text: z.string().optional(),
-    status_emoji: z.string().optional(),
-    status_expiration: z.number().optional(),
-    avatar_hash: z.string().optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email: z.string().optional(),
-    image_24: z.string().optional(),
-    image_32: z.string().optional(),
-    image_48: z.string().optional(),
-    image_72: z.string().optional(),
-    image_192: z.string().optional(),
-    image_512: z.string().optional(),
-    team: z.string().optional()
-});
-
-const SlackUserSchema = z.object({
+const UserSchema = z.object({
     id: z.string(),
-    team_id: z.string().optional(),
-    name: z.string().optional(),
-    deleted: z.boolean().optional(),
-    color: z.string().optional(),
+    team_id: z.string(),
+    name: z.string(),
+    deleted: z.boolean(),
     real_name: z.string().optional(),
-    tz: z.string().optional(),
-    tz_label: z.string().optional(),
-    tz_offset: z.number().optional(),
-    profile: SlackUserProfileSchema.optional(),
-    is_admin: z.boolean().optional(),
-    is_owner: z.boolean().optional(),
-    is_primary_owner: z.boolean().optional(),
-    is_restricted: z.boolean().optional(),
-    is_ultra_restricted: z.boolean().optional(),
-    is_bot: z.boolean().optional(),
-    is_app_user: z.boolean().optional(),
-    updated: z.number().optional(),
-    is_email_confirmed: z.boolean().optional(),
-    who_can_share_contact_card: z.string().optional()
+    profile: z
+        .object({
+            real_name: z.string().optional(),
+            display_name: z.string().optional(),
+            email: z.string().optional(),
+            avatar_hash: z.string().optional(),
+            image_24: z.string().optional(),
+            image_32: z.string().optional(),
+            image_48: z.string().optional(),
+            image_72: z.string().optional(),
+            image_192: z.string().optional(),
+            image_512: z.string().optional()
+        })
+        .passthrough(),
+    is_admin: z.boolean(),
+    is_owner: z.boolean(),
+    is_bot: z.boolean(),
+    updated: z.number()
 });
 
-const ResponseMetadataSchema = z.object({
-    next_cursor: z.string().optional()
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from previous response. Omit for first page.')
 });
 
-const ListUsersOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    members: z.array(SlackUserSchema).describe('Array of user objects'),
-    response_metadata: ResponseMetadataSchema.describe('Pagination metadata including next_cursor')
+const OutputSchema = z.object({
+    items: z.array(UserSchema),
+    next_cursor: z.string().optional().describe('Pagination cursor for the next page. Omitted if no more pages.')
 });
 
 const action = createAction({
-    description: 'Lists all users in a workspace including active and deactivated.',
+    description: 'List all users in the workspace',
     version: '1.0.0',
 
     endpoint: {
-        method: 'GET',
-        path: '/users/list',
+        method: 'POST',
+        path: '/actions/list-users',
         group: 'Users'
     },
 
-    input: ListUsersInput,
-    output: ListUsersOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['users:read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof ListUsersOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/users.list
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://api.slack.com/methods/users.list
+        const config = {
             endpoint: 'users.list',
             params: {
-                ...(input.limit && { limit: input.limit.toString() }),
+                limit: '200',
                 ...(input.cursor && { cursor: input.cursor })
             },
             retries: 3
@@ -97,10 +63,40 @@ const action = createAction({
 
         const response = await nango.get(config);
 
+        if (!response.data || !response.data.members) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: 'Unexpected API response: missing members data'
+            });
+        }
+
+        const members = response.data.members.map((member: any) => ({
+            id: member.id,
+            team_id: member.team_id,
+            name: member.name,
+            deleted: member.deleted,
+            real_name: member.real_name ?? undefined,
+            profile: {
+                real_name: member.profile?.real_name ?? undefined,
+                display_name: member.profile?.display_name ?? undefined,
+                email: member.profile?.email ?? undefined,
+                avatar_hash: member.profile?.avatar_hash ?? undefined,
+                image_24: member.profile?.image_24 ?? undefined,
+                image_32: member.profile?.image_32 ?? undefined,
+                image_48: member.profile?.image_48 ?? undefined,
+                image_72: member.profile?.image_72 ?? undefined,
+                image_192: member.profile?.image_192 ?? undefined,
+                image_512: member.profile?.image_512 ?? undefined
+            },
+            is_admin: member.is_admin ?? false,
+            is_owner: member.is_owner ?? false,
+            is_bot: member.is_bot ?? false,
+            updated: member.updated ?? 0
+        }));
+
         return {
-            ok: response.data.ok,
-            members: response.data.members,
-            response_metadata: response.data.response_metadata
+            items: members,
+            next_cursor: response.data.response_metadata?.next_cursor || undefined
         };
     }
 });

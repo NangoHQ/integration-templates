@@ -1,0 +1,148 @@
+{
+  "input": {},
+  "output": {
+    "drives": [
+      {
+        "id": "0ANBaAC9ROv2CUk9PVA",
+        "name": "Last Test Drive",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0ALz9hO6TPQdfUk9PVA",
+        "name": "Nango Sync Shared Drives Seed 20260311-160100-1",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AG5rxzBd2cnPUk9PVA",
+        "name": "Nango Sync Shared Drives Seed 20260311-160105-2",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0ANMIbEwU0rO5Uk9PVA",
+        "name": "Nango Sync Shared Drives Seed 20260311-160122-3",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AE8DIszssF_uUk9PVA",
+        "name": "Nango Sync Shared Drives Seed Renamed 20260311-160326",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AObrA-qeMU0iUk9PVA",
+        "name": "Nango Sync Shared Drives Test 1",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AG2wVj8zi4gmUk9PVA",
+        "name": "Nango Sync Shared Drives Test 2",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AMhZJZkJUMchUk9PVA",
+        "name": "Nango Sync Shared Drives Test 3",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0ADH_VP_itL96Uk9PVA",
+        "name": "Nango Test Shared Drive",
+        "kind": "drive#drive"
+      },
+      {
+        "id": "0AMqgqeoRnQ4eUk9PVA",
+        "name": "Test Drive Final",
+        "kind": "drive#drive"
+      }
+    ],
+    "nextPageToken": "~!!~AI9FV7TXH1OSSrVrSmzTHFJ0XgiQFIQdTsPGdJmoZJMSgq7utgjeua6kZAavDwEhEhSsNVst_1-fbP7XUVZCym2Td6qxNT0UEMGV-Myk51SWz5Yje4G4LPuRhfX0YBZYiwsOfuRgtmU8kSUWmsMurQoe1leaMrYSFNOwC7KXklv1SDC9wcd2RUafQrgWjtaVztxOp59I0828"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/drive/v3/drives": {
+        "response": {
+          "drives": [
+            {
+              "kind": "drive#drive",
+              "id": "0ANBaAC9ROv2CUk9PVA",
+              "name": "Last Test Drive"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0ALz9hO6TPQdfUk9PVA",
+              "name": "Nango Sync Shared Drives Seed 20260311-160100-1"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AG5rxzBd2cnPUk9PVA",
+              "name": "Nango Sync Shared Drives Seed 20260311-160105-2"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0ANMIbEwU0rO5Uk9PVA",
+              "name": "Nango Sync Shared Drives Seed 20260311-160122-3"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AE8DIszssF_uUk9PVA",
+              "name": "Nango Sync Shared Drives Seed Renamed 20260311-160326"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AObrA-qeMU0iUk9PVA",
+              "name": "Nango Sync Shared Drives Test 1"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AG2wVj8zi4gmUk9PVA",
+              "name": "Nango Sync Shared Drives Test 2"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AMhZJZkJUMchUk9PVA",
+              "name": "Nango Sync Shared Drives Test 3"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0ADH_VP_itL96Uk9PVA",
+              "name": "Nango Test Shared Drive"
+            },
+            {
+              "kind": "drive#drive",
+              "id": "0AMqgqeoRnQ4eUk9PVA",
+              "name": "Test Drive Final"
+            }
+          ],
+          "kind": "drive#driveList",
+          "nextPageToken": "~!!~AI9FV7TXH1OSSrVrSmzTHFJ0XgiQFIQdTsPGdJmoZJMSgq7utgjeua6kZAavDwEhEhSsNVst_1-fbP7XUVZCym2Td6qxNT0UEMGV-Myk51SWz5Yje4G4LPuRhfX0YBZYiwsOfuRgtmU8kSUWmsMurQoe1leaMrYSFNOwC7KXklv1SDC9wcd2RUafQrgWjtaVztxOp59I0828"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:30:05 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1773300647",
+          "vary": "Origin, X-Origin",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "7d69ce99a6aa04c25ceeda1d6ab8c99bf6f09fb8",
+        "request": {}
+      }
+    }
+  }
+}
