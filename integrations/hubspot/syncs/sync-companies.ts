@@ -16,9 +16,83 @@ const CompanySchema = z.object({
     updatedAt: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
+const CompanyApiSchema = z.object({
+    id: z.string(),
+    properties: z
+        .object({
+            name: z.string().nullish(),
+            domain: z.string().nullish(),
+            industry: z.string().nullish(),
+            city: z.string().nullish(),
+            state: z.string().nullish(),
+            country: z.string().nullish(),
+            phone: z.string().nullish(),
+            website: z.string().nullish(),
+            description: z.string().nullish(),
+            createdate: z.string().nullish(),
+            hs_lastmodifieddate: z.string().nullish()
+        })
+        .nullish(),
+    createdAt: z.string().nullish(),
+    updatedAt: z.string().nullish()
+});
+
+const CompanyResponseSchema = z.object({
+    results: z.array(CompanyApiSchema).optional(),
+    paging: z
+        .object({
+            next: z
+                .object({
+                    after: z.string()
+                })
+                .optional()
+        })
+        .optional()
+});
+
+const HubspotCrmCheckpointSchema = z.object({
+    phase: z.string(),
+    after: z.string(),
     updatedAfter: z.string()
 });
+
+type HubspotCrmCheckpoint = {
+    phase: 'initial' | 'incremental';
+    after?: string;
+    updatedAfter?: string;
+};
+
+function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undefined {
+    const result = HubspotCrmCheckpointSchema.safeParse(value);
+    if (!result.success) {
+        return undefined;
+    }
+
+    const { phase, after, updatedAfter } = result.data;
+    if (phase !== 'initial' && phase !== 'incremental') {
+        return undefined;
+    }
+
+    const checkpoint: HubspotCrmCheckpoint = { phase };
+
+    if (after) {
+        checkpoint.after = after;
+    }
+
+    if (updatedAfter) {
+        checkpoint.updatedAfter = updatedAfter;
+    }
+
+    return checkpoint;
+}
+
+function updateLatestUpdatedAt(current: string | undefined, candidate: string | null | undefined): string | undefined {
+    if (!candidate) {
+        return current;
+    }
+
+    return !current || candidate > current ? candidate : current;
+}
 
 const sync = createSync({
     description: 'Sync companies from HubSpot CRM',
@@ -32,66 +106,139 @@ const sync = createSync({
     ],
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
+    checkpoint: HubspotCrmCheckpointSchema,
 
     models: {
         Company: CompanySchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
+        const checkpoint = parseHubspotCrmCheckpoint(await nango.getCheckpoint());
+        const shouldUseInitialListSync = checkpoint?.phase !== 'incremental' || !checkpoint.updatedAfter;
 
-        // Use HubSpot search API to filter by last modified date for incremental sync
-        // https://developers.hubspot.com/docs/api/crm/search
-        const searchBody: any = {
-            limit: 100,
-            properties: ['name', 'domain', 'industry', 'city', 'state', 'country', 'phone', 'website', 'description', 'createdate', 'hs_lastmodifieddate'],
-            sorts: [
-                {
-                    propertyName: 'hs_lastmodifieddate',
-                    direction: 'ASCENDING'
+        if (shouldUseInitialListSync) {
+            let after = checkpoint?.after;
+            let latestUpdatedAt = checkpoint?.updatedAfter;
+            let hasMore = true;
+
+            while (hasMore) {
+                // https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/get-crm-v3-objects-companies
+                const response = await nango.get({
+                    endpoint: '/crm/v3/objects/companies',
+                    params: {
+                        limit: '100',
+                        properties: 'name,domain,industry,city,state,country,phone,website,description,createdate,hs_lastmodifieddate',
+                        ...(after && { after })
+                    },
+                    retries: 3
+                });
+
+                const data = CompanyResponseSchema.parse(response.data);
+                const companies = data.results || [];
+
+                if (companies.length === 0) {
+                    break;
                 }
-            ]
-        };
 
-        // If we have a checkpoint, filter to only get records modified since then
-        if (checkpoint?.['updatedAfter']) {
-            searchBody.filterGroups = [
-                {
-                    filters: [
-                        {
-                            propertyName: 'hs_lastmodifieddate',
-                            operator: 'GT',
-                            value: checkpoint['updatedAfter']
-                        }
-                    ]
+                const records = companies.map((company) => {
+                    const props = company.properties || {};
+
+                    return {
+                        id: company.id,
+                        name: props.name ?? undefined,
+                        domain: props.domain ?? undefined,
+                        industry: props.industry ?? undefined,
+                        city: props.city ?? undefined,
+                        state: props.state ?? undefined,
+                        country: props.country ?? undefined,
+                        phone: props.phone ?? undefined,
+                        website: props.website ?? undefined,
+                        description: props.description ?? undefined,
+                        createdAt: company.createdAt ?? props.createdate ?? undefined,
+                        updatedAt: company.updatedAt ?? props.hs_lastmodifieddate ?? undefined
+                    };
+                });
+
+                await nango.batchSave(records, 'Company');
+
+                latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
+
+                const nextAfter = data.paging?.next?.after;
+
+                if (nextAfter) {
+                    await nango.saveCheckpoint({
+                        phase: 'initial',
+                        after: nextAfter,
+                        updatedAfter: latestUpdatedAt || ''
+                    });
+                    after = nextAfter;
+                    continue;
                 }
-            ];
-        }
 
-        let after: string | undefined;
-        let latestUpdatedAt: string | undefined;
+                if (latestUpdatedAt) {
+                    await nango.saveCheckpoint({
+                        phase: 'incremental',
+                        after: '',
+                        updatedAfter: latestUpdatedAt
+                    });
+                }
 
-        do {
-            if (after) {
-                searchBody.after = after;
+                hasMore = false;
             }
 
+            return;
+        }
+
+        const updatedAfter = checkpoint.updatedAfter;
+        let after = checkpoint.after;
+        let latestUpdatedAt = updatedAfter;
+        let hasMore = true;
+
+        while (hasMore) {
+            const searchBody: Record<string, unknown> = {
+                limit: 100,
+                properties: ['name', 'domain', 'industry', 'city', 'state', 'country', 'phone', 'website', 'description', 'createdate', 'hs_lastmodifieddate'],
+                sorts: [
+                    {
+                        propertyName: 'hs_lastmodifieddate',
+                        direction: 'ASCENDING'
+                    }
+                ],
+                filterGroups: [
+                    {
+                        filters: [
+                            {
+                                propertyName: 'hs_lastmodifieddate',
+                                operator: 'GT',
+                                value: updatedAfter
+                            }
+                        ]
+                    }
+                ],
+                ...(after && { after })
+            };
+
+            // Incremental syncs use search so they can filter by last modified date.
+            // HubSpot search queries are capped at 10,000 total results; paging past that returns a 400 and can leave this incremental sync incomplete.
+            // Template users should narrow the search window/filter strategy to fit their data volume before relying on this template.
+            // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
             const response = await nango.post({
                 endpoint: '/crm/v3/objects/companies/search',
                 data: searchBody,
                 retries: 3
             });
 
-            const companies = response.data.results || [];
+            const data = CompanyResponseSchema.parse(response.data);
+            const companies = data.results || [];
 
             if (companies.length === 0) {
                 break;
             }
 
-            const records = companies.map((company: any) => {
+            const records = companies.map((company) => {
                 const props = company.properties || {};
-                const record = {
+
+                return {
                     id: company.id,
                     name: props.name ?? undefined,
                     domain: props.domain ?? undefined,
@@ -102,32 +249,37 @@ const sync = createSync({
                     phone: props.phone ?? undefined,
                     website: props.website ?? undefined,
                     description: props.description ?? undefined,
-                    createdAt: props.createdate ?? undefined,
-                    updatedAt: props['hs_lastmodifieddate'] ?? undefined
+                    createdAt: company.createdAt ?? props.createdate ?? undefined,
+                    updatedAt: company.updatedAt ?? props.hs_lastmodifieddate ?? undefined
                 };
-
-                // Track the latest updated_at for checkpoint
-                if (props['hs_lastmodifieddate']) {
-                    if (!latestUpdatedAt || props['hs_lastmodifieddate'] > latestUpdatedAt) {
-                        latestUpdatedAt = props['hs_lastmodifieddate'];
-                    }
-                }
-
-                return record;
             });
 
             await nango.batchSave(records, 'Company');
 
-            // Get next page cursor
-            after = response.data.paging?.next?.after;
+            latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
 
-            // Save checkpoint after each batch
+            const nextAfter = data.paging?.next?.after;
+
+            if (nextAfter) {
+                await nango.saveCheckpoint({
+                    phase: 'incremental',
+                    after: nextAfter,
+                    updatedAfter: updatedAfter || ''
+                });
+                after = nextAfter;
+                continue;
+            }
+
             if (latestUpdatedAt) {
                 await nango.saveCheckpoint({
+                    phase: 'incremental',
+                    after: '',
                     updatedAfter: latestUpdatedAt
                 });
             }
-        } while (after);
+
+            hasMore = false;
+        }
     }
 });
 

@@ -1,7 +1,7 @@
 {
   "input": {},
   "output": {
-    "deletedCount": 2,
+    "success": true,
     "calendarId": "primary"
   },
   "nango": {},
@@ -161,6 +161,15 @@
           "x-ratelimit-reset": "1773301433"
         },
         "hash": "4670be3f3fb4ff562e83a78de2496782c8afe8fa",
+        "request": {}
+      }
+    },
+    "post": {
+      "/calendar/v3/calendars/primary/clear": {
+        "response": "",
+        "status": 204,
+        "headers": {},
+        "hash": "dc97df4f672a34cb85a3d2872e856bf1fe12360b",
         "request": {}
       }
     }

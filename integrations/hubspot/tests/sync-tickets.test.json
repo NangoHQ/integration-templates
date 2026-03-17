@@ -207,8 +207,8 @@
     }
   },
   "api": {
-    "post": {
-      "/crm/v3/objects/tickets/search": {
+    "get": {
+      "/crm/v3/objects/tickets": {
         "response": {
           "results": [
             {
@@ -611,7 +611,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:37:42 GMT",
+          "date": "Wed, 18 Mar 2026 10:54:47 GMT",
           "content-type": "application/json;charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -625,45 +625,29 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4829",
-          "x-ratelimit-reset": "1773301069",
-          "cf-ray": "9db1229a38fe3416-PDX",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1773831292",
+          "cf-ray": "9de3b38858b68864-PDX",
           "cf-cache-status": "DYNAMIC",
           "vary": "origin, accept-encoding",
           "access-control-allow-credentials": "false",
-          "server-timing": "hcid;desc=\"69b26d46-0000-0000-6006-92b4250cdfd2\", cfr;desc=\"9db1229a41c73416-FRA\"",
-          "x-hubspot-correlation-id": "69b26d46-0000-0000-6006-92b4250cdfd2",
+          "server-timing": "hcid;desc=\"69ba8477-0000-0000-01d9-b408ffc20aec\", cfr;desc=\"9de3b38861398864-FRA\"",
+          "x-hubspot-correlation-id": "69ba8477-0000-0000-01d9-b408ffc20aec",
           "x-hubspot-ratelimit-interval-milliseconds": "10000",
           "x-hubspot-ratelimit-max": "110",
-          "x-hubspot-ratelimit-remaining": "85",
+          "x-hubspot-ratelimit-remaining": "108",
           "x-hubspot-ratelimit-secondly": "11",
-          "x-hubspot-ratelimit-secondly-remaining": "8",
-          "set-cookie": "__cf_bm=KJJSoo95pOZKJUVFK8zM5K8Oya0wwhJ6qAuZXd9OKNo-1773301062-1.0.1.1-1JPccuI3XOEmkPfZ9fJ8nuzaQgwXlEtVy.jqg7oxmOVhfrXgWgLtVWM3hHnYFACfuOX2Ucy88lz1HCqb_Xo6yZSX1FhZoZyzsbmXeCFPc2A; path=/; expires=Thu, 12-Mar-26 08:07:42 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
-          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=4QK1hVCwqU71z5FHYdun6UBxsjQ8oRF7M3FLK1LjD%2BZdd%2Fb0Y9n1BXGwYvnbQ2Xl6dTxAx9J%2FPlbvg6tcrMuuW15gkIbwcIQJjKf%2BX9KY8THeIBNwXMe3JK0UsyJFVbp\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=7qV2czld6jHFj2kVCgoroJoTP5TPTCbpWnpK3oVaflc-1773831287-1.0.1.1-k50nUKii0qaj3sZ.i37nr5GYq8vP6iBxyT8MDS4fFdZVekyBkv.QTkcZwhOpqLZKgsKof0IoEMfqoZnbrupTiJZg_RMInptAlZelhJ.m8dc; path=/; expires=Wed, 18-Mar-26 11:24:47 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=jSfHKJJT9z305WVmKkMSFLrsH7IrnF9RlmauYq6TQfColyjnadvv47EMRqs6ALDfwZw0J6C36u%2Bxq5Ufs%2FmmIw%2BvOOdoK8pHdesUzusXhUI%2FnSAWDxWc5jylkAN%2BNc9W\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
           "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
           "server": "cloudflare"
         },
-        "hash": "5248865acca30e7686d21a1b67f13e71816ec2e9",
+        "hash": "4d8da21cc63d4e60473780a682478be7a4711382",
         "request": {
-          "data": {
-            "limit": 100,
-            "properties": [
-              "subject",
-              "content",
-              "hubspot_owner_id",
-              "hs_pipeline",
-              "hs_pipeline_stage",
-              "hs_category",
-              "hs_ticket_priority",
-              "createdate",
-              "hs_lastmodifieddate"
-            ],
-            "sorts": [
-              {
-                "propertyName": "hs_lastmodifieddate",
-                "direction": "ASCENDING"
-              }
-            ]
+          "params": {
+            "limit": "100",
+            "properties": "subject,content,hubspot_owner_id,hs_pipeline,hs_pipeline_stage,hs_category,hs_ticket_priority,createdate,hs_lastmodifieddate"
           }
         }
       }

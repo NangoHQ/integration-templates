@@ -1,4 +1,4 @@
-import { vi, expect, it, describe, beforeEach } from 'vitest';
+import { vi, expect, it, describe } from 'vitest';
 
 import createAction from '../actions/whoami.js';
 
@@ -7,16 +7,6 @@ describe('hubspot whoami tests', () => {
         dirname: __dirname,
         name: 'whoami',
         Model: 'ActionOutput_hubspot_whoami'
-    });
-
-    beforeEach(() => {
-        // Mock getConnection to return credentials with access_token
-        vi.spyOn(nangoMock, 'getConnection').mockResolvedValue({
-            credentials: {
-                access_token:
-                    'CNH3xIjOMxJuQlNQMl8kQEwrAmEACAIDBAIGAQMFAwIIAQIEAwMBAQEBAgMBAQEXBAEBAQEBAQEBBgEBAQERAQEBAQENCwsBAQEBAQUBDQECAQIBAQEBAQUBAQEaAQEBAQEBAQQCAQEBAQEBAQEBAQMLAQcBBgEYptjCRiDvvq4qKNKP2AgyFMdke4gFecMIpPJNioiWFz618zlKOvABQlNQMl8kQEwrA0EBFR8NRwx0BaoBB-gBBfoBCYcCC5QCBsACBMkCFfUCBpgDE_4DF58EBd0EC-kEBO8ECPkFIKwGGOEGBosHBgsOExlYbm9_gAGGAYoBiwGQAaYBsgGzAbYBuwHBAcMBywHMAdwB3QHeAeMB5AHlAccC7QLuAvAC8QLyAsgDyQPSA94D4APhA-QD7APtA-4D8APyA_sD_AOWBJcEmQSdBKUEpwSoBPkE-gT_BIIFgwWFBYYFhwWMBacGqAapBsYGxwbJBsoGywaYB5wHogejB6QH540Ft5kFuJkFlZoFkqUFk6UFiMIFQhSItlyxtXlnm1IZJhPXrc6YGcav1EoDZXUxUgBaAGAAaO--ripwAHgA'
-            }
-        } as any);
     });
 
     it('should output the action output that is expected', async () => {

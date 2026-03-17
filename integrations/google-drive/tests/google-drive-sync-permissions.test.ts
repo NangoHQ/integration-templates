@@ -1,62 +1,30 @@
-import { vi, expect, it, describe } from 'vitest';
+import { afterEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/sync-permissions.js';
 
 describe('google-drive sync-permissions tests', () => {
     const models = 'Permission'.split(',');
-    const FIXTUREFILELIMIT = 10;
 
-    function createNangoMock() {
+    const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
             name: 'sync-permissions',
             Model: 'Permission'
         });
-        const originalPaginate = nangoMock.paginate.bind(nangoMock);
 
-        // The saved fixture only includes permission mocks for the first 10 files.
-        (nangoMock as typeof nangoMock & { paginate: typeof nangoMock.paginate }).paginate = async function* (config: any) {
-            if (config?.endpoint === '/drive/v3/files') {
-                let yielded = 0;
+        return {
+            nangoMock,
+            batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')
+        };
+    };
 
-                for await (const batch of originalPaginate(config)) {
-                    if (!Array.isArray(batch)) {
-                        yield batch;
-                        continue;
-                    }
-
-                    const remaining = FIXTUREFILELIMIT - yielded;
-                    if (remaining <= 0) {
-                        return;
-                    }
-
-                    const limitedBatch = batch.slice(0, remaining);
-                    if (limitedBatch.length === 0) {
-                        return;
-                    }
-
-                    yielded += limitedBatch.length;
-                    yield limitedBatch;
-
-                    if (yielded >= FIXTUREFILELIMIT) {
-                        return;
-                    }
-                }
-
-                return;
-            }
-
-            for await (const batch of originalPaginate(config)) {
-                yield batch;
-            }
-        } as typeof nangoMock.paginate;
-
-        return nangoMock;
-    }
+    afterEach(() => {
+        vi.clearAllMocks();
+        vi.restoreAllMocks();
+    });
 
     it('should get, map correctly the data and batchSave the result', async () => {
-        const nangoMock = createNangoMock();
-        const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
+        const { nangoMock, batchSaveSpy } = createTestContext();
 
         await createSync.exec(nangoMock);
 
@@ -71,6 +39,9 @@ describe('google-drive sync-permissions tests', () => {
                 return [];
             });
 
+            // Normalize spy-captured args into plain JSON so they compare cleanly
+            // with fixture data loaded from `*.test.json`.
+            // Removes things like prototypes, undefined values and other non-serializable data.
             const spied = JSON.parse(JSON.stringify(spiedData));
 
             expect(spied).toStrictEqual(expectedBatchSaveData);
@@ -78,7 +49,7 @@ describe('google-drive sync-permissions tests', () => {
     });
 
     it('should get, map correctly the data and batchDelete the result', async () => {
-        const nangoMock = createNangoMock();
+        const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
 
         await createSync.exec(nangoMock);
@@ -94,6 +65,9 @@ describe('google-drive sync-permissions tests', () => {
                     return [];
                 });
 
+                // Normalize spy-captured args into plain JSON so they compare cleanly
+                // with fixture data loaded from `*.test.json`.
+                // Removes things like prototypes, undefined values and other non-serializable data.
                 const spied = JSON.parse(JSON.stringify(spiedData));
 
                 expect(spied).toStrictEqual(batchDeleteData);
