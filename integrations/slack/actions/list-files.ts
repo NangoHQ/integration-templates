@@ -1,105 +1,100 @@
-/**
- * Lists files in a workspace with optional filtering.
- *
- * API: https://api.slack.com/methods/files.list
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Response type for file objects from Slack API
-interface SlackFile {
-    id: string;
-    name?: string;
-    title?: string;
-    mimetype?: string;
-    filetype?: string;
-    size?: number;
-    created?: number;
-    timestamp?: number;
-}
-
-const ListFilesInput = z.object({
-    channel_id: z.string().optional().describe('Filter by channel. Example: "C02MB5ZABA7"'),
-    user_id: z.string().optional().describe('Filter by user who created the file. Example: "U02MDCKS1N0"'),
-    types: z.string().optional().describe('Filter by file types. Example: "images,pdfs"'),
-    count: z.number().optional().describe('Number of files to return per page. Default: 100'),
-    page: z.number().optional().describe('Page number of results. Default: 1')
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from previous response. Omit for first page.'),
+    channel_id: z.string().optional().describe('Channel ID to filter files by channel. Example: "C1234567890"'),
+    limit: z.number().optional().describe('Maximum number of files to return per page. Default: 100. Max: 200.')
 });
 
 const FileSchema = z.object({
-    id: z.string().describe('The file ID'),
-    name: z.union([z.string(), z.null()]).describe('The filename'),
-    title: z.union([z.string(), z.null()]).describe('The file title'),
-    mimetype: z.union([z.string(), z.null()]).describe('The MIME type'),
-    filetype: z.union([z.string(), z.null()]).describe('The file type extension'),
-    size: z.union([z.number(), z.null()]).describe('File size in bytes'),
-    created: z.union([z.number(), z.null()]).describe('Unix timestamp when file was created'),
-    timestamp: z.union([z.number(), z.null()]).describe('Unix timestamp of the file')
+    id: z.string(),
+    name: z.string(),
+    title: z.string().optional(),
+    url_private: z.string().optional(),
+    filetype: z.string(),
+    size: z.number(),
+    created: z.number(),
+    user: z.string(),
+    channels: z.array(z.string()).optional()
 });
 
-const PagingSchema = z.object({
-    count: z.number().describe('Number of files per page'),
-    total: z.number().describe('Total number of files'),
-    page: z.number().describe('Current page number'),
-    pages: z.number().describe('Total number of pages')
-});
-
-const ListFilesOutput = z.object({
-    ok: z.boolean().describe('Whether the request was successful'),
-    files: z.array(FileSchema).describe('Array of file objects'),
-    paging: PagingSchema.describe('Pagination information')
+const OutputSchema = z.object({
+    files: z.array(FileSchema),
+    next_cursor: z.string().optional(),
+    total: z.number().optional()
 });
 
 const action = createAction({
-    description: 'Lists files in a workspace with optional filtering.',
+    description: 'List files shared in the workspace',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/files/list',
+        path: '/actions/list-files',
         group: 'Files'
     },
 
-    input: ListFilesInput,
-    output: ListFilesOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['files:read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof ListFilesOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://api.slack.com/methods/files.list
-            endpoint: 'files.list',
-            params: {
-                ...(input.channel_id && { channel: input.channel_id }),
-                ...(input.user_id && { user: input.user_id }),
-                ...(input.types && { types: input.types }),
-                ...(input.count && { count: input.count.toString() }),
-                ...(input.page && { page: input.page.toString() })
-            },
-            retries: 3
-        };
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const params: Record<string, string | number> = {};
 
-        const response = await nango.get(config);
+        if (input.cursor) {
+            params['cursor'] = input.cursor;
+        }
+        if (input.channel_id) {
+            params['channel'] = input.channel_id;
+        }
+        if (input.limit) {
+            params['limit'] = input.limit;
+        }
+
+        // https://api.slack.dev/apis/files/list
+        const response = await nango.get({
+            endpoint: 'files.list',
+            params,
+            retries: 3
+        });
+
+        if (!response.data || !response.data.files) {
+            return {
+                files: [],
+                next_cursor: undefined,
+                total: 0
+            };
+        }
+
+        const files = response.data.files.map(
+            (file: {
+                id: string;
+                name: string;
+                title?: string;
+                url_private?: string;
+                filetype: string;
+                size: number;
+                created: number;
+                user: string;
+                channels?: string[];
+            }) => ({
+                id: file.id,
+                name: file.name,
+                title: file.title,
+                url_private: file.url_private,
+                filetype: file.filetype,
+                size: file.size,
+                created: file.created,
+                user: file.user,
+                channels: file.channels
+            })
+        );
 
         return {
-            ok: response.data.ok,
-            files: response.data.files.map((file: SlackFile) => ({
-                id: file.id,
-                name: file.name ?? null,
-                title: file.title ?? null,
-                mimetype: file.mimetype ?? null,
-                filetype: file.filetype ?? null,
-                size: file.size ?? null,
-                created: file.created ?? null,
-                timestamp: file.timestamp ?? null
-            })),
-            paging: {
-                count: response.data.paging.count,
-                total: response.data.paging.total,
-                page: response.data.paging.page,
-                pages: response.data.paging.pages
-            }
+            files,
+            next_cursor: response.data.paging?.cursor || undefined,
+            total: response.data.paging?.total || files.length
         };
     }
 });

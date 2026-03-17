@@ -1,38 +1,79 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { CreatedUser, CreateUser } from '../models.js';
+
+const InputSchema = z.object({
+    email: z.string().email().describe('The email address of the user to create. Example: "user@example.com"'),
+    firstName: z.string().optional().describe('The first name of the user. Example: "John"'),
+    lastName: z.string().optional().describe('The last name of the user. Example: "Doe"'),
+    roleId: z.string().optional().describe('The ID of the role/permission set to assign to the user. Example: "12345"'),
+    teamId: z.string().optional().describe('The ID of the primary team to assign the user to. Example: "67890"'),
+    sendWelcomeEmail: z.boolean().optional().describe('Whether to send a welcome email to the user. Defaults to true if not specified.')
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    email: z.string(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    roleId: z.string().optional(),
+    teamId: z.string().optional(),
+    createdAt: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Creates a single user in Hubspot',
+    description: 'Provision a HubSpot user with email, role, and team assignments',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/users',
+        path: '/actions/create-user',
         group: 'Users'
     },
 
-    input: CreateUser,
-    output: CreatedUser,
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['settings.users.write', 'settings.users.teams.write'],
 
-    scopes: ['oauth', 'settings.users.write (standard scope)', 'crm.objects.users.write (granular)'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/settings-user-provisioning-v3/users/post-settings-v3-users-
+        const requestBody: Record<string, any> = {
+            email: input.email,
+            sendWelcomeEmail: input.sendWelcomeEmail ?? true
+        };
 
-    exec: async (nango, input): Promise<CreatedUser> => {
-        if (!input.email) {
-            throw new nango.ActionError({
-                message: 'Email is required'
-            });
+        if (input.firstName) {
+            requestBody['firstName'] = input.firstName;
         }
 
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/settings/user-provisioning
-            endpoint: `/settings/v3/users`,
-            data: input,
-            retries: 3
-        };
-        const response = await nango.post(config);
+        if (input.lastName) {
+            requestBody['lastName'] = input.lastName;
+        }
 
-        return response.data;
+        if (input.roleId) {
+            requestBody['roleId'] = input.roleId;
+        }
+
+        if (input.teamId) {
+            requestBody['teamId'] = input.teamId;
+        }
+
+        const response = await nango.post({
+            endpoint: '/settings/v3/users/',
+            data: requestBody,
+            retries: 3
+        });
+
+        const data = response.data;
+
+        return {
+            id: data.id,
+            email: data.email,
+            firstName: data['firstName'] ?? undefined,
+            lastName: data['lastName'] ?? undefined,
+            roleId: data['roleId'] ?? undefined,
+            teamId: data['teamId'] ?? undefined,
+            createdAt: data['createdAt'] ?? undefined
+        };
     }
 });
 

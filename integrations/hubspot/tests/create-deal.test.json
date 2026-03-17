@@ -1,0 +1,93 @@
+{
+  "input": {
+    "dealName": "Test Deal for Validation",
+    "amount": 10000
+  },
+  "output": {
+    "id": "493561802994",
+    "dealName": "Test Deal for Validation",
+    "amount": 10000,
+    "createdAt": "2026-03-12T07:34:03.846Z",
+    "updatedAt": "2026-03-12T07:34:03.846Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/crm/v3/objects/deals": {
+        "response": {
+          "id": "493561802994",
+          "properties": {
+            "amount": "10000",
+            "amount_in_home_currency": "10000",
+            "createdate": "2026-03-12T07:34:03.846Z",
+            "days_to_close": "0",
+            "dealname": "Test Deal for Validation",
+            "hs_closed_amount": "0",
+            "hs_closed_amount_in_home_currency": "0",
+            "hs_closed_won_count": "0",
+            "hs_createdate": "2026-03-12T07:34:03.846Z",
+            "hs_days_to_close_raw": "0",
+            "hs_deal_stage_probability_shadow": "0",
+            "hs_forecast_amount": "10000",
+            "hs_has_last_conversation_follow_ups": "false",
+            "hs_has_last_meeting_followups": "false",
+            "hs_is_closed_lost": "false",
+            "hs_is_closed_won": "false",
+            "hs_is_deal_split": "false",
+            "hs_lastmodifieddate": "2026-03-12T07:34:03.846Z",
+            "hs_num_associated_active_deal_registrations": "0",
+            "hs_num_associated_deal_registrations": "0",
+            "hs_num_associated_deal_splits": "0",
+            "hs_num_of_associated_line_items": "0",
+            "hs_num_target_accounts": "0",
+            "hs_number_of_call_engagements": "0",
+            "hs_number_of_inbound_calls": "0",
+            "hs_number_of_outbound_calls": "0",
+            "hs_number_of_overdue_tasks": "0",
+            "hs_object_id": "493561802994",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_projected_amount": "0",
+            "hs_projected_amount_in_home_currency": "0",
+            "num_associated_contacts": "0",
+            "num_notes": "0"
+          },
+          "createdAt": "2026-03-12T07:34:03.846Z",
+          "updatedAt": "2026-03-12T07:34:03.846Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-3/493561802994"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:34:04 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1385",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4897",
+          "x-ratelimit-reset": "1773300888",
+          "etag": "W/\"569-rV0uzKvN1T/7Zfr8o0khV7firQ8\""
+        },
+        "hash": "391094d7eebaa080f3f2fb1613ee3ba7088ced2c",
+        "request": {
+          "data": {
+            "properties": {
+              "dealname": "Test Deal for Validation",
+              "amount": 10000
+            }
+          }
+        }
+      }
+    }
+  }
+}

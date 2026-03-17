@@ -1,0 +1,100 @@
+{
+  "input": {
+    "dealId": "493593663734",
+    "dealname": "Updated Test Deal",
+    "amount": 15000,
+    "closedate": "2026-12-31",
+    "dealstage": "qualifiedtobuy"
+  },
+  "output": {
+    "id": "493593663734",
+    "dealname": "Updated Test Deal",
+    "amount": 15000,
+    "closedate": "2026-12-31T00:00:00Z",
+    "dealstage": "qualifiedtobuy",
+    "pipeline": "default",
+    "createdAt": "2026-03-12T07:36:06.332Z",
+    "updatedAt": "2026-03-12T07:36:23.415Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/deals/493593663734": {
+        "response": {
+          "id": "493593663734",
+          "properties": {
+            "amount": "15000",
+            "amount_in_home_currency": "15000",
+            "closedate": "2026-12-31T00:00:00Z",
+            "createdate": "2026-03-12T07:36:06.332Z",
+            "days_to_close": "293",
+            "dealname": "Updated Test Deal",
+            "dealstage": "qualifiedtobuy",
+            "hs_actual_duration": "25374233668",
+            "hs_closed_amount": "0",
+            "hs_closed_amount_in_home_currency": "0",
+            "hs_closed_deal_close_date": "0",
+            "hs_closed_deal_create_date": "0",
+            "hs_closed_won_count": "0",
+            "hs_days_to_close_raw": "293.68326",
+            "hs_deal_stage_probability": "0.40000000000000002220446049250313080847263336181640625",
+            "hs_deal_stage_probability_shadow": "0.40000000000000002220446049250313080847263336181640625",
+            "hs_forecast_amount": "15000",
+            "hs_is_closed": "false",
+            "hs_is_closed_count": "0",
+            "hs_is_closed_won": "false",
+            "hs_is_open_count": "1",
+            "hs_lastmodifieddate": "2026-03-12T07:36:23.415Z",
+            "hs_object_id": "493593663734",
+            "hs_object_source": "INTEGRATION",
+            "hs_object_source_id": "18221010",
+            "hs_object_source_label": "INTEGRATION",
+            "hs_open_amount_in_home_currency": "15000",
+            "hs_open_deal_create_date": "1773300966332",
+            "hs_projected_amount": "6000.00000000000033306690738754696212708950042724609375000",
+            "hs_projected_amount_in_home_currency": "6000.00000000000033306690738754696212708950042724609375000",
+            "hs_v2_date_entered_current_stage": "2026-03-12T07:36:20.305Z",
+            "hs_v2_time_in_current_stage": "2026-03-12T07:36:20.305Z",
+            "hs_weighted_pipeline_in_company_currency": "6000.00000000000033306690738754696212708950042724609375000",
+            "pipeline": "default"
+          },
+          "createdAt": "2026-03-12T07:36:06.332Z",
+          "updatedAt": "2026-03-12T07:36:23.415Z",
+          "archived": false,
+          "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-3/493593663734"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:36:31 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1644",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4872",
+          "x-ratelimit-reset": "1773301008",
+          "etag": "W/\"66c-4LkhxvX6BQhriTWwx7amywgPC5k\""
+        },
+        "hash": "bb6b36d37c66527f1eccf7d32ab8417e56bbb6c5",
+        "request": {
+          "data": {
+            "properties": {
+              "dealname": "Updated Test Deal",
+              "amount": 15000,
+              "closedate": "2026-12-31",
+              "dealstage": "qualifiedtobuy"
+            }
+          }
+        }
+      }
+    }
+  }
+}

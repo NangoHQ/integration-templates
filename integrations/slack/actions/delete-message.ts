@@ -1,40 +1,33 @@
-/**
- * Instructions: Removes a message from a conversation.
- * API: https://api.slack.com/methods/chat.delete
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const DeleteMessageInput = z.object({
-    channel_id: z.string().describe('The channel containing the message. Example: "C02MB5ZABA7"'),
-    message_ts: z.string().describe('Timestamp of the message to delete. Example: "1764187268.105539"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('Channel ID containing the message. Example: "C1234567890"'),
+    message_ts: z.string().describe('Timestamp of the message to delete. Example: "1405894322.002768"')
 });
 
-const DeleteMessageOutput = z.object({
-    ok: z.boolean().describe('Whether the message was deleted successfully'),
-    ts: z.string().describe('Timestamp of the deleted message'),
-    channel: z.string().describe('Channel where the message was deleted')
+const OutputSchema = z.object({
+    ok: z.boolean(),
+    channel: z.string(),
+    ts: z.string()
 });
 
 const action = createAction({
-    description: 'Removes a message from a conversation.',
+    description: 'Delete a message from a channel',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/messages/delete',
+        path: '/actions/delete-message',
         group: 'Messages'
     },
 
-    input: DeleteMessageInput,
-    output: DeleteMessageOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['chat:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof DeleteMessageOutput>> => {
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
             // https://api.slack.com/methods/chat.delete
             endpoint: 'chat.delete',
             data: {
@@ -42,14 +35,20 @@ const action = createAction({
                 ts: input.message_ts
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data.ok) {
+            throw new nango.ActionError({
+                type: 'slack_api_error',
+                message: response.data.error || 'Failed to delete message',
+                error: response.data.error
+            });
+        }
 
         return {
             ok: response.data.ok,
-            ts: response.data.ts,
-            channel: response.data.channel
+            channel: response.data.channel,
+            ts: response.data.ts
         };
     }
 });

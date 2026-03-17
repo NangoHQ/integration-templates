@@ -1,41 +1,72 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { UpdateContactInputSchema } from '../schema.js';
-import { createUpdatetoContact, toHubspotContact } from '../mappers/toContact.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { CreateUpdateContactOutput, UpdateContactInput } from '../models.js';
+const InputSchema = z.object({
+    contactId: z.string().describe('The ID of the contact to update. Example: "12345"'),
+    firstName: z.string().optional().describe('First name of the contact.'),
+    lastName: z.string().optional().describe('Last name of the contact.'),
+    email: z.string().optional().describe('Email address of the contact.'),
+    phone: z.string().optional().describe('Phone number of the contact.'),
+    company: z.string().optional().describe('Company name of the contact.'),
+    jobTitle: z.string().optional().describe('Job title of the contact.')
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    company: z.string().optional(),
+    jobTitle: z.string().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Updates a single contact in Hubspot',
+    description: 'Update a contact record',
     version: '1.0.0',
 
     endpoint: {
-        method: 'PATCH',
-        path: '/contact',
+        method: 'POST',
+        path: '/actions/update-contact',
         group: 'Contacts'
     },
 
-    input: UpdateContactInput,
-    output: CreateUpdateContactOutput,
-    scopes: ['crm.objects.contacts.write', 'oauth'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.contacts.write'],
 
-    exec: async (nango, input): Promise<CreateUpdateContactOutput> => {
-        const parsedInput = await nango.zodValidateInput({ zodSchema: UpdateContactInputSchema, input });
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const properties: Record<string, string> = {};
 
-        const hubSpotContact = toHubspotContact(parsedInput.data);
-        const endpoint = parsedInput.data.id ? `crm/v3/objects/contacts/${parsedInput.data.id}` : `crm/v3/objects/contacts/${parsedInput.data.email}`;
+        if (input.firstName) properties['firstname'] = input.firstName;
+        if (input.lastName) properties['lastname'] = input.lastName;
+        if (input.email) properties['email'] = input.email;
+        if (input.phone) properties['phone'] = input.phone;
+        if (input.company) properties['company'] = input.company;
+        if (input.jobTitle) properties['jobtitle'] = input.jobTitle;
 
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/contacts#update-contacts
-            endpoint,
-            data: hubSpotContact,
-            retries: 3,
-            ...(parsedInput.data.id ? {} : { params: { idProperty: 'email' } })
+        const response = await nango.patch({
+            // https://developers.hubspot.com/docs/api/crm/contacts
+            endpoint: `/crm/v3/objects/contacts/${input.contactId}`,
+            data: { properties },
+            retries: 3
+        });
+
+        const data = response.data;
+
+        return {
+            id: data.id,
+            firstName: data.properties?.['firstname'] ?? undefined,
+            lastName: data.properties?.['lastname'] ?? undefined,
+            email: data.properties?.['email'] ?? undefined,
+            phone: data.properties?.['phone'] ?? undefined,
+            company: data.properties?.['company'] ?? undefined,
+            jobTitle: data.properties?.['jobtitle'] ?? undefined,
+            createdAt: data.createdAt ?? undefined,
+            updatedAt: data.updatedAt ?? undefined
         };
-
-        const response = await nango.patch(config);
-
-        return createUpdatetoContact(response.data);
     }
 });
 

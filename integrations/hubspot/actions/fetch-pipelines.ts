@@ -1,33 +1,71 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { PipelineOutput, OptionalObjectType } from '../models.js';
+
+const InputSchema = z.object({
+    objectType: z.string().optional().describe('The object type for which to fetch pipelines (e.g., "deals", "tickets"). Defaults to "deals".')
+});
+
+const StageSchema = z.object({
+    id: z.string(),
+    label: z.string().optional(),
+    displayOrder: z.number().optional(),
+    metadata: z.record(z.string(), z.any()).optional()
+});
+
+const PipelineSchema = z.object({
+    id: z.string(),
+    label: z.string().optional(),
+    displayOrder: z.number().optional(),
+    active: z.boolean().optional(),
+    stages: z.array(StageSchema),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    pipelines: z.array(PipelineSchema)
+});
 
 const action = createAction({
-    description: 'Fetch all pipelines for an object type. Defaults to deals',
+    description: 'List pipelines and stages for an object type, defaulting to deals',
     version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/pipelines',
+        path: '/actions/fetch-pipelines',
         group: 'Pipelines'
     },
 
-    input: OptionalObjectType,
-    output: PipelineOutput,
-    scopes: ['oauth', 'crm.objects.deals.read'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.deals.read'],
 
-    exec: async (nango, input): Promise<PipelineOutput> => {
-        const objectType = input?.objectType || 'deal';
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const objectType = input.objectType || 'deals';
 
+        // https://developers.hubspot.com/docs/api/crm/pipelines
         const response = await nango.get({
-            // https://developers.hubspot.com/docs/api/crm/pipelines
             endpoint: `/crm/v3/pipelines/${objectType}`,
             retries: 3
         });
 
-        const { data } = response;
+        const pipelines = response.data.results || [];
 
         return {
-            pipelines: data.results
+            pipelines: pipelines.map((pipeline: any) => ({
+                id: pipeline.id,
+                label: pipeline.label ?? undefined,
+                displayOrder: pipeline.displayOrder ?? undefined,
+                active: pipeline.active ?? undefined,
+                stages: (pipeline.stages || []).map((stage: any) => ({
+                    id: stage.id,
+                    label: stage.label ?? undefined,
+                    displayOrder: stage.displayOrder ?? undefined,
+                    metadata: stage.metadata || {}
+                })),
+                createdAt: pipeline.createdAt ?? undefined,
+                updatedAt: pipeline.updatedAt ?? undefined
+            }))
         };
     }
 });

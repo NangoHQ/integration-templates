@@ -1,42 +1,40 @@
-/**
- * Instructions: Deletes a secondary calendar
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendars/delete
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const DeleteCalendarInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    calendarId: z.string().describe('Calendar ID to delete. Example: "c_abc123@group.calendar.google.com"')
 });
 
-const DeleteCalendarOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    success: z.boolean(),
+    calendarId: z.string()
 });
 
 const action = createAction({
-    description: 'Deletes a secondary calendar',
+    description: 'Delete a secondary calendar',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendars/delete
+
     endpoint: {
-        method: 'DELETE',
-        path: '/calendar',
+        method: 'POST',
+        path: '/actions/delete-calendar',
         group: 'Calendars'
     },
-    input: DeleteCalendarInput,
-    output: DeleteCalendarOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof DeleteCalendarOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendars/delete
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}`,
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/delete
+        await nango.delete({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}`,
             retries: 3
+        });
+
+        return {
+            success: true,
+            calendarId: input.calendarId
         };
-
-        await nango.delete(config);
-
-        return { success: true };
     }
 });
 

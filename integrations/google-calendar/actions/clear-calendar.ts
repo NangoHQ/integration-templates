@@ -1,42 +1,42 @@
-/**
- * Instructions: Clears a primary calendar by deleting all events
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/calendars/clear
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const ClearCalendarInput = z.object({
-    calendar_id: z.string()
+const InputSchema = z.object({
+    calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary"')
 });
 
-const ClearCalendarOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the calendar was cleared successfully'),
+    calendarId: z.string().describe('The calendar ID that was cleared')
 });
 
 const action = createAction({
-    description: 'Clears a primary calendar by deleting all events',
+    description: 'Clear a calendar by deleting all events',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/calendars/clear
+
     endpoint: {
         method: 'POST',
-        path: '/calendar/clear',
+        path: '/actions/clear-calendar',
         group: 'Calendars'
     },
-    input: ClearCalendarInput,
-    output: ClearCalendarOutput,
+
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof ClearCalendarOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/calendars/clear
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/clear`,
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendarId || 'primary';
+
+        // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/clear
+        await nango.post({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/clear`,
             retries: 3
+        });
+
+        return {
+            success: true,
+            calendarId
         };
-
-        await nango.post(config);
-
-        return { success: true };
     }
 });
 

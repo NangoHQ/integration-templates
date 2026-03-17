@@ -1,31 +1,39 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, Id } from '../models.js';
+
+const InputSchema = z.object({
+    taskId: z.string().describe('HubSpot task record ID to delete. Example: "12345"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    taskId: z.string()
+});
 
 const action = createAction({
-    description: 'Deletes a task in Hubspot',
-    version: '2.0.0',
+    description: 'Delete a HubSpot task by record ID',
+    version: '1.0.0',
 
     endpoint: {
-        method: 'DELETE',
-        path: '/tasks',
+        method: 'POST',
+        path: '/actions/delete-task',
         group: 'Tasks'
     },
 
-    input: Id,
-    output: SuccessResponse,
-    scopes: ['crm.objects.contacts.write', 'oauth'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['crm.objects.contacts.write'],
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/api/crm/tasks
-            endpoint: `/crm/v3/objects/tasks/${input.id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/crm/tasks
+        await nango.delete({
+            endpoint: `/crm/v3/objects/tasks/${input.taskId}`,
             retries: 3
-        };
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            success: true,
+            taskId: input.taskId
         };
     }
 });

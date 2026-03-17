@@ -1,43 +1,39 @@
-/**
- * Instructions: Returns a single user setting by setting ID
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/settings/get
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const GetSettingInput = z.object({
-    setting_id: z.string()
+const InputSchema = z.object({
+    settingId: z
+        .string()
+        .describe('The ID of the user setting. Examples: "timezone", "locale", "dateFieldOrder", "format24HourTime", "weekStart", "autoAddHangouts"')
 });
 
-const GetSettingOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
-    id: z.string(),
-    value: z.string()
+const OutputSchema = z.object({
+    kind: z.string().describe('Type of the resource'),
+    etag: z.string().describe('ETag of the resource'),
+    id: z.string().describe('The ID of the user setting'),
+    value: z.string().describe('Value of the user setting')
 });
 
 const action = createAction({
-    description: 'Returns a single user setting by setting ID',
+    description: 'Retrieve a single Google Calendar user setting by ID',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/settings/get
+
     endpoint: {
         method: 'GET',
-        path: '/setting',
+        path: '/actions/get-setting',
         group: 'Settings'
     },
-    input: GetSettingInput,
-    output: GetSettingOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-    exec: async (nango, input): Promise<z.infer<typeof GetSettingOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/settings/get
-            endpoint: `/calendar/v3/users/me/settings/${encodeURIComponent(input.setting_id)}`,
-            retries: 3
-        };
 
-        const response = await nango.get(config);
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.settings.readonly'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/calendar/api/v3/reference/settings/get
+        const response = await nango.get({
+            endpoint: `/calendar/v3/users/me/settings/${input.settingId}`,
+            retries: 3
+        });
 
         return {
             kind: response.data.kind,

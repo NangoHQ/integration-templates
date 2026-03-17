@@ -1,52 +1,63 @@
-/**
- * Instructions: Returns an access control rule by rule ID
- *
- * API Docs: https://developers.google.com/calendar/api/v3/reference/acl/get
- */
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const GetAclRuleInput = z.object({
-    calendar_id: z.string(),
-    rule_id: z.string()
+const InputSchema = z.object({
+    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the logged-in user.'),
+    ruleId: z.string().describe('ACL rule identifier.')
 });
 
-const GetAclRuleOutput = z.object({
-    kind: z.string(),
-    etag: z.string(),
-    id: z.string(),
-    scope: z.any(),
-    role: z.string()
+const OutputSchema = z.object({
+    id: z.string().describe('Identifier of the ACL rule.'),
+    etag: z.string().describe('ETag of the resource.'),
+    kind: z.string().describe('Type of the resource ("calendar#aclRule").'),
+    role: z.string().describe('The role assigned to the scope. Possible values: "none", "freeBusyReader", "reader", "writer", "owner".'),
+    scope: z
+        .object({
+            type: z.string().describe('The type of the scope. Possible values: "default", "user", "group", "domain".'),
+            value: z.string().optional().describe('The email address of a user or group, or the name of a domain. Omitted for type "default".')
+        })
+        .describe('The extent to which calendar access is granted by this ACL rule.')
 });
 
 const action = createAction({
-    description: 'Returns an access control rule by rule ID',
+    description: 'Get an access control rule by ID',
     version: '1.0.0',
-    // https://developers.google.com/calendar/api/v3/reference/acl/get
+
     endpoint: {
         method: 'GET',
-        path: '/acl/rule',
-        group: 'Access Control'
+        path: '/actions/get-acl-rule',
+        group: 'ACL'
     },
-    input: GetAclRuleInput,
-    output: GetAclRuleOutput,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-    exec: async (nango, input): Promise<z.infer<typeof GetAclRuleOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/acl/get
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/acl/${encodeURIComponent(input.rule_id)}`,
-            retries: 3
-        };
 
-        const response = await nango.get(config);
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/calendar/api/v3/reference/acl/get
+        const response = await nango.get({
+            endpoint: `/calendar/v3/calendars/${input.calendarId}/acl/${input.ruleId}`,
+            retries: 3
+        });
+
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'ACL rule not found',
+                calendarId: input.calendarId,
+                ruleId: input.ruleId
+            });
+        }
 
         return {
-            kind: response.data.kind,
-            etag: response.data.etag,
             id: response.data.id,
-            scope: response.data.scope,
-            role: response.data.role
+            etag: response.data.etag,
+            kind: response.data.kind,
+            role: response.data.role,
+            scope: {
+                type: response.data.scope?.type,
+                value: response.data.scope?.value
+            }
         };
     }
 });

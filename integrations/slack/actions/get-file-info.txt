@@ -1,2 +1,0 @@
-Retrieves details about a specific file
-API: https://api.slack.com/methods/files.info

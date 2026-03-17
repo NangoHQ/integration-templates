@@ -1,0 +1,213 @@
+{
+  "input": {},
+  "output": {
+    "pipelines": [
+      {
+        "id": "default",
+        "label": "Sales Pipeline",
+        "displayOrder": 0,
+        "stages": [
+          {
+            "id": "appointmentscheduled",
+            "label": "Appointment Scheduled",
+            "displayOrder": 0,
+            "metadata": {
+              "isClosed": "false",
+              "probability": "0.2"
+            }
+          },
+          {
+            "id": "qualifiedtobuy",
+            "label": "Qualified To Buy",
+            "displayOrder": 1,
+            "metadata": {
+              "isClosed": "false",
+              "probability": "0.4"
+            }
+          },
+          {
+            "id": "presentationscheduled",
+            "label": "Presentation Scheduled",
+            "displayOrder": 2,
+            "metadata": {
+              "isClosed": "false",
+              "probability": "0.6"
+            }
+          },
+          {
+            "id": "decisionmakerboughtin",
+            "label": "Decision Maker Bought-In",
+            "displayOrder": 3,
+            "metadata": {
+              "isClosed": "false",
+              "probability": "0.8"
+            }
+          },
+          {
+            "id": "contractsent",
+            "label": "Contract Sent",
+            "displayOrder": 4,
+            "metadata": {
+              "isClosed": "false",
+              "probability": "0.9"
+            }
+          },
+          {
+            "id": "closedwon",
+            "label": "Closed Won",
+            "displayOrder": 5,
+            "metadata": {
+              "isClosed": "true",
+              "probability": "1.0"
+            }
+          },
+          {
+            "id": "closedlost",
+            "label": "Closed Lost",
+            "displayOrder": 6,
+            "metadata": {
+              "isClosed": "true",
+              "probability": "0.0"
+            }
+          }
+        ],
+        "createdAt": "1970-01-01T00:00:00Z",
+        "updatedAt": "1970-01-01T00:00:00Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/v3/pipelines/deals": {
+        "response": {
+          "results": [
+            {
+              "label": "Sales Pipeline",
+              "displayOrder": 0,
+              "id": "default",
+              "stages": [
+                {
+                  "label": "Appointment Scheduled",
+                  "displayOrder": 0,
+                  "metadata": {
+                    "isClosed": "false",
+                    "probability": "0.2"
+                  },
+                  "id": "appointmentscheduled",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Qualified To Buy",
+                  "displayOrder": 1,
+                  "metadata": {
+                    "isClosed": "false",
+                    "probability": "0.4"
+                  },
+                  "id": "qualifiedtobuy",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Presentation Scheduled",
+                  "displayOrder": 2,
+                  "metadata": {
+                    "isClosed": "false",
+                    "probability": "0.6"
+                  },
+                  "id": "presentationscheduled",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Decision Maker Bought-In",
+                  "displayOrder": 3,
+                  "metadata": {
+                    "isClosed": "false",
+                    "probability": "0.8"
+                  },
+                  "id": "decisionmakerboughtin",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Contract Sent",
+                  "displayOrder": 4,
+                  "metadata": {
+                    "isClosed": "false",
+                    "probability": "0.9"
+                  },
+                  "id": "contractsent",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Closed Won",
+                  "displayOrder": 5,
+                  "metadata": {
+                    "isClosed": "true",
+                    "probability": "1.0"
+                  },
+                  "id": "closedwon",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                },
+                {
+                  "label": "Closed Lost",
+                  "displayOrder": 6,
+                  "metadata": {
+                    "isClosed": "true",
+                    "probability": "0.0"
+                  },
+                  "id": "closedlost",
+                  "createdAt": "1970-01-01T00:00:00Z",
+                  "updatedAt": "1970-01-01T00:00:00Z",
+                  "writePermissions": "CRM_PERMISSIONS_ENFORCEMENT",
+                  "archived": false
+                }
+              ],
+              "createdAt": "1970-01-01T00:00:00Z",
+              "updatedAt": "1970-01-01T00:00:00Z",
+              "archived": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:35:07 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1974",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4872",
+          "x-ratelimit-reset": "1773300948",
+          "etag": "W/\"7b6-WsHtl2S3pN5ecf/tK4VyFJ/7/8g\""
+        },
+        "hash": "08c648f331731f6ab8ddb540bb5db23851009297",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,2 +1,0 @@
-Gets a URL for uploading files to Slack
-API: https://api.slack.com/methods/files.getUploadURLExternal

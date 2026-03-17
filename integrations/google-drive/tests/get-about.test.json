@@ -1,0 +1,1179 @@
+{
+  "input": {},
+  "output": {
+    "kind": "drive#about",
+    "user": {
+      "kind": "drive#user",
+      "displayName": "Nango Developer",
+      "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s64",
+      "me": true,
+      "permissionId": "06212537884430925573",
+      "emailAddress": "api@nango.dev"
+    },
+    "storageQuota": {
+      "limit": "37383395344384",
+      "usage": "37879902560",
+      "usageInDrive": "267181",
+      "usageInDriveTrash": "0"
+    },
+    "importFormats": {
+      "application/x-vnd.oasis.opendocument.presentation": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "text/tab-separated-values": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "image/gif": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.ms-excel.sheet.macroenabled.12": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.template": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.ms-word.template.macroenabled.12": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
+        "application/vnd.google-apps.document"
+      ],
+      "video/ogg": [
+        "application/vnd.google-apps.vid"
+      ],
+      "application/vnd.ms-excel": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "text/rtf": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/x-vnd.oasis.opendocument.text": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/msword": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/pdf": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/x-msmetafile": [
+        "application/vnd.google-apps.drawing"
+      ],
+      "text/markdown": [
+        "application/vnd.google-apps.document"
+      ],
+      "image/x-bmp": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/rtf": [
+        "application/vnd.google-apps.document"
+      ],
+      "text/html": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.oasis.opendocument.text": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "text/csv": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/vnd.oasis.opendocument.presentation": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "image/jpg": [
+        "application/vnd.google-apps.document"
+      ],
+      "video/quicktime": [
+        "application/vnd.google-apps.vid"
+      ],
+      "text/richtext": [
+        "application/vnd.google-apps.document"
+      ],
+      "video/mp4": [
+        "application/vnd.google-apps.vid"
+      ],
+      "video/webm": [
+        "application/vnd.google-apps.vid"
+      ],
+      "image/jpeg": [
+        "application/vnd.google-apps.document"
+      ],
+      "image/bmp": [
+        "application/vnd.google-apps.document"
+      ],
+      "text/x-markdown": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.ms-powerpoint.presentation.macroenabled.12": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "text/comma-separated-values": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "image/pjpeg": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.google-apps.script+text/plain": [
+        "application/vnd.google-apps.script"
+      ],
+      "application/vnd.ms-word.document.macroenabled.12": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.ms-powerpoint.slideshow.macroenabled.12": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "text/plain": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.oasis.opendocument.spreadsheet": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/x-vnd.oasis.opendocument.spreadsheet": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "image/png": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.template": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/vnd.ms-powerpoint": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "application/vnd.ms-excel.template.macroenabled.12": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/vnd.openxmlformats-officedocument.presentationml.template": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "image/x-png": [
+        "application/vnd.google-apps.document"
+      ],
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [
+        "application/vnd.google-apps.spreadsheet"
+      ],
+      "application/vnd.google-apps.script+json": [
+        "application/vnd.google-apps.script"
+      ],
+      "application/vnd.openxmlformats-officedocument.presentationml.slideshow": [
+        "application/vnd.google-apps.presentation"
+      ],
+      "application/vnd.ms-powerpoint.template.macroenabled.12": [
+        "application/vnd.google-apps.presentation"
+      ]
+    },
+    "exportFormats": {
+      "application/vnd.google-apps.document": [
+        "application/rtf",
+        "application/vnd.oasis.opendocument.text",
+        "text/html",
+        "application/pdf",
+        "text/x-markdown",
+        "text/markdown",
+        "application/epub+zip",
+        "application/zip",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/plain"
+      ],
+      "application/vnd.google-apps.vid": [
+        "video/mp4"
+      ],
+      "application/vnd.google-apps.spreadsheet": [
+        "application/x-vnd.oasis.opendocument.spreadsheet",
+        "text/tab-separated-values",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "text/csv",
+        "application/zip",
+        "application/vnd.oasis.opendocument.spreadsheet"
+      ],
+      "application/vnd.google-apps.jam": [
+        "application/pdf"
+      ],
+      "application/vnd.google-apps.script": [
+        "application/vnd.google-apps.script+json"
+      ],
+      "application/vnd.google-apps.presentation": [
+        "application/vnd.oasis.opendocument.presentation",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "text/plain"
+      ],
+      "application/vnd.google-apps.form": [
+        "application/zip"
+      ],
+      "application/vnd.google-apps.drawing": [
+        "image/svg+xml",
+        "image/png",
+        "application/pdf",
+        "image/jpeg"
+      ],
+      "application/vnd.google-apps.site": [
+        "text/plain"
+      ],
+      "application/vnd.google-apps.mail-layout": [
+        "text/plain"
+      ]
+    },
+    "maxImportSizes": {
+      "application/vnd.google-apps.document": "10485760",
+      "application/vnd.google-apps.spreadsheet": "104857600",
+      "application/vnd.google-apps.presentation": "104857600",
+      "application/vnd.google-apps.drawing": "2097152"
+    },
+    "maxUploadSize": "5242880000000",
+    "appInstalled": true,
+    "folderColorPalette": [
+      "#ac725e",
+      "#d06b64",
+      "#f83a22",
+      "#fa573c",
+      "#ff7537",
+      "#ffad46",
+      "#fad165",
+      "#fbe983",
+      "#b3dc6c",
+      "#7bd148",
+      "#16a765",
+      "#42d692",
+      "#92e1c0",
+      "#9fe1e7",
+      "#9fc6e7",
+      "#4986e7",
+      "#9a9cff",
+      "#b99aff",
+      "#a47ae2",
+      "#cd74e6",
+      "#f691b2",
+      "#cca6ac",
+      "#cabdbf",
+      "#8f8f8f"
+    ],
+    "teamDriveThemes": [
+      {
+        "id": "abacus",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/abacus_background.jpg",
+        "colorRgb": "#ea6100"
+      },
+      {
+        "id": "blueprints",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/blueprints_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "bok_choy",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bok_choy_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "books",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/books_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "bread",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bread_background.jpg",
+        "colorRgb": "#ef6c00"
+      },
+      {
+        "id": "bubbles_color",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bubbles_color_background.jpg",
+        "colorRgb": "#f06292"
+      },
+      {
+        "id": "circuit",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/circuit_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "clams",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clams_background.jpg",
+        "colorRgb": "#e91e63"
+      },
+      {
+        "id": "clovers",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clovers_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "cocktails",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/cocktails_background.jpg",
+        "colorRgb": "#db4437"
+      },
+      {
+        "id": "concert",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/concert_background.jpg",
+        "colorRgb": "#ef6c00"
+      },
+      {
+        "id": "desk",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/desk_background.jpg",
+        "colorRgb": "#607d8b"
+      },
+      {
+        "id": "donut_coffee",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/donut_coffee_background.jpg",
+        "colorRgb": "#f06292"
+      },
+      {
+        "id": "fabric_rolls",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/fabric_rolls_background.jpg",
+        "colorRgb": "#78909c"
+      },
+      {
+        "id": "flags",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flags_background.jpg",
+        "colorRgb": "#009688"
+      },
+      {
+        "id": "flower_field",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flower_field_background.jpg",
+        "colorRgb": "#e06055"
+      },
+      {
+        "id": "flowers",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flowers_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "glass",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/glass_background.jpg",
+        "colorRgb": "#0f9d58"
+      },
+      {
+        "id": "lighthouse",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/lighthouse_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "maps",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/maps_background.jpg",
+        "colorRgb": "#8d6e63"
+      },
+      {
+        "id": "mountains",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/mountains_background.jpg",
+        "colorRgb": "#5c6bc0"
+      },
+      {
+        "id": "notebook",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/notebook_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "paper_colored",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/paper_colored_background.jpg",
+        "colorRgb": "#9c27b0"
+      },
+      {
+        "id": "pencils",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/pencils_background.jpg",
+        "colorRgb": "#0097a7"
+      },
+      {
+        "id": "roofing_metal",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/roofing_metal_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "sticky_notes",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/sticky_notes_background.jpg",
+        "colorRgb": "#0097a7"
+      },
+      {
+        "id": "table",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/table_background.jpg",
+        "colorRgb": "#8d6e63"
+      },
+      {
+        "id": "travel",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/travel_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "waves",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_background.jpg",
+        "colorRgb": "#ff5722"
+      },
+      {
+        "id": "waves_blue",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_blue_background.jpg",
+        "colorRgb": "#5c6bc0"
+      },
+      {
+        "id": "wood",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/wood_background.jpg",
+        "colorRgb": "#8d6e63"
+      }
+    ],
+    "driveThemes": [
+      {
+        "id": "abacus",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/abacus_background.jpg",
+        "colorRgb": "#ea6100"
+      },
+      {
+        "id": "blueprints",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/blueprints_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "bok_choy",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bok_choy_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "books",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/books_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "bread",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bread_background.jpg",
+        "colorRgb": "#ef6c00"
+      },
+      {
+        "id": "bubbles_color",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bubbles_color_background.jpg",
+        "colorRgb": "#f06292"
+      },
+      {
+        "id": "circuit",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/circuit_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "clams",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clams_background.jpg",
+        "colorRgb": "#e91e63"
+      },
+      {
+        "id": "clovers",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clovers_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "cocktails",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/cocktails_background.jpg",
+        "colorRgb": "#db4437"
+      },
+      {
+        "id": "concert",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/concert_background.jpg",
+        "colorRgb": "#ef6c00"
+      },
+      {
+        "id": "desk",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/desk_background.jpg",
+        "colorRgb": "#607d8b"
+      },
+      {
+        "id": "donut_coffee",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/donut_coffee_background.jpg",
+        "colorRgb": "#f06292"
+      },
+      {
+        "id": "fabric_rolls",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/fabric_rolls_background.jpg",
+        "colorRgb": "#78909c"
+      },
+      {
+        "id": "flags",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flags_background.jpg",
+        "colorRgb": "#009688"
+      },
+      {
+        "id": "flower_field",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flower_field_background.jpg",
+        "colorRgb": "#e06055"
+      },
+      {
+        "id": "flowers",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flowers_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "glass",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/glass_background.jpg",
+        "colorRgb": "#0f9d58"
+      },
+      {
+        "id": "lighthouse",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/lighthouse_background.jpg",
+        "colorRgb": "#4285f4"
+      },
+      {
+        "id": "maps",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/maps_background.jpg",
+        "colorRgb": "#8d6e63"
+      },
+      {
+        "id": "mountains",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/mountains_background.jpg",
+        "colorRgb": "#5c6bc0"
+      },
+      {
+        "id": "notebook",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/notebook_background.jpg",
+        "colorRgb": "#689f38"
+      },
+      {
+        "id": "paper_colored",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/paper_colored_background.jpg",
+        "colorRgb": "#9c27b0"
+      },
+      {
+        "id": "pencils",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/pencils_background.jpg",
+        "colorRgb": "#0097a7"
+      },
+      {
+        "id": "roofing_metal",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/roofing_metal_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "sticky_notes",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/sticky_notes_background.jpg",
+        "colorRgb": "#0097a7"
+      },
+      {
+        "id": "table",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/table_background.jpg",
+        "colorRgb": "#8d6e63"
+      },
+      {
+        "id": "travel",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/travel_background.jpg",
+        "colorRgb": "#039be5"
+      },
+      {
+        "id": "waves",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_background.jpg",
+        "colorRgb": "#ff5722"
+      },
+      {
+        "id": "waves_blue",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_blue_background.jpg",
+        "colorRgb": "#5c6bc0"
+      },
+      {
+        "id": "wood",
+        "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/wood_background.jpg",
+        "colorRgb": "#8d6e63"
+      }
+    ],
+    "canCreateTeamDrives": true,
+    "canCreateDrives": true
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/drive/v3/about": {
+        "response": {
+          "kind": "drive#about",
+          "user": {
+            "kind": "drive#user",
+            "displayName": "Nango Developer",
+            "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s64",
+            "me": true,
+            "permissionId": "06212537884430925573",
+            "emailAddress": "api@nango.dev"
+          },
+          "storageQuota": {
+            "limit": "37383395344384",
+            "usage": "37879902560",
+            "usageInDrive": "267181",
+            "usageInDriveTrash": "0"
+          },
+          "importFormats": {
+            "application/x-vnd.oasis.opendocument.presentation": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "text/tab-separated-values": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "image/gif": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.ms-excel.sheet.macroenabled.12": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.template": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.ms-word.template.macroenabled.12": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
+              "application/vnd.google-apps.document"
+            ],
+            "video/ogg": [
+              "application/vnd.google-apps.vid"
+            ],
+            "application/vnd.ms-excel": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "text/rtf": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/x-vnd.oasis.opendocument.text": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/msword": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/pdf": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/x-msmetafile": [
+              "application/vnd.google-apps.drawing"
+            ],
+            "text/markdown": [
+              "application/vnd.google-apps.document"
+            ],
+            "image/x-bmp": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/rtf": [
+              "application/vnd.google-apps.document"
+            ],
+            "text/html": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.oasis.opendocument.text": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "text/csv": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/vnd.oasis.opendocument.presentation": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "image/jpg": [
+              "application/vnd.google-apps.document"
+            ],
+            "video/quicktime": [
+              "application/vnd.google-apps.vid"
+            ],
+            "text/richtext": [
+              "application/vnd.google-apps.document"
+            ],
+            "video/mp4": [
+              "application/vnd.google-apps.vid"
+            ],
+            "video/webm": [
+              "application/vnd.google-apps.vid"
+            ],
+            "image/jpeg": [
+              "application/vnd.google-apps.document"
+            ],
+            "image/bmp": [
+              "application/vnd.google-apps.document"
+            ],
+            "text/x-markdown": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.ms-powerpoint.presentation.macroenabled.12": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "text/comma-separated-values": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "image/pjpeg": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.google-apps.script+text/plain": [
+              "application/vnd.google-apps.script"
+            ],
+            "application/vnd.ms-word.document.macroenabled.12": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.ms-powerpoint.slideshow.macroenabled.12": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "text/plain": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.oasis.opendocument.spreadsheet": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/x-vnd.oasis.opendocument.spreadsheet": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "image/png": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.template": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/vnd.ms-powerpoint": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "application/vnd.ms-excel.template.macroenabled.12": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/vnd.openxmlformats-officedocument.presentationml.template": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "image/x-png": [
+              "application/vnd.google-apps.document"
+            ],
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [
+              "application/vnd.google-apps.spreadsheet"
+            ],
+            "application/vnd.google-apps.script+json": [
+              "application/vnd.google-apps.script"
+            ],
+            "application/vnd.openxmlformats-officedocument.presentationml.slideshow": [
+              "application/vnd.google-apps.presentation"
+            ],
+            "application/vnd.ms-powerpoint.template.macroenabled.12": [
+              "application/vnd.google-apps.presentation"
+            ]
+          },
+          "exportFormats": {
+            "application/vnd.google-apps.document": [
+              "application/rtf",
+              "application/vnd.oasis.opendocument.text",
+              "text/html",
+              "application/pdf",
+              "text/x-markdown",
+              "text/markdown",
+              "application/epub+zip",
+              "application/zip",
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "text/plain"
+            ],
+            "application/vnd.google-apps.vid": [
+              "video/mp4"
+            ],
+            "application/vnd.google-apps.spreadsheet": [
+              "application/x-vnd.oasis.opendocument.spreadsheet",
+              "text/tab-separated-values",
+              "application/pdf",
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              "text/csv",
+              "application/zip",
+              "application/vnd.oasis.opendocument.spreadsheet"
+            ],
+            "application/vnd.google-apps.jam": [
+              "application/pdf"
+            ],
+            "application/vnd.google-apps.script": [
+              "application/vnd.google-apps.script+json"
+            ],
+            "application/vnd.google-apps.presentation": [
+              "application/vnd.oasis.opendocument.presentation",
+              "application/pdf",
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+              "text/plain"
+            ],
+            "application/vnd.google-apps.form": [
+              "application/zip"
+            ],
+            "application/vnd.google-apps.drawing": [
+              "image/svg+xml",
+              "image/png",
+              "application/pdf",
+              "image/jpeg"
+            ],
+            "application/vnd.google-apps.site": [
+              "text/plain"
+            ],
+            "application/vnd.google-apps.mail-layout": [
+              "text/plain"
+            ]
+          },
+          "maxImportSizes": {
+            "application/vnd.google-apps.document": "10485760",
+            "application/vnd.google-apps.spreadsheet": "104857600",
+            "application/vnd.google-apps.presentation": "104857600",
+            "application/vnd.google-apps.drawing": "2097152"
+          },
+          "maxUploadSize": "5242880000000",
+          "appInstalled": true,
+          "folderColorPalette": [
+            "#ac725e",
+            "#d06b64",
+            "#f83a22",
+            "#fa573c",
+            "#ff7537",
+            "#ffad46",
+            "#fad165",
+            "#fbe983",
+            "#b3dc6c",
+            "#7bd148",
+            "#16a765",
+            "#42d692",
+            "#92e1c0",
+            "#9fe1e7",
+            "#9fc6e7",
+            "#4986e7",
+            "#9a9cff",
+            "#b99aff",
+            "#a47ae2",
+            "#cd74e6",
+            "#f691b2",
+            "#cca6ac",
+            "#cabdbf",
+            "#8f8f8f"
+          ],
+          "teamDriveThemes": [
+            {
+              "id": "abacus",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/abacus_background.jpg",
+              "colorRgb": "#ea6100"
+            },
+            {
+              "id": "blueprints",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/blueprints_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "bok_choy",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bok_choy_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "books",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/books_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "bread",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bread_background.jpg",
+              "colorRgb": "#ef6c00"
+            },
+            {
+              "id": "bubbles_color",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bubbles_color_background.jpg",
+              "colorRgb": "#f06292"
+            },
+            {
+              "id": "circuit",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/circuit_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "clams",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clams_background.jpg",
+              "colorRgb": "#e91e63"
+            },
+            {
+              "id": "clovers",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clovers_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "cocktails",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/cocktails_background.jpg",
+              "colorRgb": "#db4437"
+            },
+            {
+              "id": "concert",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/concert_background.jpg",
+              "colorRgb": "#ef6c00"
+            },
+            {
+              "id": "desk",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/desk_background.jpg",
+              "colorRgb": "#607d8b"
+            },
+            {
+              "id": "donut_coffee",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/donut_coffee_background.jpg",
+              "colorRgb": "#f06292"
+            },
+            {
+              "id": "fabric_rolls",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/fabric_rolls_background.jpg",
+              "colorRgb": "#78909c"
+            },
+            {
+              "id": "flags",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flags_background.jpg",
+              "colorRgb": "#009688"
+            },
+            {
+              "id": "flower_field",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flower_field_background.jpg",
+              "colorRgb": "#e06055"
+            },
+            {
+              "id": "flowers",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flowers_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "glass",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/glass_background.jpg",
+              "colorRgb": "#0f9d58"
+            },
+            {
+              "id": "lighthouse",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/lighthouse_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "maps",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/maps_background.jpg",
+              "colorRgb": "#8d6e63"
+            },
+            {
+              "id": "mountains",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/mountains_background.jpg",
+              "colorRgb": "#5c6bc0"
+            },
+            {
+              "id": "notebook",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/notebook_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "paper_colored",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/paper_colored_background.jpg",
+              "colorRgb": "#9c27b0"
+            },
+            {
+              "id": "pencils",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/pencils_background.jpg",
+              "colorRgb": "#0097a7"
+            },
+            {
+              "id": "roofing_metal",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/roofing_metal_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "sticky_notes",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/sticky_notes_background.jpg",
+              "colorRgb": "#0097a7"
+            },
+            {
+              "id": "table",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/table_background.jpg",
+              "colorRgb": "#8d6e63"
+            },
+            {
+              "id": "travel",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/travel_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "waves",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_background.jpg",
+              "colorRgb": "#ff5722"
+            },
+            {
+              "id": "waves_blue",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_blue_background.jpg",
+              "colorRgb": "#5c6bc0"
+            },
+            {
+              "id": "wood",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/wood_background.jpg",
+              "colorRgb": "#8d6e63"
+            }
+          ],
+          "driveThemes": [
+            {
+              "id": "abacus",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/abacus_background.jpg",
+              "colorRgb": "#ea6100"
+            },
+            {
+              "id": "blueprints",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/blueprints_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "bok_choy",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bok_choy_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "books",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/books_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "bread",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bread_background.jpg",
+              "colorRgb": "#ef6c00"
+            },
+            {
+              "id": "bubbles_color",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/bubbles_color_background.jpg",
+              "colorRgb": "#f06292"
+            },
+            {
+              "id": "circuit",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/circuit_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "clams",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clams_background.jpg",
+              "colorRgb": "#e91e63"
+            },
+            {
+              "id": "clovers",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/clovers_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "cocktails",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/cocktails_background.jpg",
+              "colorRgb": "#db4437"
+            },
+            {
+              "id": "concert",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/concert_background.jpg",
+              "colorRgb": "#ef6c00"
+            },
+            {
+              "id": "desk",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/desk_background.jpg",
+              "colorRgb": "#607d8b"
+            },
+            {
+              "id": "donut_coffee",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/donut_coffee_background.jpg",
+              "colorRgb": "#f06292"
+            },
+            {
+              "id": "fabric_rolls",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/fabric_rolls_background.jpg",
+              "colorRgb": "#78909c"
+            },
+            {
+              "id": "flags",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flags_background.jpg",
+              "colorRgb": "#009688"
+            },
+            {
+              "id": "flower_field",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flower_field_background.jpg",
+              "colorRgb": "#e06055"
+            },
+            {
+              "id": "flowers",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/flowers_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "glass",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/glass_background.jpg",
+              "colorRgb": "#0f9d58"
+            },
+            {
+              "id": "lighthouse",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/lighthouse_background.jpg",
+              "colorRgb": "#4285f4"
+            },
+            {
+              "id": "maps",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/maps_background.jpg",
+              "colorRgb": "#8d6e63"
+            },
+            {
+              "id": "mountains",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/mountains_background.jpg",
+              "colorRgb": "#5c6bc0"
+            },
+            {
+              "id": "notebook",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/notebook_background.jpg",
+              "colorRgb": "#689f38"
+            },
+            {
+              "id": "paper_colored",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/paper_colored_background.jpg",
+              "colorRgb": "#9c27b0"
+            },
+            {
+              "id": "pencils",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/pencils_background.jpg",
+              "colorRgb": "#0097a7"
+            },
+            {
+              "id": "roofing_metal",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/roofing_metal_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "sticky_notes",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/sticky_notes_background.jpg",
+              "colorRgb": "#0097a7"
+            },
+            {
+              "id": "table",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/table_background.jpg",
+              "colorRgb": "#8d6e63"
+            },
+            {
+              "id": "travel",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/travel_background.jpg",
+              "colorRgb": "#039be5"
+            },
+            {
+              "id": "waves",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_background.jpg",
+              "colorRgb": "#ff5722"
+            },
+            {
+              "id": "waves_blue",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/waves_blue_background.jpg",
+              "colorRgb": "#5c6bc0"
+            },
+            {
+              "id": "wood",
+              "backgroundImageLink": "https://ssl.gstatic.com/team_drive_themes/wood_background.jpg",
+              "colorRgb": "#8d6e63"
+            }
+          ],
+          "canCreateTeamDrives": true,
+          "canCreateDrives": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:30:47 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4798",
+          "x-ratelimit-reset": "1773300647",
+          "pragma": "no-cache",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": "Origin, X-Origin",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "d1f320648220019d038ec6cd4b069d0686dbe519",
+        "request": {
+          "params": {
+            "fields": "*"
+          }
+        }
+      }
+    }
+  }
+}

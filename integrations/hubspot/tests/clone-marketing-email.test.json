@@ -1,0 +1,108 @@
+{
+  "input": {
+    "emailId": "369218116794",
+    "cloneName": "Cloned Email via Nango"
+  },
+  "output": {
+    "id": "377765164263",
+    "name": "Cloned Email via Nango",
+    "subject": "Updated Subject via API",
+    "state": "DRAFT",
+    "createdAt": "2026-03-12T07:33:04.017Z",
+    "updatedAt": "2026-03-12T07:33:04.017Z",
+    "clonedFrom": "369218116794",
+    "isPublished": false,
+    "type": "BATCH_EMAIL",
+    "subcategory": "batch"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/marketing/v3/emails/clone": {
+        "response": {
+          "activeDomain": "147893286.hs-sites-eu1.com",
+          "archived": false,
+          "businessUnitId": "0",
+          "clonedFrom": "369218116794",
+          "content": {
+            "templatePath": "@hubspot/email/dnd/plain_text.html",
+            "widgets": {}
+          },
+          "createdAt": "2026-03-12T07:33:04.017Z",
+          "createdById": "88842095",
+          "emailTemplateMode": "DRAG_AND_DROP",
+          "from": {
+            "fromName": "",
+            "replyTo": ""
+          },
+          "id": "377765164263",
+          "isAb": false,
+          "isPublished": false,
+          "jitterSendTime": true,
+          "language": "en",
+          "name": "Cloned Email via Nango",
+          "previewKey": "IdyoSZzb",
+          "publishDate": "2026-03-12T07:33:04Z",
+          "sendOnPublish": true,
+          "state": "DRAFT",
+          "subcategory": "batch",
+          "subject": "Updated Subject via API",
+          "subscriptionDetails": {
+            "officeLocationId": "369226069226"
+          },
+          "to": {
+            "contactIds": {
+              "exclude": [],
+              "include": []
+            },
+            "contactIlsLists": {
+              "exclude": [],
+              "include": []
+            },
+            "contactLists": {
+              "exclude": [],
+              "include": []
+            },
+            "suppressGraymail": true
+          },
+          "type": "BATCH_EMAIL",
+          "updatedAt": "2026-03-12T07:33:04.017Z",
+          "updatedById": "88842095",
+          "webversion": {
+            "domain": "147893286.hs-sites-eu1.com",
+            "enabled": false,
+            "isPageRedirected": false,
+            "slug": "-temporary-slug-079362cf-5348-4c09-a7d1-4c1c3379b441"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:33:04 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1063",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4869",
+          "x-ratelimit-reset": "1773300828",
+          "etag": "W/\"427-OQ7n1UYGrDK8uyFb5iWmZubLr4A\""
+        },
+        "hash": "b96f30aaa59e4d92d9e579f4fad833a02f5e025b",
+        "request": {
+          "data": {
+            "id": "369218116794",
+            "cloneName": "Cloned Email via Nango"
+          }
+        }
+      }
+    }
+  }
+}

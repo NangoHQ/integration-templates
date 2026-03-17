@@ -1,0 +1,105 @@
+{
+  "input": {
+    "channel_id": "C0AGWLS4CQ3",
+    "text": "Hello from Nango send-message action!"
+  },
+  "output": {
+    "ok": true,
+    "channel": "C0AGWLS4CQ3",
+    "ts": "1773301324.033409",
+    "message": {
+      "type": "message",
+      "user": "U0AH6N4H6MA",
+      "text": "Hello from Nango send-message action!",
+      "ts": "1773301324.033409",
+      "team": "T0AH32UST18",
+      "bot_id": "B0AHXCCPN2U",
+      "app_id": "A09BGMXLWL9"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/chat.postMessage": {
+        "response": {
+          "ok": true,
+          "channel": "C0AGWLS4CQ3",
+          "ts": "1773301324.033409",
+          "message": {
+            "user": "U0AH6N4H6MA",
+            "type": "message",
+            "ts": "1773301324.033409",
+            "bot_id": "B0AHXCCPN2U",
+            "app_id": "A09BGMXLWL9",
+            "text": "Hello from Nango send-message action!",
+            "team": "T0AH32UST18",
+            "bot_profile": {
+              "id": "B0AHXCCPN2U",
+              "app_id": "A09BGMXLWL9",
+              "user_id": "U0AH6N4H6MA",
+              "name": "NangoDevelopersOnlyNotForProduction",
+              "icons": {
+                "image_36": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_36.png",
+                "image_48": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_48.png",
+                "image_72": "https://avatars.slack-edge.com/2025-08-19/9376911626597_f47f29d1297d84cb723e_72.png"
+              },
+              "deleted": false,
+              "updated": 1772031587,
+              "team_id": "T0AH32UST18"
+            },
+            "blocks": [
+              {
+                "type": "rich_text",
+                "block_id": "E52gR",
+                "elements": [
+                  {
+                    "type": "rich_text_section",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "text": "Hello from Nango send-message action!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "warning": "missing_charset",
+          "response_metadata": {
+            "warnings": [
+              "missing_charset"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 12 Mar 2026 07:42:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1000",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4911",
+          "x-ratelimit-reset": "1773301372",
+          "etag": "W/\"3e8-MtrEdnxrWcwzDDyNjL6okH0AyFA\""
+        },
+        "hash": "1c876ed542789defc9b945a03c6612b9400f0fe0",
+        "request": {
+          "data": {
+            "channel": "C0AGWLS4CQ3",
+            "text": "Hello from Nango send-message action!"
+          }
+        }
+      }
+    }
+  }
+}

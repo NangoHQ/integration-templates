@@ -1,44 +1,65 @@
-import { createAction } from 'nango';
-import type { HubspotAccessTokenMetadata } from '../types.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { UserInformation } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
+
+// No input needed for whoami
+const InputSchema = z.object({});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    email: z.string(),
+    hubId: z.number(),
+    hubDomain: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Fetch current user information',
-    version: '2.0.0',
+    description: "Retrieve the current authenticated HubSpot user's ID and email",
+    version: '1.0.0',
 
     endpoint: {
         method: 'GET',
-        path: '/whoami',
+        path: '/actions/whoami',
         group: 'Users'
     },
 
-    input: z.void(),
-    output: UserInformation,
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['oauth'],
 
-    exec: async (nango): Promise<UserInformation> => {
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.hubspot.com/docs/api-reference/legacy/oauth-v1/get-oauth-v1-access-tokens-token
+        // First, get the connection to access the access token
         const connection = await nango.getConnection();
-        if (!('access_token' in connection.credentials)) {
+
+        if (!connection.credentials || typeof connection.credentials !== 'object') {
             throw new nango.ActionError({
-                message: 'Access token is missing in credentials'
+                type: 'missing_credentials',
+                message: 'Connection credentials are missing or invalid'
             });
         }
-        const config: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/guides/api/app-management/oauth-tokens#retrieve-access-token-metadata
-            endpoint: `/oauth/v1/access-tokens/${connection.credentials.access_token}`,
+
+        let accessToken: string;
+        if ('access_token' in connection.credentials && typeof connection.credentials.access_token === 'string') {
+            accessToken = connection.credentials.access_token;
+        } else {
+            throw new nango.ActionError({
+                type: 'missing_token',
+                message: 'Access token not found in connection'
+            });
+        }
+
+        const response = await nango.get({
+            endpoint: `/oauth/v1/access-tokens/${accessToken}`,
             retries: 3
+        });
+
+        const data = response.data;
+
+        return {
+            id: String(data.user_id),
+            email: data.user,
+            hubId: data.hub_id,
+            hubDomain: data.hub_domain ?? undefined
         };
-
-        const { data } = await nango.get<HubspotAccessTokenMetadata>(config);
-
-        const user: UserInformation = {
-            id: data.user_id,
-            email: data.user
-        };
-
-        return user;
     }
 });
 

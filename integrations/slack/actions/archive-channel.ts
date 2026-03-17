@@ -1,49 +1,42 @@
-/**
- * Archives a conversation making it read-only.
- *
- * API Docs: https://api.slack.com/methods/conversations.archive
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-const ArchiveChannelInput = z.object({
-    channel_id: z.string().describe('The channel to archive. Example: "C0A02F9NBCJ"')
+const InputSchema = z.object({
+    channel_id: z.string().describe('The ID of the channel to archive. Example: "C1234567890"')
 });
 
-const ArchiveChannelOutput = z.object({
-    ok: z.boolean().describe('Whether the channel was archived successfully')
+const OutputSchema = z.object({
+    ok: z.boolean().describe('Whether the request was successful'),
+    error: z.string().optional().describe('Error message if the request failed')
 });
 
 const action = createAction({
-    description: 'Archives a conversation making it read-only.',
+    description: 'Archive a Slack channel',
     version: '1.0.0',
 
     endpoint: {
         method: 'POST',
-        path: '/archive-channel',
+        path: '/actions/archive-channel',
         group: 'Channels'
     },
 
-    input: ArchiveChannelInput,
-    output: ArchiveChannelOutput,
-    scopes: ['channels:write', 'groups:write', 'im:write', 'mpim:write'],
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['channels:manage', 'channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof ArchiveChannelOutput>> => {
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
             // https://api.slack.com/methods/conversations.archive
             endpoint: 'conversations.archive',
             data: {
                 channel: input.channel_id
             },
             retries: 3
-        };
-
-        const response = await nango.post(config);
+        });
 
         return {
-            ok: response.data.ok
+            ok: response.data.ok,
+            error: response.data.error
         };
     }
 });

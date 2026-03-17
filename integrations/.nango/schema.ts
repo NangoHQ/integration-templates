@@ -329,19 +329,17 @@ export interface SyncMetadata_asana_projects {
 
 export interface Task {
   id: string;
-  task_type: string | null;
-  title: string | null;
-  priority: string | null;
-  assigned_to: string | null;
-  due_date: string | null;
-  notes: string | null;
-  returned_associations?: {  companies?: ({  id: string;
-  name: string | null;})[] | undefined;
-  contacts?: ({  id: string;
-  first_name: string | null;
-  last_name: string | null;})[] | undefined;
-  deals?: ({  id: string;
-  name: string | null;})[] | undefined;};
+  type?: string | undefined;
+  title?: string | undefined;
+  priority?: string | undefined;
+  assigneeId?: string | undefined;
+  dueDate?: string | undefined;
+  notes?: string | undefined;
+  contactIds: string[];
+  companyIds: string[];
+  dealIds: string[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -2373,10 +2371,9 @@ export interface SyncMetadata_box_files {
 
 export interface Folder {
   id: string;
-  url: string;
-  title: string;
-  mimeType: string;
-  updatedAt: string;
+  name?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
 };
 
 export interface SyncMetadata_box_folders {
@@ -3265,10 +3262,9 @@ export interface ActionOutput_docusign_deleteuser {
 
 export interface Document {
   id: string;
-  url: string;
+  path: string;
   title: string;
-  mimeType: string;
-  updatedAt: string;
+  modified_date: string;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -3719,16 +3715,28 @@ export interface ActionOutput_freshdesk_deleteuser {
 
 export interface Conversation {
   id: string;
-  created_at: string;
-  updated_at: string;
-  waiting_since: string | null;
-  snoozed_until: string | null;
-  title: string | null;
-  contacts: ({  contact_id: string;})[];
-  state: string;
-  open: boolean;
-  read: boolean;
-  priority: string;
+  name?: string | undefined;
+  created: number;
+  creator?: string | undefined;
+  is_archived: boolean;
+  is_general: boolean;
+  is_channel: boolean;
+  is_group: boolean;
+  is_im: boolean;
+  is_mpim: boolean;
+  is_private: boolean;
+  is_shared: boolean;
+  is_ext_shared: boolean;
+  is_org_shared: boolean;
+  updated: number;
+  num_members?: number | undefined;
+  topic?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  purpose?: {  value: string;
+  creator: string;
+  last_set: number;} | undefined;
+  members: string[];
 };
 
 export interface SyncMetadata_front_conversations {
@@ -4523,60 +4531,29 @@ export interface SyncMetadata_google_workspaceusers {
   path: string;})[];
 };
 
-export interface GoogleCalendar {
-  kind: string;
-  etag: string;
+export interface CalendarEvent {
   id: string;
-  summary: string;
-  description: string;
-  location: string;
-  timeZone: string;
-  summaryOverride: string;
-  colorId: string;
-  backgroundColor: string;
-  foregroundColor: string;
-  hidden: boolean;
-  selected: boolean;
-  accessRole: string;
-  defaultReminders: ({  method: string;
-  minutes: number;})[];
-  notificationSettings: {  notifications: ({  type: string;
-  method: string;})[];};
-  primary: boolean;
-  deleted: boolean;
-  conferenceProperties: {  allowedConferenceSolutionTypes: string[];};
-};
-
-export interface SyncMetadata_google_calendar_calendars {
-};
-
-export interface GoogleCalendarEvent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  htmlLink: string;
-  created: string;
+  kind?: string | undefined;
+  etag?: string | undefined;
+  status?: string | undefined;
+  htmlLink?: string | undefined;
+  created?: string | undefined;
   updated: string;
-  summary: string;
+  summary?: string | undefined;
   description?: string | undefined;
   location?: string | undefined;
-  colorId?: string | undefined;
-  creator?: {  id?: string | undefined;
-  email?: string | undefined;
+  creator?: {  email?: string | undefined;
   displayName?: string | undefined;
   self?: boolean | undefined;};
-  organizer?: {  id?: string | undefined;
-  email?: string | undefined;
+  organizer?: {  email?: string | undefined;
   displayName?: string | undefined;
   self?: boolean | undefined;};
-  start: {  date?: string | undefined;
+  start?: {  date?: string | undefined;
   dateTime?: string | undefined;
   timeZone?: string | undefined;};
-  end: {  date?: string | undefined;
+  end?: {  date?: string | undefined;
   dateTime?: string | undefined;
   timeZone?: string | undefined;};
-  endTimeUnspecified?: boolean | undefined;
   recurrence?: string[] | undefined;
   recurringEventId?: string | undefined;
   originalStartTime?: {  date?: string | undefined;
@@ -4586,8 +4563,1408 @@ export interface GoogleCalendarEvent {
   visibility?: string | undefined;
   iCalUID?: string | undefined;
   sequence?: number | undefined;
-  attendees?: ({  id?: string | undefined;
+  attendees?: ({  email?: string | undefined;
+  displayName?: string | undefined;
+  responseStatus?: string | undefined;})[];
+  attendeesOmitted?: boolean | undefined;
+  hangoutLink?: string | undefined;
+  conferenceData?: any | undefined;
+  reminders?: any | undefined;
+  attachments?: any | undefined;
+  eventType?: string | undefined;
+};
+
+export interface SyncMetadata_google_calendar_calendarevents {
+  /**
+   * Array of calendar IDs to sync. Defaults to ["primary"]
+   */
+  calendarsToSync?: string[] | undefined;
+  /**
+   * RFC3339 timestamp for lower bound on event start time. Also used as initial sync point if no checkpoint exists.
+   */
+  timeMin?: string | undefined;
+  /**
+   * RFC3339 timestamp for upper bound on event end time
+   */
+  timeMax?: string | undefined;
+  /**
+   * Whether to expand recurring events into single instances
+   */
+  singleEvents?: boolean | undefined;
+};
+
+export interface Calendar {
+  id: string;
+  summary: string;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  accessRole: string;
+  colorId?: string | undefined;
+  backgroundColor?: string | undefined;
+  foregroundColor?: string | undefined;
+  hidden?: boolean | undefined;
+  selected: boolean;
+  primary?: boolean | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface Setting {
+  id: string;
+  value: string;
+  etag?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_addattendee {
+  /**
+   * Calendar ID. Use "primary" for the default calendar. Example: "primary"
+   */
+  calendarId: string;
+  /**
+   * Event ID to add attendee to. Example: "abc123xyz"
+   */
+  eventId: string;
+  /**
+   * Email address of the attendee to add. Example: "attendee@example.com"
+   */
+  attendeeEmail: string;
+  /**
+   * Display name of the attendee (optional). Example: "John Doe"
+   */
+  attendeeName?: string | undefined;
+  /**
+   * Whether the attendee is optional (optional). Default: false
+   */
+  optional?: boolean | undefined;
+  /**
+   * Response status of the attendee (optional). Default: "needsAction"
+   */
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;
+};
+
+export interface ActionOutput_google_calendar_addattendee {
+  id: string;
+  summary?: string | undefined;
+  attendees: ({  email: string;
+  displayName?: string | undefined;
+  optional?: boolean | undefined;
+  responseStatus?: string | undefined;})[];
+};
+
+export interface ActionInput_google_calendar_clearcalendar {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar. Example: "primary"
+   */
+  calendarId?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_clearcalendar {
+  /**
+   * Whether the calendar was cleared successfully
+   */
+  success: boolean;
+  /**
+   * The calendar ID that was cleared
+   */
+  calendarId: string;
+};
+
+export interface ActionInput_google_calendar_createaclrule {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.
+   */
+  calendarId: string;
+  /**
+   * The role assigned to the scope. Possible values: "none" - Provides no access, "freeBusyReader" - Provides read access to free/busy information, "reader" - Provides read access to the calendar, "writer" - Provides read and write access to the calendar, "owner" - Provides manager access to the calendar.
+   */
+  role: 'none' | 'freeBusyReader' | 'reader' | 'writer' | 'owner';
+  /**
+   * The type of the scope. Possible values: "default" - The public scope, "user" - Limits the scope to a single user, "group" - Limits the scope to a group, "domain" - Limits the scope to a domain.
+   */
+  scopeType: 'default' | 'user' | 'group' | 'domain';
+  /**
+   * The email address of a user or group, or the name of a domain, depending on the scope type. Omitted for type "default".
+   */
+  scopeValue?: string | undefined;
+  /**
+   * Whether to send notifications about the calendar sharing change. Optional. The default is True.
+   */
+  sendNotifications?: boolean | undefined;
+};
+
+export interface ActionOutput_google_calendar_createaclrule {
+  /**
+   * The identifier of the ACL rule.
+   */
+  id: string;
+  /**
+   * ETag of the resource.
+   */
+  etag: string;
+  /**
+   * Type of the resource ("calendar#aclRule").
+   */
+  kind: string;
+  /**
+   * The role assigned to the scope.
+   */
+  role: 'none' | 'freeBusyReader' | 'reader' | 'writer' | 'owner';
+  /**
+   * The extent to which calendar access is granted by this ACL rule.
+   */
+  scope: {  /**
+   * The type of the scope.
+   */
+  type: 'default' | 'user' | 'group' | 'domain';
+  /**
+   * The email address of a user or group, or the name of a domain.
+   */
+  value?: string | undefined;};
+};
+
+export interface ActionInput_google_calendar_createalldayevent {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar.
+   */
+  calendarId?: string | undefined;
+  /**
+   * Title of the event
+   */
+  summary: string;
+  /**
+   * Start date in yyyy-mm-dd format (inclusive)
+   */
+  startDate: string;
+  /**
+   * End date in yyyy-mm-dd format (exclusive)
+   */
+  endDate: string;
+  /**
+   * Description of the event
+   */
+  description?: string | undefined;
+  /**
+   * Location of the event
+   */
+  location?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_createalldayevent {
+  id: string;
+  summary: string;
+  startDate: string;
+  endDate: string;
+  description?: string | undefined;
+  location?: string | undefined;
+  htmlLink: string;
+};
+
+export interface ActionInput_google_calendar_createcalendar {
+  /**
+   * Title of the calendar. Example: "My Work Calendar"
+   */
+  summary: string;
+};
+
+export interface ActionOutput_google_calendar_createcalendar {
+  /**
+   * Identifier of the calendar.
+   */
+  id: string;
+  /**
+   * Title of the calendar.
+   */
+  summary: string;
+  /**
+   * Description of the calendar.
+   */
+  description?: string | undefined;
+  /**
+   * The time zone of the calendar.
+   */
+  timeZone?: string | undefined;
+  /**
+   * Geographic location of the calendar as free-form text.
+   */
+  location?: string | undefined;
+  /**
+   * ETag of the resource.
+   */
+  etag: string;
+  /**
+   * Type of the resource ("calendar#calendar").
+   */
+  kind: string;
+};
+
+export interface ActionInput_google_calendar_createevent {
+  /**
+   * Calendar ID to create the event in. Example: "primary" or a calendar ID string
+   */
+  calendarId: string;
+  /**
+   * Event title/summary. Example: "Team Meeting"
+   */
+  summary: string;
+  /**
+   * Event description
+   */
+  description?: string | undefined;
+  /**
+   * Event location
+   */
+  location?: string | undefined;
+  start: {  /**
+   * Start time in ISO 8601 format. Example: "2024-03-15T09:00:00-07:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for the start time. Example: "America/Los_Angeles"
+   */
+  timeZone?: string | undefined;};
+  end: {  /**
+   * End time in ISO 8601 format. Example: "2024-03-15T10:00:00-07:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for the end time. Example: "America/Los_Angeles"
+   */
+  timeZone?: string | undefined;};
+  /**
+   * List of attendees
+   */
+  attendees?: ({  /**
+   * Email address of the attendee. Example: "attendee@example.com"
+   */
+  email: string;
+  /**
+   * Display name of the attendee
+   */
+  displayName?: string | undefined;
+  /**
+   * Response status
+   */
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;})[];
+  /**
+   * Event reminders
+   */
+  reminders?: {  /**
+   * Whether to use default reminders
+   */
+  useDefault?: boolean | undefined;
+  /**
+   * Custom reminder overrides
+   */
+  overrides?: ({  /**
+   * Method of reminder
+   */
+  method: 'email' | 'popup';
+  /**
+   * Minutes before the event to trigger the reminder
+   */
+  minutes: number;})[] | undefined;};
+  /**
+   * Recurrence rules (RRULE, EXRULE, RDATE, EXDATE). Example: ["RRULE:FREQ=WEEKLY;BYDAY=MO"]
+   */
+  recurrence?: string[] | undefined;
+};
+
+export interface ActionOutput_google_calendar_createevent {
+  /**
+   * Event ID
+   */
+  id: string;
+  /**
+   * Link to the event in Google Calendar
+   */
+  htmlLink: string;
+  /**
+   * Event title/summary
+   */
+  summary: string;
+  /**
+   * Event description
+   */
+  description?: string | undefined;
+  /**
+   * Event location
+   */
+  location?: string | undefined;
+  start: {  dateTime: string;
+  timeZone?: string | undefined;};
+  end: {  dateTime: string;
+  timeZone?: string | undefined;};
+  attendees?: ({  email: string;
+  displayName?: string | undefined;
+  responseStatus: string;})[];
+  /**
+   * Creation timestamp
+   */
+  created: string;
+  /**
+   * Last update timestamp
+   */
+  updated: string;
+};
+
+export interface ActionInput_google_calendar_createrecurringevent {
+  /**
+   * Calendar ID. Defaults to "primary". Example: "primary"
+   */
+  calendarId?: string | undefined;
+  /**
+   * Event title/summary. Example: "Weekly Team Meeting"
+   */
+  summary: string;
+  /**
+   * Event description. Example: "Discuss project progress"
+   */
+  description?: string | undefined;
+  /**
+   * Event location. Example: "Conference Room A"
+   */
+  location?: string | undefined;
+  /**
+   * Event start time in RFC3339 format. Example: "2024-03-15T09:00:00-07:00"
+   */
+  start: string;
+  /**
+   * Event end time in RFC3339 format. Example: "2024-03-15T10:00:00-07:00"
+   */
+  end: string;
+  /**
+   * iCalendar RRULE for recurrence. Example: "FREQ=WEEKLY;BYDAY=MO,WE,FR"
+   */
+  rrule: string;
+  /**
+   * Timezone for the event. Defaults to "UTC". Example: "America/Los_Angeles"
+   */
+  timezone?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_createrecurringevent {
+  id: string;
+  htmlLink: string;
+  summary: string;
+  start: string;
+  end: string;
+  recurrence?: string[] | undefined;
+  status: string;
+};
+
+export interface ActionInput_google_calendar_deleteaclrule {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.
+   */
+  calendarId: string;
+  /**
+   * ACL rule identifier to delete.
+   */
+  ruleId: string;
+};
+
+export interface ActionOutput_google_calendar_deleteaclrule {
+  /**
+   * Whether the deletion was successful.
+   */
+  success: boolean;
+  /**
+   * The calendar ID from the request.
+   */
+  calendarId: string;
+  /**
+   * The ACL rule ID that was deleted.
+   */
+  ruleId: string;
+};
+
+export interface ActionInput_google_calendar_deletecalendar {
+  /**
+   * Calendar ID to delete. Example: "c_abc123@group.calendar.google.com"
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_google_calendar_deletecalendar {
+  success: boolean;
+  calendarId: string;
+};
+
+export interface ActionInput_google_calendar_deleteevent {
+  /**
+   * Calendar ID. Example: "primary" or "abc123@group.calendar.google.com"
+   */
+  calendarId: string;
+  /**
+   * Event ID to delete. Example: "tpv6jfth9cbnqhi1f570l45878"
+   */
+  eventId: string;
+};
+
+export interface ActionOutput_google_calendar_deleteevent {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_google_calendar_findfreeslots {
+  /**
+   * List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]
+   */
+  calendarIds: string[];
+  /**
+   * Start of the time range in RFC3339 format. Example: "2024-03-15T09:00:00Z"
+   */
+  timeMin: string;
+  /**
+   * End of the time range in RFC3339 format. Example: "2024-03-15T17:00:00Z"
+   */
+  timeMax: string;
+  /**
+   * Minimum duration in minutes for a free slot to be returned. Example: 30
+   */
+  durationMinutes: number;
+};
+
+export interface ActionOutput_google_calendar_findfreeslots {
+  /**
+   * List of free time slots meeting the minimum duration
+   */
+  freeSlots: ({  /**
+   * Start time of the free slot in RFC3339 format
+   */
+  start: string;
+  /**
+   * End time of the free slot in RFC3339 format
+   */
+  end: string;
+  /**
+   * Duration of the free slot in minutes
+   */
+  durationMinutes: number;})[];
+  /**
+   * Number of calendars checked
+   */
+  calendarsChecked: number;
+};
+
+export interface ActionInput_google_calendar_getaclrule {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the logged-in user.
+   */
+  calendarId: string;
+  /**
+   * ACL rule identifier.
+   */
+  ruleId: string;
+};
+
+export interface ActionOutput_google_calendar_getaclrule {
+  /**
+   * Identifier of the ACL rule.
+   */
+  id: string;
+  /**
+   * ETag of the resource.
+   */
+  etag: string;
+  /**
+   * Type of the resource ("calendar#aclRule").
+   */
+  kind: string;
+  /**
+   * The role assigned to the scope. Possible values: "none", "freeBusyReader", "reader", "writer", "owner".
+   */
+  role: string;
+  /**
+   * The extent to which calendar access is granted by this ACL rule.
+   */
+  scope: {  /**
+   * The type of the scope. Possible values: "default", "user", "group", "domain".
+   */
+  type: string;
+  /**
+   * The email address of a user or group, or the name of a domain. Omitted for type "default".
+   */
+  value?: string | undefined;};
+};
+
+export interface ActionInput_google_calendar_getcalendarlistentry {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar. Example: "primary" or "abc123@group.calendar.google.com"
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_google_calendar_getcalendarlistentry {
+  id: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  accessRole?: string | undefined;
+  colorId?: string | undefined;
+  backgroundColor?: string | undefined;
+  foregroundColor?: string | undefined;
+  primary: boolean;
+  selected: boolean;
+  timeZone?: string | undefined;
+  hidden: boolean;
+};
+
+export interface ActionInput_google_calendar_getcalendar {
+  /**
+   * Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_google_calendar_getcalendar {
+  id: string;
+  summary: string;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  etag: string;
+  kind: string;
+};
+
+export interface ActionInput_google_calendar_getcolors {
+};
+
+export interface ActionOutput_google_calendar_getcolors {
+  /**
+   * Type of the resource
+   */
+  kind: string;
+  /**
+   * Last modification time of the color palette (as a RFC3339 timestamp)
+   */
+  updated: string;
+  /**
+   * A global palette of calendar colors, mapping from the color ID to its definition
+   */
+  calendar: {  [key: string]: {  /**
+   * The background color associated with this color definition
+   */
+  background: string;
+  /**
+   * The foreground color that can be used to write on top of the background color
+   */
+  foreground: string;};};
+  /**
+   * A global palette of event colors, mapping from the color ID to its definition
+   */
+  event: {  [key: string]: {  /**
+   * The background color associated with this color definition
+   */
+  background: string;
+  /**
+   * The foreground color that can be used to write on top of the background color
+   */
+  foreground: string;};};
+};
+
+export interface ActionInput_google_calendar_getevent {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.
+   */
+  calendarId: string;
+  /**
+   * Event identifier.
+   */
+  eventId: string;
+};
+
+export interface ActionOutput_google_calendar_getevent {
+  id: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  status?: string | undefined;
+  htmlLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  start?: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  creator?: {  id?: string | undefined;
   email?: string | undefined;
+  displayName?: string | undefined;
+  self?: boolean | undefined;};
+  organizer?: {  id?: string | undefined;
+  email?: string | undefined;
+  displayName?: string | undefined;
+  self?: boolean | undefined;};
+};
+
+export interface ActionInput_google_calendar_getsetting {
+  /**
+   * The ID of the user setting. Examples: "timezone", "locale", "dateFieldOrder", "format24HourTime", "weekStart", "autoAddHangouts"
+   */
+  settingId: string;
+};
+
+export interface ActionOutput_google_calendar_getsetting {
+  /**
+   * Type of the resource
+   */
+  kind: string;
+  /**
+   * ETag of the resource
+   */
+  etag: string;
+  /**
+   * The ID of the user setting
+   */
+  id: string;
+  /**
+   * Value of the user setting
+   */
+  value: string;
+};
+
+export interface ActionInput_google_calendar_importevent {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.
+   */
+  calendarId: string;
+  /**
+   * Event unique identifier as defined in RFC5545. Used to uniquely identify events across calendaring systems.
+   */
+  iCalUID: string;
+  /**
+   * Title of the event.
+   */
+  summary?: string | undefined;
+  /**
+   * Description of the event. Can contain HTML.
+   */
+  description?: string | undefined;
+  /**
+   * Geographic location of the event as free-form text.
+   */
+  location?: string | undefined;
+  /**
+   * The (inclusive) start time of the event.
+   */
+  start: {  /**
+   * The date, in the format "yyyy-mm-dd", if this is an all-day event.
+   */
+  date?: string | undefined;
+  /**
+   * The time, as a combined date-time value (formatted according to RFC3339).
+   */
+  dateTime?: string | undefined;
+  /**
+   * The time zone in which the time is specified (IANA Time Zone Database name, e.g. "Europe/Zurich").
+   */
+  timeZone?: string | undefined;};
+  /**
+   * The (exclusive) end time of the event.
+   */
+  end: {  /**
+   * The date, in the format "yyyy-mm-dd", if this is an all-day event.
+   */
+  date?: string | undefined;
+  /**
+   * The time, as a combined date-time value (formatted according to RFC3339).
+   */
+  dateTime?: string | undefined;
+  /**
+   * The time zone in which the time is specified (IANA Time Zone Database name, e.g. "Europe/Zurich").
+   */
+  timeZone?: string | undefined;};
+  /**
+   * The attendees of the event.
+   */
+  attendees?: ({  additionalGuests?: number | undefined;
+  comment?: string | undefined;
+  displayName?: string | undefined;
+  email: string;
+  optional?: boolean | undefined;
+  resource?: boolean | undefined;
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;})[];
+  /**
+   * The organizer of the event.
+   */
+  organizer?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  /**
+   * Version number of conference data supported by the API client.
+   */
+  conferenceDataVersion?: number | undefined;
+  /**
+   * Whether API client performing operation supports event attachments.
+   */
+  supportsAttachments?: boolean | undefined;
+};
+
+export interface ActionOutput_google_calendar_importevent {
+  /**
+   * Identifier of the event.
+   */
+  id: string;
+  /**
+   * Event unique identifier as defined in RFC5545.
+   */
+  iCalUID: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  status?: 'confirmed' | 'tentative' | 'cancelled' | undefined;
+  htmlLink?: string | undefined;
+  start?: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  attendees?: ({  additionalGuests?: number | undefined;
+  comment?: string | undefined;
+  displayName?: string | undefined;
+  email: string;
+  optional?: boolean | undefined;
+  resource?: boolean | undefined;
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;})[];
+  organizer?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_google_calendar_insertcalendartolist {
+  /**
+   * The ID of the calendar to add to the list. Example: "primary" or a calendar email address
+   */
+  calendarId: string;
+  /**
+   * Whether to use the foregroundColor and backgroundColor fields to write calendar colors (RGB). Optional. Default is false.
+   */
+  colorRgbFormat?: boolean | undefined;
+  /**
+   * The main color of the calendar in hexadecimal format "#0088aa". Requires colorRgbFormat=true. Optional.
+   */
+  backgroundColor?: string | undefined;
+  /**
+   * The foreground color of the calendar in hexadecimal format "#ffffff". Requires colorRgbFormat=true. Optional.
+   */
+  foregroundColor?: string | undefined;
+  /**
+   * The color ID from the calendar colors definition. Optional.
+   */
+  colorId?: string | undefined;
+  /**
+   * Whether the calendar has been hidden from the list. Optional.
+   */
+  hidden?: boolean | undefined;
+  /**
+   * Whether the calendar content shows up in the calendar UI. Optional. Default is false.
+   */
+  selected?: boolean | undefined;
+  /**
+   * The summary that the authenticated user has set for this calendar. Optional.
+   */
+  summaryOverride?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_insertcalendartolist {
+  id: string;
+  summary?: string | undefined;
+  summaryOverride?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  accessRole?: string | undefined;
+  backgroundColor?: string | undefined;
+  foregroundColor?: string | undefined;
+  colorId?: string | undefined;
+  hidden?: boolean | undefined;
+  selected?: boolean | undefined;
+  primary?: boolean | undefined;
+};
+
+export interface ActionInput_google_calendar_listaclrules {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar.
+   */
+  calendarId: string;
+  /**
+   * Maximum number of entries returned on one result page. Default is 100, max is 250.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token from previous response to get the next page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Whether to include deleted ACLs (role="none") in the result. Default is false.
+   */
+  showDeleted?: boolean | undefined;
+};
+
+export interface ActionOutput_google_calendar_listaclrules {
+  /**
+   * List of rules on the access control list
+   */
+  items: ({  /**
+   * Identifier of the ACL rule
+   */
+  id: string;
+  /**
+   * ETag of the resource
+   */
+  etag: string;
+  /**
+   * Type of the resource ("calendar#aclRule")
+   */
+  kind: string;
+  scope: {  /**
+   * The type of the scope ("default", "user", "group", "domain")
+   */
+  type: string;
+  /**
+   * The specific email address, group email address, or domain name
+   */
+  value?: string | undefined;};
+  /**
+   * The role of the ACL rule ("none", "freeBusyReader", "reader", "writer", "owner")
+   */
+  role: string;})[];
+  /**
+   * Token to retrieve the next page of results. Omitted if no more pages.
+   */
+  nextPageToken?: string | undefined;
+  /**
+   * Token to retrieve only entries changed since this result was returned.
+   */
+  nextSyncToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_listcalendarlist {
+  /**
+   * Page token for pagination. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of calendars to return. Default: 100.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_google_calendar_listcalendarlist {
+  calendars: ({  id: string;
+  summary: string;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  accessRole?: string | undefined;
+  primary?: boolean | undefined;
+  selected?: boolean | undefined;
+  backgroundColor?: string | undefined;
+  foregroundColor?: string | undefined;
+  hidden?: boolean | undefined;
+  deleted?: boolean | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_listeventinstances {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the logged-in user.
+   */
+  calendarId: string;
+  /**
+   * Recurring event identifier.
+   */
+  eventId: string;
+  /**
+   * Maximum number of attendees to include in the response.
+   */
+  maxAttendees?: number | undefined;
+  /**
+   * Maximum number of events returned on one result page. Default is 250, max is 2500.
+   */
+  maxResults?: number | undefined;
+  /**
+   * The original start time of the instance in the result.
+   */
+  originalStart?: string | undefined;
+  /**
+   * Pagination token from a previous response (maps to pageToken).
+   */
+  cursor?: string | undefined;
+  /**
+   * Whether to include deleted events in the result. Default is false.
+   */
+  showDeleted?: boolean | undefined;
+  /**
+   * Upper bound (exclusive) for an event's start time to filter by. RFC3339 timestamp.
+   */
+  timeMax?: string | undefined;
+  /**
+   * Lower bound (inclusive) for an event's end time to filter by. RFC3339 timestamp.
+   */
+  timeMin?: string | undefined;
+  /**
+   * Time zone used in the response. Default is the calendar's time zone.
+   */
+  timeZone?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_listeventinstances {
+  /**
+   * List of event instances.
+   */
+  items: any[];
+  /**
+   * Pagination token for the next page of results.
+   */
+  nextPageToken?: string | undefined;
+  kind?: string | undefined;
+  etag?: string | undefined;
+  summary?: string | undefined;
+  description?: string | undefined;
+  updated?: string | undefined;
+  timeZone?: string | undefined;
+  accessRole?: string | undefined;
+  nextSyncToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_listevents {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar or a calendar ID from calendarList.list.
+   */
+  calendarId?: string | undefined;
+  /**
+   * Pagination cursor (nextPageToken from previous response). Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of events to return per page (1-2500, default 250).
+   */
+  maxResults?: number | undefined;
+  /**
+   * Lower bound (exclusive) for an event's end time filter (RFC3339 timestamp).
+   */
+  timeMin?: string | undefined;
+  /**
+   * Upper bound (exclusive) for an event's start time filter (RFC3339 timestamp).
+   */
+  timeMax?: string | undefined;
+  /**
+   * Free text search terms to find matching events.
+   */
+  q?: string | undefined;
+  /**
+   * Whether to expand recurring events into single instances.
+   */
+  singleEvents?: boolean | undefined;
+  /**
+   * Whether to include cancelled/deleted events.
+   */
+  showDeleted?: boolean | undefined;
+};
+
+export interface ActionOutput_google_calendar_listevents {
+  events: ({  id: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  start?: {  date: string;} | {  dateTime: string;
+  timeZone?: string | undefined;};
+  end?: {  date: string;} | {  dateTime: string;
+  timeZone?: string | undefined;};
+  status?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  organizer?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+  attendees?: ({  email?: string | undefined;
+  displayName?: string | undefined;
+  responseStatus?: string | undefined;})[];
+  recurringEventId?: string | undefined;
+  transparency?: string | undefined;
+  visibility?: string | undefined;})[];
+  /**
+   * Pagination cursor for next page. Omitted if no more pages.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_listsettings {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of entries returned on one result page. Default is 100. Maximum is 250.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_google_calendar_listsettings {
+  /**
+   * List of user settings
+   */
+  items: ({  /**
+   * The id of the user setting
+   */
+  id: string;
+  /**
+   * Value of the user setting
+   */
+  value: string;
+  /**
+   * Type of the resource
+   */
+  kind?: string | undefined;
+  /**
+   * ETag of the resource
+   */
+  etag?: string | undefined;})[];
+  /**
+   * Token used to access the next page of results. Omitted if no further results are available.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_listupcomingevents {
+  /**
+   * Calendar ID. Use "primary" for the main calendar or a specific calendar ID. Example: "primary"
+   */
+  calendarId?: string | undefined;
+  /**
+   * Pagination token from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of events to return per page (1-2500). Default: 250
+   */
+  limit?: number | undefined;
+  /**
+   * RFC3339 timestamp to fetch events from (e.g., "2026-03-12T00:00:00Z"). Defaults to current time if not provided.
+   */
+  timeMin?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_listupcomingevents {
+  /**
+   * List of upcoming events
+   */
+  events: ({  id: string;
+  /**
+   * Event title
+   */
+  summary?: string | undefined;
+  /**
+   * Event description
+   */
+  description?: string | undefined;
+  /**
+   * Event location
+   */
+  location?: string | undefined;
+  /**
+   * Start time
+   */
+  start: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  /**
+   * End time
+   */
+  end: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  /**
+   * Event status (confirmed, tentative, cancelled)
+   */
+  status: string;
+  /**
+   * Link to event in Google Calendar
+   */
+  htmlLink?: string | undefined;
+  /**
+   * When the event was created
+   */
+  created?: string | undefined;
+  /**
+   * When the event was last updated
+   */
+  updated?: string | undefined;
+  creator?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+  organizer?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+  attendees?: ({  email?: string | undefined;
+  displayName?: string | undefined;
+  responseStatus?: string | undefined;})[];})[];
+  /**
+   * Token for fetching the next page. Omitted if no more pages.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_moveevent {
+  /**
+   * Calendar identifier of the source calendar where the event currently is. Example: "primary"
+   */
+  calendarId: string;
+  /**
+   * Event identifier. Example: "abc123def456"
+   */
+  eventId: string;
+  /**
+   * Calendar identifier of the target calendar where the event is to be moved to. Example: "secondary-calendar-id"
+   */
+  destinationCalendarId: string;
+  /**
+   * Guests who should receive notifications about the change of the event's organizer. Acceptable values: "all", "externalOnly", "none". Default: "none"
+   */
+  sendUpdates?: 'all' | 'externalOnly' | 'none' | undefined;
+};
+
+export interface ActionOutput_google_calendar_moveevent {
+  id: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  start: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end: {  date?: string | undefined;
+  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  organizer?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+  htmlLink?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_patchevent {
+  /**
+   * Event ID to patch. Example: "abc123def456"
+   */
+  eventId: string;
+  /**
+   * Calendar ID (defaults to "primary"). Example: "primary" or "user@example.com"
+   */
+  calendarId?: string | undefined;
+  /**
+   * Event title/summary
+   */
+  summary?: string | undefined;
+  /**
+   * Event description
+   */
+  description?: string | undefined;
+  /**
+   * Event location
+   */
+  location?: string | undefined;
+  /**
+   * Event start time
+   */
+  start?: {  /**
+   * Start time in RFC3339 format. Example: "2024-12-01T10:00:00-05:00"
+   */
+  dateTime?: string | undefined;
+  /**
+   * Start date (for all-day events). Example: "2024-12-01"
+   */
+  date?: string | undefined;
+  /**
+   * Time zone for the start time. Example: "America/New_York"
+   */
+  timeZone?: string | undefined;};
+  /**
+   * Event end time
+   */
+  end?: {  /**
+   * End time in RFC3339 format. Example: "2024-12-01T11:00:00-05:00"
+   */
+  dateTime?: string | undefined;
+  /**
+   * End date (for all-day events). Example: "2024-12-01"
+   */
+  date?: string | undefined;
+  /**
+   * Time zone for the end time. Example: "America/New_York"
+   */
+  timeZone?: string | undefined;};
+};
+
+export interface ActionOutput_google_calendar_patchevent {
+  /**
+   * Event ID
+   */
+  id: string;
+  /**
+   * Event title/summary
+   */
+  summary?: string | undefined;
+  /**
+   * Event description
+   */
+  description?: string | undefined;
+  /**
+   * Event location
+   */
+  location?: string | undefined;
+  start?: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  /**
+   * Link to the event in Google Calendar
+   */
+  htmlLink?: string | undefined;
+  /**
+   * Event creation timestamp
+   */
+  created?: string | undefined;
+  /**
+   * Last update timestamp
+   */
+  updated?: string | undefined;
+  /**
+   * Event status (confirmed, tentative, cancelled)
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_queryfreebusy {
+  /**
+   * The start of the interval for the query formatted as per RFC3339. Example: "2024-01-01T00:00:00Z"
+   */
+  timeMin: string;
+  /**
+   * The end of the interval for the query formatted as per RFC3339. Example: "2024-01-02T00:00:00Z"
+   */
+  timeMax: string;
+  /**
+   * Time zone used in the response. The default is UTC. Example: "UTC"
+   */
+  timeZone?: string | undefined;
+  /**
+   * Maximal number of calendar identifiers to be provided for a single group. Maximum value is 100.
+   */
+  groupExpansionMax?: number | undefined;
+  /**
+   * Maximal number of calendars for which FreeBusy information is to be provided. Maximum value is 50.
+   */
+  calendarExpansionMax?: number | undefined;
+  /**
+   * List of calendars and/or groups to query
+   */
+  items: ({  /**
+   * The identifier of a calendar or a group
+   */
+  id: string;})[];
+};
+
+export interface ActionOutput_google_calendar_queryfreebusy {
+  kind: string;
+  timeMin: string;
+  timeMax: string;
+  groups?: {  [key: string]: {  errors?: ({  domain: string;
+  reason: string;})[] | undefined;
+  calendars: string[];};};
+  calendars: {  [key: string]: {  errors?: ({  domain: string;
+  reason: string;})[] | undefined;
+  busy: ({  start: string;
+  end: string;})[];};};
+};
+
+export interface ActionInput_google_calendar_quickaddevent {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar. Example: "primary"
+   */
+  calendarId?: string | undefined;
+  /**
+   * The text describing the event to be created. Example: "Meeting with John tomorrow at 2pm"
+   */
+  text: string;
+  /**
+   * Guests who should receive notifications about the creation of the new event. Acceptable values: "all", "externalOnly", "none".
+   */
+  sendUpdates?: 'all' | 'externalOnly' | 'none' | undefined;
+};
+
+export interface ActionOutput_google_calendar_quickaddevent {
+  /**
+   * The unique ID of the event.
+   */
+  id: string;
+  /**
+   * The title of the event.
+   */
+  summary?: string | undefined;
+  /**
+   * The description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * The start time of the event.
+   */
+  start: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  /**
+   * The end time of the event.
+   */
+  end: {  dateTime?: string | undefined;
+  date?: string | undefined;
+  timeZone?: string | undefined;};
+  /**
+   * A link to the event in Google Calendar.
+   */
+  htmlLink?: string | undefined;
+  /**
+   * The creation time of the event.
+   */
+  created?: string | undefined;
+  /**
+   * The last modification time of the event.
+   */
+  updated?: string | undefined;
+  /**
+   * The status of the event.
+   */
+  status?: string | undefined;
+  /**
+   * The creator of the event.
+   */
+  creator?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+  /**
+   * The organizer of the event.
+   */
+  organizer?: {  email?: string | undefined;
+  displayName?: string | undefined;};
+};
+
+export interface ActionInput_google_calendar_removeattendee {
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.
+   */
+  calendarId: string;
+  /**
+   * Event identifier.
+   */
+  eventId: string;
+  /**
+   * Email address of the attendee to remove from the event.
+   */
+  attendeeEmail: string;
+};
+
+export interface ActionOutput_google_calendar_removeattendee {
+  id: string;
+  summary?: string | undefined;
+  attendees: ({  email: string;
   displayName?: string | undefined;
   organizer?: boolean | undefined;
   self?: boolean | undefined;
@@ -4596,702 +5973,1557 @@ export interface GoogleCalendarEvent {
   responseStatus?: string | undefined;
   comment?: string | undefined;
   additionalGuests?: number | undefined;})[];
-  attendeesOmitted?: boolean | undefined;
-  extendedProperties?: {  private?: {} | undefined;
-  shared?: {} | undefined;};
-  hangoutLink?: string | undefined;
-  conferenceData?: {  createRequest?: {  requestId: string;
-  conferenceSolutionKey: {  type: string;};
-  status: {  statusCode: string;};} | undefined;
-  entryPoints?: ({  entryPointType: string;
-  uri?: string | undefined;
-  label?: string | undefined;
-  pin?: string | undefined;
-  accessCode?: string | undefined;
-  meetingCode?: string | undefined;
-  passcode?: string | undefined;
-  password?: string | undefined;
-  regionCode?: string | undefined;})[];
-  conferenceSolution?: {  key: {  type: string;};
-  name: string;
-  iconUri: string;} | undefined;
-  conferenceId?: string | undefined;
-  signature?: string | undefined;
-  notes?: string | undefined;
-  parameters?: {  addOnParameters?: {  parameters?: {} | undefined;};};};
-  gadget?: {  type?: string | undefined;
-  title?: string | undefined;
-  link?: string | undefined;
-  iconLink?: string | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-  display?: string | undefined;
-  preferences?: {} | undefined;};
-  anyoneCanAddSelf?: boolean | undefined;
-  guestsCanInviteOthers?: boolean | undefined;
-  guestsCanModify?: boolean | undefined;
-  guestsCanSeeOtherGuests?: boolean | undefined;
-  privateCopy?: boolean | undefined;
-  locked?: boolean | undefined;
-  reminders?: {  useDefault: boolean;
-  overrides?: ({  method: string;
-  minutes: number;})[] | undefined;};
-  outOfOfficeProperties?: {  autoDeclineMode?: string | undefined;
-  declineMessage?: string | undefined;};
-  source?: {  url?: string | undefined;
-  title?: string | undefined;};
-  workingLocationProperties?: {  type: string;
-  homeOffice?: any | undefined;
-  customLocation?: {  label?: string | undefined;};
-  officeLocation?: {  buildingId?: string | undefined;
-  floorId?: string | undefined;
-  floorSectionId?: string | undefined;
-  deskId?: string | undefined;
-  label?: string | undefined;};};
-  attachments?: ({  fileUrl: string;
-  title?: string | undefined;
-  mimeType?: string | undefined;
-  iconLink?: string | undefined;
-  fileId?: string | undefined;})[];
-  eventType?: string | undefined;
-};
-
-export interface SyncMetadata_google_calendar_events {
-  calendarsToSync: string[];
-  timeMin?: string | undefined;
-  timeMax?: string | undefined;
-  singleEvents?: boolean | undefined;
-};
-
-export interface ActionInput_google_calendar_addattendee {
-  calendar_id: string;
-  event_id: string;
-  email: string;
-  responseStatus?: string | undefined;
+  removedAttendee?: {  email: string;
+  displayName?: string | undefined;
+  organizer?: boolean | undefined;
+  self?: boolean | undefined;
+  resource?: boolean | undefined;
   optional?: boolean | undefined;
-};
-
-export interface ActionOutput_google_calendar_addattendee {
-  kind: string;
-  etag: string;
-  id: string;
-  attendees: any[];
-};
-
-export interface ActionInput_google_calendar_clearcalendar {
-  calendar_id: string;
-};
-
-export interface ActionOutput_google_calendar_clearcalendar {
+  responseStatus?: string | undefined;
+  comment?: string | undefined;
+  additionalGuests?: number | undefined;};
   success: boolean;
-};
-
-export interface ActionInput_google_calendar_createaclrule {
-  calendar_id: string;
-  role: string;
-  scope_type: string;
-  scope_value?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_createaclrule {
-  kind: string;
-  etag: string;
-  id: string;
-  scope?: any | undefined;
-  role: string;
-};
-
-export interface ActionInput_google_calendar_createalldayevent {
-  calendar_id: string;
-  summary: string;
-  start_date: string;
-  end_date: string;
-  description?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_createalldayevent {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_createcalendar {
-  summary: string;
-  description?: string | undefined;
-  timeZone?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_createcalendar {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  timeZone: string;
-};
-
-export interface ActionInput_google_calendar_createevent {
-  calendar_id: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-  description?: string | undefined;
-  location?: string | undefined;
-  attendees?: any[] | undefined;
-  reminders?: any | undefined;
-};
-
-export interface ActionOutput_google_calendar_createevent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  htmlLink: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_createrecurringevent {
-  calendar_id: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-  recurrence: string[];
-  description?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_createrecurringevent {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  recurrence: string[];
-};
-
-export interface ActionInput_google_calendar_deleteaclrule {
-  calendar_id: string;
-  rule_id: string;
-};
-
-export interface ActionOutput_google_calendar_deleteaclrule {
-  success: boolean;
-};
-
-export interface ActionInput_google_calendar_deletecalendar {
-  calendar_id: string;
-};
-
-export interface ActionOutput_google_calendar_deletecalendar {
-  success: boolean;
-};
-
-export interface ActionInput_google_calendar_deleteevent {
-  calendar_id: string;
-  event_id: string;
-  sendUpdates?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_deleteevent {
-  success: boolean;
-};
-
-export interface ActionInput_google_calendar_findfreeslots {
-  timeMin: string;
-  timeMax: string;
-  calendar_ids: string[];
-  duration_minutes: number;
-  timeZone?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_findfreeslots {
-  free_slots: any[];
-};
-
-export interface ActionInput_google_calendar_getaclrule {
-  calendar_id: string;
-  rule_id: string;
-};
-
-export interface ActionOutput_google_calendar_getaclrule {
-  kind: string;
-  etag: string;
-  id: string;
-  scope?: any | undefined;
-  role: string;
-};
-
-export interface ActionInput_google_calendar_getcalendarlistentry {
-  calendar_id: string;
-};
-
-export interface ActionOutput_google_calendar_getcalendarlistentry {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  accessRole: string;
-  backgroundColor?: string | undefined;
-  foregroundColor?: string | undefined;
-};
-
-export interface ActionInput_google_calendar_getcalendar {
-  calendar_id: string;
-};
-
-export interface ActionOutput_google_calendar_getcalendar {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  description?: string | undefined;
-  timeZone: string;
-};
-
-export interface ActionInput_google_calendar_getcolors {
-};
-
-export interface ActionOutput_google_calendar_getcolors {
-  kind: string;
-  updated: string;
-  calendar?: any | undefined;
-  event?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_geteventinstances {
-  calendar_id: string;
-  event_id: string;
-  timeMin?: string | undefined;
-  timeMax?: string | undefined;
-  maxResults?: number | undefined;
-  pageToken?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_geteventinstances {
-  kind: string;
-  etag: string;
-  summary: string;
-  nextPageToken?: string | undefined;
-  items: any[];
-};
-
-export interface ActionInput_google_calendar_getevent {
-  calendar_id: string;
-  event_id: string;
-};
-
-export interface ActionOutput_google_calendar_getevent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_getsetting {
-  setting_id: string;
-};
-
-export interface ActionOutput_google_calendar_getsetting {
-  kind: string;
-  etag: string;
-  id: string;
-  value: string;
-};
-
-export interface ActionInput_google_calendar_importevent {
-  calendar_id: string;
-  iCalUID: string;
-  start?: any | undefined;
-  end?: any | undefined;
-  summary?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_importevent {
-  kind: string;
-  etag: string;
-  id: string;
-  iCalUID: string;
-  status: string;
-};
-
-export interface ActionInput_google_calendar_insertcalendartolist {
-  id: string;
-  colorRgbFormat?: boolean | undefined;
-  backgroundColor?: string | undefined;
-  foregroundColor?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_insertcalendartolist {
-  kind: string;
-  etag: string;
-  id: string;
-  summary: string;
-  accessRole: string;
-};
-
-export interface ActionInput_google_calendar_listaclrules {
-  calendar_id: string;
-  maxResults?: number | undefined;
-  pageToken?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_listaclrules {
-  kind: string;
-  etag: string;
-  nextPageToken?: string | undefined;
-  items: any[];
-};
-
-export interface ActionInput_google_calendar_listcalendars {
-  maxResults?: number | undefined;
-  pageToken?: string | undefined;
-  showDeleted?: boolean | undefined;
-  showHidden?: boolean | undefined;
-};
-
-export interface ActionOutput_google_calendar_listcalendars {
-  kind: string;
-  etag: string;
-  nextPageToken?: string | undefined;
-  items: any[];
-};
-
-export interface ActionInput_google_calendar_listevents {
-  calendar_id: string;
-  timeMin?: string | undefined;
-  timeMax?: string | undefined;
-  maxResults?: number | undefined;
-  pageToken?: string | undefined;
-  q?: string | undefined;
-  singleEvents?: boolean | undefined;
-  orderBy?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_listevents {
-  kind: string;
-  etag: string;
-  summary: string;
-  nextPageToken?: string | undefined;
-  items: any[];
-};
-
-export interface ActionInput_google_calendar_listsettings {
-  maxResults?: number | undefined;
-  pageToken?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_listsettings {
-  kind: string;
-  etag: string;
-  nextPageToken?: string | undefined;
-  items: any[];
-};
-
-export interface ActionInput_google_calendar_listupcomingevents {
-  calendar_id: string;
-  maxResults?: number | undefined;
-  singleEvents?: boolean | undefined;
-  timeMin?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_listupcomingevents {
-  kind: string;
-  items: any[];
-  nextPageToken?: string | undefined;
-};
-
-export interface ActionInput_google_calendar_moveevent {
-  calendar_id: string;
-  event_id: string;
-  destination_calendar_id: string;
-};
-
-export interface ActionOutput_google_calendar_moveevent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  summary: string;
-  organizer?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_patchevent {
-  calendar_id: string;
-  event_id: string;
-  summary?: string | undefined;
-  start?: any | undefined;
-  end?: any | undefined;
-  description?: string | undefined;
-  location?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_patchevent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  summary: string;
-};
-
-export interface ActionInput_google_calendar_queryfreebusy {
-  timeMin: string;
-  timeMax: string;
-  items: any[];
-  timeZone?: string | undefined;
-};
-
-export interface ActionOutput_google_calendar_queryfreebusy {
-  kind: string;
-  timeMin: string;
-  timeMax: string;
-  calendars?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_quickaddevent {
-  calendar_id: string;
-  text: string;
-};
-
-export interface ActionOutput_google_calendar_quickaddevent {
-  kind: string;
-  etag: string;
-  id: string;
-  status: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
-};
-
-export interface ActionInput_google_calendar_removeattendee {
-  calendar_id: string;
-  event_id: string;
-  email: string;
-};
-
-export interface ActionOutput_google_calendar_removeattendee {
-  kind: string;
-  etag: string;
-  id: string;
-  attendees: any[];
 };
 
 export interface ActionInput_google_calendar_removecalendarfromlist {
-  calendar_id: string;
+  /**
+   * Calendar ID to remove from the user's calendar list. Example: "primary" or a calendar ID like "abc123xyz@group.calendar.google.com"
+   */
+  calendarId: string;
 };
 
 export interface ActionOutput_google_calendar_removecalendarfromlist {
+  /**
+   * Whether the calendar was successfully removed from the list
+   */
   success: boolean;
 };
 
 export interface ActionInput_google_calendar_searchevents {
-  calendar_id: string;
-  q: string;
+  /**
+   * Free text search terms to find events. Searches in summary, description, location, attendee display names, and attendee emails.
+   */
+  query: string;
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar. To retrieve calendar IDs, use the calendarList.list method. Defaults to "primary".
+   */
+  calendarId?: string | undefined;
+  /**
+   * Lower bound (inclusive) for an event's start time to filter by. RFC3339 timestamp format (e.g., "2024-01-01T00:00:00Z").
+   */
   timeMin?: string | undefined;
+  /**
+   * Upper bound (exclusive) for an event's end time to filter by. RFC3339 timestamp format (e.g., "2024-12-31T23:59:59Z").
+   */
   timeMax?: string | undefined;
+  /**
+   * Maximum number of events to return per page. Acceptable values are 1 to 2500. Defaults to 250.
+   */
   maxResults?: number | undefined;
+  /**
+   * Pagination token from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_google_calendar_searchevents {
-  kind: string;
-  items: any[];
+  events: ({  id: string;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  htmlLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  startTime?: string | undefined;
+  endTime?: string | undefined;
+  status?: string | undefined;
+  organizerEmail?: string | undefined;
+  attendees: ({  id?: string | undefined;
+  email?: string | undefined;
+  displayName?: string | undefined;
+  responseStatus?: string | undefined;
+  optional?: boolean | undefined;
+  organizer?: boolean | undefined;})[];
+  recurringEventId?: string | undefined;
+  transparency?: string | undefined;
+  visibility?: string | undefined;})[];
+  /**
+   * Token for the next page of results. Omitted if no more pages.
+   */
+  nextPageToken?: string | undefined;
+  /**
+   * Total number of events in this page.
+   */
+  totalItems: number;
+};
+
+export interface ActionInput_google_calendar_settings {
+  /**
+   * Pagination cursor (pageToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_settings {
+  /**
+   * List of user settings
+   */
+  settings: ({  /**
+   * The id of the user setting
+   */
+  id: string;
+  /**
+   * Value of the user setting
+   */
+  value: string;
+  /**
+   * ETag of the resource
+   */
+  etag?: string | undefined;
+  /**
+   * Type of the resource
+   */
+  kind?: string | undefined;})[];
+  /**
+   * Pagination cursor for next page, or omitted if no more pages
+   */
   nextPageToken?: string | undefined;
 };
 
-export type ActionInput_google_calendar_settings = void
-
-export interface ActionOutput_google_calendar_settings {
-  settings: ({  kind: string;
-  etag: string;
+export interface ActionInput_google_calendar_stopchannel {
+  /**
+   * A UUID or similar unique string that identifies this channel. Example: "01234567-89ab-cdef-0123456789ab"
+   */
   id: string;
-  value: string;})[];
+  /**
+   * An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+   */
+  resourceId: string;
+  /**
+   * An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
+   */
+  token?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_stopchannel {
+  success: boolean;
 };
 
 export interface ActionInput_google_calendar_updateaclrule {
-  calendar_id: string;
-  rule_id: string;
-  role: string;
-  scope_type: string;
-  scope_value?: string | undefined;
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar.
+   */
+  calendarId: string;
+  /**
+   * ACL rule identifier.
+   */
+  ruleId: string;
+  /**
+   * The role assigned to the scope.
+   */
+  role?: 'none' | 'freeBusyReader' | 'reader' | 'writer' | 'owner' | undefined;
+  /**
+   * The extent to which calendar access is granted.
+   */
+  scope?: {  /**
+   * The type of the scope.
+   */
+  type: 'default' | 'user' | 'group' | 'domain';
+  /**
+   * The email address of a user or group, or the name of a domain.
+   */
+  value?: string | undefined;};
+  /**
+   * Whether to send notifications about the calendar sharing change.
+   */
+  sendNotifications?: boolean | undefined;
 };
 
 export interface ActionOutput_google_calendar_updateaclrule {
-  kind: string;
-  etag: string;
   id: string;
-  scope?: any | undefined;
+  scope: {  type: string;
+  value?: string | undefined;};
   role: string;
+  etag?: string | undefined;
+  kind?: string | undefined;
 };
 
 export interface ActionInput_google_calendar_updateattendeeresponse {
-  calendar_id: string;
-  event_id: string;
-  email: string;
-  responseStatus: string;
+  /**
+   * Calendar ID. Defaults to "primary". Example: "primary"
+   */
+  calendarId?: string | undefined;
+  /**
+   * Event ID. Example: "abc123"
+   */
+  eventId: string;
+  /**
+   * Email of the attendee to update. Example: "user@example.com"
+   */
+  attendeeEmail: string;
+  /**
+   * Response status for the attendee
+   */
+  responseStatus: 'needsAction' | 'declined' | 'tentative' | 'accepted';
 };
 
 export interface ActionOutput_google_calendar_updateattendeeresponse {
-  kind: string;
-  etag: string;
   id: string;
-  attendees: any[];
+  htmlLink: string;
+  summary?: string | undefined;
+  attendees: ({  email: string;
+  responseStatus: string;})[];
 };
 
 export interface ActionInput_google_calendar_updatecalendarlistentry {
-  calendar_id: string;
-  colorRgbFormat?: boolean | undefined;
+  /**
+   * Calendar identifier. Use "primary" for the primary calendar. Example: "primary" or "abc123@group.calendar.google.com"
+   */
+  calendarId: string;
+  /**
+   * Main color in hex format (e.g., "#0088aa"). Requires color_rgb_format=true.
+   */
   backgroundColor?: string | undefined;
+  /**
+   * Foreground color in hex format (e.g., "#ffffff"). Requires color_rgb_format=true.
+   */
   foregroundColor?: string | undefined;
+  /**
+   * Color ID from the calendar colors endpoint
+   */
+  colorId?: string | undefined;
+  /**
+   * Whether the calendar is hidden from the list
+   */
   hidden?: boolean | undefined;
+  /**
+   * Whether the calendar content shows up in the calendar UI
+   */
   selected?: boolean | undefined;
+  /**
+   * Custom summary name for this calendar
+   */
+  summaryOverride?: string | undefined;
+  /**
+   * Default reminders for events in this calendar
+   */
+  defaultReminders?: ({  method: 'email' | 'popup';
+  minutes: number;})[] | undefined;
+  /**
+   * Notification settings for this calendar
+   */
+  notificationSettings?: {  notifications: ({  type: 'eventCreation' | 'eventChange' | 'eventCancellation' | 'eventResponse' | 'agenda';
+  method: 'email';})[];} | undefined;
+  /**
+   * Set to true if using background_color or foreground_color
+   */
+  colorRgbFormat?: boolean | undefined;
 };
 
 export interface ActionOutput_google_calendar_updatecalendarlistentry {
-  kind: string;
-  etag: string;
   id: string;
   summary: string;
-  accessRole: string;
+  summaryOverride?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  colorId?: string | undefined;
+  backgroundColor?: string | undefined;
+  foregroundColor?: string | undefined;
+  hidden: boolean;
+  selected: boolean;
+  accessRole?: string | undefined;
+  primary: boolean;
+  defaultReminders: ({  method: string;
+  minutes: number;})[];
+  notificationSettings?: {  notifications: ({  type: string;
+  method: string;})[];} | undefined;
 };
 
 export interface ActionInput_google_calendar_updatecalendar {
-  calendar_id: string;
+  /**
+   * Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. Example: "primary" or "abc123xyz@group.calendar.google.com"
+   */
+  calendarId: string;
+  /**
+   * Title of the calendar.
+   */
   summary?: string | undefined;
+  /**
+   * Description of the calendar.
+   */
   description?: string | undefined;
+  /**
+   * Geographic location of the calendar as free-form text.
+   */
+  location?: string | undefined;
+  /**
+   * The time zone of the calendar. Formatted as an IANA Time Zone Database name, e.g. "Europe/Zurich".
+   */
   timeZone?: string | undefined;
 };
 
 export interface ActionOutput_google_calendar_updatecalendar {
-  kind: string;
-  etag: string;
   id: string;
   summary: string;
-  timeZone: string;
+  description?: string | undefined;
+  location?: string | undefined;
+  timeZone?: string | undefined;
+  kind: string;
+  etag: string;
+  dataOwner?: string | undefined;
+  autoAcceptInvitations?: boolean | undefined;
+  conferenceProperties?: {  allowedConferenceSolutionTypes: string[];} | undefined;
 };
 
 export interface ActionInput_google_calendar_updateevent {
-  calendar_id: string;
-  event_id: string;
+  /**
+   * Calendar identifier. Use "primary" for the main calendar
+   */
+  calendarId: string;
+  /**
+   * Event identifier
+   */
+  eventId: string;
+  /**
+   * Title of the event
+   */
   summary?: string | undefined;
-  start?: any | undefined;
-  end?: any | undefined;
+  /**
+   * Description of the event
+   */
   description?: string | undefined;
+  /**
+   * Geographic location of the event
+   */
   location?: string | undefined;
-  attendees?: any[] | undefined;
+  /**
+   * Start time of the event
+   */
+  start?: {  /**
+   * Date in yyyy-mm-dd format for all-day events
+   */
+  date?: string | undefined;
+  /**
+   * DateTime in RFC3339 format for timed events
+   */
+  dateTime?: string | undefined;
+  /**
+   * Time zone (IANA format, e.g., "Europe/Zurich")
+   */
+  timeZone?: string | undefined;};
+  /**
+   * End time of the event
+   */
+  end?: {  /**
+   * Date in yyyy-mm-dd format for all-day events
+   */
+  date?: string | undefined;
+  /**
+   * DateTime in RFC3339 format for timed events
+   */
+  dateTime?: string | undefined;
+  /**
+   * Time zone (IANA format, e.g., "Europe/Zurich")
+   */
+  timeZone?: string | undefined;};
+  /**
+   * Attendees of the event
+   */
+  attendees?: ({  id?: string | undefined;
+  email?: string | undefined;
+  displayName?: string | undefined;
+  organizer?: boolean | undefined;
+  self?: boolean | undefined;
+  resource?: boolean | undefined;
+  optional?: boolean | undefined;
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;
+  comment?: string | undefined;
+  additionalGuests?: number | undefined;})[];
+  /**
+   * Status of the event
+   */
+  status?: 'confirmed' | 'tentative' | 'cancelled' | undefined;
+  /**
+   * Visibility of the event
+   */
+  visibility?: 'default' | 'public' | 'private' | 'confidential' | undefined;
+  /**
+   * Color ID of the event
+   */
+  colorId?: string | undefined;
+  /**
+   * Reminders for the event
+   */
+  reminders?: {  useDefault?: boolean | undefined;
+  overrides?: ({  method: 'email' | 'popup';
+  minutes: number;})[] | undefined;};
+  /**
+   * Who should receive notifications about the event update
+   */
+  sendUpdates?: 'all' | 'externalOnly' | 'none' | undefined;
 };
 
 export interface ActionOutput_google_calendar_updateevent {
-  kind: string;
-  etag: string;
   id: string;
-  status: string;
-  summary: string;
-  start?: any | undefined;
-  end?: any | undefined;
+  summary?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  start?: {  /**
+   * Date in yyyy-mm-dd format for all-day events
+   */
+  date?: string | undefined;
+  /**
+   * DateTime in RFC3339 format for timed events
+   */
+  dateTime?: string | undefined;
+  /**
+   * Time zone (IANA format, e.g., "Europe/Zurich")
+   */
+  timeZone?: string | undefined;};
+  end?: {  /**
+   * Date in yyyy-mm-dd format for all-day events
+   */
+  date?: string | undefined;
+  /**
+   * DateTime in RFC3339 format for timed events
+   */
+  dateTime?: string | undefined;
+  /**
+   * Time zone (IANA format, e.g., "Europe/Zurich")
+   */
+  timeZone?: string | undefined;};
+  status?: string | undefined;
+  visibility?: string | undefined;
+  htmlLink?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  organizer?: {  id?: string | undefined;
+  email?: string | undefined;
+  displayName?: string | undefined;
+  self?: boolean | undefined;};
+  attendees?: ({  id?: string | undefined;
+  email?: string | undefined;
+  displayName?: string | undefined;
+  organizer?: boolean | undefined;
+  self?: boolean | undefined;
+  resource?: boolean | undefined;
+  optional?: boolean | undefined;
+  responseStatus?: 'needsAction' | 'declined' | 'tentative' | 'accepted' | undefined;
+  comment?: string | undefined;
+  additionalGuests?: number | undefined;})[];
 };
 
-export type ActionInput_google_calendar_whoami = void
+export interface ActionInput_google_calendar_watchcalendarlist {
+  /**
+   * A UUID or similar unique string that identifies this channel. Example: "01234567-89ab-cdef-0123456789ab"
+   */
+  id: string;
+  /**
+   * The address where notifications are delivered for this channel. Example: "https://example.com/webhook"
+   */
+  address: string;
+  /**
+   * An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
+   */
+  token?: string | undefined;
+  /**
+   * The time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).
+   */
+  ttl?: number | undefined;
+};
+
+export interface ActionOutput_google_calendar_watchcalendarlist {
+  /**
+   * Identifies this as a notification channel. Value is "api#channel".
+   */
+  kind: string;
+  /**
+   * A UUID or similar unique string that identifies this channel.
+   */
+  id: string;
+  /**
+   * An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+   */
+  resourceId: string;
+  /**
+   * A version-specific identifier for the watched resource.
+   */
+  resourceUri: string;
+  /**
+   * An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
+   */
+  token?: string | undefined;
+  /**
+   * Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
+   */
+  expiration?: number | undefined;
+};
+
+export interface ActionInput_google_calendar_watchevents {
+  /**
+   * Calendar identifier. To retrieve calendar IDs call the calendarList.list method. Use "primary" for the primary calendar.
+   */
+  calendarId: string;
+  /**
+   * A unique UUID or similar unique string that identifies this channel.
+   */
+  channelId: string;
+  /**
+   * The URL where notifications will be delivered.
+   */
+  webhookUrl: string;
+  /**
+   * An opaque token for verification. Google will include this token in notification messages.
+   */
+  token?: string | undefined;
+  /**
+   * Time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).
+   */
+  ttl?: number | undefined;
+};
+
+export interface ActionOutput_google_calendar_watchevents {
+  /**
+   * Identifies this as a notification channel, which is "api#channel".
+   */
+  kind: string;
+  /**
+   * The channel ID.
+   */
+  id: string;
+  /**
+   * An opaque ID that identifies the resource being watched on this channel.
+   */
+  resourceId: string;
+  /**
+   * A version-specific canonical URL for the watched resource.
+   */
+  resourceUri: string;
+  /**
+   * The token sent in the request (if any).
+   */
+  token?: string | undefined;
+  /**
+   * Expiration time as a Unix timestamp (long), or omitted if no expiration.
+   */
+  expiration?: string | undefined;
+};
+
+export interface ActionInput_google_calendar_watchsettings {
+  /**
+   * A UUID or similar unique string that identifies this channel. Example: "01234567-89ab-cdef-0123-456789abcdef"
+   */
+  channelId: string;
+  /**
+   * The address where notifications are delivered for this channel. Must be a valid HTTPS URL that is reachable by Google servers.
+   */
+  callbackUrl: string;
+  /**
+   * The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook". Both refer to HTTP request delivery.
+   */
+  channelType: 'web_hook' | 'webhook';
+  /**
+   * An arbitrary string delivered to the target address with each notification. Optional but useful for verifying webhook authenticity.
+   */
+  channelToken?: string | undefined;
+  /**
+   * The time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).
+   */
+  ttl?: string | undefined;
+};
+
+export interface ActionOutput_google_calendar_watchsettings {
+  /**
+   * Identifies this as a notification channel, value is "api#channel".
+   */
+  kind: string;
+  /**
+   * The unique string that identifies this channel.
+   */
+  channelId: string;
+  /**
+   * An opaque ID that identifies the resource being watched on this channel.
+   */
+  resourceId: string;
+  /**
+   * A version-specific identifier for the watched resource.
+   */
+  resourceUri: string;
+  /**
+   * The arbitrary string delivered with each notification.
+   */
+  channelToken?: string | undefined;
+  /**
+   * Date and time of notification channel expiration, expressed as a Unix timestamp in milliseconds.
+   */
+  expiration: string | number | null;
+};
+
+export interface ActionInput_google_calendar_whoami {
+};
 
 export interface ActionOutput_google_calendar_whoami {
+  /**
+   * Google account ID
+   */
   id: string;
+  /**
+   * Google account email address
+   */
   email: string;
 };
 
-export interface SyncMetadata_google_drive_documents {
-  files: string[];
-  folders: string[];
-};
-
-export interface SyncMetadata_google_drive_folders {
-};
-
-export interface ActionInput_google_drive_foldercontent {
-  id?: string | undefined;
-  cursor?: string | undefined;
-};
-
-export interface ActionOutput_google_drive_foldercontent {
-  files: ({  id: string;
-  name: string;
-  mimeType: string;
-  parents: string[];
-  modifiedTime?: string | undefined;
-  createdTime?: string | undefined;
-  webViewLink?: string | undefined;
-  kind?: string | undefined;})[];
-  folders: ({  id: string;
-  name: string;
-  mimeType: string;
-  parents: string[];
-  modifiedTime?: string | undefined;
-  createdTime?: string | undefined;
-  webViewLink?: string | undefined;
-  kind?: string | undefined;})[];
-  next_cursor?: string | undefined;
-};
-
-export interface ActionInput_google_drive_listdrives {
-  cursor: string;
-};
-
-export interface ActionOutput_google_drive_listdrives {
-  drives: ({  id: string;
-  name: string;
-  kind: string;
-  createdTime: string;
-  hidden: boolean;
-  capabilities: {  canAddChildren: boolean;
-  canComment: boolean;
-  canCopy: boolean;
-  canDeleteDrive: boolean;
-  canDownload: boolean;
-  canEdit: boolean;
-  canListChildren: boolean;
-  canManageMembers: boolean;
-  canReadRevisions: boolean;
-  canRename: boolean;
-  canShare: boolean;
-  canTrashChildren: boolean;
-  canRenameDrive: boolean;
-  canChangeDriveBackground: boolean;
-  canChangeCopyRequiresWriterPermissionRestriction: boolean;
-  canChangeDomainUsersOnlyRestriction: boolean;
-  canChangeDriveMembersOnlyRestriction: boolean;
-  canChangeSharingFoldersRequiresOrganizerPermissionRestriction: boolean;
-  canResetDriveRestrictions: boolean;
-  canDeleteChildren: boolean;};
-  restrictions: {  adminManagedRestrictions: boolean;
-  copyRequiresWriterPermission: boolean;
-  domainUsersOnly: boolean;
-  driveMembersOnly: boolean;
-  sharingFoldersRequiresPublisherPermission: boolean;
-  sharingFoldersRequiresOrganizerPermission: boolean;};})[];
-  next_cursor: string;
-  kind: string;
-};
-
-export interface ActionInput_google_drive_uploaddocument {
-  content: string;
-  name: string;
-  mimeType: string;
-  folderId?: string | undefined;
-  description?: string | undefined;
-  isBase64?: boolean | undefined;
-};
-
-export interface ActionOutput_google_drive_uploaddocument {
+export interface File {
   id: string;
   name: string;
   mimeType: string;
-  parents: string[];
-  modifiedTime?: string | undefined;
-  createdTime?: string | undefined;
+  parents?: string[] | undefined;
+  driveId?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  size?: string | undefined;
   webViewLink?: string | undefined;
+  trashed?: boolean | undefined;
+};
+
+export interface SyncMetadata_google_drive_syncfiles {
+  /**
+   * Array of file IDs to sync directly
+   */
+  files?: string[] | undefined;
+  /**
+   * Array of folder IDs to sync recursively
+   */
+  folders?: string[] | undefined;
+};
+
+export interface Permission {
+  id: string;
+  fileId: string;
+  permissionId: string;
+  type: string;
+  role: string;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  domain?: string | undefined;
+  allowFileDiscovery?: boolean | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface SharedDrive {
+  id: string;
+  name: string;
+  colorRgb?: string | undefined;
   kind?: string | undefined;
+  backgroundImageLink?: string | undefined;
+  themeId?: string | undefined;
+  createdTime?: string | undefined;
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_google_drive_copyfile {
+  /**
+   * The ID of the file to copy. Example: "123abc"
+   */
+  fileId: string;
+  /**
+   * The new name for the copied file. If not provided, the original name is used.
+   */
+  name?: string | undefined;
+  /**
+   * The ID of the folder where the copy should be placed. If not provided, the copy is placed in the same folder as the original.
+   */
+  destinationFolderId?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_copyfile {
+  /**
+   * The ID of the copied file
+   */
+  id: string;
+  /**
+   * The name of the copied file
+   */
+  name: string;
+  /**
+   * The MIME type of the copied file
+   */
+  mimeType: string;
+  /**
+   * The creation time of the copied file (RFC 3339)
+   */
+  createdTime?: string | undefined;
+};
+
+export interface ActionInput_google_drive_createcomment {
+  /**
+   * The ID of the file to comment on. Example: "1zpWYuzY5S65OUGNBZQXmJf4FZnIWLJHBkC2xBamBzvw"
+   */
+  fileId: string;
+  /**
+   * The plain text content of the comment. Example: "This is a test comment."
+   */
+  content: string;
+  /**
+   * A region of the document represented as a JSON string for anchored comments. Example: "{\"r\":\"revision_id\",\"a\":[{\"line\":{\"end\":\"1\"}}]}"
+   */
+  anchor?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_createcomment {
+  /**
+   * The ID of the comment.
+   */
+  id: string;
+  /**
+   * The plain text content of the comment.
+   */
+  content: string;
+  /**
+   * The time when the comment was created (RFC 3339 date-time).
+   */
+  createdTime: string;
+  /**
+   * The time when the comment was last modified (RFC 3339 date-time).
+   */
+  modifiedTime: string;
+  /**
+   * The author of the comment.
+   */
+  author?: {  /**
+   * The display name of the author.
+   */
+  displayName?: string | undefined;
+  /**
+   * The email address of the author.
+   */
+  emailAddress?: string | undefined;};
+  /**
+   * Whether the comment has been resolved.
+   */
+  resolved: boolean;
+  /**
+   * Whether the comment has been deleted.
+   */
+  deleted: boolean;
+};
+
+export interface ActionInput_google_drive_createfolder {
+  /**
+   * The name of the new folder. Example: "My New Folder"
+   */
+  name: string;
+  /**
+   * The ID of the parent folder where the new folder will be created. If omitted, the folder is created in the root of the drive. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  parentId?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_createfolder {
+  /**
+   * The unique identifier of the created folder.
+   */
+  id: string;
+  /**
+   * The name of the created folder.
+   */
+  name: string;
+  /**
+   * The MIME type of the folder (always application/vnd.google-apps.folder).
+   */
+  mimeType: string;
+  /**
+   * The timestamp when the folder was created.
+   */
+  createdTime: string;
+  /**
+   * Array of parent folder IDs.
+   */
+  parentIds: string[];
+};
+
+export interface ActionInput_google_drive_createshareddrive {
+  /**
+   * The name of the shared drive. Example: "Project Resources"
+   */
+  name: string;
+  /**
+   * A unique ID (such as a random UUID) that uniquely identifies this request for idempotent creation. A repeated request with the same request ID will not create duplicates.
+   */
+  requestId: string;
+};
+
+export interface ActionOutput_google_drive_createshareddrive {
+  id: string;
+  name: string;
+  kind?: string | undefined;
+  colorRgb?: string | undefined;
+  backgroundImageLink?: string | undefined;
+  capabilities?: any | undefined;
+  themeId?: string | undefined;
+  createdTime?: string | undefined;
+  hidden?: boolean | undefined;
+  restrictions?: any | undefined;
+  orgUnitId?: string | undefined;
+};
+
+export interface ActionInput_google_drive_deletecomment {
+  /**
+   * The ID of the file containing the comment. Example: "1oD5i7NbLYQ6_mzEjNIXSqFvKXvvRNETwkfLrlDooFV0"
+   */
+  fileId: string;
+  /**
+   * The ID of the comment to delete. Example: "AAAB1rDkxSA"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_google_drive_deletecomment {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * The ID of the file from which the comment was deleted
+   */
+  fileId: string;
+  /**
+   * The ID of the deleted comment
+   */
+  commentId: string;
+};
+
+export interface ActionInput_google_drive_deletefile {
+  /**
+   * The ID of the file or folder to delete. Example: "1aBcDeFgHiJkLmNoPqRsTuVwXyZ123456"
+   */
+  fileId: string;
+};
+
+export interface ActionOutput_google_drive_deletefile {
+  /**
+   * Whether the file was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted file
+   */
+  fileId: string;
+};
+
+export interface ActionInput_google_drive_deletepermission {
+  /**
+   * The ID of the file to delete the permission from. Example: "1xJTXyJ1Pm1rK3Y9J1Y9J1Y9J1Y9J1Y9J"
+   */
+  fileId: string;
+  /**
+   * The ID of the permission to delete. Example: "12345678901234567890"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_google_drive_deletepermission {
+  success: boolean;
+  fileId: string;
+  permissionId: string;
+};
+
+export interface ActionInput_google_drive_deleteshareddrive {
+  /**
+   * The ID of the shared drive to delete. Example: "0AP4r1ZoX57FvUk9PVA"
+   */
+  driveId: string;
+};
+
+export interface ActionOutput_google_drive_deleteshareddrive {
+  success: boolean;
+  driveId: string;
+};
+
+export interface ActionInput_google_drive_emptytrash {
+};
+
+export interface ActionOutput_google_drive_emptytrash {
+  success: boolean;
+};
+
+export interface ActionInput_google_drive_findfile {
+  /**
+   * Search query string. Uses Google Drive search query syntax. Example: "name contains 'report'" or "mimeType = 'application/pdf'". If not provided, returns all files.
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor (nextPageToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of files to return per page. Default is 100.
+   */
+  pageSize?: number | undefined;
+};
+
+export interface ActionOutput_google_drive_findfile {
+  files: ({  id: string;
+  name: string;
+  mimeType: string;
+  modifiedTime?: string | undefined;
+  size?: string | undefined;
+  webViewLink?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omitted if no more results.
+   */
+  nextPageToken?: string | undefined;
+  /**
+   * Total number of files returned in this page
+   */
+  totalResults?: number | undefined;
+};
+
+export interface ActionInput_google_drive_findfolder {
+  /**
+   * Folder name or search query to find folders by name. Example: "Test Folder Alpha"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_drive_findfolder {
+  folders: ({  id: string;
+  name: string;
+  createdTime?: string | undefined;})[];
+  totalCount: number;
+};
+
+export interface ActionInput_google_drive_getabout {
+};
+
+export interface ActionOutput_google_drive_getabout {
+  kind: string;
+  user: {  kind: string;
+  displayName?: string | undefined;
+  photoLink?: string | undefined;
+  me?: boolean | undefined;
+  permissionId?: string | undefined;
+  emailAddress?: string | undefined;};
+  storageQuota?: {  limit?: string | undefined;
+  usage?: string | undefined;
+  usageInDrive?: string | undefined;
+  usageInDriveTrash?: string | undefined;};
+  importFormats?: {  [key: string]: string[];} | undefined;
+  exportFormats?: {  [key: string]: string[];} | undefined;
+  maxImportSizes?: {  [key: string]: string;} | undefined;
+  maxUploadSize?: string | undefined;
+  appInstalled?: boolean | undefined;
+  folderColorPalette?: string[] | undefined;
+  teamDriveThemes?: ({  id: string;
+  backgroundImageLink: string;
+  colorRgb: string;})[] | undefined;
+  driveThemes?: ({  id: string;
+  backgroundImageLink: string;
+  colorRgb: string;})[] | undefined;
+  canCreateTeamDrives?: boolean | undefined;
+  canCreateDrives?: boolean | undefined;
+};
+
+export interface ActionInput_google_drive_getchangesstartpagetoken {
+};
+
+export interface ActionOutput_google_drive_getchangesstartpagetoken {
+  /**
+   * The starting page token for listing future changes
+   */
+  startPageToken: string;
+};
+
+export interface ActionInput_google_drive_getcomment {
+  /**
+   * The ID of the file containing the comment. Example: "1abc123xyz"
+   */
+  fileId: string;
+  /**
+   * The ID of the comment to retrieve. Example: "AAAB1p01B9w"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_google_drive_getcomment {
+  id: string;
+  content: string;
+  htmlContent: string;
+  createdTime: string;
+  modifiedTime: string;
+  deleted: boolean;
+  resolved?: boolean | undefined;
+  author: {  displayName: string;
+  photoLink?: string | undefined;
+  me: boolean;};
+  replies: ({  id: string;
+  content: string;
+  author: {  displayName: string;
+  me: boolean;};
+  createdTime: string;})[];
+};
+
+export interface ActionInput_google_drive_getpermission {
+  /**
+   * The ID of the file. Example: "1xABCDEF123456"
+   */
+  fileId: string;
+  /**
+   * The ID of the permission. Example: "12345678901234567890"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_google_drive_getpermission {
+  id: string;
+  /**
+   * The type of the grantee. Valid values are user, group, domain, or anyone.
+   */
+  type: string;
+  /**
+   * The role granted by this permission. Valid values are owner, organizer, fileOrganizer, writer, commenter, or reader.
+   */
+  role: string;
+  /**
+   * The email address of the user or group this permission refers to.
+   */
+  emailAddress?: string | undefined;
+  /**
+   * The domain to which this permission refers.
+   */
+  domain?: string | undefined;
+  /**
+   * Whether the permission allows the file to be discovered through search.
+   */
+  allowFileDiscovery?: boolean | undefined;
+  /**
+   * A displayable name for users, groups or domains.
+   */
+  displayName?: string | undefined;
+  /**
+   * A link to the profile photo, if available.
+   */
+  photoLink?: string | undefined;
+  /**
+   * The time at which this permission will expire (RFC 3339 date-time).
+   */
+  expirationTime?: string | undefined;
+  /**
+   * Details of the permission, including specific permissions and whether they inherited from a parent.
+   */
+  permissionDetails?: ({})[] | undefined;
+  /**
+   * Whether this permission has been deleted.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Whether the account associated with this permission has been deleted.
+   */
+  pendingOwner?: boolean | undefined;
+  /**
+   * Indicates the view for this permission.
+   */
+  view?: string | undefined;
+  /**
+   * The time at which this permission was created (RFC 3339 date-time).
+   */
+  createdTime?: string | undefined;
+};
+
+export interface ActionInput_google_drive_getrevision {
+  /**
+   * The ID of the file. Example: "1abc123xyz"
+   */
+  fileId: string;
+  /**
+   * The ID of the revision. Example: "1"
+   */
+  revisionId: string;
+};
+
+export interface ActionOutput_google_drive_getrevision {
+  /**
+   * The type of resource. Always "drive#revision".
+   */
+  kind: string;
+  /**
+   * The ID of the revision.
+   */
+  id: string;
+  /**
+   * The MIME type of the revision.
+   */
+  mimeType: string;
+  /**
+   * The last time the revision was modified in RFC 3339 format.
+   */
+  modifiedTime: string;
+  /**
+   * Whether this revision is marked as keep forever.
+   */
+  keepForever?: boolean | undefined;
+  /**
+   * Whether this revision is published.
+   */
+  published?: boolean | undefined;
+  /**
+   * A link to the published revision.
+   */
+  publishedLink?: string | undefined;
+  /**
+   * Whether this revision is published outside the domain.
+   */
+  publishedOutsideDomain?: boolean | undefined;
+  /**
+   * The size of the revision in bytes.
+   */
+  size?: string | undefined;
+  /**
+   * The original filename of the revision.
+   */
+  originalFilename?: string | undefined;
+  /**
+   * The MD5 checksum of the revision.
+   */
+  md5Checksum?: string | undefined;
+};
+
+export interface ActionInput_google_drive_getshareddrive {
+  /**
+   * The ID of the shared drive to retrieve. Example: "0ACo-2dj5Ql07Uk9PVA"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_drive_getshareddrive {
+  id: string;
+  name?: string | undefined;
+  kind?: string | undefined;
+  themeId?: string | undefined;
+  colorRgb?: string | undefined;
+  backgroundImageFile?: {} | undefined;
+  capabilities?: {} | undefined;
+  restrictions?: {} | undefined;
+  hidden?: boolean | undefined;
+  createdTime?: string | undefined;
+  orgUnitId?: string | undefined;
+};
+
+export interface ActionInput_google_drive_hideshareddrive {
+  /**
+   * The ID of the shared drive to hide. Example: "0ABC123xyz"
+   */
+  driveId: string;
+};
+
+export interface ActionOutput_google_drive_hideshareddrive {
+  id: string;
+  name?: string | undefined;
+  hidden: boolean;
+};
+
+export interface ActionInput_google_drive_listchanges {
+  /**
+   * The token for continuing a previous list request. Omit for first request, in which case the action will get a start page token automatically.
+   */
+  pageToken?: string | undefined;
+  /**
+   * The shared drive ID. If specified, changes will be limited to this drive.
+   */
+  driveId?: string | undefined;
+  /**
+   * Whether to include changes from all shared drives. Default: false
+   */
+  includeItemsFromAllDrives?: boolean | undefined;
+  /**
+   * Whether to include changes indicating items have been removed. Default: true
+   */
+  includeRemoved?: boolean | undefined;
+  /**
+   * Maximum number of changes to return per page. Default: 100
+   */
+  pageSize?: number | undefined;
+};
+
+export interface ActionOutput_google_drive_listchanges {
+  changes: ({  changeType?: string | undefined;
+  file?: {  id: string;
+  name?: string | undefined;
+  mimeType?: string | undefined;
+  modifiedTime?: string | undefined;};
+  fileId: string;
+  removed?: boolean | undefined;
+  time?: string | undefined;})[];
+  nextPageToken?: string | undefined;
+  newStartPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_drive_listcomments {
+  /**
+   * The ID of the file to list comments for. Example: "1wwU5Dhr-6_3SHgtSQnXJ7HBPkgW-shalzdc0pfRL-Yk"
+   */
+  fileId: string;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_listcomments {
+  comments: ({  id: string;
+  content?: string | undefined;
+  htmlContent?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  resolved?: boolean | undefined;
+  deleted?: boolean | undefined;
+  author?: {  displayName?: string | undefined;
+  kind?: string | undefined;
+  me?: boolean | undefined;
+  photoLink?: string | undefined;};})[];
+  /**
+   * The cursor for the next page of comments. Omitted if there are no more pages.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_drive_listfilesnonunified {
+  /**
+   * Folder ID to list contents. Omit for root folder.
+   */
+  folderId?: string | undefined;
+  /**
+   * Pagination cursor (pageToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of files to return. Default: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Include items from shared drives. Default: false.
+   */
+  includeSharedDrives?: boolean | undefined;
+};
+
+export interface ActionOutput_google_drive_listfilesnonunified {
+  files: ({  id: string;
+  name: string;
+  mimeType: string;
+  isFolder: boolean;
+  parentId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  size?: number | undefined;
+  webViewLink?: string | undefined;
+  thumbnailLink?: string | undefined;})[];
+  /**
+   * Cursor for next page. Omitted if no more pages.
+   */
+  nextPageToken?: string | undefined;
+  /**
+   * Total number of files in this page.
+   */
+  totalCount: number;
+};
+
+export interface ActionInput_google_drive_listpermissions {
+  /**
+   * The ID of the file to list permissions for. Example: "1AoQyTafvg1p_cqzJTTGmdbMTQ6jolnJ7J_mQBlPcFec"
+   */
+  fileId: string;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of permissions to return per page (1-100). Default: 100
+   */
+  pageSize?: number | undefined;
+};
+
+export interface ActionOutput_google_drive_listpermissions {
+  permissions: ({  id: string;
+  type: string;
+  role: string;
+  emailAddress?: string | undefined;
+  displayName?: string | undefined;
+  domain?: string | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_drive_listshareddrives {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of shared drives to return. Default is 10, maximum is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Query string for searching shared drives. Example: "hidden = false"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_listshareddrives {
+  drives: ({  id: string;
+  name: string;
+  colorRgb?: string | undefined;
+  backgroundImageLink?: string | undefined;
+  kind?: string | undefined;
+  hidden?: boolean | undefined;
+  capabilities?: {  canAddChildren?: boolean | undefined;
+  canChangeCopyRequiresWriterPermissionRestriction?: boolean | undefined;
+  canChangeDomainUsersOnlyRestriction?: boolean | undefined;
+  canChangeDriveBackground?: boolean | undefined;
+  canChangeDriveMembersOnlyRestriction?: boolean | undefined;
+  canComment?: boolean | undefined;
+  canCopy?: boolean | undefined;
+  canDeleteChildren?: boolean | undefined;
+  canDeleteDrive?: boolean | undefined;
+  canDownload?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  canListChildren?: boolean | undefined;
+  canManageMembers?: boolean | undefined;
+  canReadRevisions?: boolean | undefined;
+  canRename?: boolean | undefined;
+  canRenameDrive?: boolean | undefined;
+  canResetDriveRestrictions?: boolean | undefined;
+  canShare?: boolean | undefined;
+  canTrashChildren?: boolean | undefined;
+  canUntrashChildren?: boolean | undefined;
+  canViewItemCounts?: boolean | undefined;};
+  restrictions?: {  adminManagedRestrictions?: boolean | undefined;
+  copyRequiresWriterPermission?: boolean | undefined;
+  domainUsersOnly?: boolean | undefined;
+  driveMembersOnly?: boolean | undefined;
+  sharingFoldersRequiresOrganizerPermission?: boolean | undefined;};})[];
+  /**
+   * Pagination cursor for the next page of results. Omitted if this is the last page.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_drive_movefile {
+  /**
+   * The ID of the file to move. Example: "1mD3ukEAmRqo8u0RF_Cr6IJl9f_uWTYH03vesDhB5Svw"
+   */
+  fileId: string;
+  /**
+   * The ID of the current parent folder. Example: "1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k"
+   */
+  fromFolderId: string;
+  /**
+   * The ID of the destination folder. Example: "1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD"
+   */
+  toFolderId: string;
+};
+
+export interface ActionOutput_google_drive_movefile {
+  id: string;
+  name?: string | undefined;
+  mimeType?: string | undefined;
+  parents: string[];
+};
+
+export interface ActionInput_google_drive_unhideshareddrive {
+  /**
+   * The ID of the shared drive to unhide. Example: "0ABC123xyz"
+   */
+  driveId: string;
+};
+
+export interface ActionOutput_google_drive_unhideshareddrive {
+  id: string;
+  name?: string | undefined;
+  hidden?: boolean | undefined;
+  createdTime?: string | undefined;
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_drive_updatecomment {
+  /**
+   * The ID of the file containing the comment. Example: "1mlzflxHXQkoCj-3p1T_O762TNAfGGr_iIb5C9uwnIwk"
+   */
+  fileId: string;
+  /**
+   * The ID of the comment to update. Example: "AAAB1pvq854"
+   */
+  commentId: string;
+  /**
+   * The new plain text content of the comment. Example: "Updated comment text"
+   */
+  content: string;
+  /**
+   * Whether the comment is resolved. Optional.
+   */
+  resolved?: boolean | undefined;
+};
+
+export interface ActionOutput_google_drive_updatecomment {
+  id: string;
+  content: string;
+  htmlContent: string;
+  createdTime: string;
+  modifiedTime: string;
+  author: {  displayName: string;
+  kind: string;
+  me: boolean;
+  photoLink?: string | undefined;};
+  deleted: boolean;
+  resolved?: boolean | undefined;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_drive_updatefile {
+  fileId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  mimeType?: string | undefined;
+  starred?: boolean | undefined;
+  trashed?: boolean | undefined;
+  parents?: string[] | undefined;
+  appProperties?: {  [key: string]: string;} | undefined;
+  properties?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_google_drive_updatefile {
+  id: string;
+  name: string;
+  mimeType: string;
+  description?: string | undefined;
+  starred: boolean;
+  trashed: boolean;
+  parents: string[];
+  createdTime: string;
+  modifiedTime: string;
+  size?: string | undefined;
+  webViewLink?: string | undefined;
+};
+
+export interface ActionInput_google_drive_updatepermission {
+  /**
+   * The ID of the file or shared drive.
+   */
+  fileId: string;
+  /**
+   * The ID of the permission.
+   */
+  permissionId: string;
+  /**
+   * The new role for the permission.
+   */
+  role: 'owner' | 'organizer' | 'fileOrganizer' | 'writer' | 'commenter' | 'reader';
+};
+
+export interface ActionOutput_google_drive_updatepermission {
+  id: string;
+  type?: string | undefined;
+  role: string;
+  emailAddress?: string | undefined;
+  domain?: string | undefined;
+  displayName?: string | undefined;
+  allowFileDiscovery?: boolean | undefined;
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_drive_updateshareddrive {
+  /**
+   * The ID of the shared drive to update. Example: "0AN1234567890XYZ"
+   */
+  driveId: string;
+  /**
+   * The new name for the shared drive. Example: "Updated Shared Drive"
+   */
+  name?: string | undefined;
+  /**
+   * The color of the shared drive as an RGB hex string. Example: "#0000FF"
+   */
+  colorRgb?: string | undefined;
+  /**
+   * Restrictions to apply to the shared drive
+   */
+  restrictions?: {  /**
+   * Whether the restrictions are managed by an admin
+   */
+  adminManagedRestrictions?: boolean | undefined;
+  /**
+   * Whether the copy operation requires writer permission
+   */
+  copyRequiresWriterPermission?: boolean | undefined;
+  /**
+   * Whether only domain users can access the shared drive
+   */
+  domainUsersOnly?: boolean | undefined;
+  /**
+   * Whether only drive members can access the shared drive
+   */
+  driveMembersOnly?: boolean | undefined;};
+};
+
+export interface ActionOutput_google_drive_updateshareddrive {
+  id: string;
+  name?: string | undefined;
+  colorRgb?: string | undefined;
+  kind: string;
+  createdTime?: string | undefined;
+  restrictions?: {  adminManagedRestrictions?: boolean | undefined;
+  copyRequiresWriterPermission?: boolean | undefined;
+  domainUsersOnly?: boolean | undefined;
+  driveMembersOnly?: boolean | undefined;};
+};
+
+export interface ActionInput_google_drive_uploaddocument {
+  /**
+   * The name of the file to create. Example: "document.txt"
+   */
+  name: string;
+  /**
+   * The file content as plain text or base64 encoded string
+   */
+  content: string;
+  /**
+   * The MIME type of the file. Example: "text/plain", "application/pdf"
+   */
+  mimeType: string;
+  /**
+   * Whether the content is base64 encoded. Defaults to false
+   */
+  isBase64?: boolean | undefined;
+  /**
+   * The ID of the folder to upload the file into. If not provided, defaults to root. Example: "1a2b3c4d5e6f7g8h"
+   */
+  folderId?: string | undefined;
+  /**
+   * A description of the file
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_google_drive_uploaddocument {
+  /**
+   * The ID of the created file
+   */
+  id: string;
+  /**
+   * The name of the created file
+   */
+  name: string;
+  /**
+   * The MIME type of the file
+   */
+  mimeType: string;
+  /**
+   * A link for opening the file in a relevant Google editor or viewer
+   */
+  webViewLink?: string | undefined;
+  /**
+   * A link for downloading the content of the file in a browser
+   */
+  webContentLink?: string | undefined;
 };
 
 export interface GmailEmail {
@@ -5347,6 +7579,703 @@ export interface ActionInput_google_mail_sendemail {
 export interface ActionOutput_google_mail_sendemail {
   id: string;
   threadId: string;
+};
+
+export interface Row {
+  id: string;
+  rowIndex: number;
+  values: any[];
+};
+
+export interface SyncMetadata_google_sheet_syncrows {
+  /**
+   * Google Spreadsheet ID. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  spreadsheetId: string;
+  /**
+   * Sheet/worksheet name. Defaults to first sheet if not provided. Example: "Sheet1"
+   */
+  sheetName?: string | undefined;
+  /**
+   * Cell range to sync. Defaults to entire sheet if not provided. Example: "A1:Z1000"
+   */
+  range?: string | undefined;
+};
+
+export interface Worksheet {
+  /**
+   * Unique identifier for the worksheet (sheetId)
+   */
+  id: string;
+  /**
+   * ID of the parent spreadsheet
+   */
+  spreadsheetId: string;
+  /**
+   * Title of the worksheet
+   */
+  title: string;
+  /**
+   * Zero-based index of the worksheet within the spreadsheet
+   */
+  index: number;
+  /**
+   * Type of the sheet (GRID, OBJECT, etc.)
+   */
+  sheetType: string;
+  /**
+   * Number of rows in the grid (for GRID sheets)
+   */
+  rowCount?: number | undefined;
+  /**
+   * Number of columns in the grid (for GRID sheets)
+   */
+  columnCount?: number | undefined;
+  /**
+   * Whether the sheet is hidden
+   */
+  hidden?: boolean | undefined;
+};
+
+export interface SyncMetadata_google_sheet_syncworksheets {
+  /**
+   * Google Sheets spreadsheet ID to sync worksheets from
+   */
+  spreadsheetId: string;
+};
+
+export interface ActionInput_google_sheet_appendvaluestospreadsheet {
+  /**
+   * The ID of the spreadsheet to update. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation of a range to search for a logical table of data. Example: "Sheet1!A1" or "Sheet1"
+   */
+  range: string;
+  /**
+   * The values to append to the spreadsheet. Each inner array represents a row of data.
+   */
+  values: any[];
+  /**
+   * How the input data should be interpreted. "RAW": The values will be parsed as if the user typed them into the UI. "USER_ENTERED": The values will be parsed as if the user typed them into the UI, but formulas will be calculated.
+   */
+  valueInputOption?: string | undefined;
+  /**
+   * How the input data should be inserted. "OVERWRITE": Overwrite existing data. "INSERT_ROWS": Insert new rows.
+   */
+  insertDataOption?: string | undefined;
+  /**
+   * The major dimension of the values. "ROWS": Values are organized by row. "COLUMNS": Values are organized by column.
+   */
+  majorDimension?: string | undefined;
+};
+
+export interface ActionOutput_google_sheet_appendvaluestospreadsheet {
+  spreadsheetId: string;
+  tableRange: string;
+  updatedRange: string;
+  updatedRows: number;
+  updatedColumns: number;
+  updatedCells: number;
+};
+
+export interface ActionInput_google_sheet_batchclearvaluesbydatafilter {
+  /**
+   * The ID of the spreadsheet to update. Example: "1abc123xyz"
+   */
+  spreadsheetId: string;
+  /**
+   * The data filters used to determine which ranges to clear
+   */
+  dataFilters: ({  /**
+   * A1 notation range. Example: "Sheet1!A1:B10"
+   */
+  a1Range?: string | undefined;
+  gridRange?: {  /**
+   * The ID of the sheet. Example: 0
+   */
+  sheetId: number;
+  /**
+   * The start row (inclusive). Optional for unbounded.
+   */
+  startRowIndex?: number | undefined;
+  /**
+   * The end row (exclusive). Optional for unbounded.
+   */
+  endRowIndex?: number | undefined;
+  /**
+   * The start column (inclusive). Optional for unbounded.
+   */
+  startColumnIndex?: number | undefined;
+  /**
+   * The end column (exclusive). Optional for unbounded.
+   */
+  endColumnIndex?: number | undefined;};
+  developerMetadataLookup?: {  metadataId?: number | undefined;
+  metadataKey?: string | undefined;
+  metadataValue?: string | undefined;
+  locationMatchingStrategy?: 'EXACT_LOCATION' | 'INTERSECTING_LOCATION' | undefined;
+  location?: {  locationType?: 'ROW' | 'COLUMN' | 'SHEET' | 'SPREADSHEET' | undefined;
+  dimensionRange?: {  sheetId: number;
+  dimension: 'ROWS' | 'COLUMNS';
+  startIndex?: number | undefined;
+  endIndex?: number | undefined;};};
+  visibility?: 'DOCUMENT' | 'PROJECT' | undefined;};})[];
+};
+
+export interface ActionOutput_google_sheet_batchclearvaluesbydatafilter {
+  /**
+   * The ID of the spreadsheet
+   */
+  spreadsheetId: string;
+  /**
+   * The ranges that were cleared, in A1 notation
+   */
+  clearedRanges: string[];
+};
+
+export interface ActionInput_google_sheet_batchclearvalues {
+  /**
+   * The ID of the spreadsheet to update. Example: "1a2b3c4d5e6f"
+   */
+  spreadsheetId: string;
+  /**
+   * The ranges to clear, in A1 notation. Example: ["Sheet1!A1:D10", "Sheet2!B2:C5"]
+   */
+  ranges: string[];
+};
+
+export interface ActionOutput_google_sheet_batchclearvalues {
+  /**
+   * The ID of the spreadsheet
+   */
+  spreadsheetId: string;
+  /**
+   * The ranges that were cleared, in A1 notation
+   */
+  clearedRanges: string[];
+};
+
+export interface ActionInput_google_sheet_batchgetvaluesbydatafilter {
+  /**
+   * The ID of the spreadsheet to retrieve data from
+   */
+  spreadsheetId: string;
+  /**
+   * The data filters used to match the ranges of values to retrieve
+   */
+  dataFilters: ({  /**
+   * Selects data that matches the specified A1 range. Example: "Sheet1!A1:B2"
+   */
+  a1Range?: string | undefined;
+  /**
+   * Selects data that matches the range described by the GridRange
+   */
+  gridRange?: {  sheetId?: number | undefined;
+  startRowIndex?: number | undefined;
+  endRowIndex?: number | undefined;
+  startColumnIndex?: number | undefined;
+  endColumnIndex?: number | undefined;};
+  /**
+   * Selects data associated with the developer metadata matching the criteria
+   */
+  developerMetadataLookup?: {  locationType?: 'SPREADSHEET' | 'SHEET' | 'ROW' | 'COLUMN' | undefined;
+  metadataLocation?: {} | undefined;
+  locationMatchingStrategy?: 'EXACT_LOCATION' | 'INTERSECTING_LOCATION' | undefined;
+  metadataId?: number | undefined;
+  metadataKey?: string | undefined;
+  metadataValue?: string | undefined;
+  visibility?: 'DOCUMENT' | 'PROJECT' | undefined;};})[];
+  /**
+   * The major dimension that results should use. Default: ROWS
+   */
+  majorDimension?: 'ROWS' | 'COLUMNS' | undefined;
+  /**
+   * How values should be represented in the output. Default: FORMATTED_VALUE
+   */
+  valueRenderOption?: 'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA' | undefined;
+  /**
+   * How dates, times, and durations should be represented in the output. Default: SERIAL_NUMBER
+   */
+  dateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING' | undefined;
+};
+
+export interface ActionOutput_google_sheet_batchgetvaluesbydatafilter {
+  spreadsheetId: string;
+  valueRanges?: ({  valueRange?: {  range?: string | undefined;
+  majorDimension?: 'ROWS' | 'COLUMNS' | undefined;
+  values?: unknown[] | undefined;};
+  dataFilters?: ({  /**
+   * Selects data that matches the specified A1 range. Example: "Sheet1!A1:B2"
+   */
+  a1Range?: string | undefined;
+  /**
+   * Selects data that matches the range described by the GridRange
+   */
+  gridRange?: {  sheetId?: number | undefined;
+  startRowIndex?: number | undefined;
+  endRowIndex?: number | undefined;
+  startColumnIndex?: number | undefined;
+  endColumnIndex?: number | undefined;};
+  /**
+   * Selects data associated with the developer metadata matching the criteria
+   */
+  developerMetadataLookup?: {  locationType?: 'SPREADSHEET' | 'SHEET' | 'ROW' | 'COLUMN' | undefined;
+  metadataLocation?: {} | undefined;
+  locationMatchingStrategy?: 'EXACT_LOCATION' | 'INTERSECTING_LOCATION' | undefined;
+  metadataId?: number | undefined;
+  metadataKey?: string | undefined;
+  metadataValue?: string | undefined;
+  visibility?: 'DOCUMENT' | 'PROJECT' | undefined;};})[];})[];
+};
+
+export interface ActionInput_google_sheet_batchgetvalues {
+  /**
+   * The ID of the spreadsheet to retrieve data from. Example: "1abc123xyz"
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation or R1C1 notation of the ranges to retrieve values from. Example: ["Sheet1!A1:D5", "Sheet2!B2:C4"]
+   */
+  ranges: string[];
+  /**
+   * The major dimension that results should use. Defaults to ROWS.
+   */
+  majorDimension?: 'ROWS' | 'COLUMNS' | undefined;
+  /**
+   * How values should be rendered in the output.
+   */
+  valueRenderOption?: 'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA' | undefined;
+  /**
+   * How dates, times, and durations should be represented in the output.
+   */
+  dateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING' | undefined;
+};
+
+export interface ActionOutput_google_sheet_batchgetvalues {
+  /**
+   * The ID of the spreadsheet the data was retrieved from.
+   */
+  spreadsheetId: string;
+  /**
+   * The values of the ranges requested.
+   */
+  valueRanges: ({  /**
+   * The range the values cover, in A1 notation.
+   */
+  range: string;
+  /**
+   * The major dimension of the values.
+   */
+  majorDimension?: string | undefined;
+  /**
+   * The data that was read. Array of arrays representing rows/columns, with each cell value being a string, number, boolean, or null.
+   */
+  values?: any[] | undefined;})[];
+};
+
+export interface ActionInput_google_sheet_batchupdatespreadsheet {
+  spreadsheetId: string;
+  requests: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_sheet_batchupdatespreadsheet {
+  spreadsheetId: string;
+  replies: ({  [key: string]: unknown | undefined;})[];
+  updatedRange?: string | undefined;
+  updatedCells?: number | undefined;
+  updatedColumns?: number | undefined;
+  updatedRows?: number | undefined;
+};
+
+export interface ActionInput_google_sheet_clearvalues {
+  /**
+   * The ID of the spreadsheet to update. Example: "1a2b3c4d5e6f7g8h9i0j"
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation or R1C1 notation of the values to clear. Example: "Sheet1!A1:D10"
+   */
+  range: string;
+};
+
+export interface ActionOutput_google_sheet_clearvalues {
+  spreadsheetId: string;
+  clearedRange: string;
+};
+
+export interface ActionInput_google_sheet_copysheet {
+  /**
+   * The ID of the spreadsheet containing the sheet to copy. Example: "1aBcD..."
+   */
+  sourceSpreadsheetId: string;
+  /**
+   * The ID of the sheet to copy. Example: 123456789
+   */
+  sheetId: number;
+  /**
+   * The ID of the spreadsheet to copy the sheet to. Example: "2xYzA..."
+   */
+  destinationSpreadsheetId: string;
+};
+
+export interface ActionOutput_google_sheet_copysheet {
+  /**
+   * The ID of the newly copied sheet
+   */
+  sheetId: number;
+  /**
+   * The title of the newly copied sheet
+   */
+  title: string;
+  /**
+   * The zero-based index of the sheet within the spreadsheet
+   */
+  index: number;
+  /**
+   * The type of sheet (GRID, OBJECT, etc.)
+   */
+  sheetType: string;
+  /**
+   * The number of rows in the grid, if applicable
+   */
+  rowCount?: number | undefined;
+  /**
+   * The number of columns in the grid, if applicable
+   */
+  columnCount?: number | undefined;
+};
+
+export interface ActionInput_google_sheet_createcolumn {
+  /**
+   * The ID of the spreadsheet. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  spreadsheetId: string;
+  /**
+   * The sheet ID (0-based). Defaults to 0 if not provided. Example: 0
+   */
+  sheetId?: number | undefined;
+  /**
+   * The zero-based column index where the new column will be inserted. Example: 2 to insert at column C
+   */
+  columnIndex: number;
+  /**
+   * If true, the new column inherits formatting from the previous column. If false or not set, inherits from the next column.
+   */
+  inheritFromBefore?: boolean | undefined;
+};
+
+export interface ActionOutput_google_sheet_createcolumn {
+  spreadsheetId: string;
+  sheetId: number;
+  columnIndex: number;
+  success: boolean;
+};
+
+export interface ActionInput_google_sheet_createspreadsheetrow {
+  /**
+   * The ID of the spreadsheet. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  spreadsheetId: string;
+  /**
+   * The ID of the sheet (can be found via the API). Example: 687284948
+   */
+  sheetId: number;
+  /**
+   * The name of the sheet for A1 notation. Example: "Sheet1"
+   */
+  sheetName: string;
+  /**
+   * The index where to insert the row (0-based, where 0 is the first row). Example: 5
+   */
+  rowIndex: number;
+  /**
+   * Array of values to insert in the new row. Example: ["John", "Doe", "john@example.com"]
+   */
+  values: string[];
+};
+
+export interface ActionOutput_google_sheet_createspreadsheetrow {
+  spreadsheetId: string;
+  sheetId: number;
+  rowIndex: number;
+  values: string[];
+  updatedRange: string;
+};
+
+export interface ActionInput_google_sheet_createspreadsheet {
+  /**
+   * Spreadsheet properties including title
+   */
+  properties: {  /**
+   * Spreadsheet title. Example: "My New Spreadsheet"
+   */
+  title: string;
+  /**
+   * Spreadsheet locale. Example: "en_US"
+   */
+  locale?: string | undefined;
+  /**
+   * Spreadsheet time zone. Example: "America/New_York"
+   */
+  timeZone?: string | undefined;};
+  /**
+   * Array of sheets to create in the spreadsheet
+   */
+  sheets?: ({  properties?: {  /**
+   * Sheet title. Example: "Sheet1"
+   */
+  title?: string | undefined;
+  gridProperties?: {  rowCount?: number | undefined;
+  columnCount?: number | undefined;};};})[];
+};
+
+export interface ActionOutput_google_sheet_createspreadsheet {
+  /**
+   * The unique ID of the created spreadsheet
+   */
+  spreadsheetId: string;
+  /**
+   * The URL to view the spreadsheet in Google Sheets
+   */
+  spreadsheetUrl: string;
+  properties?: any | undefined;
+};
+
+export interface ActionInput_google_sheet_deleteworksheet {
+  /**
+   * The ID of the Google Spreadsheet. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+   */
+  spreadsheetId: string;
+  /**
+   * The name of the worksheet to delete. Example: "Sheet2"
+   */
+  worksheetName: string;
+};
+
+export interface ActionOutput_google_sheet_deleteworksheet {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_google_sheet_getspreadsheetbydatafilter {
+  /**
+   * The ID of the spreadsheet to retrieve. Example: "1a2b3c4d5e6f7g8h9i0j"
+   */
+  spreadsheetId: string;
+  /**
+   * The data filters used to select which ranges to retrieve from the spreadsheet
+   */
+  dataFilters: ({  /**
+   * Selects data associated with developer metadata
+   */
+  developerMetadataLookup?: {  locationType?: 'SPREADSHEET' | 'SHEET' | 'ROW' | 'COLUMN' | undefined;
+  metadataLocation?: {  spreadsheet?: boolean | undefined;
+  sheetId?: number | undefined;
+  dimensionRange?: {  sheetId: number;
+  dimension: 'ROWS' | 'COLUMNS';
+  startIndex?: number | undefined;
+  endIndex?: number | undefined;};};
+  locationMatchingStrategy?: 'EXACT_LOCATION' | 'INTERSECTING_LOCATION' | undefined;
+  metadataId?: number | undefined;
+  metadataKey?: string | undefined;
+  metadataValue?: string | undefined;
+  visibility?: 'DOCUMENT' | 'PROJECT' | undefined;};
+  /**
+   * Selects data matching A1 range notation (e.g., "Sheet1!A1:C10")
+   */
+  a1Range?: string | undefined;
+  /**
+   * Selects data matching a GridRange
+   */
+  gridRange?: {  sheetId?: number | undefined;
+  startRowIndex?: number | undefined;
+  endRowIndex?: number | undefined;
+  startColumnIndex?: number | undefined;
+  endColumnIndex?: number | undefined;};})[];
+  /**
+   * True if grid data should be returned. Ignored if a field mask is set in the request
+   */
+  includeGridData?: boolean | undefined;
+  /**
+   * True if tables should be excluded in the banded ranges
+   */
+  excludeTablesInBandedRanges?: boolean | undefined;
+};
+
+export type ActionOutput_google_sheet_getspreadsheetbydatafilter = unknown | undefined
+
+export interface ActionInput_google_sheet_getvalues {
+  /**
+   * The ID of the spreadsheet to retrieve data from. Example: "1aBcD..."
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation or R1C1 notation of the range to retrieve values from. Example: "Sheet1!A1:C10" or "Sheet1"
+   */
+  range: string;
+};
+
+export interface ActionOutput_google_sheet_getvalues {
+  spreadsheetId: string;
+  range: string;
+  majorDimension: 'ROWS' | 'COLUMNS';
+  /**
+   * The data values in the range, as a 2D array where each inner array represents a row
+   */
+  values?: any | undefined;
+};
+
+export interface ActionInput_google_sheet_searchdevelopermetadata {
+  spreadsheetId: string;
+  dataFilters: ({  developerMetadataLookup?: {  [key: string]: unknown | undefined;};
+  a1Range?: string | undefined;
+  gridRange?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_google_sheet_searchdevelopermetadata {
+  matchedDeveloperMetadata: ({  developerMetadata: {  metadataId: number;
+  metadataKey: string;
+  metadataValue: string;
+  location: {  [key: string]: unknown | undefined;};
+  visibility: string;};
+  dataFilters: ({  developerMetadataLookup?: {  [key: string]: unknown | undefined;};
+  a1Range?: string | undefined;
+  gridRange?: {  [key: string]: unknown | undefined;};})[];})[];
+};
+
+export interface ActionInput_google_sheet_updateconditionalformatrule {
+  /**
+   * The ID of the spreadsheet to update. Example: "1aBcD..."
+   */
+  spreadsheetId: string;
+  /**
+   * The ID of the sheet to apply the rule to. If not specified, applies to all sheets.
+   */
+  sheetId?: number | undefined;
+  /**
+   * The zero-based index of the rule to update or move.
+   */
+  index: number;
+  /**
+   * The zero-based new index to move the rule to. Use this to reorder rules.
+   */
+  newIndex?: number | undefined;
+  /**
+   * The new conditional format rule. If provided, replaces the existing rule. If omitted, only moves the rule.
+   */
+  rule?: {  /**
+   * The ranges to apply the conditional format to.
+   */
+  ranges: ({  sheetId?: number | undefined;
+  startRowIndex?: number | undefined;
+  endRowIndex?: number | undefined;
+  startColumnIndex?: number | undefined;
+  endColumnIndex?: number | undefined;})[];
+  /**
+   * A boolean rule - formats cells based on true/false condition.
+   */
+  booleanRule?: {  condition: {  /**
+   * The type of condition. Examples: "BOOLEAN", "NUMBER_GREATER", "TEXT_CONTAINS".
+   */
+  type: string;
+  values?: ({  userEnteredValue?: string | undefined;})[];};
+  format?: {  backgroundColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;
+  alpha?: number | undefined;};
+  textFormat?: {  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  fontFamily?: string | undefined;};};};
+  /**
+   * A gradient rule - formats cells with color gradients.
+   */
+  gradientRule?: {  minPoint?: {  color?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};
+  type?: string | undefined;
+  value?: string | undefined;};
+  maxPoint?: {  color?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};
+  type?: string | undefined;
+  value?: string | undefined;};};};
+};
+
+export interface ActionOutput_google_sheet_updateconditionalformatrule {
+  spreadsheetId: string;
+  replies?: ({  updateConditionalFormatRule?: {  newIndex?: number | undefined;
+  oldIndex?: number | undefined;
+  newRule?: any | undefined;
+  oldRule?: any | undefined;};})[];
+  success: boolean;
+};
+
+export interface ActionInput_google_sheet_updatevalues {
+  /**
+   * The ID of the spreadsheet to update. Example: "1abc123def456ghi"
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation of the values to update. Example: "Sheet1!A1:B2"
+   */
+  range: string;
+  /**
+   * The data to write, as an array of arrays. Each inner array represents a row. Example: [["A1", "B1"], ["A2", "B2"]]
+   */
+  values: any[];
+  /**
+   * How the input data should be interpreted. RAW = values as-is, USER_ENTERED = parsed as if typed into the UI. Default: USER_ENTERED
+   */
+  valueInputOption?: 'RAW' | 'USER_ENTERED' | undefined;
+  /**
+   * The major dimension of the values. ROWS = each inner array is a row, COLUMNS = each inner array is a column. Default: ROWS
+   */
+  majorDimension?: 'ROWS' | 'COLUMNS' | undefined;
+  /**
+   * If true, the response includes the updated cell values. Default: false
+   */
+  includeValuesInResponse?: boolean | undefined;
+};
+
+export interface ActionOutput_google_sheet_updatevalues {
+  spreadsheetId: string;
+  updatedRange: string;
+  updatedRows: number;
+  updatedColumns: number;
+  updatedCells: number;
+};
+
+export interface ActionInput_google_sheet_upsertrow {
+  /**
+   * The ID of the spreadsheet to update. Example: "1aBcD..."
+   */
+  spreadsheetId: string;
+  /**
+   * The A1 notation of the range to search for existing data and append to. Example: "Sheet1!A1:E" or "Sheet1"
+   */
+  range: string;
+  /**
+   * The row values to upsert. Example: ["Name", "Email", "Phone"]
+   */
+  values: string[];
+  /**
+   * The column index (0-based) to use as the key for matching existing rows. If not provided, always appends.
+   */
+  keyColumn?: number | undefined;
+  /**
+   * The value to match in the key column for updating an existing row. Required if key_column is provided.
+   */
+  keyValue?: string | undefined;
+};
+
+export interface ActionOutput_google_sheet_upsertrow {
+  success: boolean;
+  operation: 'appended' | 'updated';
+  spreadsheetId: string;
+  updatedRange: string;
+  updatedRows: number;
 };
 
 export interface SyncMetadata_gorgias_tickets {
@@ -5989,588 +8918,1579 @@ export interface SyncMetadata_hibob_service_user_unifiedemployees {
 
 export interface Company {
   id: string;
-  created_date: string | null;
-  name: string | null;
-  industry: string | null;
-  description: string | null;
-  country: string | null;
-  city: string | null;
-  lead_status: string | null;
-  lifecycle_stage: string | null;
-  owner: string | null;
-  year_founded: string | null;
-  website_url: string | null;
-};
-
-export interface SyncMetadata_hubspot_companies {
-};
-
-export interface SyncMetadata_hubspot_contacts {
-};
-
-export interface CurrencyCode {
-  id: string;
-  code: string;
-  description: string;
-};
-
-export interface SyncMetadata_hubspot_currencycodes {
+  name?: string | undefined;
+  domain?: string | undefined;
+  industry?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface Deal {
   id: string;
-  name: string | null;
-  amount: string | null;
-  close_date: string | null;
-  deal_description: string | null;
-  owner: string | null;
-  deal_stage: string | null;
-  deal_probability: string | null;
-  returned_associations?: {  companies?: ({  id: string;
-  name: string | null;})[] | undefined;
-  contacts?: ({  id: string;
-  first_name: string | null;
-  last_name: string | null;})[] | undefined;
-  deals?: ({  id: string;
-  name: string | null;})[] | undefined;};
+  name?: string | undefined;
+  amount?: number | undefined;
+  closeDate?: string | undefined;
+  stage?: string | undefined;
+  ownerId?: string | undefined;
+  description?: string | undefined;
+  companyIds: string[];
+  contactIds: string[];
+  updatedAt: string;
 };
 
-export interface SyncMetadata_hubspot_deals {
-};
-
-export interface HubspotKnowledgeBase {
+export interface MarketingEmail {
   id: string;
-  title: string;
-  description: string;
-  category: string;
-  content: string;
-  publishDate: number;
+  name?: string | undefined;
+  subject?: string | undefined;
+  type?: string | undefined;
+  isPublished?: boolean | undefined;
+  state?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  author?: string | undefined;
+  contentType?: string | undefined;
 };
 
-export interface SyncMetadata_hubspot_knowledgebase {
-};
-
-export interface HubspotOwner {
+export interface Owner {
   id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  userId: number;
-  createdAt: Date;
-  updatedAt: Date;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  userId?: number | undefined;
   archived: boolean;
-};
-
-export interface SyncMetadata_hubspot_owners {
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface Product {
-  updatedAt: string;
-  createdAt: string;
   id: string;
-  amount: number | null;
-  description: string | null;
-  discount: number | null;
-  sku: string | null;
-  url: string | null;
-  name: string;
-  price: string;
-  quantity: number | null;
-  recurringBillingFrequency: number | null;
-  tax: null | number;
+  name?: string | undefined;
+  description?: string | undefined;
+  sku?: string | undefined;
+  price?: number | undefined;
+  costOfGoodsSold?: number | undefined;
+  billingFrequency?: string | undefined;
+  recurringBillingPeriod?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
-export interface SyncMetadata_hubspot_products {
+export interface ActionInput_hubspot_batchcreatecompanies {
+  /**
+   * Array of companies to create
+   */
+  companies: ({  /**
+   * Company name. Example: "Acme Inc"
+   */
+  name?: string | undefined;
+  /**
+   * Company domain. Example: "acme.com"
+   */
+  domain?: string | undefined;
+  /**
+   * City. Example: "San Francisco"
+   */
+  city?: string | undefined;
+  /**
+   * Industry. Example: "Technology"
+   */
+  industry?: string | undefined;})[];
 };
 
-export interface HubspotServiceTicket {
+export interface ActionOutput_hubspot_batchcreatecompanies {
+  companies: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  city?: string | undefined;
+  industry?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+};
+
+export interface ActionInput_hubspot_batchupdatecompanies {
+  /**
+   * Array of companies to update (max 100 per request).
+   */
+  companies: ({  /**
+   * The HubSpot company ID. Example: "123456789"
+   */
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  isArchived: boolean;
-  subject: string;
-  content: string;
-  objectId: number;
-  ownerId: number;
-  pipeline: number;
-  pipelineStage: number;
-  ticketCategory: string | null;
-  ticketPriority: string;
+  /**
+   * The company name.
+   */
+  name?: string | undefined;
+  /**
+   * The company domain.
+   */
+  domain?: string | undefined;
+  /**
+   * The industry the company operates in.
+   */
+  industry?: string | undefined;
+  /**
+   * The city where the company is located.
+   */
+  city?: string | undefined;
+  /**
+   * The state where the company is located.
+   */
+  state?: string | undefined;
+  /**
+   * The country where the company is located.
+   */
+  country?: string | undefined;
+  /**
+   * The company phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The company website URL.
+   */
+  website?: string | undefined;})[];
 };
 
-export interface SyncMetadata_hubspot_servicetickets {
-};
-
-export interface SyncMetadata_hubspot_tasks {
-};
-
-export interface SyncMetadata_hubspot_users {
+export interface ActionOutput_hubspot_batchupdatecompanies {
+  results: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  industry?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  status: string;
 };
 
 export interface ActionInput_hubspot_changeuserrole {
-  id: string;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
+  /**
+   * User ID or email. Example: "12345" or "user@example.com"
+   */
+  userId: string;
+  /**
+   * Property type for the user_id. Use EMAIL if user_id is an email, USER_ID if it is a user ID.
+   */
+  idProperty?: 'EMAIL' | 'USER_ID' | undefined;
+  /**
+   * Role ID to assign to the user. Example: "1234"
+   */
+  roleId?: string | undefined;
+  /**
+   * Primary team ID to assign to the user. Example: "5678"
+   */
   primaryTeamId?: string | undefined;
+  /**
+   * Array of secondary team IDs to assign to the user. Example: ["9101", "1121"]
+   */
+  secondaryTeamIds?: string[] | undefined;
 };
 
 export interface ActionOutput_hubspot_changeuserrole {
   id: string;
+  email: string;
   firstName?: string | undefined;
   lastName?: string | undefined;
-  primaryTeamId?: string | undefined;
-  email: string;
-  sendWelcomeEmail?: boolean | undefined;
   roleIds: string[];
+  primaryTeamId?: string | undefined;
   secondaryTeamIds: string[];
   superAdmin: boolean;
 };
 
-export interface ActionInput_hubspot_createcompany {
+export interface ActionInput_hubspot_clonemarketingemail {
+  /**
+   * The email ID to clone. Example: "38175169118"
+   */
+  emailId: string;
+  /**
+   * The name to assign to the cloned email. Example: "Cloned Newsletter"
+   */
+  cloneName?: string | undefined;
+  /**
+   * The language code for the cloned email, such as "en" for English. Example: "en"
+   */
+  language?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_clonemarketingemail {
+  id: string;
   name?: string | undefined;
-  industry?: string | undefined;
-  description?: string | undefined;
-  country?: string | undefined;
+  subject?: string | undefined;
+  state?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  clonedFrom?: string | undefined;
+  isPublished?: boolean | undefined;
+  isTransactional?: boolean | undefined;
+  type?: string | undefined;
+  subcategory?: string | undefined;
+};
+
+export interface ActionInput_hubspot_createassociation {
+  /**
+   * The type of the object to associate from. Example: "contacts", "companies", "deals", "tickets"
+   */
+  fromObjectType: string;
+  /**
+   * The ID of the object to associate from. Example: "12345"
+   */
+  fromObjectId: string;
+  /**
+   * The type of the object to associate to. Example: "contacts", "companies", "deals", "tickets"
+   */
+  toObjectType: string;
+  /**
+   * The ID of the object to associate to. Example: "67890"
+   */
+  toObjectId: string;
+  /**
+   * The association type identifier. If not provided, a default association will be created.
+   */
+  associationType?: string | undefined;
+  /**
+   * The category of the association type. Required if association_type is provided.
+   */
+  associationCategory?: 'HUBSPOT_DEFINED' | 'USER_DEFINED' | 'INTEGRATOR_DEFINED' | undefined;
+};
+
+export interface ActionOutput_hubspot_createassociation {
+  status: string;
+  results: ({  fromId: string;
+  toId: string;
+  associationType?: string | undefined;
+  associationCategory?: string | undefined;})[];
+  startedAt: string;
+  completedAt: string;
+};
+
+export interface ActionInput_hubspot_createcompany {
+  /**
+   * Company name. Example: "Acme Inc."
+   */
+  name?: string | undefined;
+  /**
+   * Company domain. Example: "acme.com"
+   */
+  domain?: string | undefined;
+  /**
+   * Company city. Example: "San Francisco"
+   */
   city?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  owner?: string | undefined;
-  year_founded?: string | undefined;
-  website_url?: string | undefined;
+  /**
+   * Company industry. Example: "Software"
+   */
+  industry?: string | undefined;
+  /**
+   * Company phone number. Example: "+1-555-1234"
+   */
+  phone?: string | undefined;
+  /**
+   * Company website URL. Example: "https://acme.com"
+   */
+  website?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_createcompany {
   id: string;
-  created_date: string;
   name?: string | undefined;
-  industry?: string | undefined;
-  description?: string | undefined;
-  country?: string | undefined;
+  domain?: string | undefined;
   city?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  owner?: string | undefined;
-  year_founded?: string | undefined;
-  website_url?: string | undefined;
+  industry?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_createcontact {
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  job_title?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  salutation?: string | undefined;
-  mobile_phone_number?: string | undefined;
-  website_url?: string | undefined;
-  owner?: string | undefined;
+  /**
+   * Email address of the contact. Example: "john.doe@example.com"
+   */
+  email: string;
+  /**
+   * First name of the contact. Example: "John"
+   */
+  firstname?: string | undefined;
+  /**
+   * Last name of the contact. Example: "Doe"
+   */
+  lastname?: string | undefined;
+  /**
+   * Phone number of the contact. Example: "+1 555-1234"
+   */
+  phone?: string | undefined;
+  /**
+   * Company name of the contact. Example: "Acme Inc"
+   */
+  company?: string | undefined;
+  /**
+   * Website URL of the contact. Example: "https://example.com"
+   */
+  website?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_createcontact {
   id: string;
-  created_date: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
   email?: string | undefined;
-  job_title?: string | undefined;
-  last_contacted?: string | undefined;
-  last_activity_date?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  salutation?: string | undefined;
-  mobile_phone_number?: string | undefined;
-  website_url?: string | undefined;
-  owner?: string | undefined;
+  firstname?: string | undefined;
+  lastname?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  website?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_createdeal {
-  name?: string | undefined;
-  amount?: string | undefined;
-  close_date?: string | undefined;
-  deal_description?: string | undefined;
-  owner?: string | undefined;
-  deal_stage?: string | undefined;
-  deal_probability?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * Deal name. Example: "Acme Corp Deal"
+   */
+  dealName?: string | undefined;
+  /**
+   * Deal amount in company currency. Example: 50000
+   */
+  amount?: number | undefined;
+  /**
+   * Deal stage ID. Example: "appointmentscheduled"
+   */
+  dealstage?: string | undefined;
+  /**
+   * Pipeline ID. Example: "default"
+   */
+  pipeline?: string | undefined;
+  /**
+   * Expected close date. ISO 8601 format. Example: "2025-12-31T23:59:59Z"
+   */
+  closedate?: string | undefined;
+  /**
+   * Owner ID to assign the deal to. Example: "12345678"
+   */
+  hubspot_owner_id?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_createdeal {
   id: string;
+  dealName?: string | undefined;
+  amount?: number | undefined;
+  dealstage?: string | undefined;
+  pipeline?: string | undefined;
+  closedate?: string | undefined;
+  hubspot_owner_id?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_createmarketingemail {
+  /**
+   * The name of the marketing email. Example: "Newsletter March 2024"
+   */
+  name: string;
+  /**
+   * The subject line of the email. Example: "Check out our latest updates!"
+   */
+  subject: string;
+  /**
+   * The HTML content of the email body.
+   */
+  htmlBody?: string | undefined;
+  /**
+   * The plain text content of the email body.
+   */
+  textBody?: string | undefined;
+  /**
+   * The display name for the email sender.
+   */
+  fromName?: string | undefined;
+  /**
+   * The email address of the sender.
+   */
+  fromEmail?: string | undefined;
+  /**
+   * The path to a HubSpot template. Example: "@hubspot/email/dnd/welcome.html"
+   */
+  templatePath?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_createmarketingemail {
+  id: string;
   name?: string | undefined;
-  amount?: string | undefined;
-  close_date?: string | undefined;
-  deal_description?: string | undefined;
-  owner?: string | undefined;
-  deal_stage?: string | undefined;
-  deal_probability?: string | undefined;
+  subject?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  state?: string | undefined;
+  campaignId?: string | undefined;
+  contentId?: string | undefined;
 };
 
 export interface ActionInput_hubspot_createnote {
-  id?: string | undefined;
-  time_stamp: string;
-  created_date?: string | undefined;
+  /**
+   * The note text content. Limited to 65,536 characters.
+   */
   body?: string | undefined;
-  attachment_ids?: string | undefined;
-  owner?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * The note timestamp in ISO 8601 UTC format (e.g., "2021-11-12T15:48:22Z") or Unix timestamp in milliseconds.
+   */
+  timestamp: string;
+  /**
+   * The HubSpot owner ID associated with the note.
+   */
+  ownerId?: string | undefined;
+  /**
+   * IDs of attachments to associate with the note.
+   */
+  attachmentIds?: string[] | undefined;
+  /**
+   * The association to a contact, company, deal, or ticket.
+   */
+  association: {  /**
+   * The type of object to associate the note with.
+   */
+  objectType: 'contact' | 'company' | 'deal' | 'ticket';
+  /**
+   * The ID of the record to associate the note with.
+   */
+  objectId: string;};
 };
 
 export interface ActionOutput_hubspot_createnote {
-  id?: string | undefined;
-  time_stamp: string;
-  created_date?: string | undefined;
+  id: string;
   body?: string | undefined;
-  attachment_ids?: string | undefined;
-  owner?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  timestamp?: string | undefined;
+  ownerId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_createproperty {
-  objectType: string;
-  data: {  hidden?: boolean | undefined;
-  displayOrder?: number | undefined;
-  description?: string | undefined;
-  label: string;
-  type: string;
-  formField?: boolean | undefined;
-  groupName: string;
-  referencedObjectType?: string | undefined;
+  /**
+   * The CRM object type for which the property will be created. Example: "contacts"
+   */
+  objectType: 'contacts' | 'companies' | 'deals' | 'products' | 'tickets' | 'line_items';
+  /**
+   * The internal name of the property (lowercase, alphanumeric and underscores only). Example: "favorite_food"
+   */
   name: string;
-  options: ({  hidden: boolean;
-  displayOrder?: number | undefined;
-  description?: string | undefined;
+  /**
+   * The display name of the property as shown in HubSpot. Example: "Favorite Food"
+   */
   label: string;
-  value: string;})[];
-  calculationFormula?: string | undefined;
-  hasUniqueValue?: boolean | undefined;
-  fieldType: string;
-  externalOptions?: boolean | undefined;};
+  /**
+   * The data type of the property. Example: "string"
+   */
+  type: 'string' | 'number' | 'bool' | 'enumeration' | 'datetime' | 'date' | 'phone_number';
+  /**
+   * The field type determines the input widget shown in HubSpot. Example: "text"
+   */
+  fieldType: 'text' | 'textarea' | 'number' | 'date' | 'select' | 'checkbox' | 'radio' | 'booleancheckbox' | 'file' | 'calculation_equation' | 'calculation_rollup' | 'calculation_score' | 'calculation_date';
+  /**
+   * The property group the property belongs to. Defaults to "contactinformation". Example: "contactinformation"
+   */
+  groupName?: string | undefined;
+  /**
+   * A description of the property. Example: "The users favorite food"
+   */
+  description?: string | undefined;
+  /**
+   * The order the property appears in its group. Example: 1
+   */
+  displayOrder?: number | undefined;
+  /**
+   * Required for enumeration field types (select, checkbox, radio). Array of option objects with label and value.
+   */
+  options?: ({  label: string;
+  value: string;
+  displayOrder?: number | undefined;
+  hidden?: boolean | undefined;})[];
 };
 
 export interface ActionOutput_hubspot_createproperty {
-  createdUserId: string;
-  hidden: boolean;
-  modificationMetadata: {  readOnlyOptions?: boolean | undefined;
-  readOnlyValue: boolean;
-  readOnlyDefinition: boolean;
-  archivable: boolean;};
-  displayOrder: number;
-  description: string;
-  showCurrencySymbol?: boolean | undefined;
+  name: string;
   label: string;
   type: string;
-  hubspotDefined?: boolean | undefined;
-  formField: boolean;
-  dataSensitivity?: string | undefined;
-  createdAt: string;
-  archivedAt?: string | undefined;
-  archived: boolean;
-  groupName: string;
-  referencedObjectType?: string | undefined;
-  name: string;
-  options: ({  hidden: boolean;
-  displayOrder: number;
-  description: string;
-  label: string;
-  value: string;})[];
-  calculationFormula?: string | undefined;
-  hasUniqueValue: boolean;
   fieldType: string;
-  updatedUserId: string;
-  calculated: boolean;
-  externalOptions: boolean;
-  updatedAt: string;
+  groupName: string;
+  description?: string | undefined;
+  displayOrder?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archived: boolean;
+  archivedAt?: string | undefined;
+  options?: ({  label: string;
+  value: string;
+  displayOrder?: number | undefined;
+  hidden: boolean;})[];
 };
 
 export interface ActionInput_hubspot_createtask {
-  task_type?: string | undefined;
-  title?: string | undefined;
+  /**
+   * The title/subject of the task. Example: "Call John about the proposal"
+   */
+  subject: string;
+  /**
+   * The type of task. Example: "CALL", "EMAIL", "TODO", "MEETING", "LINKED_IN", "LINKED_IN_MESSAGE", "LINKED_IN_CONNECT", "WHATSAPP", "SMS", "NEXT_STEP", "SCHEDULE_MEETING", "DEMO". Defaults to "TODO"
+   */
+  type?: string | undefined;
+  /**
+   * The priority of the task. Options: "LOW", "MEDIUM", "HIGH". Defaults to "MEDIUM"
+   */
   priority?: string | undefined;
-  assigned_to?: string | undefined;
-  due_date?: string | undefined;
+  /**
+   * The due date for the task in ISO 8601 format (e.g., "2024-03-15T10:00:00Z"). Example: "2024-03-15T10:00:00Z"
+   */
+  dueDate: string;
+  /**
+   * The body/notes of the task. Example: "Remember to mention the discount offer"
+   */
   notes?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * The HubSpot owner ID (user ID) to assign the task to. Example: "12345678"
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Array of contact IDs to associate the task with. Example: ["123", "456"]
+   */
+  contactIds?: string[] | undefined;
+  /**
+   * Array of company IDs to associate the task with. Example: ["789", "012"]
+   */
+  companyIds?: string[] | undefined;
+  /**
+   * Array of deal IDs to associate the task with. Example: ["345", "678"]
+   */
+  dealIds?: string[] | undefined;
 };
 
 export interface ActionOutput_hubspot_createtask {
+  /**
+   * The unique ID of the created task
+   */
   id: string;
-  task_type?: string | undefined;
-  title?: string | undefined;
+  /**
+   * The title/subject of the task
+   */
+  subject?: string | undefined;
+  /**
+   * The type of task
+   */
+  type?: string | undefined;
+  /**
+   * The priority of the task
+   */
   priority?: string | undefined;
-  assigned_to?: string | undefined;
-  due_date?: string | undefined;
+  /**
+   * The due date of the task
+   */
+  dueDate?: string | undefined;
+  /**
+   * The body/notes of the task
+   */
   notes?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * The status of the task
+   */
+  status?: string | undefined;
+  /**
+   * The HubSpot owner ID assigned to the task
+   */
+  assigneeId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_createticket {
+  /**
+   * The ticket subject/title. Example: "Support request for login issue"
+   */
+  subject: string;
+  /**
+   * The ticket description/content. Example: "User cannot log in to their account"
+   */
+  content?: string | undefined;
+  /**
+   * Pipeline ID. Example: "0"
+   */
+  hs_pipeline?: string | undefined;
+  /**
+   * Pipeline stage ID. Example: "1"
+   */
+  hs_pipeline_stage?: string | undefined;
+  /**
+   * Ticket priority level
+   */
+  hs_ticket_priority?: 'LOW' | 'MEDIUM' | 'HIGH' | undefined;
+};
+
+export interface ActionOutput_hubspot_createticket {
+  id: string;
+  subject?: string | undefined;
+  content?: string | undefined;
+  hs_pipeline?: string | undefined;
+  hs_pipeline_stage?: string | undefined;
+  hs_ticket_priority?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_createuser {
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  primaryTeamId?: string | undefined;
+  /**
+   * The email address of the user to create. Example: "user@example.com"
+   */
   email: string;
-  sendWelcomeEmail?: boolean | undefined;
+  /**
+   * The first name of the user. Example: "John"
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the user. Example: "Doe"
+   */
+  lastName?: string | undefined;
+  /**
+   * The ID of the role/permission set to assign to the user. Example: "12345"
+   */
   roleId?: string | undefined;
-  secondaryTeamIds: string[];
+  /**
+   * The ID of the primary team to assign the user to. Example: "67890"
+   */
+  teamId?: string | undefined;
+  /**
+   * Whether to send a welcome email to the user. Defaults to true if not specified.
+   */
+  sendWelcomeEmail?: boolean | undefined;
 };
 
 export interface ActionOutput_hubspot_createuser {
   id: string;
-  firstName: string;
-  lastName: string;
-  primaryTeamId?: string | undefined;
   email: string;
-  sendWelcomeEmail: boolean;
-  roleIds: string[];
-  secondaryTeamIds: string[];
-  superAdmin: boolean;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  roleId?: string | undefined;
+  teamId?: string | undefined;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_deleteaworkflow {
+  /**
+   * The unique identifier for the workflow to delete. Example: "123456789"
+   */
+  workflowId: string;
+};
+
+export interface ActionOutput_hubspot_deleteaworkflow {
+  success: boolean;
+  workflowId: string;
 };
 
 export interface ActionInput_hubspot_deletecompany {
+  /**
+   * HubSpot Company ID to delete. Example: "123456789"
+   */
   id: string;
 };
 
 export interface ActionOutput_hubspot_deletecompany {
   success: boolean;
+  id: string;
 };
 
 export interface ActionInput_hubspot_deletecontact {
-  id: string;
+  /**
+   * The ID of the contact to delete. Example: "12345"
+   */
+  contactId: string;
 };
 
 export interface ActionOutput_hubspot_deletecontact {
   success: boolean;
+  contactId: string;
 };
 
 export interface ActionInput_hubspot_deletedeal {
-  id: string;
+  /**
+   * The ID of the deal to delete. Example: "12345"
+   */
+  dealId: string;
 };
 
 export interface ActionOutput_hubspot_deletedeal {
   success: boolean;
+  message: string;
+};
+
+export interface ActionInput_hubspot_deletemarketingemail {
+  /**
+   * The ID of the marketing email to delete. Example: "12345"
+   */
+  emailId: string;
+};
+
+export interface ActionOutput_hubspot_deletemarketingemail {
+  success: boolean;
+  emailId: string;
+  message: string;
 };
 
 export interface ActionInput_hubspot_deletetask {
-  id: string;
+  /**
+   * HubSpot task record ID to delete. Example: "12345"
+   */
+  taskId: string;
 };
 
 export interface ActionOutput_hubspot_deletetask {
   success: boolean;
+  taskId: string;
+};
+
+export interface ActionInput_hubspot_deleteticket {
+  /**
+   * The ID of the ticket to delete. Example: "12345"
+   */
+  ticketId: string;
+};
+
+export interface ActionOutput_hubspot_deleteticket {
+  success: boolean;
+  ticketId: string;
 };
 
 export interface ActionInput_hubspot_deleteuser {
-  id: string;
+  /**
+   * HubSpot user ID. Example: "12345678". Can also be an email address if using the optional idProperty query parameter.
+   */
+  userId: string;
+  /**
+   * Property to use for identifying the user. Defaults to USER_ID. Use EMAIL if passing an email address as user_id.
+   */
+  idProperty?: 'USER_ID' | 'EMAIL' | undefined;
 };
 
 export interface ActionOutput_hubspot_deleteuser {
-  success: boolean;
+  id: string;
+  deleted: boolean;
 };
 
-export type ActionInput_hubspot_fetchaccountinformation = void
+export interface ActionInput_hubspot_fetchaccountinformation {
+};
 
 export interface ActionOutput_hubspot_fetchaccountinformation {
-  id: string;
-  type: string;
-  timeZone: string;
-  companyCurrency: string;
+  portalId: number;
+  accountType?: string | undefined;
+  timezone?: string | undefined;
+  companyCurrency?: string | undefined;
   additionalCurrencies: string[];
-  utcOffset: string;
-  utcOffsetMilliseconds: number;
-  uiDomain: string;
-  dataHostingLocation: string;
+  dataHostingLocation?: string | undefined;
+  uiDomain?: string | undefined;
+  utcOffset?: string | undefined;
+  utcOffsetMilliseconds?: number | undefined;
 };
 
-export type ActionInput_hubspot_fetchcustomobjects = void
+export interface ActionInput_hubspot_fetchcustomobjects {
+};
 
 export interface ActionOutput_hubspot_fetchcustomobjects {
-  id: string;
+  customObjects: ({  id: string;
+  name?: string | undefined;
+  objectTypeId?: string | undefined;
+  fullyQualifiedName?: string | undefined;
+  singularLabel?: string | undefined;
+  pluralLabel?: string | undefined;
+  description?: string | undefined;
+  primaryDisplayProperty?: string | undefined;
+  secondaryDisplayProperties?: string[] | undefined;
+  requiredProperties?: string[] | undefined;
+  searchableProperties?: string[] | undefined;})[];
 };
 
 export interface ActionInput_hubspot_fetchpipelines {
+  /**
+   * The object type for which to fetch pipelines (e.g., "deals", "tickets"). Defaults to "deals".
+   */
   objectType?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_fetchpipelines {
-  pipelines: ({  updatedAt: string;
-  createdAt: string;
-  label: string;
-  displayOrder: number;
-  id: string;
-  archived: boolean;
-  stages: ({  updatedAt: string;
-  createdAt: string;
-  label: string;
-  displayOrder: number;
-  metadata: {  isClosed: boolean;
-  probability: string;};
-  id: string;
-  archived: boolean;
-  writePermissions: string;})[];})[];
+  pipelines: ({  id: string;
+  label?: string | undefined;
+  displayOrder?: number | undefined;
+  active?: boolean | undefined;
+  stages: ({  id: string;
+  label?: string | undefined;
+  displayOrder?: number | undefined;
+  metadata?: {  [key: string]: any | undefined;};})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
 };
 
 export interface ActionInput_hubspot_fetchproperties {
-  name: string;
+  /**
+   * The CRM object type to fetch properties for (e.g., contacts, companies, deals, tickets). Example: "companies"
+   */
+  objectType: string;
 };
 
 export interface ActionOutput_hubspot_fetchproperties {
-  results: ({  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  /**
+   * The requested object type
+   */
+  objectType: string;
+  /**
+   * List of property metadata for the object type
+   */
+  properties: ({  /**
+   * Internal property name
+   */
   name: string;
+  /**
+   * Display name of the property
+   */
   label: string;
+  /**
+   * Data type (string, number, bool, datetime, enumeration, etc.)
+   */
   type: string;
+  /**
+   * UI field type (text, select, checkbox, etc.)
+   */
   fieldType: string;
-  description: string;
-  groupName: string;
-  options: any[];
-  displayOrder: number;
-  calculated: boolean;
-  externalOptions: boolean;
-  hasUniqueValue: boolean;
+  /**
+   * Property description
+   */
+  description?: string | undefined;
+  /**
+   * Property group name
+   */
+  groupName?: string | undefined;
+  /**
+   * Whether the property is read-only
+   */
+  readOnlyValue: boolean;
+  /**
+   * Whether the property is hidden
+   */
   hidden: boolean;
-  hubspotDefined?: boolean | undefined;
-  showCurrencySymbol?: boolean | undefined;
-  modificationMetadata?: {  archivable?: boolean | undefined;
-  readOnlyDefinition?: boolean | undefined;
-  readOnlyValue?: boolean | undefined;
-  readOnlyOptions?: boolean | undefined;};
-  formField: boolean;
-  dataSensitivity: string;})[];
+  /**
+   * Whether the property is archived
+   */
+  archived: boolean;
+  /**
+   * Available options for enumeration type properties
+   */
+  options?: ({  label: string;
+  value: string;
+  displayOrder?: number | undefined;
+  hidden?: boolean | undefined;})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
 };
 
-export type ActionInput_hubspot_fetchroles = void
+export interface ActionInput_hubspot_fetchroles {
+};
 
 export interface ActionOutput_hubspot_fetchroles {
-  results: ({  requiresBillingWrite: boolean;
+  roles: ({  id: string;
   name: string;
-  id: string;})[];
+  requiresBillingWrite: boolean;})[];
+};
+
+export interface ActionInput_hubspot_getcompany {
+  /**
+   * Company ID to retrieve
+   */
+  id: string;
+};
+
+export interface ActionOutput_hubspot_getcompany {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  industry?: string | undefined;
+  phone?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_getcontact {
+  /**
+   * HubSpot contact ID. Example: "123"
+   */
+  contactId: string;
+};
+
+export interface ActionOutput_hubspot_getcontact {
+  id: string;
+  email?: string | undefined;
+  firstname?: string | undefined;
+  lastname?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_getdeal {
+  /**
+   * The ID of the deal to retrieve. Example: "12345678"
+   */
+  dealId: string;
+};
+
+export interface ActionOutput_hubspot_getdeal {
+  id: string;
+  dealName?: string | undefined;
+  dealStage?: string | undefined;
+  pipeline?: string | undefined;
+  amount?: string | undefined;
+  closeDate?: string | undefined;
+  createDate?: string | undefined;
+  hubspot_owner_id?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_getmarketingemail {
+  /**
+   * The ID of the marketing email to retrieve. Example: "38175169118"
+   */
+  emailId: string;
+};
+
+export interface ActionOutput_hubspot_getmarketingemail {
+  id: string;
+  name?: string | undefined;
+  subject?: string | undefined;
+  state?: string | undefined;
+  type?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  publishedAt?: string | undefined;
+  isPublished?: boolean | undefined;
+  isTransactional?: boolean | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_hubspot_getowner {
+  /**
+   * HubSpot owner ID. Example: "123"
+   */
+  ownerId: string;
+};
+
+export interface ActionOutput_hubspot_getowner {
+  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  userId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_getticket {
+  /**
+   * HubSpot ticket ID. Example: "123456789"
+   */
+  ticketId: string;
+};
+
+export interface ActionOutput_hubspot_getticket {
+  id: string;
+  subject?: string | undefined;
+  content?: string | undefined;
+  pipeline?: string | undefined;
+  pipelineStage?: string | undefined;
+  priority?: string | undefined;
+  source?: string | undefined;
+  status?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listcompanies {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_listcompanies {
+  items: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  industry?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listcontacts {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_listcontacts {
+  contacts: ({  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listdeals {
+  /**
+   * Pagination cursor from previous response. Maps to HubSpot "after" parameter.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_listdeals {
+  deals: ({  id: string;
+  dealname?: string | undefined;
+  dealstage?: string | undefined;
+  pipeline?: string | undefined;
+  amount?: number | undefined;
+  closedate?: string | undefined;
+  createdate?: string | undefined;
+  hs_lastmodifieddate?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listforms {
+  /**
+   * Pagination cursor from previous response. Maps to HubSpot "after" parameter. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_listforms {
+  items: ({  id: string;
+  name?: string | undefined;
+  formType?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listmarketingemails {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_listmarketingemails {
+  emails: ({  id: string;
+  name?: string | undefined;
+  subject?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  type?: string | undefined;
+  state?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_listtickets {
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of tickets to return per page. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_hubspot_listtickets {
+  items: ({  id: string;
+  subject?: string | undefined;
+  content?: string | undefined;
+  hs_pipeline?: string | undefined;
+  hs_pipeline_stage?: string | undefined;
+  hs_ticket_priority?: string | undefined;
+  hs_ticket_category?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_searchcompanies {
+  /**
+   * Company name to search for
+   */
+  name?: string | undefined;
+  /**
+   * Company domain to search for
+   */
+  domain?: string | undefined;
+  /**
+   * Company city to search for
+   */
+  city?: string | undefined;
+  /**
+   * Company industry to search for
+   */
+  industry?: string | undefined;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_searchcompanies {
+  companies: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  city?: string | undefined;
+  industry?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_searchdeals {
+  /**
+   * Search query to match against default searchable properties (dealname, pipeline, dealstage, description, dealtype)
+   */
+  query?: string | undefined;
+  /**
+   * Filter by deal name (uses CONTAINS_TOKEN operator)
+   */
+  dealName?: string | undefined;
+  /**
+   * Filter by deal stage ID
+   */
+  dealStage?: string | undefined;
+  /**
+   * Filter by pipeline ID
+   */
+  pipeline?: string | undefined;
+  /**
+   * Filter by minimum deal amount
+   */
+  minAmount?: number | undefined;
+  /**
+   * Filter by maximum deal amount
+   */
+  maxAmount?: number | undefined;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 200)
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_hubspot_searchdeals {
+  deals: ({  id: string;
+  dealName?: string | undefined;
+  amount?: number | undefined;
+  dealStage?: string | undefined;
+  pipeline?: string | undefined;
+  closeDate?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_hubspot_searchtickets {
+  /**
+   * Search query string (up to 3000 characters)
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum results to return (1-200, default: 50)
+   */
+  limit?: number | undefined;
+  /**
+   * Filter groups for advanced filtering
+   */
+  filterGroups?: ({  /**
+   * Array of filters within this group
+   */
+  filters: ({  /**
+   * The property name to filter on
+   */
+  propertyName: string;
+  /**
+   * The filter operator
+   */
+  operator: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE' | 'BETWEEN' | 'IN' | 'NOT_IN' | 'HAS_PROPERTY' | 'NOT_HAS_PROPERTY' | 'CONTAINS_TOKEN' | 'NOT_CONTAINS_TOKEN';
+  /**
+   * The value to match (for single-value operators)
+   */
+  value?: string | undefined;
+  /**
+   * The values to match (for multi-value operators like IN)
+   */
+  values?: string[] | undefined;
+  /**
+   * The upper boundary for BETWEEN operator
+   */
+  highValue?: string | undefined;})[];})[];
+  /**
+   * Filter by ticket subject (convenience filter)
+   */
+  subject?: string | undefined;
+  /**
+   * Filter by ticket priority
+   */
+  priority?: 'LOW' | 'MEDIUM' | 'HIGH' | undefined;
+  /**
+   * Filter by ticket category
+   */
+  category?: string | undefined;
+  /**
+   * Filter by pipeline ID
+   */
+  pipeline?: string | undefined;
+  /**
+   * Filter by pipeline stage ID
+   */
+  pipelineStage?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_searchtickets {
+  /**
+   * Array of matching tickets
+   */
+  tickets: ({  id: string;
+  subject?: string | undefined;
+  content?: string | undefined;
+  priority?: string | undefined;
+  category?: string | undefined;
+  pipeline?: string | undefined;
+  pipelineStage?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archived: boolean;})[];
+  /**
+   * Cursor for next page (omitted if no more results)
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching results
+   */
+  total: number;
 };
 
 export interface ActionInput_hubspot_updatecompany {
+  /**
+   * HubSpot company ID. Example: "123456789"
+   */
   id: string;
+  /**
+   * Company name
+   */
   name?: string | undefined;
-  industry?: string | undefined;
-  description?: string | undefined;
-  country?: string | undefined;
+  /**
+   * Company domain
+   */
+  domain?: string | undefined;
+  /**
+   * City
+   */
   city?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  owner?: string | undefined;
-  year_founded?: string | undefined;
-  website_url?: string | undefined;
+  /**
+   * State/Region
+   */
+  state?: string | undefined;
+  /**
+   * Country
+   */
+  country?: string | undefined;
+  /**
+   * Industry
+   */
+  industry?: string | undefined;
+  /**
+   * Phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Website URL
+   */
+  website?: string | undefined;
+  /**
+   * Company description
+   */
+  description?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_updatecompany {
   id: string;
-  created_date: string;
   name?: string | undefined;
-  industry?: string | undefined;
-  description?: string | undefined;
-  country?: string | undefined;
+  domain?: string | undefined;
   city?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  owner?: string | undefined;
-  year_founded?: string | undefined;
-  website_url?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  industry?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_updatecontact {
-  first_name?: string | undefined;
-  last_name?: string | undefined;
+  /**
+   * The ID of the contact to update. Example: "12345"
+   */
+  contactId: string;
+  /**
+   * First name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * Last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
   email?: string | undefined;
-  job_title?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  salutation?: string | undefined;
-  mobile_phone_number?: string | undefined;
-  website_url?: string | undefined;
-  owner?: string | undefined;
-  id: string;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Company name of the contact.
+   */
+  company?: string | undefined;
+  /**
+   * Job title of the contact.
+   */
+  jobTitle?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_updatecontact {
   id: string;
-  created_date: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
   email?: string | undefined;
-  job_title?: string | undefined;
-  last_contacted?: string | undefined;
-  last_activity_date?: string | undefined;
-  lead_status?: string | undefined;
-  lifecycle_stage?: string | undefined;
-  salutation?: string | undefined;
-  mobile_phone_number?: string | undefined;
-  website_url?: string | undefined;
-  owner?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  jobTitle?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_updatedeal {
-  id: string;
-  name?: string | undefined;
-  amount?: string | undefined;
-  close_date?: string | undefined;
-  deal_description?: string | undefined;
-  owner?: string | undefined;
-  deal_stage?: string | undefined;
-  deal_probability?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * The ID of the deal to update. Example: "12345"
+   */
+  dealId: string;
+  /**
+   * The name of the deal. Example: "Acme Corp Annual Deal"
+   */
+  dealname?: string | undefined;
+  /**
+   * The deal amount in the currency. Example: 50000
+   */
+  amount?: number | undefined;
+  /**
+   * The expected close date (ISO 8601 format). Example: "2026-06-30"
+   */
+  closedate?: string | undefined;
+  /**
+   * The stage of the deal (internal stage ID). Example: "qualifiedtobuy"
+   */
+  dealstage?: string | undefined;
+  /**
+   * The pipeline ID for the deal. Example: "default"
+   */
+  pipeline?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_updatedeal {
   id: string;
+  dealname?: string | undefined;
+  amount?: number | undefined;
+  closedate?: string | undefined;
+  dealstage?: string | undefined;
+  pipeline?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_updatemarketingemail {
+  /**
+   * The ID of the marketing email to update. Example: "123456789"
+   */
+  emailId: string;
+  /**
+   * The name of the marketing email.
+   */
   name?: string | undefined;
-  amount?: string | undefined;
-  close_date?: string | undefined;
-  deal_description?: string | undefined;
-  owner?: string | undefined;
-  deal_stage?: string | undefined;
-  deal_probability?: string | undefined;
+  /**
+   * The subject line of the marketing email.
+   */
+  subject?: string | undefined;
+  /**
+   * The HTML content of the marketing email.
+   */
+  html?: string | undefined;
+  /**
+   * The from email address.
+   */
+  fromEmail?: string | undefined;
+  /**
+   * The from name.
+   */
+  fromName?: string | undefined;
+  /**
+   * The reply-to email address.
+   */
+  replyTo?: string | undefined;
+  /**
+   * The preview text for the email.
+   */
+  previewText?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_updatemarketingemail {
+  id: string;
+  name?: string | undefined;
+  subject?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_hubspot_updatetask {
-  id: string;
-  task_type?: string | undefined;
-  title?: string | undefined;
-  priority?: string | undefined;
-  assigned_to?: string | undefined;
-  due_date?: string | undefined;
-  notes?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  /**
+   * The HubSpot task ID to update. Example: "12345"
+   */
+  taskId: string;
+  /**
+   * The title of the task.
+   */
+  subject?: string | undefined;
+  /**
+   * The task notes/description.
+   */
+  body?: string | undefined;
+  /**
+   * The task due date in ISO 8601 format or Unix timestamp in milliseconds.
+   */
+  dueDate?: string | undefined;
+  /**
+   * The status of the task.
+   */
+  status?: 'COMPLETED' | 'NOT_STARTED' | undefined;
+  /**
+   * The priority of the task.
+   */
+  priority?: 'LOW' | 'MEDIUM' | 'HIGH' | undefined;
+  /**
+   * The type of the task.
+   */
+  taskType?: 'EMAIL' | 'CALL' | 'TODO' | undefined;
+  /**
+   * The HubSpot owner ID to assign the task to.
+   */
+  ownerId?: string | undefined;
+  /**
+   * Reminder timestamp in Unix milliseconds.
+   */
+  reminder?: string | undefined;
 };
 
 export interface ActionOutput_hubspot_updatetask {
   id: string;
-  task_type?: string | undefined;
-  title?: string | undefined;
-  priority?: string | undefined;
-  assigned_to?: string | undefined;
-  due_date?: string | undefined;
-  notes?: string | undefined;
-  associations?: ({  to: number;
-  types: ({  association_category: string;
-  association_type_Id: number;})[];})[] | undefined;
+  subject?: string | undefined;
+  body?: string | undefined;
+  dueDate?: string | undefined;
+  status?: 'COMPLETED' | 'NOT_STARTED' | undefined;
+  priority?: 'LOW' | 'MEDIUM' | 'HIGH' | undefined;
+  taskType?: 'EMAIL' | 'CALL' | 'TODO' | undefined;
+  ownerId?: string | undefined;
+  reminder?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
-export type ActionInput_hubspot_whoami = void
+export interface ActionInput_hubspot_updateticket {
+  /**
+   * The ID of the ticket to update. Example: "12345"
+   */
+  ticketId: string;
+  /**
+   * The subject of the ticket. Example: "Support Request"
+   */
+  subject?: string | undefined;
+  /**
+   * The content/body of the ticket. Example: "Issue details here"
+   */
+  content?: string | undefined;
+  /**
+   * The status of the ticket. Example: "OPEN", "CLOSED", "WAITING"
+   */
+  status?: string | undefined;
+  /**
+   * The priority of the ticket. Example: "LOW", "MEDIUM", "HIGH"
+   */
+  priority?: string | undefined;
+  /**
+   * The category of the ticket. Example: "BUG", "FEATURE_REQUEST"
+   */
+  category?: string | undefined;
+  /**
+   * The pipeline the ticket belongs to. Example: "123"
+   */
+  pipeline?: string | undefined;
+  /**
+   * The stage of the ticket in the pipeline. Example: "456"
+   */
+  pipelineStage?: string | undefined;
+  /**
+   * The ID of the ticket owner. Example: "12345"
+   */
+  ownerId?: string | undefined;
+};
+
+export interface ActionOutput_hubspot_updateticket {
+  id: string;
+  subject?: string | undefined;
+  content?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  category?: string | undefined;
+  pipeline?: string | undefined;
+  pipelineStage?: string | undefined;
+  ownerId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_hubspot_whoami {
+};
 
 export interface ActionOutput_hubspot_whoami {
-  id: number;
+  id: string;
   email: string;
+  hubId: number;
+  hubDomain?: string | undefined;
 };
 
 export interface ActionInput_instantly_setcampaignname {
@@ -12369,519 +16289,586 @@ export interface Order {
 export interface SyncMetadata_shopify_orders {
 };
 
-export interface SlackChannel {
+export interface Channel {
   id: string;
-  name: string;
+  name?: string | undefined;
+  name_normalized?: string | undefined;
+  created: number;
+  creator?: string | undefined;
+  is_archived: boolean;
+  is_general: boolean;
+  is_private: boolean;
   is_channel: boolean;
   is_group: boolean;
   is_im: boolean;
-  created: number;
-  creator: string;
-  is_archived: boolean;
-  is_general: boolean;
-  name_normalized: string;
-  is_shared: boolean;
-  is_private: boolean;
   is_mpim: boolean;
-  updated: number;
-  num_members: number;
-  raw_json: string;
+  is_shared?: boolean | undefined;
+  is_org_shared?: boolean | undefined;
+  is_ext_shared?: boolean | undefined;
+  is_pending_ext_shared?: boolean | undefined;
+  is_member?: boolean | undefined;
+  num_members?: number | undefined;
+  topic: {  value: string;
+  creator?: string | undefined;
+  last_set: number;};
+  purpose: {  value: string;
+  creator?: string | undefined;
+  last_set: number;};
 };
 
-export interface SyncMetadata_slack_channels {
+export interface SyncMetadata_slack_syncchannels {
+  /**
+   * Whether to auto-join public channels
+   */
+  joinPublicChannels?: boolean | undefined;
 };
 
-export interface SlackMessage {
+export interface Message {
   id: string;
-  ts: string;
   channel_id: string;
-  thread_ts: string | null;
-  app_id: string | null;
-  bot_id: string | null;
-  display_as_bot: boolean | null;
-  is_locked: boolean | null;
-  metadata: {  event_type: string;};
-  parent_user_id: string | null;
-  subtype: string | null;
-  text: string | null;
-  topic: string | null;
-  user_id: string | null;
-  raw_json: string;
-};
-
-export interface SlackMessageReply {
-  id: string;
-  ts: string;
-  channel_id: string;
-  thread_ts: string | null;
-  app_id: string | null;
-  bot_id: string | null;
-  display_as_bot: boolean | null;
-  is_locked: boolean | null;
-  metadata: {  event_type: string;};
-  parent_user_id: string | null;
-  subtype: string | null;
-  text: string | null;
-  topic: string | null;
-  user_id: string | null;
-  root: {  message_id: string | null;
-  ts: string;};
-  raw_json: string;
-};
-
-export interface SlackMessageReaction {
-  id: string;
-  message_ts: string;
-  thread_ts: string | null;
-  channel_id: string;
+  channel_name: string;
   user_id: string;
-  reaction_name: string;
-};
-
-export interface SyncMetadata_slack_messages {
-  channelsLastSyncDate?: {  [key: string]: string;} | undefined;
-};
-
-export interface SlackUser {
-  id: string;
-  team_id: string;
-  name: string;
-  deleted: boolean;
-  tz: string;
-  tz_label: string;
-  tz_offset: number;
-  profile: {  avatar_hash: string;
-  real_name: string | null;
-  display_name: string | null;
-  real_name_normalized: string | null;
-  display_name_normalized: string | null;
-  email: string | null;
-  image_original?: string | null | undefined;};
-  is_admin: boolean;
-  is_owner: boolean;
-  is_primary_owner: boolean;
-  is_restricted: boolean;
-  is_ultra_restricted: boolean;
-  is_bot: boolean;
-  updated: number;
-  is_app_user: boolean;
-  raw_json: string;
-};
-
-export interface SyncMetadata_slack_users {
+  user_name?: string | undefined;
+  text: string;
+  timestamp: string;
+  thread_ts?: string | undefined;
+  parent_ts?: string | undefined;
+  is_thread_reply?: boolean | undefined;
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  created_at: string;
 };
 
 export interface ActionInput_slack_addreaction {
   /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * The channel ID where the message is located. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the message to react to in "seconds.microseconds" format. Example: "1763887648.424429"
+   * The timestamp of the message to react to. Example: "1234567890.123456"
    */
-  message_ts: string;
+  timestamp: string;
   /**
-   * Emoji name without colons. Example: "thumbsup", "heart", "eyes"
+   * The name of the emoji to use (without colons). Example: "thumbsup"
    */
-  reaction_name: string;
+  emoji_name: string;
 };
 
 export interface ActionOutput_slack_addreaction {
-  /**
-   * Whether the reaction was added successfully
-   */
   ok: boolean;
 };
 
 export interface ActionInput_slack_archivechannel {
   /**
-   * The channel to archive. Example: "C0A02F9NBCJ"
+   * The ID of the channel to archive. Example: "C1234567890"
    */
   channel_id: string;
 };
 
 export interface ActionOutput_slack_archivechannel {
   /**
-   * Whether the channel was archived successfully
+   * Whether the request was successful
    */
   ok: boolean;
+  /**
+   * Error message if the request failed
+   */
+  error?: string | undefined;
 };
 
-export interface ActionInput_slack_createchannel {
+export interface ActionInput_slack_createconversation {
   /**
-   * Channel name (lowercase, no spaces, max 80 chars). Example: "test-channel-nango"
+   * Name of the channel to create. Must be lowercase, contain only letters, numbers, hyphens, and underscores, and be 80 characters or less.
    */
   name: string;
   /**
-   * Whether channel should be private. Default: false
+   * Whether the channel should be private. Defaults to false (public channel).
    */
   is_private?: boolean | undefined;
 };
 
-export interface ActionOutput_slack_createchannel {
+export interface ActionOutput_slack_createconversation {
   /**
-   * Whether the channel was created successfully
+   * The unique identifier of the channel.
    */
-  ok: boolean;
+  id: string;
   /**
-   * The created channel object
+   * The normalized name of the channel.
    */
-  channel: {  id: string;
   name: string;
-  name_normalized: string;
-  created: number;
-  creator: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
+  /**
+   * Whether the channel is private.
+   */
   is_private: boolean;
-  is_archived: boolean;
-  is_general: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
-  is_member?: boolean | undefined;
-  unlinked?: number | undefined;
-  updated?: number | undefined;
-  num_members?: number | undefined;
-  context_team_id?: string | undefined;
-  parent_conversation?: string | undefined;
-  pending_shared?: string[] | undefined;
-  pending_connected_team_ids?: string[] | undefined;
-  shared_team_ids?: string[] | undefined;
-  previous_names?: string[] | undefined;
-  topic?: {  value: string;
+  /**
+   * Whether this is a channel.
+   */
+  is_channel: boolean;
+  /**
+   * Unix timestamp when the channel was created.
+   */
+  created: number;
+  /**
+   * User ID of the channel creator.
+   */
   creator: string;
-  last_set: number;} | undefined;
-  purpose?: {  value: string;
+};
+
+export interface ActionInput_slack_createreminder {
+  /**
+   * The content of the reminder. Example: "eat a banana"
+   */
+  text: string;
+  /**
+   * When the reminder should happen. Can be a Unix timestamp or natural language like "in 5 minutes", "tomorrow at 9am"
+   */
+  time: string | number;
+  /**
+   * The user ID to set the reminder for. If omitted, sets a reminder for the authenticated user. Note: Setting reminders for other users requires a bot token.
+   */
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_createreminder {
+  /**
+   * The unique identifier of the reminder
+   */
+  id: string;
+  /**
+   * The user ID of the user who created the reminder
+   */
   creator: string;
-  last_set: number;} | undefined;};
+  /**
+   * The user ID of the user the reminder is set for
+   */
+  user: string;
+  /**
+   * The content of the reminder
+   */
+  text: string;
+  /**
+   * Whether the reminder is recurring
+   */
+  recurring: boolean;
+  /**
+   * The Unix timestamp when the reminder will trigger (for non-recurring reminders)
+   */
+  time?: number | undefined;
+  /**
+   * The Unix timestamp when the reminder was completed (0 if not completed)
+   */
+  complete_ts?: number | undefined;
 };
 
 export interface ActionInput_slack_deletemessage {
   /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * Channel ID containing the message. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the message to delete. Example: "1764187268.105539"
+   * Timestamp of the message to delete. Example: "1405894322.002768"
    */
   message_ts: string;
 };
 
 export interface ActionOutput_slack_deletemessage {
+  ok: boolean;
+  channel: string;
+  ts: string;
+};
+
+export interface ActionInput_slack_deletescheduledmessage {
   /**
-   * Whether the message was deleted successfully
+   * The channel ID the scheduled message is posting to. Example: "C123456789"
+   */
+  channel: string;
+  /**
+   * The scheduled_message_id returned from chat.scheduleMessage. Example: "Q1234ABCD"
+   */
+  scheduled_message_id: string;
+};
+
+export interface ActionOutput_slack_deletescheduledmessage {
+  /**
+   * Whether the operation was successful
    */
   ok: boolean;
+};
+
+export interface ActionInput_slack_findmessage {
   /**
-   * Timestamp of the deleted message
+   * Search query string. Example: "pickleface"
+   */
+  query: string;
+  /**
+   * Number of results per page. Maximum 100. Default: 20
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from previous response. Use "*" for first page, then use next_cursor from response for subsequent pages
+   */
+  cursor?: string | undefined;
+  /**
+   * Enable query highlight markers in results. Default: false
+   */
+  highlight?: boolean | undefined;
+  /**
+   * Sort matches by score or timestamp. Default: score
+   */
+  sort?: 'score' | 'timestamp' | undefined;
+  /**
+   * Sort direction: ascending or descending. Default: desc
+   */
+  sort_dir?: 'asc' | 'desc' | undefined;
+  /**
+   * Encoded team ID to search in, required if org token is used
+   */
+  team_id?: string | undefined;
+};
+
+export interface ActionOutput_slack_findmessage {
+  /**
+   * Array of matching messages
+   */
+  messages: ({  /**
+   * Internal ID of the message
+   */
+  iid: string;
+  /**
+   * Team ID
+   */
+  team: string;
+  channel: {  /**
+   * Channel ID
+   */
+  id: string;
+  /**
+   * Channel name
+   */
+  name: string;
+  /**
+   * Whether the channel is private
+   */
+  is_private: boolean;
+  /**
+   * Whether the channel is a multiparty IM
+   */
+  is_mpim: boolean;
+  /**
+   * Whether the channel is externally shared
+   */
+  is_ext_shared: boolean;
+  /**
+   * Whether the channel is organization shared
+   */
+  is_org_shared: boolean;
+  /**
+   * Whether the channel is shared
+   */
+  is_shared: boolean;
+  /**
+   * Whether external sharing is pending
+   */
+  is_pending_ext_shared: boolean;
+  /**
+   * List of pending shared IDs
+   */
+  pending_shared: string[];};
+  /**
+   * Message type
+   */
+  type: string;
+  /**
+   * User ID of the sender
+   */
+  user: string;
+  /**
+   * Username of the sender
+   */
+  username: string;
+  /**
+   * Message timestamp
    */
   ts: string;
   /**
-   * Channel where the message was deleted
+   * Message text content
    */
-  channel: string;
+  text: string;
+  /**
+   * Permanent link to the message
+   */
+  permalink: string;})[];
+  /**
+   * Total number of matching messages
+   */
+  total: number;
+  /**
+   * Pagination cursor for the next page, or omitted if no more results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_slack_finduserbyemail {
+  /**
+   * Email address of the user to look up. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_slack_finduserbyemail {
+  id: string;
+  team_id: string;
+  name: string;
+  real_name?: string | undefined;
+  email: string;
+  is_admin: boolean;
+  is_bot: boolean;
+  is_restricted: boolean;
+  is_ultra_restricted: boolean;
+  is_deleted: boolean;
+  profile: {  avatar_hash?: string | undefined;
+  status_text?: string | undefined;
+  status_emoji?: string | undefined;
+  real_name?: string | undefined;
+  display_name?: string | undefined;
+  email?: string | undefined;
+  image_24?: string | undefined;
+  image_32?: string | undefined;
+  image_48?: string | undefined;
+  image_72?: string | undefined;
+  image_192?: string | undefined;
+  image_512?: string | undefined;};
 };
 
 export interface ActionInput_slack_getchannelinfo {
   /**
-   * The channel to get info for. Example: "C02MB5ZABA7"
+   * Slack channel ID to retrieve information about. Example: "C012AB3CD"
    */
   channel_id: string;
 };
 
 export interface ActionOutput_slack_getchannelinfo {
   /**
-   * Whether the request was successful
+   * Channel ID
    */
-  ok: boolean;
+  id: string;
   /**
-   * The channel object with details like name, topic, purpose, members count
+   * Channel name
    */
-  channel: {  id: string;
-  name: string;
-  name_normalized: string;
-  created: number;
-  creator: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  is_archived: boolean;
-  is_general: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
-  is_member?: boolean | undefined;
-  unlinked?: number | undefined;
-  updated?: number | undefined;
-  num_members?: number | undefined;
-  context_team_id?: string | undefined;
-  parent_conversation?: string | undefined;
-  pending_shared?: string[] | undefined;
-  pending_connected_team_ids?: string[] | undefined;
-  shared_team_ids?: string[] | undefined;
-  previous_names?: string[] | undefined;
+  name?: string | undefined;
+  /**
+   * Channel topic information
+   */
   topic?: {  value: string;
   creator: string;
   last_set: number;} | undefined;
+  /**
+   * Channel purpose information
+   */
   purpose?: {  value: string;
   creator: string;
-  last_set: number;} | undefined;};
-};
-
-export interface ActionInput_slack_getchannelmembers {
+  last_set: number;} | undefined;
   /**
-   * The channel to get members for. Example: "C02MB5ZABA7"
+   * Whether this is a public channel
    */
-  channel_id: string;
+  is_channel: boolean;
   /**
-   * Maximum number of members to return. Default: 100
+   * Whether this is a private channel
    */
-  limit?: number | undefined;
+  is_group: boolean;
   /**
-   * Pagination cursor from previous response
+   * Whether this is a direct message
    */
-  cursor?: string | undefined;
-};
-
-export interface ActionOutput_slack_getchannelmembers {
+  is_im: boolean;
   /**
-   * Whether the request was successful
+   * Whether this is a multi-person direct message
    */
-  ok: boolean;
+  is_mpim: boolean;
   /**
-   * Array of user IDs in the channel
+   * Whether the conversation is private
    */
-  members: string[];
+  is_private: boolean;
   /**
-   * Pagination metadata for next page
+   * Whether the channel is archived
    */
-  response_metadata?: {  next_cursor?: string | undefined;};
+  is_archived: boolean;
+  /**
+   * Whether this is the general channel
+   */
+  is_general?: boolean | undefined;
+  /**
+   * Unix timestamp when the channel was created
+   */
+  created: number;
+  /**
+   * User ID of the channel creator
+   */
+  creator?: string | undefined;
+  /**
+   * Number of members in the channel (if available)
+   */
+  num_members?: number | undefined;
+  /**
+   * Team ID for the conversation
+   */
+  context_team_id?: string | undefined;
 };
 
 export interface ActionInput_slack_getconversationhistory {
   /**
-   * The channel to fetch history from. Example: "C02MB5ZABA7"
+   * The conversation ID to fetch history for. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Number of messages to return. Default: 100, max: 1000
-   */
-  limit?: number | undefined;
-  /**
-   * Pagination cursor from previous response
+   * Pagination cursor from previous response. Omit for first page.
    */
   cursor?: string | undefined;
   /**
-   * Only messages after this timestamp. Example: "1234567890.123456"
+   * Only messages after this Unix timestamp will be included. Example: "1512085950.000216"
    */
-  oldest_ts?: string | undefined;
+  oldest?: string | undefined;
   /**
-   * Only messages before this timestamp. Example: "1234567890.123456"
+   * Only messages before this Unix timestamp will be included. Example: "1512104434.000490"
    */
-  latest_ts?: string | undefined;
+  latest?: string | undefined;
+  /**
+   * Include messages with oldest or latest timestamps in results. Defaults to false.
+   */
+  inclusive?: boolean | undefined;
+  /**
+   * Maximum number of messages to return (max 999). Defaults to 100.
+   */
+  limit?: number | undefined;
 };
 
 export interface ActionOutput_slack_getconversationhistory {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of message objects
-   */
   messages: ({  type: string;
-  text?: string | undefined;
+  ts: string;
   user?: string | undefined;
-  ts?: string | undefined;
+  text?: string | undefined;
   thread_ts?: string | undefined;
-  team?: string | undefined;
-  client_msg_id?: string | undefined;
-  subtype?: string | undefined;
-  blocks?: ({  type: string;
-  block_id?: string | undefined;
-  elements?: ({  type: string;
-  elements?: ({  type: string;
-  text?: string | undefined;
-  url?: string | undefined;
-  channel_id?: string | undefined;})[];})[];})[];
-  files?: ({  id: string;
-  created?: number | undefined;
-  timestamp?: number | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  mimetype?: string | undefined;
-  filetype?: string | undefined;
-  pretty_type?: string | undefined;
-  user?: string | undefined;
-  user_team?: string | undefined;
-  size?: number | undefined;
-  mode?: string | undefined;
-  is_external?: boolean | undefined;
-  is_public?: boolean | undefined;
-  url_private?: string | undefined;
-  url_private_download?: string | undefined;
-  permalink?: string | undefined;
-  permalink_public?: string | undefined;})[];
-  attachments?: ({  id?: number | undefined;
-  fallback?: string | undefined;
-  text?: string | undefined;
-  title?: string | undefined;
-  title_link?: string | undefined;
-  from_url?: string | undefined;
-  original_url?: string | undefined;
-  service_name?: string | undefined;
-  service_icon?: string | undefined;
-  image_url?: string | undefined;
-  image_width?: number | undefined;
-  image_height?: number | undefined;
-  thumb_url?: string | undefined;
-  thumb_width?: number | undefined;
-  thumb_height?: number | undefined;})[];
-  reactions?: ({  name: string;
-  users: string[];
-  count: number;})[] | undefined;
   reply_count?: number | undefined;
-  reply_users_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  latest_reply?: string | undefined;
-  is_locked?: boolean | undefined;
-  subscribed?: boolean | undefined;
-  edited?: {  user: string;
-  ts: string;} | undefined;
-  upload?: boolean | undefined;
-  display_as_bot?: boolean | undefined;})[];
-  /**
-   * Whether there are more messages to fetch
-   */
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  attachments?: unknown[] | undefined;})[];
   has_more: boolean;
-  /**
-   * Cursor for next page, null if no more pages
-   */
-  next_cursor: string | null;
+  next_cursor?: string | undefined;
+  pin_count?: number | undefined;
 };
 
 export interface ActionInput_slack_getdndinfo {
   /**
-   * User to get DND info for. Defaults to current user. Example: "U02MDCKS1N0"
+   * User ID to fetch DND status for. If omitted, returns status for the authenticated user. Example: "U1234567890"
    */
   user_id?: string | undefined;
 };
 
 export interface ActionOutput_slack_getdndinfo {
   /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Whether DND is currently enabled
+   * Whether Do Not Disturb is enabled
    */
   dnd_enabled: boolean;
   /**
-   * Unix timestamp when next DND period starts
+   * Unix timestamp for the next DND window start. Omitted if no DND window scheduled
    */
-  next_dnd_start_ts: number;
+  next_dnd_start_ts?: number | undefined;
   /**
-   * Unix timestamp when next DND period ends
+   * Unix timestamp for the next DND window end. Omitted if no DND window scheduled
    */
-  next_dnd_end_ts: number;
+  next_dnd_end_ts?: number | undefined;
+  /**
+   * Whether snooze mode is currently enabled
+   */
+  snooze_enabled: boolean;
+  /**
+   * Unix timestamp when snooze will end. Omitted if snooze is not enabled
+   */
+  snooze_endtime?: number | undefined;
+  /**
+   * Seconds remaining until snooze ends. Omitted if snooze is not enabled
+   */
+  snooze_remaining?: number | undefined;
+  /**
+   * Whether snooze is indefinite. Omitted if snooze is not enabled
+   */
+  snooze_is_indefinite?: boolean | undefined;
 };
 
-export interface ActionInput_slack_getfileinfo {
+export interface ActionInput_slack_getmessagepermalink {
   /**
-   * The file ID to get info for. Example: "F09UG1QNMK7"
-   */
-  file: string;
-};
-
-export interface ActionOutput_slack_getfileinfo {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The file object with details like name, size, url, etc.
-   */
-  file: {  id: string;
-  created?: number | undefined;
-  timestamp?: number | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  mimetype?: string | undefined;
-  filetype?: string | undefined;
-  pretty_type?: string | undefined;
-  user?: string | undefined;
-  user_team?: string | undefined;
-  editable?: boolean | undefined;
-  size?: number | undefined;
-  mode?: string | undefined;
-  is_external?: boolean | undefined;
-  external_type?: string | undefined;
-  is_public?: boolean | undefined;
-  public_url_shared?: boolean | undefined;
-  display_as_bot?: boolean | undefined;
-  username?: string | undefined;
-  url_private?: string | undefined;
-  url_private_download?: string | undefined;
-  permalink?: string | undefined;
-  permalink_public?: string | undefined;
-  is_starred?: boolean | undefined;
-  has_rich_preview?: boolean | undefined;
-  file_access?: string | undefined;};
-};
-
-export interface ActionInput_slack_getreactions {
-  /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * The ID of the conversation or channel containing the message. Example: "C123ABC456"
    */
   channel_id: string;
   /**
-   * Timestamp of the message to get reactions for. Example: "1234567890.123456"
+   * The timestamp of the message, uniquely identifying it within a channel. Example: "1358546515.000008"
    */
   message_ts: string;
 };
 
+export interface ActionOutput_slack_getmessagepermalink {
+  /**
+   * The permalink URL for the message
+   */
+  permalink: string;
+};
+
+export interface ActionInput_slack_getreactions {
+  /**
+   * Channel ID where the message was posted. Example: "C1234567890"
+   */
+  channel_id: string;
+  /**
+   * Timestamp of the message to get reactions for. Example: "1648602352.215969"
+   */
+  timestamp: string;
+  /**
+   * If true, always return the complete reaction list.
+   */
+  full?: boolean | undefined;
+};
+
 export interface ActionOutput_slack_getreactions {
   /**
-   * Whether the request was successful
+   * Type of the item (message, file, etc.). Example: "message"
    */
-  ok: boolean;
+  type: string;
   /**
-   * The type of item (message or file)
+   * Channel ID where the message was posted
    */
-  type?: string | undefined;
-  /**
-   * The message object with reactions attached
-   */
-  message?: {  type: string;
+  channel: string;
+  message: {  type: string;
   text?: string | undefined;
-  user?: string | undefined;
-  ts?: string | undefined;
-  reactions?: ({  name: string;
-  users: string[];
-  count: number;})[] | undefined;};
+  user: string;
+  ts: string;
+  team?: string | undefined;
+  reactions?: ({  /**
+   * Name of the emoji reaction. Example: "grinning"
+   */
+  name: string;
+  /**
+   * Number of users who reacted with this emoji
+   */
+  count: number;
+  /**
+   * List of user IDs who reacted with this emoji
+   */
+  users: string[];})[] | undefined;};
+  /**
+   * Permanent link to the message
+   */
+  permalink?: string | undefined;
 };
 
 export interface ActionInput_slack_getteaminfo {
 };
 
 export interface ActionOutput_slack_getteaminfo {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The team object with workspace details like name, domain, icon
-   */
   team: {  id: string;
   name: string;
-  url?: string | undefined;
   domain: string;
   email_domain?: string | undefined;
   icon?: {  image_default?: boolean | undefined;
@@ -12891,221 +16878,164 @@ export interface ActionOutput_slack_getteaminfo {
   image_88?: string | undefined;
   image_102?: string | undefined;
   image_132?: string | undefined;
-  image_230?: string | undefined;};
-  avatar_base_url?: string | undefined;
-  is_verified?: boolean | undefined;};
+  image_230?: string | undefined;
+  image_original?: string | undefined;};};
 };
 
 export interface ActionInput_slack_getthreadreplies {
   /**
-   * The channel containing the thread. Example: "C02MB5ZABA7"
+   * The ID of the channel/conversation containing the thread. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the parent message. Example: "1234567890.123456"
+   * The timestamp of the parent message in the thread. Example: "1234567890.123456"
    */
   thread_ts: string;
   /**
-   * Maximum number of replies to return. Default: 100
-   */
-  limit?: number | undefined;
-  /**
-   * Pagination cursor from previous response
+   * Pagination cursor from previous response. Omit for first page.
    */
   cursor?: string | undefined;
+  /**
+   * Maximum number of messages to return per page. Default: 100.
+   */
+  limit?: number | undefined;
 };
 
 export interface ActionOutput_slack_getthreadreplies {
   /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of message objects in the thread
+   * Array of messages in the thread, including parent and replies
    */
   messages: ({  type: string;
-  text?: string | undefined;
   user?: string | undefined;
-  ts?: string | undefined;
+  text: string;
+  ts: string;
   thread_ts?: string | undefined;
-  team?: string | undefined;
-  client_msg_id?: string | undefined;
-  subtype?: string | undefined;
-  blocks?: ({  type: string;
-  block_id?: string | undefined;
-  elements?: ({  type: string;
-  elements?: ({  type: string;
-  text?: string | undefined;
-  url?: string | undefined;
-  channel_id?: string | undefined;})[];})[];})[];
-  files?: ({  id: string;
-  created?: number | undefined;
-  timestamp?: number | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  mimetype?: string | undefined;
-  filetype?: string | undefined;
-  pretty_type?: string | undefined;
-  user?: string | undefined;
-  user_team?: string | undefined;
-  size?: number | undefined;
-  mode?: string | undefined;
-  is_external?: boolean | undefined;
-  is_public?: boolean | undefined;
-  url_private?: string | undefined;
-  url_private_download?: string | undefined;
-  permalink?: string | undefined;
-  permalink_public?: string | undefined;})[];
-  reactions?: ({  name: string;
-  users: string[];
-  count: number;})[] | undefined;
   reply_count?: number | undefined;
   reply_users_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  latest_reply?: string | undefined;
-  is_locked?: boolean | undefined;
-  subscribed?: boolean | undefined;})[];
+  reply_users?: string[] | undefined;})[];
   /**
-   * Whether there are more replies to fetch
+   * Pagination cursor for next page. Omitted if no more pages.
+   */
+  next_cursor?: string | undefined;
+  /**
+   * Whether there are more messages to fetch
    */
   has_more: boolean;
-  /**
-   * Cursor for next page, null if no more pages
-   */
-  next_cursor: string | null;
 };
 
 export interface ActionInput_slack_getuploadurl {
   /**
-   * Name of the file to upload. Example: "document.pdf"
+   * Name of the file being uploaded. Example: "document.pdf"
    */
   filename: string;
   /**
    * Size of the file in bytes. Example: 1024
    */
   length: number;
+  /**
+   * Description of image for screen-reader. Only applicable for image files.
+   */
+  alt_txt?: string | undefined;
 };
 
 export interface ActionOutput_slack_getuploadurl {
   /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The URL to upload the file to
+   * The URL to upload the file content to
    */
   upload_url: string;
   /**
-   * The file ID to use when completing the upload
+   * The unique file ID for this upload
    */
   file_id: string;
 };
 
 export interface ActionInput_slack_getuserinfo {
   /**
-   * The user ID to get info for. Example: "U02MDCKS1N0"
+   * Slack user ID. Example: "U12345678"
    */
   user_id: string;
 };
 
 export interface ActionOutput_slack_getuserinfo {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The user object with profile details like name, email, avatar
-   */
-  user: {  id: string;
-  team_id?: string | undefined;
-  name?: string | undefined;
-  deleted?: boolean | undefined;
-  color?: string | undefined;
+  id: string;
+  team_id: string;
+  name: string;
   real_name?: string | undefined;
-  tz?: string | undefined;
-  tz_label?: string | undefined;
-  tz_offset?: number | undefined;
-  profile?: {  title?: string | undefined;
-  phone?: string | undefined;
-  skype?: string | undefined;
-  real_name?: string | undefined;
-  real_name_normalized?: string | undefined;
   display_name?: string | undefined;
-  display_name_normalized?: string | undefined;
-  status_text?: string | undefined;
-  status_emoji?: string | undefined;
-  status_expiration?: number | undefined;
-  avatar_hash?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
   email?: string | undefined;
-  image_24?: string | undefined;
-  image_32?: string | undefined;
-  image_48?: string | undefined;
-  image_72?: string | undefined;
-  image_192?: string | undefined;
-  image_512?: string | undefined;
-  team?: string | undefined;};
+  avatar_url?: string | undefined;
+  is_bot: boolean;
   is_admin?: boolean | undefined;
   is_owner?: boolean | undefined;
   is_primary_owner?: boolean | undefined;
   is_restricted?: boolean | undefined;
   is_ultra_restricted?: boolean | undefined;
-  is_bot?: boolean | undefined;
   is_app_user?: boolean | undefined;
   updated?: number | undefined;
-  is_email_confirmed?: boolean | undefined;
-  who_can_share_contact_card?: string | undefined;};
 };
 
 export interface ActionInput_slack_getuserpresence {
   /**
-   * The user ID to get presence for. Example: "U02MDCKS1N0"
-   */
-  user_id: string;
-};
-
-export interface ActionOutput_slack_getuserpresence {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The user presence status: "active" or "away"
-   */
-  presence: string;
-};
-
-export interface ActionInput_slack_getuserprofile {
-  /**
-   * User ID to get profile for. Defaults to current user. Example: "U02MDCKS1N0"
+   * User ID to get presence info on. Defaults to the authed user. Example: "U1234567890"
    */
   user_id?: string | undefined;
 };
 
+export interface ActionOutput_slack_getuserpresence {
+  /**
+   * User's presence status: "active" or "away"
+   */
+  presence: 'active' | 'away';
+  /**
+   * True if the user has a client currently connected to Slack
+   */
+  online?: boolean | undefined;
+  /**
+   * True if Slack servers haven't detected activity in the last 10 minutes
+   */
+  auto_away?: boolean | undefined;
+  /**
+   * True if the user has manually set their presence to away
+   */
+  manual_away?: boolean | undefined;
+  /**
+   * Count of total connections
+   */
+  connection_count?: number | undefined;
+  /**
+   * Last activity seen by Slack servers (Unix timestamp)
+   */
+  last_activity?: number | undefined;
+};
+
+export interface ActionInput_slack_getuserprofile {
+  /**
+   * User ID to get profile information for. Example: "U0123456789"
+   */
+  user_id: string;
+};
+
 export interface ActionOutput_slack_getuserprofile {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The user profile object with fields like display_name, status_text, email
-   */
-  profile: {  title?: string | undefined;
-  phone?: string | undefined;
-  skype?: string | undefined;
+  id: string;
+  team_id?: string | undefined;
+  name?: string | undefined;
   real_name?: string | undefined;
-  real_name_normalized?: string | undefined;
   display_name?: string | undefined;
-  display_name_normalized?: string | undefined;
+  email?: string | undefined;
+  profile: {  avatar_hash?: string | undefined;
   status_text?: string | undefined;
   status_emoji?: string | undefined;
   status_expiration?: number | undefined;
-  status_text_canonical?: string | undefined;
-  avatar_hash?: string | undefined;
+  real_name?: string | undefined;
+  display_name?: string | undefined;
+  real_name_normalized?: string | undefined;
+  display_name_normalized?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  phone?: string | undefined;
+  skype?: string | undefined;
   first_name?: string | undefined;
   last_name?: string | undefined;
-  email?: string | undefined;
   image_original?: string | undefined;
   image_24?: string | undefined;
   image_32?: string | undefined;
@@ -13113,557 +17043,385 @@ export interface ActionOutput_slack_getuserprofile {
   image_72?: string | undefined;
   image_192?: string | undefined;
   image_512?: string | undefined;
-  image_1024?: string | undefined;
-  is_custom_image?: boolean | undefined;
-  huddle_state?: string | undefined;
-  huddle_state_expiration_ts?: number | undefined;};
+  team?: string | undefined;
+  fields?: unknown | undefined;};
+  deleted: boolean;
+  is_admin: boolean;
+  is_owner: boolean;
+  is_primary_owner: boolean;
+  is_restricted: boolean;
+  is_ultra_restricted: boolean;
+  is_bot: boolean;
+  is_app_user: boolean;
+  has_2fa: boolean;
+  tz?: string | undefined;
+  tz_label?: string | undefined;
+  tz_offset?: number | undefined;
+  updated?: number | undefined;
 };
 
-export interface ActionInput_slack_invitetochannel {
+export interface ActionInput_slack_inviteuserstoconversation {
   /**
-   * The channel to invite users to. Example: "C02MB5ZABA7"
+   * The ID of the public or private channel to invite user(s) to. Example: "C024BE91L"
    */
   channel_id: string;
   /**
-   * Comma-separated list of user IDs to invite. Example: "U02MDCKS1N0,U01ABC123"
+   * Array of user IDs to invite to the channel. Up to 1000 users may be invited at once. Example: ["U024BE7LH", "U12345678"]
    */
-  user_ids: string;
+  user_ids: string[];
+  /**
+   * When set to true and multiple user IDs are provided, continue inviting the valid ones while ignoring invalid IDs. Defaults to false.
+   */
+  force?: boolean | undefined;
 };
 
-export interface ActionOutput_slack_invitetochannel {
-  /**
-   * Whether the request was successful
-   */
+export interface ActionOutput_slack_inviteuserstoconversation {
   ok: boolean;
-  /**
-   * The updated channel object
-   */
-  channel: {  id: string;
-  name: string;
-  name_normalized: string;
-  created: number;
-  creator: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  is_archived: boolean;
-  is_general: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
-  is_member?: boolean | undefined;
-  unlinked?: number | undefined;
-  updated?: number | undefined;
-  num_members?: number | undefined;
-  context_team_id?: string | undefined;
-  parent_conversation?: string | undefined;
-  pending_shared?: string[] | undefined;
-  pending_connected_team_ids?: string[] | undefined;
-  shared_team_ids?: string[] | undefined;
-  previous_names?: string[] | undefined;
-  topic?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;
-  purpose?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;};
+  channel?: any | undefined;
+  error?: string | undefined;
 };
 
 export interface ActionInput_slack_joinchannel {
   /**
-   * The channel to join. Example: "C02MB5ZABA7"
+   * ID of the channel to join. Example: C061EG9SL
    */
   channel_id: string;
 };
 
 export interface ActionOutput_slack_joinchannel {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  channel: {  id: string;
-  name: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  created: number;
-  is_archived: boolean;
-  is_general: boolean;
-  unlinked: number;
-  name_normalized: string;
-  is_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
-  pending_shared: string[];
-  context_team_id: string;
-  updated: number;
-  parent_conversation: string;
-  creator: string;
-  is_ext_shared: boolean;
-  shared_team_ids: string[];
-  pending_connected_team_ids: string[];
-  is_member: boolean;
-  topic: {  value: string;
-  creator: string;
-  last_set: number;};
-  purpose: {  value: string;
-  creator: string;
-  last_set: number;};
-  previous_names: string[];};
-};
-
-export interface ActionInput_slack_leavechannel {
-  /**
-   * The channel to leave. Example: "C02MB5ZABA7"
-   */
-  channel_id: string;
-};
-
-export interface ActionOutput_slack_leavechannel {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-};
-
-export interface ActionInput_slack_listchannels {
-  /**
-   * Comma-separated list of channel types. Example: "public_channel,private_channel"
-   */
-  types?: string | undefined;
-  /**
-   * Maximum number of channels to return. Default: 100
-   */
-  limit?: number | undefined;
-  /**
-   * Pagination cursor from previous response
-   */
-  cursor?: string | undefined;
-};
-
-export interface ActionOutput_slack_listchannels {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of channel objects
-   */
-  channels: ({  id: string;
-  name: string;
-  name_normalized: string;
-  created: number;
-  creator: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  is_archived: boolean;
-  is_general: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
+  id: string;
+  name?: string | undefined;
+  is_channel?: boolean | undefined;
+  is_group?: boolean | undefined;
+  is_im?: boolean | undefined;
+  is_private?: boolean | undefined;
+  is_archived?: boolean | undefined;
+  is_general?: boolean | undefined;
+  created?: number | undefined;
+  creator?: string | undefined;
   is_member?: boolean | undefined;
-  unlinked?: number | undefined;
-  updated?: number | undefined;
   num_members?: number | undefined;
-  context_team_id?: string | undefined;
-  parent_conversation?: string | undefined;
-  pending_shared?: string[] | undefined;
-  pending_connected_team_ids?: string[] | undefined;
-  shared_team_ids?: string[] | undefined;
-  previous_names?: string[] | undefined;
   topic?: {  value: string;
   creator: string;
   last_set: number;} | undefined;
   purpose?: {  value: string;
   creator: string;
-  last_set: number;} | undefined;})[];
+  last_set: number;} | undefined;
+};
+
+export interface ActionInput_slack_leaveconversation {
   /**
-   * Cursor for next page, null if no more pages
+   * The ID of the channel to leave. Example: "C1234567890"
    */
-  next_cursor: string | null;
+  channel_id: string;
 };
 
-export interface ActionInput_slack_listcustomemoji {
-};
-
-export interface ActionOutput_slack_listcustomemoji {
+export interface ActionOutput_slack_leaveconversation {
   /**
    * Whether the request was successful
    */
   ok: boolean;
   /**
-   * Object mapping emoji names to URLs or aliases (e.g., "alias:squirrel")
+   * Error message if the request failed
    */
-  emoji: {  [key: string]: string;};
+  error?: string | undefined;
+};
+
+export interface ActionInput_slack_listconversationmembers {
+  /**
+   * Slack channel ID to list members for. Example: "C0123456789"
+   */
+  channel_id: string;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. Default is 100, max is 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_slack_listconversationmembers {
+  /**
+   * List of user IDs belonging to the conversation members
+   */
+  members: string[];
+  /**
+   * Pagination cursor for next page, or omitted if no more results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_slack_listconversations {
+  /**
+   * Comma-separated list of conversation types to filter by. Options: public_channel, private_channel, mpim, im. Default: public_channel.
+   */
+  types?: string | undefined;
+  /**
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of conversations to return (1-200). Default: 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_slack_listconversations {
+  conversations: ({  id: string;
+  name: string;
+  created: number;
+  creator: string;
+  is_archived: boolean;
+  is_general: boolean;
+  is_private: boolean;
+  is_mpim: boolean;
+  is_im: boolean;
+  num_members?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  total: number;
+};
+
+export interface ActionInput_slack_listcustomemoji {
+  /**
+   * Include a list of categories for Unicode emoji and the emoji in each category
+   */
+  include_categories?: boolean | undefined;
+};
+
+export interface ActionOutput_slack_listcustomemoji {
+  emoji: ({  name: string;
+  type: 'custom' | 'alias';
+  url?: string | undefined;
+  alias_for?: string | undefined;})[];
+  total_count: number;
 };
 
 export interface ActionInput_slack_listfiles {
   /**
-   * Filter by channel. Example: "C02MB5ZABA7"
+   * Pagination cursor from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Channel ID to filter files by channel. Example: "C1234567890"
    */
   channel_id?: string | undefined;
   /**
-   * Filter by user who created the file. Example: "U02MDCKS1N0"
+   * Maximum number of files to return per page. Default: 100. Max: 200.
    */
-  user_id?: string | undefined;
-  /**
-   * Filter by file types. Example: "images,pdfs"
-   */
-  types?: string | undefined;
-  /**
-   * Number of files to return per page. Default: 100
-   */
-  count?: number | undefined;
-  /**
-   * Page number of results. Default: 1
-   */
-  page?: number | undefined;
+  limit?: number | undefined;
 };
 
 export interface ActionOutput_slack_listfiles {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of file objects
-   */
-  files: ({  /**
-   * The file ID
-   */
-  id: string;
-  /**
-   * The filename
-   */
-  name: string | null;
-  /**
-   * The file title
-   */
-  title: string | null;
-  /**
-   * The MIME type
-   */
-  mimetype: string | null;
-  /**
-   * The file type extension
-   */
-  filetype: string | null;
-  /**
-   * File size in bytes
-   */
-  size: number | null;
-  /**
-   * Unix timestamp when file was created
-   */
-  created: number | null;
-  /**
-   * Unix timestamp of the file
-   */
-  timestamp: number | null;})[];
-  /**
-   * Pagination information
-   */
-  paging: {  /**
-   * Number of files per page
-   */
-  count: number;
-  /**
-   * Total number of files
-   */
-  total: number;
-  /**
-   * Current page number
-   */
-  page: number;
-  /**
-   * Total number of pages
-   */
-  pages: number;};
+  files: ({  id: string;
+  name: string;
+  title?: string | undefined;
+  url_private?: string | undefined;
+  filetype: string;
+  size: number;
+  created: number;
+  user: string;
+  channels?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+  total?: number | undefined;
 };
 
 export interface ActionInput_slack_listpins {
   /**
-   * The channel to list pinned items for. Example: "C02MB5ZABA7"
+   * The channel ID to list pinned items for. Example: "C1234567890"
    */
   channel_id: string;
 };
 
 export interface ActionOutput_slack_listpins {
   /**
-   * Whether the request was successful
+   * List of pinned items in the channel
    */
-  ok: boolean;
+  items: ({  type: 'message' | 'file' | 'file_comment';
   /**
-   * Array of pinned items (messages, files)
+   * Unix timestamp when the item was pinned
    */
-  items: ({  type: string;
-  created?: number | undefined;
-  created_by?: string | undefined;
+  created: number;
+  /**
+   * User ID who pinned the item
+   */
+  created_by: string;
+  /**
+   * Channel ID where the item is pinned
+   */
+  channel: string;
   message?: {  type: string;
-  text?: string | undefined;
-  user?: string | undefined;
-  ts?: string | undefined;};
-  channel?: string | undefined;})[];
+  user: string;
+  text: string;
+  ts: string;
+  permalink: string;
+  pinned_to?: string[] | undefined;};
+  file?: {  id: string;
+  created: number;
+  timestamp: number;
+  name?: string | undefined;
+  title?: string | undefined;
+  mimetype?: string | undefined;
+  filetype?: string | undefined;
+  user: string;
+  permalink: string;};
+  comment?: {  id: string;
+  created: number;
+  timestamp: number;
+  user: string;
+  comment: string;} | undefined;})[];
 };
 
 export interface ActionInput_slack_listscheduledmessages {
   /**
-   * Filter by channel. Example: "C02MB5ZABA7"
+   * The channel ID to filter scheduled messages by. Example: "C123456789"
    */
   channel_id?: string | undefined;
   /**
-   * Only include messages before this timestamp. Example: 1234567890
+   * Pagination cursor from previous response. Omit for first page.
    */
-  latest_ts?: number | undefined;
+  cursor?: string | undefined;
   /**
-   * Only include messages after this timestamp. Example: 1234567890
+   * Maximum number of entries to return. Default: 100
    */
-  oldest_ts?: number | undefined;
+  limit?: number | undefined;
+  /**
+   * Unix timestamp of the earliest scheduled message to include
+   */
+  oldest?: number | undefined;
+  /**
+   * Unix timestamp of the latest scheduled message to include
+   */
+  latest?: number | undefined;
 };
 
 export interface ActionOutput_slack_listscheduledmessages {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of scheduled message objects
-   */
-  scheduled_messages: ({  id: string;
+  messages: ({  id: string;
   channel_id: string;
+  /**
+   * Unix timestamp when the message will be posted
+   */
   post_at: number;
+  /**
+   * Unix timestamp when the message was scheduled
+   */
   date_created: number;
-  text?: string | undefined;})[];
+  text: string;})[];
+  /**
+   * Pagination cursor for next page. Omitted if no more pages.
+   */
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_slack_listusergroupmembers {
   /**
-   * The user group ID to get members for. Example: "S0614TZR7"
+   * The encoded ID of the User Group. Example: "S0604QSJC"
    */
-  usergroup: string;
+  usergroup_id: string;
 };
 
 export interface ActionOutput_slack_listusergroupmembers {
   /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of user IDs in the group
+   * List of user IDs that are members of the user group
    */
   users: string[];
 };
 
 export interface ActionInput_slack_listusergroups {
   /**
-   * Include disabled user groups. Default: false
+   * Include results for disabled User Groups
    */
   include_disabled?: boolean | undefined;
   /**
-   * Include member counts. Default: false
+   * Include the number of users in each User Group
    */
   include_count?: boolean | undefined;
+  /**
+   * Include the list of users for each User Group
+   */
+  include_users?: boolean | undefined;
 };
 
 export interface ActionOutput_slack_listusergroups {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of user group objects
-   */
   usergroups: ({  id: string;
   team_id: string;
   is_usergroup: boolean;
-  is_subteam?: boolean | undefined;
   name: string;
   description?: string | undefined;
   handle: string;
-  is_external?: boolean | undefined;
-  date_create?: number | undefined;
-  date_update?: number | undefined;
-  date_delete?: number | undefined;
+  is_external: boolean;
+  date_create: number;
+  date_update: number;
+  date_delete: number;
   auto_type?: string | undefined;
-  auto_provision?: boolean | undefined;
-  enterprise_subteam_id?: string | undefined;
-  created_by?: string | undefined;
+  created_by: string;
   updated_by?: string | undefined;
   deleted_by?: string | undefined;
-  prefs?: {  channels?: string[] | undefined;
-  groups?: string[] | undefined;};
+  prefs: {  channels: string[];
+  groups: string[];};
   user_count?: number | undefined;
-  channel_count?: number | undefined;})[];
+  users?: string[] | undefined;})[];
 };
 
 export interface ActionInput_slack_listuserreactions {
   /**
-   * Maximum number of items to return. Default: 100
-   */
-  limit?: number | undefined;
-  /**
-   * Pagination cursor from previous response
+   * Pagination cursor from previous response. Omit for first page.
    */
   cursor?: string | undefined;
+  /**
+   * User ID to show reactions for. Defaults to the authenticated user.
+   */
+  user_id?: string | undefined;
+  /**
+   * Maximum number of items to return. Default is 100, max is 1000.
+   */
+  limit?: number | undefined;
 };
 
 export interface ActionOutput_slack_listuserreactions {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of items the user has reacted to
-   */
-  items: ({  type: string;
-  channel?: string | undefined;
-  message?: {  type: string;
-  text?: string | undefined;
-  user?: string | undefined;
-  ts?: string | undefined;
-  reactions?: ({  name: string;
-  users: string[];
-  count: number;})[] | undefined;};})[];
-  /**
-   * Pagination metadata including next_cursor
-   */
-  response_metadata: {  next_cursor?: string | undefined;};
+  items: any[];
+  next_cursor?: any | undefined;
+  total?: number | undefined;
+  count?: number | undefined;
 };
 
 export interface ActionInput_slack_listusers {
   /**
-   * Maximum number of users to return. Default: 100
-   */
-  limit?: number | undefined;
-  /**
-   * Pagination cursor from previous response
+   * Pagination cursor from previous response. Omit for first page.
    */
   cursor?: string | undefined;
 };
 
 export interface ActionOutput_slack_listusers {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Array of user objects
-   */
-  members: ({  id: string;
-  team_id?: string | undefined;
-  name?: string | undefined;
-  deleted?: boolean | undefined;
-  color?: string | undefined;
+  items: ({  id: string;
+  team_id: string;
+  name: string;
+  deleted: boolean;
   real_name?: string | undefined;
-  tz?: string | undefined;
-  tz_label?: string | undefined;
-  tz_offset?: number | undefined;
-  profile?: {  title?: string | undefined;
-  phone?: string | undefined;
-  skype?: string | undefined;
-  real_name?: string | undefined;
-  real_name_normalized?: string | undefined;
+  profile: {  real_name?: string | undefined;
   display_name?: string | undefined;
-  display_name_normalized?: string | undefined;
-  status_text?: string | undefined;
-  status_emoji?: string | undefined;
-  status_expiration?: number | undefined;
-  avatar_hash?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
   email?: string | undefined;
+  avatar_hash?: string | undefined;
   image_24?: string | undefined;
   image_32?: string | undefined;
   image_48?: string | undefined;
   image_72?: string | undefined;
   image_192?: string | undefined;
-  image_512?: string | undefined;
-  team?: string | undefined;};
-  is_admin?: boolean | undefined;
-  is_owner?: boolean | undefined;
-  is_primary_owner?: boolean | undefined;
-  is_restricted?: boolean | undefined;
-  is_ultra_restricted?: boolean | undefined;
-  is_bot?: boolean | undefined;
-  is_app_user?: boolean | undefined;
-  updated?: number | undefined;
-  is_email_confirmed?: boolean | undefined;
-  who_can_share_contact_card?: string | undefined;})[];
+  image_512?: string | undefined;};
+  is_admin: boolean;
+  is_owner: boolean;
+  is_bot: boolean;
+  updated: number;})[];
   /**
-   * Pagination metadata including next_cursor
+   * Pagination cursor for the next page. Omitted if no more pages.
    */
-  response_metadata: {  next_cursor?: string | undefined;};
-};
-
-export interface ActionInput_slack_lookupuserbyemail {
-  /**
-   * The email address to lookup. Example: "user@example.com"
-   */
-  email: string;
-};
-
-export interface ActionOutput_slack_lookupuserbyemail {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The user object if found
-   */
-  user: {  id: string;
-  team_id?: string | undefined;
-  name?: string | undefined;
-  deleted?: boolean | undefined;
-  color?: string | undefined;
-  real_name?: string | undefined;
-  tz?: string | undefined;
-  tz_label?: string | undefined;
-  tz_offset?: number | undefined;
-  profile?: {  title?: string | undefined;
-  phone?: string | undefined;
-  skype?: string | undefined;
-  real_name?: string | undefined;
-  real_name_normalized?: string | undefined;
-  display_name?: string | undefined;
-  display_name_normalized?: string | undefined;
-  status_text?: string | undefined;
-  status_emoji?: string | undefined;
-  status_expiration?: number | undefined;
-  avatar_hash?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  image_24?: string | undefined;
-  image_32?: string | undefined;
-  image_48?: string | undefined;
-  image_72?: string | undefined;
-  image_192?: string | undefined;
-  image_512?: string | undefined;
-  team?: string | undefined;};
-  is_admin?: boolean | undefined;
-  is_owner?: boolean | undefined;
-  is_primary_owner?: boolean | undefined;
-  is_restricted?: boolean | undefined;
-  is_ultra_restricted?: boolean | undefined;
-  is_bot?: boolean | undefined;
-  is_app_user?: boolean | undefined;
-  updated?: number | undefined;
-  is_email_confirmed?: boolean | undefined;
-  who_can_share_contact_card?: string | undefined;};
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_slack_markasread {
   /**
-   * The channel to mark as read. Example: "C02MB5ZABA7"
+   * The channel ID to mark as read. Example: "C02MB5ZABA7"
    */
   channel_id: string;
   /**
@@ -13674,218 +17432,212 @@ export interface ActionInput_slack_markasread {
 
 export interface ActionOutput_slack_markasread {
   /**
-   * Whether the request was successful
+   * Whether the operation succeeded
    */
   ok: boolean;
 };
 
 export interface ActionInput_slack_opendm {
   /**
-   * Comma-separated list of user IDs. Example: "U02MDCKS1N0,U01ABC123"
+   * User IDs to open a direct message with. For a 1:1 DM, provide a single user ID. For a multi-person DM, provide multiple user IDs. Example: ["U1234567890"]
    */
-  users: string;
-  /**
-   * Return the full IM channel object. Default: false
-   */
-  return_im?: boolean | undefined;
+  user_ids: string[];
 };
 
 export interface ActionOutput_slack_opendm {
   /**
-   * Whether the request was successful
+   * The ID of the opened DM channel
    */
-  ok: boolean;
+  channel_id: string;
   /**
-   * The opened DM channel
+   * The name of the channel (for multi-person DMs this will be a generated name)
    */
-  channel: {  /**
-   * The DM channel ID
-   */
-  id: string;};
+  channel_name: string;
 };
 
 export interface ActionInput_slack_pinmessage {
   /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * Channel ID where the message was posted. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the message to pin. Example: "1234567890.123456"
+   * Timestamp of the message to pin. Example: "1355517523.000005"
    */
-  message_ts: string;
+  message_timestamp: string;
 };
 
 export interface ActionOutput_slack_pinmessage {
   /**
-   * Whether the request was successful
+   * Whether the pin was successfully added
    */
   ok: boolean;
 };
 
 export interface ActionInput_slack_postmessage {
   /**
-   * Channel, DM, or group to post to. Example: "C02MB5ZABA7"
+   * Channel, private group, or IM channel ID to send message to. Example: "C1234567890"
    */
-  channel_id: string;
+  channel: string;
   /**
-   * Message text content. Supports Slack markdown. Example: "Hello *world*!"
+   * Text of the message to send
    */
   text: string;
   /**
-   * Parent message timestamp to reply in thread. Omit for top-level message. Example: "1763887648.424429"
+   * Timestamp of parent message to reply in thread. Example: "1234567890.123456"
    */
   thread_ts?: string | undefined;
-  /**
-   * Slack Block Kit blocks for rich formatting. See: https://api.slack.com/block-kit
-   */
-  blocks?: ({  type: string;
-  block_id?: string | undefined;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  elements?: ({  type: string;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  action_id?: string | undefined;
-  url?: string | undefined;
-  value?: string | undefined;
-  style?: 'primary' | 'danger' | undefined;})[];
-  accessory?: {  type: string;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  action_id?: string | undefined;
-  url?: string | undefined;
-  value?: string | undefined;
-  style?: 'primary' | 'danger' | undefined;};
-  fields?: ({  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;})[];})[];
 };
 
 export interface ActionOutput_slack_postmessage {
   /**
-   * Whether the message was posted successfully
+   * Whether the API request succeeded
    */
   ok: boolean;
   /**
-   * Timestamp of the posted message. Example: "1763887648.424429"
+   * ID of the channel the message was sent to
+   */
+  channel: string;
+  /**
+   * Timestamp of the sent message
    */
   ts: string;
   /**
-   * Channel where message was posted. Example: "C02MB5ZABA7"
+   * The message object that was sent
    */
-  channel: string;
   message: {  /**
-   * The message text as stored
-   */
-  text: string;
-  /**
-   * Message type, typically "message"
+   * Message type
    */
   type: string;
   /**
-   * User ID who posted. Example: "U07E8G7J57T"
+   * Message subtype
    */
-  user: string;};
-};
-
-export interface ActionInput_slack_removefromchannel {
+  subtype?: string | undefined;
   /**
-   * The channel to remove the user from. Example: "C02MB5ZABA7"
+   * Text of the message
    */
-  channel_id: string;
+  text: string;
   /**
-   * The user ID to remove. Example: "U02MDCKS1N0"
+   * Timestamp of the message
    */
-  user_id: string;
-};
-
-export interface ActionOutput_slack_removefromchannel {
+  ts: string;
   /**
-   * Whether the request was successful
+   * Username of the sender
    */
-  ok: boolean;
+  username?: string | undefined;
+  /**
+   * ID of the bot if sent by bot
+   */
+  bot_id?: string | undefined;};
 };
 
 export interface ActionInput_slack_removereaction {
   /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * Channel ID where the message was posted. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the message. Example: "1234567890.123456"
+   * Timestamp of the message to remove the reaction from. Example: "1234567890.123456"
    */
-  message_ts: string;
+  timestamp: string;
   /**
-   * The emoji name without colons. Example: "thumbsup"
+   * Name of the emoji reaction to remove. Example: "thumbsup"
    */
   reaction_name: string;
 };
 
 export interface ActionOutput_slack_removereaction {
   /**
-   * Whether the request was successful
+   * Whether the operation was successful
    */
   ok: boolean;
+  /**
+   * Error message if the operation failed
+   */
+  error?: string | undefined;
 };
 
-export interface ActionInput_slack_renamechannel {
+export interface ActionInput_slack_removeuserfromconversation {
   /**
-   * The channel to rename. Example: "C02MB5ZABA7"
+   * The ID of the channel to remove the user from. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * The new name for the channel. Example: "new-channel-name"
+   * The ID of the user to remove from the channel. Example: "U1234567890"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_slack_removeuserfromconversation {
+  ok: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_slack_renameconversation {
+  /**
+   * The ID of the channel to rename. Example: "C0123456789"
+   */
+  channel_id: string;
+  /**
+   * The new name for the channel. Names must be 80 characters or less, and can only contain lowercase letters, numbers, hyphens, and underscores. Example: "general"
    */
   channel_name: string;
 };
 
-export interface ActionOutput_slack_renamechannel {
+export interface ActionOutput_slack_renameconversation {
   /**
-   * Whether the request was successful
+   * Channel ID
    */
-  ok: boolean;
+  id: string;
   /**
-   * The updated channel object
+   * Channel name
    */
-  channel: {  id: string;
   name: string;
-  name_normalized: string;
-  created: number;
-  creator: string;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  is_archived: boolean;
-  is_general: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  is_pending_ext_shared: boolean;
+  /**
+   * Whether this is a channel
+   */
+  is_channel?: boolean | undefined;
+  /**
+   * Whether this is a group
+   */
+  is_group?: boolean | undefined;
+  /**
+   * Whether this is an IM
+   */
+  is_im?: boolean | undefined;
+  /**
+   * Unix timestamp when the channel was created
+   */
+  created?: number | undefined;
+  /**
+   * User ID of the channel creator
+   */
+  creator?: string | undefined;
+  /**
+   * Whether the channel is archived
+   */
+  is_archived?: boolean | undefined;
+  /**
+   * Whether this is the general channel
+   */
+  is_general?: boolean | undefined;
+  /**
+   * Whether the channel is private
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Whether the caller is a member
+   */
   is_member?: boolean | undefined;
-  unlinked?: number | undefined;
-  updated?: number | undefined;
+  /**
+   * Number of members in the channel
+   */
   num_members?: number | undefined;
-  context_team_id?: string | undefined;
-  parent_conversation?: string | undefined;
-  pending_shared?: string[] | undefined;
-  pending_connected_team_ids?: string[] | undefined;
-  shared_team_ids?: string[] | undefined;
-  previous_names?: string[] | undefined;
-  topic?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;
-  purpose?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;};
+  topic?: {  value?: string | undefined;
+  creator?: string | undefined;
+  last_set?: number | undefined;};
+  purpose?: {  value?: string | undefined;
+  creator?: string | undefined;
+  last_set?: number | undefined;};
 };
 
 export interface ActionInput_slack_schedulemessage {
@@ -13894,7 +17646,7 @@ export interface ActionInput_slack_schedulemessage {
    */
   channel_id: string;
   /**
-   * The message text. Example: "Hello, world!"
+   * The message text to schedule
    */
   text: string;
   /**
@@ -13902,327 +17654,259 @@ export interface ActionInput_slack_schedulemessage {
    */
   post_at: number;
   /**
-   * Timestamp of thread to reply to. Example: "1234567890.123456"
+   * Optional thread timestamp to post in a thread. Example: "1234567890.123456"
    */
   thread_ts?: string | undefined;
 };
 
 export interface ActionOutput_slack_schedulemessage {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * The ID of the scheduled message
-   */
   scheduled_message_id: string;
-  /**
-   * Unix timestamp when the message will be posted
-   */
+  channel: string;
   post_at: number;
 };
 
 export interface ActionInput_slack_searchfiles {
   /**
-   * The search query. Example: "project report"
+   * Search query string. Example: "report"
    */
   query: string;
   /**
-   * Number of results per page. Default: 20
+   * Number of items to return per page. Max 100. Default: 20
    */
   count?: number | undefined;
   /**
-   * Page number of results. Default: 1
+   * Page number of results to return. Default: 1
    */
   page?: number | undefined;
   /**
-   * Sort by relevance or recency. Default: "score"
+   * Sort by score or timestamp. Default: score
    */
   sort?: 'score' | 'timestamp' | undefined;
   /**
-   * Sort direction. Default: "desc"
+   * Sort direction: ascending or descending. Default: desc
    */
   sort_dir?: 'asc' | 'desc' | undefined;
+  /**
+   * Enable query highlight markers in results. Default: false
+   */
+  highlight?: boolean | undefined;
 };
 
 export interface ActionOutput_slack_searchfiles {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Search results
-   */
-  files: {  /**
-   * Total number of matching files
-   */
-  total: number;
-  /**
-   * Array of matching file objects
-   */
-  matches: ({  /**
-   * The file ID
-   */
-  id: string;
-  /**
-   * The filename
-   */
+  files: ({  id: string;
   name: string;
-  /**
-   * The file title
-   */
-  title: string;
-  /**
-   * The MIME type
-   */
-  mimetype: string;
-  /**
-   * The file type extension
-   */
+  title?: string | undefined;
   filetype: string;
-  /**
-   * File size in bytes
-   */
+  mimetype: string;
+  user: string;
+  username: string;
+  created: number;
+  timestamp: number;
   size: number;
-  /**
-   * Private URL to access the file
-   */
-  url_private: string;
-  /**
-   * Permalink to the file in Slack
-   */
-  permalink: string;
-  /**
-   * Unix timestamp when file was created
-   */
-  timestamp: number;})[];
-  /**
-   * Pagination information
-   */
-  pagination: {  /**
-   * Total count of results
-   */
-  total_count: number;
-  /**
-   * Current page number
-   */
+  mode: string;
+  is_public: boolean;
+  is_external: boolean;
+  external_type: string;
+  editable: boolean;
+  display_as_bot: boolean;
+  url_private?: string | undefined;
+  url_private_download?: string | undefined;
+  permalink?: string | undefined;
+  permalink_public?: string | undefined;
+  preview?: string | undefined;
+  public_url_shared: boolean;
+  channels: string[];
+  groups: string[];
+  ims: string[];
+  comments_count: number;
+  pretty_type: string;
+  score?: string | undefined;})[];
+  paging: {  count: number;
   page: number;
-  /**
-   * Results per page
-   */
-  per_page: number;
-  /**
-   * Total number of pages
-   */
-  page_count: number;
-  /**
-   * First result index
-   */
-  first: number;
-  /**
-   * Last result index
-   */
-  last: number;};};
-};
-
-export interface ActionInput_slack_searchmessages {
-  /**
-   * The search query. Example: "important meeting"
-   */
-  query: string;
-  /**
-   * Number of results per page. Default: 20
-   */
-  count?: number | undefined;
-  /**
-   * Page number of results. Default: 1
-   */
-  page?: number | undefined;
-  /**
-   * Sort by relevance or recency. Default: "score"
-   */
-  sort?: 'score' | 'timestamp' | undefined;
-  /**
-   * Sort direction. Default: "desc"
-   */
-  sort_dir?: 'asc' | 'desc' | undefined;
-};
-
-export interface ActionOutput_slack_searchmessages {
-  /**
-   * Whether the request was successful
-   */
-  ok: boolean;
-  /**
-   * Search results
-   */
-  messages: {  /**
-   * Total number of matching messages
-   */
+  pages: number;
+  total: number;};
   total: number;
+};
+
+export interface ActionInput_slack_sendephemeralmessage {
   /**
-   * Array of matching message objects
+   * Channel ID to send the ephemeral message to. Example: "C1234567890"
    */
-  matches: ({  /**
-   * The type of message
-   */
-  type: string;
+  channel_id: string;
   /**
-   * Message timestamp
+   * User ID to send the ephemeral message to. The user must be in the specified channel. Example: "U1234567890"
    */
-  ts: string;
+  user_id: string;
   /**
-   * The message text
+   * Text of the message to send. Supports Slack formatting.
    */
   text: string;
   /**
-   * Channel information
+   * Thread timestamp to reply to a specific thread. Example: "1234567890.123456"
    */
-  channel: {  /**
-   * The channel ID
-   */
-  id: string;
-  /**
-   * The channel name
-   */
-  name: string;};
-  /**
-   * The user ID who sent the message
-   */
-  user: string | null;
-  /**
-   * The username who sent the message
-   */
-  username: string | null;
-  /**
-   * Permalink to the message in Slack
-   */
-  permalink: string;})[];
-  /**
-   * Pagination information
-   */
-  pagination: {  /**
-   * Total count of results
-   */
-  total_count: number;
-  /**
-   * Current page number
-   */
-  page: number;
-  /**
-   * Results per page
-   */
-  per_page: number;
-  /**
-   * Total number of pages
-   */
-  page_count: number;
-  /**
-   * First result index
-   */
-  first: number;
-  /**
-   * Last result index
-   */
-  last: number;};};
+  thread_ts?: string | undefined;
+};
+
+export interface ActionOutput_slack_sendephemeralmessage {
+  ok: boolean;
+  message_ts: string;
+  error?: string | undefined;
 };
 
 export interface ActionInput_slack_sendmessage {
-  channel: string;
+  /**
+   * Channel ID to send the message to. Example: "C1234567890"
+   */
+  channel_id: string;
+  /**
+   * Text content of the message to send. Example: "Hello world"
+   */
   text: string;
 };
 
 export interface ActionOutput_slack_sendmessage {
   ok: boolean;
-  channel?: string | undefined;
-  ts?: string | undefined;
-  message?: string | undefined;
-  warning?: string | undefined;
-  error?: string | undefined;
-  raw_json: string;
+  channel: string;
+  /**
+   * Timestamp ID of the sent message
+   */
+  ts: string;
+  message?: {  type: string;
+  user: string;
+  text: string;
+  ts: string;
+  team?: string | undefined;
+  bot_id?: string | undefined;
+  app_id?: string | undefined;};
 };
 
 export interface ActionInput_slack_setchannelpurpose {
   /**
-   * The channel to update. Example: "C02MB5ZABA7"
+   * Channel ID to set the purpose for. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * The new purpose text. Example: "Discussion about project updates"
+   * The new purpose text for the channel.
    */
   purpose: string;
 };
 
 export interface ActionOutput_slack_setchannelpurpose {
   /**
-   * Whether the request was successful
+   * Whether the purpose was successfully updated
    */
-  ok: boolean;
+  success: boolean;
   /**
-   * The updated purpose text
+   * The ID of the channel that was updated
+   */
+  channel_id: string;
+  /**
+   * The new purpose that was set
    */
   purpose: string;
 };
 
 export interface ActionInput_slack_setchanneltopic {
   /**
-   * The channel to update. Example: "C02MB5ZABA7"
+   * The ID of the channel to set the topic for. Example: "C12345678"
    */
   channel_id: string;
   /**
-   * The new topic text. Example: "Q4 Planning Discussion"
+   * The new topic string. Does not support formatting or linkification. Example: "Apply topically for best effects"
    */
   topic: string;
 };
 
 export interface ActionOutput_slack_setchanneltopic {
-  /**
-   * Whether the request was successful
-   */
   ok: boolean;
+  channel: {  [key: string]: any | undefined;};
+  warning?: string | undefined;
+  response_metadata?: {  [key: string]: any | undefined;};
+};
+
+export interface ActionInput_slack_setstatus {
   /**
-   * The updated topic text
+   * The displayed text of up to 100 characters. We strongly encourage brevity.
    */
-  topic: string;
+  status_text: string;
+  /**
+   * The displayed emoji that is enabled for the Slack team, such as `:train:` or `:coffee:`.
+   */
+  status_emoji: string;
+  /**
+   * The Unix timestamp of when the status will expire. Providing 0 or omitting this field results in a custom status that will not expire.
+   */
+  status_expiration?: number | undefined;
+};
+
+export interface ActionOutput_slack_setstatus {
+  profile: {  title: string;
+  phone: string;
+  skype: string;
+  real_name: string;
+  real_name_normalized: string;
+  display_name: string;
+  display_name_normalized: string;
+  status_text: string;
+  status_emoji: string;
+  status_emoji_display_info: any[];
+  status_expiration: number;
+  avatar_hash: string;
+  email: string;
+  pronouns: string;
+  huddle_state: string;
+  huddle_state_expiration_ts: number;
+  first_name: string;
+  last_name: string;
+  image_24: string;
+  image_32: string;
+  image_48: string;
+  image_72: string;
+  image_192: string;
+  image_512: string;};
 };
 
 export interface ActionInput_slack_setuserpresence {
   /**
-   * The presence status to set: "auto" or "away". Example: "away"
+   * User presence status. Use "online" to set presence to auto (active) or "away" to set presence to away.
    */
-  presence: string;
+  presence: 'online' | 'away';
 };
 
 export interface ActionOutput_slack_setuserpresence {
   /**
-   * Whether the request was successful
+   * Whether the presence was set successfully
    */
   ok: boolean;
+  /**
+   * Error message if the request failed
+   */
+  error?: string | undefined;
 };
 
 export interface ActionInput_slack_unarchivechannel {
   /**
-   * The channel to unarchive. Example: "C02MB5ZABA7"
+   * The channel ID to unarchive. Example: "C02MB5ZABA7"
    */
   channel_id: string;
 };
 
 export interface ActionOutput_slack_unarchivechannel {
   /**
-   * Whether the request was successful
+   * Whether the unarchive request was successful
    */
   ok: boolean;
 };
 
 export interface ActionInput_slack_unpinmessage {
   /**
-   * The channel containing the pinned message. Example: "C02MB5ZABA7"
+   * The channel ID to unpin the message from. Example: "C1234567890"
    */
   channel_id: string;
   /**
    * Timestamp of the message to unpin. Example: "1234567890.123456"
    */
-  message_ts: string;
+  timestamp: string;
 };
 
 export interface ActionOutput_slack_unpinmessage {
@@ -14230,71 +17914,80 @@ export interface ActionOutput_slack_unpinmessage {
    * Whether the request was successful
    */
   ok: boolean;
+  /**
+   * Error message if the request failed
+   */
+  error?: string | undefined;
 };
 
 export interface ActionInput_slack_updatemessage {
   /**
-   * The channel containing the message. Example: "C02MB5ZABA7"
+   * The ID of the channel containing the message to update. Example: "C1234567890"
    */
   channel_id: string;
   /**
-   * Timestamp of the message to update. Example: "1234567890.123456"
+   * The timestamp of the message to update. Example: "1401383885.000061"
    */
   message_ts: string;
   /**
-   * New message text. Example: "Updated message content"
+   * The updated text of the message. Example: "Updated message text"
    */
-  text?: string | undefined;
+  text: string;
   /**
-   * Array of Block Kit blocks for rich formatting
+   * Pass true to update the message as the authenticated user. Bot users in this context are considered authed users. Default: true
    */
-  blocks?: ({  type: string;
-  block_id?: string | undefined;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  elements?: ({  type: string;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  action_id?: string | undefined;
-  url?: string | undefined;
-  value?: string | undefined;
-  style?: 'primary' | 'danger' | undefined;})[];
-  accessory?: {  type: string;
-  text?: {  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;};
-  action_id?: string | undefined;
-  url?: string | undefined;
-  value?: string | undefined;
-  style?: 'primary' | 'danger' | undefined;};
-  fields?: ({  type: 'plain_text' | 'mrkdwn';
-  text: string;
-  emoji?: boolean | undefined;
-  verbatim?: boolean | undefined;})[];})[];
+  as_user?: boolean | undefined;
+  /**
+   * Find and link channel names and usernames. Defaults to false. To use this, you need parse set to "full".
+   */
+  link_names?: boolean | undefined;
+  /**
+   * Change how messages are treated. Defaults to "client" which attempts to discover links. Use "none" to treat text literally, "full" for full parsing with link_names.
+   */
+  parse?: 'none' | 'full' | 'client' | undefined;
+  /**
+   * Pass false to disable unfurling of links.
+   */
+  unfurl_links?: boolean | undefined;
+  /**
+   * Pass false to disable unfurling of media content.
+   */
+  unfurl_media?: boolean | undefined;
+  /**
+   * Used to reply to a thread only and not to the channel. Pass true to reply to the channel as well.
+   */
+  reply_broadcast?: boolean | undefined;
+  /**
+   * A JSON array of blocks to use as the message content. When blocks is provided, text becomes the fallback text for notifications.
+   */
+  blocks?: ({})[] | undefined;
+  /**
+   * A JSON array of legacy attachments. Not recommended for new apps, use blocks instead.
+   */
+  attachments?: ({})[] | undefined;
 };
 
 export interface ActionOutput_slack_updatemessage {
   /**
-   * Whether the request was successful
+   * Whether the API call was successful
    */
   ok: boolean;
   /**
-   * Timestamp of the updated message
-   */
-  ts: string;
-  /**
-   * Channel where the message was updated
+   * The ID of the channel where the message was updated
    */
   channel: string;
   /**
-   * The updated message text
+   * The timestamp of the updated message
+   */
+  ts: string;
+  /**
+   * The updated text of the message
    */
   text: string;
+  /**
+   * Full message object containing updated message details
+   */
+  message?: any | undefined;
 };
 
 export interface SyncMetadata_smartsheet_users {
