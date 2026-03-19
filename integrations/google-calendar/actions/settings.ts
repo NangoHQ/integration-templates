@@ -32,12 +32,14 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const cursor = input?.cursor;
+
         // https://developers.google.com/workspace/calendar/api/v3/reference/settings/list
         const response = await nango.get({
             endpoint: '/calendar/v3/users/me/settings',
             params: {
                 maxResults: 250,
-                ...(input.cursor && { pageToken: input.cursor })
+                ...(cursor && { pageToken: cursor })
             },
             retries: 3
         });
@@ -51,7 +53,7 @@ const action = createAction({
                 etag: item.etag,
                 kind: item.kind
             })),
-            nextPageToken: data.nextPageToken || undefined
+            ...(data.nextPageToken ? { nextPageToken: data.nextPageToken } : {})
         };
     }
 });

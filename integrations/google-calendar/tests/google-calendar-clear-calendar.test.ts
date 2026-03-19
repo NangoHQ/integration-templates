@@ -1,37 +1,19 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import createAction, { type NangoActionLocal } from '../actions/clear-calendar.js';
+import createAction from '../actions/clear-calendar.js';
 
 describe('google-calendar clear-calendar tests', () => {
-    it('should clear the primary calendar by default', async () => {
-        const post = vi.fn().mockResolvedValue({});
-        const nangoMock = { post } as unknown as NangoActionLocal;
-
-        const response = await createAction.exec(nangoMock, {});
-
-        expect(post).toHaveBeenCalledWith({
-            endpoint: '/calendar/v3/calendars/primary/clear',
-            retries: 3
-        });
-        expect(response).toEqual({
-            success: true,
-            calendarId: 'primary'
-        });
+    const nangoMock = new global.vitest.NangoActionMock({
+        dirname: __dirname,
+        name: 'clear-calendar',
+        Model: 'ActionOutput_google_calendar_clearcalendar'
     });
 
-    it('should clear the requested calendar', async () => {
-        const post = vi.fn().mockResolvedValue({});
-        const nangoMock = { post } as unknown as NangoActionLocal;
-        const calendarId = 'team+events@example.com';
-        const response = await createAction.exec(nangoMock, { calendarId });
+    it('should output the action output that is expected', async () => {
+        const input = await nangoMock.getInput();
+        const response = await createAction.exec(nangoMock, input);
+        const output = await nangoMock.getOutput();
 
-        expect(post).toHaveBeenCalledWith({
-            endpoint: '/calendar/v3/calendars/team%2Bevents%40example.com/clear',
-            retries: 3
-        });
-        expect(response).toEqual({
-            success: true,
-            calendarId
-        });
+        expect(response).toEqual(output);
     });
 });

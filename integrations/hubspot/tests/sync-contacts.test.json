@@ -10,7 +10,7 @@
           "phone": "+1234567890",
           "company": "Test Company Inc",
           "createdAt": "2026-02-25T16:23:49.023Z",
-          "updatedAt": "2026-03-12T07:36:21.334Z"
+          "updatedAt": "2026-03-12T10:04:17.969Z"
         },
         {
           "id": "713688692984",
@@ -218,7 +218,7 @@
           "phone": "+1 555-1234",
           "company": "Test Company",
           "createdAt": "2026-03-12T07:33:46.615Z",
-          "updatedAt": "2026-03-12T07:34:04.602Z"
+          "updatedAt": "2026-03-12T16:16:30.654Z"
         },
         {
           "id": "735131946233",
@@ -228,7 +228,7 @@
           "phone": "+1 555-1234",
           "company": "Test Company",
           "createdAt": "2026-03-12T07:32:44.151Z",
-          "updatedAt": "2026-03-12T07:32:57.646Z"
+          "updatedAt": "2026-03-12T15:37:13.823Z"
         }
       ]
     },
@@ -237,8 +237,8 @@
     }
   },
   "api": {
-    "post": {
-      "/crm/v3/objects/contacts/search": {
+    "get": {
+      "/crm/v3/objects/contacts": {
         "response": {
           "results": [
             {
@@ -250,12 +250,12 @@
                 "firstname": "Updated",
                 "hs_object_id": "713492963559",
                 "jobtitle": null,
-                "lastmodifieddate": "2026-03-12T07:36:21.334Z",
+                "lastmodifieddate": "2026-03-12T10:04:17.969Z",
                 "lastname": "Contact",
                 "phone": "+1234567890"
               },
               "createdAt": "2026-02-25T16:23:49.023Z",
-              "updatedAt": "2026-03-12T07:36:21.334Z",
+              "updatedAt": "2026-03-12T10:04:17.969Z",
               "archived": false,
               "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-1/713492963559"
             },
@@ -682,12 +682,12 @@
                 "firstname": "Test",
                 "hs_object_id": "734931097788",
                 "jobtitle": null,
-                "lastmodifieddate": "2026-03-12T07:34:04.602Z",
+                "lastmodifieddate": "2026-03-12T16:16:30.654Z",
                 "lastname": "Contact",
                 "phone": "+1 555-1234"
               },
               "createdAt": "2026-03-12T07:33:46.615Z",
-              "updatedAt": "2026-03-12T07:34:04.602Z",
+              "updatedAt": "2026-03-12T16:16:30.654Z",
               "archived": false,
               "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-1/734931097788"
             },
@@ -700,12 +700,12 @@
                 "firstname": "Test",
                 "hs_object_id": "735131946233",
                 "jobtitle": null,
-                "lastmodifieddate": "2026-03-12T07:32:57.646Z",
+                "lastmodifieddate": "2026-03-12T15:37:13.823Z",
                 "lastname": "Contact",
                 "phone": "+1 555-1234"
               },
               "createdAt": "2026-03-12T07:32:44.151Z",
-              "updatedAt": "2026-03-12T07:32:57.646Z",
+              "updatedAt": "2026-03-12T15:37:13.823Z",
               "archived": false,
               "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-1/735131946233"
             }
@@ -713,7 +713,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:37:27 GMT",
+          "date": "Wed, 18 Mar 2026 10:54:06 GMT",
           "content-type": "application/json;charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -727,42 +727,29 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4909",
-          "x-ratelimit-reset": "1773301069",
-          "cf-ray": "9db1223abc3ca11a-PDX",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1773831292",
+          "cf-ray": "9de3b2871bf05ef5-PDX",
           "cf-cache-status": "DYNAMIC",
           "vary": "origin, accept-encoding",
           "access-control-allow-credentials": "false",
-          "server-timing": "hcid;desc=\"69b26d37-0000-0000-6ff2-9603b0da9533\", cfr;desc=\"9db1223ac6e7a11a-FRA\"",
-          "x-hubspot-correlation-id": "69b26d37-0000-0000-6ff2-9603b0da9533",
+          "server-timing": "hcid;desc=\"69ba844d-0000-0000-7d6c-206de94eec64\", cfr;desc=\"9de3b28724e45ef5-PDX\"",
+          "x-hubspot-correlation-id": "69ba844d-0000-0000-7d6c-206de94eec64",
           "x-hubspot-ratelimit-interval-milliseconds": "10000",
           "x-hubspot-ratelimit-max": "110",
-          "x-hubspot-ratelimit-remaining": "106",
+          "x-hubspot-ratelimit-remaining": "108",
           "x-hubspot-ratelimit-secondly": "11",
           "x-hubspot-ratelimit-secondly-remaining": "10",
-          "set-cookie": "__cf_bm=Xb6_58AcpRxqltLA2iuiVn96eiXN4mkPifj81e2FZ5A-1773301047-1.0.1.1-L_47vBAk_0B99PrB74uM3jyOoB9q_wig8fE84eZQI9_g1BzLskCcyMj4XshgI2V24ADTGq20HAAYHBhrGoOU_NPmdr24EteTSbMfmTnbi10; path=/; expires=Thu, 12-Mar-26 08:07:27 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
-          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=x2ck%2BqfSkAxPgkgBaWHNRWkScDTp4z6kDRF1Ppwg2xkJMtcD8Xgvo31uFjcoXzrDwDoM0%2FCnZOc%2FER9h1CWp1IF5oMNh0mybCUNOpwyOiVVDbGbNLI1uhkjOLTW%2F2UpD\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "set-cookie": "__cf_bm=Mfcb1L9.C5ka2.e8Pf8SFJLB3eYcUoT9YgV8W88TnT4-1773831246-1.0.1.1-O5OlvIzr9MZ03d1zrYFmO377xoZfveRzwf.CsdURKllHfKjiGdO9zzIWUr6cXcxDg0kR3t1O6eGe5y4ThuohEMApT.Q0sK0uO.NrBvQw20o; path=/; expires=Wed, 18-Mar-26 11:24:06 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=BBNKvFmPa3%2FFXAi%2BeAhmhbgwId%2Bgg5JKkSXNXjCKFwHhYAlnR1DnUQ37hSsye5SwjaGW7P04JY8%2BZg8Z18PFaMbmqzhf4YYkF9dN8MnHhKfQ2oMALJifLGP0ZPLloURl\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
           "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
           "server": "cloudflare"
         },
-        "hash": "46c3ef6929c3632f89d089cd26a1aabe78391666",
+        "hash": "a0854115c1f9c42b78f174251d0aee7de318d464",
         "request": {
-          "data": {
-            "limit": 100,
-            "properties": [
-              "firstname",
-              "lastname",
-              "email",
-              "phone",
-              "jobtitle",
-              "company"
-            ],
-            "sorts": [
-              {
-                "propertyName": "lastmodifieddate",
-                "direction": "ASCENDING"
-              }
-            ]
+          "params": {
+            "limit": "100",
+            "properties": "firstname,lastname,email,phone,jobtitle,company,createdate,lastmodifieddate"
           }
         }
       }

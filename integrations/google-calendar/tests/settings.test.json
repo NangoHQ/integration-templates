@@ -186,13 +186,96 @@
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "a2cdcdc629c1b9d199973b82d15c402f839e6abb",
+        "hash": "8bcced937fd65dba55a574e418f04124121e209f",
         "request": {
           "params": {
-            "maxSize": "100"
+            "maxResults": 250
           }
         }
       }
     }
+  },
+  "input": {},
+  "output": {
+    "settings": [
+      {
+        "id": "autoAddHangouts",
+        "value": "true",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "defaultEventLength",
+        "value": "60",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "dateFieldOrder",
+        "value": "MDY",
+        "etag": "\"1753374622187654\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "weekStart",
+        "value": "0",
+        "etag": "\"1753374622187654\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "format24HourTime",
+        "value": "false",
+        "etag": "\"1753374622187654\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "hideInvitations",
+        "value": "false",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "hideInvitationsSetting",
+        "value": "NONE",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "locale",
+        "value": "en",
+        "etag": "\"1753374622187654\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "remindOnRespondedEventsOnly",
+        "value": "false",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "showDeclinedEvents",
+        "value": "true",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "timezone",
+        "value": "America/Sao_Paulo",
+        "etag": "\"1762895837988495\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "useKeyboardShortcuts",
+        "value": "true",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      },
+      {
+        "id": "hideWeekends",
+        "value": "false",
+        "etag": "\"1589814000000000\"",
+        "kind": "calendar#setting"
+      }
+    ]
   }
 }

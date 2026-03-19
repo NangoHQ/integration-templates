@@ -8,14 +8,14 @@
     }
   },
   "api": {
-    "post": {
-      "/crm/v3/objects/products/search": {
+    "get": {
+      "/crm/v3/objects/products": {
         "response": {
           "results": []
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:38:15 GMT",
+          "date": "Wed, 18 Mar 2026 10:54:26 GMT",
           "content-type": "application/json;charset=utf-8",
           "content-length": "14",
           "connection": "keep-alive",
@@ -29,31 +29,15 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4875",
-          "x-ratelimit-reset": "1773301130",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1773831292",
           "etag": "W/\"e-24vRBFXLdkiGHboJ0qD/fA5L4XI\""
         },
-        "hash": "56357f9611720b4edaf3c5fdeeb71454af1d3b1c",
+        "hash": "e2ec91458e6408a19fab727cafc1b01807afd076",
         "request": {
-          "data": {
-            "limit": 100,
-            "properties": [
-              "name",
-              "description",
-              "hs_sku",
-              "price",
-              "hs_cost_of_goods_sold",
-              "recurringbillingfrequency",
-              "hs_recurring_billing_period",
-              "createdate",
-              "hs_lastmodifieddate"
-            ],
-            "sorts": [
-              {
-                "propertyName": "hs_lastmodifieddate",
-                "direction": "ASCENDING"
-              }
-            ]
+          "params": {
+            "limit": "100",
+            "properties": "name,description,hs_sku,price,hs_cost_of_goods_sold,recurringbillingfrequency,hs_recurring_billing_period,createdate,hs_lastmodifieddate"
           }
         }
       }

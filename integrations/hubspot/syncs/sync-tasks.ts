@@ -16,8 +16,8 @@ const TaskSchema = z.object({
     updatedAt: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    updatedAfter: z.string()
+const AssociationResultSchema = z.object({
+    results: z.array(z.object({ id: z.string() })).optional()
 });
 
 const TaskApiSchema = z.object({
@@ -36,9 +36,9 @@ const TaskApiSchema = z.object({
         .nullish(),
     associations: z
         .object({
-            contacts: z.object({ results: z.array(z.object({ id: z.string() })).optional() }).optional(),
-            companies: z.object({ results: z.array(z.object({ id: z.string() })).optional() }).optional(),
-            deals: z.object({ results: z.array(z.object({ id: z.string() })).optional() }).optional()
+            contacts: AssociationResultSchema.optional(),
+            companies: AssociationResultSchema.optional(),
+            deals: AssociationResultSchema.optional()
         })
         .partial()
         .optional(),
@@ -46,7 +46,7 @@ const TaskApiSchema = z.object({
     updatedAt: z.string().nullish()
 });
 
-const TaskSearchResponseSchema = z.object({
+const TaskResponseSchema = z.object({
     results: z.array(TaskApiSchema).optional(),
     paging: z
         .object({
@@ -59,13 +59,67 @@ const TaskSearchResponseSchema = z.object({
         .optional()
 });
 
-const AssociationResponseSchema = z.object({
-    results: z.array(z.object({ id: z.string() })).optional()
+const HubspotCrmCheckpointSchema = z.object({
+    phase: z.string(),
+    after: z.string(),
+    updatedAfter: z.string()
 });
 
-function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
-    const result = schema.safeParse(value);
-    return result.success ? result.data : undefined;
+type HubspotCrmCheckpoint = {
+    phase: 'initial' | 'incremental';
+    after?: string;
+    updatedAfter?: string;
+};
+
+type AssociationClient = {
+    get: (config: { endpoint: string; retries: number }) => Promise<{ data: unknown }>;
+};
+
+function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undefined {
+    const result = HubspotCrmCheckpointSchema.safeParse(value);
+    if (!result.success) {
+        return undefined;
+    }
+
+    const { phase, after, updatedAfter } = result.data;
+    if (phase !== 'initial' && phase !== 'incremental') {
+        return undefined;
+    }
+
+    const checkpoint: HubspotCrmCheckpoint = { phase };
+
+    if (after) {
+        checkpoint.after = after;
+    }
+
+    if (updatedAfter) {
+        checkpoint.updatedAfter = updatedAfter;
+    }
+
+    return checkpoint;
+}
+
+function updateLatestUpdatedAt(current: string | undefined, candidate: string | null | undefined): string | undefined {
+    if (!candidate) {
+        return current;
+    }
+
+    return !current || candidate > current ? candidate : current;
+}
+
+async function fetchAssociatedIds(client: AssociationClient, taskId: string, association: 'contacts' | 'companies' | 'deals'): Promise<string[]> {
+    // https://developers.hubspot.com/docs/reference/api/crm/associations/associations
+    // @allowTryCatch Associations can be absent for a task; treat that as an empty list.
+    try {
+        const response = await client.get({
+            endpoint: `/crm/v3/objects/tasks/${taskId}/associations/${association}`,
+            retries: 3
+        });
+
+        return (AssociationResultSchema.parse(response.data).results || []).map((result) => result.id);
+    } catch {
+        return [];
+    }
 }
 
 const sync = createSync({
@@ -74,58 +128,128 @@ const sync = createSync({
     endpoints: [{ method: 'GET', path: '/syncs/sync-tasks', group: 'Tasks' }],
     frequency: 'every 5 minutes',
     autoStart: true,
-    checkpoint: CheckpointSchema,
+    checkpoint: HubspotCrmCheckpointSchema,
 
     models: {
         Task: TaskSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = parseOptional(CheckpointSchema, await nango.getCheckpoint());
+        const checkpoint = parseHubspotCrmCheckpoint(await nango.getCheckpoint());
+        const shouldUseInitialListSync = checkpoint?.phase !== 'incremental' || !checkpoint.updatedAfter;
 
-        const searchBody: Record<string, unknown> = {
-            limit: 100,
-            properties: [
-                'hs_task_type',
-                'hs_task_subject',
-                'hs_task_priority',
-                'hs_task_assignee',
-                'hs_task_due_date',
-                'hs_task_notes',
-                'hs_createdate',
-                'hs_lastmodifieddate'
-            ],
-            sorts: [
-                {
-                    propertyName: 'hs_lastmodifieddate',
-                    direction: 'ASCENDING'
+        if (shouldUseInitialListSync) {
+            let after = checkpoint?.after;
+            let latestUpdatedAt = checkpoint?.updatedAfter;
+            let hasMore = true;
+
+            while (hasMore) {
+                // https://developers.hubspot.com/docs/api-reference/crm-tasks-v3/basic/get-crm-v3-objects-tasks
+                const response = await nango.get({
+                    endpoint: '/crm/v3/objects/tasks',
+                    params: {
+                        limit: '100',
+                        properties:
+                            'hs_task_type,hs_task_subject,hs_task_priority,hs_task_assignee,hs_task_due_date,hs_task_notes,hs_createdate,hs_lastmodifieddate',
+                        associations: 'contacts,companies,deals',
+                        ...(after && { after })
+                    },
+                    retries: 3
+                });
+
+                const data = TaskResponseSchema.parse(response.data);
+                const tasks = data.results || [];
+
+                if (tasks.length === 0) {
+                    break;
                 }
-            ]
-        };
 
-        if (checkpoint?.updatedAfter) {
-            searchBody['filterGroups'] = [
-                {
-                    filters: [
-                        {
-                            propertyName: 'hs_lastmodifieddate',
-                            operator: 'GT',
-                            value: checkpoint.updatedAfter
-                        }
-                    ]
+                const records = tasks.map((task) => ({
+                    id: task.id,
+                    type: task.properties?.['hs_task_type'] ?? undefined,
+                    title: task.properties?.['hs_task_subject'] ?? undefined,
+                    priority: task.properties?.['hs_task_priority'] ?? undefined,
+                    assigneeId: task.properties?.['hs_task_assignee'] ?? undefined,
+                    dueDate: task.properties?.['hs_task_due_date'] ?? undefined,
+                    notes: task.properties?.['hs_task_notes'] ?? undefined,
+                    contactIds: (task.associations?.contacts?.results || []).map((association) => association.id),
+                    companyIds: (task.associations?.companies?.results || []).map((association) => association.id),
+                    dealIds: (task.associations?.deals?.results || []).map((association) => association.id),
+                    createdAt: task.createdAt ?? task.properties?.['hs_createdate'] ?? undefined,
+                    updatedAt: task.updatedAt ?? task.properties?.['hs_lastmodifieddate'] ?? undefined
+                }));
+
+                await nango.batchSave(records, 'Task');
+
+                latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
+
+                const nextAfter = data.paging?.next?.after;
+
+                if (nextAfter) {
+                    await nango.saveCheckpoint({
+                        phase: 'initial',
+                        after: nextAfter,
+                        updatedAfter: latestUpdatedAt || ''
+                    });
+                    after = nextAfter;
+                    continue;
                 }
-            ];
-        }
 
-        let after: string | undefined;
+                if (latestUpdatedAt) {
+                    await nango.saveCheckpoint({
+                        phase: 'incremental',
+                        after: '',
+                        updatedAfter: latestUpdatedAt
+                    });
+                }
 
-        do {
-            if (after) {
-                searchBody['after'] = after;
-            } else {
-                delete searchBody['after'];
+                hasMore = false;
             }
 
+            return;
+        }
+
+        const updatedAfter = checkpoint.updatedAfter;
+        let after = checkpoint.after;
+        let latestUpdatedAt = updatedAfter;
+        let hasMore = true;
+
+        while (hasMore) {
+            const searchBody: Record<string, unknown> = {
+                limit: 100,
+                properties: [
+                    'hs_task_type',
+                    'hs_task_subject',
+                    'hs_task_priority',
+                    'hs_task_assignee',
+                    'hs_task_due_date',
+                    'hs_task_notes',
+                    'hs_createdate',
+                    'hs_lastmodifieddate'
+                ],
+                sorts: [
+                    {
+                        propertyName: 'hs_lastmodifieddate',
+                        direction: 'ASCENDING'
+                    }
+                ],
+                filterGroups: [
+                    {
+                        filters: [
+                            {
+                                propertyName: 'hs_lastmodifieddate',
+                                operator: 'GT',
+                                value: updatedAfter
+                            }
+                        ]
+                    }
+                ],
+                ...(after && { after })
+            };
+
+            // Incremental syncs use search so they can filter by last modified date.
+            // HubSpot search queries are capped at 10,000 total results; paging past that returns a 400 and can leave this incremental sync incomplete.
+            // Template users should narrow the search window/filter strategy to fit their data volume before relying on this template.
             // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
             const response = await nango.post({
                 endpoint: '/crm/v3/objects/tasks/search',
@@ -133,7 +257,7 @@ const sync = createSync({
                 retries: 3
             });
 
-            const data = TaskSearchResponseSchema.parse(response.data);
+            const data = TaskResponseSchema.parse(response.data);
             const tasks = data.results || [];
 
             if (tasks.length === 0) {
@@ -143,93 +267,64 @@ const sync = createSync({
             const records: Array<z.infer<typeof TaskSchema>> = [];
 
             for (const task of tasks) {
-                const properties = task.properties || {};
+                let contactIds = (task.associations?.contacts?.results || []).map((association) => association.id);
+                let companyIds = (task.associations?.companies?.results || []).map((association) => association.id);
+                let dealIds = (task.associations?.deals?.results || []).map((association) => association.id);
 
-                // Extract association IDs
-                const contactIds: string[] = [];
-                const companyIds: string[] = [];
-                const dealIds: string[] = [];
+                if (contactIds.length === 0) {
+                    contactIds = await fetchAssociatedIds(nango, task.id, 'contacts');
+                }
 
-                if (task.associations) {
-                    if (task.associations.contacts?.results) {
-                        contactIds.push(...task.associations.contacts.results.map((association) => association.id));
-                    }
-                    if (task.associations.companies?.results) {
-                        companyIds.push(...task.associations.companies.results.map((association) => association.id));
-                    }
-                    if (task.associations.deals?.results) {
-                        dealIds.push(...task.associations.deals.results.map((association) => association.id));
-                    }
-                } else {
-                    // https://developers.hubspot.com/docs/reference/api/crm/associations/associations
-                    try {
-                        const contactsResponse = await nango.get({
-                            endpoint: `/crm/v3/objects/tasks/${task.id}/associations/contacts`,
-                            retries: 3
-                        });
-                        contactIds.push(...(AssociationResponseSchema.parse(contactsResponse.data).results || []).map((association) => association.id));
-                    } catch (error) {
-                        // Associations may not exist, continue without them
-                    }
+                if (companyIds.length === 0) {
+                    companyIds = await fetchAssociatedIds(nango, task.id, 'companies');
+                }
 
-                    try {
-                        const companiesResponse = await nango.get({
-                            endpoint: `/crm/v3/objects/tasks/${task.id}/associations/companies`,
-                            retries: 3
-                        });
-                        companyIds.push(...(AssociationResponseSchema.parse(companiesResponse.data).results || []).map((association) => association.id));
-                    } catch (error) {
-                        // Associations may not exist, continue without them
-                    }
-
-                    try {
-                        const dealsResponse = await nango.get({
-                            endpoint: `/crm/v3/objects/tasks/${task.id}/associations/deals`,
-                            retries: 3
-                        });
-                        dealIds.push(...(AssociationResponseSchema.parse(dealsResponse.data).results || []).map((association) => association.id));
-                    } catch (error) {
-                        // Associations may not exist, continue without them
-                    }
+                if (dealIds.length === 0) {
+                    dealIds = await fetchAssociatedIds(nango, task.id, 'deals');
                 }
 
                 records.push({
                     id: task.id,
-                    type: properties['hs_task_type'] ?? undefined,
-                    title: properties['hs_task_subject'] ?? undefined,
-                    priority: properties['hs_task_priority'] ?? undefined,
-                    assigneeId: properties['hs_task_assignee'] ?? undefined,
-                    dueDate: properties['hs_task_due_date'] ?? undefined,
-                    notes: properties['hs_task_notes'] ?? undefined,
-                    contactIds: contactIds,
-                    companyIds: companyIds,
-                    dealIds: dealIds,
-                    createdAt: task.createdAt ?? properties['hs_createdate'] ?? undefined,
-                    updatedAt: task.updatedAt ?? properties['hs_lastmodifieddate'] ?? undefined
+                    type: task.properties?.['hs_task_type'] ?? undefined,
+                    title: task.properties?.['hs_task_subject'] ?? undefined,
+                    priority: task.properties?.['hs_task_priority'] ?? undefined,
+                    assigneeId: task.properties?.['hs_task_assignee'] ?? undefined,
+                    dueDate: task.properties?.['hs_task_due_date'] ?? undefined,
+                    notes: task.properties?.['hs_task_notes'] ?? undefined,
+                    contactIds,
+                    companyIds,
+                    dealIds,
+                    createdAt: task.createdAt ?? task.properties?.['hs_createdate'] ?? undefined,
+                    updatedAt: task.updatedAt ?? task.properties?.['hs_lastmodifieddate'] ?? undefined
                 });
-            }
-
-            if (records.length === 0) {
-                continue;
             }
 
             await nango.batchSave(records, 'Task');
 
-            // Save checkpoint with the most recent updated_at
-            const lastUpdated = records
-                .filter((r: any) => r.updatedAt)
-                .map((r: any) => r.updatedAt)
-                .sort()
-                .pop();
+            latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
 
-            if (lastUpdated) {
+            const nextAfter = data.paging?.next?.after;
+
+            if (nextAfter) {
                 await nango.saveCheckpoint({
-                    updatedAfter: lastUpdated
+                    phase: 'incremental',
+                    after: nextAfter,
+                    updatedAfter: updatedAfter || ''
+                });
+                after = nextAfter;
+                continue;
+            }
+
+            if (latestUpdatedAt) {
+                await nango.saveCheckpoint({
+                    phase: 'incremental',
+                    after: '',
+                    updatedAfter: latestUpdatedAt
                 });
             }
 
-            after = data.paging?.next?.after;
-        } while (after);
+            hasMore = false;
+        }
     }
 });
 

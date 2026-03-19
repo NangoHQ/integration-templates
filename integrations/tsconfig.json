@@ -1,16 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "$comment": "This file is managed by Nango, do not edit it manually.",
-  "include": [
-    "index.ts",
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build",
-    ".nango"
-  ],
+  "include": ["index.ts", "**/*.ts"],
+  "exclude": ["node_modules", "dist", "build", ".nango"],
   "compilerOptions": {
     "module": "node16",
     "target": "esnext",
