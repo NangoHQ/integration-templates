@@ -372,7 +372,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -450,7 +451,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -498,7 +500,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -560,7 +563,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -745,7 +749,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -799,7 +804,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -1052,7 +1058,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -1104,7 +1111,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -1184,7 +1192,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -1306,7 +1315,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -1380,7 +1390,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -1732,7 +1743,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2076,7 +2088,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2168,7 +2181,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2248,7 +2262,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -2446,7 +2461,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2485,7 +2501,8 @@
               "type": "boolean"
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2547,7 +2564,8 @@
               }
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2605,7 +2623,8 @@
               }
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -2821,7 +2840,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -2883,7 +2903,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -3055,7 +3076,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -3151,7 +3173,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -3215,7 +3238,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -3956,7 +3980,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -4690,7 +4715,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -5487,7 +5513,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -6245,7 +6272,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -6563,7 +6591,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -7337,7 +7366,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -7447,7 +7477,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -7528,7 +7559,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -7801,7 +7833,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -7982,7 +8015,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -8106,7 +8140,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8196,7 +8231,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8304,7 +8340,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8443,7 +8480,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8541,7 +8579,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8670,7 +8709,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8905,7 +8945,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -8962,7 +9003,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9014,7 +9056,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9071,7 +9114,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9121,7 +9165,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9216,7 +9261,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9310,7 +9356,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9466,7 +9513,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9558,7 +9606,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9675,7 +9724,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9766,7 +9816,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9868,7 +9919,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -9969,7 +10021,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -10148,7 +10201,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -10251,7 +10305,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -10484,7 +10539,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -10672,7 +10728,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -10762,7 +10819,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -11093,7 +11151,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -11162,7 +11221,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -11621,7 +11681,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -11678,7 +11739,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -12373,7 +12435,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -12454,7 +12517,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -12502,7 +12566,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -12564,7 +12629,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -12708,7 +12774,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -12779,7 +12846,8 @@
               }
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -12911,7 +12979,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -13073,7 +13142,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -13427,7 +13497,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -13661,7 +13732,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -13756,7 +13828,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -13948,7 +14021,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -14078,7 +14152,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -14258,7 +14333,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -14342,7 +14418,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -14390,7 +14467,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -14452,7 +14530,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -14537,7 +14616,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -14707,7 +14787,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -14761,7 +14842,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -14871,7 +14953,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -14950,7 +15033,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -15017,7 +15101,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -15077,7 +15162,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -15477,7 +15563,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -16085,7 +16172,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -16714,7 +16802,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -17219,7 +17308,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -17662,7 +17752,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -18065,7 +18156,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -18137,7 +18229,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -18187,7 +18280,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -18230,7 +18324,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -18617,7 +18712,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -18921,7 +19017,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -19226,7 +19323,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -19286,7 +19384,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -19371,7 +19470,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -19512,7 +19612,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -19728,7 +19829,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -19843,7 +19945,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -19915,7 +20018,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -20091,7 +20195,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -20377,7 +20482,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -20458,7 +20564,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -20575,7 +20682,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -20690,7 +20798,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -20851,7 +20960,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -20932,7 +21042,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -21075,7 +21186,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -21156,7 +21268,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -21206,7 +21319,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -21270,7 +21384,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -21357,7 +21472,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -21405,7 +21521,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -21467,7 +21584,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -21563,7 +21681,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -21626,7 +21745,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -21713,7 +21833,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -21774,7 +21895,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -21845,7 +21967,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -21959,7 +22082,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -22010,7 +22134,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -22075,7 +22200,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -22155,7 +22281,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -22205,7 +22332,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -22310,7 +22438,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -22390,7 +22519,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -22452,7 +22582,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -22534,7 +22665,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -22589,7 +22721,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -22672,7 +22805,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -22745,7 +22879,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -22883,7 +23018,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -22975,7 +23111,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -23123,7 +23260,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -23185,7 +23323,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -23349,7 +23488,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -23517,7 +23657,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -23609,7 +23750,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -23661,7 +23803,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -23803,7 +23946,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -23879,7 +24023,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -23944,7 +24089,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -24143,7 +24289,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -24285,7 +24432,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -24333,7 +24481,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -24381,7 +24530,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -24545,7 +24695,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -24646,7 +24797,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -24743,7 +24895,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -24803,7 +24956,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -25346,7 +25500,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -25656,7 +25811,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -26569,7 +26725,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -26692,7 +26849,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -26885,7 +27043,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -26961,7 +27120,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -27152,7 +27312,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -27605,7 +27766,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -27703,7 +27865,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -27898,7 +28061,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -28270,7 +28434,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -28361,7 +28526,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -28417,7 +28583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -28509,7 +28676,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -28587,7 +28755,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -28680,7 +28849,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -28771,7 +28941,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -28849,7 +29020,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -29411,7 +29583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -29510,7 +29683,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -29706,7 +29880,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -29844,7 +30019,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -29963,7 +30139,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -30409,7 +30586,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -30482,7 +30660,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -30613,7 +30792,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -30679,7 +30859,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -30892,7 +31073,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -31011,7 +31193,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31065,7 +31248,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31196,7 +31380,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31291,7 +31476,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31370,7 +31556,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31631,7 +31818,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31739,7 +31927,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31807,7 +31996,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31862,7 +32052,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -31922,7 +32113,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32022,7 +32214,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32113,7 +32306,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32197,7 +32391,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32269,7 +32464,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32370,7 +32566,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32513,7 +32710,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32580,7 +32778,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32865,7 +33064,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -32980,7 +33180,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33102,7 +33303,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33203,7 +33405,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33327,7 +33530,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33538,7 +33742,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33625,7 +33830,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33809,7 +34015,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -33944,7 +34151,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34108,7 +34316,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34296,7 +34505,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34445,7 +34655,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34591,7 +34802,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34643,7 +34855,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34808,7 +35021,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34887,7 +35101,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -34945,7 +35160,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35067,7 +35283,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35165,7 +35382,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35399,7 +35617,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35510,7 +35729,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35851,7 +36071,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -35939,7 +36160,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36036,7 +36258,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36146,7 +36369,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36195,7 +36419,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -36418,7 +36643,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -36499,7 +36727,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -36548,7 +36779,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -36632,7 +36864,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36734,7 +36967,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36813,7 +37047,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36896,7 +37131,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -36963,7 +37199,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37020,7 +37257,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37085,7 +37323,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37140,7 +37379,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37183,7 +37423,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37276,7 +37517,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37350,7 +37592,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37536,7 +37779,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37581,7 +37825,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37721,7 +37966,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37836,7 +38082,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -37936,7 +38183,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38023,7 +38271,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38081,7 +38330,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38196,7 +38446,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38303,7 +38554,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38414,7 +38666,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38507,7 +38760,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38686,7 +38940,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38760,7 +39015,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38823,7 +39079,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -38943,7 +39200,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -39072,7 +39330,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -39163,7 +39422,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -39276,7 +39536,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -39368,7 +39629,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -39467,7 +39729,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -39518,7 +39783,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -39591,7 +39857,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -39655,7 +39924,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       }
     ],
     "onEventScripts": {
@@ -39709,7 +39981,8 @@
               "type": "string"
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -39785,7 +40058,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -39894,7 +40168,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -40014,7 +40289,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -40118,7 +40394,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40293,7 +40570,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40361,7 +40639,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40630,7 +40909,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40745,7 +41025,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40829,7 +41110,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40889,7 +41171,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -40974,7 +41257,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41050,7 +41334,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41143,7 +41428,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41251,7 +41537,8 @@
               "additionalProperties": {}
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41311,7 +41598,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41476,7 +41764,8 @@
               "description": "Spreadsheet object with data matching the specified filters"
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41548,7 +41837,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41693,7 +41983,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -41954,7 +42245,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -42065,7 +42357,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -42157,7 +42450,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -42232,7 +42526,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -42321,7 +42616,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -43680,7 +43976,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -43774,7 +44071,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -43824,7 +44122,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -45099,7 +45398,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -45161,7 +45461,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -45219,7 +45520,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -45283,7 +45585,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -45675,7 +45978,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -45912,7 +46216,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -46077,7 +46382,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -46173,7 +46479,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -46229,7 +46536,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -46319,7 +46627,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -46503,7 +46812,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -46851,7 +47161,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -47133,7 +47444,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -47395,7 +47707,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -47552,7 +47865,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -47662,7 +47976,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -47789,7 +48104,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -47931,7 +48247,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -48086,7 +48403,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -48136,7 +48454,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -48201,7 +48520,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -48441,7 +48761,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -48795,7 +49116,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -48908,7 +49230,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49052,7 +49375,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49157,7 +49481,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49246,7 +49571,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49361,7 +49687,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49453,7 +49780,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49548,7 +49876,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49640,7 +49969,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49738,7 +50068,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -49846,7 +50177,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50055,7 +50387,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50183,7 +50516,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50277,7 +50611,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50370,7 +50705,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50425,7 +50761,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50480,7 +50817,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50535,7 +50873,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50590,7 +50929,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50649,7 +50989,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50704,7 +51045,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50759,7 +51101,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50822,7 +51165,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50893,7 +51237,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -50987,7 +51332,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51091,7 +51437,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51233,7 +51580,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51296,7 +51644,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51374,7 +51723,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51440,7 +51790,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51515,7 +51866,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51596,7 +51948,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51665,7 +52018,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51743,7 +52097,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51836,7 +52191,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51917,7 +52273,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -51999,7 +52356,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52074,7 +52432,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52155,7 +52514,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52248,7 +52608,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52346,7 +52707,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52459,7 +52821,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52657,7 +53020,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52777,7 +53141,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52876,7 +53241,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -52968,7 +53334,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -53060,7 +53427,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -53202,7 +53570,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -53315,7 +53684,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -53369,7 +53739,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -53446,7 +53817,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53512,7 +53886,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53590,7 +53967,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53661,7 +54041,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53725,7 +54108,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53794,7 +54180,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53881,7 +54270,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -53950,7 +54342,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -54012,7 +54407,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -54073,7 +54469,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -54235,7 +54632,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -54282,7 +54680,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -56631,7 +57030,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -56676,7 +57076,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -59027,7 +59428,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -59149,7 +59551,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -59328,7 +59731,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -59387,7 +59791,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -59475,7 +59880,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -59577,7 +59983,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -59779,7 +60186,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -59876,7 +60284,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -59961,7 +60370,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -60009,7 +60419,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -60073,7 +60484,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -60135,7 +60547,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -60316,7 +60729,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -60364,7 +60778,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -60426,7 +60841,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -60509,7 +60925,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -60605,7 +61022,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -60653,7 +61071,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -60715,7 +61134,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -60786,7 +61206,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -60864,7 +61285,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -60912,7 +61334,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -61335,7 +61758,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -61444,7 +61868,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -61785,7 +62210,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -62012,7 +62438,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -62248,7 +62675,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -62475,7 +62903,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -62530,7 +62959,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -62799,7 +63229,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -63048,7 +63479,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -63298,7 +63730,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -63548,7 +63981,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -63791,7 +64225,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -64041,7 +64476,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -64181,7 +64617,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -64405,7 +64842,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -64580,7 +65018,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -64681,7 +65120,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -64808,7 +65248,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -64889,7 +65330,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -65000,7 +65442,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -65247,7 +65690,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -65329,7 +65773,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -65383,7 +65828,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -65557,7 +66003,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -65625,7 +66072,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -65676,7 +66124,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -65764,7 +66213,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -65900,7 +66350,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -65996,7 +66447,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -66075,7 +66527,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -66154,7 +66607,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -66225,7 +66679,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -66299,7 +66754,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -66376,7 +66832,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -66641,7 +67098,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -66866,7 +67324,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -66947,7 +67406,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -66995,7 +67455,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -67043,7 +67504,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -67106,7 +67568,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -67220,7 +67683,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -67285,7 +67749,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -67733,7 +68198,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -67853,7 +68319,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -68076,7 +68543,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -68458,7 +68926,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -68665,7 +69134,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -68863,7 +69333,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -68952,7 +69423,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69045,7 +69517,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69124,7 +69597,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69205,7 +69679,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69472,7 +69947,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69564,7 +70040,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69661,7 +70138,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69735,7 +70213,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -69808,7 +70287,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -70032,7 +70512,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -70270,7 +70751,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -70388,7 +70870,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -70554,7 +71037,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -70692,7 +71176,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -70808,7 +71293,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -70939,7 +71425,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -71067,7 +71554,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -71331,7 +71819,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -71405,7 +71894,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71465,7 +71955,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71525,7 +72016,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71585,7 +72077,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71645,7 +72138,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71705,7 +72199,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71765,7 +72260,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71822,7 +72318,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71904,7 +72401,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -71976,7 +72474,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72091,7 +72590,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72324,7 +72824,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72381,7 +72882,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72506,7 +73008,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72580,7 +73083,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72635,7 +73139,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72712,7 +73217,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72782,7 +73288,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72863,7 +73370,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -72946,7 +73454,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73031,7 +73540,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73088,7 +73598,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73165,7 +73676,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73230,7 +73742,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73304,7 +73817,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73367,7 +73881,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73539,7 +74054,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73611,7 +74127,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73685,7 +74202,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73759,7 +74277,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73867,7 +74386,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -73961,7 +74481,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -74065,7 +74586,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -74296,7 +74818,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -74372,7 +74895,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -74451,7 +74975,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -74522,7 +75047,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -74680,7 +75206,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -74734,7 +75261,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -74922,7 +75450,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -74976,7 +75505,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -75144,7 +75674,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -75220,7 +75751,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -75286,7 +75818,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -75393,7 +75926,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -75531,7 +76065,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -75656,7 +76191,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -76021,7 +76557,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -76366,7 +76903,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -76420,7 +76958,8 @@
               "type": "string"
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -76482,7 +77021,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -76646,7 +77186,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -76752,7 +77293,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -77424,7 +77966,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -77497,7 +78040,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -77879,7 +78423,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -77950,7 +78495,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -78170,7 +78716,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -78563,7 +79110,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -78661,7 +79209,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -78763,7 +79312,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -79026,7 +79576,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -79776,7 +80327,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -79869,7 +80421,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -79967,7 +80520,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -80220,7 +80774,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -81098,7 +81653,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -81198,7 +81754,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -81302,7 +81859,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -81417,7 +81975,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -81465,7 +82024,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -81527,7 +82087,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -81733,7 +82294,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -81868,7 +82430,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -82000,7 +82563,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -82110,7 +82674,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -82244,7 +82809,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -82405,7 +82971,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -82697,7 +83264,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -83015,7 +83583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -83303,7 +83872,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -83484,7 +84054,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -83841,7 +84412,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -83966,7 +84538,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -85296,7 +85869,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -85431,7 +86005,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -85734,7 +86309,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -86063,7 +86639,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -86362,7 +86939,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -86554,7 +87132,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -87004,7 +87583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -87118,7 +87698,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -87225,7 +87806,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -87349,7 +87931,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -87537,7 +88120,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -87779,7 +88363,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -87886,7 +88471,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88067,7 +88653,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88182,7 +88769,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88328,7 +88916,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88405,7 +88994,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88539,7 +89129,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -88624,7 +89215,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -88719,7 +89311,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -88769,7 +89362,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -88833,7 +89427,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -89212,7 +89807,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -89359,7 +89955,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -89655,7 +90252,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -89809,7 +90407,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -90038,7 +90637,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -90111,7 +90711,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -90189,7 +90790,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90411,7 +91013,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90463,7 +91066,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90519,7 +91123,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90571,7 +91176,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90623,7 +91229,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90679,7 +91286,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -90963,7 +91571,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -91044,7 +91653,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -91111,7 +91721,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -91188,7 +91799,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -91345,7 +91957,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -91522,7 +92135,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -91572,7 +92186,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -91678,7 +92293,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -91780,7 +92396,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -91842,7 +92459,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -91958,7 +92576,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -92046,7 +92665,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92130,7 +92750,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92218,7 +92839,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92307,7 +92929,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92358,7 +92981,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92409,7 +93033,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92460,7 +93085,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92511,7 +93137,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92658,7 +93285,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92730,7 +93358,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92808,7 +93437,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92889,7 +93519,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -92970,7 +93601,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -93013,7 +93645,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -93134,7 +93767,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -93203,7 +93837,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -93358,7 +93993,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -93506,7 +94142,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -93655,7 +94292,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -93872,7 +94510,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -93996,7 +94635,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -94128,7 +94768,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -94278,7 +94919,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -94649,7 +95291,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -94724,7 +95367,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -94790,7 +95434,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -94939,7 +95584,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -95057,7 +95703,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -95208,7 +95855,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -95620,7 +96268,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -95691,7 +96340,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -95751,7 +96401,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -95834,7 +96485,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -95930,7 +96582,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -95994,7 +96647,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96051,7 +96705,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96249,7 +96904,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96380,7 +97036,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96532,7 +97189,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96674,7 +97332,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96748,7 +97407,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96803,7 +97463,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -96929,7 +97590,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97025,7 +97687,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97142,7 +97805,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97210,7 +97874,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97306,7 +97971,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97379,7 +98045,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97568,7 +98235,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97636,7 +98304,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97761,7 +98430,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97820,7 +98490,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -97890,7 +98561,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98003,7 +98675,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98081,7 +98754,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98187,7 +98861,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98373,7 +99048,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98481,7 +99157,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98536,7 +99213,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98684,7 +99362,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98755,7 +99434,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98887,7 +99567,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -98944,7 +99625,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99006,7 +99688,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99063,7 +99746,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99171,7 +99855,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99237,7 +99922,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99299,7 +99985,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99435,7 +100122,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99508,7 +100196,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99738,7 +100427,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99810,7 +100500,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99908,7 +100599,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -99979,7 +100671,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100054,7 +100747,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100217,7 +100911,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100277,7 +100972,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100329,7 +101025,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100390,7 +101087,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -100517,7 +101215,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -100671,7 +101370,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -100816,7 +101518,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -100929,7 +101634,10 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -101005,7 +101713,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -101085,7 +101794,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -101135,7 +101845,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -101185,7 +101896,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -101249,7 +101961,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -101946,7 +102659,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -102427,7 +103141,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -102809,7 +103524,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -103191,7 +103907,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -103384,7 +104101,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -103600,7 +104318,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -103864,7 +104583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104103,7 +104823,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104232,7 +104953,8 @@
               ]
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104387,7 +105109,8 @@
               }
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104566,7 +105289,8 @@
               }
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104624,7 +105348,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -104892,7 +105617,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [],
@@ -104975,7 +105701,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -105055,7 +105782,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -105124,7 +105852,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -105619,7 +106348,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -105709,7 +106439,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -105862,7 +106593,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -105951,7 +106683,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106036,7 +106769,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106206,7 +106940,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106356,7 +107091,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106447,7 +107183,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106512,7 +107249,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -106638,7 +107376,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106705,7 +107444,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -106843,7 +107583,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -107195,7 +107936,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -107565,7 +108307,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -108071,7 +108814,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -108658,7 +109402,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -108855,7 +109600,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -109070,7 +109816,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -109145,7 +109892,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -109597,7 +110345,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -110103,7 +110852,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -110708,7 +111458,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -110905,7 +111656,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -111002,7 +111754,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -111267,7 +112020,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -111439,7 +112193,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -111629,7 +112384,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -111822,7 +112578,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -112050,7 +112807,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -112137,7 +112895,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -112394,7 +113153,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -112494,7 +113254,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -112578,7 +113339,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -112660,7 +113422,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -112835,7 +113598,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -112924,7 +113688,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -112974,7 +113739,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -113140,7 +113906,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -113200,7 +113967,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -113366,7 +114134,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -113525,7 +114294,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -113587,7 +114357,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -113653,7 +114424,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -114234,7 +115006,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -114302,7 +115075,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -114664,7 +115438,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -115083,7 +115858,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -115422,7 +116198,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -115528,7 +116305,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -115617,7 +116395,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -115740,7 +116519,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -115949,7 +116729,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
@@ -116249,7 +117030,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -116363,7 +117145,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -116413,7 +117196,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -116464,7 +117248,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "action",
@@ -116509,7 +117294,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "syncs": [
@@ -116585,7 +117371,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -116850,7 +117637,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       },
       {
         "type": "sync",
@@ -116913,7 +117701,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "features": []
       }
     ],
     "onEventScripts": {
