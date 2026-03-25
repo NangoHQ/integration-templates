@@ -1,74 +1,52 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
-const CalendarEventSchema = z.object({
-    id: z.string(),
-    kind: z.string().optional(),
-    etag: z.string().optional(),
-    status: z.string().optional(),
-    htmlLink: z.string().optional(),
-    created: z.string().optional(),
-    updated: z.string(),
-    summary: z.string().optional(),
-    description: z.string().optional(),
-    location: z.string().optional(),
-    creator: z
-        .object({
-            email: z.string().optional(),
-            displayName: z.string().optional(),
-            self: z.boolean().optional()
-        })
-        .optional(),
-    organizer: z
-        .object({
-            email: z.string().optional(),
-            displayName: z.string().optional(),
-            self: z.boolean().optional()
-        })
-        .optional(),
-    start: z
-        .object({
-            date: z.string().optional(),
-            dateTime: z.string().optional(),
-            timeZone: z.string().optional()
-        })
-        .optional(),
-    end: z
-        .object({
-            date: z.string().optional(),
-            dateTime: z.string().optional(),
-            timeZone: z.string().optional()
-        })
-        .optional(),
-    recurrence: z.array(z.string()).optional(),
-    recurringEventId: z.string().optional(),
-    originalStartTime: z
-        .object({
-            date: z.string().optional(),
-            dateTime: z.string().optional(),
-            timeZone: z.string().optional()
-        })
-        .optional(),
-    transparency: z.string().optional(),
-    visibility: z.string().optional(),
-    iCalUID: z.string().optional(),
-    sequence: z.number().optional(),
-    attendees: z
-        .array(
-            z.object({
-                email: z.string().optional(),
-                displayName: z.string().optional(),
-                responseStatus: z.string().optional()
-            })
-        )
-        .optional(),
-    attendeesOmitted: z.boolean().optional(),
-    hangoutLink: z.string().optional(),
-    conferenceData: z.any().optional(),
-    reminders: z.any().optional(),
-    attachments: z.any().optional(),
-    eventType: z.string().optional()
-});
+const CalendarEventSchema = z
+    .object({
+        id: z.string(),
+        kind: z.string().optional(),
+        etag: z.string().optional(),
+        status: z.string().optional(),
+        htmlLink: z.string().optional(),
+        created: z.string().optional(),
+        updated: z.string().optional(),
+        summary: z.string().optional(),
+        description: z.string().optional(),
+        location: z.string().optional(),
+        colorId: z.string().optional(),
+        creator: z.record(z.string(), z.unknown()).optional(),
+        organizer: z.record(z.string(), z.unknown()).optional(),
+        start: z.record(z.string(), z.unknown()).optional(),
+        end: z.record(z.string(), z.unknown()).optional(),
+        endTimeUnspecified: z.boolean().optional(),
+        recurrence: z.array(z.string()).optional(),
+        recurringEventId: z.string().optional(),
+        originalStartTime: z.record(z.string(), z.unknown()).optional(),
+        transparency: z.string().optional(),
+        visibility: z.string().optional(),
+        iCalUID: z.string().optional(),
+        sequence: z.number().optional(),
+        attendees: z.array(z.record(z.string(), z.unknown())).optional(),
+        attendeesOmitted: z.boolean().optional(),
+        extendedProperties: z.record(z.string(), z.unknown()).optional(),
+        hangoutLink: z.string().optional(),
+        conferenceData: z.record(z.string(), z.unknown()).optional(),
+        gadget: z.record(z.string(), z.unknown()).optional(),
+        anyoneCanAddSelf: z.boolean().optional(),
+        guestsCanInviteOthers: z.boolean().optional(),
+        guestsCanModify: z.boolean().optional(),
+        guestsCanSeeOtherGuests: z.boolean().optional(),
+        privateCopy: z.boolean().optional(),
+        locked: z.boolean().optional(),
+        reminders: z.record(z.string(), z.unknown()).optional(),
+        source: z.record(z.string(), z.unknown()).optional(),
+        workingLocationProperties: z.record(z.string(), z.unknown()).optional(),
+        outOfOfficeProperties: z.record(z.string(), z.unknown()).optional(),
+        focusTimeProperties: z.record(z.string(), z.unknown()).optional(),
+        attachments: z.array(z.record(z.string(), z.unknown())).optional(),
+        eventType: z.string().optional()
+    })
+    .passthrough();
 
 const MetadataSchema = z.object({
     calendarsToSync: z.array(z.string()).optional().describe('Array of calendar IDs to sync. Defaults to ["primary"]'),
@@ -78,121 +56,155 @@ const MetadataSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updatedAfter: z.string()
+    syncToken: z.string(),
+    calendarId: z.string(),
+    pageToken: z.string()
 });
-
-type CalendarEvent = z.infer<typeof CalendarEventSchema>;
-
-function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
-    const result = schema.safeParse(value);
-    return result.success ? result.data : undefined;
-}
-
-function latestTimestamp(current: string, candidate?: string): string {
-    if (!candidate) {
-        return current;
-    }
-
-    return new Date(candidate).getTime() > new Date(current).getTime() ? candidate : current;
-}
 
 const sync = createSync({
     description: 'Incrementally sync full Google Calendar event objects, defaulting to the primary calendar with an initial one-month lookback',
     version: '1.0.0',
-    endpoints: [{ method: 'POST', path: '/syncs/calendar-events' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
-
     models: {
         CalendarEvent: CalendarEventSchema
     },
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/syncs/calendar-events'
+        }
+    ],
 
     exec: async (nango) => {
-        const metadata = parseOptional(MetadataSchema, await nango.getMetadata());
-        const checkpoint = parseOptional(CheckpointSchema, await nango.getCheckpoint());
-        const syncStartedAt = new Date().toISOString();
+        const metadata = await nango.getMetadata();
+        const parsedMetadata = MetadataSchema.safeParse(metadata);
+        const meta = parsedMetadata.success ? parsedMetadata.data : {};
 
-        const calendarsToSync = metadata?.calendarsToSync ?? ['primary'];
-        let updatedAfter = checkpoint?.updatedAfter ?? '';
+        const calendarsToSync = meta.calendarsToSync ?? ['primary'];
+        const singleEvents = meta.singleEvents ?? true;
 
-        if (!updatedAfter) {
-            if (metadata?.['timeMin']) {
-                updatedAfter = metadata['timeMin'];
-            } else {
-                const oneMonthAgo = new Date(syncStartedAt);
-                oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-                updatedAfter = oneMonthAgo.toISOString();
-            }
-        }
+        const checkpoint = await nango.getCheckpoint();
 
-        let maxUpdatedAfter = updatedAfter;
+        const oneMonthAgo = new Date();
+        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+        const defaultTimeMin = oneMonthAgo.toISOString();
 
         for (const calendarId of calendarsToSync) {
-            // https://developers.google.com/calendar/api/v3/reference/events/list
-            const params: Record<string, string> = {
-                updatedMin: updatedAfter,
-                orderBy: 'updated',
-                showDeleted: 'true'
-            };
+            let hasMore = true;
+            let pageToken = checkpoint?.pageToken || '';
+            let calendarSyncToken = checkpoint?.syncToken || '';
 
-            // Add optional params
-            if (metadata?.['timeMin']) {
-                params['timeMin'] = metadata['timeMin'];
-            }
-            if (metadata?.['timeMax']) {
-                params['timeMax'] = metadata['timeMax'];
-            }
-            if (metadata?.['singleEvents'] !== undefined) {
-                params['singleEvents'] = String(metadata['singleEvents']);
+            if (checkpoint?.calendarId && checkpoint.calendarId !== calendarId) {
+                pageToken = '';
+                calendarSyncToken = '';
             }
 
-            const proxyConfig = {
-                endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
-                params,
-                paginate: {
-                    type: 'cursor',
-                    cursor_path_in_response: 'nextPageToken',
-                    cursor_name_in_request: 'pageToken',
-                    response_path: 'items',
-                    limit: 100
-                },
-                retries: 3
-            } satisfies ProxyConfiguration;
+            while (hasMore) {
+                const params: Record<string, string> = {
+                    maxResults: '250',
+                    singleEvents: String(singleEvents)
+                };
 
-            for await (const batch of nango.paginate(proxyConfig)) {
-                const events = z.array(CalendarEventSchema).parse(batch);
-                const records = events.map((event: CalendarEvent) => ({
-                    ...event,
-                    id: `${calendarId}_${event.id}`
-                }));
+                if (calendarSyncToken) {
+                    params['syncToken'] = calendarSyncToken;
+                    params['showDeleted'] = 'true';
+                } else {
+                    const timeMin = meta.timeMin ?? defaultTimeMin;
+                    const timeMax = meta.timeMax;
 
-                if (records.length > 0) {
-                    const activeRecords = records.filter((r: CalendarEvent) => r.status !== 'cancelled');
-                    const deletedRecords = records.filter((r: CalendarEvent) => r.status === 'cancelled');
+                    params['timeMin'] = timeMin;
+                    if (timeMax) {
+                        params['timeMax'] = timeMax;
+                    }
+                    if (singleEvents) {
+                        params['orderBy'] = 'startTime';
+                    }
+                }
 
-                    if (activeRecords.length > 0) {
-                        await nango.batchSave(activeRecords, 'CalendarEvent');
+                if (pageToken) {
+                    params['pageToken'] = pageToken;
+                }
+
+                // https://developers.google.com/workspace/calendar/api/v3/reference/events/list
+                const response = await nango.get({
+                    endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
+                    params: params,
+                    retries: 3
+                });
+
+                const data = z.record(z.string(), z.unknown()).parse(response.data);
+                const items = data['items'];
+                const events: Array<Record<string, unknown>> = [];
+                if (Array.isArray(items)) {
+                    for (const item of items) {
+                        if (typeof item === 'object' && item !== null && !Array.isArray(item)) {
+                            const typedItem = z.record(z.string(), z.unknown()).safeParse(item);
+                            if (typedItem.success) {
+                                events.push(typedItem.data);
+                            }
+                        }
+                    }
+                }
+
+                if (events.length > 0) {
+                    const validEvents: Array<z.infer<typeof CalendarEventSchema>> = [];
+                    const deletedEvents: Array<{ id: string }> = [];
+
+                    for (const rawEvent of events) {
+                        const statusValue = rawEvent['status'];
+                        const eventIdValue = rawEvent['id'];
+                        const status = typeof statusValue === 'string' ? statusValue : undefined;
+                        const eventId = typeof eventIdValue === 'string' ? eventIdValue : undefined;
+
+                        if (!eventId) {
+                            continue;
+                        }
+
+                        if (status === 'cancelled') {
+                            deletedEvents.push({ id: eventId });
+                        } else {
+                            const parsed = CalendarEventSchema.safeParse(rawEvent);
+                            if (parsed.success) {
+                                validEvents.push(parsed.data);
+                            }
+                        }
                     }
 
-                    if (deletedRecords.length > 0) {
-                        await nango.batchDelete(
-                            deletedRecords.map((r: CalendarEvent) => ({ id: r.id })),
-                            'CalendarEvent'
-                        );
+                    if (validEvents.length > 0) {
+                        await nango.batchSave(validEvents, 'CalendarEvent');
                     }
 
-                    for (const record of records) {
-                        maxUpdatedAfter = latestTimestamp(maxUpdatedAfter, record.updated);
+                    if (deletedEvents.length > 0) {
+                        await nango.batchDelete(deletedEvents, 'CalendarEvent');
                     }
+                }
+
+                const nextPageToken = data['nextPageToken'];
+                if (typeof nextPageToken === 'string' && nextPageToken) {
+                    pageToken = nextPageToken;
+                    await nango.saveCheckpoint({
+                        syncToken: calendarSyncToken,
+                        calendarId: calendarId,
+                        pageToken: pageToken
+                    });
+                } else {
+                    const nextSyncToken = data['nextSyncToken'];
+                    if (typeof nextSyncToken === 'string' && nextSyncToken) {
+                        calendarSyncToken = nextSyncToken;
+                        pageToken = '';
+                        await nango.saveCheckpoint({
+                            syncToken: calendarSyncToken,
+                            calendarId: calendarId,
+                            pageToken: ''
+                        });
+                    }
+                    hasMore = false;
                 }
             }
         }
-
-        await nango.saveCheckpoint({
-            updatedAfter: latestTimestamp(maxUpdatedAfter, syncStartedAt)
-        });
     }
 });
 

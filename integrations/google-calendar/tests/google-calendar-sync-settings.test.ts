@@ -51,26 +51,16 @@ describe('google-calendar settings sync tests', () => {
         expect(nangoMock.clearCheckpoint).not.toHaveBeenCalled();
     });
 
-    it('should paginate the settings list with maxResults 250', async () => {
+    it('should fetch the settings list in a single request', async () => {
         const { nangoMock } = createTestContext();
 
         await createSync.exec(nangoMock);
 
-        expect(nangoMock.paginate).toHaveBeenCalledWith({
+        expect(nangoMock.get).toHaveBeenCalledTimes(1);
+        expect(nangoMock.get).toHaveBeenCalledWith({
             endpoint: '/calendar/v3/users/me/settings',
-            method: 'get',
-            params: {
-                maxResults: 250
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'nextPageToken',
-                cursor_name_in_request: 'pageToken',
-                response_path: 'items',
-                limit_name_in_request: 'maxResults',
-                limit: 250
-            },
             retries: 3
         });
+        expect(nangoMock.paginate).not.toHaveBeenCalled();
     });
 });

@@ -1,151 +1,163 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
-const CalendarSchema = z.object({
+const CalendarListEntrySchema = z.object({
     id: z.string(),
-    summary: z.string(),
+    summary: z.string().optional(),
     description: z.string().optional(),
     location: z.string().optional(),
     timeZone: z.string().optional(),
-    accessRole: z.string(),
-    colorId: z.string().optional(),
-    backgroundColor: z.string().optional(),
-    foregroundColor: z.string().optional(),
-    hidden: z.boolean().optional(),
-    selected: z.boolean(),
-    primary: z.boolean().optional(),
-    deleted: z.boolean().optional()
-});
-
-const CheckpointSchema = z.object({
-    syncToken: z.string()
-});
-
-const CalendarListItemSchema = z.object({
-    id: z.string(),
-    summary: z.string(),
-    description: z.string().optional(),
-    location: z.string().optional(),
-    timeZone: z.string().optional(),
-    accessRole: z.string(),
+    summaryOverride: z.string().optional(),
     colorId: z.string().optional(),
     backgroundColor: z.string().optional(),
     foregroundColor: z.string().optional(),
     hidden: z.boolean().optional(),
     selected: z.boolean().optional(),
+    accessRole: z.string().optional(),
     primary: z.boolean().optional(),
     deleted: z.boolean().optional()
 });
 
+const CalendarSchema = z.object({
+    id: z.string(),
+    summary: z.union([z.string(), z.null()]),
+    description: z.union([z.string(), z.null()]),
+    location: z.union([z.string(), z.null()]),
+    timeZone: z.union([z.string(), z.null()]),
+    summaryOverride: z.union([z.string(), z.null()]),
+    colorId: z.union([z.string(), z.null()]),
+    backgroundColor: z.union([z.string(), z.null()]),
+    foregroundColor: z.union([z.string(), z.null()]),
+    hidden: z.boolean(),
+    selected: z.boolean(),
+    accessRole: z.union([z.string(), z.null()]),
+    primary: z.boolean(),
+    deleted: z.boolean()
+});
+
+const CheckpointSchema = z.object({
+    syncToken: z.string(),
+    pageToken: z.string()
+});
+
 const CalendarListResponseSchema = z.object({
+    items: z.array(z.unknown()),
+    nextPageToken: z.string().optional(),
     nextSyncToken: z.string().optional()
 });
 
 const sync = createSync({
     description: "Full sync of the user's calendar list, including access role, colors, primary/selected flags, and deleted status.",
     version: '1.0.0',
-    endpoints: [
-        {
-            method: 'POST',
-            path: '/syncs/calendar-list',
-            group: 'CalendarList'
-        }
-    ],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-
     models: {
         Calendar: CalendarSchema
     },
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/syncs/calendar-list'
+        }
+    ],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     exec: async (nango) => {
-        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
-        const syncToken = checkpoint?.syncToken;
+        const checkpoint = await nango.getCheckpoint();
+        const syncToken = checkpoint?.['syncToken'];
 
-        // Build params object properly
-        const params: Record<string, string | number> = {
-            maxResults: 250
-        };
+        let pageToken: string | undefined = checkpoint?.['pageToken'];
+        let nextSyncToken: string | undefined;
+        let hasMorePages = true;
 
-        if (syncToken) {
-            params['syncToken'] = syncToken;
-            params['showDeleted'] = 'true';
-            params['showHidden'] = 'true';
-        }
+        // https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/list
+        while (hasMorePages) {
+            const params: Record<string, string | number> = {
+                maxResults: 250,
+                showDeleted: 'true',
+                showHidden: 'true'
+            };
 
-        // https://developers.google.com/calendar/api/v3/reference/calendarList/list
-        const proxyConfig = {
-            endpoint: '/calendar/v3/users/me/calendarList',
-            params,
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'nextPageToken',
-                cursor_name_in_request: 'pageToken',
-                response_path: 'items',
-                limit: 250
-            },
-            retries: 3
-        } satisfies ProxyConfiguration;
-
-        for await (const batch of nango.paginate(proxyConfig)) {
-            const items = z.array(CalendarListItemSchema).parse(batch);
-            const calendars = items.map((item) => ({
-                id: item.id,
-                summary: item.summary,
-                description: item.description ?? undefined,
-                location: item.location ?? undefined,
-                timeZone: item.timeZone ?? undefined,
-                accessRole: item.accessRole,
-                colorId: item.colorId ?? undefined,
-                backgroundColor: item.backgroundColor ?? undefined,
-                foregroundColor: item.foregroundColor ?? undefined,
-                hidden: item.hidden ?? false,
-                selected: item.selected ?? false,
-                primary: item.primary ?? false,
-                deleted: item.deleted ?? false
-            }));
-
-            // Handle deleted calendars
-            const deletedCalendars = calendars.filter((c) => c.deleted);
-            const activeCalendars = calendars.filter((c) => !c.deleted);
-
-            if (activeCalendars.length > 0) {
-                await nango.batchSave(activeCalendars, 'Calendar');
+            if (typeof syncToken === 'string') {
+                params['syncToken'] = syncToken;
             }
 
-            if (deletedCalendars.length > 0) {
-                await nango.batchDelete(
-                    deletedCalendars.map((c) => ({ id: c.id })),
-                    'Calendar'
-                );
+            if (typeof pageToken === 'string') {
+                params['pageToken'] = pageToken;
+            }
+
+            const response = await nango.get({
+                endpoint: '/calendar/v3/users/me/calendarList',
+                params,
+                retries: 3
+            });
+
+            const parsedResponse = CalendarListResponseSchema.safeParse(response.data);
+            if (!parsedResponse.success) {
+                break;
+            }
+
+            const responseData = parsedResponse.data;
+            const items = responseData.items;
+            nextSyncToken = responseData.nextSyncToken;
+
+            const calendars: z.infer<typeof CalendarSchema>[] = [];
+            const deletions: { id: string }[] = [];
+
+            for (const item of items) {
+                const parsed = CalendarListEntrySchema.safeParse(item);
+                if (!parsed.success) {
+                    continue;
+                }
+
+                const entry = parsed.data;
+
+                if (entry.deleted) {
+                    deletions.push({ id: entry.id });
+                } else {
+                    calendars.push({
+                        id: entry.id,
+                        summary: entry.summary ?? null,
+                        description: entry.description ?? null,
+                        location: entry.location ?? null,
+                        timeZone: entry.timeZone ?? null,
+                        summaryOverride: entry.summaryOverride ?? null,
+                        colorId: entry.colorId ?? null,
+                        backgroundColor: entry.backgroundColor ?? null,
+                        foregroundColor: entry.foregroundColor ?? null,
+                        hidden: entry.hidden ?? false,
+                        selected: entry.selected ?? false,
+                        accessRole: entry.accessRole ?? null,
+                        primary: entry.primary ?? false,
+                        deleted: entry.deleted ?? false
+                    });
+                }
+            }
+
+            if (calendars.length > 0) {
+                await nango.batchSave(calendars, 'Calendar');
+            }
+
+            if (deletions.length > 0) {
+                await nango.batchDelete(deletions, 'Calendar');
+            }
+
+            if (responseData.nextPageToken) {
+                pageToken = responseData.nextPageToken;
+                await nango.saveCheckpoint({
+                    syncToken: typeof syncToken === 'string' ? syncToken : '',
+                    pageToken
+                });
+            } else {
+                hasMorePages = false;
             }
         }
 
-        // For incremental sync, we need to get the nextSyncToken
-        // Make a single request to get the sync token
-        const finalParams: Record<string, string | number> = {
-            maxResults: 1
-        };
-
-        if (syncToken) {
-            finalParams['syncToken'] = syncToken;
-            finalParams['showDeleted'] = 'true';
-            finalParams['showHidden'] = 'true';
-        }
-
-        const finalResponse = await nango.get({
-            endpoint: '/calendar/v3/users/me/calendarList',
-            params: finalParams,
-            retries: 3
-        });
-
-        const finalData = CalendarListResponseSchema.parse(finalResponse.data);
-
-        if (finalData.nextSyncToken) {
+        if (nextSyncToken) {
             await nango.saveCheckpoint({
-                syncToken: finalData.nextSyncToken
+                syncToken: nextSyncToken,
+                pageToken: ''
             });
         }
     }

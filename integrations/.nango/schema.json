@@ -22295,65 +22295,55 @@
         "location": {
           "type": "string"
         },
+        "colorId": {
+          "type": "string"
+        },
         "creator": {
           "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "self": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         },
         "organizer": {
           "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "self": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         },
         "start": {
           "type": "object",
-          "properties": {
-            "date": {
-              "type": "string"
-            },
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         },
         "end": {
           "type": "object",
-          "properties": {
-            "date": {
-              "type": "string"
-            },
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "endTimeUnspecified": {
+          "type": "boolean"
         },
         "recurrence": {
           "type": "array",
@@ -22366,18 +22356,14 @@
         },
         "originalStartTime": {
           "type": "object",
-          "properties": {
-            "date": {
-              "type": "string"
-            },
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         },
         "transparency": {
           "type": "string"
@@ -22395,36 +22381,148 @@
           "type": "array",
           "items": {
             "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "displayName": {
-                "type": "string"
-              },
-              "responseStatus": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
           }
         },
         "attendeesOmitted": {
           "type": "boolean"
         },
+        "extendedProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
         "hangoutLink": {
           "type": "string"
         },
-        "conferenceData": {},
-        "reminders": {},
-        "attachments": {},
+        "conferenceData": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "gadget": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "anyoneCanAddSelf": {
+          "type": "boolean"
+        },
+        "guestsCanInviteOthers": {
+          "type": "boolean"
+        },
+        "guestsCanModify": {
+          "type": "boolean"
+        },
+        "guestsCanSeeOtherGuests": {
+          "type": "boolean"
+        },
+        "privateCopy": {
+          "type": "boolean"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "reminders": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "workingLocationProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "outOfOfficeProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "focusTimeProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
         "eventType": {
           "type": "string"
         }
       },
       "required": [
-        "id",
-        "updated"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -22460,34 +22558,64 @@
           "type": "string"
         },
         "summary": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "description": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "location": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "timeZone": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "accessRole": {
-          "type": "string"
+        "summaryOverride": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "colorId": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "backgroundColor": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "foregroundColor": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "hidden": {
           "type": "boolean"
         },
         "selected": {
           "type": "boolean"
+        },
+        "accessRole": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "primary": {
           "type": "boolean"
@@ -22499,8 +22627,18 @@
       "required": [
         "id",
         "summary",
+        "description",
+        "location",
+        "timeZone",
+        "summaryOverride",
+        "colorId",
+        "backgroundColor",
+        "foregroundColor",
+        "hidden",
+        "selected",
         "accessRole",
-        "selected"
+        "primary",
+        "deleted"
       ],
       "additionalProperties": false
     },
@@ -22513,13 +22651,18 @@
         "value": {
           "type": "string"
         },
+        "kind": {
+          "type": "string"
+        },
         "etag": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "value"
+        "value",
+        "kind",
+        "etag"
       ],
       "additionalProperties": false
     },
