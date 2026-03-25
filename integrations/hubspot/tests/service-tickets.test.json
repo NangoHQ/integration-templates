@@ -1,0 +1,656 @@
+{
+  "nango": {
+    "batchSave": {
+      "Ticket": [
+        {
+          "id": "394413098217",
+          "subject": "Test Ticket Updated via Nango Action Save",
+          "content": "This is a test ticket created via API",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-02-25T16:16:57.199Z",
+          "updatedAt": "2026-03-12T07:37:06.773Z"
+        },
+        {
+          "id": "395332939975",
+          "subject": "HubSpot - New Issue (Sample Ticket)",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-25T15:17:58.426Z",
+          "updatedAt": "2026-02-25T15:18:03.214Z"
+        },
+        {
+          "id": "395349161170",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket created via API",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "HIGH",
+          "createdAt": "2026-02-25T16:17:04.821Z",
+          "updatedAt": "2026-02-25T16:17:09.792Z"
+        },
+        {
+          "id": "395957561532",
+          "subject": "Updated Test Ticket via Nango Action - Validation Run",
+          "content": "This is a validation test update",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "HIGH",
+          "createdAt": "2026-02-26T13:45:28.785Z",
+          "updatedAt": "2026-03-09T20:29:49.780Z"
+        },
+        {
+          "id": "395957561559",
+          "subject": "Test Ticket from Nango",
+          "content": "This is a test ticket created for validation",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-26T13:46:49.242Z",
+          "updatedAt": "2026-02-26T13:46:52.157Z"
+        },
+        {
+          "id": "396108445899",
+          "subject": "Test support ticket from Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-26T13:45:36.104Z",
+          "updatedAt": "2026-02-26T13:45:40.544Z"
+        },
+        {
+          "id": "397430244559",
+          "subject": "Updated Ticket Subject Again",
+          "content": "Final content update for testing",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-27T17:55:48.558Z",
+          "updatedAt": "2026-02-27T17:56:26.390Z"
+        },
+        {
+          "id": "397523436773",
+          "subject": "Test support ticket from API",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-27T17:52:52.231Z",
+          "updatedAt": "2026-02-27T17:52:58.297Z"
+        },
+        {
+          "id": "397523436777",
+          "subject": "Test support ticket from API",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-02-27T17:53:05.073Z",
+          "updatedAt": "2026-02-27T17:53:12.926Z"
+        },
+        {
+          "id": "403175374038",
+          "subject": "Test Support Ticket from Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-04T21:09:32.449Z",
+          "updatedAt": "2026-03-04T21:09:35.811Z"
+        },
+        {
+          "id": "403721593039",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket for API validation",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-05T10:34:46.033Z",
+          "updatedAt": "2026-03-05T10:34:55.156Z"
+        },
+        {
+          "id": "403784434930",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket for API validation",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-05T10:34:26.799Z",
+          "updatedAt": "2026-03-05T10:34:35.374Z"
+        },
+        {
+          "id": "407369744619",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket created via Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-03-09T11:02:58.947Z",
+          "updatedAt": "2026-03-09T11:03:03.445Z"
+        },
+        {
+          "id": "407433605326",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket created via Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-03-09T11:02:35.951Z",
+          "updatedAt": "2026-03-09T11:02:40.928Z"
+        },
+        {
+          "id": "407668053180",
+          "subject": "Test Support Ticket",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-09T20:25:45.515Z",
+          "updatedAt": "2026-03-09T20:25:49.146Z"
+        },
+        {
+          "id": "407709422816",
+          "subject": "Test Support Ticket",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-09T20:25:31.082Z",
+          "updatedAt": "2026-03-09T20:25:35.456Z"
+        },
+        {
+          "id": "408883206348",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket created via Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-03-11T13:04:18.439Z",
+          "updatedAt": "2026-03-11T13:04:26.963Z"
+        },
+        {
+          "id": "408942123219",
+          "subject": "Test Ticket for Dryrun",
+          "content": "This is a test ticket",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-03-11T13:16:39.535Z",
+          "updatedAt": "2026-03-11T13:16:46.749Z"
+        },
+        {
+          "id": "408969565389",
+          "subject": "Updated Ticket Subject",
+          "content": "This ticket has been updated",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "HIGH",
+          "createdAt": "2026-03-11T13:24:30.374Z",
+          "updatedAt": "2026-03-11T13:25:10.139Z"
+        },
+        {
+          "id": "408973266133",
+          "subject": "Test Support Ticket",
+          "content": "This is a test ticket created via Nango",
+          "pipeline": "0",
+          "stage": "1",
+          "priority": "MEDIUM",
+          "createdAt": "2026-03-11T13:04:48.033Z",
+          "updatedAt": "2026-03-11T13:04:56.717Z"
+        },
+        {
+          "id": "409229446355",
+          "subject": "Test support ticket from API",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-12T07:33:57.041Z",
+          "updatedAt": "2026-03-12T07:34:05.351Z"
+        },
+        {
+          "id": "409341883583",
+          "subject": "Test support ticket from API",
+          "pipeline": "0",
+          "stage": "1",
+          "createdAt": "2026-03-12T07:33:43.699Z",
+          "updatedAt": "2026-03-12T07:33:56.014Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Ticket": []
+    }
+  },
+  "api": {
+    "get": {
+      "/crm/v3/objects/tickets": {
+        "response": {
+          "results": [
+            {
+              "id": "394413098217",
+              "properties": {
+                "content": "This is a test ticket created via API",
+                "createdate": "2026-02-25T16:16:57.199Z",
+                "hs_lastmodifieddate": "2026-03-12T07:37:06.773Z",
+                "hs_object_id": "394413098217",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Ticket Updated via Nango Action Save"
+              },
+              "createdAt": "2026-02-25T16:16:57.199Z",
+              "updatedAt": "2026-03-12T07:37:06.773Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/394413098217"
+            },
+            {
+              "id": "395332939975",
+              "properties": {
+                "content": null,
+                "createdate": "2026-02-25T15:17:58.426Z",
+                "hs_lastmodifieddate": "2026-02-25T15:18:03.214Z",
+                "hs_object_id": "395332939975",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "HubSpot - New Issue (Sample Ticket)"
+              },
+              "createdAt": "2026-02-25T15:17:58.426Z",
+              "updatedAt": "2026-02-25T15:18:03.214Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/395332939975"
+            },
+            {
+              "id": "395349161170",
+              "properties": {
+                "content": "This is a test ticket created via API",
+                "createdate": "2026-02-25T16:17:04.821Z",
+                "hs_lastmodifieddate": "2026-02-25T16:17:09.792Z",
+                "hs_object_id": "395349161170",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "HIGH",
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-02-25T16:17:04.821Z",
+              "updatedAt": "2026-02-25T16:17:09.792Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/395349161170"
+            },
+            {
+              "id": "395957561532",
+              "properties": {
+                "content": "This is a validation test update",
+                "createdate": "2026-02-26T13:45:28.785Z",
+                "hs_lastmodifieddate": "2026-03-09T20:29:49.780Z",
+                "hs_object_id": "395957561532",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "HIGH",
+                "hubspot_owner_id": null,
+                "subject": "Updated Test Ticket via Nango Action - Validation Run"
+              },
+              "createdAt": "2026-02-26T13:45:28.785Z",
+              "updatedAt": "2026-03-09T20:29:49.780Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/395957561532"
+            },
+            {
+              "id": "395957561559",
+              "properties": {
+                "content": "This is a test ticket created for validation",
+                "createdate": "2026-02-26T13:46:49.242Z",
+                "hs_lastmodifieddate": "2026-02-26T13:46:52.157Z",
+                "hs_object_id": "395957561559",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Ticket from Nango"
+              },
+              "createdAt": "2026-02-26T13:46:49.242Z",
+              "updatedAt": "2026-02-26T13:46:52.157Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/395957561559"
+            },
+            {
+              "id": "396108445899",
+              "properties": {
+                "content": null,
+                "createdate": "2026-02-26T13:45:36.104Z",
+                "hs_lastmodifieddate": "2026-02-26T13:45:40.544Z",
+                "hs_object_id": "396108445899",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test support ticket from Nango"
+              },
+              "createdAt": "2026-02-26T13:45:36.104Z",
+              "updatedAt": "2026-02-26T13:45:40.544Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/396108445899"
+            },
+            {
+              "id": "397430244559",
+              "properties": {
+                "content": "Final content update for testing",
+                "createdate": "2026-02-27T17:55:48.558Z",
+                "hs_lastmodifieddate": "2026-02-27T17:56:26.390Z",
+                "hs_object_id": "397430244559",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Updated Ticket Subject Again"
+              },
+              "createdAt": "2026-02-27T17:55:48.558Z",
+              "updatedAt": "2026-02-27T17:56:26.390Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/397430244559"
+            },
+            {
+              "id": "397523436773",
+              "properties": {
+                "content": null,
+                "createdate": "2026-02-27T17:52:52.231Z",
+                "hs_lastmodifieddate": "2026-02-27T17:52:58.297Z",
+                "hs_object_id": "397523436773",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test support ticket from API"
+              },
+              "createdAt": "2026-02-27T17:52:52.231Z",
+              "updatedAt": "2026-02-27T17:52:58.297Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/397523436773"
+            },
+            {
+              "id": "397523436777",
+              "properties": {
+                "content": null,
+                "createdate": "2026-02-27T17:53:05.073Z",
+                "hs_lastmodifieddate": "2026-02-27T17:53:12.926Z",
+                "hs_object_id": "397523436777",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test support ticket from API"
+              },
+              "createdAt": "2026-02-27T17:53:05.073Z",
+              "updatedAt": "2026-02-27T17:53:12.926Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/397523436777"
+            },
+            {
+              "id": "403175374038",
+              "properties": {
+                "content": null,
+                "createdate": "2026-03-04T21:09:32.449Z",
+                "hs_lastmodifieddate": "2026-03-04T21:09:35.811Z",
+                "hs_object_id": "403175374038",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket from Nango"
+              },
+              "createdAt": "2026-03-04T21:09:32.449Z",
+              "updatedAt": "2026-03-04T21:09:35.811Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/403175374038"
+            },
+            {
+              "id": "403721593039",
+              "properties": {
+                "content": "This is a test ticket for API validation",
+                "createdate": "2026-03-05T10:34:46.033Z",
+                "hs_lastmodifieddate": "2026-03-05T10:34:55.156Z",
+                "hs_object_id": "403721593039",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-05T10:34:46.033Z",
+              "updatedAt": "2026-03-05T10:34:55.156Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/403721593039"
+            },
+            {
+              "id": "403784434930",
+              "properties": {
+                "content": "This is a test ticket for API validation",
+                "createdate": "2026-03-05T10:34:26.799Z",
+                "hs_lastmodifieddate": "2026-03-05T10:34:35.374Z",
+                "hs_object_id": "403784434930",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-05T10:34:26.799Z",
+              "updatedAt": "2026-03-05T10:34:35.374Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/403784434930"
+            },
+            {
+              "id": "407369744619",
+              "properties": {
+                "content": "This is a test ticket created via Nango",
+                "createdate": "2026-03-09T11:02:58.947Z",
+                "hs_lastmodifieddate": "2026-03-09T11:03:03.445Z",
+                "hs_object_id": "407369744619",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-09T11:02:58.947Z",
+              "updatedAt": "2026-03-09T11:03:03.445Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/407369744619"
+            },
+            {
+              "id": "407433605326",
+              "properties": {
+                "content": "This is a test ticket created via Nango",
+                "createdate": "2026-03-09T11:02:35.951Z",
+                "hs_lastmodifieddate": "2026-03-09T11:02:40.928Z",
+                "hs_object_id": "407433605326",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-09T11:02:35.951Z",
+              "updatedAt": "2026-03-09T11:02:40.928Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/407433605326"
+            },
+            {
+              "id": "407668053180",
+              "properties": {
+                "content": null,
+                "createdate": "2026-03-09T20:25:45.515Z",
+                "hs_lastmodifieddate": "2026-03-09T20:25:49.146Z",
+                "hs_object_id": "407668053180",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-09T20:25:45.515Z",
+              "updatedAt": "2026-03-09T20:25:49.146Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/407668053180"
+            },
+            {
+              "id": "407709422816",
+              "properties": {
+                "content": null,
+                "createdate": "2026-03-09T20:25:31.082Z",
+                "hs_lastmodifieddate": "2026-03-09T20:25:35.456Z",
+                "hs_object_id": "407709422816",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-09T20:25:31.082Z",
+              "updatedAt": "2026-03-09T20:25:35.456Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/407709422816"
+            },
+            {
+              "id": "408883206348",
+              "properties": {
+                "content": "This is a test ticket created via Nango",
+                "createdate": "2026-03-11T13:04:18.439Z",
+                "hs_lastmodifieddate": "2026-03-11T13:04:26.963Z",
+                "hs_object_id": "408883206348",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-11T13:04:18.439Z",
+              "updatedAt": "2026-03-11T13:04:26.963Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/408883206348"
+            },
+            {
+              "id": "408942123219",
+              "properties": {
+                "content": "This is a test ticket",
+                "createdate": "2026-03-11T13:16:39.535Z",
+                "hs_lastmodifieddate": "2026-03-11T13:16:46.749Z",
+                "hs_object_id": "408942123219",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Ticket for Dryrun"
+              },
+              "createdAt": "2026-03-11T13:16:39.535Z",
+              "updatedAt": "2026-03-11T13:16:46.749Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/408942123219"
+            },
+            {
+              "id": "408969565389",
+              "properties": {
+                "content": "This ticket has been updated",
+                "createdate": "2026-03-11T13:24:30.374Z",
+                "hs_lastmodifieddate": "2026-03-11T13:25:10.139Z",
+                "hs_object_id": "408969565389",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "HIGH",
+                "hubspot_owner_id": null,
+                "subject": "Updated Ticket Subject"
+              },
+              "createdAt": "2026-03-11T13:24:30.374Z",
+              "updatedAt": "2026-03-11T13:25:10.139Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/408969565389"
+            },
+            {
+              "id": "408973266133",
+              "properties": {
+                "content": "This is a test ticket created via Nango",
+                "createdate": "2026-03-11T13:04:48.033Z",
+                "hs_lastmodifieddate": "2026-03-11T13:04:56.717Z",
+                "hs_object_id": "408973266133",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": "MEDIUM",
+                "hubspot_owner_id": null,
+                "subject": "Test Support Ticket"
+              },
+              "createdAt": "2026-03-11T13:04:48.033Z",
+              "updatedAt": "2026-03-11T13:04:56.717Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/408973266133"
+            },
+            {
+              "id": "409229446355",
+              "properties": {
+                "content": null,
+                "createdate": "2026-03-12T07:33:57.041Z",
+                "hs_lastmodifieddate": "2026-03-12T07:34:05.351Z",
+                "hs_object_id": "409229446355",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test support ticket from API"
+              },
+              "createdAt": "2026-03-12T07:33:57.041Z",
+              "updatedAt": "2026-03-12T07:34:05.351Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/409229446355"
+            },
+            {
+              "id": "409341883583",
+              "properties": {
+                "content": null,
+                "createdate": "2026-03-12T07:33:43.699Z",
+                "hs_lastmodifieddate": "2026-03-12T07:33:56.014Z",
+                "hs_object_id": "409341883583",
+                "hs_pipeline": "0",
+                "hs_pipeline_stage": "1",
+                "hs_ticket_priority": null,
+                "hubspot_owner_id": null,
+                "subject": "Test support ticket from API"
+              },
+              "createdAt": "2026-03-12T07:33:43.699Z",
+              "updatedAt": "2026-03-12T07:33:56.014Z",
+              "archived": false,
+              "url": "https://app-eu1.hubspot.com/contacts/147893286/record/0-5/409341883583"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 18 Mar 2026 10:54:47 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1773831292",
+          "cf-ray": "9de3b38858b68864-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "origin, accept-encoding",
+          "access-control-allow-credentials": "false",
+          "server-timing": "hcid;desc=\"69ba8477-0000-0000-01d9-b408ffc20aec\", cfr;desc=\"9de3b38861398864-FRA\"",
+          "x-hubspot-correlation-id": "69ba8477-0000-0000-01d9-b408ffc20aec",
+          "x-hubspot-ratelimit-interval-milliseconds": "10000",
+          "x-hubspot-ratelimit-max": "110",
+          "x-hubspot-ratelimit-remaining": "108",
+          "x-hubspot-ratelimit-secondly": "11",
+          "x-hubspot-ratelimit-secondly-remaining": "10",
+          "set-cookie": "__cf_bm=7qV2czld6jHFj2kVCgoroJoTP5TPTCbpWnpK3oVaflc-1773831287-1.0.1.1-k50nUKii0qaj3sZ.i37nr5GYq8vP6iBxyT8MDS4fFdZVekyBkv.QTkcZwhOpqLZKgsKof0IoEMfqoZnbrupTiJZg_RMInptAlZelhJ.m8dc; path=/; expires=Wed, 18-Mar-26 11:24:47 GMT; domain=.hubapi.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=jSfHKJJT9z305WVmKkMSFLrsH7IrnF9RlmauYq6TQfColyjnadvv47EMRqs6ALDfwZw0J6C36u%2Bxq5Ufs%2FmmIw%2BvOOdoK8pHdesUzusXhUI%2FnSAWDxWc5jylkAN%2BNc9W\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare"
+        },
+        "hash": "4d8da21cc63d4e60473780a682478be7a4711382",
+        "request": {
+          "params": {
+            "limit": "100",
+            "properties": "subject,content,hubspot_owner_id,hs_pipeline,hs_pipeline_stage,hs_category,hs_ticket_priority,createdate,hs_lastmodifieddate"
+          }
+        }
+      }
+    }
+  }
+}
