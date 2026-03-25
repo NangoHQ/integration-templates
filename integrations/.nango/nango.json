@@ -36430,7 +36430,7 @@
         "auto_start": true,
         "endpoints": [
           {
-            "method": "POST",
+            "method": "GET",
             "path": "/syncs/calendar-events"
           }
         ],
@@ -36439,7 +36439,7 @@
         "output": [
           "CalendarEvent"
         ],
-        "runs": "every 5 minutes",
+        "runs": "every hour",
         "scopes": [],
         "sync_type": "full",
         "track_deletes": false,
@@ -36484,65 +36484,39 @@
                 "location": {
                   "type": "string"
                 },
+                "colorId": {
+                  "type": "string"
+                },
                 "creator": {
                   "type": "object",
-                  "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "displayName": {
-                      "type": "string"
-                    },
-                    "self": {
-                      "type": "boolean"
-                    }
+                  "propertyNames": {
+                    "type": "string"
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
                 },
                 "organizer": {
                   "type": "object",
-                  "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "displayName": {
-                      "type": "string"
-                    },
-                    "self": {
-                      "type": "boolean"
-                    }
+                  "propertyNames": {
+                    "type": "string"
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
                 },
                 "start": {
                   "type": "object",
-                  "properties": {
-                    "date": {
-                      "type": "string"
-                    },
-                    "dateTime": {
-                      "type": "string"
-                    },
-                    "timeZone": {
-                      "type": "string"
-                    }
+                  "propertyNames": {
+                    "type": "string"
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
                 },
                 "end": {
                   "type": "object",
-                  "properties": {
-                    "date": {
-                      "type": "string"
-                    },
-                    "dateTime": {
-                      "type": "string"
-                    },
-                    "timeZone": {
-                      "type": "string"
-                    }
+                  "propertyNames": {
+                    "type": "string"
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
+                },
+                "endTimeUnspecified": {
+                  "type": "boolean"
                 },
                 "recurrence": {
                   "type": "array",
@@ -36555,18 +36529,10 @@
                 },
                 "originalStartTime": {
                   "type": "object",
-                  "properties": {
-                    "date": {
-                      "type": "string"
-                    },
-                    "dateTime": {
-                      "type": "string"
-                    },
-                    "timeZone": {
-                      "type": "string"
-                    }
+                  "propertyNames": {
+                    "type": "string"
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
                 },
                 "transparency": {
                   "type": "string"
@@ -36584,38 +36550,110 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "properties": {
-                      "email": {
-                        "type": "string"
-                      },
-                      "displayName": {
-                        "type": "string"
-                      },
-                      "responseStatus": {
-                        "type": "string"
-                      }
+                    "propertyNames": {
+                      "type": "string"
                     },
-                    "additionalProperties": false
+                    "additionalProperties": {}
                   }
                 },
                 "attendeesOmitted": {
                   "type": "boolean"
                 },
+                "extendedProperties": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
                 "hangoutLink": {
                   "type": "string"
                 },
-                "conferenceData": {},
-                "reminders": {},
-                "attachments": {},
+                "conferenceData": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "gadget": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "anyoneCanAddSelf": {
+                  "type": "boolean"
+                },
+                "guestsCanInviteOthers": {
+                  "type": "boolean"
+                },
+                "guestsCanModify": {
+                  "type": "boolean"
+                },
+                "guestsCanSeeOtherGuests": {
+                  "type": "boolean"
+                },
+                "privateCopy": {
+                  "type": "boolean"
+                },
+                "locked": {
+                  "type": "boolean"
+                },
+                "reminders": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "source": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "workingLocationProperties": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "outOfOfficeProperties": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "focusTimeProperties": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
                 "eventType": {
                   "type": "string"
                 }
               },
               "required": [
-                "id",
-                "updated"
+                "id"
               ],
-              "additionalProperties": false
+              "additionalProperties": {}
             },
             "SyncMetadata_google_calendar_calendarevents": {
               "type": "object",
@@ -36654,9 +36692,8 @@
         "auto_start": true,
         "endpoints": [
           {
-            "method": "POST",
-            "path": "/syncs/calendar-list",
-            "group": "CalendarList"
+            "method": "GET",
+            "path": "/syncs/calendar-list"
           }
         ],
         "input": null,
@@ -36665,7 +36702,9 @@
           "Calendar"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -36682,34 +36721,100 @@
                   "type": "string"
                 },
                 "summary": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "description": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "location": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "timeZone": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
-                "accessRole": {
-                  "type": "string"
+                "summaryOverride": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "colorId": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "backgroundColor": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "foregroundColor": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "hidden": {
                   "type": "boolean"
                 },
                 "selected": {
                   "type": "boolean"
+                },
+                "accessRole": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "primary": {
                   "type": "boolean"
@@ -36721,8 +36826,18 @@
               "required": [
                 "id",
                 "summary",
+                "description",
+                "location",
+                "timeZone",
+                "summaryOverride",
+                "colorId",
+                "backgroundColor",
+                "foregroundColor",
+                "hidden",
+                "selected",
                 "accessRole",
-                "selected"
+                "primary",
+                "deleted"
               ],
               "additionalProperties": false
             }
@@ -36739,8 +36854,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/settings",
-            "group": "Settings"
+            "path": "/syncs/settings"
           }
         ],
         "input": null,
@@ -36768,13 +36882,18 @@
                 "value": {
                   "type": "string"
                 },
+                "kind": {
+                  "type": "string"
+                },
                 "etag": {
                   "type": "string"
                 }
               },
               "required": [
                 "id",
-                "value"
+                "value",
+                "kind",
+                "etag"
               ],
               "additionalProperties": false
             }
