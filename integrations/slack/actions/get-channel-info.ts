@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve conversation details including topic, purpose, and membership state',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

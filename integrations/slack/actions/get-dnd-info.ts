@@ -17,7 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a user's Do Not Disturb status and next scheduled DND window",
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'GET',

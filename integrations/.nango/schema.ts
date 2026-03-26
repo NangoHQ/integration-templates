@@ -6591,7 +6591,7 @@ export interface File {
   trashed?: boolean | undefined;
 };
 
-export interface SyncMetadata_google_drive_files {
+export interface SyncMetadata_google_drive_documents {
   /**
    * Array of file IDs to sync directly
    */

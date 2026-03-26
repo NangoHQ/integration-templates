@@ -30,8 +30,8 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync file metadata for IDs in connection metadata files, or recursively for all files under folder IDs in folders. Supports shared drives.',
-    version: '1.0.0',
-    endpoints: [{ method: 'POST', path: '/syncs/files', group: 'Files' }],
+    version: '5.0.0',
+    endpoints: [{ method: 'POST', path: '/syncs/documents', group: 'Documents' }],
     frequency: 'every 30 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,

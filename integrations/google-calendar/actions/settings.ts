@@ -19,7 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch all user settings across pages from Google Calendar',
-    version: '1.0.0',
+    version: '3.0.0',
 
     endpoint: {
         method: 'GET',

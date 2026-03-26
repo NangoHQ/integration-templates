@@ -309,7 +309,7 @@ import './google-calendar/actions/watch-settings.js';
 import './google-calendar/actions/whoami.js';
 
 // -- Integration: google-drive
-import './google-drive/syncs/files.js';
+import './google-drive/syncs/documents.js';
 import './google-drive/syncs/folders.js';
 import './google-drive/syncs/permissions.js';
 import './google-drive/syncs/shared-drives.js';

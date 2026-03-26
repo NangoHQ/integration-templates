@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a company record',
-    version: '1.0.0',
+    version: '3.0.0',
 
     endpoint: {
         method: 'POST',

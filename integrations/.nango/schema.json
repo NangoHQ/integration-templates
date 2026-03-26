@@ -26787,7 +26787,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_drive_files": {
+    "SyncMetadata_google_drive_documents": {
       "type": "object",
       "properties": {
         "files": {

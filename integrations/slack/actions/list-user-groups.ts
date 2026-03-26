@@ -36,7 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List workspace user groups with optional disabled and membership counts',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

@@ -17,7 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Open a direct or multi-person DM for specified users',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

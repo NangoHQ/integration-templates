@@ -29,7 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a HubSpot task's fields, owner, due date, and associations",
-    version: '1.0.0',
+    version: '3.0.0',
 
     endpoint: {
         method: 'POST',

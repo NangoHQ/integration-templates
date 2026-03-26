@@ -49,7 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get an event by ID from Google Calendar',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'GET',

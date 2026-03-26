@@ -1,14 +1,14 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/files.js';
+import createSync from '../syncs/documents.js';
 
-describe('google-drive files tests', () => {
+describe('google-drive documents tests', () => {
     const models = 'File'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'files',
+            name: 'documents',
             Model: 'File'
         });
 

@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Clear a calendar by deleting all events',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

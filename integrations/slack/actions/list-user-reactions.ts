@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List items the user reacted to with cursor-based pagination',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

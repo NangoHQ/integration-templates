@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Set a user's presence to online or away",
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',
