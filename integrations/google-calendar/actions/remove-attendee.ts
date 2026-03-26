@@ -35,7 +35,7 @@ const EventResponseSchema = z.object({
 
 const action = createAction({
     description: 'Fetch an event, remove an attendee by email, and patch attendees',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

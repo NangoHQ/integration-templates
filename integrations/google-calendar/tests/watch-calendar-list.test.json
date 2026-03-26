@@ -1,7 +1,7 @@
 {
   "input": {
     "id": "550e8400-e29b-41d4-a716-446655440002",
-    "address": "https://api.nango.dev/webhook/google-calendar/calendar-list"
+    "address": "https://api.nango.dev/webhook/google-calendar/calendars"
   },
   "output": {
     "kind": "api#channel",
@@ -52,7 +52,7 @@
           "data": {
             "id": "550e8400-e29b-41d4-a716-446655440002",
             "type": "web_hook",
-            "address": "https://api.nango.dev/webhook/google-calendar/calendar-list"
+            "address": "https://api.nango.dev/webhook/google-calendar/calendars"
           }
         }
       }

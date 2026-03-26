@@ -36,7 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Add an existing calendar to the user's calendar list with optional colors",
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

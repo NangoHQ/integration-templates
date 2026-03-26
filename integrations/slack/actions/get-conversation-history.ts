@@ -51,7 +51,7 @@ const ConversationHistoryResponseSchema = z.object({
 
 const action = createAction({
     description: 'Fetch paginated message history for a conversation within optional time bounds',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

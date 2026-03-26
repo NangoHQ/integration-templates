@@ -49,7 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move an event to another calendar, changing its organizer',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

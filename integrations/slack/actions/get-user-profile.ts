@@ -58,7 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve a user's detailed profile, status, and custom fields",
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

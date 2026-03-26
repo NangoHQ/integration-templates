@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an access control rule',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

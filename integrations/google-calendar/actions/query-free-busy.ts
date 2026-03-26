@@ -44,7 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Return free/busy blocks for one or more calendars in a time range',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

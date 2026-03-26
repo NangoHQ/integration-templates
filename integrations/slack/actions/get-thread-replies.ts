@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch paginated thread replies and parent message for a conversation thread',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'GET',

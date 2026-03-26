@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived conversation so members can use it again',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

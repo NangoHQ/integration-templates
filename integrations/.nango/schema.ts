@@ -4576,7 +4576,7 @@ export interface CalendarEvent {
   eventType?: string | undefined;
 };
 
-export interface SyncMetadata_google_calendar_calendarevents {
+export interface SyncMetadata_google_calendar_events {
   /**
    * Array of calendar IDs to sync. Defaults to ["primary"]
    */
@@ -5443,7 +5443,7 @@ export interface ActionOutput_google_calendar_listaclrules {
   nextSyncToken?: string | undefined;
 };
 
-export interface ActionInput_google_calendar_listcalendarlist {
+export interface ActionInput_google_calendar_listcalendars {
   /**
    * Page token for pagination. Omit for first page.
    */
@@ -5454,7 +5454,7 @@ export interface ActionInput_google_calendar_listcalendarlist {
   maxResults?: number | undefined;
 };
 
-export interface ActionOutput_google_calendar_listcalendarlist {
+export interface ActionOutput_google_calendar_listcalendars {
   calendars: ({  id: string;
   summary: string;
   description?: string | undefined;
@@ -5470,7 +5470,7 @@ export interface ActionOutput_google_calendar_listcalendarlist {
   nextPageToken?: string | undefined;
 };
 
-export interface ActionInput_google_calendar_listeventinstances {
+export interface ActionInput_google_calendar_geteventinstances {
   /**
    * Calendar identifier. Use "primary" for the primary calendar of the logged-in user.
    */
@@ -5513,7 +5513,7 @@ export interface ActionInput_google_calendar_listeventinstances {
   timeZone?: string | undefined;
 };
 
-export interface ActionOutput_google_calendar_listeventinstances {
+export interface ActionOutput_google_calendar_geteventinstances {
   /**
    * List of event instances.
    */
@@ -6591,7 +6591,7 @@ export interface File {
   trashed?: boolean | undefined;
 };
 
-export interface SyncMetadata_google_drive_syncfiles {
+export interface SyncMetadata_google_drive_documents {
   /**
    * Array of file IDs to sync directly
    */
@@ -7257,7 +7257,7 @@ export interface ActionOutput_google_drive_listpermissions {
   nextPageToken?: string | undefined;
 };
 
-export interface ActionInput_google_drive_listshareddrives {
+export interface ActionInput_google_drive_listdrives {
   /**
    * Pagination cursor from previous response. Omit for first page.
    */
@@ -7272,7 +7272,7 @@ export interface ActionInput_google_drive_listshareddrives {
   query?: string | undefined;
 };
 
-export interface ActionOutput_google_drive_listshareddrives {
+export interface ActionOutput_google_drive_listdrives {
   drives: ({  id: string;
   name: string;
   colorRgb?: string | undefined;
@@ -7591,7 +7591,7 @@ export interface Row {
   values: any[];
 };
 
-export interface SyncMetadata_google_sheet_syncrows {
+export interface SyncMetadata_google_sheet_rows {
   /**
    * Google Spreadsheet ID. Example: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
    */
@@ -7641,7 +7641,7 @@ export interface Worksheet {
   hidden?: boolean | undefined;
 };
 
-export interface SyncMetadata_google_sheet_syncworksheets {
+export interface SyncMetadata_google_sheet_worksheets {
   /**
    * Google Sheets spreadsheet ID to sync worksheets from
    */
@@ -16320,7 +16320,7 @@ export interface Channel {
   last_set: number;};
 };
 
-export interface SyncMetadata_slack_syncchannels {
+export interface SyncMetadata_slack_channels {
   /**
    * Whether to auto-join public channels
    */
@@ -16383,7 +16383,7 @@ export interface ActionOutput_slack_archivechannel {
   error?: string | undefined;
 };
 
-export interface ActionInput_slack_createconversation {
+export interface ActionInput_slack_createchannel {
   /**
    * Name of the channel to create. Must be lowercase, contain only letters, numbers, hyphens, and underscores, and be 80 characters or less.
    */
@@ -16394,7 +16394,7 @@ export interface ActionInput_slack_createconversation {
   is_private?: boolean | undefined;
 };
 
-export interface ActionOutput_slack_createconversation {
+export interface ActionOutput_slack_createchannel {
   /**
    * The unique identifier of the channel.
    */
@@ -16502,7 +16502,7 @@ export interface ActionOutput_slack_deletescheduledmessage {
   ok: boolean;
 };
 
-export interface ActionInput_slack_findmessage {
+export interface ActionInput_slack_searchmessages {
   /**
    * Search query string. Example: "pickleface"
    */
@@ -16533,7 +16533,7 @@ export interface ActionInput_slack_findmessage {
   team_id?: string | undefined;
 };
 
-export interface ActionOutput_slack_findmessage {
+export interface ActionOutput_slack_searchmessages {
   /**
    * Array of matching messages
    */
@@ -16615,14 +16615,14 @@ export interface ActionOutput_slack_findmessage {
   next_cursor?: string | undefined;
 };
 
-export interface ActionInput_slack_finduserbyemail {
+export interface ActionInput_slack_lookupuserbyemail {
   /**
    * Email address of the user to look up. Example: "user@example.com"
    */
   email: string;
 };
 
-export interface ActionOutput_slack_finduserbyemail {
+export interface ActionOutput_slack_lookupuserbyemail {
   id: string;
   team_id: string;
   name: string;
@@ -17064,7 +17064,7 @@ export interface ActionOutput_slack_getuserprofile {
   updated?: number | undefined;
 };
 
-export interface ActionInput_slack_inviteuserstoconversation {
+export interface ActionInput_slack_invitetochannel {
   /**
    * The ID of the public or private channel to invite user(s) to. Example: "C024BE91L"
    */
@@ -17079,7 +17079,7 @@ export interface ActionInput_slack_inviteuserstoconversation {
   force?: boolean | undefined;
 };
 
-export interface ActionOutput_slack_inviteuserstoconversation {
+export interface ActionOutput_slack_invitetochannel {
   ok: boolean;
   channel?: any | undefined;
   error?: string | undefined;
@@ -17113,14 +17113,14 @@ export interface ActionOutput_slack_joinchannel {
   last_set: number;} | undefined;
 };
 
-export interface ActionInput_slack_leaveconversation {
+export interface ActionInput_slack_leavechannel {
   /**
    * The ID of the channel to leave. Example: "C1234567890"
    */
   channel_id: string;
 };
 
-export interface ActionOutput_slack_leaveconversation {
+export interface ActionOutput_slack_leavechannel {
   /**
    * Whether the request was successful
    */
@@ -17131,7 +17131,7 @@ export interface ActionOutput_slack_leaveconversation {
   error?: string | undefined;
 };
 
-export interface ActionInput_slack_listconversationmembers {
+export interface ActionInput_slack_getchannelmembers {
   /**
    * Slack channel ID to list members for. Example: "C0123456789"
    */
@@ -17146,7 +17146,7 @@ export interface ActionInput_slack_listconversationmembers {
   limit?: number | undefined;
 };
 
-export interface ActionOutput_slack_listconversationmembers {
+export interface ActionOutput_slack_getchannelmembers {
   /**
    * List of user IDs belonging to the conversation members
    */
@@ -17157,7 +17157,7 @@ export interface ActionOutput_slack_listconversationmembers {
   next_cursor?: string | undefined;
 };
 
-export interface ActionInput_slack_listconversations {
+export interface ActionInput_slack_listchannels {
   /**
    * Comma-separated list of conversation types to filter by. Options: public_channel, private_channel, mpim, im. Default: public_channel.
    */
@@ -17172,7 +17172,7 @@ export interface ActionInput_slack_listconversations {
   limit?: number | undefined;
 };
 
-export interface ActionOutput_slack_listconversations {
+export interface ActionOutput_slack_listchannels {
   conversations: ({  id: string;
   name: string;
   created: number;
@@ -17560,7 +17560,7 @@ export interface ActionOutput_slack_removereaction {
   error?: string | undefined;
 };
 
-export interface ActionInput_slack_removeuserfromconversation {
+export interface ActionInput_slack_removefromchannel {
   /**
    * The ID of the channel to remove the user from. Example: "C1234567890"
    */
@@ -17571,12 +17571,12 @@ export interface ActionInput_slack_removeuserfromconversation {
   user_id: string;
 };
 
-export interface ActionOutput_slack_removeuserfromconversation {
+export interface ActionOutput_slack_removefromchannel {
   ok: boolean;
   error?: string | undefined;
 };
 
-export interface ActionInput_slack_renameconversation {
+export interface ActionInput_slack_renamechannel {
   /**
    * The ID of the channel to rename. Example: "C0123456789"
    */
@@ -17587,7 +17587,7 @@ export interface ActionInput_slack_renameconversation {
   channel_name: string;
 };
 
-export interface ActionOutput_slack_renameconversation {
+export interface ActionOutput_slack_renamechannel {
   /**
    * Channel ID
    */

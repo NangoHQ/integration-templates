@@ -20,7 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

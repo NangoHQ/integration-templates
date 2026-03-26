@@ -14,7 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a channel's purpose text for a conversation",
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a HubSpot note with body, timestamp, owner, optional attachments, and an explicit association to a contact, company, deal, or ticket.',
-    version: '1.0.0',
+    version: '2.0.0',
 
     endpoint: {
         method: 'POST',

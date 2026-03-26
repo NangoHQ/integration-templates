@@ -22526,7 +22526,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_calendar_calendarevents": {
+    "SyncMetadata_google_calendar_events": {
       "type": "object",
       "properties": {
         "calendarsToSync": {
@@ -24303,7 +24303,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_google_calendar_listcalendarlist": {
+    "ActionInput_google_calendar_listcalendars": {
       "type": "object",
       "properties": {
         "cursor": {
@@ -24317,7 +24317,7 @@
       },
       "additionalProperties": false
     },
-    "ActionOutput_google_calendar_listcalendarlist": {
+    "ActionOutput_google_calendar_listcalendars": {
       "type": "object",
       "properties": {
         "calendars": {
@@ -24378,7 +24378,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_google_calendar_listeventinstances": {
+    "ActionInput_google_calendar_geteventinstances": {
       "type": "object",
       "properties": {
         "calendarId": {
@@ -24428,7 +24428,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_google_calendar_listeventinstances": {
+    "ActionOutput_google_calendar_geteventinstances": {
       "type": "object",
       "properties": {
         "items": {
@@ -26787,7 +26787,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_drive_syncfiles": {
+    "SyncMetadata_google_drive_documents": {
       "type": "object",
       "properties": {
         "files": {
@@ -28236,7 +28236,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_google_drive_listshareddrives": {
+    "ActionInput_google_drive_listdrives": {
       "type": "object",
       "properties": {
         "cursor": {
@@ -28254,7 +28254,7 @@
       },
       "additionalProperties": false
     },
-    "ActionOutput_google_drive_listshareddrives": {
+    "ActionOutput_google_drive_listdrives": {
       "type": "object",
       "properties": {
         "drives": {
@@ -29119,7 +29119,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_sheet_syncrows": {
+    "SyncMetadata_google_sheet_rows": {
       "type": "object",
       "properties": {
         "spreadsheetId": {
@@ -29185,7 +29185,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_sheet_syncworksheets": {
+    "SyncMetadata_google_sheet_worksheets": {
       "type": "object",
       "properties": {
         "spreadsheetId": {
@@ -63113,7 +63113,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_slack_syncchannels": {
+    "SyncMetadata_slack_channels": {
       "type": "object",
       "properties": {
         "joinPublicChannels": {
@@ -63271,7 +63271,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_createconversation": {
+    "ActionInput_slack_createchannel": {
       "type": "object",
       "properties": {
         "name": {
@@ -63288,7 +63288,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_createconversation": {
+    "ActionOutput_slack_createchannel": {
       "type": "object",
       "properties": {
         "id": {
@@ -63461,7 +63461,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_findmessage": {
+    "ActionInput_slack_searchmessages": {
       "type": "object",
       "properties": {
         "query": {
@@ -63506,7 +63506,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_findmessage": {
+    "ActionOutput_slack_searchmessages": {
       "type": "object",
       "properties": {
         "messages": {
@@ -63631,7 +63631,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_finduserbyemail": {
+    "ActionInput_slack_lookupuserbyemail": {
       "type": "object",
       "properties": {
         "email": {
@@ -63644,7 +63644,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_finduserbyemail": {
+    "ActionOutput_slack_lookupuserbyemail": {
       "type": "object",
       "properties": {
         "id": {
@@ -64622,7 +64622,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_inviteuserstoconversation": {
+    "ActionInput_slack_invitetochannel": {
       "type": "object",
       "properties": {
         "channel_id": {
@@ -64647,7 +64647,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_inviteuserstoconversation": {
+    "ActionOutput_slack_invitetochannel": {
       "type": "object",
       "properties": {
         "ok": {
@@ -64761,7 +64761,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_leaveconversation": {
+    "ActionInput_slack_leavechannel": {
       "type": "object",
       "properties": {
         "channel_id": {
@@ -64774,7 +64774,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_leaveconversation": {
+    "ActionOutput_slack_leavechannel": {
       "type": "object",
       "properties": {
         "ok": {
@@ -64791,7 +64791,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_listconversationmembers": {
+    "ActionInput_slack_getchannelmembers": {
       "type": "object",
       "properties": {
         "channel_id": {
@@ -64812,7 +64812,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_listconversationmembers": {
+    "ActionOutput_slack_getchannelmembers": {
       "type": "object",
       "properties": {
         "members": {
@@ -64832,7 +64832,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_listconversations": {
+    "ActionInput_slack_listchannels": {
       "type": "object",
       "properties": {
         "types": {
@@ -64850,7 +64850,7 @@
       },
       "additionalProperties": false
     },
-    "ActionOutput_slack_listconversations": {
+    "ActionOutput_slack_listchannels": {
       "type": "object",
       "properties": {
         "conversations": {
@@ -65792,7 +65792,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_removeuserfromconversation": {
+    "ActionInput_slack_removefromchannel": {
       "type": "object",
       "properties": {
         "channel_id": {
@@ -65810,7 +65810,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_removeuserfromconversation": {
+    "ActionOutput_slack_removefromchannel": {
       "type": "object",
       "properties": {
         "ok": {
@@ -65825,7 +65825,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_renameconversation": {
+    "ActionInput_slack_renamechannel": {
       "type": "object",
       "properties": {
         "channel_id": {
@@ -65843,7 +65843,7 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_renameconversation": {
+    "ActionOutput_slack_renamechannel": {
       "type": "object",
       "properties": {
         "id": {

@@ -31106,7 +31106,7 @@
           "ActionInput_google_calendar_addattendee",
           "ActionOutput_google_calendar_addattendee"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_addattendee": {
@@ -31216,7 +31216,7 @@
           "ActionInput_google_calendar_clearcalendar",
           "ActionOutput_google_calendar_clearcalendar"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_clearcalendar": {
@@ -31272,7 +31272,7 @@
           "ActionInput_google_calendar_createaclrule",
           "ActionOutput_google_calendar_createaclrule"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_createaclrule": {
@@ -31403,7 +31403,7 @@
           "ActionInput_google_calendar_createalldayevent",
           "ActionOutput_google_calendar_createalldayevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_createalldayevent": {
@@ -31499,7 +31499,7 @@
           "ActionInput_google_calendar_createcalendar",
           "ActionOutput_google_calendar_createcalendar"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_createcalendar": {
@@ -31580,7 +31580,7 @@
           "ActionInput_google_calendar_createevent",
           "ActionOutput_google_calendar_createevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_createevent": {
@@ -31841,7 +31841,7 @@
           "ActionInput_google_calendar_createrecurringevent",
           "ActionOutput_google_calendar_createrecurringevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_createrecurringevent": {
@@ -31951,7 +31951,7 @@
           "ActionInput_google_calendar_deleteaclrule",
           "ActionOutput_google_calendar_deleteaclrule"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_deleteaclrule": {
@@ -32019,7 +32019,7 @@
           "ActionInput_google_calendar_deletecalendar",
           "ActionOutput_google_calendar_deletecalendar"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_deletecalendar": {
@@ -32075,7 +32075,7 @@
           "ActionInput_google_calendar_deleteevent",
           "ActionOutput_google_calendar_deleteevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_deleteevent": {
@@ -32137,7 +32137,7 @@
           "ActionInput_google_calendar_findfreeslots",
           "ActionOutput_google_calendar_findfreeslots"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_findfreeslots": {
@@ -32237,7 +32237,7 @@
           "ActionInput_google_calendar_getaclrule",
           "ActionOutput_google_calendar_getaclrule"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getaclrule": {
@@ -32329,7 +32329,7 @@
           "ActionInput_google_calendar_getcalendarlistentry",
           "ActionOutput_google_calendar_getcalendarlistentry"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getcalendarlistentry": {
@@ -32414,7 +32414,7 @@
           "ActionInput_google_calendar_getcalendar",
           "ActionOutput_google_calendar_getcalendar"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getcalendar": {
@@ -32487,7 +32487,7 @@
           "ActionInput_google_calendar_getcolors",
           "ActionOutput_google_calendar_getcolors"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getcolors": {
@@ -32589,7 +32589,7 @@
           "ActionInput_google_calendar_getevent",
           "ActionOutput_google_calendar_getevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getevent": {
@@ -32733,7 +32733,7 @@
           "ActionInput_google_calendar_getsetting",
           "ActionOutput_google_calendar_getsetting"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_getsetting": {
@@ -32804,7 +32804,7 @@
           "ActionInput_google_calendar_importevent",
           "ActionOutput_google_calendar_importevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_importevent": {
@@ -33087,7 +33087,7 @@
           "ActionInput_google_calendar_insertcalendartolist",
           "ActionOutput_google_calendar_insertcalendartolist"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_insertcalendartolist": {
@@ -33205,7 +33205,7 @@
           "ActionInput_google_calendar_listaclrules",
           "ActionOutput_google_calendar_listaclrules"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_listaclrules": {
@@ -33311,25 +33311,25 @@
         "description": "List calendars in the user's calendar list",
         "endpoint": {
           "method": "GET",
-          "path": "/actions/list-calendar-list",
+          "path": "/actions/list-calendars",
           "group": "Calendars"
         },
-        "input": "ActionInput_google_calendar_listcalendarlist",
-        "name": "list-calendar-list",
+        "input": "ActionInput_google_calendar_listcalendars",
+        "name": "list-calendars",
         "output": [
-          "ActionOutput_google_calendar_listcalendarlist"
+          "ActionOutput_google_calendar_listcalendars"
         ],
         "scopes": [
           "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "usedModels": [
-          "ActionInput_google_calendar_listcalendarlist",
-          "ActionOutput_google_calendar_listcalendarlist"
+          "ActionInput_google_calendar_listcalendars",
+          "ActionOutput_google_calendar_listcalendars"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_google_calendar_listcalendarlist": {
+            "ActionInput_google_calendar_listcalendars": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -33343,7 +33343,7 @@
               },
               "additionalProperties": false
             },
-            "ActionOutput_google_calendar_listcalendarlist": {
+            "ActionOutput_google_calendar_listcalendars": {
               "type": "object",
               "properties": {
                 "calendars": {
@@ -33413,25 +33413,25 @@
         "description": "List instances of a recurring event",
         "endpoint": {
           "method": "GET",
-          "path": "/actions/list-event-instances",
+          "path": "/actions/get-event-instances",
           "group": "Events"
         },
-        "input": "ActionInput_google_calendar_listeventinstances",
-        "name": "list-event-instances",
+        "input": "ActionInput_google_calendar_geteventinstances",
+        "name": "get-event-instances",
         "output": [
-          "ActionOutput_google_calendar_listeventinstances"
+          "ActionOutput_google_calendar_geteventinstances"
         ],
         "scopes": [
           "https://www.googleapis.com/auth/calendar.readonly"
         ],
         "usedModels": [
-          "ActionInput_google_calendar_listeventinstances",
-          "ActionOutput_google_calendar_listeventinstances"
+          "ActionInput_google_calendar_geteventinstances",
+          "ActionOutput_google_calendar_geteventinstances"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_google_calendar_listeventinstances": {
+            "ActionInput_google_calendar_geteventinstances": {
               "type": "object",
               "properties": {
                 "calendarId": {
@@ -33485,7 +33485,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_google_calendar_listeventinstances": {
+            "ActionOutput_google_calendar_geteventinstances": {
               "type": "object",
               "properties": {
                 "items": {
@@ -33553,7 +33553,7 @@
           "ActionInput_google_calendar_listevents",
           "ActionOutput_google_calendar_listevents"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_listevents": {
@@ -33767,7 +33767,7 @@
           "ActionInput_google_calendar_listsettings",
           "ActionOutput_google_calendar_listsettings"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_listsettings": {
@@ -33853,7 +33853,7 @@
           "ActionInput_google_calendar_listupcomingevents",
           "ActionOutput_google_calendar_listupcomingevents"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_listupcomingevents": {
@@ -34038,7 +34038,7 @@
           "ActionInput_google_calendar_moveevent",
           "ActionOutput_google_calendar_moveevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_moveevent": {
@@ -34174,7 +34174,7 @@
           "ActionInput_google_calendar_patchevent",
           "ActionOutput_google_calendar_patchevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_patchevent": {
@@ -34339,7 +34339,7 @@
           "ActionInput_google_calendar_queryfreebusy",
           "ActionOutput_google_calendar_queryfreebusy"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_queryfreebusy": {
@@ -34528,7 +34528,7 @@
           "ActionInput_google_calendar_quickaddevent",
           "ActionOutput_google_calendar_quickaddevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_quickaddevent": {
@@ -34678,7 +34678,7 @@
           "ActionInput_google_calendar_removeattendee",
           "ActionOutput_google_calendar_removeattendee"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_removeattendee": {
@@ -34825,7 +34825,7 @@
           "ActionInput_google_calendar_removecalendarfromlist",
           "ActionOutput_google_calendar_removecalendarfromlist"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_removecalendarfromlist": {
@@ -34880,7 +34880,7 @@
           "ActionInput_google_calendar_searchevents",
           "ActionOutput_google_calendar_searchevents"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_searchevents": {
@@ -35044,7 +35044,7 @@
           "ActionInput_google_calendar_settings",
           "ActionOutput_google_calendar_settings"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_settings": {
@@ -35184,7 +35184,7 @@
           "ActionInput_google_calendar_updateaclrule",
           "ActionOutput_google_calendar_updateaclrule"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_updateaclrule": {
@@ -35306,7 +35306,7 @@
           "ActionInput_google_calendar_updateattendeeresponse",
           "ActionOutput_google_calendar_updateattendeeresponse"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_updateattendeeresponse": {
@@ -35405,7 +35405,7 @@
           "ActionInput_google_calendar_updatecalendarlistentry",
           "ActionOutput_google_calendar_updatecalendarlistentry"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_updatecalendarlistentry": {
@@ -35642,7 +35642,7 @@
           "ActionInput_google_calendar_updatecalendar",
           "ActionOutput_google_calendar_updatecalendar"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_updatecalendar": {
@@ -35753,7 +35753,7 @@
           "ActionInput_google_calendar_updateevent",
           "ActionOutput_google_calendar_updateevent"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_updateevent": {
@@ -36392,7 +36392,7 @@
           "ActionInput_google_calendar_whoami",
           "ActionOutput_google_calendar_whoami"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_calendar_whoami": {
@@ -36431,11 +36431,11 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/calendar-events"
+            "path": "/syncs/events"
           }
         ],
-        "input": "SyncMetadata_google_calendar_calendarevents",
-        "name": "calendar-events",
+        "input": "SyncMetadata_google_calendar_events",
+        "name": "events",
         "output": [
           "CalendarEvent"
         ],
@@ -36445,9 +36445,9 @@
         "track_deletes": false,
         "usedModels": [
           "CalendarEvent",
-          "SyncMetadata_google_calendar_calendarevents"
+          "SyncMetadata_google_calendar_events"
         ],
-        "version": "1.0.0",
+        "version": "5.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -36655,7 +36655,7 @@
               ],
               "additionalProperties": {}
             },
-            "SyncMetadata_google_calendar_calendarevents": {
+            "SyncMetadata_google_calendar_events": {
               "type": "object",
               "properties": {
                 "calendarsToSync": {
@@ -36693,11 +36693,11 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/calendar-list"
+            "path": "/syncs/calendars"
           }
         ],
         "input": null,
-        "name": "calendar-list",
+        "name": "calendars",
         "output": [
           "Calendar"
         ],
@@ -36710,7 +36710,7 @@
         "usedModels": [
           "Calendar"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -38887,26 +38887,26 @@
         "description": "List shared drives the user can access, with cursor pagination and drive metadata like hidden, capabilities, and restrictions.",
         "endpoint": {
           "method": "GET",
-          "path": "/actions/list-shared-drives",
+          "path": "/actions/list-drives",
           "group": "Drives"
         },
-        "input": "ActionInput_google_drive_listshareddrives",
-        "name": "list-shared-drives",
+        "input": "ActionInput_google_drive_listdrives",
+        "name": "list-drives",
         "output": [
-          "ActionOutput_google_drive_listshareddrives"
+          "ActionOutput_google_drive_listdrives"
         ],
         "scopes": [
           "https://www.googleapis.com/auth/drive.readonly",
           "https://www.googleapis.com/auth/drive"
         ],
         "usedModels": [
-          "ActionInput_google_drive_listshareddrives",
-          "ActionOutput_google_drive_listshareddrives"
+          "ActionInput_google_drive_listdrives",
+          "ActionOutput_google_drive_listdrives"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_google_drive_listshareddrives": {
+            "ActionInput_google_drive_listdrives": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -38924,7 +38924,7 @@
               },
               "additionalProperties": false
             },
-            "ActionOutput_google_drive_listshareddrives": {
+            "ActionOutput_google_drive_listdrives": {
               "type": "object",
               "properties": {
                 "drives": {
@@ -39678,7 +39678,7 @@
           "ActionInput_google_drive_uploaddocument",
           "ActionOutput_google_drive_uploaddocument"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_google_drive_uploaddocument": {
@@ -39760,12 +39760,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-files",
-            "group": "Files"
+            "path": "/syncs/documents",
+            "group": "Documents"
           }
         ],
-        "input": "SyncMetadata_google_drive_syncfiles",
-        "name": "sync-files",
+        "input": "SyncMetadata_google_drive_documents",
+        "name": "documents",
         "output": [
           "File"
         ],
@@ -39775,9 +39775,9 @@
         "track_deletes": false,
         "usedModels": [
           "File",
-          "SyncMetadata_google_drive_syncfiles"
+          "SyncMetadata_google_drive_documents"
         ],
-        "version": "1.0.0",
+        "version": "5.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -39827,7 +39827,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_google_drive_syncfiles": {
+            "SyncMetadata_google_drive_documents": {
               "type": "object",
               "properties": {
                 "files": {
@@ -39860,12 +39860,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-folders",
+            "path": "/syncs/folders",
             "group": "Folders"
           }
         ],
         "input": null,
-        "name": "sync-folders",
+        "name": "folders",
         "output": [
           "Folder"
         ],
@@ -39876,7 +39876,7 @@
         "usedModels": [
           "Folder"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -39912,12 +39912,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-permissions",
+            "path": "/syncs/permissions",
             "group": "Permissions"
           }
         ],
         "input": null,
-        "name": "sync-permissions",
+        "name": "permissions",
         "output": [
           "Permission"
         ],
@@ -39988,12 +39988,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-shared-drives",
+            "path": "/syncs/shared-drives",
             "group": "Shared Drives"
           }
         ],
         "input": null,
-        "name": "sync-shared-drives",
+        "name": "shared-drives",
         "output": [
           "SharedDrive"
         ],
@@ -42581,12 +42581,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-rows",
+            "path": "/syncs/rows",
             "group": "Sheets"
           }
         ],
-        "input": "SyncMetadata_google_sheet_syncrows",
-        "name": "sync-rows",
+        "input": "SyncMetadata_google_sheet_rows",
+        "name": "rows",
         "output": [
           "Row"
         ],
@@ -42596,7 +42596,7 @@
         "track_deletes": false,
         "usedModels": [
           "Row",
-          "SyncMetadata_google_sheet_syncrows"
+          "SyncMetadata_google_sheet_rows"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": [],
@@ -42623,7 +42623,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_google_sheet_syncrows": {
+            "SyncMetadata_google_sheet_rows": {
               "type": "object",
               "properties": {
                 "spreadsheetId": {
@@ -42655,12 +42655,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-worksheets",
+            "path": "/syncs/worksheets",
             "group": "Worksheets"
           }
         ],
-        "input": "SyncMetadata_google_sheet_syncworksheets",
-        "name": "sync-worksheets",
+        "input": "SyncMetadata_google_sheet_worksheets",
+        "name": "worksheets",
         "output": [
           "Worksheet"
         ],
@@ -42670,7 +42670,7 @@
         "track_deletes": false,
         "usedModels": [
           "Worksheet",
-          "SyncMetadata_google_sheet_syncworksheets"
+          "SyncMetadata_google_sheet_worksheets"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": [],
@@ -42721,7 +42721,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_google_sheet_syncworksheets": {
+            "SyncMetadata_google_sheet_worksheets": {
               "type": "object",
               "properties": {
                 "spreadsheetId": {
@@ -49517,7 +49517,7 @@
           "ActionInput_hubspot_changeuserrole",
           "ActionOutput_hubspot_changeuserrole"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_changeuserrole": {
@@ -49829,7 +49829,7 @@
           "ActionInput_hubspot_createcompany",
           "ActionOutput_hubspot_createcompany"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createcompany": {
@@ -49922,7 +49922,7 @@
           "ActionInput_hubspot_createcontact",
           "ActionOutput_hubspot_createcontact"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createcontact": {
@@ -50018,7 +50018,7 @@
           "ActionInput_hubspot_createdeal",
           "ActionOutput_hubspot_createdeal"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createdeal": {
@@ -50211,7 +50211,7 @@
           "ActionInput_hubspot_createnote",
           "ActionOutput_hubspot_createnote"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createnote": {
@@ -50322,7 +50322,7 @@
           "ActionInput_hubspot_createproperty",
           "ActionOutput_hubspot_createproperty"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createproperty": {
@@ -50529,7 +50529,7 @@
           "ActionInput_hubspot_createtask",
           "ActionOutput_hubspot_createtask"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createtask": {
@@ -50754,7 +50754,7 @@
           "ActionInput_hubspot_createuser",
           "ActionOutput_hubspot_createuser"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_createuser": {
@@ -50903,7 +50903,7 @@
           "ActionInput_hubspot_deletecompany",
           "ActionOutput_hubspot_deletecompany"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_deletecompany": {
@@ -50959,7 +50959,7 @@
           "ActionInput_hubspot_deletecontact",
           "ActionOutput_hubspot_deletecontact"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_deletecontact": {
@@ -51015,7 +51015,7 @@
           "ActionInput_hubspot_deletedeal",
           "ActionOutput_hubspot_deletedeal"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_deletedeal": {
@@ -51131,7 +51131,7 @@
           "ActionInput_hubspot_deletetask",
           "ActionOutput_hubspot_deletetask"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_deletetask": {
@@ -51243,7 +51243,7 @@
           "ActionInput_hubspot_deleteuser",
           "ActionOutput_hubspot_deleteuser"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_deleteuser": {
@@ -51307,7 +51307,7 @@
           "ActionInput_hubspot_fetchaccountinformation",
           "ActionOutput_hubspot_fetchaccountinformation"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_fetchaccountinformation": {
@@ -51379,7 +51379,7 @@
           "ActionInput_hubspot_fetchcustomobjects",
           "ActionOutput_hubspot_fetchcustomobjects"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_fetchcustomobjects": {
@@ -51474,7 +51474,7 @@
           "ActionInput_hubspot_fetchpipelines",
           "ActionOutput_hubspot_fetchpipelines"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_fetchpipelines": {
@@ -51581,7 +51581,7 @@
           "ActionInput_hubspot_fetchproperties",
           "ActionOutput_hubspot_fetchproperties"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_fetchproperties": {
@@ -51722,7 +51722,7 @@
           "ActionInput_hubspot_fetchroles",
           "ActionOutput_hubspot_fetchroles"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_fetchroles": {
@@ -53162,7 +53162,7 @@
           "ActionInput_hubspot_updatecompany",
           "ActionOutput_hubspot_updatecompany"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_updatecompany": {
@@ -53283,7 +53283,7 @@
           "ActionInput_hubspot_updatecontact",
           "ActionOutput_hubspot_updatecontact"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_updatecontact": {
@@ -53383,7 +53383,7 @@
           "ActionInput_hubspot_updatedeal",
           "ActionOutput_hubspot_updatedeal"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_updatedeal": {
@@ -53570,7 +53570,7 @@
           "ActionInput_hubspot_updatetask",
           "ActionOutput_hubspot_updatetask"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_updatetask": {
@@ -53826,7 +53826,7 @@
           "ActionInput_hubspot_whoami",
           "ActionOutput_hubspot_whoami"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_hubspot_whoami": {
@@ -53870,12 +53870,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-companies",
+            "path": "/syncs/companies",
             "group": "Companies"
           }
         ],
         "input": null,
-        "name": "sync-companies",
+        "name": "companies",
         "output": [
           "Company"
         ],
@@ -53886,7 +53886,7 @@
         "usedModels": [
           "Company"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -53948,12 +53948,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-contacts",
+            "path": "/syncs/contacts",
             "group": "Contacts"
           }
         ],
         "input": null,
-        "name": "sync-contacts",
+        "name": "contacts",
         "output": [
           "Contact"
         ],
@@ -53964,7 +53964,7 @@
         "usedModels": [
           "Contact"
         ],
-        "version": "1.0.0",
+        "version": "4.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54017,12 +54017,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-deals",
+            "path": "/syncs/deals",
             "group": "Deals"
           }
         ],
         "input": null,
-        "name": "sync-deals",
+        "name": "deals",
         "output": [
           "Deal"
         ],
@@ -54033,7 +54033,7 @@
         "usedModels": [
           "Deal"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54098,12 +54098,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-marketing-emails",
+            "path": "/syncs/marketing-emails",
             "group": "Marketing Emails"
           }
         ],
         "input": null,
-        "name": "sync-marketing-emails",
+        "name": "marketing-emails",
         "output": [
           "MarketingEmail"
         ],
@@ -54172,12 +54172,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-owners",
+            "path": "/syncs/owners",
             "group": "Owners"
           }
         ],
         "input": null,
-        "name": "sync-owners",
+        "name": "owners",
         "output": [
           "Owner"
         ],
@@ -54188,7 +54188,7 @@
         "usedModels": [
           "Owner"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54239,12 +54239,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-products",
+            "path": "/syncs/products",
             "group": "Products"
           }
         ],
         "input": null,
-        "name": "sync-products",
+        "name": "products",
         "output": [
           "Product"
         ],
@@ -54255,7 +54255,7 @@
         "usedModels": [
           "Product"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54311,12 +54311,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-tasks",
+            "path": "/syncs/tasks",
             "group": "Tasks"
           }
         ],
         "input": null,
-        "name": "sync-tasks",
+        "name": "tasks",
         "output": [
           "Task"
         ],
@@ -54327,7 +54327,7 @@
         "usedModels": [
           "Task"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54401,12 +54401,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-tickets",
+            "path": "/syncs/service-tickets",
             "group": "Tickets"
           }
         ],
         "input": null,
-        "name": "sync-tickets",
+        "name": "service-tickets",
         "output": [
           "Ticket"
         ],
@@ -54417,7 +54417,7 @@
         "usedModels": [
           "Ticket"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -54473,12 +54473,12 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-users",
+            "path": "/syncs/users",
             "group": "Users"
           }
         ],
         "input": null,
-        "name": "sync-users",
+        "name": "users",
         "output": [
           "User"
         ],
@@ -54489,7 +54489,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -96420,7 +96420,7 @@
           "ActionInput_slack_addreaction",
           "ActionOutput_slack_addreaction"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_addreaction": {
@@ -96486,7 +96486,7 @@
           "ActionInput_slack_archivechannel",
           "ActionOutput_slack_archivechannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_archivechannel": {
@@ -96528,13 +96528,13 @@
         "description": "Create a new public or private Slack channel by name; does not create DMs or other conversation types.",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/create-conversation",
+          "path": "/actions/create-channel",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_createconversation",
-        "name": "create-conversation",
+        "input": "ActionInput_slack_createchannel",
+        "name": "create-channel",
         "output": [
-          "ActionOutput_slack_createconversation"
+          "ActionOutput_slack_createchannel"
         ],
         "scopes": [
           "channels:manage",
@@ -96542,13 +96542,13 @@
           "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_createconversation",
-          "ActionOutput_slack_createconversation"
+          "ActionInput_slack_createchannel",
+          "ActionOutput_slack_createchannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_createconversation": {
+            "ActionInput_slack_createchannel": {
               "type": "object",
               "properties": {
                 "name": {
@@ -96565,7 +96565,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_createconversation": {
+            "ActionOutput_slack_createchannel": {
               "type": "object",
               "properties": {
                 "id": {
@@ -96724,7 +96724,7 @@
           "ActionInput_slack_deletemessage",
           "ActionOutput_slack_deletemessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_deletemessage": {
@@ -96832,25 +96832,25 @@
         "description": "Search for messages matching a query",
         "endpoint": {
           "method": "GET",
-          "path": "/actions/find-message",
+          "path": "/actions/search-messages",
           "group": "Messages"
         },
-        "input": "ActionInput_slack_findmessage",
-        "name": "find-message",
+        "input": "ActionInput_slack_searchmessages",
+        "name": "search-messages",
         "output": [
-          "ActionOutput_slack_findmessage"
+          "ActionOutput_slack_searchmessages"
         ],
         "scopes": [
           "search:read"
         ],
         "usedModels": [
-          "ActionInput_slack_findmessage",
-          "ActionOutput_slack_findmessage"
+          "ActionInput_slack_searchmessages",
+          "ActionOutput_slack_searchmessages"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_findmessage": {
+            "ActionInput_slack_searchmessages": {
               "type": "object",
               "properties": {
                 "query": {
@@ -96895,7 +96895,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_findmessage": {
+            "ActionOutput_slack_searchmessages": {
               "type": "object",
               "properties": {
                 "messages": {
@@ -97031,25 +97031,25 @@
         "description": "Look up a user by email address",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/find-user-by-email",
+          "path": "/actions/lookup-user-by-email",
           "group": "Users"
         },
-        "input": "ActionInput_slack_finduserbyemail",
-        "name": "find-user-by-email",
+        "input": "ActionInput_slack_lookupuserbyemail",
+        "name": "lookup-user-by-email",
         "output": [
-          "ActionOutput_slack_finduserbyemail"
+          "ActionOutput_slack_lookupuserbyemail"
         ],
         "scopes": [
           "users:read.email"
         ],
         "usedModels": [
-          "ActionInput_slack_finduserbyemail",
-          "ActionOutput_slack_finduserbyemail"
+          "ActionInput_slack_lookupuserbyemail",
+          "ActionOutput_slack_lookupuserbyemail"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_finduserbyemail": {
+            "ActionInput_slack_lookupuserbyemail": {
               "type": "object",
               "properties": {
                 "email": {
@@ -97064,7 +97064,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_finduserbyemail": {
+            "ActionOutput_slack_lookupuserbyemail": {
               "type": "object",
               "properties": {
                 "id": {
@@ -97181,7 +97181,7 @@
           "ActionInput_slack_getchannelinfo",
           "ActionOutput_slack_getchannelinfo"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getchannelinfo": {
@@ -97334,7 +97334,7 @@
           "ActionInput_slack_getconversationhistory",
           "ActionOutput_slack_getconversationhistory"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getconversationhistory": {
@@ -97474,7 +97474,7 @@
           "ActionInput_slack_getdndinfo",
           "ActionOutput_slack_getdndinfo"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getdndinfo": {
@@ -97605,7 +97605,7 @@
           "ActionInput_slack_getreactions",
           "ActionOutput_slack_getreactions"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getreactions": {
@@ -97732,7 +97732,7 @@
           "ActionInput_slack_getteaminfo",
           "ActionOutput_slack_getteaminfo"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getteaminfo": {
@@ -97832,7 +97832,7 @@
           "ActionInput_slack_getthreadreplies",
           "ActionOutput_slack_getthreadreplies"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getthreadreplies": {
@@ -97947,7 +97947,7 @@
           "ActionInput_slack_getuploadurl",
           "ActionOutput_slack_getuploadurl"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getuploadurl": {
@@ -98016,7 +98016,7 @@
           "ActionInput_slack_getuserinfo",
           "ActionOutput_slack_getuserinfo"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getuserinfo": {
@@ -98113,7 +98113,7 @@
           "ActionInput_slack_getuserpresence",
           "ActionOutput_slack_getuserpresence"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getuserpresence": {
@@ -98188,7 +98188,7 @@
           "ActionInput_slack_getuserprofile",
           "ActionOutput_slack_getuserprofile"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_getuserprofile": {
@@ -98362,26 +98362,26 @@
         "description": "Invite users to a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/invite-users-to-conversation",
+          "path": "/actions/invite-to-channel",
           "group": "Channels"
         },
-        "input": "ActionInput_slack_inviteuserstoconversation",
-        "name": "invite-users-to-conversation",
+        "input": "ActionInput_slack_invitetochannel",
+        "name": "invite-to-channel",
         "output": [
-          "ActionOutput_slack_inviteuserstoconversation"
+          "ActionOutput_slack_invitetochannel"
         ],
         "scopes": [
           "channels:manage",
           "groups:write"
         ],
         "usedModels": [
-          "ActionInput_slack_inviteuserstoconversation",
-          "ActionOutput_slack_inviteuserstoconversation"
+          "ActionInput_slack_invitetochannel",
+          "ActionOutput_slack_invitetochannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_inviteuserstoconversation": {
+            "ActionInput_slack_invitetochannel": {
               "type": "object",
               "properties": {
                 "channel_id": {
@@ -98406,7 +98406,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_inviteuserstoconversation": {
+            "ActionOutput_slack_invitetochannel": {
               "type": "object",
               "properties": {
                 "ok": {
@@ -98447,7 +98447,7 @@
           "ActionInput_slack_joinchannel",
           "ActionOutput_slack_joinchannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_joinchannel": {
@@ -98557,13 +98557,13 @@
         "description": "Leave a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/leave-conversation",
+          "path": "/actions/leave-channel",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_leaveconversation",
-        "name": "leave-conversation",
+        "input": "ActionInput_slack_leavechannel",
+        "name": "leave-channel",
         "output": [
-          "ActionOutput_slack_leaveconversation"
+          "ActionOutput_slack_leavechannel"
         ],
         "scopes": [
           "channels:write",
@@ -98572,13 +98572,13 @@
           "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_leaveconversation",
-          "ActionOutput_slack_leaveconversation"
+          "ActionInput_slack_leavechannel",
+          "ActionOutput_slack_leavechannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_leaveconversation": {
+            "ActionInput_slack_leavechannel": {
               "type": "object",
               "properties": {
                 "channel_id": {
@@ -98591,7 +98591,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_leaveconversation": {
+            "ActionOutput_slack_leavechannel": {
               "type": "object",
               "properties": {
                 "ok": {
@@ -98617,13 +98617,13 @@
         "description": "List members in a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/list-conversation-members",
+          "path": "/actions/get-channel-members",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_listconversationmembers",
-        "name": "list-conversation-members",
+        "input": "ActionInput_slack_getchannelmembers",
+        "name": "get-channel-members",
         "output": [
-          "ActionOutput_slack_listconversationmembers"
+          "ActionOutput_slack_getchannelmembers"
         ],
         "scopes": [
           "channels:read",
@@ -98632,13 +98632,13 @@
           "mpim:read"
         ],
         "usedModels": [
-          "ActionInput_slack_listconversationmembers",
-          "ActionOutput_slack_listconversationmembers"
+          "ActionInput_slack_getchannelmembers",
+          "ActionOutput_slack_getchannelmembers"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_listconversationmembers": {
+            "ActionInput_slack_getchannelmembers": {
               "type": "object",
               "properties": {
                 "channel_id": {
@@ -98659,7 +98659,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_listconversationmembers": {
+            "ActionOutput_slack_getchannelmembers": {
               "type": "object",
               "properties": {
                 "members": {
@@ -98688,13 +98688,13 @@
         "description": "List Slack conversations with optional type filters and cursor pagination.",
         "endpoint": {
           "method": "GET",
-          "path": "/actions/list-conversations",
+          "path": "/actions/list-channels",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_listconversations",
-        "name": "list-conversations",
+        "input": "ActionInput_slack_listchannels",
+        "name": "list-channels",
         "output": [
-          "ActionOutput_slack_listconversations"
+          "ActionOutput_slack_listchannels"
         ],
         "scopes": [
           "channels:read",
@@ -98703,13 +98703,13 @@
           "mpim:read"
         ],
         "usedModels": [
-          "ActionInput_slack_listconversations",
-          "ActionOutput_slack_listconversations"
+          "ActionInput_slack_listchannels",
+          "ActionOutput_slack_listchannels"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_listconversations": {
+            "ActionInput_slack_listchannels": {
               "type": "object",
               "properties": {
                 "types": {
@@ -98727,7 +98727,7 @@
               },
               "additionalProperties": false
             },
-            "ActionOutput_slack_listconversations": {
+            "ActionOutput_slack_listchannels": {
               "type": "object",
               "properties": {
                 "conversations": {
@@ -98817,7 +98817,7 @@
           "ActionInput_slack_listcustomemoji",
           "ActionOutput_slack_listcustomemoji"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listcustomemoji": {
@@ -98896,7 +98896,7 @@
           "ActionInput_slack_listfiles",
           "ActionOutput_slack_listfiles"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listfiles": {
@@ -99003,7 +99003,7 @@
           "ActionInput_slack_listpins",
           "ActionOutput_slack_listpins"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listpins": {
@@ -99190,7 +99190,7 @@
           "ActionInput_slack_listscheduledmessages",
           "ActionOutput_slack_listscheduledmessages"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listscheduledmessages": {
@@ -99299,7 +99299,7 @@
           "ActionInput_slack_listusergroupmembers",
           "ActionOutput_slack_listusergroupmembers"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listusergroupmembers": {
@@ -99355,7 +99355,7 @@
           "ActionInput_slack_listusergroups",
           "ActionOutput_slack_listusergroups"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listusergroups": {
@@ -99504,7 +99504,7 @@
           "ActionInput_slack_listuserreactions",
           "ActionOutput_slack_listuserreactions"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listuserreactions": {
@@ -99576,7 +99576,7 @@
           "ActionInput_slack_listusers",
           "ActionOutput_slack_listusers"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_listusers": {
@@ -99709,7 +99709,7 @@
           "ActionInput_slack_markasread",
           "ActionOutput_slack_markasread"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_markasread": {
@@ -99768,7 +99768,7 @@
           "ActionInput_slack_opendm",
           "ActionOutput_slack_opendm"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_opendm": {
@@ -99830,7 +99830,7 @@
           "ActionInput_slack_pinmessage",
           "ActionOutput_slack_pinmessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_pinmessage": {
@@ -99888,7 +99888,7 @@
           "ActionInput_slack_postmessage",
           "ActionOutput_slack_postmessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_postmessage": {
@@ -99997,7 +99997,7 @@
           "ActionInput_slack_removereaction",
           "ActionOutput_slack_removereaction"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_removereaction": {
@@ -100049,13 +100049,13 @@
         "description": "Remove a user from a channel",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/remove-user-from-conversation",
+          "path": "/actions/remove-from-channel",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_removeuserfromconversation",
-        "name": "remove-user-from-conversation",
+        "input": "ActionInput_slack_removefromchannel",
+        "name": "remove-from-channel",
         "output": [
-          "ActionOutput_slack_removeuserfromconversation"
+          "ActionOutput_slack_removefromchannel"
         ],
         "scopes": [
           "channels:manage",
@@ -100064,13 +100064,13 @@
           "mpim:write"
         ],
         "usedModels": [
-          "ActionInput_slack_removeuserfromconversation",
-          "ActionOutput_slack_removeuserfromconversation"
+          "ActionInput_slack_removefromchannel",
+          "ActionOutput_slack_removefromchannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_removeuserfromconversation": {
+            "ActionInput_slack_removefromchannel": {
               "type": "object",
               "properties": {
                 "channel_id": {
@@ -100088,7 +100088,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_removeuserfromconversation": {
+            "ActionOutput_slack_removefromchannel": {
               "type": "object",
               "properties": {
                 "ok": {
@@ -100112,13 +100112,13 @@
         "description": "Rename a Slack channel",
         "endpoint": {
           "method": "POST",
-          "path": "/actions/rename-conversation",
+          "path": "/actions/rename-channel",
           "group": "Conversations"
         },
-        "input": "ActionInput_slack_renameconversation",
-        "name": "rename-conversation",
+        "input": "ActionInput_slack_renamechannel",
+        "name": "rename-channel",
         "output": [
-          "ActionOutput_slack_renameconversation"
+          "ActionOutput_slack_renamechannel"
         ],
         "scopes": [
           "channels:manage",
@@ -100128,13 +100128,13 @@
           "im:write"
         ],
         "usedModels": [
-          "ActionInput_slack_renameconversation",
-          "ActionOutput_slack_renameconversation"
+          "ActionInput_slack_renamechannel",
+          "ActionOutput_slack_renamechannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_slack_renameconversation": {
+            "ActionInput_slack_renamechannel": {
               "type": "object",
               "properties": {
                 "channel_id": {
@@ -100152,7 +100152,7 @@
               ],
               "additionalProperties": false
             },
-            "ActionOutput_slack_renameconversation": {
+            "ActionOutput_slack_renamechannel": {
               "type": "object",
               "properties": {
                 "id": {
@@ -100264,7 +100264,7 @@
           "ActionInput_slack_schedulemessage",
           "ActionOutput_slack_schedulemessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_schedulemessage": {
@@ -100338,7 +100338,7 @@
           "ActionInput_slack_searchfiles",
           "ActionOutput_slack_searchfiles"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_searchfiles": {
@@ -100642,7 +100642,7 @@
           "ActionInput_slack_sendmessage",
           "ActionOutput_slack_sendmessage"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_sendmessage": {
@@ -100745,7 +100745,7 @@
           "ActionInput_slack_setchannelpurpose",
           "ActionOutput_slack_setchannelpurpose"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_setchannelpurpose": {
@@ -100814,7 +100814,7 @@
           "ActionInput_slack_setchanneltopic",
           "ActionOutput_slack_setchanneltopic"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_setchanneltopic": {
@@ -101053,7 +101053,7 @@
           "ActionInput_slack_setuserpresence",
           "ActionOutput_slack_setuserpresence"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_setuserpresence": {
@@ -101114,7 +101114,7 @@
           "ActionInput_slack_unarchivechannel",
           "ActionOutput_slack_unarchivechannel"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_unarchivechannel": {
@@ -101167,7 +101167,7 @@
           "ActionInput_slack_unpinmessage",
           "ActionOutput_slack_unpinmessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_unpinmessage": {
@@ -101229,7 +101229,7 @@
           "ActionInput_slack_updatemessage",
           "ActionOutput_slack_updatemessage"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_slack_updatemessage": {
@@ -101346,12 +101346,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-channels",
+            "path": "/syncs/channels",
             "group": "Channels"
           }
         ],
-        "input": "SyncMetadata_slack_syncchannels",
-        "name": "sync-channels",
+        "input": "SyncMetadata_slack_channels",
+        "name": "channels",
         "output": [
           "Channel"
         ],
@@ -101361,9 +101361,9 @@
         "track_deletes": false,
         "usedModels": [
           "Channel",
-          "SyncMetadata_slack_syncchannels"
+          "SyncMetadata_slack_channels"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -101478,7 +101478,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_slack_syncchannels": {
+            "SyncMetadata_slack_channels": {
               "type": "object",
               "properties": {
                 "joinPublicChannels": {
@@ -101501,11 +101501,11 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-conversations"
+            "path": "/syncs/conversations"
           }
         ],
         "input": null,
-        "name": "sync-conversations",
+        "name": "conversations",
         "output": [
           "Conversation"
         ],
@@ -101649,12 +101649,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-messages-received",
+            "path": "/syncs/messages-received",
             "group": "Messages"
           }
         ],
         "input": null,
-        "name": "sync-messages-received",
+        "name": "messages-received",
         "output": [
           "Message"
         ],
@@ -101765,12 +101765,12 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-users",
+            "path": "/syncs/users",
             "group": "Users"
           }
         ],
         "input": null,
-        "name": "sync-users",
+        "name": "users",
         "output": [
           "User"
         ],
@@ -101781,7 +101781,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
