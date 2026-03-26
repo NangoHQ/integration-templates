@@ -59,13 +59,19 @@ jobs:
                     dirs=$(find integrations -maxdepth 1 -type d | tail -n +2 | sort)
                   else
                     echo "Automatic trigger detected. Uploading changed templates."
-                    all_dirs=$(echo "${{ steps.templates-updated.outputs.all_changed_files }}" | cut -d'/' -f1,2 | sort -u)
+                    all_files=$(echo "${{ steps.templates-updated.outputs.all_changed_files }}" | tr ' ' '\n')
+                    all_dirs=$(echo "$all_files" | cut -d'/' -f1,2 | sort -u)
 
-                    dirs=$(for dir in $all_dirs; do
-                      integration=$(basename "$dir")
-                      echo "$dir"
-                      find integrations -maxdepth 1 -type d -name "$integration-*"
-                    done | sort -u)
+                    if echo "$all_files" | grep -Eq '^integrations/[^/]+$|^integrations/\.nango/'; then
+                      echo "Shared integration files changed. Uploading all templates."
+                      dirs=$(find integrations -maxdepth 1 -type d | tail -n +2 | sort)
+                    else
+                      dirs=$(for dir in $all_dirs; do
+                        integration=$(basename "$dir")
+                        echo "$dir"
+                        find integrations -maxdepth 1 -type d -name "$integration-*"
+                      done | sort -u)
+                    fi
                   fi
 
                   for dir in $dirs; do
@@ -79,7 +85,7 @@ jobs:
                       continue
                     fi
 
-                    if [ ! -d "$dir/.nango" ]; then
+                    if [ ! -d "$dir/build" ]; then
                       continue
                     fi
 
