@@ -1,0 +1,85 @@
+{
+  "input": {
+    "code": "90003",
+    "name": "Test Account Save 2026",
+    "type": "EXPENSE"
+  },
+  "output": {
+    "account_id": "3279361b-4c91-4985-a616-ecfd561709a0",
+    "code": "90003",
+    "name": "Test Account Save 2026",
+    "type": "EXPENSE",
+    "description": null,
+    "tax_type": "INPUT",
+    "enable_payments_to_account": false,
+    "show_in_expense_claims": false,
+    "status": "ACTIVE"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/Accounts": {
+        "response": {
+          "Id": "45596d06-b87d-4918-9f98-db196df47e90",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776869943511)/",
+          "Accounts": [
+            {
+              "AccountID": "3279361b-4c91-4985-a616-ecfd561709a0",
+              "Code": "90003",
+              "Name": "Test Account Save 2026",
+              "Status": "ACTIVE",
+              "Type": "EXPENSE",
+              "TaxType": "INPUT",
+              "Class": "EXPENSE",
+              "EnablePaymentsToAccount": false,
+              "ShowInExpenseClaims": false,
+              "ReportingCode": "EXP",
+              "ReportingCodeName": "Expense",
+              "UpdatedDateUTC": "/Date(1776869943477+0000)/",
+              "AddToWatchlist": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 14:59:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "653",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1776869999",
+          "etag": "W/\"28d-t85FIQjN1hEk24MHBD3Hr6KWaSo\""
+        },
+        "hash": "7ba9446294b32bde03db154c183a98f915fba330",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Accounts": [
+              {
+                "Code": "90003",
+                "Name": "Test Account Save 2026",
+                "Type": "EXPENSE"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

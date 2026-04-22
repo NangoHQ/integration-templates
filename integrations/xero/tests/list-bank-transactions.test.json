@@ -1,0 +1,1832 @@
+{
+  "input": {},
+  "output": {
+    "bank_transactions": [
+      {
+        "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+          "Name": "Ridgeway Bank"
+        },
+        "Date": "/Date(1770422400000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 15,
+        "TotalTax": 0,
+        "Total": 15,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Fee",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813455090+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "eed8d468-31c5-41c9-b34f-37b400be4c6f",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1770854400000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 21.71,
+        "TotalTax": 1.79,
+        "Total": 23.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Eft",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813458217+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "5ecad915-ffb0-46b6-b349-2168caa40f66",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
+          "Name": "Espresso 31"
+        },
+        "Date": "/Date(1771027200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 16,
+        "TotalTax": 0,
+        "Total": 16,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813608257+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "84ff3067-c1ee-4413-b489-9d6b40b41ae2",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+          "Name": "Woolworths Market"
+        },
+        "Date": "/Date(1771286400000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 60.23,
+        "TotalTax": 4.97,
+        "Total": 65.2,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813610447+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "8e2347a2-f51f-46b8-ba27-c2c25ed93a09",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "162c177a-3391-4742-890f-f3ebfe0df1f3",
+          "Name": "Brunswick Petals"
+        },
+        "Date": "/Date(1771632000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 46.19,
+        "TotalTax": 3.81,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Gift",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813612633+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "56d679b7-611f-4c94-9760-60e7b019bc24",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+          "Name": "Berry Brew"
+        },
+        "Date": "/Date(1771891200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 15.6,
+        "TotalTax": 0,
+        "Total": 15.6,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813614273+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "dc615dfb-6450-490a-bd2f-0b5fd532aff2",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+          "Name": "Melrose Parking"
+        },
+        "Date": "/Date(1772064000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 137.18,
+        "TotalTax": 11.32,
+        "Total": 148.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Chq 409",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229813622587+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "9e716adc-32a1-4f81-90f2-1aaae24cfc74",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+          "Name": "Melrose Parking"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 137.18,
+        "TotalTax": 11.32,
+        "Total": 148.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Chq 410",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1229817777813+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "548fb3cf-972b-4bff-8559-0d787cde205a",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+          "Name": "Ridgeway Bank"
+        },
+        "Date": "/Date(1773100800000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 15,
+        "TotalTax": 0,
+        "Total": 15,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Fee",
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1229820036867+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "fc5fefd3-a6aa-4a58-954e-4c9352a7b30a",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+          "Name": "Ridgeway Bank"
+        },
+        "Date": "/Date(1776124800000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 15,
+        "TotalTax": 0,
+        "Total": 15,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Fee",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1229825658843+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "86ea16b1-e901-409a-8177-4ec117208cc5",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "406e9eba-9939-48de-a300-57853bb1a6a4",
+          "Name": "Gable Print"
+        },
+        "Date": "/Date(1775001600000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 27.25,
+        "TotalTax": 2.25,
+        "Total": 29.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071454290+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "8b82178c-c0ad-4515-8f4a-e45a1b203617",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+          "Name": "Woolworths Market"
+        },
+        "Date": "/Date(1773964800000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 31.5,
+        "TotalTax": 2.6,
+        "Total": 34.1,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Eft",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071454667+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "8ded5737-2bbf-4f3a-b437-20d598ea4bcf",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+          "Name": "Melrose Parking"
+        },
+        "Date": "/Date(1774051200000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 137.18,
+        "TotalTax": 11.32,
+        "Total": 148.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Chq 410",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071454947+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "a858954b-f646-41e4-a0fb-5823bb896c98",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1774224000000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 45.45,
+        "TotalTax": 3.75,
+        "Total": 49.2,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Eft",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071455010+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "4ec15cf0-1ee8-46ce-9cd9-34ba80511299",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+          "Name": "Berry Brew"
+        },
+        "Date": "/Date(1774742400000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 22,
+        "TotalTax": 0,
+        "Total": 22,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071455087+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "ef8942cc-a47c-489f-b4c8-fc987fd3d356",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "2e68080d-b3bd-4051-b33c-9f031550b958",
+          "Name": "24 Locks"
+        },
+        "Date": "/Date(1774742400000+0000)/",
+        "Status": "DELETED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 64.2,
+        "TotalTax": 5.3,
+        "Total": 69.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Chq 411",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1385071455150+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "8997a5fe-c07d-49cc-8936-cb338f9f0ec7",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+          "Name": "Woolworths Market"
+        },
+        "Date": "/Date(1773964800000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 31.5,
+        "TotalTax": 2.6,
+        "Total": 34.1,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385071767640+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "190f2da9-f696-4612-9e52-35a277674feb",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+          "Name": "Melrose Parking"
+        },
+        "Date": "/Date(1774051200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 137.18,
+        "TotalTax": 11.32,
+        "Total": 148.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385071840913+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "aabb3aeb-6961-4c0a-9ffc-6d43e5283762",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1774224000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 45.45,
+        "TotalTax": 3.75,
+        "Total": 49.2,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385071843253+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "641ec07c-5d5a-4fe8-b7a3-d985854eed9f",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "2e68080d-b3bd-4051-b33c-9f031550b958",
+          "Name": "24 Locks"
+        },
+        "Date": "/Date(1774742400000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 64.2,
+        "TotalTax": 5.3,
+        "Total": 69.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385072132607+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "a3984455-2591-4cc0-801c-c8ac98dfc409",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+          "Name": "Berry Brew"
+        },
+        "Date": "/Date(1774742400000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 22,
+        "TotalTax": 0,
+        "Total": 22,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385072147723+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "823f008c-64e5-4285-b470-7ecf1ab83cd4",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "940f1da6-6d14-46e5-a692-77de93732f96",
+          "Name": "Orlena Greenville"
+        },
+        "Date": "/Date(1773964800000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 27.25,
+        "TotalTax": 2.25,
+        "Total": 29.5,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "IsReconciled": true,
+        "UpdatedDateUTC": "/Date(1385072864543+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "c1e03570-043c-4c4d-b3bf-457d46c516d8",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-001",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704070313+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "a6833abc-18bd-4911-acce-73d87ab23ed4",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-001",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704141010+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "bab937de-4b84-4557-99a8-b01d16fd4a17",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-002",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704244213+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "f82e3edd-a1a5-4cc7-b32e-ffdc6f419a04",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-002",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704255827+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
+          "Name": "nango test"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 46.19,
+        "TotalTax": 3.81,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Updated via Nango API - Success!",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704621437+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "2e060c09-75d0-4ff3-8822-54e3f3b4ba36",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-004",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704716093+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "8e0f9b46-37de-4d3e-b963-919128b569e8",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "Name": "Office Supplies Company"
+        },
+        "Date": "/Date(1776643200000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 50,
+        "TotalTax": 0,
+        "Total": 50,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Test-BT-004",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776704725633+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "dcc41fb9-1d48-45f3-9353-3d21f49b2099",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+          "Name": "Test Contact"
+        },
+        "Date": "/Date(1776816000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 92.38,
+        "TotalTax": 7.62,
+        "Total": 100,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "Updated Reference Test",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776868751477+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "928ce6d2-bdda-425d-acc2-d4136b5c0347",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+          "Name": "RITE Agency"
+        },
+        "Date": "/Date(1776816000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 100,
+        "TotalTax": 0,
+        "Total": 100,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "INV-001",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776869112013+0000)/",
+        "HasAttachments": false
+      },
+      {
+        "BankTransactionID": "b1181571-265c-4648-b43f-f0dba32ff845",
+        "Type": "SPEND",
+        "Contact": {
+          "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+          "Name": "RITE Agency"
+        },
+        "Date": "/Date(1776816000000+0000)/",
+        "Status": "AUTHORISED",
+        "LineAmountTypes": "Inclusive",
+        "LineItems": [],
+        "SubTotal": 100,
+        "TotalTax": 0,
+        "Total": 100,
+        "CurrencyCode": "USD",
+        "BankAccount": {
+          "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+          "Code": "090",
+          "Name": "Business Bank Account"
+        },
+        "Reference": "INV-001",
+        "IsReconciled": false,
+        "UpdatedDateUTC": "/Date(1776869119833+0000)/",
+        "HasAttachments": false
+      }
+    ],
+    "page": 1
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/BankTransactions": {
+        "response": {
+          "Id": "233b6f70-510b-40f5-bc4b-76284e579c13",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776870041092)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Fee",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+                "Name": "Ridgeway Bank",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-07T00:00:00",
+              "Date": "/Date(1770422400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 15,
+              "TotalTax": 0,
+              "Total": 15,
+              "UpdatedDateUTC": "/Date(1229813455090+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "eed8d468-31c5-41c9-b34f-37b400be4c6f",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Eft",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-12T00:00:00",
+              "Date": "/Date(1770854400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 21.71,
+              "TotalTax": 1.79,
+              "Total": 23.5,
+              "UpdatedDateUTC": "/Date(1229813458217+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "5ecad915-ffb0-46b6-b349-2168caa40f66",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
+                "Name": "Espresso 31",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-14T00:00:00",
+              "Date": "/Date(1771027200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 16,
+              "TotalTax": 0,
+              "Total": 16,
+              "UpdatedDateUTC": "/Date(1229813608257+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "84ff3067-c1ee-4413-b489-9d6b40b41ae2",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+                "Name": "Woolworths Market",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-17T00:00:00",
+              "Date": "/Date(1771286400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 60.23,
+              "TotalTax": 4.97,
+              "Total": 65.2,
+              "UpdatedDateUTC": "/Date(1229813610447+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "8e2347a2-f51f-46b8-ba27-c2c25ed93a09",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Gift",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "162c177a-3391-4742-890f-f3ebfe0df1f3",
+                "Name": "Brunswick Petals",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-21T00:00:00",
+              "Date": "/Date(1771632000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 46.19,
+              "TotalTax": 3.81,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1229813612633+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "56d679b7-611f-4c94-9760-60e7b019bc24",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+                "Name": "Berry Brew",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-24T00:00:00",
+              "Date": "/Date(1771891200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 15.6,
+              "TotalTax": 0,
+              "Total": 15.6,
+              "UpdatedDateUTC": "/Date(1229813614273+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "dc615dfb-6450-490a-bd2f-0b5fd532aff2",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Chq 409",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+                "Name": "Melrose Parking",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-26T00:00:00",
+              "Date": "/Date(1772064000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 137.18,
+              "TotalTax": 11.32,
+              "Total": 148.5,
+              "UpdatedDateUTC": "/Date(1229813622587+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "9e716adc-32a1-4f81-90f2-1aaae24cfc74",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Chq 410",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+                "Name": "Melrose Parking",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 137.18,
+              "TotalTax": 11.32,
+              "Total": 148.5,
+              "UpdatedDateUTC": "/Date(1229817777813+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "548fb3cf-972b-4bff-8559-0d787cde205a",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Fee",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+                "Name": "Ridgeway Bank",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-10T00:00:00",
+              "Date": "/Date(1773100800000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 15,
+              "TotalTax": 0,
+              "Total": 15,
+              "UpdatedDateUTC": "/Date(1229820036867+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "fc5fefd3-a6aa-4a58-954e-4c9352a7b30a",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Fee",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+                "Name": "Ridgeway Bank",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-14T00:00:00",
+              "Date": "/Date(1776124800000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 15,
+              "TotalTax": 0,
+              "Total": 15,
+              "UpdatedDateUTC": "/Date(1229825658843+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "86ea16b1-e901-409a-8177-4ec117208cc5",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "406e9eba-9939-48de-a300-57853bb1a6a4",
+                "Name": "Gable Print",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-01T00:00:00",
+              "Date": "/Date(1775001600000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 27.25,
+              "TotalTax": 2.25,
+              "Total": 29.5,
+              "UpdatedDateUTC": "/Date(1385071454290+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "8b82178c-c0ad-4515-8f4a-e45a1b203617",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Eft",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+                "Name": "Woolworths Market",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-20T00:00:00",
+              "Date": "/Date(1773964800000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 31.5,
+              "TotalTax": 2.6,
+              "Total": 34.1,
+              "UpdatedDateUTC": "/Date(1385071454667+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "8ded5737-2bbf-4f3a-b437-20d598ea4bcf",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Chq 410",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+                "Name": "Melrose Parking",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-21T00:00:00",
+              "Date": "/Date(1774051200000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 137.18,
+              "TotalTax": 11.32,
+              "Total": 148.5,
+              "UpdatedDateUTC": "/Date(1385071454947+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "a858954b-f646-41e4-a0fb-5823bb896c98",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Eft",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-23T00:00:00",
+              "Date": "/Date(1774224000000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 45.45,
+              "TotalTax": 3.75,
+              "Total": 49.2,
+              "UpdatedDateUTC": "/Date(1385071455010+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "4ec15cf0-1ee8-46ce-9cd9-34ba80511299",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+                "Name": "Berry Brew",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-29T00:00:00",
+              "Date": "/Date(1774742400000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 22,
+              "TotalTax": 0,
+              "Total": 22,
+              "UpdatedDateUTC": "/Date(1385071455087+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "ef8942cc-a47c-489f-b4c8-fc987fd3d356",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Chq 411",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "2e68080d-b3bd-4051-b33c-9f031550b958",
+                "Name": "24 Locks",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-29T00:00:00",
+              "Date": "/Date(1774742400000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 64.2,
+              "TotalTax": 5.3,
+              "Total": 69.5,
+              "UpdatedDateUTC": "/Date(1385071455150+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "8997a5fe-c07d-49cc-8936-cb338f9f0ec7",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+                "Name": "Woolworths Market",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-20T00:00:00",
+              "Date": "/Date(1773964800000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 31.5,
+              "TotalTax": 2.6,
+              "Total": 34.1,
+              "UpdatedDateUTC": "/Date(1385071767640+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "190f2da9-f696-4612-9e52-35a277674feb",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+                "Name": "Melrose Parking",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-21T00:00:00",
+              "Date": "/Date(1774051200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 137.18,
+              "TotalTax": 11.32,
+              "Total": 148.5,
+              "UpdatedDateUTC": "/Date(1385071840913+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "aabb3aeb-6961-4c0a-9ffc-6d43e5283762",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-23T00:00:00",
+              "Date": "/Date(1774224000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 45.45,
+              "TotalTax": 3.75,
+              "Total": 49.2,
+              "UpdatedDateUTC": "/Date(1385071843253+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "641ec07c-5d5a-4fe8-b7a3-d985854eed9f",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "2e68080d-b3bd-4051-b33c-9f031550b958",
+                "Name": "24 Locks",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-29T00:00:00",
+              "Date": "/Date(1774742400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 64.2,
+              "TotalTax": 5.3,
+              "Total": 69.5,
+              "UpdatedDateUTC": "/Date(1385072132607+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "a3984455-2591-4cc0-801c-c8ac98dfc409",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+                "Name": "Berry Brew",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-29T00:00:00",
+              "Date": "/Date(1774742400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 22,
+              "TotalTax": 0,
+              "Total": 22,
+              "UpdatedDateUTC": "/Date(1385072147723+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "823f008c-64e5-4285-b470-7ecf1ab83cd4",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "940f1da6-6d14-46e5-a692-77de93732f96",
+                "Name": "Orlena Greenville",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-20T00:00:00",
+              "Date": "/Date(1773964800000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 27.25,
+              "TotalTax": 2.25,
+              "Total": 29.5,
+              "UpdatedDateUTC": "/Date(1385072864543+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "c1e03570-043c-4c4d-b3bf-457d46c516d8",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-001",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704070313+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "a6833abc-18bd-4911-acce-73d87ab23ed4",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-001",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704141010+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "bab937de-4b84-4557-99a8-b01d16fd4a17",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-002",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704244213+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "f82e3edd-a1a5-4cc7-b32e-ffdc6f419a04",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-002",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704255827+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Updated via Nango API - Success!",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
+                "ContactNumber": "211f9ce8bbedd85eab2bec2c0c3326c1c1c4fa739531b55d1d",
+                "Name": "nango test",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 46.19,
+              "TotalTax": 3.81,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704621437+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "2e060c09-75d0-4ff3-8822-54e3f3b4ba36",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-004",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704716093+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "8e0f9b46-37de-4d3e-b963-919128b569e8",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test-BT-004",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+                "Name": "Office Supplies Company",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 50,
+              "TotalTax": 0,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1776704725633+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "dcc41fb9-1d48-45f3-9353-3d21f49b2099",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Updated Reference Test",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                "Name": "Test Contact",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 92.38,
+              "TotalTax": 7.62,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1776868751477+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "928ce6d2-bdda-425d-acc2-d4136b5c0347",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "INV-001",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "Name": "RITE Agency",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 100,
+              "TotalTax": 0,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1776869112013+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "BankTransactionID": "b1181571-265c-4648-b43f-f0dba32ff845",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "INV-001",
+              "IsReconciled": false,
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "Name": "RITE Agency",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [],
+              "SubTotal": 100,
+              "TotalTax": 0,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1776869119833+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:00:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "31499",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1776870096",
+          "etag": "W/\"7b0b-OkNVXzjocGefmgQaHlHAzmdLSeM\""
+        },
+        "hash": "027df8a118f40b49d916eb44c24142e412bd756e",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

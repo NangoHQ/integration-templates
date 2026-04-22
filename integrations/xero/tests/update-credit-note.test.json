@@ -1,0 +1,161 @@
+{
+  "input": {
+    "credit_note_id": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+    "reference": "Updated via Nango API"
+  },
+  "output": {
+    "credit_note_id": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+    "credit_note_number": "CN-0033",
+    "type": "ACCRECCREDIT",
+    "status": "DRAFT",
+    "date": "/Date(1705276800000+0000)/",
+    "contact_id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+    "reference": "Updated via Nango API",
+    "total": 108.25,
+    "sub_total": 100,
+    "total_tax": 8.25,
+    "updated_date_utc": "/Date(1776869963527+0000)/",
+    "remaining_credit": 108.25
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/CreditNotes": {
+        "response": {
+          "Id": "d285b0cb-1239-4fc5-a8c6-98e72149ec37",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776869963569)/",
+          "CreditNotes": [
+            {
+              "CreditNoteID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+              "CreditNoteNumber": "CN-0033",
+              "Payments": [],
+              "ID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+              "HasErrors": false,
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "Updated via Nango API",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "Contact": {
+                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+                "ContactStatus": "ACTIVE",
+                "Name": "Test Customer",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  },
+                  {
+                    "AddressType": "POBOX",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776703999580+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "d96e0ddc-9137-440d-aac2-2d90156efbdf",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776869963527+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 14:59:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2896",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4918",
+          "x-ratelimit-reset": "1776869999",
+          "etag": "W/\"b50-BtI0mcrnY24z606f1FafMdNfLeU\""
+        },
+        "hash": "3ba3e5660c7cb4866f6b25185945f1270be3b379",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "CreditNotes": [
+              {
+                "CreditNoteID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+                "Reference": "Updated via Nango API"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

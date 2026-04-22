@@ -1,152 +1,164 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { toFailedCreditNote, toCreditNote } from '../mappers/to-credit-note.js';
 
-import type { ProxyConfiguration } from 'nango';
+const InputSchema = z.object({
+    type: z.enum(['ACCPAYCREDIT', 'ACCRECCREDIT']).describe('Credit note type. ACCPAYCREDIT for accounts payable, ACCRECCREDIT for accounts receivable.'),
+    contact_id: z.string().describe('Contact ID for the credit note. Example: "430fa14a-f945-44d3-9f97-5df5e28441b8"'),
+    date: z.string().describe('Date of the credit note in YYYY-MM-DD format. Example: "2024-01-15"'),
+    line_items: z
+        .array(
+            z.object({
+                description: z.string().describe('Description of the line item.'),
+                quantity: z.number().describe('Quantity of the item.'),
+                unit_amount: z.number().describe('Unit price of the item.'),
+                account_code: z.string().describe('Account code for the line item. Example: "400"')
+            })
+        )
+        .describe('Array of line items for the credit note.')
+});
 
-import type { CreditNote, ActionErrorResponse } from '../models.js';
-import { CreditNoteActionResponse, Anonymous_xero_action_createcreditnote_input } from '../models.js';
+const OutputSchema = z.object({
+    credit_note_id: z.string().describe('Unique identifier for the created credit note.'),
+    credit_note_number: z.string().describe('Credit note number.'),
+    type: z.string().describe('Type of credit note.'),
+    status: z.string().describe('Status of the credit note.'),
+    contact_name: z.string().describe('Name of the contact.'),
+    date: z.string().describe('Date of the credit note.'),
+    total: z.number().describe('Total amount of the credit note.')
+});
 
 const action = createAction({
-    description: 'Creates one or more credit notes in Xero.\nNote: Does NOT check if the credit note already exists.',
-    version: '2.0.0',
-
+    description: 'Create a credit note for a contact.',
+    version: '1.0.0',
     endpoint: {
         method: 'POST',
-        path: '/credit-notes',
+        path: '/actions/create-credit-note',
         group: 'Credit Notes'
     },
-
-    input: Anonymous_xero_action_createcreditnote_input,
-    output: CreditNoteActionResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['accounting.transactions'],
 
-    exec: async (nango, input): Promise<CreditNoteActionResponse> => {
-        const tenant_id = await getTenantId(nango);
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
 
-        // Validate the credit notes:
+        let tenantId: string | undefined;
 
-        // 1) Contact is required
-        const invalidCreditNotes = input.filter((x: any) => !x.external_contact_id || x.fees.length === 0);
-        if (invalidCreditNotes.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `A contact id and at least one line item is required for every credit note.\nInvalid notes:\n${JSON.stringify(
-                    invalidCreditNotes,
-                    null,
-                    4
-                )}`
-            });
+        if (connection.connection_config && typeof connection.connection_config === 'object' && 'tenant_id' in connection.connection_config) {
+            tenantId = String(connection.connection_config['tenant_id']);
         }
 
-        // 2) 1+ valid credit note item is required
-        for (const creditNote of input) {
-            const invalidCreditNoteItems = creditNote.fees.filter((x: any) => !x.description || x.description.length < 1);
-            if (invalidCreditNoteItems.length > 0) {
-                throw new nango.ActionError<ActionErrorResponse>({
-                    message: `Every credit note item needs at least a description with 1 character.\n
-                        Invalid items:\n${JSON.stringify(invalidCreditNoteItems, null, 4)}\n
-                        Credit note: ${JSON.stringify(creditNote, null, 4)}`
-                });
+        if (!tenantId && connection.metadata && typeof connection.metadata === 'object' && 'tenantId' in connection.metadata) {
+            tenantId = String(connection.metadata['tenantId']);
+        }
+
+        if (!tenantId) {
+            // https://developer.xero.com/documentation/api/accounting/overview#connections
+            const connectionsResponse = await nango.get({
+                endpoint: 'connections',
+                retries: 10
+            });
+
+            const connectionsData = connectionsResponse.data;
+            if (connectionsData && typeof connectionsData === 'object' && 'data' in connectionsData) {
+                const data = connectionsData['data'];
+                if (Array.isArray(data)) {
+                    if (data.length === 0) {
+                        throw new nango.ActionError({
+                            type: 'no_tenant_found',
+                            message: 'No Xero tenant found for this connection.'
+                        });
+                    }
+                    if (data.length > 1) {
+                        throw new nango.ActionError({
+                            type: 'multiple_tenants',
+                            message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                        });
+                    }
+                    const firstConnection = data[0];
+                    if (firstConnection && typeof firstConnection === 'object' && 'tenantId' in firstConnection) {
+                        tenantId = String(firstConnection['tenantId']);
+                    }
+                }
             }
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/creditnotes/#post-creditnotes
-            endpoint: 'api.xro/2.0/CreditNotes',
-            headers: {
-                'xero-tenant-id': tenant_id
-            },
-            params: {
-                summarizeErrors: 'false'
-            },
-            data: {
-                CreditNotes: input.map(mapCreditNoteToXero)
-            },
-            retries: 3
+        if (!tenantId) {
+            throw new nango.ActionError({
+                type: 'no_tenant_found',
+                message: 'Could not resolve Xero tenant ID.'
+            });
+        }
+
+        const creditNotePayload = {
+            CreditNotes: [
+                {
+                    Type: input.type,
+                    Contact: {
+                        ContactID: input.contact_id
+                    },
+                    Date: input.date,
+                    LineItems: input.line_items.map((item) => ({
+                        Description: item.description,
+                        Quantity: item.quantity,
+                        UnitAmount: item.unit_amount,
+                        AccountCode: item.account_code
+                    }))
+                }
+            ]
         };
 
-        const res = await nango.post(config);
-        const creditNotes = res.data.CreditNotes;
+        // https://developer.xero.com/documentation/api/accounting/creditnotes
+        const response = await nango.put({
+            endpoint: 'api.xro/2.0/CreditNotes',
+            headers: {
+                'xero-tenant-id': tenantId
+            },
+            data: creditNotePayload,
+            retries: 3
+        });
 
-        const failedCreditNotes = creditNotes.filter((x: any) => x.HasErrors);
-        if (failedCreditNotes.length > 0) {
-            await nango.log(
-                `Some credit notes could not be created in Xero due to validation errors. Note that the remaining credit notes (${
-                    input.length - failedCreditNotes.length
-                }) were created successfully. Affected credit notes:\n${JSON.stringify(failedCreditNotes, null, 4)}`,
-                { level: 'error' }
-            );
+        const responseData = response.data;
+
+        if (!responseData || typeof responseData !== 'object') {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Xero API.'
+            });
         }
-        const succeededCreditNotes = creditNotes.filter((x: any) => !x.HasErrors);
+
+        const creditNotes = 'CreditNotes' in responseData ? responseData['CreditNotes'] : undefined;
+        if (!Array.isArray(creditNotes) || creditNotes.length === 0) {
+            throw new nango.ActionError({
+                type: 'no_credit_note_created',
+                message: 'No credit note was created.'
+            });
+        }
+
+        const createdCreditNote = creditNotes[0];
+        if (!createdCreditNote || typeof createdCreditNote !== 'object') {
+            throw new nango.ActionError({
+                type: 'invalid_credit_note',
+                message: 'Invalid credit note data in response.'
+            });
+        }
+
+        const contactObj =
+            'Contact' in createdCreditNote && createdCreditNote['Contact'] && typeof createdCreditNote['Contact'] === 'object'
+                ? createdCreditNote['Contact']
+                : undefined;
 
         return {
-            succeededCreditNotes: succeededCreditNotes.map(toCreditNote),
-            failedCreditNotes: failedCreditNotes.map(toFailedCreditNote)
+            credit_note_id: 'CreditNoteID' in createdCreditNote ? String(createdCreditNote['CreditNoteID']) : '',
+            credit_note_number: 'CreditNoteNumber' in createdCreditNote ? String(createdCreditNote['CreditNoteNumber']) : '',
+            type: 'Type' in createdCreditNote ? String(createdCreditNote['Type']) : '',
+            status: 'Status' in createdCreditNote ? String(createdCreditNote['Status']) : '',
+            contact_name: contactObj && 'Name' in contactObj ? String(contactObj['Name']) : '',
+            date: 'Date' in createdCreditNote ? String(createdCreditNote['Date']) : '',
+            total: 'Total' in createdCreditNote ? Number(createdCreditNote['Total']) : 0
         };
     }
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-
-function mapCreditNoteToXero(creditNote: CreditNote) {
-    const xeroCreditNote: Record<string, any> = {
-        Type: creditNote.type,
-        Contact: {
-            ContactID: creditNote.external_contact_id
-        },
-        LineItems: []
-    };
-
-    if (creditNote.number) {
-        xeroCreditNote['CreditNoteNumber'] = creditNote.number;
-    }
-
-    if (creditNote.reference) {
-        xeroCreditNote['Reference'] = creditNote.reference;
-    }
-
-    if (creditNote.status) {
-        xeroCreditNote['Status'] = creditNote.status;
-    }
-
-    if (creditNote.currency) {
-        xeroCreditNote['CurrencyCode'] = creditNote.currency;
-    }
-
-    if (creditNote.issuing_date) {
-        const issuingDate = new Date(creditNote.issuing_date);
-        xeroCreditNote['Date'] = issuingDate.toISOString().split('T')[0];
-    }
-
-    for (const item of creditNote.fees) {
-        const xeroItem: Record<string, any> = {
-            Description: item.description,
-            AccountCode: item.account_code
-        };
-
-        if (item.item_code) {
-            xeroItem['ItemCode'] = item.item_code;
-        }
-
-        if (item.units) {
-            xeroItem['Quantity'] = item.units;
-        }
-
-        if (item.precise_unit_amount) {
-            xeroItem['UnitAmount'] = item.precise_unit_amount;
-        }
-
-        if (item.amount_cents) {
-            xeroItem['LineAmount'] = item.amount_cents / 100;
-        }
-
-        if (item.taxes_amount_cents) {
-            xeroItem['TaxAmount'] = item.taxes_amount_cents / 100;
-        }
-
-        xeroCreditNote['LineItems'].push(xeroItem);
-    }
-
-    return xeroCreditNote;
-}

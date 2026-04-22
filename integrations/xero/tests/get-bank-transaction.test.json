@@ -1,0 +1,170 @@
+{
+  "input": {
+    "bank_transaction_id": "b9d7c42c-506a-4e56-a8a1-a41330580834"
+  },
+  "output": {
+    "bank_transaction_id": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+    "type": "SPEND",
+    "contact_id": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+    "contact_name": "Ridgeway Bank",
+    "date": "/Date(1770422400000+0000)/",
+    "status": "AUTHORISED",
+    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "bank_account_name": "Business Bank Account",
+    "currency_code": "USD",
+    "currency_rate": null,
+    "sub_total": 15,
+    "total_tax": 0,
+    "total": 15,
+    "reference": "Fee",
+    "is_reconciled": true,
+    "updated_at": "/Date(1229813455090+0000)/"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/connections": {
+        "response": [
+          {
+            "id": "a8c67266-a372-46bb-a653-390d9beebd38",
+            "authEventId": "99b1cee8-0835-41ac-b2ef-c0fd1daedee0",
+            "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e",
+            "tenantType": "ORGANISATION",
+            "tenantName": "Demo Company (Global)",
+            "createdDateUtc": "2026-04-22T14:21:06.8729970",
+            "updatedDateUtc": "2026-04-22T14:21:06.8754670"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 14:59:31 GMT",
+          "content-type": "application/json",
+          "content-length": "309",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4886",
+          "x-ratelimit-reset": "1776869999",
+          "etag": "W/\"135-7NQ4Tk0T10XkJLI7Pp75pxp5VH4\""
+        },
+        "hash": "884ad8a5c0c12496782c3aaf905c06e9be491e4d",
+        "request": {}
+      },
+      "/api.xro/2.0/BankTransactions/b9d7c42c-506a-4e56-a8a1-a41330580834": {
+        "response": {
+          "Id": "bcda822e-54f4-4a2b-a156-d35078fd9204",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776869971286)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Fee",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Attachments": [],
+              "Contact": {
+                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+                "ContactStatus": "ACTIVE",
+                "Name": "Ridgeway Bank",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET"
+                  },
+                  {
+                    "AddressType": "POBOX"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "MOBILE"
+                  },
+                  {
+                    "PhoneType": "DEFAULT"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-07T00:00:00",
+              "Date": "/Date(1770422400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "Description": "Bank fee",
+                  "UnitAmount": 15,
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 15,
+                  "AccountCode": "404",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "f433c812-2cc5-42d1-ba5c-cea4fe153923",
+                  "AccountID": "269479fb-cc8e-4e5f-b0b6-cc4eccf045e0",
+                  "DiscountEnteredAsPercent": true,
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 15,
+              "TotalTax": 0,
+              "Total": 15,
+              "UpdatedDateUTC": "/Date(1229813455090+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 14:59:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2153",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4884",
+          "x-ratelimit-reset": "1776869999",
+          "etag": "W/\"869-87So73xJHQqF6bc9MYYWKmibRIE\""
+        },
+        "hash": "174b029f9dcf95cd6b2679c2001e180546a82242",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1121 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "CreditNote": [
+        {
+          "id": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+          "CreditNoteID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+          "CreditNoteNumber": "CN-0014",
+          "Type": "ACCRECCREDIT",
+          "Reference": "Training",
+          "Status": "PAID",
+          "Date": "/Date(1772928000000+0000)/",
+          "UpdatedDateUTC": "/Date(1229794712660+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 500,
+          "TotalTax": 41.25,
+          "Total": 541.25,
+          "RemainingCredit": 0,
+          "Contact": {
+            "ContactID": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+            "Name": "Boom FM"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "2c140c4b-97af-46f9-b6e0-732a512dd1cd",
+              "Description": "CREDIT Half day training - Microsoft Office and include in suite of training INV-0013",
+              "Quantity": 1,
+              "UnitAmount": 500,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 41.25,
+              "LineAmount": 500
+            }
+          ]
+        },
+        {
+          "id": "694c1f99-8085-416c-9ace-40f911303229",
+          "CreditNoteID": "694c1f99-8085-416c-9ace-40f911303229",
+          "CreditNoteNumber": "CN-0015",
+          "Type": "ACCRECCREDIT",
+          "Reference": "Monthly Support",
+          "Status": "PAID",
+          "Date": "/Date(1774828800000+0000)/",
+          "UpdatedDateUTC": "/Date(1229794794077+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 500,
+          "TotalTax": 41.25,
+          "Total": 541.25,
+          "RemainingCredit": 0,
+          "Contact": {
+            "ContactID": "fd89489e-699c-4d77-a881-10c127bfbeb3",
+            "Name": "Hamilton Smith Ltd"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "7a46a5ec-db61-499a-a8e2-0506f63266a9",
+              "Description": "Full credit - DUPLICATE of INV-0001",
+              "Quantity": 1,
+              "UnitAmount": 500,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 41.25,
+              "LineAmount": 500
+            }
+          ]
+        },
+        {
+          "id": "4965b2fe-0a1b-471e-ade2-80e0e1f61c91",
+          "CreditNoteID": "4965b2fe-0a1b-471e-ade2-80e0e1f61c91",
+          "CreditNoteNumber": "CN-0023",
+          "Type": "ACCRECCREDIT",
+          "Reference": "Yr Ref W08-143",
+          "Status": "PAID",
+          "Date": "/Date(1774396800000+0000)/",
+          "UpdatedDateUTC": "/Date(1229797050397+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 19.95,
+          "TotalTax": 1.75,
+          "Total": 21.7,
+          "RemainingCredit": 0,
+          "Contact": {
+            "ContactID": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
+            "Name": "DIISR - Small Business Services"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "63951b5c-4fd4-48ca-9171-7231b99929e3",
+              "Description": "'Fish out of Water: Finding Your Brand' - credit - charged in error - should be included overall project",
+              "Quantity": 1,
+              "UnitAmount": 19.95,
+              "AccountCode": "200",
+              "TaxType": "TAX001",
+              "TaxAmount": 1.75,
+              "LineAmount": 19.95
+            }
+          ]
+        },
+        {
+          "id": "38b0ede6-a89d-4384-8d24-a3b3e8eaabb0",
+          "CreditNoteID": "38b0ede6-a89d-4384-8d24-a3b3e8eaabb0",
+          "CreditNoteNumber": "Refund",
+          "Type": "ACCPAYCREDIT",
+          "Reference": "",
+          "Status": "PAID",
+          "Date": "/Date(1772668800000+0000)/",
+          "UpdatedDateUTC": "/Date(1229797499993+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 23.5,
+          "TotalTax": 1.94,
+          "Total": 25.44,
+          "RemainingCredit": 0,
+          "Contact": {
+            "ContactID": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
+            "Name": "Swanston Security"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "77bb5431-41f7-404d-a05b-527cdae9a791",
+              "Description": "Refund as agreed due to window break when guard absent",
+              "Quantity": 1,
+              "UnitAmount": 23.5,
+              "AccountCode": "453",
+              "TaxType": "INPUT",
+              "TaxAmount": 1.94,
+              "LineAmount": 23.5
+            }
+          ]
+        },
+        {
+          "id": "eb75c5d2-925e-4201-8944-e7f4c69a3518",
+          "CreditNoteID": "eb75c5d2-925e-4201-8944-e7f4c69a3518",
+          "CreditNoteNumber": "OG laptop",
+          "Type": "ACCPAYCREDIT",
+          "Reference": "",
+          "Status": "PAID",
+          "Date": "/Date(1772668800000+0000)/",
+          "UpdatedDateUTC": "/Date(1229798035507+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 250,
+          "TotalTax": 20.63,
+          "Total": 270.63,
+          "RemainingCredit": 0,
+          "Contact": {
+            "ContactID": "aacecb74-ef1e-44e0-ba52-0bc521639697",
+            "Name": "PC Complete"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "600dc919-8a4c-454e-8264-03b3d659584e",
+              "Description": "Unable to supply DVD writer for laptop - backorder",
+              "Quantity": 1,
+              "UnitAmount": 250,
+              "AccountCode": "453",
+              "TaxType": "INPUT",
+              "TaxAmount": 20.63,
+              "LineAmount": 250
+            }
+          ]
+        },
+        {
+          "id": "2b159707-e22d-4b8f-87fa-897f77141401",
+          "CreditNoteID": "2b159707-e22d-4b8f-87fa-897f77141401",
+          "CreditNoteNumber": "CN-0034",
+          "Type": "ACCRECCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1705276800000+0000)/",
+          "UpdatedDateUTC": "/Date(1776704238063+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+            "Name": "Test Customer"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "2f175b41-1853-48b7-a7aa-d3c34790a66f",
+              "Description": "Test credit note line item",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "f195b858-2104-4bd0-aea1-958a4c1d1191",
+          "CreditNoteID": "f195b858-2104-4bd0-aea1-958a4c1d1191",
+          "CreditNoteNumber": "CN-0035",
+          "Type": "ACCRECCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1705276800000+0000)/",
+          "UpdatedDateUTC": "/Date(1776704247780+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+            "Name": "Test Customer"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "71b3ee30-5553-4b64-bda6-88928a4cdb12",
+              "Description": "Test credit note line item",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "5e5470d7-6deb-4402-a771-b6eb1d6801c3",
+          "CreditNoteID": "5e5470d7-6deb-4402-a771-b6eb1d6801c3",
+          "CreditNoteNumber": "CN-0038",
+          "Type": "ACCRECCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1776816000000+0000)/",
+          "UpdatedDateUTC": "/Date(1776868989493+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+            "Name": "Test Contact"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "98b660b1-4e1a-41d7-adc7-23d524956bd8",
+              "Description": "Test credit note item",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "28ed313d-44bc-4515-9c2c-0c99aecefcab",
+          "CreditNoteID": "28ed313d-44bc-4515-9c2c-0c99aecefcab",
+          "CreditNoteNumber": "CN-0039",
+          "Type": "ACCRECCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1776816000000+0000)/",
+          "UpdatedDateUTC": "/Date(1776868999830+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+            "Name": "Test Contact"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "4744579d-f664-481c-9f68-3cda63cdc356",
+              "Description": "Test credit note item",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "de4bb43d-630b-4fef-829d-ae12844fff6c",
+          "CreditNoteID": "de4bb43d-630b-4fef-829d-ae12844fff6c",
+          "Type": "ACCPAYCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1705276800000+0000)/",
+          "UpdatedDateUTC": "/Date(1776869797793+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+            "Name": "RITE Agency"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "3a2aa4c5-a65d-4835-ae35-ea13045cc86e",
+              "Description": "Advertising credit",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "400",
+              "TaxType": "INPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
+          "CreditNoteID": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
+          "Type": "ACCPAYCREDIT",
+          "Reference": "",
+          "Status": "DRAFT",
+          "Date": "/Date(1705276800000+0000)/",
+          "UpdatedDateUTC": "/Date(1776869866560+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+            "Name": "RITE Agency"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "0bfb1273-19f6-42d5-8b69-045e2429bd9f",
+              "Description": "Advertising credit",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "400",
+              "TaxType": "INPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        },
+        {
+          "id": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+          "CreditNoteID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+          "CreditNoteNumber": "CN-0033",
+          "Type": "ACCRECCREDIT",
+          "Reference": "Updated via Nango API",
+          "Status": "DRAFT",
+          "Date": "/Date(1705276800000+0000)/",
+          "UpdatedDateUTC": "/Date(1776869963527+0000)/",
+          "CurrencyCode": "USD",
+          "SubTotal": 100,
+          "TotalTax": 8.25,
+          "Total": 108.25,
+          "CurrencyRate": 1,
+          "RemainingCredit": 108.25,
+          "Contact": {
+            "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+            "Name": "Test Customer"
+          },
+          "LineItems": [
+            {
+              "LineItemID": "d96e0ddc-9137-440d-aac2-2d90156efbdf",
+              "Description": "Test credit note line item",
+              "Quantity": 1,
+              "UnitAmount": 100,
+              "AccountCode": "200",
+              "TaxType": "OUTPUT",
+              "TaxAmount": 8.25,
+              "LineAmount": 100
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "CreditNote": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/CreditNotes": {
+        "response": {
+          "Id": "8d951c5d-f2b9-4181-a0c2-f61fb1eb8838",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776871826966)/",
+          "pagination": {
+            "page": 1,
+            "pageSize": 100,
+            "pageCount": 1,
+            "itemCount": 12
+          },
+          "CreditNotes": [
+            {
+              "CreditNoteID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+              "CreditNoteNumber": "CN-0014",
+              "Payments": [],
+              "ID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "Type": "ACCRECCREDIT",
+              "Reference": "Training",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "a5be6139-7e3a-4d48-b664-50a89f0bb632",
+                  "Amount": 541.25,
+                  "Date": "/Date(1772928000000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "4c4db294-3633-45cd-8706-f0b3b0079609",
+                    "InvoiceNumber": "INV-0010",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+                "Name": "Boom FM",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-08T00:00:00",
+              "Date": "/Date(1772928000000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "Train-MS",
+                  "Description": "CREDIT Half day training - Microsoft Office and include in suite of training INV-0013",
+                  "UnitAmount": 500,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 41.25,
+                  "LineAmount": 500,
+                  "AccountCode": "200",
+                  "Item": {
+                    "ItemID": "e5cc8904-5865-4846-ad0c-5d9b695b8af9",
+                    "Name": "Half day training - Microsoft Office",
+                    "Code": "Train-MS"
+                  },
+                  "Tracking": [
+                    {
+                      "Name": "Region",
+                      "Option": "Eastside",
+                      "TrackingCategoryID": "fa437cfd-f005-4538-ae84-943857da5c8c",
+                      "Options": []
+                    }
+                  ],
+                  "Quantity": 1,
+                  "LineItemID": "2c140c4b-97af-46f9-b6e0-732a512dd1cd",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 500,
+              "TotalTax": 41.25,
+              "Total": 541.25,
+              "UpdatedDateUTC": "/Date(1229794712660+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1772928000000+0000)/"
+            },
+            {
+              "CreditNoteID": "694c1f99-8085-416c-9ace-40f911303229",
+              "CreditNoteNumber": "CN-0015",
+              "Payments": [],
+              "ID": "694c1f99-8085-416c-9ace-40f911303229",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "Type": "ACCRECCREDIT",
+              "Reference": "Monthly Support",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "73196742-61bd-4ad0-92a0-0baaffd46fd8",
+                  "Amount": 541.25,
+                  "Date": "/Date(1774828800000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "b7e0c5f4-9f52-4126-b102-45fd12eaa3ca",
+                    "InvoiceNumber": "INV-0005",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "fd89489e-699c-4d77-a881-10c127bfbeb3",
+                "Name": "Hamilton Smith Ltd",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-30T00:00:00",
+              "Date": "/Date(1774828800000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "Support-M",
+                  "Description": "Full credit - DUPLICATE of INV-0001",
+                  "UnitAmount": 500,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 41.25,
+                  "LineAmount": 500,
+                  "AccountCode": "200",
+                  "Item": {
+                    "ItemID": "e82eaa5c-3c5f-47ed-b2a9-7de266ab1eaf",
+                    "Name": "Desktop/network support via email & phone",
+                    "Code": "Support-M"
+                  },
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "7a46a5ec-db61-499a-a8e2-0506f63266a9",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 500,
+              "TotalTax": 41.25,
+              "Total": 541.25,
+              "UpdatedDateUTC": "/Date(1229794794077+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1774828800000+0000)/"
+            },
+            {
+              "CreditNoteID": "4965b2fe-0a1b-471e-ade2-80e0e1f61c91",
+              "CreditNoteNumber": "CN-0023",
+              "Payments": [],
+              "ID": "4965b2fe-0a1b-471e-ade2-80e0e1f61c91",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "Type": "ACCRECCREDIT",
+              "Reference": "Yr Ref W08-143",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "62104ee6-ea79-43e2-b95b-2dd8fbdb7d96",
+                  "Amount": 21.7,
+                  "Date": "/Date(1774396800000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "2c916a34-14fe-4b38-af86-6b0fcc371a89",
+                    "InvoiceNumber": "INV-0022",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
+                "Name": "DIISR - Small Business Services",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-25T00:00:00",
+              "Date": "/Date(1774396800000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "BOOK",
+                  "Description": "'Fish out of Water: Finding Your Brand' - credit - charged in error - should be included overall project",
+                  "UnitAmount": 19.95,
+                  "TaxType": "TAX001",
+                  "TaxAmount": 1.75,
+                  "LineAmount": 19.95,
+                  "AccountCode": "200",
+                  "Item": {
+                    "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+                    "Name": "Fish out of Water: Finding Your Brand",
+                    "Code": "BOOK"
+                  },
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "63951b5c-4fd4-48ca-9171-7231b99929e3",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 19.95,
+              "TotalTax": 1.75,
+              "Total": 21.7,
+              "UpdatedDateUTC": "/Date(1229797050397+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1774396800000+0000)/"
+            },
+            {
+              "CreditNoteID": "38b0ede6-a89d-4384-8d24-a3b3e8eaabb0",
+              "CreditNoteNumber": "Refund",
+              "Payments": [],
+              "ID": "38b0ede6-a89d-4384-8d24-a3b3e8eaabb0",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "Type": "ACCPAYCREDIT",
+              "Reference": "",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "1f37ee5a-ddc7-40df-b083-590ac7ebfb00",
+                  "Amount": 25.44,
+                  "Date": "/Date(1772668800000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "ffbb9f34-f7d7-4f55-91cb-af89552ecdd7",
+                    "InvoiceNumber": "AP",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
+                "Name": "Swanston Security",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-05T00:00:00",
+              "Date": "/Date(1772668800000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Refund as agreed due to window break when guard absent",
+                  "UnitAmount": 23.5,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 1.94,
+                  "LineAmount": 23.5,
+                  "AccountCode": "453",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "77bb5431-41f7-404d-a05b-527cdae9a791",
+                  "AccountID": "79fc6227-e183-409a-ba39-77028e0ceeff"
+                }
+              ],
+              "SubTotal": 23.5,
+              "TotalTax": 1.94,
+              "Total": 25.44,
+              "UpdatedDateUTC": "/Date(1229797499993+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1772668800000+0000)/"
+            },
+            {
+              "CreditNoteID": "eb75c5d2-925e-4201-8944-e7f4c69a3518",
+              "CreditNoteNumber": "OG laptop",
+              "Payments": [],
+              "ID": "eb75c5d2-925e-4201-8944-e7f4c69a3518",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "Type": "ACCPAYCREDIT",
+              "Reference": "",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "38992701-386d-4c33-a364-b8dd4c876e5c",
+                  "Amount": 270.63,
+                  "Date": "/Date(1772668800000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "824c6c13-b7a5-49a2-99bd-4a6d77f7866e",
+                    "InvoiceNumber": "",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "aacecb74-ef1e-44e0-ba52-0bc521639697",
+                "Name": "PC Complete",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-05T00:00:00",
+              "Date": "/Date(1772668800000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Unable to supply DVD writer for laptop - backorder",
+                  "UnitAmount": 250,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 20.63,
+                  "LineAmount": 250,
+                  "AccountCode": "453",
+                  "Tracking": [
+                    {
+                      "Name": "Region",
+                      "Option": "North",
+                      "TrackingCategoryID": "fa437cfd-f005-4538-ae84-943857da5c8c",
+                      "Options": []
+                    }
+                  ],
+                  "Quantity": 1,
+                  "LineItemID": "600dc919-8a4c-454e-8264-03b3d659584e",
+                  "AccountID": "79fc6227-e183-409a-ba39-77028e0ceeff"
+                }
+              ],
+              "SubTotal": 250,
+              "TotalTax": 20.63,
+              "Total": 270.63,
+              "UpdatedDateUTC": "/Date(1229798035507+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1772668800000+0000)/"
+            },
+            {
+              "CreditNoteID": "2b159707-e22d-4b8f-87fa-897f77141401",
+              "CreditNoteNumber": "CN-0034",
+              "Payments": [],
+              "ID": "2b159707-e22d-4b8f-87fa-897f77141401",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+                "Name": "Test Customer",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "2f175b41-1853-48b7-a7aa-d3c34790a66f",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776704238063+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "f195b858-2104-4bd0-aea1-958a4c1d1191",
+              "CreditNoteNumber": "CN-0035",
+              "Payments": [],
+              "ID": "f195b858-2104-4bd0-aea1-958a4c1d1191",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+                "Name": "Test Customer",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "71b3ee30-5553-4b64-bda6-88928a4cdb12",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776704247780+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "5e5470d7-6deb-4402-a771-b6eb1d6801c3",
+              "CreditNoteNumber": "CN-0038",
+              "Payments": [],
+              "ID": "5e5470d7-6deb-4402-a771-b6eb1d6801c3",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                "Name": "Test Contact",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "98b660b1-4e1a-41d7-adc7-23d524956bd8",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776868989493+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "28ed313d-44bc-4515-9c2c-0c99aecefcab",
+              "CreditNoteNumber": "CN-0039",
+              "Payments": [],
+              "ID": "28ed313d-44bc-4515-9c2c-0c99aecefcab",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                "Name": "Test Contact",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "4744579d-f664-481c-9f68-3cda63cdc356",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776868999830+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "de4bb43d-630b-4fef-829d-ae12844fff6c",
+              "Payments": [],
+              "ID": "de4bb43d-630b-4fef-829d-ae12844fff6c",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCPAYCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "Name": "RITE Agency",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Advertising credit",
+                  "UnitAmount": 100,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "3a2aa4c5-a65d-4835-ae35-ea13045cc86e",
+                  "AccountID": "eb01b8c7-f9b0-49ef-86f4-ed89b4ac33d5"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776869797793+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
+              "Payments": [],
+              "ID": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCPAYCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "Name": "RITE Agency",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Advertising credit",
+                  "UnitAmount": 100,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "0bfb1273-19f6-42d5-8b69-045e2429bd9f",
+                  "AccountID": "eb01b8c7-f9b0-49ef-86f4-ed89b4ac33d5"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776869866560+0000)/",
+              "CurrencyCode": "USD"
+            },
+            {
+              "CreditNoteID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+              "CreditNoteNumber": "CN-0033",
+              "Payments": [],
+              "ID": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+              "HasErrors": false,
+              "InvoiceAddresses": [],
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "Updated via Nango API",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "HasAttachments": false,
+              "Contact": {
+                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+                "Name": "Test Customer",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "d96e0ddc-9137-440d-aac2-2d90156efbdf",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1776869963527+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:30:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "22881",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1776871866",
+          "etag": "W/\"5961-/Tn19eJxjIUuEPpJP1ttWbKn/nw\""
+        },
+        "hash": "29be1a775fcad849539c604ab4b88aeb4ca88109",
+        "request": {
+          "params": {
+            "page": "1",
+            "undefined": "100"
+          },
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

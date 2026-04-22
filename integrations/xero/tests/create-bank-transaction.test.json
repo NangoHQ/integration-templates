@@ -1,0 +1,200 @@
+{
+  "input": {
+    "type": "SPEND",
+    "contact": {
+      "name": "Test Contact"
+    },
+    "bank_account": {
+      "code": "090"
+    },
+    "line_items": [
+      {
+        "description": "Test line item",
+        "unit_amount": 100,
+        "account_code": "200"
+      }
+    ]
+  },
+  "output": {
+    "bank_transaction_id": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
+    "type": "SPEND",
+    "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+    "contact_name": "Test Contact",
+    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "bank_account_code": "090",
+    "date": "/Date(1776816000000+0000)/",
+    "reference": null,
+    "currency_code": "USD",
+    "status": "AUTHORISED",
+    "line_amount_types": "Inclusive",
+    "sub_total": 92.38,
+    "total_tax": 7.62,
+    "total": 100,
+    "is_reconciled": false,
+    "line_items": [
+      {
+        "line_item_id": "28c2f026-79c8-407e-be99-2d0aa576a12d",
+        "description": "Test line item",
+        "quantity": 1,
+        "unit_amount": 100,
+        "account_code": "200",
+        "tax_type": "OUTPUT",
+        "line_amount": 100
+      }
+    ],
+    "created_at": null,
+    "updated_at": "/Date(1776870767823+0000)/"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/BankTransactions": {
+        "response": {
+          "Id": "39546af1-0698-4b66-a527-7c6276bf77f6",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776870767956)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "IsReconciled": false,
+              "CurrencyRate": 1,
+              "Contact": {
+                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                "ContactStatus": "ACTIVE",
+                "Name": "Test Contact",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  },
+                  {
+                    "AddressType": "POBOX",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776748024770+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "Description": "Test line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 7.62,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "28c2f026-79c8-407e-be99-2d0aa576a12d",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 92.38,
+              "TotalTax": 7.62,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1776870767823+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:12:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2769",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4904",
+          "x-ratelimit-reset": "1776870772",
+          "etag": "W/\"ad1-j9mCxPdkg/ZEB7NSBcaK2PI4ifQ\""
+        },
+        "hash": "7b001a6686f536fd2642a2c24d2170a8e20adbb7",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "BankTransactions": [
+              {
+                "Type": "SPEND",
+                "Contact": {
+                  "Name": "Test Contact"
+                },
+                "BankAccount": {
+                  "Code": "090"
+                },
+                "LineItems": [
+                  {
+                    "Description": "Test line item",
+                    "Quantity": 1,
+                    "UnitAmount": 100,
+                    "AccountCode": "200"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

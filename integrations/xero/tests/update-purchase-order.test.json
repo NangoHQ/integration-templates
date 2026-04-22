@@ -1,0 +1,159 @@
+{
+  "input": {
+    "purchase_order_id": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+    "reference": "Updated via API"
+  },
+  "output": {
+    "purchase_order_id": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+    "purchase_order_number": "PO-0011",
+    "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+    "contact_name": "Test Contact",
+    "date": "/Date(1736899200000+0000)/",
+    "delivery_date": null,
+    "reference": "Updated via API",
+    "status": "DRAFT",
+    "sub_total": 127.5,
+    "total_tax": 0,
+    "total": 127.5,
+    "updated_date_utc": "/Date(1776870874630+0000)/"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/connections": {
+        "response": [
+          {
+            "id": "a8c67266-a372-46bb-a653-390d9beebd38",
+            "authEventId": "99b1cee8-0835-41ac-b2ef-c0fd1daedee0",
+            "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e",
+            "tenantType": "ORGANISATION",
+            "tenantName": "Demo Company (Global)",
+            "createdDateUtc": "2026-04-22T14:21:06.8729970",
+            "updatedDateUtc": "2026-04-22T14:21:06.8754670"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:14:34 GMT",
+          "content-type": "application/json",
+          "content-length": "309",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4927",
+          "x-ratelimit-reset": "1776870894",
+          "etag": "W/\"135-7NQ4Tk0T10XkJLI7Pp75pxp5VH4\""
+        },
+        "hash": "884ad8a5c0c12496782c3aaf905c06e9be491e4d",
+        "request": {}
+      }
+    },
+    "post": {
+      "/api.xro/2.0/PurchaseOrders": {
+        "response": {
+          "Id": "0eaab460-d780-4428-ac51-448fb03ac6da",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776870874659)/",
+          "PurchaseOrders": [
+            {
+              "PurchaseOrderID": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+              "PurchaseOrderNumber": "PO-0011",
+              "DateString": "2025-01-15T00:00:00",
+              "Date": "/Date(1736899200000+0000)/",
+              "HasErrors": false,
+              "IsDiscounted": false,
+              "TotalDiscount": 0,
+              "SentToContact": false,
+              "Reference": "Updated via API",
+              "Type": "PURCHASEORDER",
+              "CurrencyRate": 1,
+              "CurrencyCode": "USD",
+              "Contact": {
+                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                "ContactStatus": "ACTIVE",
+                "Name": "Test Contact",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [],
+                "Phones": [],
+                "UpdatedDateUTC": "/Date(1776748024770+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": false,
+                "IsCustomer": true,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Office Supplies",
+                  "UnitAmount": 25.5,
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 127.5,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 5,
+                  "LineItemID": "9c99c794-8347-4b3f-8e58-1302bc7eae92",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39"
+                }
+              ],
+              "SubTotal": 127.5,
+              "TotalTax": 0,
+              "Total": 127.5,
+              "UpdatedDateUTC": "/Date(1776870874630+0000)/"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:14:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1862",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4926",
+          "x-ratelimit-reset": "1776870894",
+          "etag": "W/\"746-8eeOhKbXXwST6vo1hP+mFcEi7xs\""
+        },
+        "hash": "3a311e31250bc5ae2ebd0edd0906aac4a0b7a949",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "PurchaseOrders": [
+              {
+                "PurchaseOrderID": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+                "Reference": "Updated via API"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

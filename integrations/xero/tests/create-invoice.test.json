@@ -1,0 +1,194 @@
+{
+  "input": {
+    "type": "ACCREC",
+    "contact": {
+      "name": "Test Customer"
+    },
+    "line_items": [
+      {
+        "description": "Test service",
+        "quantity": 1,
+        "unit_amount": 100
+      }
+    ]
+  },
+  "output": {
+    "invoice_id": "65c277e0-100e-499b-a99c-3dc57d2876dd",
+    "invoice_number": "INV-0042",
+    "type": "ACCREC",
+    "status": "DRAFT",
+    "total": 100,
+    "sub_total": 100,
+    "total_tax": 0,
+    "contact_id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+    "contact_name": "Test Customer",
+    "date": "/Date(1776816000000+0000)/",
+    "due_date": null,
+    "updated_date_utc": "/Date(1776869961550+0000)/",
+    "currency_code": "USD",
+    "line_items": [
+      {
+        "line_item_id": "04a6a75e-57b1-4387-9b78-0641ac9b90df",
+        "description": "Test service",
+        "quantity": 1,
+        "unit_amount": 100,
+        "account_code": null,
+        "tax_type": null,
+        "line_amount": 100
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/Invoices": {
+        "response": {
+          "Id": "16ec0a29-c6c8-4b83-b683-18f98e2e5938",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776869961599)/",
+          "Invoices": [
+            {
+              "Type": "ACCREC",
+              "InvoiceID": "65c277e0-100e-499b-a99c-3dc57d2876dd",
+              "InvoiceNumber": "INV-0042",
+              "Reference": "",
+              "Prepayments": [],
+              "Overpayments": [],
+              "AmountDue": 100,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "CurrencyRate": 1,
+              "IsDiscounted": false,
+              "HasErrors": false,
+              "InvoicePaymentServices": [],
+              "Contact": {
+                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+                "ContactStatus": "ACTIVE",
+                "Name": "Test Customer",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  },
+                  {
+                    "AddressType": "POBOX",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776703999580+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": false,
+                "IsCustomer": true,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-22T00:00:00",
+              "Date": "/Date(1776816000000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test service",
+                  "UnitAmount": 100,
+                  "LineAmount": 100,
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "04a6a75e-57b1-4387-9b78-0641ac9b90df",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 0,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1776869961550+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 14:59:21 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2901",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4933",
+          "x-ratelimit-reset": "1776869999",
+          "etag": "W/\"b55-jRPGq9RO/jlntOyxP9yh2290S38\""
+        },
+        "hash": "cdfd31e892e9264e53e6e689e478ebf8dbf5e6f6",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Invoices": [
+              {
+                "Type": "ACCREC",
+                "Contact": {
+                  "Name": "Test Customer"
+                },
+                "LineItems": [
+                  {
+                    "Description": "Test service",
+                    "Quantity": 1,
+                    "UnitAmount": 100
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

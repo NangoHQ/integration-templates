@@ -1,17 +1,24 @@
-import { expect, it, describe } from 'vitest';
+import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-invoice.js';
+import createAction from '../actions/create-invoice.js';
 
 describe('xero create-invoice tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'create-invoice',
-        Model: 'InvoiceActionResponse'
+        Model: 'ActionOutput_xero_createinvoice'
     });
 
     it('should output the action output that is expected', async () => {
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
+            },
+            metadata: {}
+        });
+
         const input = await nangoMock.getInput();
-        const response = await runAction.exec(nangoMock, input);
+        const response = await createAction.exec(nangoMock, input);
         const output = await nangoMock.getOutput();
 
         expect(response).toEqual(output);

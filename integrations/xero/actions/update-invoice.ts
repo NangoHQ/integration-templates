@@ -1,89 +1,253 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { toInvoice, toXeroInvoice } from '../mappers/to-invoice.js';
 
-import type { ProxyConfiguration } from 'nango';
+const InputSchema = z.object({
+    invoice_id: z.string().describe('The unique ID of the invoice to update. Example: "12345678-1234-1234-1234-123456789012"'),
+    type: z.enum(['ACCREC', 'ACCPAY']).optional().describe('Invoice type: ACCREC (Sales Invoice) or ACCPAY (Bill).'),
+    contact: z
+        .object({
+            contact_id: z.string().optional().describe('The Xero ID for the contact.'),
+            name: z.string().optional().describe('The full name of the contact or organisation.')
+        })
+        .optional()
+        .describe('The contact associated with the invoice.'),
+    line_items: z
+        .array(
+            z.object({
+                line_item_id: z.string().optional().describe('The Xero ID for the line item (for existing items).'),
+                description: z.string().optional().describe('Description of the line item.'),
+                quantity: z.number().optional().describe('Quantity of the line item.'),
+                unit_amount: z.number().optional().describe('Unit price of the line item.'),
+                account_code: z.string().optional().describe('Account code for the line item.'),
+                tax_type: z.string().optional().describe('Tax type for the line item.')
+            })
+        )
+        .optional()
+        .describe('Line items for the invoice.'),
+    date: z.string().optional().describe('Invoice date in YYYY-MM-DD format.'),
+    due_date: z.string().optional().describe('Due date for the invoice in YYYY-MM-DD format.'),
+    reference: z.string().optional().describe('Reference text for the invoice.'),
+    status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'PAID', 'VOIDED', 'DELETED']).optional().describe('Status of the invoice.')
+});
 
-import type { FailedInvoice, ActionErrorResponse } from '../models.js';
-import { InvoiceActionResponse, Anonymous_xero_action_updateinvoice_input } from '../models.js';
+const OutputSchema = z.object({
+    invoice_id: z.string(),
+    invoice_number: z.string(),
+    type: z.string(),
+    status: z.string(),
+    total: z.number(),
+    currency_code: z.string(),
+    updated_date_utc: z.string()
+});
+
+// Zod schema for Xero API response validation
+const XeroInvoiceResponseSchema = z.object({
+    Id: z.string(),
+    Status: z.string(),
+    ProviderName: z.string(),
+    DateTimeUTC: z.string(),
+    Invoices: z.array(
+        z.object({
+            InvoiceID: z.string(),
+            InvoiceNumber: z.string().optional(),
+            Type: z.string().optional(),
+            Status: z.string().optional(),
+            Total: z.number().optional(),
+            CurrencyCode: z.string().optional(),
+            UpdatedDateUTC: z.string().optional()
+        })
+    )
+});
+
+// Zod schema for Connections API response
+const ConnectionsResponseSchema = z.object({
+    data: z.array(
+        z.object({
+            id: z.string(),
+            tenantId: z.string(),
+            tenantName: z.string().optional()
+        })
+    )
+});
+
+async function resolveTenantId(nango: Parameters<ReturnType<typeof createAction>['exec']>[0]): Promise<string> {
+    // 1. Check connection.connection_config['tenant_id']
+    const connection = await nango.getConnection();
+
+    if (connection && typeof connection === 'object') {
+        const connectionConfig = connection.connection_config;
+        if (connectionConfig && typeof connectionConfig === 'object' && connectionConfig['tenant_id']) {
+            const tenantId = connectionConfig['tenant_id'];
+            if (typeof tenantId === 'string' && tenantId.length > 0) {
+                return tenantId;
+            }
+        }
+
+        // 2. Check connection.metadata['tenantId']
+        const metadata = connection.metadata;
+        if (metadata && typeof metadata === 'object' && metadata['tenantId']) {
+            const tenantId = metadata['tenantId'];
+            if (typeof tenantId === 'string' && tenantId.length > 0) {
+                return tenantId;
+            }
+        }
+    }
+
+    // 3. Call GET connections and use first tenant if only one exists
+    // https://developer.xero.com/documentation/api/accounting/overview#connections
+    const connectionsResponse = await nango.get({
+        endpoint: 'connections',
+        retries: 10
+    });
+
+    const parsedConnections = ConnectionsResponseSchema.parse(connectionsResponse.data);
+    const connections = parsedConnections.data;
+
+    if (connections.length === 0) {
+        throw new nango.ActionError({
+            type: 'missing_tenant',
+            message: 'No Xero tenants found for this connection.'
+        });
+    }
+
+    if (connections.length > 1) {
+        throw new nango.ActionError({
+            type: 'multiple_tenants',
+            message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+        });
+    }
+
+    const firstConnection = connections[0];
+    if (firstConnection === undefined) {
+        throw new nango.ActionError({
+            type: 'missing_tenant',
+            message: 'No Xero tenants found for this connection.'
+        });
+    }
+
+    return firstConnection.tenantId;
+}
 
 const action = createAction({
-    description:
-        "Updates one or more invoices in Xero. To delete an invoice\nthat is in DRAFT or SUBMITTED set the status to DELETED. If an\ninvoice has been AUTHORISED it can't be deleted but you can set\nthe status to VOIDED.",
-    version: '2.0.0',
-
+    description: 'Update an existing invoice in Xero.',
+    version: '1.0.0',
     endpoint: {
-        method: 'PUT',
-        path: '/invoices',
+        method: 'POST',
+        path: '/actions/update-invoice',
         group: 'Invoices'
     },
-
-    input: Anonymous_xero_action_updateinvoice_input,
-    output: InvoiceActionResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['accounting.transactions'],
 
-    exec: async (nango, input): Promise<InvoiceActionResponse> => {
-        const tenant_id = await getTenantId(nango);
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const tenantId = await resolveTenantId(nango);
 
-        // Validate the invoices:
-        if (!input || !input.length) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `You must pass an array of invoices! Received: ${JSON.stringify(input)}`
+        // Build the invoice update payload
+        const invoicePayload: Record<string, unknown> = {
+            InvoiceID: input.invoice_id
+        };
+
+        if (input.type) {
+            invoicePayload['Type'] = input.type;
+        }
+
+        if (input.contact) {
+            const contactPayload: Record<string, string> = {};
+            if (input.contact.contact_id) {
+                contactPayload['ContactID'] = input.contact.contact_id;
+            }
+            if (input.contact.name) {
+                contactPayload['Name'] = input.contact.name;
+            }
+            invoicePayload['Contact'] = contactPayload;
+        }
+
+        if (input.line_items && input.line_items.length > 0) {
+            invoicePayload['LineItems'] = input.line_items.map((item) => {
+                const lineItem: Record<string, unknown> = {};
+                if (item.line_item_id) {
+                    lineItem['LineItemID'] = item.line_item_id;
+                }
+                if (item.description) {
+                    lineItem['Description'] = item.description;
+                }
+                if (typeof item.quantity === 'number') {
+                    lineItem['Quantity'] = item.quantity;
+                }
+                if (typeof item.unit_amount === 'number') {
+                    lineItem['UnitAmount'] = item.unit_amount;
+                }
+                if (item.account_code) {
+                    lineItem['AccountCode'] = item.account_code;
+                }
+                if (item.tax_type) {
+                    lineItem['TaxType'] = item.tax_type;
+                }
+                return lineItem;
             });
         }
 
-        // 1) Invoice id is required
-        const invalidInvoices = input.filter((x: any) => !x.id);
-        if (invalidInvoices.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `The invoice id is required to update the invoice.\nInvalid invoices:\n${JSON.stringify(invalidInvoices, null, 4)}`
-            });
+        if (input.date) {
+            invoicePayload['Date'] = input.date;
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/invoices/#post-invoices
+        if (input.due_date) {
+            invoicePayload['DueDate'] = input.due_date;
+        }
+
+        if (input.reference) {
+            invoicePayload['Reference'] = input.reference;
+        }
+
+        if (input.status) {
+            invoicePayload['Status'] = input.status;
+        }
+
+        // https://developer.xero.com/documentation/api/accounting/invoices
+        const response = await nango.post({
             endpoint: 'api.xro/2.0/Invoices',
             headers: {
-                'xero-tenant-id': tenant_id
-            },
-            params: {
-                summarizeErrors: 'false'
+                'xero-tenant-id': tenantId
             },
             data: {
-                Invoices: input.map(toXeroInvoice)
+                Invoices: [invoicePayload]
             },
             retries: 3
-        };
+        });
 
-        const res = await nango.post(config);
-        const invoices = res.data.Invoices;
+        const parsedResponse = XeroInvoiceResponseSchema.parse(response.data);
+        const invoices = parsedResponse.Invoices;
 
-        const failedInvoices = invoices.filter((x: any) => x.HasErrors);
-        if (failedInvoices.length > 0) {
-            await nango.log(
-                `Some invoices could not be created in Xero due to validation errors. Note that the remaining invoices (${
-                    input.length - failedInvoices.length
-                }) were created successfully. Affected invoices:\n${JSON.stringify(failedInvoices, null, 4)}`,
-                { level: 'error' }
-            );
+        if (invoices.length === 0) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'No invoice returned from Xero after update.',
+                invoice_id: input.invoice_id
+            });
         }
-        const succeededInvoices = invoices.filter((x: any) => !x.HasErrors);
 
-        const response: InvoiceActionResponse = {
-            succeededInvoices: succeededInvoices.map(toInvoice),
-            failedInvoices: failedInvoices.map(mapFailedXeroInvoice)
+        const updatedInvoice = invoices[0];
+
+        if (updatedInvoice === undefined) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'No invoice returned from Xero after update.',
+                invoice_id: input.invoice_id
+            });
+        }
+
+        return {
+            invoice_id: updatedInvoice.InvoiceID,
+            invoice_number: updatedInvoice.InvoiceNumber || '',
+            type: updatedInvoice.Type || '',
+            status: updatedInvoice.Status || '',
+            total: updatedInvoice.Total || 0,
+            currency_code: updatedInvoice.CurrencyCode || '',
+            updated_date_utc: updatedInvoice.UpdatedDateUTC || ''
         };
-
-        return response;
     }
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-
-function mapFailedXeroInvoice(xeroInvoice: any): FailedInvoice {
-    return {
-        ...toInvoice(xeroInvoice),
-        validation_errors: xeroInvoice.ValidationErrors
-    };
-}

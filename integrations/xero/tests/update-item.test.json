@@ -1,0 +1,107 @@
+{
+  "input": {
+    "item_id": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+    "code": "TEST-ITEM-001",
+    "name": "Updated Test Item",
+    "description": "Updated description",
+    "sales_unit_price": 149.99
+  },
+  "output": {
+    "item_id": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+    "code": "TEST-ITEM-001",
+    "name": "Updated Test Item",
+    "description": "Updated description",
+    "purchase_description": null,
+    "is_sold": true,
+    "is_purchased": true,
+    "sales_details": {
+      "unit_price": 149.99,
+      "account_code": "200",
+      "tax_type": "OUTPUT",
+      "cogs_account_code": null
+    },
+    "purchase_details": {
+      "unit_price": null,
+      "account_code": null,
+      "tax_type": null,
+      "cogs_account_code": null
+    },
+    "is_tracked_as_inventory": false,
+    "inventory_asset_account_code": null,
+    "status": "",
+    "updated_date_utc": "/Date(1776870259473)/"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/Items": {
+        "response": {
+          "Id": "0ee65c08-f3dd-4c66-bf7d-d81545cf90ed",
+          "Status": "OK",
+          "ProviderName": "NangoAPP2",
+          "DateTimeUTC": "/Date(1776870259486)/",
+          "Items": [
+            {
+              "ItemID": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+              "Code": "TEST-ITEM-001",
+              "Description": "Updated description",
+              "UpdatedDateUTC": "/Date(1776870259473)/",
+              "PurchaseDetails": {},
+              "SalesDetails": {
+                "UnitPrice": 149.99,
+                "AccountCode": "200",
+                "TaxType": "OUTPUT"
+              },
+              "Name": "Updated Test Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true,
+              "ValidationErrors": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 15:04:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "680",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1776870274",
+          "etag": "W/\"2a8-xl7hT0iBbq3x89Knw2wAY6O4R20\""
+        },
+        "hash": "a8df4343b091ef46a36d79818d621138164113fe",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Items": [
+              {
+                "ItemID": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+                "Code": "TEST-ITEM-001",
+                "Name": "Updated Test Item",
+                "Description": "Updated description",
+                "SalesDetails": {
+                  "UnitPrice": 149.99
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
