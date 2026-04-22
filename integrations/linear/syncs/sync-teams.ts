@@ -29,10 +29,12 @@ const sync = createSync<{ Team: typeof TeamSchema }, undefined, typeof Checkpoin
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint?.cursor || '';
+        // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
+        // complete scan, so every run must start from page 1.
+        void checkpoint;
+        let cursor = '';
         let hasMore = true;
 
-        // Keep a checkpointed full refresh so Nango can still detect deleted teams.
         await nango.trackDeletesStart('Team');
 
         while (hasMore) {

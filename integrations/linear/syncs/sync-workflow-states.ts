@@ -143,19 +143,19 @@ const sync = createSync({
 
             // https://developers.linear.app/docs/graphql/working-with-the-graphql-api
             const response = await nango.post({
-                endpoint: 'graphql',
+                endpoint: '/graphql',
                 data: { query },
                 retries: 3
             });
 
             const parsed = WorkflowStatesResponseSchema.safeParse(response.data);
             if (!parsed.success) {
-                break;
+                throw new Error(`Linear workflow states response did not match the expected schema: ${parsed.error.message}`);
             }
 
             const workflowStatesData = parsed.data.data?.workflowStates;
             if (!workflowStatesData) {
-                break;
+                throw new Error('Missing workflowStates data from Linear API');
             }
 
             const nodes = workflowStatesData.nodes;

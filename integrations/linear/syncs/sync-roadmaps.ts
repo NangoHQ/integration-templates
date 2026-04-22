@@ -41,12 +41,11 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
 
-        // Blocker: Linear GraphQL API does not expose deleted roadmap events
-        // or a changed-since endpoint for roadmaps. Full refresh is required
-        // for deletion detection on the initial run or when checkpoint is reset.
+        // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
+        // complete scan, so every run must start from page 1.
         await nango.trackDeletesStart('Roadmap');
 
-        let cursor: string | undefined = checkpoint?.['cursor'] || undefined;
+        let cursor: string | undefined = undefined;
         let updatedAfter: string | undefined = checkpoint?.['updated_after'] || undefined;
         let firstBatchSaved = false;
 
@@ -102,7 +101,7 @@ const sync = createSync({
 
             const roadmapsConnection = response.data?.data?.roadmaps;
             if (!roadmapsConnection) {
-                break;
+                throw new Error('Missing roadmaps data from Linear API; aborting to prevent incorrect delete reconciliation');
             }
 
             const nodes = roadmapsConnection.nodes ?? [];

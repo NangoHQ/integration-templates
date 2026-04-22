@@ -18,6 +18,26 @@ const CheckpointSchema = z.object({
 type UserModel = typeof UserSchema;
 type CheckpointType = typeof CheckpointSchema;
 
+interface UsersResponse {
+    data?: {
+        users?: {
+            nodes: Array<{
+                id: string;
+                name: string;
+                email: string;
+                avatarUrl: string | null;
+                active: boolean;
+                createdAt: string;
+                updatedAt: string;
+            }>;
+            pageInfo: {
+                hasNextPage: boolean;
+                endCursor?: string | null;
+            };
+        };
+    };
+}
+
 const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
     description: 'Sync Linear users with profile and active state fields',
     version: '1.0.0',
@@ -36,9 +56,11 @@ const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let after: string | undefined = checkpoint?.after || undefined;
+        // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
+        // complete scan, so every run must start from page 1.
+        void checkpoint;
+        let after: string | undefined = undefined;
 
-        // Keep a checkpointed full refresh so Nango can still detect deleted users.
         await nango.trackDeletesStart('User');
 
         // GraphQL pagination requires manual cursor extraction from nested pageInfo
@@ -46,7 +68,7 @@ const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
         while (true) {
             // https://linear.app/developers/graphql
             // https://linear.app/developers/pagination
-            const response = await nango.post({
+            const response: { data: UsersResponse } = await nango.post({
                 endpoint: '/graphql',
                 data: {
                     query: `

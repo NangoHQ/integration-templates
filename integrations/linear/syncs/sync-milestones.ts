@@ -63,10 +63,10 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const updatedAfter = checkpoint ? checkpoint['updated_after'] : '';
-        let cursor = checkpoint ? checkpoint['cursor'] : '';
+        // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
+        // complete scan, so every run must start from page 1.
+        let cursor = '';
 
-        // Blocker: Linear only exposes projectMilestones with no explicit deleted-record endpoint.
-        // Using full refresh deletion detection.
         await nango.trackDeletesStart('Milestone');
 
         const pageSize = 100;
@@ -123,7 +123,11 @@ const sync = createSync({
 
             const milestonesData = response.data?.data?.projectMilestones;
 
-            if (!milestonesData || milestonesData.edges.length === 0) {
+            if (!milestonesData) {
+                throw new Error('Missing projectMilestones data from Linear API; aborting to prevent incorrect delete reconciliation');
+            }
+
+            if (milestonesData.edges.length === 0) {
                 break;
             }
 

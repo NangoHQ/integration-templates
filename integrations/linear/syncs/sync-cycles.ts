@@ -17,6 +17,30 @@ const CheckpointSchema = z.object({
     cursor: z.string()
 });
 
+interface CyclesResponse {
+    data?: {
+        cycles?: {
+            edges: Array<{
+                node: {
+                    id: string;
+                    name: string;
+                    number: number;
+                    startsAt: string;
+                    endsAt: string;
+                    completedAt: string | null;
+                    updatedAt: string;
+                    team: { id: string; name: string } | null;
+                };
+                cursor: string;
+            }>;
+            pageInfo: {
+                hasNextPage: boolean;
+                endCursor?: string | null;
+            };
+        };
+    };
+}
+
 const sync = createSync({
     description: 'Sync Linear cycles for planning and iteration tracking.',
     version: '1.0.0',
@@ -30,15 +54,15 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint?.cursor;
+        // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
+        // complete scan, so every run must start from page 1.
+        void checkpoint;
+        let cursor: string | undefined = undefined;
 
-        // https://linear.app/developers/graphql
-        // https://linear.app/developers/pagination
-        // Keep a checkpointed full refresh so Nango can still detect deleted cycles.
         await nango.trackDeletesStart('Cycle');
 
         while (true) {
-            const response = await nango.post({
+            const response: { data: CyclesResponse } = await nango.post({
                 // https://linear.app/developers/graphql
                 endpoint: '/graphql',
                 data: {
