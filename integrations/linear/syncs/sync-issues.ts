@@ -80,14 +80,16 @@ const IssueResponseSchema = z.object({
             color: z.string().optional(),
             type: z.string().optional()
         })
-        .optional(),
+        .optional()
+        .nullable(),
     assignee: z
         .object({
             id: z.string(),
             name: z.string(),
             email: z.string().optional()
         })
-        .optional(),
+        .optional()
+        .nullable(),
     labels: z
         .object({
             nodes: z.array(
@@ -98,14 +100,16 @@ const IssueResponseSchema = z.object({
                 })
             )
         })
-        .optional(),
+        .optional()
+        .nullable(),
     project: z
         .object({
             id: z.string(),
             name: z.string(),
             state: z.string().optional()
         })
-        .optional(),
+        .optional()
+        .nullable(),
     cycle: z
         .object({
             id: z.string(),
@@ -115,6 +119,7 @@ const IssueResponseSchema = z.object({
             endsAt: z.string().optional()
         })
         .optional()
+        .nullable()
 });
 
 const sync = createSync({
