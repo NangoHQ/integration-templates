@@ -1,0 +1,189 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Issue": []
+    },
+    "batchDelete": {
+      "Issue": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "issues": {
+              "nodes": [
+                {
+                  "id": "acad5e4a-0174-4764-bc58-83f993e7ea2a",
+                  "identifier": "NAN-9",
+                  "title": "Test issue for unarchive",
+                  "description": null,
+                  "priority": 0,
+                  "estimate": null,
+                  "dueDate": null,
+                  "createdAt": "2026-04-22T07:58:31.321Z",
+                  "updatedAt": "2026-04-22T08:04:36.128Z",
+                  "url": "https://linear.app/nango-api/issue/NAN-9/test-issue-for-unarchive",
+                  "state": {
+                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
+                    "name": "Backlog",
+                    "color": "#bec2c8",
+                    "type": "backlog"
+                  },
+                  "assignee": null,
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null
+                },
+                {
+                  "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+                  "identifier": "NAN-5",
+                  "title": "Test Issue Updated via Nango Action",
+                  "description": "This is a test issue created by the Nango action for validation.",
+                  "priority": 1,
+                  "estimate": null,
+                  "dueDate": null,
+                  "createdAt": "2026-04-22T07:39:52.741Z",
+                  "updatedAt": "2026-04-22T07:58:06.406Z",
+                  "url": "https://linear.app/nango-api/issue/NAN-5/test-issue-updated-via-nango-action",
+                  "state": {
+                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
+                    "name": "Backlog",
+                    "color": "#bec2c8",
+                    "type": "backlog"
+                  },
+                  "assignee": null,
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null
+                },
+                {
+                  "id": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144",
+                  "identifier": "NAN-2",
+                  "title": "Set up your teams",
+                  "description": "This workspace is a container for your organization’s work. \n\n* [Learn more about Workspaces](<https://linear.app/docs/workspaces>)\n  How to configure settings and workflows \n\nTeams are how you organize people and work in Linear.\n\n* [Learn about Teams](<https://linear.app/docs/teams>)\n  How to structure teams and configure workflows\n\nTeams are made of members with defined roles (Admin, Member, Guest).\n\n* [Learn more about Members](<https://linear.app/docs/invite-members>)\n  Add your team and assign roles\n\n---\n\nReady to add your team? Invite via CSV or a unique link in [settings](<http://linear.app/settings/members>).",
+                  "priority": 0,
+                  "estimate": null,
+                  "dueDate": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-22T07:43:27.834Z",
+                  "url": "https://linear.app/nango-api/issue/NAN-2/set-up-your-teams",
+                  "state": {
+                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
+                    "name": "Todo",
+                    "color": "#e2e2e2",
+                    "type": "unstarted"
+                  },
+                  "assignee": null,
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null
+                },
+                {
+                  "id": "7cae264c-3f43-401b-ae22-322868db57c6",
+                  "identifier": "NAN-3",
+                  "title": "Connect your tools",
+                  "description": "Integrations turn Linear into your source of truth around product development. Keep data in sync, and eliminate manual updates between tools.\n\n![connect-your-tools.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/c2eae035-37e2-4754-adcb-b8305431aa1f/c92d70c7-e6d0-4fa2-a0fd-78f6e780993a)\n\n### **Key integrations**\n\n* [**Slack**](<https://linear.app/settings/integrations/slack>)\n  Create issues from Slack messages and sync threads\n* [**GitHub**](<https://linear.app/settings/integrations/github>)** / **[**GitLab**](<https://linear.app/settings/integrations/gitlab>)\n  Automate your pull request, commit workflows, and keep issues synced both ways\n* [**Agents**](<https://linear.app/integrations/agents>)\n  Deploy AI agents that work alongside you as teammates\n\n### **Browse all integrations**\n\nDiscover 150+ available connections in our [integration directory](<https://linear.app/integrations>) – from bug creation via support tools (Intercom, Zendesk), to issues created from design explorations (Figma).\n\n### **Linear API**\n\nIf you need something more custom, you can build directly on the Linear API (built on GraphQL). [See our Dev Docs to learn more](<https://linear.app/developers>).",
+                  "priority": 0,
+                  "estimate": null,
+                  "dueDate": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-22T07:39:57.656Z",
+                  "url": "https://linear.app/nango-api/issue/NAN-3/connect-your-tools",
+                  "state": {
+                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
+                    "name": "Todo",
+                    "color": "#e2e2e2",
+                    "type": "unstarted"
+                  },
+                  "assignee": null,
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null
+                },
+                {
+                  "id": "396009f0-d5bf-4d7a-ba9a-fe401b8540cd",
+                  "identifier": "NAN-1",
+                  "title": "Get familiar with Linear",
+                  "description": "Welcome to Linear! \n\nWatch an introductory video and access a list of resources below.\n\n[LinearH264Version_1.mp4](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/a044fb03-9b84-470c-ab6f-8eae613e2529/98d7274d-de7f-4910-b3f3-f72e8e286a98)\n\n### **Choose your setup guide** based on your company stage:\n\n* [Small teams](<https://linear.app/docs/how-to-use-linear-small-teams>)\n  For early-stage startups and projects\n* [Startups & mid-size companies](<https://linear.app/docs/how-to-use-linear-startups-mid-size-companies>)\n  For growing teams with cross-functional needs\n* [Large & scaling companies](<https://linear.app/docs/how-to-use-linear-large-scaling-companies>)\n  For enterprise and high-growth teams with complex workflows\n\n### **Need help getting started?**\n\n* [Join our Slack community](<https://linear.app/join-slack>)\n  Connect with other Linear users and get tips\n* [Join a live ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[onboarding](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)[ ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[session](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)\n  Learn the essentials and see demos of core workflows\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/bc9bbf62-4192-411f-88f6-c89c9150503e/4df0346e-803b-4f58-8527-4aeb30d88411)",
+                  "priority": 0,
+                  "estimate": null,
+                  "dueDate": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-22T07:39:49.075Z",
+                  "url": "https://linear.app/nango-api/issue/NAN-1/get-familiar-with-linear",
+                  "state": {
+                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
+                    "name": "Todo",
+                    "color": "#e2e2e2",
+                    "type": "unstarted"
+                  },
+                  "assignee": null,
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "396009f0-d5bf-4d7a-ba9a-fe401b8540cd"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 08:26:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1776846429",
+          "cf-ray": "9f033e84ce8fc8da-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"1743-OMsMrrjHZeLWDoDAJv9hzgBpryI\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDYzOTMsImV4cCI6MTc3NzQ1MTE5M30.DhBJPEYUbU1ILvSdxt0_JF5Rg91dgg_4K0dhvXs9PwI; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "13",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999987",
+          "x-ratelimit-complexity-reset": "1776849993508",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1776849993508",
+          "x-request-id": "9f033e84e020c8da-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "1fc94420544429a9aa3660903a257944641c19d5",
+        "request": {
+          "data": "sha1:e0b433c06e67fb282a5bc3e6aa72d31f0cd89c50"
+        }
+      }
+    }
+  }
+}

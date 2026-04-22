@@ -1,0 +1,185 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "IssueLabel": [
+        {
+          "id": "f9fca07c-32c2-44ac-8ebf-a6e2b8ea66fd",
+          "name": "Test Label",
+          "color": "#FF0000",
+          "description": null,
+          "teamId": null,
+          "createdAt": "2026-04-22T07:36:17.429Z",
+          "updatedAt": "2026-04-22T08:04:36.699Z"
+        },
+        {
+          "id": "9e19c152-7d16-4362-8695-91c555b8411e",
+          "name": "Feature",
+          "color": "#BB87FC",
+          "description": null,
+          "teamId": null,
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-22T07:57:55.833Z"
+        },
+        {
+          "id": "04b6437c-fce7-4992-a320-7aeeeb340218",
+          "name": "Bug",
+          "color": "#EB5757",
+          "description": null,
+          "teamId": null,
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-22T07:44:56.220Z"
+        },
+        {
+          "id": "c57ee110-bc71-4b53-a287-818b602690d9",
+          "name": "Updated Test Label",
+          "color": "#33FF57",
+          "description": "This is a test description",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "createdAt": "2026-04-22T07:39:52.797Z",
+          "updatedAt": "2026-04-22T07:40:01.664Z"
+        },
+        {
+          "id": "c34c8ced-dd2f-42b2-86cd-ed10f644f377",
+          "name": "Test Label $(date +%s)",
+          "color": "#FF0000",
+          "description": null,
+          "teamId": null,
+          "createdAt": "2026-04-22T07:37:35.600Z",
+          "updatedAt": "2026-04-22T07:37:35.600Z"
+        },
+        {
+          "id": "c779e0a1-0064-4cad-8907-fbcfee9f1729",
+          "name": "Improvement",
+          "color": "#4EA7FC",
+          "description": null,
+          "teamId": null,
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "IssueLabel": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "issueLabels": {
+              "nodes": [
+                {
+                  "id": "f9fca07c-32c2-44ac-8ebf-a6e2b8ea66fd",
+                  "name": "Test Label",
+                  "color": "#FF0000",
+                  "description": null,
+                  "team": null,
+                  "createdAt": "2026-04-22T07:36:17.429Z",
+                  "updatedAt": "2026-04-22T08:04:36.699Z"
+                },
+                {
+                  "id": "9e19c152-7d16-4362-8695-91c555b8411e",
+                  "name": "Feature",
+                  "color": "#BB87FC",
+                  "description": null,
+                  "team": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-22T07:57:55.833Z"
+                },
+                {
+                  "id": "04b6437c-fce7-4992-a320-7aeeeb340218",
+                  "name": "Bug",
+                  "color": "#EB5757",
+                  "description": null,
+                  "team": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-22T07:44:56.220Z"
+                },
+                {
+                  "id": "c57ee110-bc71-4b53-a287-818b602690d9",
+                  "name": "Updated Test Label",
+                  "color": "#33FF57",
+                  "description": "This is a test description",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11"
+                  },
+                  "createdAt": "2026-04-22T07:39:52.797Z",
+                  "updatedAt": "2026-04-22T07:40:01.664Z"
+                },
+                {
+                  "id": "c34c8ced-dd2f-42b2-86cd-ed10f644f377",
+                  "name": "Test Label $(date +%s)",
+                  "color": "#FF0000",
+                  "description": null,
+                  "team": null,
+                  "createdAt": "2026-04-22T07:37:35.600Z",
+                  "updatedAt": "2026-04-22T07:37:35.600Z"
+                },
+                {
+                  "id": "c779e0a1-0064-4cad-8907-fbcfee9f1729",
+                  "name": "Improvement",
+                  "color": "#4EA7FC",
+                  "description": null,
+                  "team": null,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "c779e0a1-0064-4cad-8907-fbcfee9f1729"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 08:26:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1776846429",
+          "cf-ray": "9f033e0cab638bee-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"54b-qv588CoNb9nFjB25aJFYwJFfjiM\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDYzNzMsImV4cCI6MTc3NzQ1MTE3M30.FLY-H5kBG5RoLJbvErAZlGIm1obcMRmgptxjIFGmi6o; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "300",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999700",
+          "x-ratelimit-complexity-reset": "1776849973918",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1776849973918",
+          "x-request-id": "9f033e0cc4468bee-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "21ffb8e15615412f5788db36c773352dd07270fc",
+        "request": {
+          "data": {
+            "query": "\n            query IssueLabels($after: String, $first: Int, $filter: IssueLabelFilter) {\n                issueLabels(first: $first, after: $after, filter: $filter, orderBy: updatedAt) {\n                    nodes {\n                        id\n                        name\n                        color\n                        description\n                        team {\n                            id\n                        }\n                        createdAt\n                        updatedAt\n                    }\n                    pageInfo {\n                        hasNextPage\n                        endCursor\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "first": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}

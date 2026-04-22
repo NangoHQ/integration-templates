@@ -1,0 +1,285 @@
+{
+  "nango": {
+    "batchSave": {
+      "Project": [
+        {
+          "id": "e22a36f9-53f2-4426-b5a2-3d7f0cc0370b",
+          "name": "Test Project Updated",
+          "description": "A test project",
+          "slugId": "b84c3c366cfe",
+          "state": "planned",
+          "progress": 0,
+          "scope": 0,
+          "health": null,
+          "priority": 0,
+          "priorityLabel": "No priority",
+          "startDate": "2026-01-01",
+          "targetDate": "2026-12-31",
+          "createdAt": "2026-04-22T07:38:45.279Z",
+          "updatedAt": "2026-04-22T07:51:29.698Z",
+          "archivedAt": null,
+          "completedAt": null,
+          "canceledAt": null,
+          "startedAt": null,
+          "leadId": "5e854765-e42d-4ce6-9e66-789add44f493",
+          "leadName": "victor+linear@nango.dev",
+          "leadEmail": "victor+linear@nango.dev",
+          "statusId": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+          "statusName": "Planned",
+          "statusColor": "#D7D8DB"
+        },
+        {
+          "id": "37bccbd0-55e0-4dcd-975d-4e62f198a112",
+          "name": "Test Archive Unarchive Project",
+          "description": "",
+          "slugId": "45893da84b74",
+          "state": "backlog",
+          "progress": 0,
+          "scope": 0,
+          "health": null,
+          "priority": 0,
+          "priorityLabel": "No priority",
+          "startDate": null,
+          "targetDate": null,
+          "createdAt": "2026-04-22T07:42:16.004Z",
+          "updatedAt": "2026-04-22T07:42:16.004Z",
+          "archivedAt": null,
+          "completedAt": null,
+          "canceledAt": null,
+          "startedAt": null,
+          "leadId": null,
+          "leadName": null,
+          "leadEmail": null,
+          "statusId": "76a17375-6bbb-4ce6-b4ac-925e1834b766",
+          "statusName": "Backlog",
+          "statusColor": "#F2994A"
+        },
+        {
+          "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+          "name": "Test Project Updated",
+          "description": "A test project",
+          "slugId": "5c2fd5be6c1e",
+          "state": "planned",
+          "progress": 0,
+          "scope": 0,
+          "health": null,
+          "priority": 0,
+          "priorityLabel": "No priority",
+          "startDate": "2026-01-01",
+          "targetDate": "2026-12-31",
+          "createdAt": "2026-04-22T07:39:53.867Z",
+          "updatedAt": "2026-04-22T07:42:10.667Z",
+          "archivedAt": null,
+          "completedAt": null,
+          "canceledAt": null,
+          "startedAt": null,
+          "leadId": "5e854765-e42d-4ce6-9e66-789add44f493",
+          "leadName": "victor+linear@nango.dev",
+          "leadEmail": "victor+linear@nango.dev",
+          "statusId": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+          "statusName": "Planned",
+          "statusColor": "#D7D8DB"
+        },
+        {
+          "id": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+          "name": "Linear Test Project",
+          "description": "",
+          "slugId": "eb0cc9d2f9a6",
+          "state": "planned",
+          "progress": 0,
+          "scope": 0,
+          "health": null,
+          "priority": 2,
+          "priorityLabel": "High",
+          "startDate": "2026-04-21",
+          "targetDate": "2026-04-30",
+          "createdAt": "2026-04-21T07:39:22.024Z",
+          "updatedAt": "2026-04-21T07:39:22.024Z",
+          "archivedAt": null,
+          "completedAt": null,
+          "canceledAt": null,
+          "startedAt": null,
+          "leadId": null,
+          "leadName": null,
+          "leadEmail": null,
+          "statusId": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+          "statusName": "Planned",
+          "statusColor": "#D7D8DB"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Project": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projects": {
+              "nodes": [
+                {
+                  "id": "e22a36f9-53f2-4426-b5a2-3d7f0cc0370b",
+                  "name": "Test Project Updated",
+                  "description": "A test project",
+                  "slugId": "b84c3c366cfe",
+                  "state": "planned",
+                  "progress": 0,
+                  "scope": 0,
+                  "health": null,
+                  "priority": 0,
+                  "priorityLabel": "No priority",
+                  "startDate": "2026-01-01",
+                  "targetDate": "2026-12-31",
+                  "createdAt": "2026-04-22T07:38:45.279Z",
+                  "updatedAt": "2026-04-22T07:51:29.698Z",
+                  "archivedAt": null,
+                  "completedAt": null,
+                  "canceledAt": null,
+                  "startedAt": null,
+                  "lead": {
+                    "id": "5e854765-e42d-4ce6-9e66-789add44f493",
+                    "name": "victor+linear@nango.dev",
+                    "email": "victor+linear@nango.dev"
+                  },
+                  "status": {
+                    "id": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+                    "name": "Planned",
+                    "color": "#D7D8DB"
+                  }
+                },
+                {
+                  "id": "37bccbd0-55e0-4dcd-975d-4e62f198a112",
+                  "name": "Test Archive Unarchive Project",
+                  "description": "",
+                  "slugId": "45893da84b74",
+                  "state": "backlog",
+                  "progress": 0,
+                  "scope": 0,
+                  "health": null,
+                  "priority": 0,
+                  "priorityLabel": "No priority",
+                  "startDate": null,
+                  "targetDate": null,
+                  "createdAt": "2026-04-22T07:42:16.004Z",
+                  "updatedAt": "2026-04-22T07:42:16.004Z",
+                  "archivedAt": null,
+                  "completedAt": null,
+                  "canceledAt": null,
+                  "startedAt": null,
+                  "lead": null,
+                  "status": {
+                    "id": "76a17375-6bbb-4ce6-b4ac-925e1834b766",
+                    "name": "Backlog",
+                    "color": "#F2994A"
+                  }
+                },
+                {
+                  "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+                  "name": "Test Project Updated",
+                  "description": "A test project",
+                  "slugId": "5c2fd5be6c1e",
+                  "state": "planned",
+                  "progress": 0,
+                  "scope": 0,
+                  "health": null,
+                  "priority": 0,
+                  "priorityLabel": "No priority",
+                  "startDate": "2026-01-01",
+                  "targetDate": "2026-12-31",
+                  "createdAt": "2026-04-22T07:39:53.867Z",
+                  "updatedAt": "2026-04-22T07:42:10.667Z",
+                  "archivedAt": null,
+                  "completedAt": null,
+                  "canceledAt": null,
+                  "startedAt": null,
+                  "lead": {
+                    "id": "5e854765-e42d-4ce6-9e66-789add44f493",
+                    "name": "victor+linear@nango.dev",
+                    "email": "victor+linear@nango.dev"
+                  },
+                  "status": {
+                    "id": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+                    "name": "Planned",
+                    "color": "#D7D8DB"
+                  }
+                },
+                {
+                  "id": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+                  "name": "Linear Test Project",
+                  "description": "",
+                  "slugId": "eb0cc9d2f9a6",
+                  "state": "planned",
+                  "progress": 0,
+                  "scope": 0,
+                  "health": null,
+                  "priority": 2,
+                  "priorityLabel": "High",
+                  "startDate": "2026-04-21",
+                  "targetDate": "2026-04-30",
+                  "createdAt": "2026-04-21T07:39:22.024Z",
+                  "updatedAt": "2026-04-21T07:39:22.024Z",
+                  "archivedAt": null,
+                  "completedAt": null,
+                  "canceledAt": null,
+                  "startedAt": null,
+                  "lead": null,
+                  "status": {
+                    "id": "5201c1da-1f91-46e9-84dd-515ae265e6ba",
+                    "name": "Planned",
+                    "color": "#D7D8DB"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 07:51:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4924",
+          "x-ratelimit-reset": "1776844296",
+          "cf-ray": "9f030b5479cf8e63-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"974-SoeR+8xcEyH+szsMUN4bySfwubk\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDQyOTYsImV4cCI6MTc3NzQ0OTA5Nn0.ITbu_KuTN_ZfKHSrzWLCeinZFRUCE3jIuiH5BdcbDFk; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "930",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999070",
+          "x-ratelimit-complexity-reset": "1776847896465",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1776847896465",
+          "x-request-id": "9f030b54a5f98e63-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "464408d863c9b6cb76ca7fd2766102cc61c65109",
+        "request": {
+          "data": "sha1:f05e14f3645950c35c684b2e762a7c5afeaca713"
+        }
+      }
+    }
+  }
+}

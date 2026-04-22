@@ -1,0 +1,101 @@
+{
+  "input": {
+    "name": "Test Project",
+    "description": "A test project",
+    "team_ids": [
+      "7df5329e-651f-4d1d-b519-78d44a509f11"
+    ],
+    "lead_id": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "target_date": "2026-12-31",
+    "start_date": "2026-01-01",
+    "status": "planned"
+  },
+  "output": {
+    "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+    "name": "Test Project",
+    "description": "A test project",
+    "slug_id": "5c2fd5be6c1e",
+    "state": "planned",
+    "url": "https://linear.app/nango-api/project/test-project-5c2fd5be6c1e",
+    "lead_id": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "team_ids": [
+      "7df5329e-651f-4d1d-b519-78d44a509f11"
+    ],
+    "target_date": "2026-12-31",
+    "start_date": "2026-01-01"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projectCreate": {
+              "success": true,
+              "project": {
+                "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+                "name": "Test Project",
+                "description": "A test project",
+                "slugId": "5c2fd5be6c1e",
+                "state": "planned",
+                "url": "https://linear.app/nango-api/project/test-project-5c2fd5be6c1e",
+                "lead": {
+                  "id": "5e854765-e42d-4ce6-9e66-789add44f493"
+                },
+                "teams": {
+                  "nodes": [
+                    {
+                      "id": "7df5329e-651f-4d1d-b519-78d44a509f11"
+                    }
+                  ]
+                },
+                "targetDate": "2026-12-31",
+                "startDate": "2026-01-01"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 07:39:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1776843628",
+          "cf-ray": "9f02fa2d38903016-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"1b4-o5Nf56tuI5QOFvh3y4cjorSLdc0\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDM1OTMsImV4cCI6MTc3NzQ0ODM5M30.QOabWrp0C_nCQr8-J3I1hukEMqt8hCeQ6qLzAlm-p48; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "15",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999983",
+          "x-ratelimit-complexity-reset": "1776847193863",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4996",
+          "x-ratelimit-requests-reset": "1776847193863",
+          "x-request-id": "9f02fa2d54d43016-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "d7415096911f7906a19ac3928919250784592c77",
+        "request": {
+          "data": "sha1:903ce23f45c6690338365f5a9bd56465e37d0f43"
+        }
+      }
+    }
+  }
+}

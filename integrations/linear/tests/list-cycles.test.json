@@ -1,0 +1,217 @@
+{
+  "input": {
+    "first": 10
+  },
+  "output": {
+    "cycles": [
+      {
+        "id": "8cac3a6e-199a-4a10-bdf2-d538d25e1844",
+        "name": "Updated Test Sprint",
+        "number": 7,
+        "startsAt": "2026-04-22T00:00:00.000Z",
+        "endsAt": "2026-05-06T00:00:00.000Z",
+        "completedAt": null,
+        "createdAt": "2026-04-22T07:57:59.276Z",
+        "updatedAt": "2026-04-22T07:58:47.931Z",
+        "team": {
+          "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "name": "Nango-API"
+        }
+      },
+      {
+        "id": "eba02cdf-2128-4034-81b7-043be25a2c17",
+        "name": "Test Sprint",
+        "number": 6,
+        "startsAt": "2026-04-22T00:00:00.000Z",
+        "endsAt": "2026-05-06T00:00:00.000Z",
+        "completedAt": null,
+        "createdAt": "2026-04-22T07:57:51.707Z",
+        "updatedAt": "2026-04-22T07:57:51.707Z",
+        "team": {
+          "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "name": "Nango-API"
+        }
+      },
+      {
+        "id": "38ac5523-12f7-4780-bc38-35ee8c8e297c",
+        "name": "Future Sprint 2026",
+        "number": 5,
+        "startsAt": "2026-05-01T00:00:00.000Z",
+        "endsAt": "2026-05-14T00:00:00.000Z",
+        "completedAt": null,
+        "createdAt": "2026-04-22T07:46:10.498Z",
+        "updatedAt": "2026-04-22T07:46:10.498Z",
+        "team": {
+          "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "name": "Nango-API"
+        }
+      },
+      {
+        "id": "87bf9b1b-ec31-4c06-8996-153bddcae924",
+        "name": "Test Cycle",
+        "number": 4,
+        "startsAt": "2026-04-01T00:00:00.000Z",
+        "endsAt": "2026-04-30T23:59:59.000Z",
+        "completedAt": null,
+        "createdAt": "2026-04-22T07:46:05.748Z",
+        "updatedAt": "2026-04-22T07:48:56.375Z",
+        "team": {
+          "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "name": "Nango-API"
+        }
+      },
+      {
+        "id": "abbb9617-33e4-4492-8ace-e1ff233a0364",
+        "name": "Future Sprint 2026",
+        "number": 3,
+        "startsAt": "2026-05-01T00:00:00.000Z",
+        "endsAt": "2026-05-14T00:00:00.000Z",
+        "completedAt": null,
+        "createdAt": "2026-04-22T07:46:02.370Z",
+        "updatedAt": "2026-04-22T07:46:02.370Z",
+        "team": {
+          "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "name": "Nango-API"
+        }
+      }
+    ],
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "abbb9617-33e4-4492-8ace-e1ff233a0364"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "cycles": {
+              "nodes": [
+                {
+                  "id": "8cac3a6e-199a-4a10-bdf2-d538d25e1844",
+                  "name": "Updated Test Sprint",
+                  "number": 7,
+                  "startsAt": "2026-04-22T00:00:00.000Z",
+                  "endsAt": "2026-05-06T00:00:00.000Z",
+                  "completedAt": null,
+                  "createdAt": "2026-04-22T07:57:59.276Z",
+                  "updatedAt": "2026-04-22T07:58:47.931Z",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  }
+                },
+                {
+                  "id": "eba02cdf-2128-4034-81b7-043be25a2c17",
+                  "name": "Test Sprint",
+                  "number": 6,
+                  "startsAt": "2026-04-22T00:00:00.000Z",
+                  "endsAt": "2026-05-06T00:00:00.000Z",
+                  "completedAt": null,
+                  "createdAt": "2026-04-22T07:57:51.707Z",
+                  "updatedAt": "2026-04-22T07:57:51.707Z",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  }
+                },
+                {
+                  "id": "38ac5523-12f7-4780-bc38-35ee8c8e297c",
+                  "name": "Future Sprint 2026",
+                  "number": 5,
+                  "startsAt": "2026-05-01T00:00:00.000Z",
+                  "endsAt": "2026-05-14T00:00:00.000Z",
+                  "completedAt": null,
+                  "createdAt": "2026-04-22T07:46:10.498Z",
+                  "updatedAt": "2026-04-22T07:46:10.498Z",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  }
+                },
+                {
+                  "id": "87bf9b1b-ec31-4c06-8996-153bddcae924",
+                  "name": "Test Cycle",
+                  "number": 4,
+                  "startsAt": "2026-04-01T00:00:00.000Z",
+                  "endsAt": "2026-04-30T23:59:59.000Z",
+                  "completedAt": null,
+                  "createdAt": "2026-04-22T07:46:05.748Z",
+                  "updatedAt": "2026-04-22T07:48:56.375Z",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  }
+                },
+                {
+                  "id": "abbb9617-33e4-4492-8ace-e1ff233a0364",
+                  "name": "Future Sprint 2026",
+                  "number": 3,
+                  "startsAt": "2026-05-01T00:00:00.000Z",
+                  "endsAt": "2026-05-14T00:00:00.000Z",
+                  "completedAt": null,
+                  "createdAt": "2026-04-22T07:46:02.370Z",
+                  "updatedAt": "2026-04-22T07:46:02.370Z",
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "abbb9617-33e4-4492-8ace-e1ff233a0364"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 08:07:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1776845311",
+          "cf-ray": "9f0322ea5b6d817f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"6ce-pE9KYEN+rR2Y3o8T8ZeSg/gt2LU\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDUyNjIsImV4cCI6MTc3NzQ1MDA2Mn0.rBdGvMDGGpv7NXby8tnfh4mFHnoQgNlWoXVIchjEQIw; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "42",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999958",
+          "x-ratelimit-complexity-reset": "1776848862517",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1776848862517",
+          "x-request-id": "9f0322ea7199817f-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "c08723de7271bf5f870858b01e267f7a1bbf6a2c",
+        "request": {
+          "data": {
+            "query": "\n            query Cycles($first: Int, $after: String, $filter: CycleFilter, $orderBy: PaginationOrderBy) {\n                cycles(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {\n                    nodes {\n                        id\n                        name\n                        number\n                        startsAt\n                        endsAt\n                        completedAt\n                        createdAt\n                        updatedAt\n                        team {\n                            id\n                            name\n                        }\n                    }\n                    pageInfo {\n                        hasNextPage\n                        endCursor\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "first": 10
+            }
+          }
+        }
+      }
+    }
+  }
+}

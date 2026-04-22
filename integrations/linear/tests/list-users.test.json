@@ -1,0 +1,115 @@
+{
+  "input": {},
+  "output": {
+    "users": [
+      {
+        "id": "2aecf08c-cb91-4757-9295-39f520181137",
+        "name": "Linear",
+        "email": "linear-d5ae2dd7-73cf-49d2-af6e-5177167f7a5e@linear.linear.app",
+        "displayName": "linear",
+        "avatarUrl": "https://static.linear.app/assets/avatar/avatar_512.png",
+        "active": true,
+        "admin": false,
+        "createdAt": "2026-04-21T07:37:25.569Z",
+        "updatedAt": "2026-04-21T07:37:25.663Z"
+      },
+      {
+        "id": "5e854765-e42d-4ce6-9e66-789add44f493",
+        "name": "victor+linear@nango.dev",
+        "email": "victor+linear@nango.dev",
+        "displayName": "victorlinear",
+        "avatarUrl": null,
+        "active": true,
+        "admin": true,
+        "createdAt": "2026-04-21T07:37:24.757Z",
+        "updatedAt": "2026-04-21T07:37:30.147Z"
+      }
+    ],
+    "next_cursor": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "users": {
+              "nodes": [
+                {
+                  "id": "2aecf08c-cb91-4757-9295-39f520181137",
+                  "name": "Linear",
+                  "email": "linear-d5ae2dd7-73cf-49d2-af6e-5177167f7a5e@linear.linear.app",
+                  "displayName": "linear",
+                  "avatarUrl": "https://static.linear.app/assets/avatar/avatar_512.png",
+                  "active": true,
+                  "admin": false,
+                  "createdAt": "2026-04-21T07:37:25.569Z",
+                  "updatedAt": "2026-04-21T07:37:25.663Z"
+                },
+                {
+                  "id": "5e854765-e42d-4ce6-9e66-789add44f493",
+                  "name": "victor+linear@nango.dev",
+                  "email": "victor+linear@nango.dev",
+                  "displayName": "victorlinear",
+                  "avatarUrl": null,
+                  "active": true,
+                  "admin": true,
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:30.147Z"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "5e854765-e42d-4ce6-9e66-789add44f493"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 07:38:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4923",
+          "x-ratelimit-reset": "1776843568",
+          "cf-ray": "9f02f8a0ef569b19-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"2c7-ijWnMuRJvf82hPFnDMRhwEOLims\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDM1MzAsImV4cCI6MTc3NzQ0ODMzMH0.NQpGp75vKByYY3qkd_NauhxAEbdc33bfCbqVKjoafgs; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "155",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999845",
+          "x-ratelimit-complexity-reset": "1776847130694",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4997",
+          "x-ratelimit-requests-reset": "1776847130694",
+          "x-request-id": "9f02f8a101f19b19-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "dbcf969cbb864b1874dcb5d9bc0adb3d9feac506",
+        "request": {
+          "data": {
+            "query": "\n            query Users($first: Int, $after: String, $filter: UserFilter, $orderBy: PaginationOrderBy) {\n                users(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {\n                    nodes {\n                        id\n                        name\n                        email\n                        displayName\n                        avatarUrl\n                        active\n                        admin\n                        createdAt\n                        updatedAt\n                    }\n                    pageInfo {\n                        hasNextPage\n                        endCursor\n                    }\n                }\n            }\n        ",
+            "variables": {}
+          }
+        }
+      }
+    }
+  }
+}

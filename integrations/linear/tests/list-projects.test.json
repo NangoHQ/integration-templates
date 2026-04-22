@@ -1,0 +1,175 @@
+{
+  "input": {},
+  "output": {
+    "projects": [
+      {
+        "id": "37bccbd0-55e0-4dcd-975d-4e62f198a112",
+        "name": "Test Archive Unarchive Project",
+        "slugId": "45893da84b74",
+        "description": "",
+        "state": "backlog",
+        "progress": 0,
+        "startedAt": null,
+        "targetDate": null,
+        "createdAt": "2026-04-22T07:42:16.004Z",
+        "updatedAt": "2026-04-22T07:42:16.004Z",
+        "url": "https://linear.app/nango-api/project/test-archive-unarchive-project-45893da84b74"
+      },
+      {
+        "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+        "name": "Test Project Updated",
+        "slugId": "5c2fd5be6c1e",
+        "description": "A test project",
+        "state": "planned",
+        "progress": 0,
+        "startedAt": null,
+        "targetDate": "2026-12-31",
+        "createdAt": "2026-04-22T07:39:53.867Z",
+        "updatedAt": "2026-04-22T07:42:10.667Z",
+        "url": "https://linear.app/nango-api/project/test-project-updated-5c2fd5be6c1e"
+      },
+      {
+        "id": "e22a36f9-53f2-4426-b5a2-3d7f0cc0370b",
+        "name": "Test Project",
+        "slugId": "b84c3c366cfe",
+        "description": "A test project",
+        "state": "planned",
+        "progress": 0,
+        "startedAt": null,
+        "targetDate": "2026-12-31",
+        "createdAt": "2026-04-22T07:38:45.279Z",
+        "updatedAt": "2026-04-22T07:38:45.279Z",
+        "url": "https://linear.app/nango-api/project/test-project-b84c3c366cfe"
+      },
+      {
+        "id": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+        "name": "Linear Test Project",
+        "slugId": "eb0cc9d2f9a6",
+        "description": "",
+        "state": "planned",
+        "progress": 0,
+        "startedAt": null,
+        "targetDate": "2026-04-30",
+        "createdAt": "2026-04-21T07:39:22.024Z",
+        "updatedAt": "2026-04-21T07:39:22.024Z",
+        "url": "https://linear.app/nango-api/project/linear-test-project-eb0cc9d2f9a6"
+      }
+    ],
+    "next_cursor": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projects": {
+              "nodes": [
+                {
+                  "id": "37bccbd0-55e0-4dcd-975d-4e62f198a112",
+                  "name": "Test Archive Unarchive Project",
+                  "slugId": "45893da84b74",
+                  "description": "",
+                  "state": "backlog",
+                  "progress": 0,
+                  "startedAt": null,
+                  "targetDate": null,
+                  "createdAt": "2026-04-22T07:42:16.004Z",
+                  "updatedAt": "2026-04-22T07:42:16.004Z",
+                  "url": "https://linear.app/nango-api/project/test-archive-unarchive-project-45893da84b74"
+                },
+                {
+                  "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
+                  "name": "Test Project Updated",
+                  "slugId": "5c2fd5be6c1e",
+                  "description": "A test project",
+                  "state": "planned",
+                  "progress": 0,
+                  "startedAt": null,
+                  "targetDate": "2026-12-31",
+                  "createdAt": "2026-04-22T07:39:53.867Z",
+                  "updatedAt": "2026-04-22T07:42:10.667Z",
+                  "url": "https://linear.app/nango-api/project/test-project-updated-5c2fd5be6c1e"
+                },
+                {
+                  "id": "e22a36f9-53f2-4426-b5a2-3d7f0cc0370b",
+                  "name": "Test Project",
+                  "slugId": "b84c3c366cfe",
+                  "description": "A test project",
+                  "state": "planned",
+                  "progress": 0,
+                  "startedAt": null,
+                  "targetDate": "2026-12-31",
+                  "createdAt": "2026-04-22T07:38:45.279Z",
+                  "updatedAt": "2026-04-22T07:38:45.279Z",
+                  "url": "https://linear.app/nango-api/project/test-project-b84c3c366cfe"
+                },
+                {
+                  "id": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+                  "name": "Linear Test Project",
+                  "slugId": "eb0cc9d2f9a6",
+                  "description": "",
+                  "state": "planned",
+                  "progress": 0,
+                  "startedAt": null,
+                  "targetDate": "2026-04-30",
+                  "createdAt": "2026-04-21T07:39:22.024Z",
+                  "updatedAt": "2026-04-21T07:39:22.024Z",
+                  "url": "https://linear.app/nango-api/project/linear-test-project-eb0cc9d2f9a6"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Apr 2026 07:51:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1776844296",
+          "cf-ray": "9f030b1fbad20055-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"5fc-Vkam/nGawb3OnmKCtzhbd8Szgt0\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDQyODgsImV4cCI6MTc3NzQ0OTA4OH0.vjRKovcWSwj0-rWWnHkMwznQPPEOUT8pdc1o8bdfwVE; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "210",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999790",
+          "x-ratelimit-complexity-reset": "1776847888012",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1776847888012",
+          "x-request-id": "9f030b1fd22a0055-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "f5d1caa6da5620a2c0eb6c55413d8f5eec2248a8",
+        "request": {
+          "data": {
+            "query": "\n                    query Projects($first: Int, $after: String, $filter: ProjectFilter, $orderBy: PaginationOrderBy) {\n                        projects(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {\n                            nodes {\n                                id\n                                name\n                                slugId\n                                description\n                                state\n                                progress\n                                startedAt\n                                targetDate\n                                createdAt\n                                updatedAt\n                                url\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+            "variables": {}
+          }
+        }
+      }
+    }
+  }
+}
