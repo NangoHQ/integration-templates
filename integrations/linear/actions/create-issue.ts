@@ -30,7 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Linear issue',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-issue',

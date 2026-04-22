@@ -66699,7 +66699,7 @@
           "ActionInput_linear_createissue",
           "ActionOutput_linear_createissue"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_linear_createissue": {
