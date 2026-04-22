@@ -130,7 +130,7 @@ async function resolveTenantId(nango: Parameters<ReturnType<typeof createAction>
 
 const action = createAction({
     description: 'Update an existing invoice in Xero.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-invoice',

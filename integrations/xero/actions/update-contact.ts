@@ -73,7 +73,7 @@ function resolveTenantId(connection: ConnectionInfo): string | null {
 
 const action = createAction({
     description: 'Update an existing contact in Xero.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-contact',

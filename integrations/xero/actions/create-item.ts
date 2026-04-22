@@ -119,7 +119,7 @@ async function resolveTenantId(nango: NangoActionType): Promise<string> {
 
 const action = createAction({
     description: 'Create an inventory or catalog item',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-item',

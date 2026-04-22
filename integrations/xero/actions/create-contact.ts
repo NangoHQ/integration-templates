@@ -76,7 +76,7 @@ const ContactResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact in Xero',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-contact',

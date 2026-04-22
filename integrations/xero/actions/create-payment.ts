@@ -83,7 +83,7 @@ async function resolveTenantId(nango: NangoApi, connection: Connection): Promise
 
 const action = createAction({
     description: 'Create a payment against an invoice or credit note.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-payment',

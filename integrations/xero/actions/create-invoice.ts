@@ -168,7 +168,7 @@ function mapContact(inputContact: z.infer<typeof ContactSchema>): Record<string,
 
 const action = createAction({
     description: 'Create a sales or purchase invoice',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-invoice',
