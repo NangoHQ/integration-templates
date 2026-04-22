@@ -1,0 +1,185 @@
+{
+    "nango": {
+        "getConnection": {},
+        "batchSave": {
+            "GeneralLedger": [
+                {
+                    "id": "jrnl-0001-aaaa-bbbb-cccc-dddddddddddd",
+                    "date": "2024-01-01T00:00:00.000Z",
+                    "number": 1,
+                    "reference": "INV-001",
+                    "sourceId": "src-0001-aaaa-bbbb-cccc-dddddddddddd",
+                    "sourceType": "ACCREC",
+                    "createdDate": "2024-01-01T00:00:00.000Z",
+                    "lines": [
+                        {
+                            "journalLineId": "line-0001-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountId": "acc-0200-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountCode": "200",
+                            "accountName": "Sales Revenue",
+                            "description": "Sales Invoice line",
+                            "netAmount": -500,
+                            "grossAmount": -575,
+                            "taxAmount": -75,
+                            "taxType": "OUTPUT",
+                            "taxName": "Tax on Sales",
+                            "trackingCategories": [
+                                {
+                                    "name": "Region",
+                                    "option": "North",
+                                    "trackingCategoryId": "tc-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                    "trackingOptionId": "to-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                    "options": []
+                                }
+                            ]
+                        },
+                        {
+                            "journalLineId": "line-0002-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountId": "acc-0610-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountCode": "610",
+                            "accountName": "Accounts Receivable",
+                            "description": "Sales Invoice line",
+                            "netAmount": 575,
+                            "grossAmount": 575,
+                            "taxAmount": 0,
+                            "taxType": "NONE",
+                            "taxName": "Tax Exempt",
+                            "trackingCategories": []
+                        }
+                    ]
+                },
+                {
+                    "id": "jrnl-0002-aaaa-bbbb-cccc-dddddddddddd",
+                    "date": "2024-01-02T00:00:00.000Z",
+                    "number": 2,
+                    "reference": null,
+                    "sourceId": null,
+                    "sourceType": null,
+                    "createdDate": "2024-01-02T00:00:00.000Z",
+                    "lines": []
+                },
+                {
+                    "id": "jrnl-0003-aaaa-bbbb-cccc-dddddddddddd",
+                    "date": "2024-01-03T00:00:00.000Z",
+                    "number": 3,
+                    "reference": "BILL-001",
+                    "sourceId": "src-0003-aaaa-bbbb-cccc-dddddddddddd",
+                    "sourceType": "ACCPAY",
+                    "createdDate": "2024-01-03T00:00:00.000Z",
+                    "lines": [
+                        {
+                            "journalLineId": "line-0003-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountId": "acc-0400-aaaa-bbbb-cccc-dddddddddddd",
+                            "accountCode": "400",
+                            "accountName": "Advertising",
+                            "description": "Advertising expense",
+                            "netAmount": 200,
+                            "grossAmount": 230,
+                            "taxAmount": 30,
+                            "trackingCategories": []
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "api": {
+        "get": {
+            "api.xro/2.0/Journals": [
+                {
+                    "hash": "e833f4bcc5def133e435eca6669cfdd7111ef583",
+                    "response": {
+                        "Id": "00000000-0000-0000-0000-000000000000",
+                        "Status": "OK",
+                        "ProviderName": "Nango",
+                        "DateTimeUTC": "/Date(1704240000000)/",
+                        "Journals": [
+                            {
+                                "JournalID": "jrnl-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                "JournalDate": "/Date(1704067200000+0000)/",
+                                "JournalNumber": 1,
+                                "CreatedDateUTC": "/Date(1704067200000+0000)/",
+                                "Reference": "INV-001",
+                                "SourceID": "src-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                "SourceType": "ACCREC",
+                                "JournalLines": [
+                                    {
+                                        "JournalLineID": "line-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountID": "acc-0200-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountCode": "200",
+                                        "AccountName": "Sales Revenue",
+                                        "Description": "Sales Invoice line",
+                                        "NetAmount": -500,
+                                        "GrossAmount": -575,
+                                        "TaxAmount": -75,
+                                        "TaxType": "OUTPUT",
+                                        "TaxName": "Tax on Sales",
+                                        "TrackingCategories": [
+                                            {
+                                                "Name": "Region",
+                                                "Option": "North",
+                                                "TrackingCategoryID": "tc-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                                "TrackingOptionID": "to-0001-aaaa-bbbb-cccc-dddddddddddd",
+                                                "Options": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "JournalLineID": "line-0002-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountID": "acc-0610-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountCode": "610",
+                                        "AccountName": "Accounts Receivable",
+                                        "Description": "Sales Invoice line",
+                                        "NetAmount": 575,
+                                        "GrossAmount": 575,
+                                        "TaxAmount": 0,
+                                        "TaxType": "NONE",
+                                        "TaxName": "Tax Exempt",
+                                        "TrackingCategories": []
+                                    }
+                                ]
+                            },
+                            {
+                                "JournalID": "jrnl-0002-aaaa-bbbb-cccc-dddddddddddd",
+                                "JournalDate": "/Date(1704153600000+0000)/",
+                                "JournalNumber": 2,
+                                "CreatedDateUTC": "/Date(1704153600000+0000)/",
+                                "JournalLines": []
+                            },
+                            {
+                                "JournalID": "jrnl-0003-aaaa-bbbb-cccc-dddddddddddd",
+                                "JournalDate": "/Date(1704240000000+0000)/",
+                                "JournalNumber": 3,
+                                "CreatedDateUTC": "/Date(1704240000000+0000)/",
+                                "Reference": "BILL-001",
+                                "SourceID": "src-0003-aaaa-bbbb-cccc-dddddddddddd",
+                                "SourceType": "ACCPAY",
+                                "JournalLines": [
+                                    {
+                                        "JournalLineID": "line-0003-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountID": "acc-0400-aaaa-bbbb-cccc-dddddddddddd",
+                                        "AccountCode": "400",
+                                        "AccountName": "Advertising",
+                                        "Description": "Advertising expense",
+                                        "NetAmount": 200,
+                                        "GrossAmount": 230,
+                                        "TaxAmount": 30,
+                                        "TrackingCategories": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "hash": "73421026766d6760713890476c297d6ca62fffc6",
+                    "response": {
+                        "Id": "00000000-0000-0000-0000-000000000000",
+                        "Status": "OK",
+                        "Journals": []
+                    }
+                }
+            ]
+        }
+    }
+}

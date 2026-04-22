@@ -12235,23 +12235,27 @@ export interface SyncMetadata_netsuite_tba_customers {
 
 export interface GeneralLedger {
   id: string;
-  date: string;
-  transactionId: string;
-  void: boolean;
-  approved: boolean;
-  currency: string;
-  createdDate: string;
-  updatedDate: string;
-  isReversal: boolean;
-  subsidiary: {  id: string;
-  name: string;};
+  date: string | null;
+  number: number;
+  reference: string | null;
+  sourceId: string | null;
+  sourceType: string | null;
+  createdDate: string | null;
   lines: ({  journalLineId: string;
   accountId: string;
+  accountCode: string;
   accountName: string;
-  cleared: boolean;
-  credit?: number | undefined;
-  debit?: number | undefined;
-  description: string;})[];
+  description: string;
+  netAmount: number;
+  grossAmount: number;
+  taxAmount: number;
+  taxType?: string | undefined;
+  taxName?: string | undefined;
+  trackingCategories: ({  name: string;
+  option: string;
+  trackingCategoryId: string;
+  trackingOptionId: string;
+  options: unknown[];})[];})[];
 };
 
 export interface SyncMetadata_netsuite_tba_generalledger {

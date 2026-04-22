@@ -116086,6 +116086,193 @@
       },
       {
         "type": "sync",
+        "description": "Sync Xero general ledger journals, each containing journal lines with account and tax details.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/syncs/sync-general-ledger",
+            "group": "General Ledger"
+          }
+        ],
+        "input": null,
+        "name": "sync-general-ledger",
+        "output": [
+          "GeneralLedger"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "accounting.journals.read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GeneralLedger"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": [],
+        "json_schema": {
+          "definitions": {
+            "GeneralLedger": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "date": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "number": {
+                  "type": "number"
+                },
+                "reference": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sourceId": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sourceType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "createdDate": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "journalLineId": {
+                        "type": "string"
+                      },
+                      "accountId": {
+                        "type": "string"
+                      },
+                      "accountCode": {
+                        "type": "string"
+                      },
+                      "accountName": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "netAmount": {
+                        "type": "number"
+                      },
+                      "grossAmount": {
+                        "type": "number"
+                      },
+                      "taxAmount": {
+                        "type": "number"
+                      },
+                      "taxType": {
+                        "type": "string"
+                      },
+                      "taxName": {
+                        "type": "string"
+                      },
+                      "trackingCategories": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "option": {
+                              "type": "string"
+                            },
+                            "trackingCategoryId": {
+                              "type": "string"
+                            },
+                            "trackingOptionId": {
+                              "type": "string"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {}
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "option",
+                            "trackingCategoryId",
+                            "trackingOptionId",
+                            "options"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "journalLineId",
+                      "accountId",
+                      "accountCode",
+                      "accountName",
+                      "description",
+                      "netAmount",
+                      "grossAmount",
+                      "taxAmount",
+                      "trackingCategories"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "date",
+                "number",
+                "reference",
+                "sourceId",
+                "sourceType",
+                "createdDate",
+                "lines"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "sync",
         "description": "Sync purchase orders from Xero",
         "auto_start": true,
         "endpoints": [
