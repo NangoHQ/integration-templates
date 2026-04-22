@@ -47,7 +47,6 @@ const sync = createSync({
 
         let cursor: string | undefined = undefined;
         let updatedAfter: string | undefined = checkpoint?.['updated_after'] || undefined;
-        let firstBatchSaved = false;
 
         while (true) {
             // https://developers.linear.app/docs/graphql/working-with-the-graphql-api/pagination
@@ -153,7 +152,6 @@ const sync = createSync({
                     cursor,
                     updated_after: updatedAfter ?? ''
                 });
-                firstBatchSaved = true;
                 continue;
             }
 
@@ -161,14 +159,10 @@ const sync = createSync({
             if (updatedAfter) {
                 await nango.saveCheckpoint({ cursor: '', updated_after: updatedAfter });
             }
-            firstBatchSaved = true;
             break;
         }
 
-        // Only mark deletes if we actually processed data (to avoid wiping on API errors)
-        if (firstBatchSaved) {
-            await nango.trackDeletesEnd('Roadmap');
-        }
+        await nango.trackDeletesEnd('Roadmap');
     }
 });
 

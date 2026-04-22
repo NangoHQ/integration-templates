@@ -159,8 +159,11 @@ const sync = createSync({
             });
 
             const projectsData = response.data?.data?.projects;
-            const nodes = projectsData?.nodes ?? [];
-            const pageInfo = projectsData?.pageInfo;
+            if (!projectsData) {
+                throw new Error('Missing projects data from Linear API');
+            }
+            const nodes = projectsData.nodes ?? [];
+            const pageInfo = projectsData.pageInfo;
 
             const projects = nodes.map((project) => ({
                 id: project.id,
@@ -209,6 +212,8 @@ const sync = createSync({
                         cursor: ''
                     });
                 }
+            } else {
+                await nango.saveCheckpoint({ updatedAfter, cursor: '' });
             }
 
             break;

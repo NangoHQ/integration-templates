@@ -162,6 +162,7 @@ const sync = createSync({
             const pageInfo = workflowStatesData.pageInfo;
 
             if (nodes.length === 0) {
+                await nango.saveCheckpoint({ updated_after: updatedAfter || '', cursor: '' });
                 hasMorePages = false;
                 break;
             }
