@@ -7,15 +7,15 @@ const InputSchema = z.object({
     first: z.number().int().min(1).max(100).optional().describe('Number of results to return (1-100). Default: 50'),
     filter: z
         .object({
-            team_id: z.string().optional().describe('Filter by team ID'),
-            state_id: z.string().optional().describe('Filter by workflow state ID'),
-            assignee_id: z.string().optional().describe('Filter by assignee user ID'),
+            teamId: z.string().optional().describe('Filter by team ID'),
+            stateId: z.string().optional().describe('Filter by workflow state ID'),
+            assigneeId: z.string().optional().describe('Filter by assignee user ID'),
             priority: z.number().int().min(0).max(4).optional().describe('Filter by priority (0=No Priority, 1=Urgent, 2=High, 3=Normal, 4=Low)'),
-            label_ids: z.array(z.string()).optional().describe('Filter by label IDs'),
-            project_id: z.string().optional().describe('Filter by project ID'),
-            cycle_id: z.string().optional().describe('Filter by cycle ID'),
-            parent_id: z.string().optional().describe('Filter by parent issue ID'),
-            include_archived: z.boolean().optional().describe('Include archived issues in results. Default: false')
+            labelIds: z.array(z.string()).optional().describe('Filter by label IDs'),
+            projectId: z.string().optional().describe('Filter by project ID'),
+            cycleId: z.string().optional().describe('Filter by cycle ID'),
+            parentId: z.string().optional().describe('Filter by parent issue ID'),
+            includeArchived: z.boolean().optional().describe('Include archived issues in results. Default: false')
         })
         .optional()
         .describe('Optional filters to narrow search results')
@@ -41,16 +41,16 @@ const IssueSchema = z.object({
         id: z.string(),
         name: z.string()
     }),
-    created_at: z.string(),
-    updated_at: z.string(),
-    archived_at: z.union([z.string(), z.null()]),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    archivedAt: z.union([z.string(), z.null()]),
     url: z.string()
 });
 
 const OutputSchema = z.object({
     issues: z.array(IssueSchema),
-    next_cursor: z.union([z.string(), z.null()]),
-    has_more: z.boolean()
+    nextCursor: z.union([z.string(), z.null()]),
+    hasMore: z.boolean()
 });
 
 const action = createAction({
@@ -69,33 +69,33 @@ const action = createAction({
         // Build the GraphQL filter from input.filter
         const filter: Record<string, unknown> = {};
         if (input.filter) {
-            if (input.filter.team_id) {
-                filter['team'] = { id: { eq: input.filter.team_id } };
+            if (input.filter.teamId) {
+                filter['team'] = { id: { eq: input.filter.teamId } };
             }
-            if (input.filter.state_id) {
-                filter['state'] = { id: { eq: input.filter.state_id } };
+            if (input.filter.stateId) {
+                filter['state'] = { id: { eq: input.filter.stateId } };
             }
-            if (input.filter.assignee_id) {
-                filter['assignee'] = { id: { eq: input.filter.assignee_id } };
+            if (input.filter.assigneeId) {
+                filter['assignee'] = { id: { eq: input.filter.assigneeId } };
             }
             if (input.filter.priority !== undefined) {
                 filter['priority'] = { eq: input.filter.priority };
             }
-            if (input.filter.label_ids && input.filter.label_ids.length > 0) {
-                filter['labels'] = { id: { in: input.filter.label_ids } };
+            if (input.filter.labelIds && input.filter.labelIds.length > 0) {
+                filter['labels'] = { id: { in: input.filter.labelIds } };
             }
-            if (input.filter.project_id) {
-                filter['project'] = { id: { eq: input.filter.project_id } };
+            if (input.filter.projectId) {
+                filter['project'] = { id: { eq: input.filter.projectId } };
             }
-            if (input.filter.cycle_id) {
-                filter['cycle'] = { id: { eq: input.filter.cycle_id } };
+            if (input.filter.cycleId) {
+                filter['cycle'] = { id: { eq: input.filter.cycleId } };
             }
-            if (input.filter.parent_id) {
-                filter['parent'] = { id: { eq: input.filter.parent_id } };
+            if (input.filter.parentId) {
+                filter['parent'] = { id: { eq: input.filter.parentId } };
             }
         }
 
-        const includeArchived = input.filter?.include_archived ?? false;
+        const includeArchived = input.filter?.includeArchived ?? false;
         const first = input.first ?? 50;
 
         // https://linear.app/developers/graphql
@@ -164,13 +164,13 @@ const action = createAction({
                 state: issue['state'],
                 assignee: issue['assignee'] ?? null,
                 team: issue['team'],
-                created_at: issue['createdAt'],
-                updated_at: issue['updatedAt'],
-                archived_at: issue['archivedAt'] ?? null,
+                createdAt: issue['createdAt'],
+                updatedAt: issue['updatedAt'],
+                archivedAt: issue['archivedAt'] ?? null,
                 url: issue['url']
             })),
-            next_cursor: data.pageInfo.endCursor ?? null,
-            has_more: data.pageInfo.hasNextPage
+            nextCursor: data.pageInfo.endCursor ?? null,
+            hasMore: data.pageInfo.hasNextPage
         };
     }
 });

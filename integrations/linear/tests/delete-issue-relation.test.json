@@ -1,10 +1,10 @@
 {
   "input": {
-    "relation_id": "02a26605-1a62-4555-b29d-13a95437cd2f"
+    "relationId": "02a26605-1a62-4555-b29d-13a95437cd2f"
   },
   "output": {
     "success": true,
-    "relation_id": "02a26605-1a62-4555-b29d-13a95437cd2f"
+    "relationId": "02a26605-1a62-4555-b29d-13a95437cd2f"
   },
   "nango": {},
   "api": {

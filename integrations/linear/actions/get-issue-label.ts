@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    label_id: z.string().describe('The ID of the issue label to retrieve. Example: "abc123-def456"')
+    labelId: z.string().describe('The ID of the issue label to retrieve. Example: "abc123-def456"')
 });
 
 const TeamSchema = z.object({
@@ -76,7 +76,7 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.label_id
+            id: input.labelId
         };
 
         // https://linear.app/developers
@@ -115,7 +115,7 @@ const action = createAction({
         if (!issueLabel) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Issue label with ID '${input.label_id}' not found`
+                message: `Issue label with ID '${input.labelId}' not found`
             });
         }
 

@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the issue to attach to. Example: "abc123-def456-ghi789"'),
+    issueId: z.string().describe('The ID of the issue to attach to. Example: "abc123-def456-ghi789"'),
     url: z.string().describe('The URL of the attachment. Example: "https://github.com/org/repo/pull/123"'),
     title: z.string().describe('The title of the attachment. Example: "PR: Feature Implementation"'),
     subtitle: z.string().optional().describe('Optional subtitle for the attachment.'),
-    icon_url: z.string().optional().describe('Optional icon URL for the attachment.'),
+    iconUrl: z.string().optional().describe('Optional icon URL for the attachment.'),
     metadata: z.object({}).passthrough().optional().describe('Optional metadata object for the attachment.')
 });
 
@@ -15,7 +15,7 @@ const OutputSchema = z.object({
     url: z.string(),
     title: z.string(),
     subtitle: z.string().nullable(),
-    icon_url: z.string().nullable(),
+    iconUrl: z.string().nullable(),
     success: z.boolean()
 });
 
@@ -51,11 +51,11 @@ const action = createAction({
                 `,
                 variables: {
                     input: {
-                        issueId: input.issue_id,
+                        issueId: input.issueId,
                         url: input.url,
                         title: input.title,
                         ...(input.subtitle && { subtitle: input.subtitle }),
-                        ...(input.icon_url && { iconUrl: input.icon_url }),
+                        ...(input.iconUrl && { iconUrl: input.iconUrl }),
                         ...(input.metadata && { metadata: input.metadata })
                     }
                 }
@@ -79,7 +79,7 @@ const action = createAction({
             url: attachment.url,
             title: attachment.title,
             subtitle: attachment.subtitle ?? null,
-            icon_url: attachment.iconUrl ?? null,
+            iconUrl: attachment.iconUrl ?? null,
             success: success ?? false
         };
     }

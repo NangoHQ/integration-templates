@@ -8,11 +8,11 @@
     "name": "Updated Test Sprint",
     "description": null,
     "number": 7,
-    "starts_at": "2026-04-22T00:00:00.000Z",
-    "ends_at": "2026-05-06T00:00:00.000Z",
-    "completed_at": null,
-    "created_at": "2026-04-22T07:57:59.276Z",
-    "updated_at": "2026-04-22T07:58:47.931Z"
+    "startsAt": "2026-04-22T00:00:00.000Z",
+    "endsAt": "2026-05-06T00:00:00.000Z",
+    "completedAt": null,
+    "createdAt": "2026-04-22T07:57:59.276Z",
+    "updatedAt": "2026-04-22T07:58:47.931Z"
   },
   "nango": {},
   "api": {

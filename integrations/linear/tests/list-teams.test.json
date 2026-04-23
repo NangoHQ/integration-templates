@@ -9,13 +9,13 @@
         "description": null,
         "color": "#d758fc",
         "private": false,
-        "archived_at": null,
-        "created_at": "2026-04-21T07:37:24.757Z"
+        "archivedAt": null,
+        "createdAt": "2026-04-21T07:37:24.757Z"
       }
     ],
-    "page_info": {
-      "has_next_page": false,
-      "end_cursor": "7df5329e-651f-4d1d-b519-78d44a509f11"
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "7df5329e-651f-4d1d-b519-78d44a509f11"
     }
   },
   "nango": {},

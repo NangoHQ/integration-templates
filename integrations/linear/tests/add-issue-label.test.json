@@ -1,11 +1,11 @@
 {
   "input": {
-    "issue_id": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7",
-    "label_id": "9e19c152-7d16-4362-8695-91c555b8411e"
+    "issueId": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7",
+    "labelId": "9e19c152-7d16-4362-8695-91c555b8411e"
   },
   "output": {
     "success": true,
-    "issue_id": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7"
+    "issueId": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7"
   },
   "nango": {},
   "api": {

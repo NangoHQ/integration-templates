@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    label_id: z.string().describe('ID of the label to update. Example: "f33d4e23-1234-5678-9abc-def012345678"'),
+    labelId: z.string().describe('ID of the label to update. Example: "f33d4e23-1234-5678-9abc-def012345678"'),
     name: z.string().optional().describe('New name for the label'),
     color: z.string().optional().describe('Hex color code for the label. Example: "#FF0000"'),
     description: z.string().optional().describe('Description of the label')
@@ -42,7 +42,7 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.label_id,
+            id: input.labelId,
             input: {
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.color !== undefined && { color: input.color }),

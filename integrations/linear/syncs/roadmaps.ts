@@ -15,7 +15,7 @@ const RoadmapSchema = z.object({
     sortOrder: z.union([z.number(), z.null()])
 });
 
-// Checkpoint: cursor for pagination + updated_after for incremental syncs
+// Checkpoint: cursor for pagination + updatedAfter for incremental syncs
 // Note: CheckpointSchema values must be ZodString | ZodNumber | ZodBoolean only
 const CheckpointSchema = z.object({
     cursor: z.string(),

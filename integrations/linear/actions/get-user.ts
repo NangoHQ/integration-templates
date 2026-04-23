@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('The unique identifier of the Linear user. Example: "user-uuid-123"')
+    userId: z.string().describe('The unique identifier of the Linear user. Example: "user-uuid-123"')
 });
 
 const OutputSchema = z.object({
@@ -58,7 +58,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.user_id
+                    id: input.userId
                 }
             },
             retries: 3
@@ -81,8 +81,8 @@ const action = createAction({
         if (!user) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `User with ID '${input.user_id}' not found`,
-                user_id: input.user_id
+                message: `User with ID '${input.userId}' not found`,
+                userId: input.userId
             });
         }
 

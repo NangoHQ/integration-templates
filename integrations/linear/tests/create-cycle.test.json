@@ -1,15 +1,15 @@
 {
   "input": {
-    "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+    "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
     "name": "Test Sprint",
-    "starts_at": "2026-04-22T00:00:00.000Z",
-    "ends_at": "2026-05-06T00:00:00.000Z"
+    "startsAt": "2026-04-22T00:00:00.000Z",
+    "endsAt": "2026-05-06T00:00:00.000Z"
   },
   "output": {
     "id": "8cac3a6e-199a-4a10-bdf2-d538d25e1844",
     "name": "Test Sprint",
-    "starts_at": "2026-04-22T00:00:00.000Z",
-    "ends_at": "2026-05-06T00:00:00.000Z",
+    "startsAt": "2026-04-22T00:00:00.000Z",
+    "endsAt": "2026-05-06T00:00:00.000Z",
     "description": null,
     "success": true
   },

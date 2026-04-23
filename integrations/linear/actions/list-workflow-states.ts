@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     first: z.number().optional().describe('Number of workflow states to return. Default: 50'),
     after: z.string().optional().describe('Pagination cursor from the previous response.'),
-    team_id: z.string().optional().describe('Filter by team ID. Example: "abc123-def456"'),
-    order_by: z.enum(['createdAt', 'updatedAt']).optional().describe('Field to order by. Allowed values: createdAt, updatedAt')
+    teamId: z.string().optional().describe('Filter by team ID. Example: "abc123-def456"'),
+    orderBy: z.enum(['createdAt', 'updatedAt']).optional().describe('Field to order by. Allowed values: createdAt, updatedAt')
 });
 
 const WorkflowStateSchema = z.object({
@@ -25,7 +25,7 @@ const WorkflowStateSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(WorkflowStateSchema),
-    next_cursor: z.union([z.string(), z.null()])
+    nextCursor: z.union([z.string(), z.null()])
 });
 
 const action = createAction({
@@ -72,18 +72,18 @@ const action = createAction({
             variables['after'] = input.after;
         }
 
-        if (input.team_id) {
+        if (input.teamId) {
             variables['filter'] = {
                 team: {
                     id: {
-                        eq: input.team_id
+                        eq: input.teamId
                     }
                 }
             };
         }
 
-        if (input.order_by) {
-            variables['orderBy'] = input.order_by;
+        if (input.orderBy) {
+            variables['orderBy'] = input.orderBy;
         }
 
         // https://developers.linear.app/docs/graphql/workflow-states
@@ -99,7 +99,7 @@ const action = createAction({
         if (!response.data || !response.data.data || !response.data.data.workflowStates) {
             return {
                 items: [],
-                next_cursor: null
+                nextCursor: null
             };
         }
 
@@ -127,7 +127,7 @@ const action = createAction({
                     team: node.team
                 })
             ),
-            next_cursor: pageInfo.hasNextPage && pageInfo.endCursor ? pageInfo.endCursor : null
+            nextCursor: pageInfo.hasNextPage && pageInfo.endCursor ? pageInfo.endCursor : null
         };
     }
 });

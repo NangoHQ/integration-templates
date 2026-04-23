@@ -1,11 +1,11 @@
 {
   "input": {
-    "cycle_id": "f6bf7f39-0ee8-48cb-bfd8-65e4054cf0cb"
+    "cycleId": "f6bf7f39-0ee8-48cb-bfd8-65e4054cf0cb"
   },
   "output": {
     "id": "f6bf7f39-0ee8-48cb-bfd8-65e4054cf0cb",
     "name": "Test Archive Cycle 2",
-    "archived_at": "2026-04-22T07:40:37.803Z"
+    "archivedAt": "2026-04-22T07:40:37.803Z"
   },
   "nango": {},
   "api": {

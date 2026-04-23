@@ -5,9 +5,9 @@ const InputSchema = z.object({
     id: z.string().describe('The ID of the cycle to update. Example: "cycle-123"'),
     name: z.string().optional().describe('The name of the cycle. Example: "Sprint 23"'),
     description: z.string().optional().describe('The description of the cycle.'),
-    starts_at: z.string().optional().describe('The start date of the cycle (ISO 8601 format). Example: "2025-01-01T00:00:00.000Z"'),
-    ends_at: z.string().optional().describe('The end date of the cycle (ISO 8601 format). Example: "2025-01-14T23:59:59.000Z"'),
-    completed_at: z.string().optional().describe('The completion date of the cycle (ISO 8601 format). Example: "2025-01-15T00:00:00.000Z"')
+    startsAt: z.string().optional().describe('The start date of the cycle (ISO 8601 format). Example: "2025-01-01T00:00:00.000Z"'),
+    endsAt: z.string().optional().describe('The end date of the cycle (ISO 8601 format). Example: "2025-01-14T23:59:59.000Z"'),
+    completedAt: z.string().optional().describe('The completion date of the cycle (ISO 8601 format). Example: "2025-01-15T00:00:00.000Z"')
 });
 
 const OutputSchema = z.object({
@@ -15,11 +15,11 @@ const OutputSchema = z.object({
     name: z.string(),
     description: z.union([z.string(), z.null()]),
     number: z.number(),
-    starts_at: z.string(),
-    ends_at: z.string(),
-    completed_at: z.union([z.string(), z.null()]),
-    created_at: z.string(),
-    updated_at: z.string()
+    startsAt: z.string(),
+    endsAt: z.string(),
+    completedAt: z.union([z.string(), z.null()]),
+    createdAt: z.string(),
+    updatedAt: z.string()
 });
 
 function isString(value: unknown): value is string {
@@ -82,14 +82,14 @@ const action = createAction({
         if (input.description) {
             inputVars['description'] = input.description;
         }
-        if (input.starts_at) {
-            inputVars['startsAt'] = input.starts_at;
+        if (input.startsAt) {
+            inputVars['startsAt'] = input.startsAt;
         }
-        if (input.ends_at) {
-            inputVars['endsAt'] = input.ends_at;
+        if (input.endsAt) {
+            inputVars['endsAt'] = input.endsAt;
         }
-        if (input.completed_at) {
-            inputVars['completedAt'] = input.completed_at;
+        if (input.completedAt) {
+            inputVars['completedAt'] = input.completedAt;
         }
 
         const variables = {
@@ -195,11 +195,11 @@ const action = createAction({
             name: name,
             description: description,
             number: number,
-            starts_at: startsAt,
-            ends_at: endsAt,
-            completed_at: completedAt,
-            created_at: createdAt,
-            updated_at: updatedAt
+            startsAt: startsAt,
+            endsAt: endsAt,
+            completedAt: completedAt,
+            createdAt: createdAt,
+            updatedAt: updatedAt
         };
     }
 });

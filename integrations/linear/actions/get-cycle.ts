@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cycle_id: z.string().describe('The unique identifier of the Linear cycle. Example: "d0f4f0b4-7c2e-4c7a-9c8e-2a5e8a6d9c7e"')
+    cycleId: z.string().describe('The unique identifier of the Linear cycle. Example: "d0f4f0b4-7c2e-4c7a-9c8e-2a5e8a6d9c7e"')
 });
 
 const TeamSchema = z.object({
@@ -55,7 +55,7 @@ const action = createAction({
             data: {
                 query,
                 variables: {
-                    id: input.cycle_id
+                    id: input.cycleId
                 }
             },
             retries: 3
@@ -67,7 +67,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Cycle not found',
-                cycle_id: input.cycle_id
+                cycleId: input.cycleId
             });
         }
 

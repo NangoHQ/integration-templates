@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the first issue in the relationship. Example: "abc123-def456-ghi789"'),
-    related_issue_id: z.string().describe('The ID of the second issue in the relationship. Example: "xyz789-uvw456-rst123"'),
+    issueId: z.string().describe('The ID of the first issue in the relationship. Example: "abc123-def456-ghi789"'),
+    relatedIssueId: z.string().describe('The ID of the second issue in the relationship. Example: "xyz789-uvw456-rst123"'),
     type: z.enum(['blocks', 'duplicate', 'related']).describe('The type of relationship between the issues. Options: blocks, duplicate, related')
 });
 
@@ -64,8 +64,8 @@ const action = createAction({
                 query: mutation,
                 variables: {
                     input: {
-                        issueId: input.issue_id,
-                        relatedIssueId: input.related_issue_id,
+                        issueId: input.issueId,
+                        relatedIssueId: input.relatedIssueId,
                         type: input.type
                     }
                 }

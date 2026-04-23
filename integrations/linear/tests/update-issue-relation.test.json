@@ -1,11 +1,11 @@
 {
   "input": {
-    "relation_id": "f161c0b0-6998-4fe2-adbb-501bd2eb6c3d",
+    "relationId": "f161c0b0-6998-4fe2-adbb-501bd2eb6c3d",
     "type": "blocks"
   },
   "output": {
     "success": true,
-    "issue_relation": {
+    "issueRelation": {
       "id": "f161c0b0-6998-4fe2-adbb-501bd2eb6c3d",
       "type": "blocks"
     }

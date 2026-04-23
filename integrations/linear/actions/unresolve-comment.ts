@@ -2,15 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    comment_id: z.string().describe('The identifier of the comment to unresolve. Example: "comment-uuid-123"')
+    commentId: z.string().describe('The identifier of the comment to unresolve. Example: "comment-uuid-123"')
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     success: z.boolean(),
     url: z.union([z.string(), z.null()]),
-    resolved_at: z.union([z.string(), z.null()]),
-    resolving_comment_id: z.union([z.string(), z.null()])
+    resolvedAt: z.union([z.string(), z.null()]),
+    resolvingCommentId: z.union([z.string(), z.null()])
 });
 
 const action = createAction({
@@ -44,7 +44,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.comment_id
+                    id: input.commentId
                 }
             },
             retries: 3
@@ -58,7 +58,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'graphql_error',
                 message: error.message || 'GraphQL operation failed',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -73,7 +73,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'api_error',
                 message: 'Unexpected API response structure',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -83,7 +83,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'unresolve_failed',
                 message: 'Failed to unresolve comment',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -91,8 +91,8 @@ const action = createAction({
             id: result.comment.id,
             success: result.success,
             url: result.comment.url ?? null,
-            resolved_at: result.comment.resolvedAt ?? null,
-            resolving_comment_id: result.comment.resolvingCommentId ?? null
+            resolvedAt: result.comment.resolvedAt ?? null,
+            resolvingCommentId: result.comment.resolvingCommentId ?? null
         };
     }
 });

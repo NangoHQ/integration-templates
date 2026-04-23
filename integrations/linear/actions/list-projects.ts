@@ -29,8 +29,8 @@ const ProjectSchema = z.object({
 // Output schema with pagination
 const OutputSchema = z.object({
     projects: z.array(ProjectSchema),
-    next_cursor: z.union([z.string(), z.null()]),
-    has_more: z.boolean()
+    nextCursor: z.union([z.string(), z.null()]),
+    hasMore: z.boolean()
 });
 
 // Zod schema for validating the GraphQL response structure
@@ -155,8 +155,8 @@ const action = createAction({
                 updatedAt: node.updatedAt,
                 url: node.url
             })),
-            next_cursor: pageInfo.endCursor || null,
-            has_more: Boolean(pageInfo.hasNextPage)
+            nextCursor: pageInfo.endCursor || null,
+            hasMore: Boolean(pageInfo.hasNextPage)
         };
     }
 });

@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the Linear issue. Example: "d0e4f5d3-1111-2222-3333-444444444444"'),
-    label_id: z.string().describe('The ID of the label to add to the issue. Example: "d0e4f5d3-1111-2222-3333-555555555555"')
+    issueId: z.string().describe('The ID of the Linear issue. Example: "d0e4f5d3-1111-2222-3333-444444444444"'),
+    labelId: z.string().describe('The ID of the label to add to the issue. Example: "d0e4f5d3-1111-2222-3333-555555555555"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    issue_id: z.string()
+    issueId: z.string()
 });
 
 const action = createAction({
@@ -34,8 +34,8 @@ const action = createAction({
                     }
                 }`,
                 variables: {
-                    id: input.issue_id,
-                    labelId: input.label_id
+                    id: input.issueId,
+                    labelId: input.labelId
                 }
             },
             retries: 3
@@ -60,7 +60,7 @@ const action = createAction({
 
         return {
             success: issueAddLabel.success,
-            issue_id: input.issue_id
+            issueId: input.issueId
         };
     }
 });

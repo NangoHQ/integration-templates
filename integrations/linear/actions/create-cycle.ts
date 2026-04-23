@@ -2,18 +2,18 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('Team ID. Example: "team-uuid"'),
+    teamId: z.string().describe('Team ID. Example: "team-uuid"'),
     name: z.string().describe('Cycle name. Example: "Sprint 14"'),
-    starts_at: z.string().describe('Cycle start date in ISO 8601 format. Example: "2026-03-03T00:00:00.000Z"'),
-    ends_at: z.string().describe('Cycle end date in ISO 8601 format. Example: "2026-03-17T00:00:00.000Z"'),
+    startsAt: z.string().describe('Cycle start date in ISO 8601 format. Example: "2026-03-03T00:00:00.000Z"'),
+    endsAt: z.string().describe('Cycle end date in ISO 8601 format. Example: "2026-03-17T00:00:00.000Z"'),
     description: z.string().optional().describe('Optional cycle description.')
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
-    starts_at: z.string(),
-    ends_at: z.string(),
+    startsAt: z.string(),
+    endsAt: z.string(),
     description: z.union([z.string(), z.null()]),
     success: z.boolean()
 });
@@ -48,10 +48,10 @@ const action = createAction({
 
         const variables = {
             input: {
-                teamId: input.team_id,
+                teamId: input.teamId,
                 name: input.name,
-                startsAt: input.starts_at,
-                endsAt: input.ends_at,
+                startsAt: input.startsAt,
+                endsAt: input.endsAt,
                 ...(input.description && { description: input.description })
             }
         };
@@ -92,8 +92,8 @@ const action = createAction({
         return {
             id: result.cycle.id,
             name: result.cycle.name,
-            starts_at: result.cycle.startsAt,
-            ends_at: result.cycle.endsAt,
+            startsAt: result.cycle.startsAt,
+            endsAt: result.cycle.endsAt,
             description: result.cycle.description ?? null,
             success: result.success
         };

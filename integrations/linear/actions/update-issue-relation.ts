@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    relation_id: z.string().describe('The UUID of the issue relation to update. Example: "c87f3b9a-7c4e-4a2e-9b5c-3d2e1f4a5b6c"'),
+    relationId: z.string().describe('The UUID of the issue relation to update. Example: "c87f3b9a-7c4e-4a2e-9b5c-3d2e1f4a5b6c"'),
     type: z.enum(['blocks', 'duplicate', 'related']).optional().describe('The type of relation between issues.')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    issue_relation: z.object({
+    issueRelation: z.object({
         id: z.string(),
         type: z.enum(['blocks', 'duplicate', 'related'])
     })
@@ -40,7 +40,7 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.relation_id,
+            id: input.relationId,
             input: {
                 ...(input.type && { type: input.type })
             }
@@ -98,7 +98,7 @@ const action = createAction({
 
         return {
             success: result.success,
-            issue_relation: {
+            issueRelation: {
                 id: result.issueRelation.id,
                 type: result.issueRelation.type
             }

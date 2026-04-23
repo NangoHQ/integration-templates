@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.string().describe('The unique identifier of the project. Example: "abc123-def456"')
+    projectId: z.string().describe('The unique identifier of the project. Example: "abc123-def456"')
 });
 
 const OutputSchema = z.object({
@@ -71,7 +71,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.project_id
+                    id: input.projectId
                 }
             },
             retries: 3
@@ -80,8 +80,8 @@ const action = createAction({
         if (!response.data || !response.data.data || !response.data.data.project) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Project with ID "${input.project_id}" not found`,
-                project_id: input.project_id
+                message: `Project with ID "${input.projectId}" not found`,
+                projectId: input.projectId
             });
         }
 

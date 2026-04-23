@@ -1,12 +1,12 @@
 {
   "input": {
-    "comment_id": "8875d02e-62b8-4f85-bbd2-4abdecee5973"
+    "commentId": "8875d02e-62b8-4f85-bbd2-4abdecee5973"
   },
   "output": {
     "success": true,
     "comment": {
       "id": "8875d02e-62b8-4f85-bbd2-4abdecee5973",
-      "resolved_at": "2026-04-22T08:05:09.877Z"
+      "resolvedAt": "2026-04-22T08:05:09.877Z"
     }
   },
   "nango": {},

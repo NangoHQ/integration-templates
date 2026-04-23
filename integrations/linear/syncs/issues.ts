@@ -53,13 +53,13 @@ const IssueSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updatedAfter: z.string(),
     cursor: z.string()
 });
 
 const MetadataSchema = z.object({
-    team_id: z.string().optional(),
-    project_id: z.string().optional()
+    teamId: z.string().optional(),
+    projectId: z.string().optional()
 });
 
 const IssueResponseSchema = z.object({
@@ -140,9 +140,9 @@ const sync = createSync({
         const metadata = 'metadata' in connection ? connection.metadata : undefined;
         const validatedMetadata = MetadataSchema.safeParse(metadata);
 
-        const updatedAfter = checkpoint?.updated_after || '';
-        const teamId = validatedMetadata.success ? validatedMetadata.data.team_id : undefined;
-        const projectId = validatedMetadata.success ? validatedMetadata.data.project_id : undefined;
+        const updatedAfter = checkpoint?.updatedAfter || '';
+        const teamId = validatedMetadata.success ? validatedMetadata.data.teamId : undefined;
+        const projectId = validatedMetadata.success ? validatedMetadata.data.projectId : undefined;
 
         const issuesQuery = `
             query Issues(
@@ -275,7 +275,7 @@ const sync = createSync({
 
             if (issuesNodes.length === 0) {
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
+                    updatedAfter: updatedAfter,
                     cursor: ''
                 });
                 break;
@@ -357,14 +357,14 @@ const sync = createSync({
                 }
 
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
+                    updatedAfter: updatedAfter,
                     cursor: after
                 });
                 continue;
             }
 
             await nango.saveCheckpoint({
-                updated_after: lastUpdatedAt,
+                updatedAfter: lastUpdatedAt,
                 cursor: ''
             });
             break;

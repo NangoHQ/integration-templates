@@ -4,7 +4,7 @@
   },
   "output": {
     "items": [],
-    "next_cursor": null,
+    "nextCursor": null,
     "pageInfo": {
       "startCursor": null,
       "endCursor": null,

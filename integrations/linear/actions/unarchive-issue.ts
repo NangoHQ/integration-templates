@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the archived issue to restore. Example: "issue-123"')
+    issueId: z.string().describe('The ID of the archived issue to restore. Example: "issue-123"')
 });
 
 const OutputSchema = z.object({
@@ -50,7 +50,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.issue_id
+                    id: input.issueId
                 }
             },
             retries: 3
@@ -62,7 +62,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'unarchive_failed',
                 message: 'Failed to unarchive issue. The issue may not exist or may not be archived.',
-                issue_id: input.issue_id
+                issueId: input.issueId
             });
         }
 

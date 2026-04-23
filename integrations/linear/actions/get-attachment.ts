@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    attachment_id: z.string().describe('Attachment ID. Example: "47e14163-404c-4a34-b775-5c536d67760a"')
+    attachmentId: z.string().describe('Attachment ID. Example: "47e14163-404c-4a34-b775-5c536d67760a"')
 });
 
 const IssueSchema = z.object({
@@ -16,7 +16,7 @@ const OutputSchema = z.object({
     title: z.union([z.string(), z.null()]),
     subtitle: z.union([z.string(), z.null()]),
     url: z.string(),
-    source_type: z.union([z.string(), z.null()]),
+    sourceType: z.union([z.string(), z.null()]),
     metadata: z.union([z.record(z.string(), z.unknown()), z.null()]),
     source: z.union([z.record(z.string(), z.unknown()), z.null()]),
     issue: z.union([IssueSchema, z.null()])
@@ -57,7 +57,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.attachment_id
+                    id: input.attachmentId
                 }
             },
             retries: 3
@@ -68,7 +68,7 @@ const action = createAction({
         if (!attachmentData) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Attachment not found with ID: ${input.attachment_id}`
+                message: `Attachment not found with ID: ${input.attachmentId}`
             });
         }
 
@@ -77,7 +77,7 @@ const action = createAction({
             title: attachmentData.title,
             subtitle: attachmentData.subtitle,
             url: attachmentData.url,
-            source_type: attachmentData.sourceType,
+            sourceType: attachmentData.sourceType,
             metadata: attachmentData.metadata,
             source: attachmentData.source,
             issue: attachmentData.issue

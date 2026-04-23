@@ -7,8 +7,8 @@ const InputSchema = z.object({
 });
 
 const PageInfoSchema = z.object({
-    has_next_page: z.boolean(),
-    end_cursor: z.union([z.string(), z.null()])
+    hasNextPage: z.boolean(),
+    endCursor: z.union([z.string(), z.null()])
 });
 
 const TeamSchema = z.object({
@@ -18,13 +18,13 @@ const TeamSchema = z.object({
     description: z.union([z.string(), z.null()]),
     color: z.union([z.string(), z.null()]),
     private: z.boolean(),
-    archived_at: z.union([z.string(), z.null()]),
-    created_at: z.string()
+    archivedAt: z.union([z.string(), z.null()]),
+    createdAt: z.string()
 });
 
 const OutputSchema = z.object({
     teams: z.array(TeamSchema),
-    page_info: PageInfoSchema
+    pageInfo: PageInfoSchema
 });
 
 const action = createAction({
@@ -100,13 +100,13 @@ const action = createAction({
                     description: team.description ?? null,
                     color: team.color ?? null,
                     private: team.private,
-                    archived_at: team.archivedAt ?? null,
-                    created_at: team.createdAt
+                    archivedAt: team.archivedAt ?? null,
+                    createdAt: team.createdAt
                 })
             ),
-            page_info: {
-                has_next_page: teamsData.pageInfo.hasNextPage,
-                end_cursor: teamsData.pageInfo.endCursor || null
+            pageInfo: {
+                hasNextPage: teamsData.pageInfo.hasNextPage,
+                endCursor: teamsData.pageInfo.endCursor || null
             }
         };
     }

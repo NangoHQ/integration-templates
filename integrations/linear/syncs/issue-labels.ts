@@ -12,7 +12,7 @@ const IssueLabelSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updatedAfter: z.string(),
     cursor: z.string()
 });
 
@@ -74,7 +74,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.updated_after || '';
+        const updatedAfter = checkpoint?.updatedAfter || '';
         let cursor: string | undefined = checkpoint?.cursor || undefined;
 
         const connection = await nango.getConnection();
@@ -156,7 +156,7 @@ const sync = createSync({
             const pageInfo = issueLabelsConnection.pageInfo;
 
             if (nodes.length === 0) {
-                await nango.saveCheckpoint({ updated_after: updatedAfter, cursor: '' });
+                await nango.saveCheckpoint({ updatedAfter: updatedAfter, cursor: '' });
                 break;
             }
 
@@ -178,12 +178,12 @@ const sync = createSync({
                 }
 
                 cursor = pageInfo.endCursor;
-                await nango.saveCheckpoint({ updated_after: updatedAfter, cursor });
+                await nango.saveCheckpoint({ updatedAfter: updatedAfter, cursor });
                 continue;
             }
 
             const lastUpdatedAt = labels[labels.length - 1]?.updatedAt ?? updatedAfter;
-            await nango.saveCheckpoint({ updated_after: lastUpdatedAt, cursor: '' });
+            await nango.saveCheckpoint({ updatedAfter: lastUpdatedAt, cursor: '' });
             break;
         }
     }

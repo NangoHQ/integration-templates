@@ -1,13 +1,13 @@
 {
   "input": {
-    "issue_id": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7"
+    "issueId": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7"
   },
   "output": {
     "success": true,
     "issue": {
       "id": "85c0ba11-4209-4d0a-ab63-e78cd0c282f7"
     },
-    "last_sync_id": null
+    "lastSyncId": null
   },
   "nango": {},
   "api": {

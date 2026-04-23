@@ -1,7 +1,7 @@
 {
   "input": {
-    "issue_id": "7cae264c-3f43-401b-ae22-322868db57c6",
-    "related_issue_id": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144",
+    "issueId": "7cae264c-3f43-401b-ae22-322868db57c6",
+    "relatedIssueId": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144",
     "type": "blocks"
   },
   "output": {

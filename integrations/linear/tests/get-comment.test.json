@@ -1,11 +1,11 @@
 {
   "input": {
-    "comment_id": "a7a6102c-5a90-47b8-8e1b-bd5d71883b5b"
+    "commentId": "a7a6102c-5a90-47b8-8e1b-bd5d71883b5b"
   },
   "output": {
     "id": "a7a6102c-5a90-47b8-8e1b-bd5d71883b5b",
     "body": "This is a test comment created via Nango action testing",
-    "resolved_at": null,
+    "resolvedAt": null,
     "issue": {
       "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
       "identifier": "NAN-5",

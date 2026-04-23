@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    comment_id: z.string().describe('The ID of the comment to delete. Example: "abc123-def456"')
+    commentId: z.string().describe('The ID of the comment to delete. Example: "abc123-def456"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    deleted_comment_id: z.string()
+    deletedCommentId: z.string()
 });
 
 const CommentDeleteResultSchema = z.object({
@@ -49,7 +49,7 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.comment_id
+            id: input.commentId
         };
 
         // https://linear.app/developers
@@ -93,7 +93,7 @@ const action = createAction({
 
         return {
             success: true,
-            deleted_comment_id: input.comment_id
+            deletedCommentId: input.commentId
         };
     }
 });

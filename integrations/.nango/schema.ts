@@ -11943,8 +11943,8 @@ export interface SyncMetadata_linear_issuelabels {
 };
 
 export interface SyncMetadata_linear_issues {
-  team_id?: string | undefined;
-  project_id?: string | undefined;
+  teamId?: string | undefined;
+  projectId?: string | undefined;
 };
 
 export interface Milestone {
@@ -12006,23 +12006,23 @@ export interface ActionInput_linear_addissuelabel {
   /**
    * The ID of the Linear issue. Example: "d0e4f5d3-1111-2222-3333-444444444444"
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The ID of the label to add to the issue. Example: "d0e4f5d3-1111-2222-3333-555555555555"
    */
-  label_id: string;
+  labelId: string;
 };
 
 export interface ActionOutput_linear_addissuelabel {
   success: boolean;
-  issue_id: string;
+  issueId: string;
 };
 
 export interface ActionInput_linear_archivecycle {
   /**
    * The ID of the cycle to archive. Example: "cycle-123"
    */
-  cycle_id: string;
+  cycleId: string;
 };
 
 export interface ActionOutput_linear_archivecycle {
@@ -12037,14 +12037,14 @@ export interface ActionOutput_linear_archivecycle {
   /**
    * The timestamp when the cycle was archived
    */
-  archived_at: string | null;
+  archivedAt: string | null;
 };
 
 export interface ActionInput_linear_archiveissue {
   /**
    * The unique identifier of the issue to archive. Example: "abc123-def456"
    */
-  issue_id: string;
+  issueId: string;
 };
 
 export interface ActionOutput_linear_archiveissue {
@@ -12056,14 +12056,14 @@ export interface ActionOutput_linear_archiveissue {
   /**
    * The identifier of the last sync operation.
    */
-  last_sync_id: string | number | null;
+  lastSyncId: string | number | null;
 };
 
 export interface ActionInput_linear_createattachment {
   /**
    * The ID of the issue to attach to. Example: "abc123-def456-ghi789"
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The URL of the attachment. Example: "https://github.com/org/repo/pull/123"
    */
@@ -12079,7 +12079,7 @@ export interface ActionInput_linear_createattachment {
   /**
    * Optional icon URL for the attachment.
    */
-  icon_url?: string | undefined;
+  iconUrl?: string | undefined;
   /**
    * Optional metadata object for the attachment.
    */
@@ -12091,7 +12091,7 @@ export interface ActionOutput_linear_createattachment {
   url: string;
   title: string;
   subtitle: string;
-  icon_url: string;
+  iconUrl: string;
   success: boolean;
 };
 
@@ -12125,7 +12125,7 @@ export interface ActionInput_linear_createcycle {
   /**
    * Team ID. Example: "team-uuid"
    */
-  team_id: string;
+  teamId: string;
   /**
    * Cycle name. Example: "Sprint 14"
    */
@@ -12133,11 +12133,11 @@ export interface ActionInput_linear_createcycle {
   /**
    * Cycle start date in ISO 8601 format. Example: "2026-03-03T00:00:00.000Z"
    */
-  starts_at: string;
+  startsAt: string;
   /**
    * Cycle end date in ISO 8601 format. Example: "2026-03-17T00:00:00.000Z"
    */
-  ends_at: string;
+  endsAt: string;
   /**
    * Optional cycle description.
    */
@@ -12147,8 +12147,8 @@ export interface ActionInput_linear_createcycle {
 export interface ActionOutput_linear_createcycle {
   id: string;
   name: string;
-  starts_at: string;
-  ends_at: string;
+  startsAt: string;
+  endsAt: string;
   description: string | null;
   success: boolean;
 };
@@ -12165,7 +12165,7 @@ export interface ActionInput_linear_createissuelabel {
   /**
    * The ID of the team to create the label for. If not provided, creates a workspace-level label. Example: "8d6bb47f-0897-4ee1-94e5-89269edae96f"
    */
-  team_id?: string | undefined;
+  teamId?: string | undefined;
   /**
    * The description of the label. Example: "Issues related to bugs and errors"
    */
@@ -12183,11 +12183,11 @@ export interface ActionInput_linear_createissuerelation {
   /**
    * The ID of the first issue in the relationship. Example: "abc123-def456-ghi789"
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The ID of the second issue in the relationship. Example: "xyz789-uvw456-rst123"
    */
-  related_issue_id: string;
+  relatedIssueId: string;
   /**
    * The type of relationship between the issues. Options: blocks, duplicate, related
    */
@@ -12308,56 +12308,56 @@ export interface ActionInput_linear_deleteattachment {
   /**
    * The ID of the attachment to delete. Example: "47e14163-404c-4a34-b775-5c536d67760a"
    */
-  attachment_id: string;
+  attachmentId: string;
 };
 
 export interface ActionOutput_linear_deleteattachment {
   success: boolean;
-  entity_id: string | null;
-  last_sync_id: number | null;
+  entityId: string | null;
+  lastSyncId: number | null;
 };
 
 export interface ActionInput_linear_deletecomment {
   /**
    * The ID of the comment to delete. Example: "abc123-def456"
    */
-  comment_id: string;
+  commentId: string;
 };
 
 export interface ActionOutput_linear_deletecomment {
   success: boolean;
-  deleted_comment_id: string;
+  deletedCommentId: string;
 };
 
 export interface ActionInput_linear_deleteissuelabel {
   /**
    * The ID of the issue label to delete. Example: "b8a02392-5b5a-4d2c-85e4-324f4f0594bb"
    */
-  label_id: string;
+  labelId: string;
 };
 
 export interface ActionOutput_linear_deleteissuelabel {
   success: boolean;
-  label_id: string;
+  labelId: string;
 };
 
 export interface ActionInput_linear_deleteissuerelation {
   /**
    * The ID of the issue relation to delete. Example: "relation-uuid-123"
    */
-  relation_id: string;
+  relationId: string;
 };
 
 export interface ActionOutput_linear_deleteissuerelation {
   success: boolean;
-  relation_id: string;
+  relationId: string;
 };
 
 export interface ActionInput_linear_deleteissue {
   /**
    * The ID of the issue to delete. Example: "d4e6f8a2-3b4c-5d6e-7f8g-9h0i1j2k3l4m"
    */
-  issue_id: string;
+  issueId: string;
 };
 
 export interface ActionOutput_linear_deleteissue {
@@ -12368,7 +12368,7 @@ export interface ActionOutput_linear_deleteissue {
   /**
    * The ID of the deleted issue
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The title of the deleted issue, if available
    */
@@ -12379,7 +12379,7 @@ export interface ActionInput_linear_getattachment {
   /**
    * Attachment ID. Example: "47e14163-404c-4a34-b775-5c536d67760a"
    */
-  attachment_id: string;
+  attachmentId: string;
 };
 
 export interface ActionOutput_linear_getattachment {
@@ -12387,7 +12387,7 @@ export interface ActionOutput_linear_getattachment {
   title: string | null;
   subtitle: string | null;
   url: string;
-  source_type: string | null;
+  sourceType: string | null;
   metadata: {  [key: string]: unknown | undefined;} | null;
   source: {  [key: string]: unknown | undefined;} | null;
   issue: {  id: string;
@@ -12399,13 +12399,13 @@ export interface ActionInput_linear_getcomment {
   /**
    * Comment ID to retrieve. Example: "123e4567-89ab-cdef-0123-456789abcdef"
    */
-  comment_id: string;
+  commentId: string;
 };
 
 export interface ActionOutput_linear_getcomment {
   id: string;
   body: string;
-  resolved_at: string | null;
+  resolvedAt: string | null;
   issue: {  id: string;
   identifier: string;
   title: string;} | null;
@@ -12418,7 +12418,7 @@ export interface ActionInput_linear_getcycle {
   /**
    * The unique identifier of the Linear cycle. Example: "d0f4f0b4-7c2e-4c7a-9c8e-2a5e8a6d9c7e"
    */
-  cycle_id: string;
+  cycleId: string;
 };
 
 export interface ActionOutput_linear_getcycle {
@@ -12436,7 +12436,7 @@ export interface ActionInput_linear_getissuelabel {
   /**
    * The ID of the issue label to retrieve. Example: "abc123-def456"
    */
-  label_id: string;
+  labelId: string;
 };
 
 export interface ActionOutput_linear_getissuelabel {
@@ -12484,7 +12484,7 @@ export interface ActionInput_linear_getproject {
   /**
    * The unique identifier of the project. Example: "abc123-def456"
    */
-  project_id: string;
+  projectId: string;
 };
 
 export interface ActionOutput_linear_getproject {
@@ -12526,7 +12526,7 @@ export interface ActionInput_linear_getuser {
   /**
    * The unique identifier of the Linear user. Example: "user-uuid-123"
    */
-  user_id: string;
+  userId: string;
 };
 
 export interface ActionOutput_linear_getuser {
@@ -12575,11 +12575,11 @@ export interface ActionOutput_linear_getviewer {
   /**
    * Display name. Example: "Jane"
    */
-  display_name: string | null;
+  displayName: string | null;
   /**
    * Avatar URL
    */
-  avatar_url: string | null;
+  avatarUrl: string | null;
   /**
    * Organization context
    */
@@ -12756,7 +12756,7 @@ export interface ActionOutput_linear_listcomments {
   resolvedAt: string | null;
   quotedText: string | null;
   reactionData?: any | undefined;})[];
-  next_cursor: string | null;
+  nextCursor: string | null;
   pageInfo: {  startCursor: string | null;
   endCursor: string | null;
   hasNextPage: boolean;
@@ -12955,8 +12955,8 @@ export interface ActionOutput_linear_listprojects {
   createdAt: string;
   updatedAt: string;
   url: string;})[];
-  next_cursor: string | null;
-  has_more: boolean;
+  nextCursor: string | null;
+  hasMore: boolean;
 };
 
 export interface ActionInput_linear_listteams {
@@ -12977,10 +12977,10 @@ export interface ActionOutput_linear_listteams {
   description: string | null;
   color: string | null;
   private: boolean;
-  archived_at: string | null;
-  created_at: string;})[];
-  page_info: {  has_next_page: boolean;
-  end_cursor: string | null;};
+  archivedAt: string | null;
+  createdAt: string;})[];
+  pageInfo: {  hasNextPage: boolean;
+  endCursor: string | null;};
 };
 
 export interface ActionInput_linear_listusers {
@@ -13069,11 +13069,11 @@ export interface ActionInput_linear_listworkflowstates {
   /**
    * Filter by team ID. Example: "abc123-def456"
    */
-  team_id?: string | undefined;
+  teamId?: string | undefined;
   /**
    * Field to order by. Allowed values: createdAt, updatedAt
    */
-  order_by?: 'createdAt' | 'updatedAt' | undefined;
+  orderBy?: 'createdAt' | 'updatedAt' | undefined;
 };
 
 export interface ActionOutput_linear_listworkflowstates {
@@ -13085,18 +13085,18 @@ export interface ActionOutput_linear_listworkflowstates {
   position: number;
   team?: {  id: string;
   name: string;} | undefined;})[];
-  next_cursor: string | null;
+  nextCursor: string | null;
 };
 
 export interface ActionInput_linear_removeissuelabel {
   /**
    * The ID of the issue to remove the label from. Example: "c7a3f0e2-1b2d-4e3f-9a0b-1c2d3e4f5a6b"
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The ID of the label to remove. Example: "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
    */
-  label_id: string;
+  labelId: string;
 };
 
 export interface ActionOutput_linear_removeissuelabel {
@@ -13108,17 +13108,17 @@ export interface ActionInput_linear_resolvecomment {
   /**
    * The identifier of the comment to resolve. Example: "123e4567-e89b-12d3-a456-426614174000"
    */
-  comment_id: string;
+  commentId: string;
   /**
    * The identifier of the child comment that resolves the thread. If not provided, the thread is resolved without a specific resolving comment.
    */
-  resolving_comment_id?: string | undefined;
+  resolvingCommentId?: string | undefined;
 };
 
 export interface ActionOutput_linear_resolvecomment {
   success: boolean;
   comment: {  id: string;
-  resolved_at: string | null;};
+  resolvedAt: string | null;};
 };
 
 export interface ActionInput_linear_searchissues {
@@ -13140,15 +13140,15 @@ export interface ActionInput_linear_searchissues {
   filter?: {  /**
    * Filter by team ID
    */
-  team_id?: string | undefined;
+  teamId?: string | undefined;
   /**
    * Filter by workflow state ID
    */
-  state_id?: string | undefined;
+  stateId?: string | undefined;
   /**
    * Filter by assignee user ID
    */
-  assignee_id?: string | undefined;
+  assigneeId?: string | undefined;
   /**
    * Filter by priority (0=No Priority, 1=Urgent, 2=High, 3=Normal, 4=Low)
    */
@@ -13156,23 +13156,23 @@ export interface ActionInput_linear_searchissues {
   /**
    * Filter by label IDs
    */
-  label_ids?: string[] | undefined;
+  labelIds?: string[] | undefined;
   /**
    * Filter by project ID
    */
-  project_id?: string | undefined;
+  projectId?: string | undefined;
   /**
    * Filter by cycle ID
    */
-  cycle_id?: string | undefined;
+  cycleId?: string | undefined;
   /**
    * Filter by parent issue ID
    */
-  parent_id?: string | undefined;
+  parentId?: string | undefined;
   /**
    * Include archived issues in results. Default: false
    */
-  include_archived?: boolean | undefined;};
+  includeArchived?: boolean | undefined;};
 };
 
 export interface ActionOutput_linear_searchissues {
@@ -13187,19 +13187,19 @@ export interface ActionOutput_linear_searchissues {
   name: string;};
   team: {  id: string;
   name: string;};
-  created_at: string;
-  updated_at: string;
-  archived_at: string | null;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt: string | null;
   url: string;})[];
-  next_cursor: string | null;
-  has_more: boolean;
+  nextCursor: string | null;
+  hasMore: boolean;
 };
 
 export interface ActionInput_linear_unarchiveissue {
   /**
    * The ID of the archived issue to restore. Example: "issue-123"
    */
-  issue_id: string;
+  issueId: string;
 };
 
 export interface ActionOutput_linear_unarchiveissue {
@@ -13215,7 +13215,7 @@ export interface ActionInput_linear_unarchiveproject {
   /**
    * The ID of the project to unarchive. Example: "c1f3f3c8-8f3c-4f3c-8f3c-8f3c8f3c8f3c"
    */
-  project_id: string;
+  projectId: string;
 };
 
 export interface ActionOutput_linear_unarchiveproject {
@@ -13226,29 +13226,29 @@ export interface ActionOutput_linear_unarchiveproject {
   /**
    * The ID of the unarchived project
    */
-  project_id: string;
+  projectId: string;
 };
 
 export interface ActionInput_linear_unresolvecomment {
   /**
    * The identifier of the comment to unresolve. Example: "comment-uuid-123"
    */
-  comment_id: string;
+  commentId: string;
 };
 
 export interface ActionOutput_linear_unresolvecomment {
   id: string;
   success: boolean;
   url: string | null;
-  resolved_at: string | null;
-  resolving_comment_id: string | null;
+  resolvedAt: string | null;
+  resolvingCommentId: string | null;
 };
 
 export interface ActionInput_linear_updatecomment {
   /**
    * The ID of the comment to update. Example: "comment-uuid-123"
    */
-  comment_id: string;
+  commentId: string;
   /**
    * The updated comment body in markdown format. Example: "Updated comment text"
    */
@@ -13277,15 +13277,15 @@ export interface ActionInput_linear_updatecycle {
   /**
    * The start date of the cycle (ISO 8601 format). Example: "2025-01-01T00:00:00.000Z"
    */
-  starts_at?: string | undefined;
+  startsAt?: string | undefined;
   /**
    * The end date of the cycle (ISO 8601 format). Example: "2025-01-14T23:59:59.000Z"
    */
-  ends_at?: string | undefined;
+  endsAt?: string | undefined;
   /**
    * The completion date of the cycle (ISO 8601 format). Example: "2025-01-15T00:00:00.000Z"
    */
-  completed_at?: string | undefined;
+  completedAt?: string | undefined;
 };
 
 export interface ActionOutput_linear_updatecycle {
@@ -13293,18 +13293,18 @@ export interface ActionOutput_linear_updatecycle {
   name: string;
   description: string | null;
   number: number;
-  starts_at: string;
-  ends_at: string;
-  completed_at: string | null;
-  created_at: string;
-  updated_at: string;
+  startsAt: string;
+  endsAt: string;
+  completedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export interface ActionInput_linear_updateissuelabel {
   /**
    * ID of the label to update. Example: "f33d4e23-1234-5678-9abc-def012345678"
    */
-  label_id: string;
+  labelId: string;
   /**
    * New name for the label
    */
@@ -13330,7 +13330,7 @@ export interface ActionInput_linear_updateissuerelation {
   /**
    * The UUID of the issue relation to update. Example: "c87f3b9a-7c4e-4a2e-9b5c-3d2e1f4a5b6c"
    */
-  relation_id: string;
+  relationId: string;
   /**
    * The type of relation between issues.
    */
@@ -13339,7 +13339,7 @@ export interface ActionInput_linear_updateissuerelation {
 
 export interface ActionOutput_linear_updateissuerelation {
   success: boolean;
-  issue_relation: {  id: string;
+  issueRelation: {  id: string;
   type: 'blocks' | 'duplicate' | 'related';};
 };
 

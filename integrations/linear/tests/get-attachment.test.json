@@ -1,13 +1,13 @@
 {
   "input": {
-    "attachment_id": "451fe26a-9c8b-4e42-b625-61226f2a62f9"
+    "attachmentId": "451fe26a-9c8b-4e42-b625-61226f2a62f9"
   },
   "output": {
     "id": "451fe26a-9c8b-4e42-b625-61226f2a62f9",
     "title": "Test Get Attachment Action",
     "subtitle": null,
     "url": "https://example.com/test-get-attachment",
-    "source_type": "oauthClient",
+    "sourceType": "oauthClient",
     "metadata": {},
     "source": {
       "name": "NangoTest",

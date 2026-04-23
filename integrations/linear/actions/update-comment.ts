@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    comment_id: z.string().describe('The ID of the comment to update. Example: "comment-uuid-123"'),
+    commentId: z.string().describe('The ID of the comment to update. Example: "comment-uuid-123"'),
     body: z.string().describe('The updated comment body in markdown format. Example: "Updated comment text"')
 });
 
@@ -41,7 +41,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.comment_id,
+                    id: input.commentId,
                     input: {
                         body: input.body
                     }
@@ -56,7 +56,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'update_failed',
                 message: 'Failed to update comment',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The unique identifier of the issue to archive. Example: "abc123-def456"')
+    issueId: z.string().describe('The unique identifier of the issue to archive. Example: "abc123-def456"')
 });
 
 const OutputSchema = z.object({
@@ -15,7 +15,7 @@ const OutputSchema = z.object({
             z.null()
         ])
         .describe('The archived issue entity. Null if the issue was deleted.'),
-    last_sync_id: z.union([z.string(), z.number(), z.null()]).describe('The identifier of the last sync operation.')
+    lastSyncId: z.union([z.string(), z.number(), z.null()]).describe('The identifier of the last sync operation.')
 });
 
 const action = createAction({
@@ -47,7 +47,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.issue_id
+                    id: input.issueId
                 }
             },
             retries: 1
@@ -65,7 +65,7 @@ const action = createAction({
         return {
             success: result.success,
             issue: result.entity || null,
-            last_sync_id: result.lastSyncId || null
+            lastSyncId: result.lastSyncId || null
         };
     }
 });

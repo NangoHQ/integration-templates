@@ -1,10 +1,10 @@
 {
   "input": {
-    "comment_id": "24f6be0d-aebb-4075-98ef-932a7748bbca"
+    "commentId": "24f6be0d-aebb-4075-98ef-932a7748bbca"
   },
   "output": {
     "success": true,
-    "deleted_comment_id": "24f6be0d-aebb-4075-98ef-932a7748bbca"
+    "deletedCommentId": "24f6be0d-aebb-4075-98ef-932a7748bbca"
   },
   "nango": {},
   "api": {

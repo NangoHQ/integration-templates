@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the issue to delete. Example: "d4e6f8a2-3b4c-5d6e-7f8g-9h0i1j2k3l4m"')
+    issueId: z.string().describe('The ID of the issue to delete. Example: "d4e6f8a2-3b4c-5d6e-7f8g-9h0i1j2k3l4m"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean().describe('Whether the issue was successfully deleted'),
-    issue_id: z.string().describe('The ID of the deleted issue'),
+    issueId: z.string().describe('The ID of the deleted issue'),
     title: z.union([z.string(), z.null()]).describe('The title of the deleted issue, if available')
 });
 
@@ -40,7 +40,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.issue_id
+                    id: input.issueId
                 }
             },
             retries: 10
@@ -52,13 +52,13 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: 'Failed to delete the issue. The issue may not exist or you may not have permission to delete it.',
-                issue_id: input.issue_id
+                issueId: input.issueId
             });
         }
 
         return {
             success: data.success,
-            issue_id: data.entity?.id ?? input.issue_id,
+            issueId: data.entity?.id ?? input.issueId,
             title: data.entity?.title ?? null
         };
     }

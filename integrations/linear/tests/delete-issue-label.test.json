@@ -1,10 +1,10 @@
 {
   "input": {
-    "label_id": "5ed373ed-66d8-4607-a7cd-b9b21a55d781"
+    "labelId": "5ed373ed-66d8-4607-a7cd-b9b21a55d781"
   },
   "output": {
     "success": true,
-    "label_id": "5ed373ed-66d8-4607-a7cd-b9b21a55d781"
+    "labelId": "5ed373ed-66d8-4607-a7cd-b9b21a55d781"
   },
   "nango": {},
   "api": {

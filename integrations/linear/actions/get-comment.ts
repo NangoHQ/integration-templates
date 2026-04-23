@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    comment_id: z.string().describe('Comment ID to retrieve. Example: "123e4567-89ab-cdef-0123-456789abcdef"')
+    commentId: z.string().describe('Comment ID to retrieve. Example: "123e4567-89ab-cdef-0123-456789abcdef"')
 });
 
 // Linear comment query response shape (camelCase from GraphQL)
@@ -31,7 +31,7 @@ const LinearCommentSchema = z.object({
 const OutputSchema = z.object({
     id: z.string(),
     body: z.string(),
-    resolved_at: z.union([z.string(), z.null()]),
+    resolvedAt: z.union([z.string(), z.null()]),
     issue: z.union([
         z.object({
             id: z.string(),
@@ -89,7 +89,7 @@ const action = createAction({
             data: {
                 query: query,
                 variables: {
-                    id: input.comment_id
+                    id: input.commentId
                 }
             },
             retries: 3
@@ -132,15 +132,15 @@ const action = createAction({
         if (!comment) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Comment with ID "${input.comment_id}" not found`,
-                comment_id: input.comment_id
+                message: `Comment with ID "${input.commentId}" not found`,
+                commentId: input.commentId
             });
         }
 
         return {
             id: comment.id,
             body: comment.body,
-            resolved_at: comment.resolvedAt,
+            resolvedAt: comment.resolvedAt,
             issue: comment.issue,
             user: comment.user
         };

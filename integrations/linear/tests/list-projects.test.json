@@ -55,8 +55,8 @@
         "url": "https://linear.app/nango-api/project/linear-test-project-eb0cc9d2f9a6"
       }
     ],
-    "next_cursor": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
-    "has_more": false
+    "nextCursor": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+    "hasMore": false
   },
   "nango": {},
   "api": {

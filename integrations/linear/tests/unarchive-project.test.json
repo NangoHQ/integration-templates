@@ -1,10 +1,10 @@
 {
   "input": {
-    "project_id": "37bccbd0-55e0-4dcd-975d-4e62f198a112"
+    "projectId": "37bccbd0-55e0-4dcd-975d-4e62f198a112"
   },
   "output": {
     "success": true,
-    "project_id": "37bccbd0-55e0-4dcd-975d-4e62f198a112"
+    "projectId": "37bccbd0-55e0-4dcd-975d-4e62f198a112"
   },
   "nango": {},
   "api": {

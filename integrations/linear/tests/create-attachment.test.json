@@ -1,6 +1,6 @@
 {
   "input": {
-    "issue_id": "7cae264c-3f43-401b-ae22-322868db57c6",
+    "issueId": "7cae264c-3f43-401b-ae22-322868db57c6",
     "url": "https://github.com/example/repo/pull/123",
     "title": "Test PR Attachment"
   },
@@ -9,7 +9,7 @@
     "url": "https://github.com/example/repo/pull/123",
     "title": "Test PR Attachment",
     "subtitle": null,
-    "icon_url": null,
+    "iconUrl": null,
     "success": true
   },
   "nango": {},

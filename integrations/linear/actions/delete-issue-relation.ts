@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    relation_id: z.string().describe('The ID of the issue relation to delete. Example: "relation-uuid-123"')
+    relationId: z.string().describe('The ID of the issue relation to delete. Example: "relation-uuid-123"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    relation_id: z.string()
+    relationId: z.string()
 });
 
 const GraphQLResponseSchema = z.object({
@@ -64,7 +64,7 @@ const action = createAction({
             data: {
                 query,
                 variables: {
-                    id: input.relation_id
+                    id: input.relationId
                 }
             },
             retries: 3
@@ -97,13 +97,13 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: 'Failed to delete issue relation',
-                relation_id: input.relation_id
+                relationId: input.relationId
             });
         }
 
         return {
             success: true,
-            relation_id: input.relation_id
+            relationId: input.relationId
         };
     }
 });

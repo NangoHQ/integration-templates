@@ -1,7 +1,7 @@
 {
   "input": {
-    "issue_id": "acad5e4a-0174-4764-bc58-83f993e7ea2a",
-    "label_id": "f9fca07c-32c2-44ac-8ebf-a6e2b8ea66fd"
+    "issueId": "acad5e4a-0174-4764-bc58-83f993e7ea2a",
+    "labelId": "f9fca07c-32c2-44ac-8ebf-a6e2b8ea66fd"
   },
   "output": {
     "success": true,

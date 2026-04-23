@@ -7,8 +7,8 @@ const OutputSchema = z.object({
     id: z.string().describe('User ID. Example: "user-123"'),
     name: z.string().describe('Full name. Example: "Jane Doe"'),
     email: z.string().describe('Email address. Example: "jane@example.com"'),
-    display_name: z.union([z.string(), z.null()]).describe('Display name. Example: "Jane"'),
-    avatar_url: z.union([z.string(), z.null()]).describe('Avatar URL'),
+    displayName: z.union([z.string(), z.null()]).describe('Display name. Example: "Jane"'),
+    avatarUrl: z.union([z.string(), z.null()]).describe('Avatar URL'),
     organization: z
         .object({
             id: z.string(),
@@ -67,8 +67,8 @@ const action = createAction({
             id: viewer.id,
             name: viewer.name,
             email: viewer.email,
-            display_name: viewer.displayName ?? null,
-            avatar_url: viewer.avatarUrl ?? null,
+            displayName: viewer.displayName ?? null,
+            avatarUrl: viewer.avatarUrl ?? null,
             organization: {
                 id: viewer.organization.id,
                 name: viewer.organization.name,

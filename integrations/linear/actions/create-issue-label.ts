@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     name: z.string().describe('The name of the issue label. Example: "Bug"'),
     color: z.string().describe('The color of the label in hex format. Example: "#C52828"'),
-    team_id: z
+    teamId: z
         .string()
         .optional()
         .describe(
@@ -50,7 +50,7 @@ const action = createAction({
             input: {
                 name: input.name,
                 color: input.color,
-                ...(input.team_id && { teamId: input.team_id }),
+                ...(input.teamId && { teamId: input.teamId }),
                 ...(input.description && { description: input.description })
             }
         };

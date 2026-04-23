@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    comment_id: z.string().describe('The identifier of the comment to resolve. Example: "123e4567-e89b-12d3-a456-426614174000"'),
-    resolving_comment_id: z
+    commentId: z.string().describe('The identifier of the comment to resolve. Example: "123e4567-e89b-12d3-a456-426614174000"'),
+    resolvingCommentId: z
         .string()
         .optional()
         .describe('The identifier of the child comment that resolves the thread. If not provided, the thread is resolved without a specific resolving comment.')
@@ -13,7 +13,7 @@ const OutputSchema = z.object({
     success: z.boolean(),
     comment: z.object({
         id: z.string(),
-        resolved_at: z.union([z.string(), z.null()])
+        resolvedAt: z.union([z.string(), z.null()])
     })
 });
 
@@ -43,8 +43,8 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.comment_id,
-            resolvingCommentId: input.resolving_comment_id ?? null
+            id: input.commentId,
+            resolvingCommentId: input.resolvingCommentId ?? null
         };
 
         // https://linear.app/developers/graphql
@@ -63,7 +63,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'graphql_error',
                 message: error.message || 'GraphQL error occurred',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -71,7 +71,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'api_error',
                 message: 'Invalid response from Linear API',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -81,7 +81,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'resolve_failed',
                 message: 'Failed to resolve comment',
-                comment_id: input.comment_id
+                commentId: input.commentId
             });
         }
 
@@ -89,7 +89,7 @@ const action = createAction({
             success: result.success,
             comment: {
                 id: result.comment.id,
-                resolved_at: result.comment.resolvedAt ?? null
+                resolvedAt: result.comment.resolvedAt ?? null
             }
         };
     }

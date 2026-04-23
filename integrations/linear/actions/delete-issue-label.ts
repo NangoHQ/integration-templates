@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    label_id: z.string().describe('The ID of the issue label to delete. Example: "b8a02392-5b5a-4d2c-85e4-324f4f0594bb"')
+    labelId: z.string().describe('The ID of the issue label to delete. Example: "b8a02392-5b5a-4d2c-85e4-324f4f0594bb"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    label_id: z.string()
+    labelId: z.string()
 });
 
 const action = createAction({
@@ -36,7 +36,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.label_id
+                    id: input.labelId
                 }
             },
             retries: 1
@@ -46,13 +46,13 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: 'Failed to delete issue label',
-                label_id: input.label_id
+                labelId: input.labelId
             });
         }
 
         return {
             success: response.data.data.issueLabelDelete.success,
-            label_id: input.label_id
+            labelId: input.labelId
         };
     }
 });

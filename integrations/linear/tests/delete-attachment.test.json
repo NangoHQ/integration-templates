@@ -1,11 +1,11 @@
 {
   "input": {
-    "attachment_id": "885a0960-b8e2-4fe8-8f3f-2a405e005d92"
+    "attachmentId": "885a0960-b8e2-4fe8-8f3f-2a405e005d92"
   },
   "output": {
     "success": true,
-    "entity_id": "885a0960-b8e2-4fe8-8f3f-2a405e005d92",
-    "last_sync_id": 536416457
+    "entityId": "885a0960-b8e2-4fe8-8f3f-2a405e005d92",
+    "lastSyncId": 536416457
   },
   "nango": {},
   "api": {

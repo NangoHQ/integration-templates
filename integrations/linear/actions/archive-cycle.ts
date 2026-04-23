@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cycle_id: z.string().describe('The ID of the cycle to archive. Example: "cycle-123"')
+    cycleId: z.string().describe('The ID of the cycle to archive. Example: "cycle-123"')
 });
 
 const OutputSchema = z.object({
     id: z.string().describe('The ID of the archived cycle'),
     name: z.union([z.string(), z.null()]).describe('The name of the archived cycle'),
-    archived_at: z.union([z.string(), z.null()]).describe('The timestamp when the cycle was archived')
+    archivedAt: z.union([z.string(), z.null()]).describe('The timestamp when the cycle was archived')
 });
 
 const action = createAction({
@@ -42,7 +42,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.cycle_id
+                    id: input.cycleId
                 }
             },
             retries: 3
@@ -68,7 +68,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'archive_failed',
                 message: 'Cycle archive operation failed',
-                cycle_id: input.cycle_id
+                cycleId: input.cycleId
             });
         }
 
@@ -77,14 +77,14 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Cycle not found or was deleted',
-                cycle_id: input.cycle_id
+                cycleId: input.cycleId
             });
         }
 
         return {
             id: entity.id,
             name: entity.name ?? null,
-            archived_at: entity.archivedAt ?? null
+            archivedAt: entity.archivedAt ?? null
         };
     }
 });

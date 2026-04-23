@@ -115,7 +115,7 @@ const PageInfoSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(CommentSchema),
-    next_cursor: z.union([z.string(), z.null()]),
+    nextCursor: z.union([z.string(), z.null()]),
     pageInfo: PageInfoSchema
 });
 
@@ -291,7 +291,7 @@ const action = createAction({
 
         return {
             items,
-            next_cursor: pageInfo.endCursor ?? null,
+            nextCursor: pageInfo.endCursor ?? null,
             pageInfo: {
                 startCursor: pageInfo.startCursor ?? null,
                 endCursor: pageInfo.endCursor ?? null,

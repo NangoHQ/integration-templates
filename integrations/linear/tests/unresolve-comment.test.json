@@ -1,13 +1,13 @@
 {
   "input": {
-    "comment_id": "c4ecb1dd-daa4-47b2-9856-d3351ce2a9f0"
+    "commentId": "c4ecb1dd-daa4-47b2-9856-d3351ce2a9f0"
   },
   "output": {
     "id": "c4ecb1dd-daa4-47b2-9856-d3351ce2a9f0",
     "success": true,
     "url": "https://linear.app/nango-api/issue/NAN-9/test-issue-for-unarchive#comment-c4ecb1dd",
-    "resolved_at": null,
-    "resolving_comment_id": null
+    "resolvedAt": null,
+    "resolvingCommentId": null
   },
   "nango": {},
   "api": {

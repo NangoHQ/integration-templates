@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    attachment_id: z.string().describe('The ID of the attachment to delete. Example: "47e14163-404c-4a34-b775-5c536d67760a"')
+    attachmentId: z.string().describe('The ID of the attachment to delete. Example: "47e14163-404c-4a34-b775-5c536d67760a"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    entity_id: z.union([z.string(), z.null()]),
-    last_sync_id: z.union([z.number(), z.null()])
+    entityId: z.union([z.string(), z.null()]),
+    lastSyncId: z.union([z.number(), z.null()])
 });
 
 const action = createAction({
@@ -40,7 +40,7 @@ const action = createAction({
             data: {
                 query: mutation,
                 variables: {
-                    id: input.attachment_id
+                    id: input.attachmentId
                 }
             },
             retries: 1
@@ -53,14 +53,14 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: payload?.error?.message || 'Failed to delete attachment',
-                attachment_id: input.attachment_id
+                attachmentId: input.attachmentId
             });
         }
 
         return {
             success: payload.success,
-            entity_id: payload.entityId || null,
-            last_sync_id: payload.lastSyncId || null
+            entityId: payload.entityId || null,
+            lastSyncId: payload.lastSyncId || null
         };
     }
 });

@@ -20,9 +20,9 @@
           "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
           "name": "Nango-API"
         },
-        "created_at": "2026-04-22T07:40:01.764Z",
-        "updated_at": "2026-04-22T07:44:50.400Z",
-        "archived_at": null,
+        "createdAt": "2026-04-22T07:40:01.764Z",
+        "updatedAt": "2026-04-22T07:44:50.400Z",
+        "archivedAt": null,
         "url": "https://linear.app/nango-api/issue/NAN-6/test-issue-from-nango-action"
       },
       {
@@ -40,14 +40,14 @@
           "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
           "name": "Nango-API"
         },
-        "created_at": "2026-04-22T07:39:52.741Z",
-        "updated_at": "2026-04-22T07:44:50.400Z",
-        "archived_at": null,
+        "createdAt": "2026-04-22T07:39:52.741Z",
+        "updatedAt": "2026-04-22T07:44:50.400Z",
+        "archivedAt": null,
         "url": "https://linear.app/nango-api/issue/NAN-5/test-issue-updated-via-nango-action"
       }
     ],
-    "next_cursor": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
-    "has_more": false
+    "nextCursor": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+    "hasMore": false
   },
   "nango": {},
   "api": {

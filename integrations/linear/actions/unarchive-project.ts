@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.string().describe('The ID of the project to unarchive. Example: "c1f3f3c8-8f3c-4f3c-8f3c-8f3c8f3c8f3c"')
+    projectId: z.string().describe('The ID of the project to unarchive. Example: "c1f3f3c8-8f3c-4f3c-8f3c-8f3c8f3c8f3c"')
 });
 
 const OutputSchema = z.object({
     success: z.boolean().describe('Whether the unarchive operation was successful'),
-    project_id: z.string().describe('The ID of the unarchived project')
+    projectId: z.string().describe('The ID of the unarchived project')
 });
 
 const action = createAction({
@@ -35,7 +35,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.project_id
+                    id: input.projectId
                 }
             },
             retries: 3
@@ -84,7 +84,7 @@ const action = createAction({
 
         return {
             success: responseData.data.projectUnarchive.success,
-            project_id: input.project_id
+            projectId: input.projectId
         };
     }
 });

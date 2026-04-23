@@ -44613,10 +44613,10 @@
     "SyncMetadata_linear_issues": {
       "type": "object",
       "properties": {
-        "team_id": {
+        "teamId": {
           "type": "string"
         },
-        "project_id": {
+        "projectId": {
           "type": "string"
         }
       },
@@ -44882,18 +44882,18 @@
     "ActionInput_linear_addissuelabel": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the Linear issue. Example: \"d0e4f5d3-1111-2222-3333-444444444444\""
         },
-        "label_id": {
+        "labelId": {
           "type": "string",
           "description": "The ID of the label to add to the issue. Example: \"d0e4f5d3-1111-2222-3333-555555555555\""
         }
       },
       "required": [
-        "issue_id",
-        "label_id"
+        "issueId",
+        "labelId"
       ],
       "additionalProperties": false
     },
@@ -44903,26 +44903,26 @@
         "success": {
           "type": "boolean"
         },
-        "issue_id": {
+        "issueId": {
           "type": "string"
         }
       },
       "required": [
         "success",
-        "issue_id"
+        "issueId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_archivecycle": {
       "type": "object",
       "properties": {
-        "cycle_id": {
+        "cycleId": {
           "type": "string",
           "description": "The ID of the cycle to archive. Example: \"cycle-123\""
         }
       },
       "required": [
-        "cycle_id"
+        "cycleId"
       ],
       "additionalProperties": false
     },
@@ -44940,7 +44940,7 @@
           ],
           "description": "The name of the archived cycle"
         },
-        "archived_at": {
+        "archivedAt": {
           "type": [
             "string",
             "null"
@@ -44951,20 +44951,20 @@
       "required": [
         "id",
         "name",
-        "archived_at"
+        "archivedAt"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_archiveissue": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The unique identifier of the issue to archive. Example: \"abc123-def456\""
         }
       },
       "required": [
-        "issue_id"
+        "issueId"
       ],
       "additionalProperties": false
     },
@@ -44994,7 +44994,7 @@
           ],
           "description": "The archived issue entity. Null if the issue was deleted."
         },
-        "last_sync_id": {
+        "lastSyncId": {
           "type": [
             "string",
             "number",
@@ -45006,14 +45006,14 @@
       "required": [
         "success",
         "issue",
-        "last_sync_id"
+        "lastSyncId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_createattachment": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the issue to attach to. Example: \"abc123-def456-ghi789\""
         },
@@ -45029,7 +45029,7 @@
           "type": "string",
           "description": "Optional subtitle for the attachment."
         },
-        "icon_url": {
+        "iconUrl": {
           "type": "string",
           "description": "Optional icon URL for the attachment."
         },
@@ -45040,7 +45040,7 @@
         }
       },
       "required": [
-        "issue_id",
+        "issueId",
         "url",
         "title"
       ],
@@ -45061,7 +45061,7 @@
         "subtitle": {
           "type": "string"
         },
-        "icon_url": {
+        "iconUrl": {
           "type": "string"
         },
         "success": {
@@ -45073,7 +45073,7 @@
         "url",
         "title",
         "subtitle",
-        "icon_url",
+        "iconUrl",
         "success"
       ],
       "additionalProperties": false
@@ -45155,7 +45155,7 @@
     "ActionInput_linear_createcycle": {
       "type": "object",
       "properties": {
-        "team_id": {
+        "teamId": {
           "type": "string",
           "description": "Team ID. Example: \"team-uuid\""
         },
@@ -45163,11 +45163,11 @@
           "type": "string",
           "description": "Cycle name. Example: \"Sprint 14\""
         },
-        "starts_at": {
+        "startsAt": {
           "type": "string",
           "description": "Cycle start date in ISO 8601 format. Example: \"2026-03-03T00:00:00.000Z\""
         },
-        "ends_at": {
+        "endsAt": {
           "type": "string",
           "description": "Cycle end date in ISO 8601 format. Example: \"2026-03-17T00:00:00.000Z\""
         },
@@ -45177,10 +45177,10 @@
         }
       },
       "required": [
-        "team_id",
+        "teamId",
         "name",
-        "starts_at",
-        "ends_at"
+        "startsAt",
+        "endsAt"
       ],
       "additionalProperties": false
     },
@@ -45193,10 +45193,10 @@
         "name": {
           "type": "string"
         },
-        "starts_at": {
+        "startsAt": {
           "type": "string"
         },
-        "ends_at": {
+        "endsAt": {
           "type": "string"
         },
         "description": {
@@ -45212,8 +45212,8 @@
       "required": [
         "id",
         "name",
-        "starts_at",
-        "ends_at",
+        "startsAt",
+        "endsAt",
         "description",
         "success"
       ],
@@ -45230,7 +45230,7 @@
           "type": "string",
           "description": "The color of the label in hex format. Example: \"#C52828\""
         },
-        "team_id": {
+        "teamId": {
           "type": "string",
           "description": "The ID of the team to create the label for. If not provided, creates a workspace-level label. Example: \"8d6bb47f-0897-4ee1-94e5-89269edae96f\""
         },
@@ -45275,11 +45275,11 @@
     "ActionInput_linear_createissuerelation": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the first issue in the relationship. Example: \"abc123-def456-ghi789\""
         },
-        "related_issue_id": {
+        "relatedIssueId": {
           "type": "string",
           "description": "The ID of the second issue in the relationship. Example: \"xyz789-uvw456-rst123\""
         },
@@ -45294,8 +45294,8 @@
         }
       },
       "required": [
-        "issue_id",
-        "related_issue_id",
+        "issueId",
+        "relatedIssueId",
         "type"
       ],
       "additionalProperties": false
@@ -45560,13 +45560,13 @@
     "ActionInput_linear_deleteattachment": {
       "type": "object",
       "properties": {
-        "attachment_id": {
+        "attachmentId": {
           "type": "string",
           "description": "The ID of the attachment to delete. Example: \"47e14163-404c-4a34-b775-5c536d67760a\""
         }
       },
       "required": [
-        "attachment_id"
+        "attachmentId"
       ],
       "additionalProperties": false
     },
@@ -45576,13 +45576,13 @@
         "success": {
           "type": "boolean"
         },
-        "entity_id": {
+        "entityId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "last_sync_id": {
+        "lastSyncId": {
           "type": [
             "number",
             "null"
@@ -45591,21 +45591,21 @@
       },
       "required": [
         "success",
-        "entity_id",
-        "last_sync_id"
+        "entityId",
+        "lastSyncId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_deletecomment": {
       "type": "object",
       "properties": {
-        "comment_id": {
+        "commentId": {
           "type": "string",
           "description": "The ID of the comment to delete. Example: \"abc123-def456\""
         }
       },
       "required": [
-        "comment_id"
+        "commentId"
       ],
       "additionalProperties": false
     },
@@ -45615,26 +45615,26 @@
         "success": {
           "type": "boolean"
         },
-        "deleted_comment_id": {
+        "deletedCommentId": {
           "type": "string"
         }
       },
       "required": [
         "success",
-        "deleted_comment_id"
+        "deletedCommentId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_deleteissuelabel": {
       "type": "object",
       "properties": {
-        "label_id": {
+        "labelId": {
           "type": "string",
           "description": "The ID of the issue label to delete. Example: \"b8a02392-5b5a-4d2c-85e4-324f4f0594bb\""
         }
       },
       "required": [
-        "label_id"
+        "labelId"
       ],
       "additionalProperties": false
     },
@@ -45644,26 +45644,26 @@
         "success": {
           "type": "boolean"
         },
-        "label_id": {
+        "labelId": {
           "type": "string"
         }
       },
       "required": [
         "success",
-        "label_id"
+        "labelId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_deleteissuerelation": {
       "type": "object",
       "properties": {
-        "relation_id": {
+        "relationId": {
           "type": "string",
           "description": "The ID of the issue relation to delete. Example: \"relation-uuid-123\""
         }
       },
       "required": [
-        "relation_id"
+        "relationId"
       ],
       "additionalProperties": false
     },
@@ -45673,26 +45673,26 @@
         "success": {
           "type": "boolean"
         },
-        "relation_id": {
+        "relationId": {
           "type": "string"
         }
       },
       "required": [
         "success",
-        "relation_id"
+        "relationId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_deleteissue": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the issue to delete. Example: \"d4e6f8a2-3b4c-5d6e-7f8g-9h0i1j2k3l4m\""
         }
       },
       "required": [
-        "issue_id"
+        "issueId"
       ],
       "additionalProperties": false
     },
@@ -45703,7 +45703,7 @@
           "type": "boolean",
           "description": "Whether the issue was successfully deleted"
         },
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the deleted issue"
         },
@@ -45717,7 +45717,7 @@
       },
       "required": [
         "success",
-        "issue_id",
+        "issueId",
         "title"
       ],
       "additionalProperties": false
@@ -45725,13 +45725,13 @@
     "ActionInput_linear_getattachment": {
       "type": "object",
       "properties": {
-        "attachment_id": {
+        "attachmentId": {
           "type": "string",
           "description": "Attachment ID. Example: \"47e14163-404c-4a34-b775-5c536d67760a\""
         }
       },
       "required": [
-        "attachment_id"
+        "attachmentId"
       ],
       "additionalProperties": false
     },
@@ -45756,7 +45756,7 @@
         "url": {
           "type": "string"
         },
-        "source_type": {
+        "sourceType": {
           "type": [
             "string",
             "null"
@@ -45831,7 +45831,7 @@
         "title",
         "subtitle",
         "url",
-        "source_type",
+        "sourceType",
         "metadata",
         "source",
         "issue"
@@ -45841,13 +45841,13 @@
     "ActionInput_linear_getcomment": {
       "type": "object",
       "properties": {
-        "comment_id": {
+        "commentId": {
           "type": "string",
           "description": "Comment ID to retrieve. Example: \"123e4567-89ab-cdef-0123-456789abcdef\""
         }
       },
       "required": [
-        "comment_id"
+        "commentId"
       ],
       "additionalProperties": false
     },
@@ -45860,7 +45860,7 @@
         "body": {
           "type": "string"
         },
-        "resolved_at": {
+        "resolvedAt": {
           "type": [
             "string",
             "null"
@@ -45924,7 +45924,7 @@
       "required": [
         "id",
         "body",
-        "resolved_at",
+        "resolvedAt",
         "issue",
         "user"
       ],
@@ -45933,13 +45933,13 @@
     "ActionInput_linear_getcycle": {
       "type": "object",
       "properties": {
-        "cycle_id": {
+        "cycleId": {
           "type": "string",
           "description": "The unique identifier of the Linear cycle. Example: \"d0f4f0b4-7c2e-4c7a-9c8e-2a5e8a6d9c7e\""
         }
       },
       "required": [
-        "cycle_id"
+        "cycleId"
       ],
       "additionalProperties": false
     },
@@ -46011,13 +46011,13 @@
     "ActionInput_linear_getissuelabel": {
       "type": "object",
       "properties": {
-        "label_id": {
+        "labelId": {
           "type": "string",
           "description": "The ID of the issue label to retrieve. Example: \"abc123-def456\""
         }
       },
       "required": [
-        "label_id"
+        "labelId"
       ],
       "additionalProperties": false
     },
@@ -46298,13 +46298,13 @@
     "ActionInput_linear_getproject": {
       "type": "object",
       "properties": {
-        "project_id": {
+        "projectId": {
           "type": "string",
           "description": "The unique identifier of the project. Example: \"abc123-def456\""
         }
       },
       "required": [
-        "project_id"
+        "projectId"
       ],
       "additionalProperties": false
     },
@@ -46502,13 +46502,13 @@
     "ActionInput_linear_getuser": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "description": "The unique identifier of the Linear user. Example: \"user-uuid-123\""
         }
       },
       "required": [
-        "user_id"
+        "userId"
       ],
       "additionalProperties": false
     },
@@ -46575,14 +46575,14 @@
           "type": "string",
           "description": "Email address. Example: \"jane@example.com\""
         },
-        "display_name": {
+        "displayName": {
           "type": [
             "string",
             "null"
           ],
           "description": "Display name. Example: \"Jane\""
         },
-        "avatar_url": {
+        "avatarUrl": {
           "type": [
             "string",
             "null"
@@ -46615,8 +46615,8 @@
         "id",
         "name",
         "email",
-        "display_name",
-        "avatar_url",
+        "displayName",
+        "avatarUrl",
         "organization"
       ],
       "additionalProperties": false
@@ -47343,7 +47343,7 @@
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": [
             "string",
             "null"
@@ -47382,7 +47382,7 @@
       },
       "required": [
         "items",
-        "next_cursor",
+        "nextCursor",
         "pageInfo"
       ],
       "additionalProperties": false
@@ -48071,20 +48071,20 @@
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": [
             "string",
             "null"
           ]
         },
-        "has_more": {
+        "hasMore": {
           "type": "boolean"
         }
       },
       "required": [
         "projects",
-        "next_cursor",
-        "has_more"
+        "nextCursor",
+        "hasMore"
       ],
       "additionalProperties": false
     },
@@ -48134,13 +48134,13 @@
               "private": {
                 "type": "boolean"
               },
-              "archived_at": {
+              "archivedAt": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "created_at": {
+              "createdAt": {
                 "type": "string"
               }
             },
@@ -48151,19 +48151,19 @@
               "description",
               "color",
               "private",
-              "archived_at",
-              "created_at"
+              "archivedAt",
+              "createdAt"
             ],
             "additionalProperties": false
           }
         },
-        "page_info": {
+        "pageInfo": {
           "type": "object",
           "properties": {
-            "has_next_page": {
+            "hasNextPage": {
               "type": "boolean"
             },
-            "end_cursor": {
+            "endCursor": {
               "type": [
                 "string",
                 "null"
@@ -48171,15 +48171,15 @@
             }
           },
           "required": [
-            "has_next_page",
-            "end_cursor"
+            "hasNextPage",
+            "endCursor"
           ],
           "additionalProperties": false
         }
       },
       "required": [
         "teams",
-        "page_info"
+        "pageInfo"
       ],
       "additionalProperties": false
     },
@@ -48362,11 +48362,11 @@
           "type": "string",
           "description": "Pagination cursor from the previous response."
         },
-        "team_id": {
+        "teamId": {
           "type": "string",
           "description": "Filter by team ID. Example: \"abc123-def456\""
         },
-        "order_by": {
+        "orderBy": {
           "type": "string",
           "enum": [
             "createdAt",
@@ -48432,7 +48432,7 @@
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": [
             "string",
             "null"
@@ -48441,25 +48441,25 @@
       },
       "required": [
         "items",
-        "next_cursor"
+        "nextCursor"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_removeissuelabel": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the issue to remove the label from. Example: \"c7a3f0e2-1b2d-4e3f-9a0b-1c2d3e4f5a6b\""
         },
-        "label_id": {
+        "labelId": {
           "type": "string",
           "description": "The ID of the label to remove. Example: \"a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d\""
         }
       },
       "required": [
-        "issue_id",
-        "label_id"
+        "issueId",
+        "labelId"
       ],
       "additionalProperties": false
     },
@@ -48490,17 +48490,17 @@
     "ActionInput_linear_resolvecomment": {
       "type": "object",
       "properties": {
-        "comment_id": {
+        "commentId": {
           "type": "string",
           "description": "The identifier of the comment to resolve. Example: \"123e4567-e89b-12d3-a456-426614174000\""
         },
-        "resolving_comment_id": {
+        "resolvingCommentId": {
           "type": "string",
           "description": "The identifier of the child comment that resolves the thread. If not provided, the thread is resolved without a specific resolving comment."
         }
       },
       "required": [
-        "comment_id"
+        "commentId"
       ],
       "additionalProperties": false
     },
@@ -48516,7 +48516,7 @@
             "id": {
               "type": "string"
             },
-            "resolved_at": {
+            "resolvedAt": {
               "type": [
                 "string",
                 "null"
@@ -48525,7 +48525,7 @@
           },
           "required": [
             "id",
-            "resolved_at"
+            "resolvedAt"
           ],
           "additionalProperties": false
         }
@@ -48554,14 +48554,14 @@
         "filter": {
           "type": "object",
           "properties": {
-            "team_id": {
+            "teamId": {
               "type": "string"
             },
-            "state_id": {
+            "stateId": {
               "type": "string",
               "description": "Filter by workflow state ID"
             },
-            "assignee_id": {
+            "assigneeId": {
               "type": "string",
               "description": "Filter by assignee user ID"
             },
@@ -48569,26 +48569,26 @@
               "type": "number",
               "description": "Filter by priority (0=No Priority, 1=Urgent, 2=High, 3=Normal, 4=Low)"
             },
-            "label_ids": {
+            "labelIds": {
               "type": "array",
               "items": {
                 "type": "string"
               },
               "description": "Filter by label IDs"
             },
-            "project_id": {
+            "projectId": {
               "type": "string",
               "description": "Filter by project ID"
             },
-            "cycle_id": {
+            "cycleId": {
               "type": "string",
               "description": "Filter by cycle ID"
             },
-            "parent_id": {
+            "parentId": {
               "type": "string",
               "description": "Filter by parent issue ID"
             },
-            "include_archived": {
+            "includeArchived": {
               "type": "boolean",
               "description": "Include archived issues in results. Default: false"
             }
@@ -48676,13 +48676,13 @@
                 ],
                 "additionalProperties": false
               },
-              "created_at": {
+              "createdAt": {
                 "type": "string"
               },
-              "updated_at": {
+              "updatedAt": {
                 "type": "string"
               },
-              "archived_at": {
+              "archivedAt": {
                 "type": [
                   "string",
                   "null"
@@ -48701,41 +48701,41 @@
               "state",
               "assignee",
               "team",
-              "created_at",
-              "updated_at",
-              "archived_at",
+              "createdAt",
+              "updatedAt",
+              "archivedAt",
               "url"
             ],
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": [
             "string",
             "null"
           ]
         },
-        "has_more": {
+        "hasMore": {
           "type": "boolean"
         }
       },
       "required": [
         "issues",
-        "next_cursor",
-        "has_more"
+        "nextCursor",
+        "hasMore"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_unarchiveissue": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the archived issue to restore. Example: \"issue-123\""
         }
       },
       "required": [
-        "issue_id"
+        "issueId"
       ],
       "additionalProperties": false
     },
@@ -48783,13 +48783,13 @@
     "ActionInput_linear_unarchiveproject": {
       "type": "object",
       "properties": {
-        "project_id": {
+        "projectId": {
           "type": "string",
           "description": "The ID of the project to unarchive. Example: \"c1f3f3c8-8f3c-4f3c-8f3c-8f3c8f3c8f3c\""
         }
       },
       "required": [
-        "project_id"
+        "projectId"
       ],
       "additionalProperties": false
     },
@@ -48800,27 +48800,27 @@
           "type": "boolean",
           "description": "Whether the unarchive operation was successful"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "description": "The ID of the unarchived project"
         }
       },
       "required": [
         "success",
-        "project_id"
+        "projectId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_unresolvecomment": {
       "type": "object",
       "properties": {
-        "comment_id": {
+        "commentId": {
           "type": "string",
           "description": "The identifier of the comment to unresolve. Example: \"comment-uuid-123\""
         }
       },
       "required": [
-        "comment_id"
+        "commentId"
       ],
       "additionalProperties": false
     },
@@ -48839,13 +48839,13 @@
             "null"
           ]
         },
-        "resolved_at": {
+        "resolvedAt": {
           "type": [
             "string",
             "null"
           ]
         },
-        "resolving_comment_id": {
+        "resolvingCommentId": {
           "type": [
             "string",
             "null"
@@ -48856,15 +48856,15 @@
         "id",
         "success",
         "url",
-        "resolved_at",
-        "resolving_comment_id"
+        "resolvedAt",
+        "resolvingCommentId"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_updatecomment": {
       "type": "object",
       "properties": {
-        "comment_id": {
+        "commentId": {
           "type": "string",
           "description": "The ID of the comment to update. Example: \"comment-uuid-123\""
         },
@@ -48874,7 +48874,7 @@
         }
       },
       "required": [
-        "comment_id",
+        "commentId",
         "body"
       ],
       "additionalProperties": false
@@ -48914,15 +48914,15 @@
           "type": "string",
           "description": "The description of the cycle."
         },
-        "starts_at": {
+        "startsAt": {
           "type": "string",
           "description": "The start date of the cycle (ISO 8601 format). Example: \"2025-01-01T00:00:00.000Z\""
         },
-        "ends_at": {
+        "endsAt": {
           "type": "string",
           "description": "The end date of the cycle (ISO 8601 format). Example: \"2025-01-14T23:59:59.000Z\""
         },
-        "completed_at": {
+        "completedAt": {
           "type": "string",
           "description": "The completion date of the cycle (ISO 8601 format). Example: \"2025-01-15T00:00:00.000Z\""
         }
@@ -48950,22 +48950,22 @@
         "number": {
           "type": "number"
         },
-        "starts_at": {
+        "startsAt": {
           "type": "string"
         },
-        "ends_at": {
+        "endsAt": {
           "type": "string"
         },
-        "completed_at": {
+        "completedAt": {
           "type": [
             "string",
             "null"
           ]
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         },
-        "updated_at": {
+        "updatedAt": {
           "type": "string"
         }
       },
@@ -48974,18 +48974,18 @@
         "name",
         "description",
         "number",
-        "starts_at",
-        "ends_at",
-        "completed_at",
-        "created_at",
-        "updated_at"
+        "startsAt",
+        "endsAt",
+        "completedAt",
+        "createdAt",
+        "updatedAt"
       ],
       "additionalProperties": false
     },
     "ActionInput_linear_updateissuelabel": {
       "type": "object",
       "properties": {
-        "label_id": {
+        "labelId": {
           "type": "string",
           "description": "ID of the label to update. Example: \"f33d4e23-1234-5678-9abc-def012345678\""
         },
@@ -49003,7 +49003,7 @@
         }
       },
       "required": [
-        "label_id"
+        "labelId"
       ],
       "additionalProperties": false
     },
@@ -49037,7 +49037,7 @@
     "ActionInput_linear_updateissuerelation": {
       "type": "object",
       "properties": {
-        "relation_id": {
+        "relationId": {
           "type": "string",
           "description": "The UUID of the issue relation to update. Example: \"c87f3b9a-7c4e-4a2e-9b5c-3d2e1f4a5b6c\""
         },
@@ -49052,7 +49052,7 @@
         }
       },
       "required": [
-        "relation_id"
+        "relationId"
       ],
       "additionalProperties": false
     },
@@ -49062,7 +49062,7 @@
         "success": {
           "type": "boolean"
         },
-        "issue_relation": {
+        "issueRelation": {
           "type": "object",
           "properties": {
             "id": {
@@ -49086,7 +49086,7 @@
       },
       "required": [
         "success",
-        "issue_relation"
+        "issueRelation"
       ],
       "additionalProperties": false
     },
