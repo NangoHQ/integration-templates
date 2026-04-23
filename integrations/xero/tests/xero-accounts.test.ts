@@ -1,15 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-organisations.js';
+import createSync from '../syncs/accounts.js';
 
-describe('xero sync-organisations tests', () => {
-    const models = 'Organisation'.split(',');
+describe('xero accounts tests', () => {
+    const models = 'Account'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-organisations',
-            Model: 'Organisation'
+            name: 'accounts',
+            Model: 'Account'
         });
 
         return {

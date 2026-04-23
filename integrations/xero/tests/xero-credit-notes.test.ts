@@ -1,15 +1,22 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-payments.js';
+import createSync from '../syncs/credit-notes.js';
 
-describe('xero sync-payments tests', () => {
-    const models = 'Payment'.split(',');
+describe('xero credit-notes tests', () => {
+    const models = 'CreditNote'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-payments',
-            Model: 'Payment'
+            name: 'credit-notes',
+            Model: 'CreditNote'
+        });
+
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
+            },
+            metadata: {}
         });
 
         return {

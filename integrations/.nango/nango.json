@@ -114725,7 +114725,7 @@
           }
         ],
         "input": null,
-        "name": "sync-accounts",
+        "name": "accounts",
         "output": [
           "Account"
         ],
@@ -114947,7 +114947,7 @@
           }
         ],
         "input": null,
-        "name": "sync-bank-transactions",
+        "name": "bank-transactions",
         "output": [
           "BankTransaction"
         ],
@@ -115046,7 +115046,7 @@
           }
         ],
         "input": null,
-        "name": "sync-contacts",
+        "name": "contacts",
         "output": [
           "Contact"
         ],
@@ -115165,7 +115165,7 @@
           }
         ],
         "input": null,
-        "name": "sync-credit-notes",
+        "name": "credit-notes",
         "output": [
           "CreditNote"
         ],
@@ -115301,7 +115301,7 @@
           }
         ],
         "input": null,
-        "name": "sync-invoices",
+        "name": "invoices",
         "output": [
           "Invoice"
         ],
@@ -115470,7 +115470,7 @@
           }
         ],
         "input": null,
-        "name": "sync-items",
+        "name": "items",
         "output": [
           "Item"
         ],
@@ -115558,7 +115558,7 @@
           }
         ],
         "input": null,
-        "name": "sync-organisations",
+        "name": "organisations",
         "output": [
           "Organisation"
         ],
@@ -115831,7 +115831,7 @@
           }
         ],
         "input": null,
-        "name": "sync-payments",
+        "name": "payments",
         "output": [
           "Payment"
         ],
@@ -116096,7 +116096,7 @@
           }
         ],
         "input": null,
-        "name": "sync-general-ledger",
+        "name": "general-ledger",
         "output": [
           "GeneralLedger"
         ],
@@ -116282,7 +116282,7 @@
           }
         ],
         "input": null,
-        "name": "sync-purchase-orders",
+        "name": "purchase-orders",
         "output": [
           "PurchaseOrder"
         ],

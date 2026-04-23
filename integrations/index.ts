@@ -913,16 +913,16 @@ import './workday/syncs/locations.js';
 import './workday/syncs/unified-employees.js';
 
 // -- Integration: xero
-import './xero/syncs/sync-accounts.js';
-import './xero/syncs/sync-bank-transactions.js';
-import './xero/syncs/sync-contacts.js';
-import './xero/syncs/sync-credit-notes.js';
-import './xero/syncs/sync-invoices.js';
-import './xero/syncs/sync-items.js';
-import './xero/syncs/sync-organisations.js';
-import './xero/syncs/sync-payments.js';
-import './xero/syncs/sync-general-ledger.js';
-import './xero/syncs/sync-purchase-orders.js';
+import './xero/syncs/accounts.js';
+import './xero/syncs/bank-transactions.js';
+import './xero/syncs/contacts.js';
+import './xero/syncs/credit-notes.js';
+import './xero/syncs/invoices.js';
+import './xero/syncs/items.js';
+import './xero/syncs/organisations.js';
+import './xero/syncs/payments.js';
+import './xero/syncs/general-ledger.js';
+import './xero/syncs/purchase-orders.js';
 import './xero/actions/create-account.js';
 import './xero/actions/create-bank-transaction.js';
 import './xero/actions/create-contact.js';

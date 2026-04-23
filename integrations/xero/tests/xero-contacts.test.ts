@@ -1,22 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-bank-transactions.js';
+import createSync from '../syncs/contacts.js';
 
-describe('xero sync-bank-transactions tests', () => {
-    const models = 'BankTransaction'.split(',');
+describe('xero contacts tests', () => {
+    const models = 'Contact'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-bank-transactions',
-            Model: 'BankTransaction'
-        });
-
-        nangoMock.getConnection = vi.fn().mockResolvedValue({
-            connection_config: {
-                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
-            },
-            metadata: {}
+            name: 'contacts',
+            Model: 'Contact'
         });
 
         return {
@@ -32,6 +25,13 @@ describe('xero sync-bank-transactions tests', () => {
 
     it('should get, map correctly the data and batchSave the result', async () => {
         const { nangoMock, batchSaveSpy } = createTestContext();
+
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
+            },
+            metadata: {}
+        });
 
         await createSync.exec(nangoMock);
 
@@ -58,6 +58,13 @@ describe('xero sync-bank-transactions tests', () => {
     it('should get, map correctly the data and batchDelete the result', async () => {
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
+
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
+            },
+            metadata: {}
+        });
 
         await createSync.exec(nangoMock);
 
