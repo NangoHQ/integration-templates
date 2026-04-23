@@ -4,10 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     name: z.string().describe('Project name. Example: "Q1 Roadmap"'),
     description: z.string().optional().describe('Project description. Example: "Planning for Q1 initiatives"'),
-    lead_id: z.string().optional().describe('User ID of the project lead. Example: "user-123"'),
-    team_ids: z.array(z.string()).describe('Array of team IDs to associate with the project. Example: ["team-123"]').optional(),
-    target_date: z.string().optional().describe('Target completion date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-12-31"'),
-    start_date: z.string().optional().describe('Project start date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-01-01"'),
+    leadId: z.string().optional().describe('User ID of the project lead. Example: "user-123"'),
+    teamIds: z.array(z.string()).describe('Array of team IDs to associate with the project. Example: ["team-123"]').optional(),
+    targetDate: z.string().optional().describe('Target completion date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-12-31"'),
+    startDate: z.string().optional().describe('Project start date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-01-01"'),
     status: z
         .enum(['planned', 'started', 'paused', 'completed', 'canceled'])
         .optional()
@@ -18,13 +18,13 @@ const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
     description: z.union([z.string(), z.null()]),
-    slug_id: z.string(),
+    slugId: z.string(),
     state: z.string(),
     url: z.string(),
-    lead_id: z.union([z.string(), z.null()]),
-    team_ids: z.array(z.string()),
-    target_date: z.union([z.string(), z.null()]),
-    start_date: z.union([z.string(), z.null()])
+    leadId: z.union([z.string(), z.null()]),
+    teamIds: z.array(z.string()),
+    targetDate: z.union([z.string(), z.null()]),
+    startDate: z.union([z.string(), z.null()])
 });
 
 const action = createAction({
@@ -49,20 +49,20 @@ const action = createAction({
             projectInput['description'] = input.description;
         }
 
-        if (input.lead_id) {
-            projectInput['leadId'] = input.lead_id;
+        if (input.leadId) {
+            projectInput['leadId'] = input.leadId;
         }
 
-        if (input.team_ids && input.team_ids.length > 0) {
-            projectInput['teamIds'] = input.team_ids;
+        if (input.teamIds && input.teamIds.length > 0) {
+            projectInput['teamIds'] = input.teamIds;
         }
 
-        if (input.target_date) {
-            projectInput['targetDate'] = input.target_date;
+        if (input.targetDate) {
+            projectInput['targetDate'] = input.targetDate;
         }
 
-        if (input.start_date) {
-            projectInput['startDate'] = input.start_date;
+        if (input.startDate) {
+            projectInput['startDate'] = input.startDate;
         }
 
         if (input.status) {
@@ -146,13 +146,13 @@ const action = createAction({
             id: project.id,
             name: project.name,
             description: project.description ?? null,
-            slug_id: project.slugId,
+            slugId: project.slugId,
             state: project.state,
             url: project.url,
-            lead_id: project.lead?.id ?? null,
-            team_ids: teamIds,
-            target_date: project.targetDate ?? null,
-            start_date: project.startDate ?? null
+            leadId: project.lead?.id ?? null,
+            teamIds: teamIds,
+            targetDate: project.targetDate ?? null,
+            startDate: project.startDate ?? null
         };
     }
 });

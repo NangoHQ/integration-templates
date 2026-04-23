@@ -131,7 +131,7 @@ const sync = createSync({
     models: {
         Issue: IssueSchema
     },
-    endpoints: [{ path: '/syncs/sync-issues', method: 'POST' }],
+    endpoints: [{ path: '/syncs/issues', method: 'POST' }],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

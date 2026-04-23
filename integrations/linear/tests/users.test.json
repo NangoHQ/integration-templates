@@ -6,19 +6,19 @@
           "id": "5e854765-e42d-4ce6-9e66-789add44f493",
           "name": "victor+linear@nango.dev",
           "email": "victor+linear@nango.dev",
-          "avatar_url": null,
+          "avatarUrl": null,
           "active": true,
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:30.147Z"
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:30.147Z"
         },
         {
           "id": "2aecf08c-cb91-4757-9295-39f520181137",
           "name": "Linear",
           "email": "linear-d5ae2dd7-73cf-49d2-af6e-5177167f7a5e@linear.linear.app",
-          "avatar_url": "https://static.linear.app/assets/avatar/avatar_512.png",
+          "avatarUrl": "https://static.linear.app/assets/avatar/avatar_512.png",
           "active": true,
-          "created_at": "2026-04-21T07:37:25.569Z",
-          "updated_at": "2026-04-21T07:37:25.663Z"
+          "createdAt": "2026-04-21T07:37:25.569Z",
+          "updatedAt": "2026-04-21T07:37:25.663Z"
         }
       ]
     },

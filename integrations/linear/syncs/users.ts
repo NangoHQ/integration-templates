@@ -5,10 +5,10 @@ const UserSchema = z.object({
     id: z.string(),
     name: z.string(),
     email: z.string(),
-    avatar_url: z.union([z.string(), z.null()]),
+    avatarUrl: z.union([z.string(), z.null()]),
     active: z.boolean(),
-    created_at: z.string(),
-    updated_at: z.string()
+    createdAt: z.string(),
+    updatedAt: z.string()
 });
 
 const CheckpointSchema = z.object({
@@ -46,7 +46,7 @@ const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
     endpoints: [
         {
             method: 'POST',
-            path: '/syncs/sync-users'
+            path: '/syncs/users'
         }
     ],
     checkpoint: CheckpointSchema,
@@ -119,10 +119,10 @@ const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
                     id: user.id,
                     name: user.name,
                     email: user.email,
-                    avatar_url: user.avatarUrl ?? null,
+                    avatarUrl: user.avatarUrl ?? null,
                     active: user.active,
-                    created_at: user.createdAt,
-                    updated_at: user.updatedAt
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt
                 })
             );
 

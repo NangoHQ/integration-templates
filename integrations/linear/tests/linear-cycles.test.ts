@@ -1,15 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-roadmaps.js';
+import createSync from '../syncs/cycles.js';
 
-describe('linear sync-roadmaps tests', () => {
-    const models = 'Roadmap'.split(',');
+describe('linear cycles tests', () => {
+    const models = 'Cycle'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-roadmaps',
-            Model: 'Roadmap'
+            name: 'cycles',
+            Model: 'Cycle'
         });
 
         return {

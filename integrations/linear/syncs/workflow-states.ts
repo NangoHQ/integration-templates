@@ -16,20 +16,20 @@ const WorkflowStateSchema = z.object({
     color: z.string(),
     position: z.number(),
     description: z.union([z.string(), z.null()]),
-    team_id: z.string(),
-    team_key: z.union([z.string(), z.null()]),
-    created_at: z.string(),
-    updated_at: z.string(),
-    archived_at: z.union([z.string(), z.null()])
+    teamId: z.string(),
+    teamKey: z.union([z.string(), z.null()]),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    archivedAt: z.union([z.string(), z.null()])
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updatedAfter: z.string(),
     cursor: z.string()
 });
 
 const MetadataSchema = z.object({
-    team_id: z.string().optional()
+    teamId: z.string().optional()
 });
 
 const WorkflowStateNodeSchema = z.object({
@@ -84,7 +84,7 @@ const sync = createSync({
     },
     endpoints: [
         {
-            path: '/syncs/sync-workflow-states',
+            path: '/syncs/workflow-states',
             method: 'POST'
         }
     ],
@@ -95,14 +95,14 @@ const sync = createSync({
         const metadata = await nango.getMetadata();
 
         const pageSize = 50;
-        let updatedAfter = checkpoint?.updated_after || '';
+        let updatedAfter = checkpoint?.updatedAfter || '';
         let cursor = checkpoint?.cursor || '';
         let hasMorePages = true;
 
         while (hasMorePages) {
             const filterParts: string[] = [];
-            if (metadata?.team_id) {
-                filterParts.push(`team: { id: { eq: "${metadata.team_id}" } }`);
+            if (metadata?.teamId) {
+                filterParts.push(`team: { id: { eq: "${metadata.teamId}" } }`);
             }
             if (updatedAfter) {
                 filterParts.push(`updatedAt: { gt: "${updatedAfter}" }`);
@@ -162,7 +162,7 @@ const sync = createSync({
             const pageInfo = workflowStatesData.pageInfo;
 
             if (nodes.length === 0) {
-                await nango.saveCheckpoint({ updated_after: updatedAfter || '', cursor: '' });
+                await nango.saveCheckpoint({ updatedAfter: updatedAfter || '', cursor: '' });
                 hasMorePages = false;
                 break;
             }
@@ -174,11 +174,11 @@ const sync = createSync({
                 color: node.color,
                 position: node.position,
                 description: node.description ?? null,
-                team_id: node.team?.id ?? '',
-                team_key: node.team?.key ?? null,
-                created_at: node.createdAt,
-                updated_at: node.updatedAt,
-                archived_at: node.archivedAt ?? null
+                teamId: node.team?.id ?? '',
+                teamKey: node.team?.key ?? null,
+                createdAt: node.createdAt,
+                updatedAt: node.updatedAt,
+                archivedAt: node.archivedAt ?? null
             }));
 
             await nango.batchSave(records, 'WorkflowState');
@@ -188,17 +188,17 @@ const sync = createSync({
 
             if (hasNextPage && endCursor) {
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter || '',
+                    updatedAfter: updatedAfter || '',
                     cursor: endCursor
                 });
                 cursor = endCursor;
             } else {
                 const lastRecord = records[records.length - 1];
                 if (lastRecord) {
-                    updatedAfter = lastRecord.updated_at;
+                    updatedAfter = lastRecord.updatedAt;
                     cursor = '';
                     await nango.saveCheckpoint({
-                        updated_after: updatedAfter,
+                        updatedAfter: updatedAfter,
                         cursor: ''
                     });
                 }

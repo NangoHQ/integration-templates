@@ -1,17 +1,17 @@
 {
   "input": {
-    "issue_id": "NAN-4",
+    "issueId": "NAN-4",
     "body": "This is a test comment created via Nango action"
   },
   "output": {
     "id": "2a21e4b3-02bd-4a4a-8f03-3dbefb6de62e",
     "body": "This is a test comment created via Nango action",
-    "created_at": "2026-04-22T07:36:15.231Z",
-    "user_id": "5e854765-e42d-4ce6-9e66-789add44f493",
-    "user_name": "victor+linear@nango.dev",
-    "issue_id": "d372c3e5-a3d7-40e1-8585-50cf67eff4fe",
-    "issue_identifier": "NAN-4",
-    "parent_id": null
+    "createdAt": "2026-04-22T07:36:15.231Z",
+    "userId": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "userName": "victor+linear@nango.dev",
+    "issueId": "d372c3e5-a3d7-40e1-8585-50cf67eff4fe",
+    "issueIdentifier": "NAN-4",
+    "parentId": null
   },
   "nango": {},
   "api": {

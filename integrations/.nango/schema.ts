@@ -11920,12 +11920,12 @@ export interface Cycle {
   id: string;
   name: string;
   number: number;
-  starts_at: string;
-  ends_at: string;
-  completed_at: string | null;
-  updated_at: string;
-  team_id: string | null;
-  team_name: string | null;
+  startsAt: string;
+  endsAt: string;
+  completedAt: string | null;
+  updatedAt: string;
+  teamId: string | null;
+  teamName: string | null;
 };
 
 export interface IssueLabel {
@@ -11938,11 +11938,11 @@ export interface IssueLabel {
   updatedAt: string;
 };
 
-export interface SyncMetadata_linear_syncissuelabels {
+export interface SyncMetadata_linear_issuelabels {
   teamId?: string | undefined;
 };
 
-export interface SyncMetadata_linear_syncissues {
+export interface SyncMetadata_linear_issues {
   team_id?: string | undefined;
   project_id?: string | undefined;
 };
@@ -11953,24 +11953,24 @@ export interface Milestone {
   description: string | null;
   status: string;
   progress: number;
-  target_date: string | null;
-  project_id: string | null;
-  updated_at: string;
-  created_at: string;
-  archived_at: string | null;
+  targetDate: string | null;
+  projectId: string | null;
+  updatedAt: string;
+  createdAt: string;
+  archivedAt: string | null;
 };
 
 export interface Roadmap {
   id: string;
   name: string | null;
   description: string | null;
-  owner_id: string | null;
-  owner_name: string | null;
-  project_ids: string[];
-  created_at: string;
-  updated_at: string;
-  archived_at: string | null;
-  sort_order: number | null;
+  ownerId: string | null;
+  ownerName: string | null;
+  projectIds: string[];
+  createdAt: string;
+  updatedAt: string;
+  archivedAt: string | null;
+  sortOrder: number | null;
 };
 
 export interface Team {
@@ -11991,15 +11991,15 @@ export interface WorkflowState {
   color: string;
   position: number;
   description: string | null;
-  team_id: string;
-  team_key: string | null;
-  created_at: string;
-  updated_at: string;
-  archived_at: string | null;
+  teamId: string;
+  teamKey: string | null;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt: string | null;
 };
 
-export interface SyncMetadata_linear_syncworkflowstates {
-  team_id?: string | undefined;
+export interface SyncMetadata_linear_workflowstates {
+  teamId?: string | undefined;
 };
 
 export interface ActionInput_linear_addissuelabel {
@@ -12099,7 +12099,7 @@ export interface ActionInput_linear_createcomment {
   /**
    * The ID of the issue to comment on. Example: "issue-123"
    */
-  issue_id: string;
+  issueId: string;
   /**
    * The comment body text. Example: "This is a comment"
    */
@@ -12107,18 +12107,18 @@ export interface ActionInput_linear_createcomment {
   /**
    * The ID of the parent comment if this is a reply. Example: "comment-456"
    */
-  parent_id?: string | undefined;
+  parentId?: string | undefined;
 };
 
 export interface ActionOutput_linear_createcomment {
   id: string;
   body: string;
-  created_at: string;
-  user_id: string | null;
-  user_name: string | null;
-  issue_id: string;
-  issue_identifier: string | null;
-  parent_id: string | null;
+  createdAt: string;
+  userId: string | null;
+  userName: string | null;
+  issueId: string;
+  issueIdentifier: string | null;
+  parentId: string | null;
 };
 
 export interface ActionInput_linear_createcycle {
@@ -12213,7 +12213,7 @@ export interface ActionInput_linear_createissue {
   /**
    * Team ID to create the issue in. Example: "123e4567-e89b-12d3-a456-426614174000"
    */
-  team_id: string;
+  teamId: string;
   /**
    * Title of the issue
    */
@@ -12229,23 +12229,23 @@ export interface ActionInput_linear_createissue {
   /**
    * Workflow state ID for the issue
    */
-  state_id?: string | undefined;
+  stateId?: string | undefined;
   /**
    * User ID to assign the issue to
    */
-  assignee_id?: string | undefined;
+  assigneeId?: string | undefined;
   /**
    * Cycle ID to add the issue to
    */
-  cycle_id?: string | undefined;
+  cycleId?: string | undefined;
   /**
    * Array of label IDs to add to the issue
    */
-  label_ids?: string[] | undefined;
+  labelIds?: string[] | undefined;
   /**
    * Project ID to associate the issue with
    */
-  project_id?: string | undefined;
+  projectId?: string | undefined;
 };
 
 export interface ActionOutput_linear_createissue {
@@ -12255,12 +12255,12 @@ export interface ActionOutput_linear_createissue {
   title: string;
   description: string | null;
   priority: number;
-  state_id: string | null;
-  assignee_id: string | null;
-  team_id: string;
-  cycle_id: string | null;
-  project_id: string | null;
-  created_at: string;
+  stateId: string | null;
+  assigneeId: string | null;
+  teamId: string;
+  cycleId: string | null;
+  projectId: string | null;
+  createdAt: string;
 };
 
 export interface ActionInput_linear_createproject {
@@ -12275,16 +12275,16 @@ export interface ActionInput_linear_createproject {
   /**
    * User ID of the project lead. Example: "user-123"
    */
-  lead_id?: string | undefined;
-  team_ids?: string[] | undefined;
+  leadId?: string | undefined;
+  teamIds?: string[] | undefined;
   /**
    * Target completion date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-12-31"
    */
-  target_date?: string | undefined;
+  targetDate?: string | undefined;
   /**
    * Project start date in ISO 8601 format (YYYY-MM-DD or with time). Example: "2026-01-01"
    */
-  start_date?: string | undefined;
+  startDate?: string | undefined;
   /**
    * Project status/state. One of: planned, started, paused, completed, canceled
    */
@@ -12295,13 +12295,13 @@ export interface ActionOutput_linear_createproject {
   id: string;
   name: string;
   description: string | null;
-  slug_id: string;
+  slugId: string;
   state: string;
   url: string;
-  lead_id: string | null;
-  team_ids: string[];
-  target_date: string | null;
-  start_date: string | null;
+  leadId: string | null;
+  teamIds: string[];
+  targetDate: string | null;
+  startDate: string | null;
 };
 
 export interface ActionInput_linear_deleteattachment {
@@ -12452,7 +12452,7 @@ export interface ActionInput_linear_getissue {
   /**
    * Linear issue ID. Example: "c77a8b8e-aaaa-0000-cccc-111111111111"
    */
-  issue_id: string;
+  issueId: string;
 };
 
 export interface ActionOutput_linear_getissue {
@@ -12509,7 +12509,7 @@ export interface ActionInput_linear_getteam {
   /**
    * Linear team ID. Example: "team-uuid-123"
    */
-  team_id: string;
+  teamId: string;
 };
 
 export interface ActionOutput_linear_getteam {
@@ -13050,11 +13050,11 @@ export interface ActionOutput_linear_listusers {
   /**
    * Cursor for the next page of results. Null if no more pages.
    */
-  next_cursor: string | null;
+  nextCursor: string | null;
   /**
    * Whether there are more pages of results.
    */
-  has_more: boolean;
+  hasMore: boolean;
 };
 
 export interface ActionInput_linear_listworkflowstates {
@@ -13399,7 +13399,7 @@ export interface ActionInput_linear_updateproject {
   /**
    * The ID of the project to update. Example: "project-123"
    */
-  project_id: string;
+  projectId: string;
   /**
    * New name for the project.
    */
@@ -13415,11 +13415,11 @@ export interface ActionInput_linear_updateproject {
   /**
    * Target date for the project completion in ISO 8601 format (YYYY-MM-DD).
    */
-  target_date?: string | undefined;
+  targetDate?: string | undefined;
   /**
    * ID of the user to set as the project lead.
    */
-  lead_id?: string | undefined;
+  leadId?: string | undefined;
 };
 
 export interface ActionOutput_linear_updateproject {

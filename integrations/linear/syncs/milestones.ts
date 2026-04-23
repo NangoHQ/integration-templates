@@ -7,15 +7,15 @@ const MilestoneSchema = z.object({
     description: z.union([z.string(), z.null()]),
     status: z.string(),
     progress: z.number(),
-    target_date: z.union([z.string(), z.null()]),
-    project_id: z.union([z.string(), z.null()]),
-    updated_at: z.string(),
-    created_at: z.string(),
-    archived_at: z.union([z.string(), z.null()])
+    targetDate: z.union([z.string(), z.null()]),
+    projectId: z.union([z.string(), z.null()]),
+    updatedAt: z.string(),
+    createdAt: z.string(),
+    archivedAt: z.union([z.string(), z.null()])
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updatedAfter: z.string(),
     cursor: z.string()
 });
 
@@ -56,13 +56,13 @@ const sync = createSync({
     endpoints: [
         {
             method: 'GET',
-            path: '/syncs/sync-milestones'
+            path: '/syncs/milestones'
         }
     ],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint ? checkpoint['updated_after'] : '';
+        const updatedAfter = checkpoint ? checkpoint['updatedAfter'] : '';
         // Do not resume from a mid-pagination cursor: trackDeletesEnd requires a
         // complete scan, so every run must start from page 1.
         let cursor = '';
@@ -137,11 +137,11 @@ const sync = createSync({
                 description: edge.node.description,
                 status: edge.node.status,
                 progress: edge.node.progress,
-                target_date: edge.node.targetDate,
-                project_id: edge.node.project?.id ?? null,
-                updated_at: edge.node.updatedAt,
-                created_at: edge.node.createdAt,
-                archived_at: edge.node.archivedAt
+                targetDate: edge.node.targetDate,
+                projectId: edge.node.project?.id ?? null,
+                updatedAt: edge.node.updatedAt,
+                createdAt: edge.node.createdAt,
+                archivedAt: edge.node.archivedAt
             }));
 
             await nango.batchSave(milestones, 'Milestone');
@@ -151,7 +151,7 @@ const sync = createSync({
 
             if (hasNextPage && endCursor) {
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
+                    updatedAfter: updatedAfter,
                     cursor: endCursor
                 });
                 cursor = endCursor;
@@ -159,7 +159,7 @@ const sync = createSync({
                 const lastMilestone = milestones[milestones.length - 1];
                 if (lastMilestone) {
                     await nango.saveCheckpoint({
-                        updated_after: lastMilestone.updated_at,
+                        updatedAfter: lastMilestone.updatedAt,
                         cursor: ''
                     });
                 }

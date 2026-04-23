@@ -2,27 +2,27 @@
   "input": {
     "name": "Test Project",
     "description": "A test project",
-    "team_ids": [
+    "teamIds": [
       "7df5329e-651f-4d1d-b519-78d44a509f11"
     ],
-    "lead_id": "5e854765-e42d-4ce6-9e66-789add44f493",
-    "target_date": "2026-12-31",
-    "start_date": "2026-01-01",
+    "leadId": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "targetDate": "2026-12-31",
+    "startDate": "2026-01-01",
     "status": "planned"
   },
   "output": {
     "id": "c9f1c4db-a560-4c20-b39f-c18e14e29b28",
     "name": "Test Project",
     "description": "A test project",
-    "slug_id": "5c2fd5be6c1e",
+    "slugId": "5c2fd5be6c1e",
     "state": "planned",
     "url": "https://linear.app/nango-api/project/test-project-5c2fd5be6c1e",
-    "lead_id": "5e854765-e42d-4ce6-9e66-789add44f493",
-    "team_ids": [
+    "leadId": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "teamIds": [
       "7df5329e-651f-4d1d-b519-78d44a509f11"
     ],
-    "target_date": "2026-12-31",
-    "start_date": "2026-01-01"
+    "targetDate": "2026-12-31",
+    "startDate": "2026-01-01"
   },
   "nango": {},
   "api": {

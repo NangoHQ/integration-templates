@@ -1,7 +1,7 @@
 {
   "nango": {
     "getMetadata": {
-      "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11"
+      "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11"
     },
     "batchSave": {
       "WorkflowState": [
@@ -12,11 +12,11 @@
           "color": "#5e6ad2",
           "position": 3,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         },
         {
           "id": "c5e3fb5d-a1b8-4173-8f3a-c45ccf01c6db",
@@ -25,11 +25,11 @@
           "color": "#f2c94c",
           "position": 2,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         },
         {
           "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
@@ -38,11 +38,11 @@
           "color": "#bec2c8",
           "position": 0,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         },
         {
           "id": "672e3df6-a1cf-45ad-8ae2-83338e5942be",
@@ -51,11 +51,11 @@
           "color": "#95a2b3",
           "position": 5,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         },
         {
           "id": "2d073bf5-b1aa-462c-bfe3-016c2e4b8182",
@@ -64,11 +64,11 @@
           "color": "#95a2b3",
           "position": 4,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         },
         {
           "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
@@ -77,11 +77,11 @@
           "color": "#e2e2e2",
           "position": 1,
           "description": null,
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_key": "NAN",
-          "created_at": "2026-04-21T07:37:24.757Z",
-          "updated_at": "2026-04-21T07:37:24.757Z",
-          "archived_at": null
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamKey": "NAN",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z",
+          "archivedAt": null
         }
       ]
     },

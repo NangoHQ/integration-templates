@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.string().describe('The ID of the project to update. Example: "project-123"'),
+    projectId: z.string().describe('The ID of the project to update. Example: "project-123"'),
     name: z.string().optional().describe('New name for the project.'),
     description: z.string().optional().describe('New description for the project.'),
     status: z.string().optional().describe('New status for the project (e.g., planned, started, paused, completed, canceled).'),
-    target_date: z.string().optional().describe('Target date for the project completion in ISO 8601 format (YYYY-MM-DD).'),
-    lead_id: z.string().optional().describe('ID of the user to set as the project lead.')
+    targetDate: z.string().optional().describe('Target date for the project completion in ISO 8601 format (YYYY-MM-DD).'),
+    leadId: z.string().optional().describe('ID of the user to set as the project lead.')
 });
 
 const OutputSchema = z.object({
@@ -49,15 +49,15 @@ const action = createAction({
         if (input.status !== undefined) {
             updateInput.status = input.status;
         }
-        if (input.target_date !== undefined) {
-            updateInput.targetDate = input.target_date;
+        if (input.targetDate !== undefined) {
+            updateInput.targetDate = input.targetDate;
         }
-        if (input.lead_id !== undefined) {
-            updateInput.leadId = input.lead_id;
+        if (input.leadId !== undefined) {
+            updateInput.leadId = input.leadId;
         }
 
         const mutationVariables = {
-            id: input.project_id,
+            id: input.projectId,
             input: updateInput
         };
 

@@ -55,8 +55,8 @@ const UserSchema = z.object({
 
 const OutputSchema = z.object({
     users: z.array(UserSchema),
-    next_cursor: z.union([z.string(), z.null()]).describe('Cursor for the next page of results. Null if no more pages.'),
-    has_more: z.boolean().describe('Whether there are more pages of results.')
+    nextCursor: z.union([z.string(), z.null()]).describe('Cursor for the next page of results. Null if no more pages.'),
+    hasMore: z.boolean().describe('Whether there are more pages of results.')
 });
 
 // Zod schema for parsing the GraphQL response
@@ -198,8 +198,8 @@ const action = createAction({
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt
             })),
-            next_cursor: usersData.pageInfo.endCursor,
-            has_more: usersData.pageInfo.hasNextPage
+            nextCursor: usersData.pageInfo.endCursor,
+            hasMore: usersData.pageInfo.hasNextPage
         };
     }
 });

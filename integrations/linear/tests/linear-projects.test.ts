@@ -1,15 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-users.js';
+import createSync from '../syncs/projects.js';
 
-describe('linear sync-users tests', () => {
-    const models = 'User'.split(',');
+describe('linear projects tests', () => {
+    const models = 'Project'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-users',
-            Model: 'User'
+            name: 'projects',
+            Model: 'Project'
         });
 
         return {

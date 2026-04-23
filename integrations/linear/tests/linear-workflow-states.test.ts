@@ -1,15 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/sync-issue-labels.js';
+import createSync from '../syncs/workflow-states.js';
 
-describe('linear sync-issue-labels tests', () => {
-    const models = 'IssueLabel'.split(',');
+describe('linear workflow-states tests', () => {
+    const models = 'WorkflowState'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'sync-issue-labels',
-            Model: 'IssueLabel'
+            name: 'workflow-states',
+            Model: 'WorkflowState'
         });
 
         return {

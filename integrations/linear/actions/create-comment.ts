@@ -2,20 +2,20 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('The ID of the issue to comment on. Example: "issue-123"'),
+    issueId: z.string().describe('The ID of the issue to comment on. Example: "issue-123"'),
     body: z.string().describe('The comment body text. Example: "This is a comment"'),
-    parent_id: z.string().optional().describe('The ID of the parent comment if this is a reply. Example: "comment-456"')
+    parentId: z.string().optional().describe('The ID of the parent comment if this is a reply. Example: "comment-456"')
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     body: z.string(),
-    created_at: z.string(),
-    user_id: z.union([z.string(), z.null()]),
-    user_name: z.union([z.string(), z.null()]),
-    issue_id: z.string(),
-    issue_identifier: z.union([z.string(), z.null()]),
-    parent_id: z.union([z.string(), z.null()])
+    createdAt: z.string(),
+    userId: z.union([z.string(), z.null()]),
+    userName: z.union([z.string(), z.null()]),
+    issueId: z.string(),
+    issueIdentifier: z.union([z.string(), z.null()]),
+    parentId: z.union([z.string(), z.null()])
 });
 
 const action = createAction({
@@ -60,9 +60,9 @@ const action = createAction({
                 query: mutation,
                 variables: {
                     input: {
-                        issueId: input.issue_id,
+                        issueId: input.issueId,
                         body: input.body,
-                        ...(input.parent_id && { parentId: input.parent_id })
+                        ...(input.parentId && { parentId: input.parentId })
                     }
                 }
             },
@@ -82,12 +82,12 @@ const action = createAction({
         return {
             id: comment.id,
             body: comment.body,
-            created_at: comment.createdAt,
-            user_id: comment.user?.id ?? null,
-            user_name: comment.user?.name ?? null,
-            issue_id: comment.issue?.id ?? input.issue_id,
-            issue_identifier: comment.issue?.identifier ?? null,
-            parent_id: comment.parentId ?? null
+            createdAt: comment.createdAt,
+            userId: comment.user?.id ?? null,
+            userName: comment.user?.name ?? null,
+            issueId: comment.issue?.id ?? input.issueId,
+            issueIdentifier: comment.issue?.identifier ?? null,
+            parentId: comment.parentId ?? null
         };
     }
 });

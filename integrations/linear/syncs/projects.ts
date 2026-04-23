@@ -90,7 +90,7 @@ const sync = createSync({
     endpoints: [
         {
             method: 'POST',
-            path: '/syncs/sync-projects'
+            path: '/syncs/projects'
         }
     ],
 

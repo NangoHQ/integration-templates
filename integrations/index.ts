@@ -543,15 +543,15 @@ import './lever/actions/update-opportunity-tags.js';
 import './lever/actions/users.js';
 
 // -- Integration: linear
-import './linear/syncs/sync-cycles.js';
-import './linear/syncs/sync-issue-labels.js';
-import './linear/syncs/sync-issues.js';
-import './linear/syncs/sync-milestones.js';
-import './linear/syncs/sync-projects.js';
-import './linear/syncs/sync-roadmaps.js';
-import './linear/syncs/sync-teams.js';
-import './linear/syncs/sync-users.js';
-import './linear/syncs/sync-workflow-states.js';
+import './linear/syncs/cycles.js';
+import './linear/syncs/issue-labels.js';
+import './linear/syncs/issues.js';
+import './linear/syncs/milestones.js';
+import './linear/syncs/projects.js';
+import './linear/syncs/roadmaps.js';
+import './linear/syncs/teams.js';
+import './linear/syncs/users.js';
+import './linear/syncs/workflow-states.js';
 import './linear/actions/add-issue-label.js';
 import './linear/actions/archive-cycle.js';
 import './linear/actions/archive-issue.js';

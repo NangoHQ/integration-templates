@@ -6,20 +6,20 @@ const RoadmapSchema = z.object({
     id: z.string(),
     name: z.union([z.string(), z.null()]),
     description: z.union([z.string(), z.null()]),
-    owner_id: z.union([z.string(), z.null()]),
-    owner_name: z.union([z.string(), z.null()]),
-    project_ids: z.array(z.string()),
-    created_at: z.string(),
-    updated_at: z.string(),
-    archived_at: z.union([z.string(), z.null()]),
-    sort_order: z.union([z.number(), z.null()])
+    ownerId: z.union([z.string(), z.null()]),
+    ownerName: z.union([z.string(), z.null()]),
+    projectIds: z.array(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    archivedAt: z.union([z.string(), z.null()]),
+    sortOrder: z.union([z.number(), z.null()])
 });
 
 // Checkpoint: cursor for pagination + updated_after for incremental syncs
 // Note: CheckpointSchema values must be ZodString | ZodNumber | ZodBoolean only
 const CheckpointSchema = z.object({
     cursor: z.string(),
-    updated_after: z.string()
+    updatedAfter: z.string()
 });
 
 const sync = createSync({
@@ -33,7 +33,7 @@ const sync = createSync({
     },
     endpoints: [
         {
-            path: '/syncs/sync-roadmaps',
+            path: '/syncs/roadmaps',
             method: 'GET'
         }
     ],
@@ -46,7 +46,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Roadmap');
 
         let cursor: string | undefined = undefined;
-        let updatedAfter: string | undefined = checkpoint?.['updated_after'] || undefined;
+        let updatedAfter: string | undefined = checkpoint?.['updatedAfter'] || undefined;
 
         while (true) {
             // https://developers.linear.app/docs/graphql/working-with-the-graphql-api/pagination
@@ -123,13 +123,13 @@ const sync = createSync({
                     id: node.id,
                     name: node.name ?? null,
                     description: node.description ?? null,
-                    owner_id: node.owner?.id ?? null,
-                    owner_name: node.owner?.name ?? null,
-                    project_ids: node.projects?.nodes.map((p) => p.id) ?? [],
-                    created_at: node.createdAt,
-                    updated_at: node.updatedAt,
-                    archived_at: node.archivedAt ?? null,
-                    sort_order: node.sortOrder ?? null
+                    ownerId: node.owner?.id ?? null,
+                    ownerName: node.owner?.name ?? null,
+                    projectIds: node.projects?.nodes.map((p) => p.id) ?? [],
+                    createdAt: node.createdAt,
+                    updatedAt: node.updatedAt,
+                    archivedAt: node.archivedAt ?? null,
+                    sortOrder: node.sortOrder ?? null
                 })
             );
 
@@ -140,7 +140,7 @@ const sync = createSync({
             const endCursor = pageInfo.endCursor;
 
             if (roadmaps.length > 0) {
-                const lastUpdatedAt = roadmaps[roadmaps.length - 1]?.updated_at;
+                const lastUpdatedAt = roadmaps[roadmaps.length - 1]?.updatedAt;
                 if (lastUpdatedAt) {
                     updatedAfter = lastUpdatedAt;
                 }
@@ -150,14 +150,14 @@ const sync = createSync({
                 cursor = endCursor;
                 await nango.saveCheckpoint({
                     cursor,
-                    updated_after: updatedAfter ?? ''
+                    updatedAfter: updatedAfter ?? ''
                 });
                 continue;
             }
 
             // No more pages - save final checkpoint with empty cursor
             if (updatedAfter) {
-                await nango.saveCheckpoint({ cursor: '', updated_after: updatedAfter });
+                await nango.saveCheckpoint({ cursor: '', updatedAfter: updatedAfter });
             }
             break;
         }

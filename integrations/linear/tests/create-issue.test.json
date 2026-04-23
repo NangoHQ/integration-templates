@@ -1,6 +1,6 @@
 {
   "input": {
-    "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+    "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
     "title": "Test Issue from Nango Action",
     "description": "This is a test issue created by the Nango action for validation.",
     "priority": 1
@@ -12,12 +12,12 @@
     "title": "Test Issue from Nango Action",
     "description": "This is a test issue created by the Nango action for validation.",
     "priority": 1,
-    "state_id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-    "assignee_id": null,
-    "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-    "cycle_id": null,
-    "project_id": null,
-    "created_at": "2026-04-22T07:40:01.764Z"
+    "stateId": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
+    "assigneeId": null,
+    "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+    "cycleId": null,
+    "projectId": null,
+    "createdAt": "2026-04-22T07:40:01.764Z"
   },
   "nango": {},
   "api": {

@@ -5,12 +5,12 @@ const CycleSchema = z.object({
     id: z.string(),
     name: z.string(),
     number: z.number(),
-    starts_at: z.string(),
-    ends_at: z.string(),
-    completed_at: z.union([z.string(), z.null()]),
-    updated_at: z.string(),
-    team_id: z.union([z.string(), z.null()]),
-    team_name: z.union([z.string(), z.null()])
+    startsAt: z.string(),
+    endsAt: z.string(),
+    completedAt: z.union([z.string(), z.null()]),
+    updatedAt: z.string(),
+    teamId: z.union([z.string(), z.null()]),
+    teamName: z.union([z.string(), z.null()])
 });
 
 const CheckpointSchema = z.object({
@@ -46,7 +46,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'POST', path: '/syncs/sync-cycles' }],
+    endpoints: [{ method: 'POST', path: '/syncs/cycles' }],
     checkpoint: CheckpointSchema,
     models: {
         Cycle: CycleSchema
@@ -121,12 +121,12 @@ const sync = createSync({
                     id: edge.node.id,
                     name: edge.node.name,
                     number: edge.node.number,
-                    starts_at: edge.node.startsAt,
-                    ends_at: edge.node.endsAt,
-                    completed_at: edge.node.completedAt ?? null,
-                    updated_at: edge.node.updatedAt,
-                    team_id: edge.node.team?.id ?? null,
-                    team_name: edge.node.team?.name ?? null
+                    startsAt: edge.node.startsAt,
+                    endsAt: edge.node.endsAt,
+                    completedAt: edge.node.completedAt ?? null,
+                    updatedAt: edge.node.updatedAt,
+                    teamId: edge.node.team?.id ?? null,
+                    teamName: edge.node.team?.name ?? null
                 })
             );
 

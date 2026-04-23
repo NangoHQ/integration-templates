@@ -6,56 +6,56 @@
           "id": "8cac3a6e-199a-4a10-bdf2-d538d25e1844",
           "name": "Updated Test Sprint",
           "number": 7,
-          "starts_at": "2026-04-22T00:00:00.000Z",
-          "ends_at": "2026-05-06T00:00:00.000Z",
-          "completed_at": null,
-          "updated_at": "2026-04-22T07:58:47.931Z",
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_name": "Nango-API"
+          "startsAt": "2026-04-22T00:00:00.000Z",
+          "endsAt": "2026-05-06T00:00:00.000Z",
+          "completedAt": null,
+          "updatedAt": "2026-04-22T07:58:47.931Z",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API"
         },
         {
           "id": "eba02cdf-2128-4034-81b7-043be25a2c17",
           "name": "Test Sprint",
           "number": 6,
-          "starts_at": "2026-04-22T00:00:00.000Z",
-          "ends_at": "2026-05-06T00:00:00.000Z",
-          "completed_at": null,
-          "updated_at": "2026-04-22T07:57:51.707Z",
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_name": "Nango-API"
+          "startsAt": "2026-04-22T00:00:00.000Z",
+          "endsAt": "2026-05-06T00:00:00.000Z",
+          "completedAt": null,
+          "updatedAt": "2026-04-22T07:57:51.707Z",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API"
         },
         {
           "id": "38ac5523-12f7-4780-bc38-35ee8c8e297c",
           "name": "Future Sprint 2026",
           "number": 5,
-          "starts_at": "2026-05-01T00:00:00.000Z",
-          "ends_at": "2026-05-14T00:00:00.000Z",
-          "completed_at": null,
-          "updated_at": "2026-04-22T07:46:10.498Z",
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_name": "Nango-API"
+          "startsAt": "2026-05-01T00:00:00.000Z",
+          "endsAt": "2026-05-14T00:00:00.000Z",
+          "completedAt": null,
+          "updatedAt": "2026-04-22T07:46:10.498Z",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API"
         },
         {
           "id": "87bf9b1b-ec31-4c06-8996-153bddcae924",
           "name": "Test Cycle",
           "number": 4,
-          "starts_at": "2026-04-01T00:00:00.000Z",
-          "ends_at": "2026-04-30T23:59:59.000Z",
-          "completed_at": null,
-          "updated_at": "2026-04-22T07:48:56.375Z",
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_name": "Nango-API"
+          "startsAt": "2026-04-01T00:00:00.000Z",
+          "endsAt": "2026-04-30T23:59:59.000Z",
+          "completedAt": null,
+          "updatedAt": "2026-04-22T07:48:56.375Z",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API"
         },
         {
           "id": "abbb9617-33e4-4492-8ace-e1ff233a0364",
           "name": "Future Sprint 2026",
           "number": 3,
-          "starts_at": "2026-05-01T00:00:00.000Z",
-          "ends_at": "2026-05-14T00:00:00.000Z",
-          "completed_at": null,
-          "updated_at": "2026-04-22T07:46:02.370Z",
-          "team_id": "7df5329e-651f-4d1d-b519-78d44a509f11",
-          "team_name": "Nango-API"
+          "startsAt": "2026-05-01T00:00:00.000Z",
+          "endsAt": "2026-05-14T00:00:00.000Z",
+          "completedAt": null,
+          "updatedAt": "2026-04-22T07:46:02.370Z",
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API"
         }
       ]
     },

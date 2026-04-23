@@ -8,11 +8,11 @@
           "description": null,
           "status": "next",
           "progress": 0,
-          "target_date": null,
-          "project_id": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
-          "updated_at": "2026-04-21T07:39:22.024Z",
-          "created_at": "2026-04-21T07:39:22.024Z",
-          "archived_at": null
+          "targetDate": null,
+          "projectId": "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c",
+          "updatedAt": "2026-04-21T07:39:22.024Z",
+          "createdAt": "2026-04-21T07:39:22.024Z",
+          "archivedAt": null
         }
       ]
     },

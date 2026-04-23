@@ -44518,28 +44518,28 @@
         "number": {
           "type": "number"
         },
-        "starts_at": {
+        "startsAt": {
           "type": "string"
         },
-        "ends_at": {
+        "endsAt": {
           "type": "string"
         },
-        "completed_at": {
+        "completedAt": {
           "type": [
             "string",
             "null"
           ]
         },
-        "updated_at": {
+        "updatedAt": {
           "type": "string"
         },
-        "team_id": {
+        "teamId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "team_name": {
+        "teamName": {
           "type": [
             "string",
             "null"
@@ -44550,12 +44550,12 @@
         "id",
         "name",
         "number",
-        "starts_at",
-        "ends_at",
-        "completed_at",
-        "updated_at",
-        "team_id",
-        "team_name"
+        "startsAt",
+        "endsAt",
+        "completedAt",
+        "updatedAt",
+        "teamId",
+        "teamName"
       ],
       "additionalProperties": false
     },
@@ -44601,7 +44601,7 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_syncissuelabels": {
+    "SyncMetadata_linear_issuelabels": {
       "type": "object",
       "properties": {
         "teamId": {
@@ -44610,7 +44610,7 @@
       },
       "additionalProperties": false
     },
-    "SyncMetadata_linear_syncissues": {
+    "SyncMetadata_linear_issues": {
       "type": "object",
       "properties": {
         "team_id": {
@@ -44643,25 +44643,25 @@
         "progress": {
           "type": "number"
         },
-        "target_date": {
+        "targetDate": {
           "type": [
             "string",
             "null"
           ]
         },
-        "project_id": {
+        "projectId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "updated_at": {
+        "updatedAt": {
           "type": "string"
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         },
-        "archived_at": {
+        "archivedAt": {
           "type": [
             "string",
             "null"
@@ -44674,11 +44674,11 @@
         "description",
         "status",
         "progress",
-        "target_date",
-        "project_id",
-        "updated_at",
-        "created_at",
-        "archived_at"
+        "targetDate",
+        "projectId",
+        "updatedAt",
+        "createdAt",
+        "archivedAt"
       ],
       "additionalProperties": false
     },
@@ -44700,37 +44700,37 @@
             "null"
           ]
         },
-        "owner_id": {
+        "ownerId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "owner_name": {
+        "ownerName": {
           "type": [
             "string",
             "null"
           ]
         },
-        "project_ids": {
+        "projectIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         },
-        "updated_at": {
+        "updatedAt": {
           "type": "string"
         },
-        "archived_at": {
+        "archivedAt": {
           "type": [
             "string",
             "null"
           ]
         },
-        "sort_order": {
+        "sortOrder": {
           "type": [
             "number",
             "null"
@@ -44741,13 +44741,13 @@
         "id",
         "name",
         "description",
-        "owner_id",
-        "owner_name",
-        "project_ids",
-        "created_at",
-        "updated_at",
-        "archived_at",
-        "sort_order"
+        "ownerId",
+        "ownerName",
+        "projectIds",
+        "createdAt",
+        "updatedAt",
+        "archivedAt",
+        "sortOrder"
       ],
       "additionalProperties": false
     },
@@ -44833,22 +44833,22 @@
             "null"
           ]
         },
-        "team_id": {
+        "teamId": {
           "type": "string"
         },
-        "team_key": {
+        "teamKey": {
           "type": [
             "string",
             "null"
           ]
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         },
-        "updated_at": {
+        "updatedAt": {
           "type": "string"
         },
-        "archived_at": {
+        "archivedAt": {
           "type": [
             "string",
             "null"
@@ -44862,18 +44862,18 @@
         "color",
         "position",
         "description",
-        "team_id",
-        "team_key",
-        "created_at",
-        "updated_at",
-        "archived_at"
+        "teamId",
+        "teamKey",
+        "createdAt",
+        "updatedAt",
+        "archivedAt"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_syncworkflowstates": {
+    "SyncMetadata_linear_workflowstates": {
       "type": "object",
       "properties": {
-        "team_id": {
+        "teamId": {
           "type": "string"
         }
       },
@@ -45081,7 +45081,7 @@
     "ActionInput_linear_createcomment": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "The ID of the issue to comment on. Example: \"issue-123\""
         },
@@ -45089,13 +45089,13 @@
           "type": "string",
           "description": "The comment body text. Example: \"This is a comment\""
         },
-        "parent_id": {
+        "parentId": {
           "type": "string",
           "description": "The ID of the parent comment if this is a reply. Example: \"comment-456\""
         }
       },
       "required": [
-        "issue_id",
+        "issueId",
         "body"
       ],
       "additionalProperties": false
@@ -45109,31 +45109,31 @@
         "body": {
           "type": "string"
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         },
-        "user_id": {
+        "userId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "user_name": {
+        "userName": {
           "type": [
             "string",
             "null"
           ]
         },
-        "issue_id": {
+        "issueId": {
           "type": "string"
         },
-        "issue_identifier": {
+        "issueIdentifier": {
           "type": [
             "string",
             "null"
           ]
         },
-        "parent_id": {
+        "parentId": {
           "type": [
             "string",
             "null"
@@ -45143,12 +45143,12 @@
       "required": [
         "id",
         "body",
-        "created_at",
-        "user_id",
-        "user_name",
-        "issue_id",
-        "issue_identifier",
-        "parent_id"
+        "createdAt",
+        "userId",
+        "userName",
+        "issueId",
+        "issueIdentifier",
+        "parentId"
       ],
       "additionalProperties": false
     },
@@ -45331,7 +45331,7 @@
     "ActionInput_linear_createissue": {
       "type": "object",
       "properties": {
-        "team_id": {
+        "teamId": {
           "type": "string",
           "description": "Team ID to create the issue in. Example: \"123e4567-e89b-12d3-a456-426614174000\""
         },
@@ -45347,32 +45347,32 @@
           "type": "number",
           "description": "Priority of the issue (0-4, where 4 is urgent)"
         },
-        "state_id": {
+        "stateId": {
           "type": "string",
           "description": "Workflow state ID for the issue"
         },
-        "assignee_id": {
+        "assigneeId": {
           "type": "string",
           "description": "User ID to assign the issue to"
         },
-        "cycle_id": {
+        "cycleId": {
           "type": "string",
           "description": "Cycle ID to add the issue to"
         },
-        "label_ids": {
+        "labelIds": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "description": "Array of label IDs to add to the issue"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "description": "Project ID to associate the issue with"
         }
       },
       "required": [
-        "team_id",
+        "teamId",
         "title"
       ],
       "additionalProperties": false
@@ -45401,34 +45401,34 @@
         "priority": {
           "type": "number"
         },
-        "state_id": {
+        "stateId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "assignee_id": {
+        "assigneeId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "team_id": {
+        "teamId": {
           "type": "string"
         },
-        "cycle_id": {
+        "cycleId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "project_id": {
+        "projectId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "created_at": {
+        "createdAt": {
           "type": "string"
         }
       },
@@ -45439,12 +45439,12 @@
         "title",
         "description",
         "priority",
-        "state_id",
-        "assignee_id",
-        "team_id",
-        "cycle_id",
-        "project_id",
-        "created_at"
+        "stateId",
+        "assigneeId",
+        "teamId",
+        "cycleId",
+        "projectId",
+        "createdAt"
       ],
       "additionalProperties": false
     },
@@ -45459,21 +45459,21 @@
           "type": "string",
           "description": "Project description. Example: \"Planning for Q1 initiatives\""
         },
-        "lead_id": {
+        "leadId": {
           "type": "string",
           "description": "User ID of the project lead. Example: \"user-123\""
         },
-        "team_ids": {
+        "teamIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "target_date": {
+        "targetDate": {
           "type": "string",
           "description": "Target completion date in ISO 8601 format (YYYY-MM-DD or with time). Example: \"2026-12-31\""
         },
-        "start_date": {
+        "startDate": {
           "type": "string",
           "description": "Project start date in ISO 8601 format (YYYY-MM-DD or with time). Example: \"2026-01-01\""
         },
@@ -45509,7 +45509,7 @@
             "null"
           ]
         },
-        "slug_id": {
+        "slugId": {
           "type": "string"
         },
         "state": {
@@ -45518,25 +45518,25 @@
         "url": {
           "type": "string"
         },
-        "lead_id": {
+        "leadId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "team_ids": {
+        "teamIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "target_date": {
+        "targetDate": {
           "type": [
             "string",
             "null"
           ]
         },
-        "start_date": {
+        "startDate": {
           "type": [
             "string",
             "null"
@@ -45547,13 +45547,13 @@
         "id",
         "name",
         "description",
-        "slug_id",
+        "slugId",
         "state",
         "url",
-        "lead_id",
-        "team_ids",
-        "target_date",
-        "start_date"
+        "leadId",
+        "teamIds",
+        "targetDate",
+        "startDate"
       ],
       "additionalProperties": false
     },
@@ -46065,13 +46065,13 @@
     "ActionInput_linear_getissue": {
       "type": "object",
       "properties": {
-        "issue_id": {
+        "issueId": {
           "type": "string",
           "description": "Linear issue ID. Example: \"c77a8b8e-aaaa-0000-cccc-111111111111\""
         }
       },
       "required": [
-        "issue_id"
+        "issueId"
       ],
       "additionalProperties": false
     },
@@ -46435,13 +46435,13 @@
     "ActionInput_linear_getteam": {
       "type": "object",
       "properties": {
-        "team_id": {
+        "teamId": {
           "type": "string",
           "description": "Linear team ID. Example: \"team-uuid-123\""
         }
       },
       "required": [
-        "team_id"
+        "teamId"
       ],
       "additionalProperties": false
     },
@@ -48332,22 +48332,22 @@
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": [
             "string",
             "null"
           ],
           "description": "Cursor for the next page of results. Null if no more pages."
         },
-        "has_more": {
+        "hasMore": {
           "type": "boolean",
           "description": "Whether there are more pages of results."
         }
       },
       "required": [
         "users",
-        "next_cursor",
-        "has_more"
+        "nextCursor",
+        "hasMore"
       ],
       "additionalProperties": false
     },
@@ -49257,7 +49257,7 @@
     "ActionInput_linear_updateproject": {
       "type": "object",
       "properties": {
-        "project_id": {
+        "projectId": {
           "type": "string",
           "description": "The ID of the project to update. Example: \"project-123\""
         },
@@ -49273,17 +49273,17 @@
           "type": "string",
           "description": "New status for the project (e.g., planned, started, paused, completed, canceled)."
         },
-        "target_date": {
+        "targetDate": {
           "type": "string",
           "description": "Target date for the project completion in ISO 8601 format (YYYY-MM-DD)."
         },
-        "lead_id": {
+        "leadId": {
           "type": "string",
           "description": "ID of the user to set as the project lead."
         }
       },
       "required": [
-        "project_id"
+        "projectId"
       ],
       "additionalProperties": false
     },

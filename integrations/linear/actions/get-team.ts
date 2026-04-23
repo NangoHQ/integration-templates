@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('Linear team ID. Example: "team-uuid-123"')
+    teamId: z.string().describe('Linear team ID. Example: "team-uuid-123"')
 });
 
 const WorkflowStateSchema = z.object({
@@ -51,7 +51,7 @@ const action = createAction({
         `;
 
         const variables = {
-            id: input.team_id
+            id: input.teamId
         };
 
         // https://linear.app/developers
@@ -70,7 +70,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Team not found',
-                team_id: input.team_id
+                teamId: input.teamId
             });
         }
 

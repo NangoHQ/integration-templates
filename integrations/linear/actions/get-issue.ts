@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issue_id: z.string().describe('Linear issue ID. Example: "c77a8b8e-aaaa-0000-cccc-111111111111"')
+    issueId: z.string().describe('Linear issue ID. Example: "c77a8b8e-aaaa-0000-cccc-111111111111"')
 });
 
 const AssigneeSchema = z.object({
@@ -109,7 +109,7 @@ const action = createAction({
             data: {
                 query,
                 variables: {
-                    id: input.issue_id
+                    id: input.issueId
                 }
             },
             retries: 3
@@ -120,8 +120,8 @@ const action = createAction({
         if (!issueData) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Issue with ID "${input.issue_id}" was not found`,
-                issue_id: input.issue_id
+                message: `Issue with ID "${input.issueId}" was not found`,
+                issueId: input.issueId
             });
         }
 

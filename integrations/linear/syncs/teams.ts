@@ -21,7 +21,7 @@ const sync = createSync<{ Team: typeof TeamSchema }, undefined, typeof Checkpoin
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/sync-teams' }],
+    endpoints: [{ method: 'GET', path: '/syncs/teams' }],
     checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema

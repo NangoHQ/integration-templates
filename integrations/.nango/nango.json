@@ -66324,7 +66324,7 @@
             "ActionInput_linear_createcomment": {
               "type": "object",
               "properties": {
-                "issue_id": {
+                "issueId": {
                   "type": "string",
                   "description": "The ID of the issue to comment on. Example: \"issue-123\""
                 },
@@ -66332,13 +66332,13 @@
                   "type": "string",
                   "description": "The comment body text. Example: \"This is a comment\""
                 },
-                "parent_id": {
+                "parentId": {
                   "description": "The ID of the parent comment if this is a reply. Example: \"comment-456\"",
                   "type": "string"
                 }
               },
               "required": [
-                "issue_id",
+                "issueId",
                 "body"
               ],
               "additionalProperties": false
@@ -66352,10 +66352,10 @@
                 "body": {
                   "type": "string"
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 },
-                "user_id": {
+                "userId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66365,7 +66365,7 @@
                     }
                   ]
                 },
-                "user_name": {
+                "userName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66375,10 +66375,10 @@
                     }
                   ]
                 },
-                "issue_id": {
+                "issueId": {
                   "type": "string"
                 },
-                "issue_identifier": {
+                "issueIdentifier": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66388,7 +66388,7 @@
                     }
                   ]
                 },
-                "parent_id": {
+                "parentId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66402,12 +66402,12 @@
               "required": [
                 "id",
                 "body",
-                "created_at",
-                "user_id",
-                "user_name",
-                "issue_id",
-                "issue_identifier",
-                "parent_id"
+                "createdAt",
+                "userId",
+                "userName",
+                "issueId",
+                "issueIdentifier",
+                "parentId"
               ],
               "additionalProperties": false
             }
@@ -66705,7 +66705,7 @@
             "ActionInput_linear_createissue": {
               "type": "object",
               "properties": {
-                "team_id": {
+                "teamId": {
                   "type": "string",
                   "description": "Team ID to create the issue in. Example: \"123e4567-e89b-12d3-a456-426614174000\""
                 },
@@ -66723,32 +66723,32 @@
                   "minimum": 0,
                   "maximum": 4
                 },
-                "state_id": {
+                "stateId": {
                   "description": "Workflow state ID for the issue",
                   "type": "string"
                 },
-                "assignee_id": {
+                "assigneeId": {
                   "description": "User ID to assign the issue to",
                   "type": "string"
                 },
-                "cycle_id": {
+                "cycleId": {
                   "description": "Cycle ID to add the issue to",
                   "type": "string"
                 },
-                "label_ids": {
+                "labelIds": {
                   "description": "Array of label IDs to add to the issue",
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "project_id": {
+                "projectId": {
                   "description": "Project ID to associate the issue with",
                   "type": "string"
                 }
               },
               "required": [
-                "team_id",
+                "teamId",
                 "title"
               ],
               "additionalProperties": false
@@ -66781,7 +66781,7 @@
                 "priority": {
                   "type": "number"
                 },
-                "state_id": {
+                "stateId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66791,7 +66791,7 @@
                     }
                   ]
                 },
-                "assignee_id": {
+                "assigneeId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66801,10 +66801,10 @@
                     }
                   ]
                 },
-                "team_id": {
+                "teamId": {
                   "type": "string"
                 },
-                "cycle_id": {
+                "cycleId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66814,7 +66814,7 @@
                     }
                   ]
                 },
-                "project_id": {
+                "projectId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66824,7 +66824,7 @@
                     }
                   ]
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 }
               },
@@ -66835,12 +66835,12 @@
                 "title",
                 "description",
                 "priority",
-                "state_id",
-                "assignee_id",
-                "team_id",
-                "cycle_id",
-                "project_id",
-                "created_at"
+                "stateId",
+                "assigneeId",
+                "teamId",
+                "cycleId",
+                "projectId",
+                "createdAt"
               ],
               "additionalProperties": false
             }
@@ -66882,22 +66882,22 @@
                   "description": "Project description. Example: \"Planning for Q1 initiatives\"",
                   "type": "string"
                 },
-                "lead_id": {
+                "leadId": {
                   "description": "User ID of the project lead. Example: \"user-123\"",
                   "type": "string"
                 },
-                "team_ids": {
+                "teamIds": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   },
                   "description": "Array of team IDs to associate with the project. Example: [\"team-123\"]"
                 },
-                "target_date": {
+                "targetDate": {
                   "description": "Target completion date in ISO 8601 format (YYYY-MM-DD or with time). Example: \"2026-12-31\"",
                   "type": "string"
                 },
-                "start_date": {
+                "startDate": {
                   "description": "Project start date in ISO 8601 format (YYYY-MM-DD or with time). Example: \"2026-01-01\"",
                   "type": "string"
                 },
@@ -66937,7 +66937,7 @@
                     }
                   ]
                 },
-                "slug_id": {
+                "slugId": {
                   "type": "string"
                 },
                 "state": {
@@ -66946,7 +66946,7 @@
                 "url": {
                   "type": "string"
                 },
-                "lead_id": {
+                "leadId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66956,13 +66956,13 @@
                     }
                   ]
                 },
-                "team_ids": {
+                "teamIds": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "target_date": {
+                "targetDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66972,7 +66972,7 @@
                     }
                   ]
                 },
-                "start_date": {
+                "startDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -66987,13 +66987,13 @@
                 "id",
                 "name",
                 "description",
-                "slug_id",
+                "slugId",
                 "state",
                 "url",
-                "lead_id",
-                "team_ids",
-                "target_date",
-                "start_date"
+                "leadId",
+                "teamIds",
+                "targetDate",
+                "startDate"
               ],
               "additionalProperties": false
             }
@@ -67806,13 +67806,13 @@
             "ActionInput_linear_getissue": {
               "type": "object",
               "properties": {
-                "issue_id": {
+                "issueId": {
                   "type": "string",
                   "description": "Linear issue ID. Example: \"c77a8b8e-aaaa-0000-cccc-111111111111\""
                 }
               },
               "required": [
-                "issue_id"
+                "issueId"
               ],
               "additionalProperties": false
             },
@@ -68326,13 +68326,13 @@
             "ActionInput_linear_getteam": {
               "type": "object",
               "properties": {
-                "team_id": {
+                "teamId": {
                   "type": "string",
                   "description": "Linear team ID. Example: \"team-uuid-123\""
                 }
               },
               "required": [
-                "team_id"
+                "teamId"
               ],
               "additionalProperties": false
             },
@@ -70728,7 +70728,7 @@
                     "additionalProperties": false
                   }
                 },
-                "next_cursor": {
+                "nextCursor": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -70739,15 +70739,15 @@
                   ],
                   "description": "Cursor for the next page of results. Null if no more pages."
                 },
-                "has_more": {
+                "hasMore": {
                   "type": "boolean",
                   "description": "Whether there are more pages of results."
                 }
               },
               "required": [
                 "users",
-                "next_cursor",
-                "has_more"
+                "nextCursor",
+                "hasMore"
               ],
               "additionalProperties": false
             }
@@ -72072,7 +72072,7 @@
             "ActionInput_linear_updateproject": {
               "type": "object",
               "properties": {
-                "project_id": {
+                "projectId": {
                   "type": "string",
                   "description": "The ID of the project to update. Example: \"project-123\""
                 },
@@ -72088,17 +72088,17 @@
                   "description": "New status for the project (e.g., planned, started, paused, completed, canceled).",
                   "type": "string"
                 },
-                "target_date": {
+                "targetDate": {
                   "description": "Target date for the project completion in ISO 8601 format (YYYY-MM-DD).",
                   "type": "string"
                 },
-                "lead_id": {
+                "leadId": {
                   "description": "ID of the user to set as the project lead.",
                   "type": "string"
                 }
               },
               "required": [
-                "project_id"
+                "projectId"
               ],
               "additionalProperties": false
             },
@@ -72188,11 +72188,11 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-cycles"
+            "path": "/syncs/cycles"
           }
         ],
         "input": null,
-        "name": "sync-cycles",
+        "name": "cycles",
         "output": [
           "Cycle"
         ],
@@ -72219,13 +72219,13 @@
                 "number": {
                   "type": "number"
                 },
-                "starts_at": {
+                "startsAt": {
                   "type": "string"
                 },
-                "ends_at": {
+                "endsAt": {
                   "type": "string"
                 },
-                "completed_at": {
+                "completedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72235,10 +72235,10 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 },
-                "team_id": {
+                "teamId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72248,7 +72248,7 @@
                     }
                   ]
                 },
-                "team_name": {
+                "teamName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72263,12 +72263,12 @@
                 "id",
                 "name",
                 "number",
-                "starts_at",
-                "ends_at",
-                "completed_at",
-                "updated_at",
-                "team_id",
-                "team_name"
+                "startsAt",
+                "endsAt",
+                "completedAt",
+                "updatedAt",
+                "teamId",
+                "teamName"
               ],
               "additionalProperties": false
             }
@@ -72284,12 +72284,12 @@
         "auto_start": true,
         "endpoints": [
           {
-            "path": "/syncs/sync-issue-labels",
+            "path": "/syncs/issue-labels",
             "method": "POST"
           }
         ],
-        "input": "SyncMetadata_linear_syncissuelabels",
-        "name": "sync-issue-labels",
+        "input": "SyncMetadata_linear_issuelabels",
+        "name": "issue-labels",
         "output": [
           "IssueLabel"
         ],
@@ -72299,7 +72299,7 @@
         "track_deletes": false,
         "usedModels": [
           "IssueLabel",
-          "SyncMetadata_linear_syncissuelabels"
+          "SyncMetadata_linear_issuelabels"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": [],
@@ -72355,7 +72355,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_linear_syncissuelabels": {
+            "SyncMetadata_linear_issuelabels": {
               "type": "object",
               "properties": {
                 "teamId": {
@@ -72376,12 +72376,12 @@
         "auto_start": true,
         "endpoints": [
           {
-            "path": "/syncs/sync-issues",
+            "path": "/syncs/issues",
             "method": "POST"
           }
         ],
-        "input": "SyncMetadata_linear_syncissues",
-        "name": "sync-issues",
+        "input": "SyncMetadata_linear_issues",
+        "name": "issues",
         "output": [
           "Issue"
         ],
@@ -72391,7 +72391,7 @@
         "track_deletes": false,
         "usedModels": [
           "Issue",
-          "SyncMetadata_linear_syncissues"
+          "SyncMetadata_linear_issues"
         ],
         "version": "",
         "webhookSubscriptions": [],
@@ -72547,7 +72547,7 @@
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_linear_syncissues": {
+            "SyncMetadata_linear_issues": {
               "type": "object",
               "properties": {
                 "team_id": {
@@ -72572,11 +72572,11 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-milestones"
+            "path": "/syncs/milestones"
           }
         ],
         "input": null,
-        "name": "sync-milestones",
+        "name": "milestones",
         "output": [
           "Milestone"
         ],
@@ -72616,7 +72616,7 @@
                 "progress": {
                   "type": "number"
                 },
-                "target_date": {
+                "targetDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72626,7 +72626,7 @@
                     }
                   ]
                 },
-                "project_id": {
+                "projectId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72636,13 +72636,13 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 },
-                "archived_at": {
+                "archivedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72659,11 +72659,11 @@
                 "description",
                 "status",
                 "progress",
-                "target_date",
-                "project_id",
-                "updated_at",
-                "created_at",
-                "archived_at"
+                "targetDate",
+                "projectId",
+                "updatedAt",
+                "createdAt",
+                "archivedAt"
               ],
               "additionalProperties": false
             }
@@ -72680,11 +72680,11 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-projects"
+            "path": "/syncs/projects"
           }
         ],
         "input": null,
-        "name": "sync-projects",
+        "name": "projects",
         "output": [
           "Project"
         ],
@@ -72920,12 +72920,12 @@
         "auto_start": true,
         "endpoints": [
           {
-            "path": "/syncs/sync-roadmaps",
+            "path": "/syncs/roadmaps",
             "method": "GET"
           }
         ],
         "input": null,
-        "name": "sync-roadmaps",
+        "name": "roadmaps",
         "output": [
           "Roadmap"
         ],
@@ -72966,7 +72966,7 @@
                     }
                   ]
                 },
-                "owner_id": {
+                "ownerId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72976,7 +72976,7 @@
                     }
                   ]
                 },
-                "owner_name": {
+                "ownerName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -72986,19 +72986,19 @@
                     }
                   ]
                 },
-                "project_ids": {
+                "projectIds": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 },
-                "archived_at": {
+                "archivedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -73008,7 +73008,7 @@
                     }
                   ]
                 },
-                "sort_order": {
+                "sortOrder": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -73023,13 +73023,13 @@
                 "id",
                 "name",
                 "description",
-                "owner_id",
-                "owner_name",
-                "project_ids",
-                "created_at",
-                "updated_at",
-                "archived_at",
-                "sort_order"
+                "ownerId",
+                "ownerName",
+                "projectIds",
+                "createdAt",
+                "updatedAt",
+                "archivedAt",
+                "sortOrder"
               ],
               "additionalProperties": false
             }
@@ -73046,11 +73046,11 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-teams"
+            "path": "/syncs/teams"
           }
         ],
         "input": null,
-        "name": "sync-teams",
+        "name": "teams",
         "output": [
           "Team"
         ],
@@ -73139,11 +73139,11 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-users"
+            "path": "/syncs/users"
           }
         ],
         "input": null,
-        "name": "sync-users",
+        "name": "users",
         "output": [
           "User"
         ],
@@ -73170,7 +73170,7 @@
                 "email": {
                   "type": "string"
                 },
-                "avatar_url": {
+                "avatarUrl": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -73183,10 +73183,10 @@
                 "active": {
                   "type": "boolean"
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 }
               },
@@ -73194,10 +73194,10 @@
                 "id",
                 "name",
                 "email",
-                "avatar_url",
+                "avatarUrl",
                 "active",
-                "created_at",
-                "updated_at"
+                "createdAt",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -73213,12 +73213,12 @@
         "auto_start": true,
         "endpoints": [
           {
-            "path": "/syncs/sync-workflow-states",
+            "path": "/syncs/workflow-states",
             "method": "POST"
           }
         ],
-        "input": "SyncMetadata_linear_syncworkflowstates",
-        "name": "sync-workflow-states",
+        "input": "SyncMetadata_linear_workflowstates",
+        "name": "workflow-states",
         "output": [
           "WorkflowState"
         ],
@@ -73230,7 +73230,7 @@
         "track_deletes": false,
         "usedModels": [
           "WorkflowState",
-          "SyncMetadata_linear_syncworkflowstates"
+          "SyncMetadata_linear_workflowstates"
         ],
         "version": "1.0.0",
         "webhookSubscriptions": [],
@@ -73293,10 +73293,10 @@
                     }
                   ]
                 },
-                "team_id": {
+                "teamId": {
                   "type": "string"
                 },
-                "team_key": {
+                "teamKey": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -73306,13 +73306,13 @@
                     }
                   ]
                 },
-                "created_at": {
+                "createdAt": {
                   "type": "string"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 },
-                "archived_at": {
+                "archivedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -73330,18 +73330,18 @@
                 "color",
                 "position",
                 "description",
-                "team_id",
-                "team_key",
-                "created_at",
-                "updated_at",
-                "archived_at"
+                "teamId",
+                "teamKey",
+                "createdAt",
+                "updatedAt",
+                "archivedAt"
               ],
               "additionalProperties": false
             },
-            "SyncMetadata_linear_syncworkflowstates": {
+            "SyncMetadata_linear_workflowstates": {
               "type": "object",
               "properties": {
-                "team_id": {
+                "teamId": {
                   "type": "string"
                 }
               },

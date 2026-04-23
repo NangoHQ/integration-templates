@@ -67,7 +67,7 @@ const sync = createSync({
     },
     endpoints: [
         {
-            path: '/syncs/sync-issue-labels',
+            path: '/syncs/issue-labels',
             method: 'POST'
         }
     ],

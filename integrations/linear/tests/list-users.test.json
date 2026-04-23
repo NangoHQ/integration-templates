@@ -25,8 +25,8 @@
         "updatedAt": "2026-04-21T07:37:30.147Z"
       }
     ],
-    "next_cursor": "5e854765-e42d-4ce6-9e66-789add44f493",
-    "has_more": false
+    "nextCursor": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "hasMore": false
   },
   "nango": {},
   "api": {
