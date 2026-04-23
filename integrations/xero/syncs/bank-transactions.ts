@@ -47,7 +47,7 @@ const sync = createSync({
         BankTransaction: BankTransactionSchema
     },
 
-    endpoints: [{ method: 'POST', path: '/syncs/sync-bank-transactions' }],
+    endpoints: [{ method: 'POST', path: '/syncs/bank-transactions' }],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

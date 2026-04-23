@@ -110,7 +110,7 @@ const sync = createSync({
     },
     endpoints: [
         {
-            path: '/syncs/sync-purchase-orders',
+            path: '/syncs/purchase-orders',
             method: 'GET'
         }
     ],

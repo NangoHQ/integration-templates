@@ -90,7 +90,7 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
     version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/sync-contacts' }],
+    endpoints: [{ method: 'GET', path: '/syncs/contacts' }],
     checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema

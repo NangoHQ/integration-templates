@@ -63,7 +63,7 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
     endpoints: [
         {
             method: 'GET',
-            path: '/syncs/sync-items'
+            path: '/syncs/items'
         }
     ],
 

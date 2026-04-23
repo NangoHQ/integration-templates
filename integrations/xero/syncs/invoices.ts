@@ -117,7 +117,7 @@ const sync = createSync({
     models: {
         Invoice: InvoiceSchema
     },
-    endpoints: [{ method: 'POST', path: '/syncs/sync-invoices' }],
+    endpoints: [{ method: 'POST', path: '/syncs/invoices' }],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

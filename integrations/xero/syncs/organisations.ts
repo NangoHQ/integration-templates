@@ -120,7 +120,7 @@ const sync = createSync({
     endpoints: [
         {
             method: 'GET',
-            path: '/syncs/sync-organisations'
+            path: '/syncs/organisations'
         }
     ],
 

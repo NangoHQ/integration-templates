@@ -182,7 +182,7 @@ const sync = createSync({
     models: {
         GeneralLedger: GeneralLedgerSchema
     },
-    endpoints: [{ method: 'GET', path: '/syncs/sync-general-ledger', group: 'General Ledger' }],
+    endpoints: [{ method: 'GET', path: '/syncs/general-ledger', group: 'General Ledger' }],
 
     exec: async (nango) => {
         const tenantId = await resolveTenantId(nango);

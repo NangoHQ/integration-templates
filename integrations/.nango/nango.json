@@ -114721,7 +114721,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-accounts"
+            "path": "/syncs/accounts"
           }
         ],
         "input": null,
@@ -114943,7 +114943,7 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-bank-transactions"
+            "path": "/syncs/bank-transactions"
           }
         ],
         "input": null,
@@ -115042,7 +115042,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-contacts"
+            "path": "/syncs/contacts"
           }
         ],
         "input": null,
@@ -115161,7 +115161,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-credit-notes"
+            "path": "/syncs/credit-notes"
           }
         ],
         "input": null,
@@ -115297,7 +115297,7 @@
         "endpoints": [
           {
             "method": "POST",
-            "path": "/syncs/sync-invoices"
+            "path": "/syncs/invoices"
           }
         ],
         "input": null,
@@ -115466,7 +115466,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-items"
+            "path": "/syncs/items"
           }
         ],
         "input": null,
@@ -115554,7 +115554,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-organisations"
+            "path": "/syncs/organisations"
           }
         ],
         "input": null,
@@ -115827,7 +115827,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-payments"
+            "path": "/syncs/payments"
           }
         ],
         "input": null,
@@ -116091,7 +116091,7 @@
         "endpoints": [
           {
             "method": "GET",
-            "path": "/syncs/sync-general-ledger",
+            "path": "/syncs/general-ledger",
             "group": "General Ledger"
           }
         ],
@@ -116277,7 +116277,7 @@
         "auto_start": true,
         "endpoints": [
           {
-            "path": "/syncs/sync-purchase-orders",
+            "path": "/syncs/purchase-orders",
             "method": "GET"
           }
         ],

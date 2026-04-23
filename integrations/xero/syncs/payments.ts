@@ -97,7 +97,7 @@ const sync = createSync({
     version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/sync-payments' }],
+    endpoints: [{ method: 'GET', path: '/syncs/payments' }],
     checkpoint: CheckpointSchema,
     models: {
         Payment: PaymentSchema

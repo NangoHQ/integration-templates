@@ -98,7 +98,7 @@ const sync = createSync({
     endpoints: [
         {
             method: 'GET',
-            path: '/syncs/sync-accounts'
+            path: '/syncs/accounts'
         }
     ],
     models: {
