@@ -114736,7 +114736,7 @@
         "usedModels": [
           "Account"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -114958,7 +114958,7 @@
         "usedModels": [
           "BankTransaction"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115057,7 +115057,7 @@
         "usedModels": [
           "Contact"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115176,7 +115176,7 @@
         "usedModels": [
           "CreditNote"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115312,7 +115312,7 @@
         "usedModels": [
           "Invoice"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115481,7 +115481,7 @@
         "usedModels": [
           "Item"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115569,7 +115569,7 @@
         "usedModels": [
           "Organisation"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -115842,7 +115842,7 @@
         "usedModels": [
           "Payment"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -116109,7 +116109,7 @@
         "usedModels": [
           "GeneralLedger"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {

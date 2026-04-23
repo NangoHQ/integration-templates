@@ -92,7 +92,7 @@ async function fetchTenantIdWithRetry(
 
 const sync = createSync({
     description: 'Sync accounts from the Xero chart of accounts.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

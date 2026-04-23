@@ -74,7 +74,7 @@ function getProperty(obj: unknown, key: string): unknown {
 
 const sync = createSync({
     description: 'Sync credit notes from Xero',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/sync-credit-notes' }],
     frequency: 'every hour',
     autoStart: true,
