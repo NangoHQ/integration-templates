@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    invoice_id: z.string().describe('The Xero InvoiceID to retrieve. Example: "a3b2c1d0-e4f5-6789-abcd-ef0123456789"')
+    invoiceId: z.string().describe('The Xero InvoiceID to retrieve. Example: "a3b2c1d0-e4f5-6789-abcd-ef0123456789"')
 });
 
 const LineItemSchema = z
@@ -120,7 +120,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/invoices#get-invoice
         const response = await nango.get({
-            endpoint: `api.xro/2.0/Invoices/${input.invoice_id}`,
+            endpoint: `api.xro/2.0/Invoices/${input.invoiceId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -130,7 +130,7 @@ const action = createAction({
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Invoice not found: ${input.invoice_id}`
+                message: `Invoice not found: ${input.invoiceId}`
             });
         }
 
@@ -142,7 +142,7 @@ const action = createAction({
         if (!invoice || typeof invoice !== 'object') {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Invoice not found: ${input.invoice_id}`
+                message: `Invoice not found: ${input.invoiceId}`
             });
         }
 

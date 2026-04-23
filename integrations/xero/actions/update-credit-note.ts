@@ -2,49 +2,49 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    credit_note_id: z.string().describe('Xero generated unique identifier for the credit note. Example: "717f2bfc-c6d4-41fd-b238-3f2f0c0cf777"'),
+    creditNoteId: z.string().describe('Xero generated unique identifier for the credit note. Example: "717f2bfc-c6d4-41fd-b238-3f2f0c0cf777"'),
     type: z
         .enum(['ACCRECCREDIT', 'ACCPAYCREDIT'])
         .optional()
         .describe('Type of credit note. ACCRECCREDIT for Accounts Receivable (sales credit notes), ACCPAYCREDIT for Accounts Payable (purchase credit notes).'),
-    contact_id: z.string().optional().describe('Contact ID associated with the credit note.'),
+    contactId: z.string().optional().describe('Contact ID associated with the credit note.'),
     date: z.string().optional().describe('Date of the credit note in YYYY-MM-DD format.'),
     status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'PAID', 'VOIDED', 'DELETED']).optional().describe('Status of the credit note.'),
-    line_items: z
+    lineItems: z
         .array(
             z.object({
                 description: z.string().optional(),
                 quantity: z.number().optional(),
-                unit_amount: z.number().optional(),
-                account_code: z.string().optional(),
-                tax_type: z.string().optional()
+                unitAmount: z.number().optional(),
+                accountCode: z.string().optional(),
+                taxType: z.string().optional()
             })
         )
         .optional()
         .describe('Line items for the credit note.'),
     reference: z.string().optional().describe('Reference or description for the credit note.'),
-    sent_to_contact: z
+    sentToContact: z
         .boolean()
         .optional()
         .describe(
             'Boolean indicating whether the credit note has been sent to the contact. Only writable when credit note is in Awaiting Payment or Paid state.'
         ),
-    currency_rate: z.number().optional().describe('Currency rate for multicurrency transactions.')
+    currencyRate: z.number().optional().describe('Currency rate for multicurrency transactions.')
 });
 
 const OutputSchema = z.object({
-    credit_note_id: z.string(),
-    credit_note_number: z.union([z.string(), z.null()]),
+    creditNoteId: z.string(),
+    creditNoteNumber: z.union([z.string(), z.null()]),
     type: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
     date: z.union([z.string(), z.null()]),
-    contact_id: z.union([z.string(), z.null()]),
+    contactId: z.union([z.string(), z.null()]),
     reference: z.union([z.string(), z.null()]),
     total: z.union([z.number(), z.null()]),
-    sub_total: z.union([z.number(), z.null()]),
-    total_tax: z.union([z.number(), z.null()]),
-    updated_date_utc: z.union([z.string(), z.null()]),
-    remaining_credit: z.union([z.number(), z.null()])
+    subTotal: z.union([z.number(), z.null()]),
+    totalTax: z.union([z.number(), z.null()]),
+    updatedDateUtc: z.union([z.string(), z.null()]),
+    remainingCredit: z.union([z.number(), z.null()])
 });
 
 const action = createAction({
@@ -113,14 +113,14 @@ const action = createAction({
 
         // Build the CreditNotes payload
         const creditNotePayload: Record<string, unknown> = {
-            CreditNoteID: input.credit_note_id
+            CreditNoteID: input.creditNoteId
         };
 
         if (input.type) {
             creditNotePayload['Type'] = input.type;
         }
-        if (input.contact_id) {
-            creditNotePayload['Contact'] = { ContactID: input.contact_id };
+        if (input.contactId) {
+            creditNotePayload['Contact'] = { ContactID: input.contactId };
         }
         if (input.date) {
             creditNotePayload['Date'] = input.date;
@@ -131,19 +131,19 @@ const action = createAction({
         if (input.reference) {
             creditNotePayload['Reference'] = input.reference;
         }
-        if (input.sent_to_contact !== undefined) {
-            creditNotePayload['SentToContact'] = input.sent_to_contact;
+        if (input.sentToContact !== undefined) {
+            creditNotePayload['SentToContact'] = input.sentToContact;
         }
-        if (input.currency_rate !== undefined) {
-            creditNotePayload['CurrencyRate'] = input.currency_rate;
+        if (input.currencyRate !== undefined) {
+            creditNotePayload['CurrencyRate'] = input.currencyRate;
         }
-        if (input.line_items && input.line_items.length > 0) {
-            creditNotePayload['LineItems'] = input.line_items.map((item) => ({
+        if (input.lineItems && input.lineItems.length > 0) {
+            creditNotePayload['LineItems'] = input.lineItems.map((item) => ({
                 Description: item.description,
                 Quantity: item.quantity,
-                UnitAmount: item.unit_amount,
-                AccountCode: item.account_code,
-                TaxType: item.tax_type
+                UnitAmount: item.unitAmount,
+                AccountCode: item.accountCode,
+                TaxType: item.taxType
             }));
         }
 
@@ -202,18 +202,18 @@ const action = createAction({
         }
 
         return {
-            credit_note_id: typeof firstCreditNote['CreditNoteID'] === 'string' ? firstCreditNote['CreditNoteID'] : input.credit_note_id,
-            credit_note_number: typeof firstCreditNote['CreditNoteNumber'] === 'string' ? firstCreditNote['CreditNoteNumber'] : null,
+            creditNoteId: typeof firstCreditNote['CreditNoteID'] === 'string' ? firstCreditNote['CreditNoteID'] : input.creditNoteId,
+            creditNoteNumber: typeof firstCreditNote['CreditNoteNumber'] === 'string' ? firstCreditNote['CreditNoteNumber'] : null,
             type: typeof firstCreditNote['Type'] === 'string' ? firstCreditNote['Type'] : null,
             status: typeof firstCreditNote['Status'] === 'string' ? firstCreditNote['Status'] : null,
             date: typeof firstCreditNote['Date'] === 'string' ? firstCreditNote['Date'] : null,
-            contact_id: contactId,
+            contactId: contactId,
             reference: typeof firstCreditNote['Reference'] === 'string' ? firstCreditNote['Reference'] : null,
             total: typeof firstCreditNote['Total'] === 'number' ? firstCreditNote['Total'] : null,
-            sub_total: typeof firstCreditNote['SubTotal'] === 'number' ? firstCreditNote['SubTotal'] : null,
-            total_tax: typeof firstCreditNote['TotalTax'] === 'number' ? firstCreditNote['TotalTax'] : null,
-            updated_date_utc: typeof firstCreditNote['UpdatedDateUTC'] === 'string' ? firstCreditNote['UpdatedDateUTC'] : null,
-            remaining_credit: typeof firstCreditNote['RemainingCredit'] === 'number' ? firstCreditNote['RemainingCredit'] : null
+            subTotal: typeof firstCreditNote['SubTotal'] === 'number' ? firstCreditNote['SubTotal'] : null,
+            totalTax: typeof firstCreditNote['TotalTax'] === 'number' ? firstCreditNote['TotalTax'] : null,
+            updatedDateUtc: typeof firstCreditNote['UpdatedDateUTC'] === 'string' ? firstCreditNote['UpdatedDateUTC'] : null,
+            remainingCredit: typeof firstCreditNote['RemainingCredit'] === 'number' ? firstCreditNote['RemainingCredit'] : null
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    contact_id: z.string().describe('The Xero ContactID to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"')
+    contactId: z.string().describe('The Xero ContactID to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"')
 });
 
 const AddressSchema = z.object({
@@ -144,7 +144,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/contacts
         const response = await nango.get({
-            endpoint: `api.xro/2.0/Contacts/${input.contact_id}`,
+            endpoint: `api.xro/2.0/Contacts/${input.contactId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -154,7 +154,7 @@ const action = createAction({
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Contact not found for ContactID: ${input.contact_id}`
+                message: `Contact not found for ContactID: ${input.contactId}`
             });
         }
 
@@ -170,7 +170,7 @@ const action = createAction({
         if (!('Contacts' in data)) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Contact not found for ContactID: ${input.contact_id}`
+                message: `Contact not found for ContactID: ${input.contactId}`
             });
         }
 
@@ -179,7 +179,7 @@ const action = createAction({
         if (!Array.isArray(contactsValue) || contactsValue.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Contact not found for ContactID: ${input.contact_id}`
+                message: `Contact not found for ContactID: ${input.contactId}`
             });
         }
 
@@ -188,7 +188,7 @@ const action = createAction({
         if (!firstContact || typeof firstContact !== 'object') {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Contact not found for ContactID: ${input.contact_id}`
+                message: `Contact not found for ContactID: ${input.contactId}`
             });
         }
 

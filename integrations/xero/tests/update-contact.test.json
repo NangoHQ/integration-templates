@@ -1,28 +1,28 @@
 {
   "input": {
-    "contact_id": "5fe67a74-e028-46ac-9115-36465e09971f",
+    "contactId": "5fe67a74-e028-46ac-9115-36465e09971f",
     "name": "Test Contact Updated",
-    "first_name": "Test",
-    "last_name": "User",
-    "email_address": "test@example.com",
-    "phone_number": "555-1234",
+    "firstName": "Test",
+    "lastName": "User",
+    "emailAddress": "test@example.com",
+    "phoneNumber": "555-1234",
     "city": "San Francisco",
     "region": "CA",
     "country": "USA",
-    "is_customer": true
+    "isCustomer": true
   },
   "output": {
-    "contact_id": "5fe67a74-e028-46ac-9115-36465e09971f",
+    "contactId": "5fe67a74-e028-46ac-9115-36465e09971f",
     "name": "Test Contact Updated",
-    "first_name": "Test",
-    "last_name": "User",
-    "email_address": "test@example.com",
-    "phone_number": "555-1234",
-    "account_number": "",
-    "tax_number": null,
-    "is_customer": false,
-    "is_supplier": false,
-    "default_currency": null
+    "firstName": "Test",
+    "lastName": "User",
+    "emailAddress": "test@example.com",
+    "phoneNumber": "555-1234",
+    "accountNumber": "",
+    "taxNumber": null,
+    "isCustomer": false,
+    "isSupplier": false,
+    "defaultCurrency": null
   },
   "nango": {
     "getConnection": {}

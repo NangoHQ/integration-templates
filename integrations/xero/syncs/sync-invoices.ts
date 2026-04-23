@@ -4,22 +4,22 @@ import { z } from 'zod';
 // https://developer.xero.com/documentation/api/accounting/invoices
 const InvoiceSchema = z.object({
     id: z.string(),
-    invoice_number: z.string().nullable(),
+    invoiceNumber: z.string().nullable(),
     type: z.string().nullable(),
     status: z.string().nullable(),
     date: z.string().nullable(),
-    due_date: z.string().nullable(),
+    dueDate: z.string().nullable(),
     total: z.number().nullable(),
-    sub_total: z.number().nullable(),
-    total_tax: z.number().nullable(),
-    amount_due: z.number().nullable(),
-    amount_paid: z.number().nullable(),
-    currency_code: z.string().nullable(),
-    updated_at: z.string()
+    subTotal: z.number().nullable(),
+    totalTax: z.number().nullable(),
+    amountDue: z.number().nullable(),
+    amountPaid: z.number().nullable(),
+    currencyCode: z.string().nullable(),
+    updatedAt: z.string()
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updatedAfter: z.string()
 });
 
 // Zod schema for connections API response
@@ -128,8 +128,8 @@ const sync = createSync({
             'xero-tenant-id': tenantId
         };
 
-        if (checkpoint && checkpoint.updated_after) {
-            headers['If-Modified-Since'] = checkpoint.updated_after;
+        if (checkpoint && checkpoint.updatedAfter) {
+            headers['If-Modified-Since'] = checkpoint.updatedAfter;
         }
 
         let page = 1;
@@ -183,18 +183,18 @@ const sync = createSync({
 
             const upserts: Array<{
                 id: string;
-                invoice_number: string | null;
+                invoiceNumber: string | null;
                 type: string | null;
                 status: string | null;
                 date: string | null;
-                due_date: string | null;
+                dueDate: string | null;
                 total: number | null;
-                sub_total: number | null;
-                total_tax: number | null;
-                amount_due: number | null;
-                amount_paid: number | null;
-                currency_code: string | null;
-                updated_at: string;
+                subTotal: number | null;
+                totalTax: number | null;
+                amountDue: number | null;
+                amountPaid: number | null;
+                currencyCode: string | null;
+                updatedAt: string;
             }> = [];
             const deletions: Array<{ id: string }> = [];
 
@@ -213,18 +213,18 @@ const sync = createSync({
 
                 upserts.push({
                     id: invoice.InvoiceID,
-                    invoice_number: invoice.InvoiceNumber ?? null,
+                    invoiceNumber: invoice.InvoiceNumber ?? null,
                     type: invoice.Type ?? null,
                     status: invoice.Status ?? null,
                     date: invoice.Date ?? null,
-                    due_date: invoice.DueDate ?? null,
+                    dueDate: invoice.DueDate ?? null,
                     total: invoice.Total ?? null,
-                    sub_total: invoice.SubTotal ?? null,
-                    total_tax: invoice.TotalTax ?? null,
-                    amount_due: invoice.AmountDue ?? null,
-                    amount_paid: invoice.AmountPaid ?? null,
-                    currency_code: invoice.CurrencyCode ?? null,
-                    updated_at: invoice.UpdatedDateUTC ?? new Date().toISOString()
+                    subTotal: invoice.SubTotal ?? null,
+                    totalTax: invoice.TotalTax ?? null,
+                    amountDue: invoice.AmountDue ?? null,
+                    amountPaid: invoice.AmountPaid ?? null,
+                    currencyCode: invoice.CurrencyCode ?? null,
+                    updatedAt: invoice.UpdatedDateUTC ?? new Date().toISOString()
                 });
             }
 
@@ -240,7 +240,7 @@ const sync = createSync({
             const lastInvoice = invoices[invoices.length - 1];
             if (lastInvoice?.UpdatedDateUTC) {
                 await nango.saveCheckpoint({
-                    updated_after: lastInvoice.UpdatedDateUTC
+                    updatedAfter: lastInvoice.UpdatedDateUTC
                 });
             }
 

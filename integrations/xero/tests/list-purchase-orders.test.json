@@ -3,7 +3,7 @@
     "page": 1
   },
   "output": {
-    "purchase_orders": [
+    "purchaseOrders": [
       {
         "PurchaseOrderID": "fa004ba7-d015-4603-99bf-777054aaa61b",
         "PurchaseOrderNumber": "PO-0003",
@@ -553,7 +553,7 @@
         ]
       }
     ],
-    "next_cursor": null
+    "nextCursor": null
   },
   "nango": {
     "getConnection": {}

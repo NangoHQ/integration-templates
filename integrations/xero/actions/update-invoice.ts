@@ -2,42 +2,42 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    invoice_id: z.string().describe('The unique ID of the invoice to update. Example: "12345678-1234-1234-1234-123456789012"'),
+    invoiceId: z.string().describe('The unique ID of the invoice to update. Example: "12345678-1234-1234-1234-123456789012"'),
     type: z.enum(['ACCREC', 'ACCPAY']).optional().describe('Invoice type: ACCREC (Sales Invoice) or ACCPAY (Bill).'),
     contact: z
         .object({
-            contact_id: z.string().optional().describe('The Xero ID for the contact.'),
+            contactId: z.string().optional().describe('The Xero ID for the contact.'),
             name: z.string().optional().describe('The full name of the contact or organisation.')
         })
         .optional()
         .describe('The contact associated with the invoice.'),
-    line_items: z
+    lineItems: z
         .array(
             z.object({
-                line_item_id: z.string().optional().describe('The Xero ID for the line item (for existing items).'),
+                lineItemId: z.string().optional().describe('The Xero ID for the line item (for existing items).'),
                 description: z.string().optional().describe('Description of the line item.'),
                 quantity: z.number().optional().describe('Quantity of the line item.'),
-                unit_amount: z.number().optional().describe('Unit price of the line item.'),
-                account_code: z.string().optional().describe('Account code for the line item.'),
-                tax_type: z.string().optional().describe('Tax type for the line item.')
+                unitAmount: z.number().optional().describe('Unit price of the line item.'),
+                accountCode: z.string().optional().describe('Account code for the line item.'),
+                taxType: z.string().optional().describe('Tax type for the line item.')
             })
         )
         .optional()
         .describe('Line items for the invoice.'),
     date: z.string().optional().describe('Invoice date in YYYY-MM-DD format.'),
-    due_date: z.string().optional().describe('Due date for the invoice in YYYY-MM-DD format.'),
+    dueDate: z.string().optional().describe('Due date for the invoice in YYYY-MM-DD format.'),
     reference: z.string().optional().describe('Reference text for the invoice.'),
     status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'PAID', 'VOIDED', 'DELETED']).optional().describe('Status of the invoice.')
 });
 
 const OutputSchema = z.object({
-    invoice_id: z.string(),
-    invoice_number: z.string(),
+    invoiceId: z.string(),
+    invoiceNumber: z.string(),
     type: z.string(),
     status: z.string(),
     total: z.number(),
-    currency_code: z.string(),
-    updated_date_utc: z.string()
+    currencyCode: z.string(),
+    updatedDateUtc: z.string()
 });
 
 // Zod schema for Xero API response validation
@@ -145,7 +145,7 @@ const action = createAction({
 
         // Build the invoice update payload
         const invoicePayload: Record<string, unknown> = {
-            InvoiceID: input.invoice_id
+            InvoiceID: input.invoiceId
         };
 
         if (input.type) {
@@ -154,8 +154,8 @@ const action = createAction({
 
         if (input.contact) {
             const contactPayload: Record<string, string> = {};
-            if (input.contact.contact_id) {
-                contactPayload['ContactID'] = input.contact.contact_id;
+            if (input.contact.contactId) {
+                contactPayload['ContactID'] = input.contact.contactId;
             }
             if (input.contact.name) {
                 contactPayload['Name'] = input.contact.name;
@@ -163,11 +163,11 @@ const action = createAction({
             invoicePayload['Contact'] = contactPayload;
         }
 
-        if (input.line_items && input.line_items.length > 0) {
-            invoicePayload['LineItems'] = input.line_items.map((item) => {
+        if (input.lineItems && input.lineItems.length > 0) {
+            invoicePayload['LineItems'] = input.lineItems.map((item) => {
                 const lineItem: Record<string, unknown> = {};
-                if (item.line_item_id) {
-                    lineItem['LineItemID'] = item.line_item_id;
+                if (item.lineItemId) {
+                    lineItem['LineItemID'] = item.lineItemId;
                 }
                 if (item.description) {
                     lineItem['Description'] = item.description;
@@ -175,14 +175,14 @@ const action = createAction({
                 if (typeof item.quantity === 'number') {
                     lineItem['Quantity'] = item.quantity;
                 }
-                if (typeof item.unit_amount === 'number') {
-                    lineItem['UnitAmount'] = item.unit_amount;
+                if (typeof item.unitAmount === 'number') {
+                    lineItem['UnitAmount'] = item.unitAmount;
                 }
-                if (item.account_code) {
-                    lineItem['AccountCode'] = item.account_code;
+                if (item.accountCode) {
+                    lineItem['AccountCode'] = item.accountCode;
                 }
-                if (item.tax_type) {
-                    lineItem['TaxType'] = item.tax_type;
+                if (item.taxType) {
+                    lineItem['TaxType'] = item.taxType;
                 }
                 return lineItem;
             });
@@ -192,8 +192,8 @@ const action = createAction({
             invoicePayload['Date'] = input.date;
         }
 
-        if (input.due_date) {
-            invoicePayload['DueDate'] = input.due_date;
+        if (input.dueDate) {
+            invoicePayload['DueDate'] = input.dueDate;
         }
 
         if (input.reference) {
@@ -223,7 +223,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'No invoice returned from Xero after update.',
-                invoice_id: input.invoice_id
+                invoiceId: input.invoiceId
             });
         }
 
@@ -233,18 +233,18 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'No invoice returned from Xero after update.',
-                invoice_id: input.invoice_id
+                invoiceId: input.invoiceId
             });
         }
 
         return {
-            invoice_id: updatedInvoice.InvoiceID,
-            invoice_number: updatedInvoice.InvoiceNumber || '',
+            invoiceId: updatedInvoice.InvoiceID,
+            invoiceNumber: updatedInvoice.InvoiceNumber || '',
             type: updatedInvoice.Type || '',
             status: updatedInvoice.Status || '',
             total: updatedInvoice.Total || 0,
-            currency_code: updatedInvoice.CurrencyCode || '',
-            updated_date_utc: updatedInvoice.UpdatedDateUTC || ''
+            currencyCode: updatedInvoice.CurrencyCode || '',
+            updatedDateUtc: updatedInvoice.UpdatedDateUTC || ''
         };
     }
 });

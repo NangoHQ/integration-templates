@@ -1,27 +1,27 @@
 {
   "input": {
-    "account_id": "200"
+    "accountId": "200"
   },
   "output": {
-    "account_id": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+    "accountId": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
     "code": "200",
     "name": "Sales Revenue - Updated",
     "type": "REVENUE",
     "status": "ACTIVE",
     "description": "Updated income from normal business activity",
-    "tax_type": "OUTPUT",
+    "taxType": "OUTPUT",
     "class": "REVENUE",
-    "enable_payments_to_account": false,
-    "show_in_expense_claims": false,
-    "reporting_code": "REV.TRA.GOO",
-    "reporting_code_name": "Sale of goods",
-    "updated_date_utc": "/Date(1776704054343+0000)/",
-    "bank_account_number": null,
-    "bank_account_type": "NONE",
-    "currency_code": null,
-    "has_attachments": false,
-    "add_to_watchlist": true,
-    "system_account": ""
+    "enablePaymentsToAccount": false,
+    "showInExpenseClaims": false,
+    "reportingCode": "REV.TRA.GOO",
+    "reportingCodeName": "Sale of goods",
+    "updatedDateUtc": "/Date(1776704054343+0000)/",
+    "bankAccountNumber": null,
+    "bankAccountType": "NONE",
+    "currencyCode": null,
+    "hasAttachments": false,
+    "addToWatchlist": true,
+    "systemAccount": ""
   },
   "nango": {
     "getConnection": {}

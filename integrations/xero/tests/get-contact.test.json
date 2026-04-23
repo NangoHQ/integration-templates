@@ -1,6 +1,6 @@
 {
   "input": {
-    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740"
+    "contactId": "c67e563c-17ee-40dd-ad95-4f8c143bf740"
   },
   "output": {
     "contact": {

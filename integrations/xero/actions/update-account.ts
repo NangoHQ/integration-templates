@@ -4,14 +4,14 @@ import { createAction } from 'nango';
 const TenantIdSchema = z.string().uuid();
 
 const InputSchema = z.object({
-    account_id: z.string().uuid().describe('Unique identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"'),
+    accountId: z.string().uuid().describe('Unique identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"'),
     code: z.string().optional().describe('Account code. Example: "200"'),
     name: z.string().optional().describe('Account name. Example: "Sales"'),
     type: z.string().optional().describe('Account type. Example: "EXPENSE", "REVENUE", "ASSET"'),
     description: z.string().optional().describe('Account description. Example: "Operating expenses"'),
-    tax_type: z.string().optional().describe('Tax type for the account. Example: "NONE", "OUTPUT2"'),
-    enable_payments_to_account: z.boolean().optional().describe('Whether payments can be made to this account'),
-    show_in_expense_claims: z.boolean().optional().describe('Whether this account shows in expense claims')
+    taxType: z.string().optional().describe('Tax type for the account. Example: "NONE", "OUTPUT2"'),
+    enablePaymentsToAccount: z.boolean().optional().describe('Whether payments can be made to this account'),
+    showInExpenseClaims: z.boolean().optional().describe('Whether this account shows in expense claims')
 });
 
 const OutputSchema = z.object({
@@ -20,10 +20,10 @@ const OutputSchema = z.object({
     name: z.string(),
     status: z.string(),
     type: z.string(),
-    tax_type: z.union([z.string(), z.null()]),
+    taxType: z.union([z.string(), z.null()]),
     description: z.union([z.string(), z.null()]),
-    enable_payments_to_account: z.boolean(),
-    show_in_expense_claims: z.boolean()
+    enablePaymentsToAccount: z.boolean(),
+    showInExpenseClaims: z.boolean()
 });
 
 interface UnknownRecord {
@@ -170,7 +170,7 @@ const action = createAction({
         }
 
         const updateData: Record<string, unknown> = {
-            AccountID: input.account_id
+            AccountID: input.accountId
         };
 
         if (input.code !== undefined) {
@@ -185,14 +185,14 @@ const action = createAction({
         if (input.description !== undefined) {
             updateData['Description'] = input.description;
         }
-        if (input.tax_type !== undefined) {
-            updateData['TaxType'] = input.tax_type;
+        if (input.taxType !== undefined) {
+            updateData['TaxType'] = input.taxType;
         }
-        if (input.enable_payments_to_account !== undefined) {
-            updateData['EnablePaymentsToAccount'] = input.enable_payments_to_account;
+        if (input.enablePaymentsToAccount !== undefined) {
+            updateData['EnablePaymentsToAccount'] = input.enablePaymentsToAccount;
         }
-        if (input.show_in_expense_claims !== undefined) {
-            updateData['ShowInExpenseClaims'] = input.show_in_expense_claims;
+        if (input.showInExpenseClaims !== undefined) {
+            updateData['ShowInExpenseClaims'] = input.showInExpenseClaims;
         }
 
         // https://developer.xero.com/documentation/api/accounting/accounts
@@ -264,10 +264,10 @@ const action = createAction({
             name: name,
             status: status,
             type: type,
-            tax_type: getStringProperty(account, 'TaxType') ?? null,
+            taxType: getStringProperty(account, 'TaxType') ?? null,
             description: getStringProperty(account, 'Description') ?? null,
-            enable_payments_to_account: getBooleanProperty(account, 'EnablePaymentsToAccount') ?? false,
-            show_in_expense_claims: getBooleanProperty(account, 'ShowInExpenseClaims') ?? false
+            enablePaymentsToAccount: getBooleanProperty(account, 'EnablePaymentsToAccount') ?? false,
+            showInExpenseClaims: getBooleanProperty(account, 'ShowInExpenseClaims') ?? false
         };
     }
 });

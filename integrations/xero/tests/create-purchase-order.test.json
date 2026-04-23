@@ -1,42 +1,42 @@
 {
   "input": {
     "contact": {
-      "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95"
+      "contactId": "ed178511-a781-44fc-aa98-d2f0ad750a95"
     },
     "date": "2025-01-15",
-    "line_items": [
+    "lineItems": [
       {
         "description": "Office Supplies",
         "quantity": 5,
-        "unit_amount": 25.5,
-        "account_code": "200",
-        "tax_type": "NONE"
+        "unitAmount": 25.5,
+        "accountCode": "200",
+        "taxType": "NONE"
       }
     ],
     "reference": "PO-001",
     "status": "DRAFT"
   },
   "output": {
-    "purchase_order_id": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
-    "purchase_order_number": "PO-0011",
+    "purchaseOrderId": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+    "purchaseOrderNumber": "PO-0011",
     "status": "DRAFT",
-    "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
-    "contact_name": "Test Contact",
+    "contactId": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+    "contactName": "Test Contact",
     "date": "/Date(1736899200000+0000)/",
-    "line_items": [
+    "lineItems": [
       {
         "description": "Office Supplies",
         "quantity": 5,
-        "unit_amount": 25.5,
-        "line_amount": 127.5,
-        "account_code": "200",
-        "tax_type": "NONE"
+        "unitAmount": 25.5,
+        "lineAmount": 127.5,
+        "accountCode": "200",
+        "taxType": "NONE"
       }
     ],
     "total": 127.5,
-    "sub_total": 127.5,
-    "total_tax": null,
-    "updated_date_utc": "/Date(1776870235063+0000)/"
+    "subTotal": 127.5,
+    "totalTax": null,
+    "updatedDateUtc": "/Date(1776870235063+0000)/"
   },
   "nango": {
     "getConnection": {},

@@ -7,8 +7,8 @@
         "code": "BOOK",
         "name": "Fish out of Water: Finding Your Brand",
         "description": "'Fish out of Water: Finding Your Brand",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -17,8 +17,8 @@
         "code": "DevD",
         "name": "Development work - developer onsite per day",
         "description": "Development work - develper onsite per day",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -27,8 +27,8 @@
         "code": "DevH",
         "name": "Development work - per hour rate",
         "description": "Development work - per hour rate",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -37,8 +37,8 @@
         "code": "GB1-White",
         "name": "Golf balls - white single",
         "description": "Golf balls - white single. Please reorder with code GB1-White",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -47,8 +47,8 @@
         "code": "GB3-White",
         "name": "Golf balls - white 3-pack",
         "description": "Golf balls - white 3 pack. Please reorder with code GB3-White",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -57,8 +57,8 @@
         "code": "GB6-White",
         "name": "Golf balls - white 6-pack",
         "description": "Golf balls - white 6 pack. Please reorder with code GB6-White",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -67,8 +67,8 @@
         "code": "GB9-White",
         "name": "Golf balls - white 9 pack",
         "description": "Golf balls - white - 9 pack. Please reorder with code GB9-White",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -77,8 +77,8 @@
         "code": "PMBr",
         "name": "Project management & implementation - branding",
         "description": "Project management & implementation - branding workshop with your team",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -87,8 +87,8 @@
         "code": "PMD",
         "name": "Project Management - onsite daily rate",
         "description": "Project Management - onsite daily rate",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -97,8 +97,8 @@
         "code": "PMDD",
         "name": "Project management & implementation due diligence",
         "description": "Project management & implementation - 'due diligence' stocktake of your project scope/schedule/implementation plan/outcome measures (hourly rate as agreed)",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -107,8 +107,8 @@
         "code": "PMWe",
         "name": "Project management & implementation - website",
         "description": "Project management & implementation - website revamp workshop with your team",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -117,8 +117,8 @@
         "code": "PROD-AUTO-1776869002",
         "name": "Auto Generated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -127,8 +127,8 @@
         "code": "PROD-AUTO-1776869072",
         "name": "Auto Generated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -137,8 +137,8 @@
         "code": "PROD-AUTO-1776869160",
         "name": "Auto Generated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -147,8 +147,8 @@
         "code": "PROD-AUTO-1776869170",
         "name": "Auto Generated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -157,8 +157,8 @@
         "code": "PROD-AUTO-1776869269",
         "name": "Auto Generated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -167,8 +167,8 @@
         "code": "Support-M",
         "name": "Desktop/network support via email & phone",
         "description": "Desktop/network support via email & phone.\r\nPer month fixed fee for minimum 20 hours/month.",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -177,8 +177,8 @@
         "code": "TEST-ITEM-001",
         "name": "Test Updated Item",
         "description": null,
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -187,8 +187,8 @@
         "code": "Train-MS",
         "name": "Half day training - Microsoft Office",
         "description": "Half day training - Microsoft Office",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -197,8 +197,8 @@
         "code": "TSL - Black",
         "name": "T-Shirt Large Black",
         "description": "Company Branded T-Shirt Large Black.  Check out our website for other offers!",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -207,8 +207,8 @@
         "code": "TSM - Black",
         "name": "T-Shirt Medium Black",
         "description": "Company Branded T-Shirt Medium Black.  Check out our website for other offers!",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       },
@@ -217,13 +217,13 @@
         "code": "TSS - Black",
         "name": "T-Shirt Small Black",
         "description": "Company Branded T-Shirt Small Black.  Check out our website for other offers!",
-        "is_sold": true,
-        "is_purchased": true,
+        "isSold": true,
+        "isPurchased": true,
         "type": null,
         "status": null
       }
     ],
-    "next_cursor": null
+    "nextCursor": null
   },
   "nango": {
     "getConnection": {}

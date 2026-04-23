@@ -1,6 +1,6 @@
 {
   "input": {
-    "purchase_order_id": "fa004ba7-d015-4603-99bf-777054aaa61b"
+    "purchaseOrderId": "fa004ba7-d015-4603-99bf-777054aaa61b"
   },
   "output": {
     "purchaseOrder": {

@@ -5,14 +5,14 @@
     "type": "EXPENSE"
   },
   "output": {
-    "account_id": "3279361b-4c91-4985-a616-ecfd561709a0",
+    "accountId": "3279361b-4c91-4985-a616-ecfd561709a0",
     "code": "90003",
     "name": "Test Account Save 2026",
     "type": "EXPENSE",
     "description": null,
-    "tax_type": "INPUT",
-    "enable_payments_to_account": false,
-    "show_in_expense_claims": false,
+    "taxType": "INPUT",
+    "enablePaymentsToAccount": false,
+    "showInExpenseClaims": false,
     "status": "ACTIVE"
   },
   "nango": {

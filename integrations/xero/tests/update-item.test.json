@@ -1,35 +1,35 @@
 {
   "input": {
-    "item_id": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+    "itemId": "7bee1670-1979-42f6-a086-c149e9cd2d24",
     "code": "TEST-ITEM-001",
     "name": "Updated Test Item",
     "description": "Updated description",
-    "sales_unit_price": 149.99
+    "salesUnitPrice": 149.99
   },
   "output": {
-    "item_id": "7bee1670-1979-42f6-a086-c149e9cd2d24",
+    "itemId": "7bee1670-1979-42f6-a086-c149e9cd2d24",
     "code": "TEST-ITEM-001",
     "name": "Updated Test Item",
     "description": "Updated description",
-    "purchase_description": null,
-    "is_sold": true,
-    "is_purchased": true,
-    "sales_details": {
-      "unit_price": 149.99,
-      "account_code": "200",
-      "tax_type": "OUTPUT",
-      "cogs_account_code": null
+    "purchaseDescription": null,
+    "isSold": true,
+    "isPurchased": true,
+    "salesDetails": {
+      "unitPrice": 149.99,
+      "accountCode": "200",
+      "taxType": "OUTPUT",
+      "cogsAccountCode": null
     },
-    "purchase_details": {
-      "unit_price": null,
-      "account_code": null,
-      "tax_type": null,
-      "cogs_account_code": null
+    "purchaseDetails": {
+      "unitPrice": null,
+      "accountCode": null,
+      "taxType": null,
+      "cogsAccountCode": null
     },
-    "is_tracked_as_inventory": false,
-    "inventory_asset_account_code": null,
+    "isTrackedAsInventory": false,
+    "inventoryAssetAccountCode": null,
     "status": "",
-    "updated_date_utc": "/Date(1776870259473)/"
+    "updatedDateUtc": "/Date(1776870259473)/"
   },
   "nango": {
     "getConnection": {}

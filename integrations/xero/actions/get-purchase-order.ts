@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    purchase_order_id: z.string().uuid().describe('The unique identifier of the purchase order to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"')
+    purchaseOrderId: z.string().uuid().describe('The unique identifier of the purchase order to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"')
 });
 
 const ContactSchema = z
@@ -114,7 +114,7 @@ const action = createAction({
 
         const config = {
             // https://developer.xero.com/documentation/api/accounting/purchaseorders
-            endpoint: `api.xro/2.0/PurchaseOrders/${input.purchase_order_id}`,
+            endpoint: `api.xro/2.0/PurchaseOrders/${input.purchaseOrderId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -126,8 +126,8 @@ const action = createAction({
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Purchase order with ID ${input.purchase_order_id} not found`,
-                purchase_order_id: input.purchase_order_id
+                message: `Purchase order with ID ${input.purchaseOrderId} not found`,
+                purchaseOrderId: input.purchaseOrderId
             });
         }
 

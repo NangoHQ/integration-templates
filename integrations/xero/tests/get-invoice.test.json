@@ -1,6 +1,6 @@
 {
   "input": {
-    "invoice_id": "9f5bca33-8590-4b6f-acfb-e85712b10217"
+    "invoiceId": "9f5bca33-8590-4b6f-acfb-e85712b10217"
   },
   "output": {
     "invoice": {

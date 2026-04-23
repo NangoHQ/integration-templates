@@ -3,23 +3,23 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        invoice_id: z.string().optional().describe('The ID of the invoice to apply payment to. Example: "00000000-0000-0000-0000-000000000000"'),
-        credit_note_id: z.string().optional().describe('The ID of the credit note to apply payment to. Example: "00000000-0000-0000-0000-000000000000"'),
-        account_id: z.string().optional().describe('The ID of the bank account to pay from. Example: "00000000-0000-0000-0000-000000000000"'),
-        account_code: z.string().optional().describe('The account code of the bank account to pay from. Example: "001"'),
+        invoiceId: z.string().optional().describe('The ID of the invoice to apply payment to. Example: "00000000-0000-0000-0000-000000000000"'),
+        creditNoteId: z.string().optional().describe('The ID of the credit note to apply payment to. Example: "00000000-0000-0000-0000-000000000000"'),
+        accountId: z.string().optional().describe('The ID of the bank account to pay from. Example: "00000000-0000-0000-0000-000000000000"'),
+        accountCode: z.string().optional().describe('The account code of the bank account to pay from. Example: "001"'),
         amount: z.number().describe('The amount of the payment. Example: 100.50'),
         date: z.string().describe('The date of the payment in YYYY-MM-DD format. Example: "2024-01-15"'),
         reference: z.string().optional().describe('Optional reference for the payment. Example: "Payment for Invoice #123"')
     })
-    .refine((data) => data.invoice_id || data.credit_note_id, {
-        message: 'Either invoice_id or credit_note_id must be provided'
+    .refine((data) => data.invoiceId || data.creditNoteId, {
+        message: 'Either invoiceId or creditNoteId must be provided'
     })
-    .refine((data) => data.account_id || data.account_code, {
-        message: 'Either account_id or account_code must be provided'
+    .refine((data) => data.accountId || data.accountCode, {
+        message: 'Either accountId or accountCode must be provided'
     });
 
 const OutputSchema = z.object({
-    payment_id: z.string(),
+    paymentId: z.string(),
     status: z.string()
 });
 
@@ -105,17 +105,17 @@ const action = createAction({
         };
 
         // Add invoice or credit note reference
-        if (input.invoice_id) {
-            payment['Invoice'] = { InvoiceID: input.invoice_id };
-        } else if (input.credit_note_id) {
-            payment['CreditNote'] = { CreditNoteID: input.credit_note_id };
+        if (input.invoiceId) {
+            payment['Invoice'] = { InvoiceID: input.invoiceId };
+        } else if (input.creditNoteId) {
+            payment['CreditNote'] = { CreditNoteID: input.creditNoteId };
         }
 
         // Add account reference
-        if (input.account_id) {
-            payment['Account'] = { AccountID: input.account_id };
-        } else if (input.account_code) {
-            payment['Account'] = { Code: input.account_code };
+        if (input.accountId) {
+            payment['Account'] = { AccountID: input.accountId };
+        } else if (input.accountCode) {
+            payment['Account'] = { Code: input.accountCode };
         }
 
         // Add optional reference
@@ -186,7 +186,7 @@ const action = createAction({
         }
 
         return {
-            payment_id: paymentId,
+            paymentId: paymentId,
             status: status || 'UNKNOWN'
         };
     }

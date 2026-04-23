@@ -1,6 +1,6 @@
 {
   "input": {
-    "account_id": "4e804fa1-cf8a-4123-aefa-3bf62c4b300b",
+    "accountId": "4e804fa1-cf8a-4123-aefa-3bf62c4b300b",
     "name": "OpenCode Test Account 2 - Updated"
   },
   "output": {
@@ -9,10 +9,10 @@
     "name": "OpenCode Test Account 2 - Updated",
     "status": "ACTIVE",
     "type": "REVENUE",
-    "tax_type": "OUTPUT",
+    "taxType": "OUTPUT",
     "description": "Second test account",
-    "enable_payments_to_account": false,
-    "show_in_expense_claims": false
+    "enablePaymentsToAccount": false,
+    "showInExpenseClaims": false
   },
   "nango": {
     "getConnection": {}

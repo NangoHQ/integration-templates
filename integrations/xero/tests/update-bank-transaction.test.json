@@ -1,40 +1,40 @@
 {
   "input": {
-    "bank_transaction_id": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
+    "bankTransactionId": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
     "reference": "Updated via Nango dryrun"
   },
   "output": {
-    "bank_transaction": {
-      "bank_transaction_id": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
+    "bankTransaction": {
+      "bankTransactionId": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
       "type": "SPEND",
       "date": "/Date(1776816000000+0000)/",
       "status": "AUTHORISED",
-      "currency_code": "USD",
-      "currency_rate": 1,
-      "sub_total": 46.19,
-      "total_tax": 3.81,
+      "currencyCode": "USD",
+      "currencyRate": 1,
+      "subTotal": 46.19,
+      "totalTax": 3.81,
       "total": 50,
       "reference": "Updated via Nango dryrun",
-      "is_reconciled": false,
-      "has_attachments": false,
+      "isReconciled": false,
+      "hasAttachments": false,
       "contact": {
-        "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+        "contactId": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
         "name": "RITE Agency"
       },
-      "bank_account": {
-        "account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+      "bankAccount": {
+        "accountId": "562555f2-8cde-4ce9-8203-0363922537a4",
         "code": "090",
         "name": "Business Bank Account"
       },
-      "line_items": [
+      "lineItems": [
         {
           "description": "Test transaction for update action",
           "quantity": 1,
-          "unit_amount": 50,
-          "account_code": "400",
-          "tax_type": "INPUT",
-          "tax_amount": 3.81,
-          "line_amount": 50
+          "unitAmount": 50,
+          "accountCode": "400",
+          "taxType": "INPUT",
+          "taxAmount": 3.81,
+          "lineAmount": 50
         }
       ]
     }

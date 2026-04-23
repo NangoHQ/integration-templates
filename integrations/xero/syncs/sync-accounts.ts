@@ -3,23 +3,23 @@ import { z } from 'zod';
 
 const AccountSchema = z.object({
     id: z.string(),
-    account_id: z.string(),
+    accountId: z.string(),
     code: z.union([z.string(), z.null()]),
     name: z.union([z.string(), z.null()]),
     type: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
     description: z.union([z.string(), z.null()]),
-    tax_type: z.union([z.string(), z.null()]),
-    enable_payments_to_account: z.union([z.boolean(), z.null()]),
-    show_in_expense_claims: z.union([z.boolean(), z.null()]),
+    taxType: z.union([z.string(), z.null()]),
+    enablePaymentsToAccount: z.union([z.boolean(), z.null()]),
+    showInExpenseClaims: z.union([z.boolean(), z.null()]),
     class: z.union([z.string(), z.null()]),
-    system_account: z.union([z.string(), z.null()]),
-    bank_account_number: z.union([z.string(), z.null()]),
-    bank_account_type: z.union([z.string(), z.null()]),
-    currency_code: z.union([z.string(), z.null()]),
-    reporting_code: z.union([z.string(), z.null()]),
-    reporting_code_name: z.union([z.string(), z.null()]),
-    updated_at: z.union([z.string(), z.null()])
+    systemAccount: z.union([z.string(), z.null()]),
+    bankAccountNumber: z.union([z.string(), z.null()]),
+    bankAccountType: z.union([z.string(), z.null()]),
+    currencyCode: z.union([z.string(), z.null()]),
+    reportingCode: z.union([z.string(), z.null()]),
+    reportingCodeName: z.union([z.string(), z.null()]),
+    updatedAt: z.union([z.string(), z.null()])
 });
 
 interface ConnectionInfo {
@@ -172,23 +172,23 @@ const sync = createSync({
 
                     return {
                         id: typeof accountId === 'string' ? accountId : '',
-                        account_id: typeof accountId === 'string' ? accountId : '',
+                        accountId: typeof accountId === 'string' ? accountId : '',
                         code: typeof code === 'string' ? code : null,
                         name: typeof name === 'string' ? name : null,
                         type: typeof type === 'string' ? type : null,
                         status: typeof status === 'string' ? status : null,
                         description: typeof description === 'string' ? description : null,
-                        tax_type: typeof taxType === 'string' ? taxType : null,
-                        enable_payments_to_account: typeof enablePayments === 'boolean' ? enablePayments : null,
-                        show_in_expense_claims: typeof showInClaims === 'boolean' ? showInClaims : null,
+                        taxType: typeof taxType === 'string' ? taxType : null,
+                        enablePaymentsToAccount: typeof enablePayments === 'boolean' ? enablePayments : null,
+                        showInExpenseClaims: typeof showInClaims === 'boolean' ? showInClaims : null,
                         class: typeof classValue === 'string' ? classValue : null,
-                        system_account: typeof systemAccount === 'string' ? systemAccount : null,
-                        bank_account_number: typeof bankAccountNumber === 'string' ? bankAccountNumber : null,
-                        bank_account_type: typeof bankAccountType === 'string' ? bankAccountType : null,
-                        currency_code: typeof currencyCode === 'string' ? currencyCode : null,
-                        reporting_code: typeof reportingCode === 'string' ? reportingCode : null,
-                        reporting_code_name: typeof reportingCodeName === 'string' ? reportingCodeName : null,
-                        updated_at: typeof updatedAt === 'string' ? updatedAt : null
+                        systemAccount: typeof systemAccount === 'string' ? systemAccount : null,
+                        bankAccountNumber: typeof bankAccountNumber === 'string' ? bankAccountNumber : null,
+                        bankAccountType: typeof bankAccountType === 'string' ? bankAccountType : null,
+                        currencyCode: typeof currencyCode === 'string' ? currencyCode : null,
+                        reportingCode: typeof reportingCode === 'string' ? reportingCode : null,
+                        reportingCodeName: typeof reportingCodeName === 'string' ? reportingCodeName : null,
+                        updatedAt: typeof updatedAt === 'string' ? updatedAt : null
                     };
                 })
                 .filter((account) => account.id !== '');

@@ -4,74 +4,74 @@ import { createAction } from 'nango';
 const LineItemSchema = z.object({
     description: z.string().describe('Line item description. Example: "Office supplies"'),
     quantity: z.number().optional().describe('Quantity of items. Example: 2'),
-    unit_amount: z.number().describe('Price per unit. Example: 50.00'),
-    account_code: z.string().describe('Account code for the line item. Example: "200"'),
-    tax_type: z.string().optional().describe('Tax type for the line item. Example: "OUTPUT"'),
-    item_code: z.string().optional().describe('Item code if referencing an existing item.')
+    unitAmount: z.number().describe('Price per unit. Example: 50.00'),
+    accountCode: z.string().describe('Account code for the line item. Example: "200"'),
+    taxType: z.string().optional().describe('Tax type for the line item. Example: "OUTPUT"'),
+    itemCode: z.string().optional().describe('Item code if referencing an existing item.')
 });
 
 const BankAccountSchema = z
     .object({
         code: z.string().optional().describe('Account code of the bank account. Example: "090"'),
-        account_id: z.string().optional().describe('Account ID of the bank account. Example: "00000000-0000-0000-0000-000000000000"')
+        accountId: z.string().optional().describe('Account ID of the bank account. Example: "00000000-0000-0000-0000-000000000000"')
     })
-    .refine((data) => data.code || data.account_id, {
-        message: 'Either code or account_id must be provided for BankAccount'
+    .refine((data) => data.code || data.accountId, {
+        message: 'Either code or accountId must be provided for BankAccount'
     });
 
 const ContactSchema = z
     .object({
-        contact_id: z.string().optional().describe('Contact ID. Example: "00000000-0000-0000-0000-000000000000"'),
-        name: z.string().optional().describe('Contact name (required if contact_id not provided). Example: "Acme Corporation"')
+        contactId: z.string().optional().describe('Contact ID. Example: "00000000-0000-0000-0000-000000000000"'),
+        name: z.string().optional().describe('Contact name (required if contactId not provided). Example: "Acme Corporation"')
     })
-    .refine((data) => data.contact_id || data.name, {
-        message: 'Either contact_id or name must be provided for Contact'
+    .refine((data) => data.contactId || data.name, {
+        message: 'Either contactId or name must be provided for Contact'
     });
 
 const InputSchema = z.object({
     type: z.enum(['SPEND', 'RECEIVE']).describe('Type of bank transaction. Example: "SPEND"'),
     contact: ContactSchema.describe('Contact for the transaction'),
-    bank_account: BankAccountSchema.describe('Bank account for the transaction'),
-    line_items: z.array(LineItemSchema).min(1).describe('Array of line items for the transaction'),
+    bankAccount: BankAccountSchema.describe('Bank account for the transaction'),
+    lineItems: z.array(LineItemSchema).min(1).describe('Array of line items for the transaction'),
     date: z.string().optional().describe('Transaction date in YYYY-MM-DD format. Defaults to today.'),
     reference: z.string().optional().describe('Reference for the transaction. Example: "INV-001"'),
-    currency_code: z.string().optional().describe('Currency code. Example: "USD"'),
+    currencyCode: z.string().optional().describe('Currency code. Example: "USD"'),
     status: z.enum(['AUTHORISED', 'DELETED', 'DRAFT']).optional().describe('Status of the transaction. Defaults to AUTHORISED.'),
-    is_reconciled: z.boolean().optional().describe('Whether the transaction is reconciled.'),
+    isReconciled: z.boolean().optional().describe('Whether the transaction is reconciled.'),
     url: z.string().optional().describe('URL link for the transaction.')
 });
 
 const OutputSchema = z.object({
-    bank_transaction_id: z.string().describe('Unique identifier for the bank transaction'),
+    bankTransactionId: z.string().describe('Unique identifier for the bank transaction'),
     type: z.enum(['SPEND', 'RECEIVE']).describe('Type of bank transaction'),
-    contact_id: z.union([z.string(), z.null()]).describe('Contact ID'),
-    contact_name: z.union([z.string(), z.null()]).describe('Contact name'),
-    bank_account_id: z.union([z.string(), z.null()]).describe('Bank account ID'),
-    bank_account_code: z.union([z.string(), z.null()]).describe('Bank account code'),
+    contactId: z.union([z.string(), z.null()]).describe('Contact ID'),
+    contactName: z.union([z.string(), z.null()]).describe('Contact name'),
+    bankAccountId: z.union([z.string(), z.null()]).describe('Bank account ID'),
+    bankAccountCode: z.union([z.string(), z.null()]).describe('Bank account code'),
     date: z.string().describe('Transaction date'),
     reference: z.union([z.string(), z.null()]).describe('Transaction reference'),
-    currency_code: z.union([z.string(), z.null()]).describe('Currency code'),
+    currencyCode: z.union([z.string(), z.null()]).describe('Currency code'),
     status: z.string().describe('Transaction status'),
-    line_amount_types: z.union([z.string(), z.null()]).describe('Line amount types'),
-    sub_total: z.number().describe('Sub total amount'),
-    total_tax: z.number().describe('Total tax amount'),
+    lineAmountTypes: z.union([z.string(), z.null()]).describe('Line amount types'),
+    subTotal: z.number().describe('Sub total amount'),
+    totalTax: z.number().describe('Total tax amount'),
     total: z.number().describe('Total amount'),
-    is_reconciled: z.boolean().describe('Whether transaction is reconciled'),
-    line_items: z
+    isReconciled: z.boolean().describe('Whether transaction is reconciled'),
+    lineItems: z
         .array(
             z.object({
-                line_item_id: z.string(),
+                lineItemId: z.string(),
                 description: z.union([z.string(), z.null()]),
                 quantity: z.number(),
-                unit_amount: z.number(),
-                account_code: z.union([z.string(), z.null()]),
-                tax_type: z.union([z.string(), z.null()]),
-                line_amount: z.number()
+                unitAmount: z.number(),
+                accountCode: z.union([z.string(), z.null()]),
+                taxType: z.union([z.string(), z.null()]),
+                lineAmount: z.number()
             })
         )
         .describe('Array of line items'),
-    created_at: z.union([z.string(), z.null()]).describe('Creation timestamp'),
-    updated_at: z.union([z.string(), z.null()]).describe('Update timestamp')
+    createdAt: z.union([z.string(), z.null()]).describe('Creation timestamp'),
+    updatedAt: z.union([z.string(), z.null()]).describe('Update timestamp')
 });
 
 const ConnectionSchema = z.object({
@@ -177,21 +177,21 @@ const action = createAction({
 
         const bankTransactionPayload = {
             Type: input.type,
-            Contact: input.contact.contact_id ? { ContactID: input.contact.contact_id } : { Name: input.contact.name },
-            BankAccount: input.bank_account.account_id ? { AccountID: input.bank_account.account_id } : { Code: input.bank_account.code },
-            LineItems: input.line_items.map((item) => ({
+            Contact: input.contact.contactId ? { ContactID: input.contact.contactId } : { Name: input.contact.name },
+            BankAccount: input.bankAccount.accountId ? { AccountID: input.bankAccount.accountId } : { Code: input.bankAccount.code },
+            LineItems: input.lineItems.map((item) => ({
                 Description: item.description,
                 Quantity: item.quantity ?? 1,
-                UnitAmount: item.unit_amount,
-                AccountCode: item.account_code,
-                ...(item.tax_type && { TaxType: item.tax_type }),
-                ...(item.item_code && { ItemCode: item.item_code })
+                UnitAmount: item.unitAmount,
+                AccountCode: item.accountCode,
+                ...(item.taxType && { TaxType: item.taxType }),
+                ...(item.itemCode && { ItemCode: item.itemCode })
             })),
             ...(input.date && { Date: input.date }),
             ...(input.reference && { Reference: input.reference }),
-            ...(input.currency_code && { CurrencyCode: input.currency_code }),
+            ...(input.currencyCode && { CurrencyCode: input.currencyCode }),
             ...(input.status && { Status: input.status }),
-            ...(input.is_reconciled !== undefined && { IsReconciled: input.is_reconciled }),
+            ...(input.isReconciled !== undefined && { IsReconciled: input.isReconciled }),
             ...(input.url && { Url: input.url })
         };
 
@@ -237,34 +237,34 @@ const action = createAction({
 
         const lineItems = transaction.LineItems || [];
         const parsedLineItems = lineItems.map((item: Record<string, unknown>) => ({
-            line_item_id: typeof item['LineItemID'] === 'string' ? item['LineItemID'] : '',
+            lineItemId: typeof item['LineItemID'] === 'string' ? item['LineItemID'] : '',
             description: typeof item['Description'] === 'string' ? item['Description'] : null,
             quantity: typeof item['Quantity'] === 'number' ? item['Quantity'] : 0,
-            unit_amount: typeof item['UnitAmount'] === 'number' ? item['UnitAmount'] : 0,
-            account_code: typeof item['AccountCode'] === 'string' ? item['AccountCode'] : null,
-            tax_type: typeof item['TaxType'] === 'string' ? item['TaxType'] : null,
-            line_amount: typeof item['LineAmount'] === 'number' ? item['LineAmount'] : 0
+            unitAmount: typeof item['UnitAmount'] === 'number' ? item['UnitAmount'] : 0,
+            accountCode: typeof item['AccountCode'] === 'string' ? item['AccountCode'] : null,
+            taxType: typeof item['TaxType'] === 'string' ? item['TaxType'] : null,
+            lineAmount: typeof item['LineAmount'] === 'number' ? item['LineAmount'] : 0
         }));
 
         return {
-            bank_transaction_id: typeof transaction.BankTransactionID === 'string' ? transaction.BankTransactionID : '',
+            bankTransactionId: typeof transaction.BankTransactionID === 'string' ? transaction.BankTransactionID : '',
             type: transaction.Type === 'SPEND' || transaction.Type === 'RECEIVE' ? transaction.Type : 'SPEND',
-            contact_id: transaction.Contact && typeof transaction.Contact.ContactID === 'string' ? transaction.Contact.ContactID : null,
-            contact_name: transaction.Contact && typeof transaction.Contact.Name === 'string' ? transaction.Contact.Name : null,
-            bank_account_id: transaction.BankAccount && typeof transaction.BankAccount.AccountID === 'string' ? transaction.BankAccount.AccountID : null,
-            bank_account_code: transaction.BankAccount && typeof transaction.BankAccount.Code === 'string' ? transaction.BankAccount.Code : null,
+            contactId: transaction.Contact && typeof transaction.Contact.ContactID === 'string' ? transaction.Contact.ContactID : null,
+            contactName: transaction.Contact && typeof transaction.Contact.Name === 'string' ? transaction.Contact.Name : null,
+            bankAccountId: transaction.BankAccount && typeof transaction.BankAccount.AccountID === 'string' ? transaction.BankAccount.AccountID : null,
+            bankAccountCode: transaction.BankAccount && typeof transaction.BankAccount.Code === 'string' ? transaction.BankAccount.Code : null,
             date: typeof transaction.Date === 'string' ? transaction.Date : '',
             reference: typeof transaction.Reference === 'string' ? transaction.Reference : null,
-            currency_code: typeof transaction.CurrencyCode === 'string' ? transaction.CurrencyCode : null,
+            currencyCode: typeof transaction.CurrencyCode === 'string' ? transaction.CurrencyCode : null,
             status: typeof transaction.Status === 'string' ? transaction.Status : 'UNKNOWN',
-            line_amount_types: typeof transaction.LineAmountTypes === 'string' ? transaction.LineAmountTypes : null,
-            sub_total: typeof transaction.SubTotal === 'number' ? transaction.SubTotal : 0,
-            total_tax: typeof transaction.TotalTax === 'number' ? transaction.TotalTax : 0,
+            lineAmountTypes: typeof transaction.LineAmountTypes === 'string' ? transaction.LineAmountTypes : null,
+            subTotal: typeof transaction.SubTotal === 'number' ? transaction.SubTotal : 0,
+            totalTax: typeof transaction.TotalTax === 'number' ? transaction.TotalTax : 0,
             total: typeof transaction.Total === 'number' ? transaction.Total : 0,
-            is_reconciled: typeof transaction.IsReconciled === 'boolean' ? transaction.IsReconciled : false,
-            line_items: parsedLineItems,
-            created_at: typeof transaction.CreatedDateUTC === 'string' ? transaction.CreatedDateUTC : null,
-            updated_at: typeof transaction.UpdatedDateUTC === 'string' ? transaction.UpdatedDateUTC : null
+            isReconciled: typeof transaction.IsReconciled === 'boolean' ? transaction.IsReconciled : false,
+            lineItems: parsedLineItems,
+            createdAt: typeof transaction.CreatedDateUTC === 'string' ? transaction.CreatedDateUTC : null,
+            updatedAt: typeof transaction.UpdatedDateUTC === 'string' ? transaction.UpdatedDateUTC : null
         };
     }
 });

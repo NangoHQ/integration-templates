@@ -7,30 +7,30 @@ const PaymentSchema = z.object({
     id: z.string(),
     date: z.union([z.string(), z.null()]),
     amount: z.union([z.number(), z.null()]),
-    currency_rate: z.union([z.number(), z.null()]),
-    payment_type: z.union([z.string(), z.null()]),
+    currencyRate: z.union([z.number(), z.null()]),
+    paymentType: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
-    updated_date_utc: z.union([z.string(), z.null()]),
+    updatedDateUtc: z.union([z.string(), z.null()]),
     reference: z.union([z.string(), z.null()]),
-    is_reconciled: z.union([z.boolean(), z.null()]),
-    account_id: z.union([z.string(), z.null()]),
-    invoice_id: z.union([z.string(), z.null()]),
-    credit_note_id: z.union([z.string(), z.null()]),
-    prepayment_id: z.union([z.string(), z.null()]),
-    overpayment_id: z.union([z.string(), z.null()]),
-    bank_account_number: z.union([z.string(), z.null()]),
-    bank_account_name: z.union([z.string(), z.null()]),
+    isReconciled: z.union([z.boolean(), z.null()]),
+    accountId: z.union([z.string(), z.null()]),
+    invoiceId: z.union([z.string(), z.null()]),
+    creditNoteId: z.union([z.string(), z.null()]),
+    prepaymentId: z.union([z.string(), z.null()]),
+    overpaymentId: z.union([z.string(), z.null()]),
+    bankAccountNumber: z.union([z.string(), z.null()]),
+    bankAccountName: z.union([z.string(), z.null()]),
     details: z.union([z.string(), z.null()]),
-    has_attachments: z.union([z.boolean(), z.null()]),
-    has_account_id: z.union([z.boolean(), z.null()]),
-    has_validation_errors: z.union([z.boolean(), z.null()]),
-    batch_payment_id: z.union([z.string(), z.null()])
+    hasAttachments: z.union([z.boolean(), z.null()]),
+    hasAccountId: z.union([z.boolean(), z.null()]),
+    hasValidationErrors: z.union([z.boolean(), z.null()]),
+    batchPaymentId: z.union([z.string(), z.null()])
 });
 
 // Checkpoint schema - must be Record<string, ZodString | ZodNumber | ZodBoolean>
 // No optional fields allowed at top level, use empty string as default
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updatedAfter: z.string()
 });
 
 type Checkpoint = z.infer<typeof CheckpointSchema>;
@@ -107,7 +107,7 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
 
         // Use empty string as default for initial run
-        const typedCheckpoint: Checkpoint = checkpoint ?? { updated_after: '' };
+        const typedCheckpoint: Checkpoint = checkpoint ?? { updatedAfter: '' };
 
         // Resolve tenant ID from connection config, metadata, or connections API
         // https://developer.xero.com/documentation/api/accounting/overview#tenant-id-resolution
@@ -168,8 +168,8 @@ const sync = createSync({
         };
 
         // Add If-Modified-Since header for incremental sync
-        if (typedCheckpoint.updated_after) {
-            headers['If-Modified-Since'] = typedCheckpoint.updated_after;
+        if (typedCheckpoint.updatedAfter) {
+            headers['If-Modified-Since'] = typedCheckpoint.updatedAfter;
         }
 
         // https://developer.xero.com/documentation/api/accounting/payments
@@ -215,24 +215,24 @@ const sync = createSync({
                     id: payment.PaymentID,
                     date: payment.Date ?? null,
                     amount: payment.Amount ?? null,
-                    currency_rate: payment.CurrencyRate ?? null,
-                    payment_type: payment.PaymentType ?? null,
+                    currencyRate: payment.CurrencyRate ?? null,
+                    paymentType: payment.PaymentType ?? null,
                     status: payment.Status ?? null,
-                    updated_date_utc: payment.UpdatedDateUTC ?? null,
+                    updatedDateUtc: payment.UpdatedDateUTC ?? null,
                     reference: payment.Reference ?? null,
-                    is_reconciled: payment.IsReconciled ?? null,
-                    account_id: payment.Account?.AccountID ?? null,
-                    invoice_id: payment.Invoice?.InvoiceID ?? null,
-                    credit_note_id: payment.CreditNote?.CreditNoteID ?? null,
-                    prepayment_id: payment.Prepayment?.PrepaymentID ?? null,
-                    overpayment_id: payment.Overpayment?.OverpaymentID ?? null,
-                    bank_account_number: payment.BankAccountNumber ?? null,
-                    bank_account_name: payment.BankAccountName ?? null,
+                    isReconciled: payment.IsReconciled ?? null,
+                    accountId: payment.Account?.AccountID ?? null,
+                    invoiceId: payment.Invoice?.InvoiceID ?? null,
+                    creditNoteId: payment.CreditNote?.CreditNoteID ?? null,
+                    prepaymentId: payment.Prepayment?.PrepaymentID ?? null,
+                    overpaymentId: payment.Overpayment?.OverpaymentID ?? null,
+                    bankAccountNumber: payment.BankAccountNumber ?? null,
+                    bankAccountName: payment.BankAccountName ?? null,
                     details: payment.Details ?? null,
-                    has_attachments: payment.HasAttachments ?? null,
-                    has_account_id: payment.HasAccountID ?? null,
-                    has_validation_errors: payment.HasValidationErrors ?? null,
-                    batch_payment_id: payment.BatchPaymentID ?? null
+                    hasAttachments: payment.HasAttachments ?? null,
+                    hasAccountId: payment.HasAccountID ?? null,
+                    hasValidationErrors: payment.HasValidationErrors ?? null,
+                    batchPaymentId: payment.BatchPaymentID ?? null
                 };
             });
 
@@ -240,7 +240,7 @@ const sync = createSync({
                 await nango.batchSave(payments, 'Payment');
 
                 // Save checkpoint with the most recent UpdatedDateUTC
-                const validDates = payments.map((p) => p.updated_date_utc).filter((d): d is string => d !== null);
+                const validDates = payments.map((p) => p.updatedDateUtc).filter((d): d is string => d !== null);
 
                 if (validDates.length > 0) {
                     // Sort and get the latest date
@@ -248,7 +248,7 @@ const sync = createSync({
                     const latestDate = validDates[validDates.length - 1];
                     if (latestDate) {
                         await nango.saveCheckpoint({
-                            updated_after: latestDate
+                            updatedAfter: latestDate
                         });
                     }
                 }

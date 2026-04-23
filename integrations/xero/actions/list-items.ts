@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page. Example: "2"'),
-    modified_since: z.string().optional().describe('Filter items modified since this date (ISO 8601 format). Example: "2024-01-01T00:00:00"')
+    modifiedSince: z.string().optional().describe('Filter items modified since this date (ISO 8601 format). Example: "2024-01-01T00:00:00"')
 });
 
 const ItemSchema = z.object({
@@ -11,15 +11,15 @@ const ItemSchema = z.object({
     code: z.union([z.string(), z.null()]),
     name: z.union([z.string(), z.null()]),
     description: z.union([z.string(), z.null()]),
-    is_sold: z.union([z.boolean(), z.null()]),
-    is_purchased: z.union([z.boolean(), z.null()]),
+    isSold: z.union([z.boolean(), z.null()]),
+    isPurchased: z.union([z.boolean(), z.null()]),
     type: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()])
 });
 
 const OutputSchema = z.object({
     items: z.array(ItemSchema),
-    next_cursor: z.union([z.string(), z.null()])
+    nextCursor: z.union([z.string(), z.null()])
 });
 
 const ConnectionsResponseSchema = z.object({
@@ -140,8 +140,8 @@ const action = createAction({
             'xero-tenant-id': tenantId
         };
 
-        if (input.modified_since) {
-            headers['If-Modified-Since'] = input.modified_since;
+        if (input.modifiedSince) {
+            headers['If-Modified-Since'] = input.modifiedSince;
         }
 
         // https://developer.xero.com/documentation/api/accounting/items
@@ -171,8 +171,8 @@ const action = createAction({
             code: item.Code ?? null,
             name: item.Name ?? null,
             description: item.Description ?? null,
-            is_sold: item.IsSold ?? null,
-            is_purchased: item.IsPurchased ?? null,
+            isSold: item.IsSold ?? null,
+            isPurchased: item.IsPurchased ?? null,
             type: item.Type ?? null,
             status: item.Status ?? null
         }));
@@ -184,7 +184,7 @@ const action = createAction({
 
         return {
             items: mappedItems,
-            next_cursor: nextCursor
+            nextCursor: nextCursor
         };
     }
 });

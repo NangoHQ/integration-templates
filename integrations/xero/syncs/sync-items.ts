@@ -6,18 +6,18 @@ const ItemSchema = z.object({
     code: z.string(),
     name: z.string(),
     description: z.string(),
-    is_tracked: z.boolean(),
-    quantity_on_hand: z.number(),
-    average_cost: z.number(),
-    is_sold: z.boolean(),
-    is_purchased: z.boolean(),
-    sales_details: z.string(),
-    purchase_details: z.string(),
-    updated_at: z.string()
+    isTracked: z.boolean(),
+    quantityOnHand: z.number(),
+    averageCost: z.number(),
+    isSold: z.boolean(),
+    isPurchased: z.boolean(),
+    salesDetails: z.string(),
+    purchaseDetails: z.string(),
+    updatedAt: z.string()
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updatedAfter: z.string()
 });
 
 const XeroItemSchema = z.object({
@@ -70,7 +70,7 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
     exec: async (nango) => {
         const checkpointResult = await nango.getCheckpoint();
         const checkpoint = checkpointResult || null;
-        let latestUpdatedAt = checkpoint?.updated_after ?? '';
+        let latestUpdatedAt = checkpoint?.updatedAfter ?? '';
 
         // Resolve tenant ID: connection_config -> metadata -> connections API
         const connectionResult = await nango.getConnection();
@@ -121,7 +121,7 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
                 endpoint: 'api.xro/2.0/Items',
                 headers: {
                     'xero-tenant-id': tenantId,
-                    ...(checkpoint?.updated_after && { 'If-Modified-Since': checkpoint.updated_after })
+                    ...(checkpoint?.updatedAfter && { 'If-Modified-Since': checkpoint.updatedAfter })
                 },
                 params: {
                     page: String(page),
@@ -177,14 +177,14 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
                         code: item.Code || '',
                         name: item.Name || '',
                         description: item.Description || '',
-                        is_tracked: item.IsTrackedAsInventory || false,
-                        quantity_on_hand: item.QuantityOnHand || 0,
-                        average_cost: item.AverageCost || 0,
-                        is_sold: item.IsSold || false,
-                        is_purchased: item.IsPurchased || false,
-                        sales_details: item.SalesDetails ? JSON.stringify(item.SalesDetails) : '',
-                        purchase_details: item.PurchaseDetails ? JSON.stringify(item.PurchaseDetails) : '',
-                        updated_at: updatedAt
+                        isTracked: item.IsTrackedAsInventory || false,
+                        quantityOnHand: item.QuantityOnHand || 0,
+                        averageCost: item.AverageCost || 0,
+                        isSold: item.IsSold || false,
+                        isPurchased: item.IsPurchased || false,
+                        salesDetails: item.SalesDetails ? JSON.stringify(item.SalesDetails) : '',
+                        purchaseDetails: item.PurchaseDetails ? JSON.stringify(item.PurchaseDetails) : '',
+                        updatedAt: updatedAt
                     };
                 })
                 .filter((item): item is NonNullable<typeof item> => item !== null);
@@ -198,7 +198,7 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
             if (pageLatestUpdatedAt !== latestUpdatedAt) {
                 latestUpdatedAt = pageLatestUpdatedAt;
                 await nango.saveCheckpoint({
-                    updated_after: latestUpdatedAt
+                    updatedAfter: latestUpdatedAt
                 });
             }
 

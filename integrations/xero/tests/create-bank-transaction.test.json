@@ -4,46 +4,46 @@
     "contact": {
       "name": "Test Contact"
     },
-    "bank_account": {
+    "bankAccount": {
       "code": "090"
     },
-    "line_items": [
+    "lineItems": [
       {
         "description": "Test line item",
-        "unit_amount": 100,
-        "account_code": "200"
+        "unitAmount": 100,
+        "accountCode": "200"
       }
     ]
   },
   "output": {
-    "bank_transaction_id": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
+    "bankTransactionId": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
     "type": "SPEND",
-    "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
-    "contact_name": "Test Contact",
-    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
-    "bank_account_code": "090",
+    "contactId": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+    "contactName": "Test Contact",
+    "bankAccountId": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "bankAccountCode": "090",
     "date": "/Date(1776816000000+0000)/",
     "reference": null,
-    "currency_code": "USD",
+    "currencyCode": "USD",
     "status": "AUTHORISED",
-    "line_amount_types": "Inclusive",
-    "sub_total": 92.38,
-    "total_tax": 7.62,
+    "lineAmountTypes": "Inclusive",
+    "subTotal": 92.38,
+    "totalTax": 7.62,
     "total": 100,
-    "is_reconciled": false,
-    "line_items": [
+    "isReconciled": false,
+    "lineItems": [
       {
-        "line_item_id": "28c2f026-79c8-407e-be99-2d0aa576a12d",
+        "lineItemId": "28c2f026-79c8-407e-be99-2d0aa576a12d",
         "description": "Test line item",
         "quantity": 1,
-        "unit_amount": 100,
-        "account_code": "200",
-        "tax_type": "OUTPUT",
-        "line_amount": 100
+        "unitAmount": 100,
+        "accountCode": "200",
+        "taxType": "OUTPUT",
+        "lineAmount": 100
       }
     ],
-    "created_at": null,
-    "updated_at": "/Date(1776870767823+0000)/"
+    "createdAt": null,
+    "updatedAt": "/Date(1776870767823+0000)/"
   },
   "nango": {
     "getConnection": {}

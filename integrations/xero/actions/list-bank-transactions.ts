@@ -56,14 +56,14 @@ const InputSchema = z.object({
     page: z.number().optional().describe('Page number for pagination (1-based)'),
     where: z.string().optional().describe('Xero where clause filter (e.g., "Status==\'AUTHORISED\'")'),
     order: z.string().optional().describe('Order by clause (e.g., "Date DESC")'),
-    if_modified_since: z.string().optional().describe('RFC 7231 formatted timestamp to return only modified records')
+    ifModifiedSince: z.string().optional().describe('RFC 7231 formatted timestamp to return only modified records')
 });
 
 // Output schema
 const OutputSchema = z.object({
-    bank_transactions: z.array(BankTransactionSchema),
+    bankTransactions: z.array(BankTransactionSchema),
     page: z.number(),
-    total_count: z.number().optional()
+    totalCount: z.number().optional()
 });
 
 const action = createAction({
@@ -141,8 +141,8 @@ const action = createAction({
             'xero-tenant-id': tenantId
         };
 
-        if (input.if_modified_since) {
-            headers['If-Modified-Since'] = input.if_modified_since;
+        if (input.ifModifiedSince) {
+            headers['If-Modified-Since'] = input.ifModifiedSince;
         }
 
         // Build query params
@@ -206,9 +206,9 @@ const action = createAction({
         const pagination = data.pagination;
 
         return {
-            bank_transactions: bankTransactions,
+            bankTransactions: bankTransactions,
             page: pagination && typeof pagination.page === 'number' ? pagination.page : input.page || 1,
-            total_count: pagination && typeof pagination.itemCount === 'number' ? pagination.itemCount : undefined
+            totalCount: pagination && typeof pagination.itemCount === 'number' ? pagination.itemCount : undefined
         };
     }
 });

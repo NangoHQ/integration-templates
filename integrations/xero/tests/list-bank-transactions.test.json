@@ -1,7 +1,7 @@
 {
   "input": {},
   "output": {
-    "bank_transactions": [
+    "bankTransactions": [
       {
         "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
         "Type": "SPEND",

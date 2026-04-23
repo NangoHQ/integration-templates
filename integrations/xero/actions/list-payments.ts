@@ -6,7 +6,7 @@ const InputSchema = z.object({
     page: z.number().optional().describe('Page number for pagination. Starts at 1.'),
     where: z.string().optional().describe('OData filter clause. Example: Status==AUTHORISED'),
     order: z.string().optional().describe('Order by clause. Example: Date DESC'),
-    if_modified_since: z.string().optional().describe('ISO 8601 timestamp. Only records changed since this time will be returned.')
+    ifModifiedSince: z.string().optional().describe('ISO 8601 timestamp. Only records changed since this time will be returned.')
 });
 
 // Payment output schema based on Xero API
@@ -65,7 +65,7 @@ const PaymentSchema = z.object({
 
 const OutputSchema = z.object({
     payments: z.array(PaymentSchema),
-    next_cursor: z.union([z.string(), z.null()])
+    nextCursor: z.union([z.string(), z.null()])
 });
 
 function isRecordStringUnknown(value: unknown): value is Record<string, unknown> {
@@ -139,8 +139,8 @@ const action = createAction({
             'xero-tenant-id': tenantId
         };
 
-        if (input['if_modified_since']) {
-            headers['If-Modified-Since'] = input['if_modified_since'];
+        if (input['ifModifiedSince']) {
+            headers['If-Modified-Since'] = input['ifModifiedSince'];
         }
 
         const params: Record<string, string | number> = {};
@@ -420,7 +420,7 @@ const action = createAction({
 
         return {
             payments,
-            next_cursor: nextCursor
+            nextCursor: nextCursor
         };
     }
 });

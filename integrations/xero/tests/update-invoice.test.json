@@ -1,16 +1,16 @@
 {
   "input": {
-    "invoice_id": "e3a73c19-0a33-409c-9819-f423aac3c1ae",
+    "invoiceId": "e3a73c19-0a33-409c-9819-f423aac3c1ae",
     "reference": "Updated via Nango API"
   },
   "output": {
-    "invoice_id": "e3a73c19-0a33-409c-9819-f423aac3c1ae",
-    "invoice_number": "INV-0040",
+    "invoiceId": "e3a73c19-0a33-409c-9819-f423aac3c1ae",
+    "invoiceNumber": "INV-0040",
     "type": "ACCREC",
     "status": "DRAFT",
     "total": 108.25,
-    "currency_code": "USD",
-    "updated_date_utc": "/Date(1776870156373+0000)/"
+    "currencyCode": "USD",
+    "updatedDateUtc": "/Date(1776870156373+0000)/"
   },
   "nango": {
     "getConnection": {}

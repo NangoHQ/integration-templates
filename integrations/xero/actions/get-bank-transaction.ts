@@ -2,26 +2,26 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    bank_transaction_id: z.string().describe('The Xero BankTransactionID to retrieve. Example: "a3d758d4-1234-5678-90ab-cdefghijklmn"')
+    bankTransactionId: z.string().describe('The Xero BankTransactionID to retrieve. Example: "a3d758d4-1234-5678-90ab-cdefghijklmn"')
 });
 
 const OutputSchema = z.object({
-    bank_transaction_id: z.string(),
+    bankTransactionId: z.string(),
     type: z.union([z.string(), z.null()]),
-    contact_id: z.union([z.string(), z.null()]),
-    contact_name: z.union([z.string(), z.null()]),
+    contactId: z.union([z.string(), z.null()]),
+    contactName: z.union([z.string(), z.null()]),
     date: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
-    bank_account_id: z.union([z.string(), z.null()]),
-    bank_account_name: z.union([z.string(), z.null()]),
-    currency_code: z.union([z.string(), z.null()]),
-    currency_rate: z.union([z.number(), z.null()]),
-    sub_total: z.union([z.number(), z.null()]),
-    total_tax: z.union([z.number(), z.null()]),
+    bankAccountId: z.union([z.string(), z.null()]),
+    bankAccountName: z.union([z.string(), z.null()]),
+    currencyCode: z.union([z.string(), z.null()]),
+    currencyRate: z.union([z.number(), z.null()]),
+    subTotal: z.union([z.number(), z.null()]),
+    totalTax: z.union([z.number(), z.null()]),
     total: z.union([z.number(), z.null()]),
     reference: z.union([z.string(), z.null()]),
-    is_reconciled: z.union([z.boolean(), z.null()]),
-    updated_at: z.union([z.string(), z.null()])
+    isReconciled: z.union([z.boolean(), z.null()]),
+    updatedAt: z.union([z.string(), z.null()])
 });
 
 // Schema for connection config tenant_id
@@ -160,7 +160,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/banktransactions#get-banktransactions-
         const response = await nango.get({
-            endpoint: `api.xro/2.0/BankTransactions/${input.bank_transaction_id}`,
+            endpoint: `api.xro/2.0/BankTransactions/${input.bankTransactionId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -182,7 +182,7 @@ const action = createAction({
         if (!bankTransactions || bankTransactions.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Bank transaction with ID "${input.bank_transaction_id}" was not found.`
+                message: `Bank transaction with ID "${input.bankTransactionId}" was not found.`
             });
         }
 
@@ -191,27 +191,27 @@ const action = createAction({
         if (transaction === undefined) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Bank transaction with ID "${input.bank_transaction_id}" was not found.`
+                message: `Bank transaction with ID "${input.bankTransactionId}" was not found.`
             });
         }
 
         return {
-            bank_transaction_id: transaction.BankTransactionID || input.bank_transaction_id,
+            bankTransactionId: transaction.BankTransactionID || input.bankTransactionId,
             type: transaction.Type || null,
-            contact_id: transaction.Contact?.ContactID || null,
-            contact_name: transaction.Contact?.Name || null,
+            contactId: transaction.Contact?.ContactID || null,
+            contactName: transaction.Contact?.Name || null,
             date: transaction.Date || null,
             status: transaction.Status || null,
-            bank_account_id: transaction.BankAccount?.AccountID || null,
-            bank_account_name: transaction.BankAccount?.Name || null,
-            currency_code: transaction.CurrencyCode || null,
-            currency_rate: transaction.CurrencyRate ?? null,
-            sub_total: transaction.SubTotal ?? null,
-            total_tax: transaction.TotalTax ?? null,
+            bankAccountId: transaction.BankAccount?.AccountID || null,
+            bankAccountName: transaction.BankAccount?.Name || null,
+            currencyCode: transaction.CurrencyCode || null,
+            currencyRate: transaction.CurrencyRate ?? null,
+            subTotal: transaction.SubTotal ?? null,
+            totalTax: transaction.TotalTax ?? null,
             total: transaction.Total ?? null,
             reference: transaction.Reference || null,
-            is_reconciled: transaction.IsReconciled ?? null,
-            updated_at: transaction.UpdatedDateUTC || null
+            isReconciled: transaction.IsReconciled ?? null,
+            updatedAt: transaction.UpdatedDateUTC || null
         };
     }
 });

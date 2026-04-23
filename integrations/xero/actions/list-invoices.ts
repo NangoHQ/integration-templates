@@ -6,8 +6,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     page: z.number().int().min(1).optional().describe('Page number for pagination. Example: 1'),
     where: z.string().optional().describe('Filter expression. Example: Type=="ACCREC"'),
-    summary_only: z.boolean().optional().describe('Return a summary version of the invoice data.'),
-    modified_since: z.string().optional().describe('Return invoices modified since this date (ISO 8601 format). Example: 2024-01-01T00:00:00')
+    summaryOnly: z.boolean().optional().describe('Return a summary version of the invoice data.'),
+    modifiedSince: z.string().optional().describe('Return invoices modified since this date (ISO 8601 format). Example: 2024-01-01T00:00:00')
 });
 
 const InvoiceSchema = z
@@ -58,7 +58,7 @@ const InvoiceSchema = z
 
 const OutputSchema = z.object({
     invoices: z.array(InvoiceSchema),
-    next_page: z.union([z.number(), z.null()])
+    nextPage: z.union([z.number(), z.null()])
 });
 
 const action = createAction({
@@ -132,15 +132,15 @@ const action = createAction({
         if (input.where !== undefined && input.where.length > 0) {
             params['where'] = input.where;
         }
-        if (input.summary_only !== undefined) {
-            params['summaryOnly'] = String(input.summary_only);
+        if (input.summaryOnly !== undefined) {
+            params['summaryOnly'] = String(input.summaryOnly);
         }
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
-        if (input.modified_since !== undefined && input.modified_since.length > 0) {
-            headers['If-Modified-Since'] = input.modified_since;
+        if (input.modifiedSince !== undefined && input.modifiedSince.length > 0) {
+            headers['If-Modified-Since'] = input.modifiedSince;
         }
 
         // Docs: https://developer.xero.com/documentation/api/accounting/invoices
@@ -154,7 +154,7 @@ const action = createAction({
         if (!response.data || typeof response.data !== 'object' || Array.isArray(response.data)) {
             return {
                 invoices: [],
-                next_page: null
+                nextPage: null
             };
         }
 
@@ -220,7 +220,7 @@ const action = createAction({
 
         return {
             invoices: invoices,
-            next_page: nextPage
+            nextPage: nextPage
         };
     }
 });

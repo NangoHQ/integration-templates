@@ -4,20 +4,20 @@ import { z } from 'zod';
 // https://developer.xero.com/documentation/api/accounting/contacts
 const ContactSchema = z.object({
     id: z.string(),
-    contact_id: z.string(),
+    contactId: z.string(),
     name: z.nullable(z.string()),
-    first_name: z.nullable(z.string()),
-    last_name: z.nullable(z.string()),
-    email_address: z.nullable(z.string()),
+    firstName: z.nullable(z.string()),
+    lastName: z.nullable(z.string()),
+    emailAddress: z.nullable(z.string()),
     phones: z.array(z.record(z.string(), z.unknown())),
-    is_supplier: z.boolean(),
-    is_customer: z.boolean(),
+    isSupplier: z.boolean(),
+    isCustomer: z.boolean(),
     status: z.string(),
-    updated_at: z.string()
+    updatedAt: z.string()
 });
 
 const CheckpointSchema = z.object({
-    modified_after: z.string()
+    modifiedAfter: z.string()
 });
 
 const XeroContactSchema = z.object({
@@ -109,7 +109,7 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
                 endpoint: 'api.xro/2.0/Contacts',
                 headers: {
                     'xero-tenant-id': tenantId,
-                    ...(checkpoint && checkpoint.modified_after && { 'If-Modified-Since': checkpoint.modified_after })
+                    ...(checkpoint && checkpoint.modifiedAfter && { 'If-Modified-Since': checkpoint.modifiedAfter })
                 },
                 params: {
                     page: page,
@@ -149,16 +149,16 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
                     const data = contact.data;
                     return {
                         id: data.ContactID,
-                        contact_id: data.ContactID,
+                        contactId: data.ContactID,
                         name: data.Name ?? null,
-                        first_name: data.FirstName ?? null,
-                        last_name: data.LastName ?? null,
-                        email_address: data.EmailAddress ?? null,
+                        firstName: data.FirstName ?? null,
+                        lastName: data.LastName ?? null,
+                        emailAddress: data.EmailAddress ?? null,
                         phones: data.Phones ?? [],
-                        is_supplier: data.IsSupplier ?? false,
-                        is_customer: data.IsCustomer ?? false,
+                        isSupplier: data.IsSupplier ?? false,
+                        isCustomer: data.IsCustomer ?? false,
                         status: data.ContactStatus ?? 'ACTIVE',
-                        updated_at: data.UpdatedDateUTC ?? new Date().toISOString()
+                        updatedAt: data.UpdatedDateUTC ?? new Date().toISOString()
                     };
                 })
                 .filter((contact): contact is NonNullable<typeof contact> => contact !== null);
@@ -172,9 +172,9 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
 
             // Update checkpoint with the most recent UpdatedDateUTC
             const lastContact = contacts[contacts.length - 1];
-            if (lastContact && lastContact.updated_at) {
+            if (lastContact && lastContact.updatedAt) {
                 await nango.saveCheckpoint({
-                    modified_after: lastContact.updated_at
+                    modifiedAfter: lastContact.updatedAt
                 });
             }
 

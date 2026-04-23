@@ -1,23 +1,23 @@
 {
   "input": {
     "type": "ACCPAYCREDIT",
-    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+    "contactId": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
     "date": "2024-01-15",
-    "line_items": [
+    "lineItems": [
       {
         "description": "Advertising credit",
         "quantity": 1,
-        "unit_amount": 100,
-        "account_code": "400"
+        "unitAmount": 100,
+        "accountCode": "400"
       }
     ]
   },
   "output": {
-    "credit_note_id": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
-    "credit_note_number": "",
+    "creditNoteId": "c2da6980-a2b0-4f1c-8f65-ca7050e07305",
+    "creditNoteNumber": "",
     "type": "ACCPAYCREDIT",
     "status": "DRAFT",
-    "contact_name": "RITE Agency",
+    "contactName": "RITE Agency",
     "date": "/Date(1705276800000+0000)/",
     "total": 108.25
   },

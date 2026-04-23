@@ -1,13 +1,13 @@
 {
   "input": {
-    "invoice_id": "9f5bca33-8590-4b6f-acfb-e85712b10217",
-    "account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "invoiceId": "9f5bca33-8590-4b6f-acfb-e85712b10217",
+    "accountId": "562555f2-8cde-4ce9-8203-0363922537a4",
     "amount": 9,
     "date": "2024-01-15",
     "reference": "Test payment remainder"
   },
   "output": {
-    "payment_id": "719020f8-94ce-494f-b485-269982c55a5a",
+    "paymentId": "719020f8-94ce-494f-b485-269982c55a5a",
     "status": "AUTHORISED"
   },
   "nango": {

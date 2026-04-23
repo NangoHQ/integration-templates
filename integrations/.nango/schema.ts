@@ -3563,16 +3563,16 @@ export interface SyncMetadata_freshdesk_articles {
 
 export interface Contact {
   id: string;
-  contact_id: string;
+  contactId: string;
   name: string;
-  first_name: string;
-  last_name: string;
-  email_address: string;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
   phones: ({  [key: string]: unknown | undefined;})[];
-  is_supplier: boolean;
-  is_customer: boolean;
+  isSupplier: boolean;
+  isCustomer: boolean;
   status: string;
-  updated_at: string;
+  updatedAt: string;
 };
 
 export interface SyncMetadata_freshdesk_contacts {
@@ -14477,23 +14477,23 @@ export interface SyncMetadata_pipedrive_persons {
 
 export interface Account {
   id: string;
-  account_id: string;
+  accountId: string;
   code: string | null;
   name: string | null;
   type: string | null;
   status: string | null;
   description: string | null;
-  tax_type: string | null;
-  enable_payments_to_account: boolean | null;
-  show_in_expense_claims: boolean | null;
+  taxType: string | null;
+  enablePaymentsToAccount: boolean | null;
+  showInExpenseClaims: boolean | null;
   class: string | null;
-  system_account: string | null;
-  bank_account_number: string | null;
-  bank_account_type: string | null;
-  currency_code: string | null;
-  reporting_code: string | null;
-  reporting_code_name: string | null;
-  updated_at: string | null;
+  systemAccount: string | null;
+  bankAccountNumber: string | null;
+  bankAccountType: string | null;
+  currencyCode: string | null;
+  reportingCode: string | null;
+  reportingCodeName: string | null;
+  updatedAt: string | null;
 };
 
 export interface SyncMetadata_quickbooks_accounts {
@@ -14597,18 +14597,18 @@ export interface SyncMetadata_quickbooks_deposits {
 
 export interface Invoice {
   id: string;
-  invoice_number: string;
+  invoiceNumber: string;
   type: string;
   status: string;
   date: string;
-  due_date: string;
+  dueDate: string;
   total: number;
-  sub_total: number;
-  total_tax: number;
-  amount_due: number;
-  amount_paid: number;
-  currency_code: string;
-  updated_at: string;
+  subTotal: number;
+  totalTax: number;
+  amountDue: number;
+  amountPaid: number;
+  currencyCode: string;
+  updatedAt: string;
 };
 
 export interface SyncMetadata_quickbooks_invoices {
@@ -14619,14 +14619,14 @@ export interface Item {
   code: string;
   name: string;
   description: string;
-  is_tracked: boolean;
-  quantity_on_hand: number;
-  average_cost: number;
-  is_sold: boolean;
-  is_purchased: boolean;
-  sales_details: string;
-  purchase_details: string;
-  updated_at: string;
+  isTracked: boolean;
+  quantityOnHand: number;
+  averageCost: number;
+  isSold: boolean;
+  isPurchased: boolean;
+  salesDetails: string;
+  purchaseDetails: string;
+  updatedAt: string;
 };
 
 export interface SyncMetadata_quickbooks_items {
@@ -14662,24 +14662,24 @@ export interface Payment {
   id: string;
   date: string | null;
   amount: number | null;
-  currency_rate: number | null;
-  payment_type: string | null;
+  currencyRate: number | null;
+  paymentType: string | null;
   status: string | null;
-  updated_date_utc: string | null;
+  updatedDateUtc: string | null;
   reference: string | null;
-  is_reconciled: boolean | null;
-  account_id: string | null;
-  invoice_id: string | null;
-  credit_note_id: string | null;
-  prepayment_id: string | null;
-  overpayment_id: string | null;
-  bank_account_number: string | null;
-  bank_account_name: string | null;
+  isReconciled: boolean | null;
+  accountId: string | null;
+  invoiceId: string | null;
+  creditNoteId: string | null;
+  prepaymentId: string | null;
+  overpaymentId: string | null;
+  bankAccountNumber: string | null;
+  bankAccountName: string | null;
   details: string | null;
-  has_attachments: boolean | null;
-  has_account_id: boolean | null;
-  has_validation_errors: boolean | null;
-  batch_payment_id: string | null;
+  hasAttachments: boolean | null;
+  hasAccountId: boolean | null;
+  hasValidationErrors: boolean | null;
+  batchPaymentId: string | null;
 };
 
 export interface SyncMetadata_quickbooks_payments {
@@ -18858,25 +18858,25 @@ export interface SyncMetadata_workday_unifiedemployees {
 
 export interface BankTransaction {
   id: string;
-  bank_transaction_id: string;
-  bank_account?: unknown | undefined;
+  bankTransactionId: string;
+  bankAccount?: unknown | undefined;
   type: string;
   contact?: unknown | undefined;
   date?: string | undefined;
   status: string;
   reference?: string | undefined;
-  is_reconciled?: boolean | undefined;
-  line_items?: unknown | undefined;
+  isReconciled?: boolean | undefined;
+  lineItems?: unknown | undefined;
   subtotal?: number | undefined;
-  total_tax?: number | undefined;
+  totalTax?: number | undefined;
   total?: number | undefined;
-  currency_code?: string | undefined;
-  currency_rate?: number | undefined;
+  currencyCode?: string | undefined;
+  currencyRate?: number | undefined;
   url?: string | undefined;
-  updated_date_utc: string;
-  has_attachments?: boolean | undefined;
-  prepayment_id?: string | undefined;
-  overpayment_id?: string | undefined;
+  updatedDateUtc: string;
+  hasAttachments?: boolean | undefined;
+  prepaymentId?: string | undefined;
+  overpaymentId?: string | undefined;
 };
 
 export interface CreditNote {
@@ -18911,52 +18911,52 @@ export interface CreditNote {
 export interface Organisation {
   id: string;
   name: string | null;
-  legal_name: string | null;
-  organisation_type: string | null;
-  base_currency: string | null;
-  country_code: string | null;
-  is_demo_company: boolean | null;
-  organisation_status: string | null;
-  financial_year_end_day: number | null;
-  financial_year_end_month: number | null;
-  sales_tax_basis: string | null;
-  sales_tax_period: string | null;
-  default_sales_tax: string | null;
-  default_purchases_tax: string | null;
-  created_at: string | null;
-  updated_at: string | null;
+  legalName: string | null;
+  organisationType: string | null;
+  baseCurrency: string | null;
+  countryCode: string | null;
+  isDemoCompany: boolean | null;
+  organisationStatus: string | null;
+  financialYearEndDay: number | null;
+  financialYearEndMonth: number | null;
+  salesTaxBasis: string | null;
+  salesTaxPeriod: string | null;
+  defaultSalesTax: string | null;
+  defaultPurchasesTax: string | null;
+  createdAt: string | null;
+  updatedAt: string | null;
   timezone: string | null;
-  line_of_business: string | null;
-  organisation_entity_type: string | null;
-  short_code: string | null;
+  lineOfBusiness: string | null;
+  organisationEntityType: string | null;
+  shortCode: string | null;
   class: string | null;
   edition: string | null;
 };
 
 export interface PurchaseOrder {
   id: string;
-  purchase_order_number: string | null;
-  contact_id: string | null;
-  contact_name: string | null;
+  purchaseOrderNumber: string | null;
+  contactId: string | null;
+  contactName: string | null;
   status: string | null;
   date: string | null;
-  delivery_date: string | null;
+  deliveryDate: string | null;
   reference: string | null;
-  updated_date_utc: string | null;
-  currency_code: string | null;
+  updatedDateUtc: string | null;
+  currencyCode: string | null;
   total: number | null;
-  sub_total: number | null;
-  total_tax: number | null;
-  line_items: unknown[] | null;
+  subTotal: number | null;
+  totalTax: number | null;
+  lineItems: unknown[] | null;
   attachments: unknown[] | null;
   url: string | null;
-  currency_rate: number | null;
-  sent_to_contact: boolean | null;
-  delivery_address: string | null;
-  attention_to: string | null;
+  currencyRate: number | null;
+  sentToContact: boolean | null;
+  deliveryAddress: string | null;
+  attentionTo: string | null;
   telephone: string | null;
-  delivery_instructions: string | null;
-  purchase_order_id: string | null;
+  deliveryInstructions: string | null;
+  purchaseOrderId: string | null;
 };
 
 export interface ActionInput_xero_createaccount {
@@ -18979,26 +18979,26 @@ export interface ActionInput_xero_createaccount {
   /**
    * Tax type for the account. Example: "OUTPUT"
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Whether payments can be made to this account
    */
-  enable_payments_to_account?: boolean | undefined;
+  enablePaymentsToAccount?: boolean | undefined;
   /**
    * Whether to show in expense claims
    */
-  show_in_expense_claims?: boolean | undefined;
+  showInExpenseClaims?: boolean | undefined;
 };
 
 export interface ActionOutput_xero_createaccount {
-  account_id: string;
+  accountId: string;
   code: string;
   name: string;
   type: string;
   description: string | null;
-  tax_type: string | null;
-  enable_payments_to_account: boolean;
-  show_in_expense_claims: boolean;
+  taxType: string | null;
+  enablePaymentsToAccount: boolean;
+  showInExpenseClaims: boolean;
   status: string;
 };
 
@@ -19013,26 +19013,26 @@ export interface ActionInput_xero_createbanktransaction {
   contact: {  /**
    * Contact ID. Example: "00000000-0000-0000-0000-000000000000"
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
-   * Contact name (required if contact_id not provided). Example: "Acme Corporation"
+   * Contact name (required if contactId not provided). Example: "Acme Corporation"
    */
   name?: string | undefined;};
   /**
    * Bank account for the transaction
    */
-  bank_account: {  /**
+  bankAccount: {  /**
    * Account code of the bank account. Example: "090"
    */
   code?: string | undefined;
   /**
    * Account ID of the bank account. Example: "00000000-0000-0000-0000-000000000000"
    */
-  account_id?: string | undefined;};
+  accountId?: string | undefined;};
   /**
    * Array of line items for the transaction
    */
-  line_items: ({  /**
+  lineItems: ({  /**
    * Line item description. Example: "Office supplies"
    */
   description: string;
@@ -19043,19 +19043,19 @@ export interface ActionInput_xero_createbanktransaction {
   /**
    * Price per unit. Example: 50.00
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code for the line item. Example: "200"
    */
-  account_code: string;
+  accountCode: string;
   /**
    * Tax type for the line item. Example: "OUTPUT"
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Item code if referencing an existing item.
    */
-  item_code?: string | undefined;})[];
+  itemCode?: string | undefined;})[];
   /**
    * Transaction date in YYYY-MM-DD format. Defaults to today.
    */
@@ -19067,7 +19067,7 @@ export interface ActionInput_xero_createbanktransaction {
   /**
    * Currency code. Example: "USD"
    */
-  currency_code?: string | undefined;
+  currencyCode?: string | undefined;
   /**
    * Status of the transaction. Defaults to AUTHORISED.
    */
@@ -19075,7 +19075,7 @@ export interface ActionInput_xero_createbanktransaction {
   /**
    * Whether the transaction is reconciled.
    */
-  is_reconciled?: boolean | undefined;
+  isReconciled?: boolean | undefined;
   /**
    * URL link for the transaction.
    */
@@ -19086,7 +19086,7 @@ export interface ActionOutput_xero_createbanktransaction {
   /**
    * Unique identifier for the bank transaction
    */
-  bank_transaction_id: string;
+  bankTransactionId: string;
   /**
    * Type of bank transaction
    */
@@ -19094,19 +19094,19 @@ export interface ActionOutput_xero_createbanktransaction {
   /**
    * Contact ID
    */
-  contact_id: string | null;
+  contactId: string | null;
   /**
    * Contact name
    */
-  contact_name: string | null;
+  contactName: string | null;
   /**
    * Bank account ID
    */
-  bank_account_id: string | null;
+  bankAccountId: string | null;
   /**
    * Bank account code
    */
-  bank_account_code: string | null;
+  bankAccountCode: string | null;
   /**
    * Transaction date
    */
@@ -19118,7 +19118,7 @@ export interface ActionOutput_xero_createbanktransaction {
   /**
    * Currency code
    */
-  currency_code: string | null;
+  currencyCode: string | null;
   /**
    * Transaction status
    */
@@ -19126,15 +19126,15 @@ export interface ActionOutput_xero_createbanktransaction {
   /**
    * Line amount types
    */
-  line_amount_types: string | null;
+  lineAmountTypes: string | null;
   /**
    * Sub total amount
    */
-  sub_total: number;
+  subTotal: number;
   /**
    * Total tax amount
    */
-  total_tax: number;
+  totalTax: number;
   /**
    * Total amount
    */
@@ -19142,25 +19142,25 @@ export interface ActionOutput_xero_createbanktransaction {
   /**
    * Whether transaction is reconciled
    */
-  is_reconciled: boolean;
+  isReconciled: boolean;
   /**
    * Array of line items
    */
-  line_items: ({  line_item_id: string;
+  lineItems: ({  lineItemId: string;
   description: string | null;
   quantity: number;
-  unit_amount: number;
-  account_code: string | null;
-  tax_type: string | null;
-  line_amount: number;})[];
+  unitAmount: number;
+  accountCode: string | null;
+  taxType: string | null;
+  lineAmount: number;})[];
   /**
    * Creation timestamp
    */
-  created_at: string | null;
+  createdAt: string | null;
   /**
    * Update timestamp
    */
-  updated_at: string | null;
+  updatedAt: string | null;
 };
 
 export interface ActionInput_xero_createcontact {
@@ -19245,7 +19245,7 @@ export interface ActionInput_xero_createcreditnote {
   /**
    * Contact ID for the credit note. Example: "430fa14a-f945-44d3-9f97-5df5e28441b8"
    */
-  contact_id: string;
+  contactId: string;
   /**
    * Date of the credit note in YYYY-MM-DD format. Example: "2024-01-15"
    */
@@ -19253,7 +19253,7 @@ export interface ActionInput_xero_createcreditnote {
   /**
    * Array of line items for the credit note.
    */
-  line_items: ({  /**
+  lineItems: ({  /**
    * Description of the line item.
    */
   description: string;
@@ -19264,22 +19264,22 @@ export interface ActionInput_xero_createcreditnote {
   /**
    * Unit price of the item.
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code for the line item. Example: "400"
    */
-  account_code: string;})[];
+  accountCode: string;})[];
 };
 
 export interface ActionOutput_xero_createcreditnote {
   /**
    * Unique identifier for the created credit note.
    */
-  credit_note_id: string;
+  creditNoteId: string;
   /**
    * Credit note number.
    */
-  credit_note_number: string;
+  creditNoteNumber: string;
   /**
    * Type of credit note.
    */
@@ -19291,7 +19291,7 @@ export interface ActionOutput_xero_createcreditnote {
   /**
    * Name of the contact.
    */
-  contact_name: string;
+  contactName: string;
   /**
    * Date of the credit note.
    */
@@ -19313,15 +19313,15 @@ export interface ActionInput_xero_createinvoice {
   contact: {  /**
    * Xero Contact ID (preferred)
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
-   * Contact name (used if contact_id not provided)
+   * Contact name (used if contactId not provided)
    */
   name?: string | undefined;};
   /**
    * Line items for the invoice
    */
-  line_items: ({  /**
+  lineItems: ({  /**
    * Description of the line item
    */
   description: string;
@@ -19332,19 +19332,19 @@ export interface ActionInput_xero_createinvoice {
   /**
    * Unit amount of the line item
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code for the line item
    */
-  account_code?: string | undefined;
+  accountCode?: string | undefined;
   /**
    * Tax type for the line item
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Item code for existing items
    */
-  item_code?: string | undefined;})[];
+  itemCode?: string | undefined;})[];
   /**
    * Invoice date (YYYY-MM-DD). Defaults to today if not provided.
    */
@@ -19352,11 +19352,11 @@ export interface ActionInput_xero_createinvoice {
   /**
    * Due date (YYYY-MM-DD)
    */
-  due_date?: string | undefined;
+  dueDate?: string | undefined;
   /**
    * Invoice number (auto-generated if not provided for ACCREC)
    */
-  invoice_number?: string | undefined;
+  invoiceNumber?: string | undefined;
   /**
    * Reference for the invoice
    */
@@ -19368,11 +19368,11 @@ export interface ActionInput_xero_createinvoice {
   /**
    * Currency code (e.g., USD, GBP)
    */
-  currency_code?: string | undefined;
+  currencyCode?: string | undefined;
   /**
    * Whether the invoice has been sent to the contact
    */
-  sent_to_contact?: boolean | undefined;
+  sentToContact?: boolean | undefined;
   /**
    * URL link to a source document
    */
@@ -19383,11 +19383,11 @@ export interface ActionOutput_xero_createinvoice {
   /**
    * Xero Invoice ID
    */
-  invoice_id: string;
+  invoiceId: string;
   /**
    * Invoice number
    */
-  invoice_number: string;
+  invoiceNumber: string;
   /**
    * Invoice type
    */
@@ -19403,19 +19403,19 @@ export interface ActionOutput_xero_createinvoice {
   /**
    * Subtotal of the invoice
    */
-  sub_total: number;
+  subTotal: number;
   /**
    * Total tax on the invoice
    */
-  total_tax: number;
+  totalTax: number;
   /**
    * Xero Contact ID
    */
-  contact_id: string;
+  contactId: string;
   /**
    * Contact name
    */
-  contact_name: string;
+  contactName: string;
   /**
    * Invoice date
    */
@@ -19423,22 +19423,22 @@ export interface ActionOutput_xero_createinvoice {
   /**
    * Due date
    */
-  due_date: string | null;
+  dueDate: string | null;
   /**
    * Last updated timestamp in UTC
    */
-  updated_date_utc: string;
+  updatedDateUtc: string;
   /**
    * Currency code
    */
-  currency_code: string | null;
+  currencyCode: string | null;
   /**
    * Line items
    */
-  line_items: ({  /**
+  lineItems: ({  /**
    * Line item ID
    */
-  line_item_id: string;
+  lineItemId: string;
   /**
    * Line item description
    */
@@ -19450,19 +19450,19 @@ export interface ActionOutput_xero_createinvoice {
   /**
    * Line item unit amount
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code
    */
-  account_code: string | null;
+  accountCode: string | null;
   /**
    * Tax type
    */
-  tax_type: string | null;
+  taxType: string | null;
   /**
    * Line item total amount
    */
-  line_amount: number;})[];
+  lineAmount: number;})[];
 };
 
 export interface ActionInput_xero_createitem {
@@ -19578,19 +19578,19 @@ export interface ActionInput_xero_createpayment {
   /**
    * The ID of the invoice to apply payment to. Example: "00000000-0000-0000-0000-000000000000"
    */
-  invoice_id?: string | undefined;
+  invoiceId?: string | undefined;
   /**
    * The ID of the credit note to apply payment to. Example: "00000000-0000-0000-0000-000000000000"
    */
-  credit_note_id?: string | undefined;
+  creditNoteId?: string | undefined;
   /**
    * The ID of the bank account to pay from. Example: "00000000-0000-0000-0000-000000000000"
    */
-  account_id?: string | undefined;
+  accountId?: string | undefined;
   /**
    * The account code of the bank account to pay from. Example: "001"
    */
-  account_code?: string | undefined;
+  accountCode?: string | undefined;
   /**
    * The amount of the payment. Example: 100.50
    */
@@ -19606,7 +19606,7 @@ export interface ActionInput_xero_createpayment {
 };
 
 export interface ActionOutput_xero_createpayment {
-  payment_id: string;
+  paymentId: string;
   status: string;
 };
 
@@ -19617,7 +19617,7 @@ export interface ActionInput_xero_createpurchaseorder {
   contact: {  /**
    * Xero Contact ID. Example: "a3d8b6c0-1234-5678-9abc-def012345678"
    */
-  contact_id: string;};
+  contactId: string;};
   /**
    * Purchase order date in YYYY-MM-DD format. Example: "2025-01-15"
    */
@@ -19625,7 +19625,7 @@ export interface ActionInput_xero_createpurchaseorder {
   /**
    * Line items for the purchase order
    */
-  line_items: ({  /**
+  lineItems: ({  /**
    * Line item description. Example: "Office Supplies"
    */
   description: string;
@@ -19636,23 +19636,23 @@ export interface ActionInput_xero_createpurchaseorder {
   /**
    * Price per unit. Example: 25.5
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code for this line item. Example: "200"
    */
-  account_code?: string | undefined;
+  accountCode?: string | undefined;
   /**
    * Tax type for this line item. Example: "NONE"
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Item code if referencing an existing item. Example: "ITM001"
    */
-  item_code?: string | undefined;})[];
+  itemCode?: string | undefined;})[];
   /**
    * Expected delivery date in YYYY-MM-DD format. Example: "2025-02-01"
    */
-  delivery_date?: string | undefined;
+  deliveryDate?: string | undefined;
   /**
    * Reference for the purchase order. Example: "PO-001"
    */
@@ -19660,7 +19660,7 @@ export interface ActionInput_xero_createpurchaseorder {
   /**
    * Person to address the purchase order to. Example: "John Smith"
    */
-  attention_to?: string | undefined;
+  attentionTo?: string | undefined;
   /**
    * Contact phone number. Example: "+61 2 9876 5432"
    */
@@ -19668,7 +19668,7 @@ export interface ActionInput_xero_createpurchaseorder {
   /**
    * Delivery instructions. Example: "Deliver to rear entrance"
    */
-  delivery_instructions?: string | undefined;
+  deliveryInstructions?: string | undefined;
   /**
    * Purchase order status. Example: "DRAFT"
    */
@@ -19679,11 +19679,11 @@ export interface ActionOutput_xero_createpurchaseorder {
   /**
    * Xero Purchase Order ID
    */
-  purchase_order_id: string;
+  purchaseOrderId: string;
   /**
    * Xero Purchase Order Number
    */
-  purchase_order_number: string | null;
+  purchaseOrderNumber: string | null;
   /**
    * Purchase order status
    */
@@ -19691,11 +19691,11 @@ export interface ActionOutput_xero_createpurchaseorder {
   /**
    * Contact ID associated with the purchase order
    */
-  contact_id: string;
+  contactId: string;
   /**
    * Contact name
    */
-  contact_name: string | null;
+  contactName: string | null;
   /**
    * Purchase order date
    */
@@ -19703,12 +19703,12 @@ export interface ActionOutput_xero_createpurchaseorder {
   /**
    * Line items
    */
-  line_items: ({  description: string;
+  lineItems: ({  description: string;
   quantity: number;
-  unit_amount: number;
-  line_amount: number | null;
-  account_code: string | null;
-  tax_type: string | null;})[];
+  unitAmount: number;
+  lineAmount: number | null;
+  accountCode: string | null;
+  taxType: string | null;})[];
   /**
    * Total amount
    */
@@ -19716,77 +19716,77 @@ export interface ActionOutput_xero_createpurchaseorder {
   /**
    * Subtotal amount
    */
-  sub_total: number | null;
+  subTotal: number | null;
   /**
    * Total tax amount
    */
-  total_tax: number | null;
+  totalTax: number | null;
   /**
    * Last updated timestamp
    */
-  updated_date_utc: string | null;
+  updatedDateUtc: string | null;
 };
 
 export interface ActionInput_xero_getaccount {
   /**
    * The Xero identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"
    */
-  account_id: string;
+  accountId: string;
 };
 
 export interface ActionOutput_xero_getaccount {
-  account_id: string;
+  accountId: string;
   code: string | null;
   name: string | null;
   type: string | null;
   status: string | null;
   description: string | null;
-  tax_type: string | null;
+  taxType: string | null;
   class: string | null;
-  enable_payments_to_account: boolean | null;
-  show_in_expense_claims: boolean | null;
-  reporting_code: string | null;
-  reporting_code_name: string | null;
-  updated_date_utc: string | null;
-  bank_account_number: string | null;
-  bank_account_type: string | null;
-  currency_code: string | null;
-  has_attachments: boolean | null;
-  add_to_watchlist: boolean | null;
-  system_account: string | null;
+  enablePaymentsToAccount: boolean | null;
+  showInExpenseClaims: boolean | null;
+  reportingCode: string | null;
+  reportingCodeName: string | null;
+  updatedDateUtc: string | null;
+  bankAccountNumber: string | null;
+  bankAccountType: string | null;
+  currencyCode: string | null;
+  hasAttachments: boolean | null;
+  addToWatchlist: boolean | null;
+  systemAccount: string | null;
 };
 
 export interface ActionInput_xero_getbanktransaction {
   /**
    * The Xero BankTransactionID to retrieve. Example: "a3d758d4-1234-5678-90ab-cdefghijklmn"
    */
-  bank_transaction_id: string;
+  bankTransactionId: string;
 };
 
 export interface ActionOutput_xero_getbanktransaction {
-  bank_transaction_id: string;
+  bankTransactionId: string;
   type: string | null;
-  contact_id: string | null;
-  contact_name: string | null;
+  contactId: string | null;
+  contactName: string | null;
   date: string | null;
   status: string | null;
-  bank_account_id: string | null;
-  bank_account_name: string | null;
-  currency_code: string | null;
-  currency_rate: number | null;
-  sub_total: number | null;
-  total_tax: number | null;
+  bankAccountId: string | null;
+  bankAccountName: string | null;
+  currencyCode: string | null;
+  currencyRate: number | null;
+  subTotal: number | null;
+  totalTax: number | null;
   total: number | null;
   reference: string | null;
-  is_reconciled: boolean | null;
-  updated_at: string | null;
+  isReconciled: boolean | null;
+  updatedAt: string | null;
 };
 
 export interface ActionInput_xero_getcontact {
   /**
    * The Xero ContactID to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"
    */
-  contact_id: string;
+  contactId: string;
 };
 
 export interface ActionOutput_xero_getcontact {
@@ -19845,34 +19845,34 @@ export interface ActionInput_xero_getcreditnote {
   /**
    * The Xero CreditNoteID. Example: "a3c4c3b0-1234-4567-8901-abcdef123456"
    */
-  credit_note_id: string;
+  creditNoteId: string;
 };
 
 export interface ActionOutput_xero_getcreditnote {
-  credit_note: {  credit_note_id: string;
-  credit_note_number: string | null;
+  creditNote: {  creditNoteId: string;
+  creditNoteNumber: string | null;
   status: string | null;
   type: string | null;
-  contact: {  contact_id: string | null;
+  contact: {  contactId: string | null;
   name: string | null;} | null;
   reference: string | null;
-  sub_total: number | null;
-  total_tax: number | null;
+  subTotal: number | null;
+  totalTax: number | null;
   total: number | null;
-  currency_code: string | null;
-  remaining_credit: number | null;
-  fully_paid_on_date: string | null;
+  currencyCode: string | null;
+  remainingCredit: number | null;
+  fullyPaidOnDate: string | null;
   date: string | null;
-  line_amount_types: string | null;
-  has_attachments: boolean | null;
-  updated_date_utc: string | null;} | null;
+  lineAmountTypes: string | null;
+  hasAttachments: boolean | null;
+  updatedDateUtc: string | null;} | null;
 };
 
 export interface ActionInput_xero_getinvoice {
   /**
    * The Xero InvoiceID to retrieve. Example: "a3b2c1d0-e4f5-6789-abcd-ef0123456789"
    */
-  invoice_id: string;
+  invoiceId: string;
 };
 
 export interface ActionOutput_xero_getinvoice {
@@ -19914,33 +19914,33 @@ export interface ActionInput_xero_getitem {
   /**
    * The Xero identifier for an Item. Example: 297c2dc5-cc47-4afd-8ec8-74990b8761e9
    */
-  item_id: string;
+  itemId: string;
 };
 
 export interface ActionOutput_xero_getitem {
-  item_id: string;
+  itemId: string;
   code: string;
   name: string | null;
-  is_sold: boolean;
-  is_purchased: boolean;
-  is_tracked_as_inventory: boolean;
-  inventory_asset_account_code: string | null;
-  total_cost_pool: number | null;
-  quantity_on_hand: number | null;
-  updated_date_utc: string;
-  purchase_details: {  unit_price: number | null;
-  account_code: string | null;
-  tax_type: string | null;} | null;
-  sales_details: {  unit_price: number | null;
-  account_code: string | null;
-  tax_type: string | null;} | null;
+  isSold: boolean;
+  isPurchased: boolean;
+  isTrackedAsInventory: boolean;
+  inventoryAssetAccountCode: string | null;
+  totalCostPool: number | null;
+  quantityOnHand: number | null;
+  updatedDateUtc: string;
+  purchaseDetails: {  unitPrice: number | null;
+  accountCode: string | null;
+  taxType: string | null;} | null;
+  salesDetails: {  unitPrice: number | null;
+  accountCode: string | null;
+  taxType: string | null;} | null;
 };
 
 export interface ActionInput_xero_getpayment {
   /**
    * The Xero PaymentID to retrieve. Example: "b54e4368-91fd-4aa5-8205-fa3c16b61552"
    */
-  payment_id: string;
+  paymentId: string;
 };
 
 export interface ActionOutput_xero_getpayment {
@@ -19952,7 +19952,7 @@ export interface ActionInput_xero_getpurchaseorder {
   /**
    * The unique identifier of the purchase order to retrieve. Example: "8fecd03b-d211-491a-a3bb-7203920abac7"
    */
-  purchase_order_id: string;
+  purchaseOrderId: string;
 };
 
 export interface ActionOutput_xero_getpurchaseorder {
@@ -20025,11 +20025,11 @@ export interface ActionInput_xero_listbanktransactions {
   /**
    * RFC 7231 formatted timestamp to return only modified records
    */
-  if_modified_since?: string | undefined;
+  ifModifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listbanktransactions {
-  bank_transactions: ({  BankTransactionID: string;
+  bankTransactions: ({  BankTransactionID: string;
   Type: 'RECEIVE' | 'SPEND' | 'RECEIVE-OVERPAYMENT' | 'RECEIVE-PREPAYMENT' | 'SPEND-OVERPAYMENT' | 'SPEND-PREPAYMENT' | 'TRANSFER';
   Contact?: {  ContactID?: string | undefined;
   Name?: string | undefined;};
@@ -20059,7 +20059,7 @@ export interface ActionOutput_xero_listbanktransactions {
   UpdatedDateUTC?: string | undefined;
   HasAttachments?: boolean | undefined;})[];
   page: number;
-  total_count?: number | undefined;
+  totalCount?: number | undefined;
 };
 
 export interface ActionInput_xero_listcontacts {
@@ -20074,11 +20074,11 @@ export interface ActionInput_xero_listcontacts {
   /**
    * Return a simplified response with limited contact details.
    */
-  summary_only?: boolean | undefined;
+  summaryOnly?: boolean | undefined;
   /**
    * Return only contacts modified since this ISO 8601 timestamp.
    */
-  modified_since?: string | undefined;
+  modifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listcontacts {
@@ -20090,7 +20090,7 @@ export interface ActionOutput_xero_listcontacts {
   Status: string | null;
   IsSupplier: boolean | null;
   IsCustomer: boolean | null;})[];
-  has_more: boolean;
+  hasMore: boolean;
 };
 
 export interface ActionInput_xero_listcreditnotes {
@@ -20109,11 +20109,11 @@ export interface ActionInput_xero_listcreditnotes {
   /**
    * Only return records modified after this date (ISO 8601 format). Example: 2024-01-01T00:00:00Z
    */
-  if_modified_since?: string | undefined;
+  ifModifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listcreditnotes {
-  credit_notes: ({  CreditNoteID: string;
+  creditNotes: ({  CreditNoteID: string;
   CreditNoteNumber?: string | undefined;
   ID?: string | undefined;
   Type?: string | undefined;
@@ -20141,9 +20141,9 @@ export interface ActionOutput_xero_listcreditnotes {
   LineItems?: ({})[] | undefined;
   History?: ({})[] | undefined;})[];
   pagination: {  page: number;
-  page_size: number;
-  total_pages: number;
-  total_count: number;};
+  pageSize: number;
+  totalPages: number;
+  totalCount: number;};
 };
 
 export interface ActionInput_xero_listinvoices {
@@ -20158,11 +20158,11 @@ export interface ActionInput_xero_listinvoices {
   /**
    * Return a summary version of the invoice data.
    */
-  summary_only?: boolean | undefined;
+  summaryOnly?: boolean | undefined;
   /**
    * Return invoices modified since this date (ISO 8601 format). Example: 2024-01-01T00:00:00
    */
-  modified_since?: string | undefined;
+  modifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listinvoices {
@@ -20207,7 +20207,7 @@ export interface ActionOutput_xero_listinvoices {
   LineAmountTypes?: string | undefined;
   PaymentTerms?: any | undefined;
   LastPaymentDate?: string | undefined;})[];
-  next_page: number | null;
+  nextPage: number | null;
 };
 
 export interface ActionInput_xero_listitems {
@@ -20218,7 +20218,7 @@ export interface ActionInput_xero_listitems {
   /**
    * Filter items modified since this date (ISO 8601 format). Example: "2024-01-01T00:00:00"
    */
-  modified_since?: string | undefined;
+  modifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listitems {
@@ -20226,11 +20226,11 @@ export interface ActionOutput_xero_listitems {
   code: string | null;
   name: string | null;
   description: string | null;
-  is_sold: boolean | null;
-  is_purchased: boolean | null;
+  isSold: boolean | null;
+  isPurchased: boolean | null;
   type: string | null;
   status: string | null;})[];
-  next_cursor: string | null;
+  nextCursor: string | null;
 };
 
 export interface ActionInput_xero_listpayments {
@@ -20249,7 +20249,7 @@ export interface ActionInput_xero_listpayments {
   /**
    * ISO 8601 timestamp. Only records changed since this time will be returned.
    */
-  if_modified_since?: string | undefined;
+  ifModifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listpayments {
@@ -20277,7 +20277,7 @@ export interface ActionOutput_xero_listpayments {
   HasAccount?: boolean | undefined;
   HasValidationErrors?: boolean | undefined;
   ValidationErrors?: ({  Message?: string | undefined;})[];})[];
-  next_cursor: string | null;
+  nextCursor: string | null;
 };
 
 export interface ActionInput_xero_listpurchaseorders {
@@ -20292,11 +20292,11 @@ export interface ActionInput_xero_listpurchaseorders {
   /**
    * ISO 8601 timestamp to filter records modified since. Example: "2024-01-01T00:00:00Z"
    */
-  if_modified_since?: string | undefined;
+  ifModifiedSince?: string | undefined;
 };
 
 export interface ActionOutput_xero_listpurchaseorders {
-  purchase_orders: ({  PurchaseOrderID: string;
+  purchaseOrders: ({  PurchaseOrderID: string;
   PurchaseOrderNumber?: string | undefined;
   Date?: string | undefined;
   DeliveryDate?: string | undefined;
@@ -20321,7 +20321,7 @@ export interface ActionOutput_xero_listpurchaseorders {
   /**
    * Pagination cursor for next page. Null if no more pages.
    */
-  next_cursor: string;
+  nextCursor: string;
 };
 
 export interface ActionInput_xero_listtenants {
@@ -20358,7 +20358,7 @@ export interface ActionInput_xero_updateaccount {
   /**
    * Unique identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"
    */
-  account_id: string;
+  accountId: string;
   /**
    * Account code. Example: "200"
    */
@@ -20378,15 +20378,15 @@ export interface ActionInput_xero_updateaccount {
   /**
    * Tax type for the account. Example: "NONE", "OUTPUT2"
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Whether payments can be made to this account
    */
-  enable_payments_to_account?: boolean | undefined;
+  enablePaymentsToAccount?: boolean | undefined;
   /**
    * Whether this account shows in expense claims
    */
-  show_in_expense_claims?: boolean | undefined;
+  showInExpenseClaims?: boolean | undefined;
 };
 
 export interface ActionOutput_xero_updateaccount {
@@ -20395,17 +20395,17 @@ export interface ActionOutput_xero_updateaccount {
   name: string;
   status: string;
   type: string;
-  tax_type: string | null;
+  taxType: string | null;
   description: string | null;
-  enable_payments_to_account: boolean;
-  show_in_expense_claims: boolean;
+  enablePaymentsToAccount: boolean;
+  showInExpenseClaims: boolean;
 };
 
 export interface ActionInput_xero_updatebanktransaction {
   /**
    * The unique ID of the bank transaction to update. Example: "a54d1234-5678-90ab-cdef-1234567890ab"
    */
-  bank_transaction_id: string;
+  bankTransactionId: string;
   /**
    * The type of bank transaction.
    */
@@ -20413,20 +20413,20 @@ export interface ActionInput_xero_updatebanktransaction {
   /**
    * The ID of the contact associated with the transaction.
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
    * The line items for the transaction.
    */
-  line_items?: ({  description?: string | undefined;
+  lineItems?: ({  description?: string | undefined;
   quantity?: number | undefined;
-  unit_amount?: number | undefined;
-  account_code?: string | undefined;
-  item_code?: string | undefined;
-  tax_type?: string | undefined;})[];
+  unitAmount?: number | undefined;
+  accountCode?: string | undefined;
+  itemCode?: string | undefined;
+  taxType?: string | undefined;})[];
   /**
    * The ID of the bank account.
    */
-  bank_account_id?: string | undefined;
+  bankAccountId?: string | undefined;
   /**
    * The date of the transaction (YYYY-MM-DD).
    */
@@ -20442,38 +20442,38 @@ export interface ActionInput_xero_updatebanktransaction {
 };
 
 export interface ActionOutput_xero_updatebanktransaction {
-  bank_transaction: {  bank_transaction_id: string;
+  bankTransaction: {  bankTransactionId: string;
   type: string;
-  contact?: {  contact_id: string;
+  contact?: {  contactId: string;
   name?: string | undefined;};
   date?: string | undefined;
   status?: string | undefined;
-  line_items?: ({  description?: string | undefined;
+  lineItems?: ({  description?: string | undefined;
   quantity?: number | undefined;
-  unit_amount?: number | undefined;
-  account_code?: string | undefined;
-  item_code?: string | undefined;
-  tax_type?: string | undefined;
-  tax_amount?: number | undefined;
-  line_amount?: number | undefined;})[];
-  bank_account?: {  account_id: string;
+  unitAmount?: number | undefined;
+  accountCode?: string | undefined;
+  itemCode?: string | undefined;
+  taxType?: string | undefined;
+  taxAmount?: number | undefined;
+  lineAmount?: number | undefined;})[];
+  bankAccount?: {  accountId: string;
   code?: string | undefined;
   name?: string | undefined;};
-  currency_code?: string | undefined;
-  currency_rate?: number | undefined;
-  sub_total?: number | undefined;
-  total_tax?: number | undefined;
+  currencyCode?: string | undefined;
+  currencyRate?: number | undefined;
+  subTotal?: number | undefined;
+  totalTax?: number | undefined;
   total?: number | undefined;
   reference?: string | undefined;
-  is_reconciled?: boolean | undefined;
-  has_attachments?: boolean | undefined;};
+  isReconciled?: boolean | undefined;
+  hasAttachments?: boolean | undefined;};
 };
 
 export interface ActionInput_xero_updatecontact {
   /**
    * The unique Xero identifier for the contact. Example: "00000000-0000-0000-0000-000000000000"
    */
-  contact_id: string;
+  contactId: string;
   /**
    * Full name of the contact.
    */
@@ -20481,27 +20481,27 @@ export interface ActionInput_xero_updatecontact {
   /**
    * First name of the contact (max 255 chars).
    */
-  first_name?: string | undefined;
+  firstName?: string | undefined;
   /**
    * Last name of the contact (max 255 chars).
    */
-  last_name?: string | undefined;
+  lastName?: string | undefined;
   /**
    * Email address of the contact.
    */
-  email_address?: string | undefined;
+  emailAddress?: string | undefined;
   /**
    * Phone number for the contact.
    */
-  phone_number?: string | undefined;
+  phoneNumber?: string | undefined;
   /**
    * Street address line 1.
    */
-  address_line_1?: string | undefined;
+  addressLine1?: string | undefined;
   /**
    * Street address line 2.
    */
-  address_line_2?: string | undefined;
+  addressLine2?: string | undefined;
   /**
    * City of the address.
    */
@@ -20513,7 +20513,7 @@ export interface ActionInput_xero_updatecontact {
   /**
    * Postal code of the address.
    */
-  postal_code?: string | undefined;
+  postalCode?: string | undefined;
   /**
    * Country of the address.
    */
@@ -20521,44 +20521,44 @@ export interface ActionInput_xero_updatecontact {
   /**
    * Bank account number for the contact.
    */
-  account_number?: string | undefined;
+  accountNumber?: string | undefined;
   /**
    * Tax number of the contact.
    */
-  tax_number?: string | undefined;
+  taxNumber?: string | undefined;
   /**
    * Whether the contact is a customer.
    */
-  is_customer?: boolean | undefined;
+  isCustomer?: boolean | undefined;
   /**
    * Whether the contact is a supplier.
    */
-  is_supplier?: boolean | undefined;
+  isSupplier?: boolean | undefined;
   /**
    * Default currency code for the contact. Example: "USD"
    */
-  default_currency?: string | undefined;
+  defaultCurrency?: string | undefined;
 };
 
 export interface ActionOutput_xero_updatecontact {
-  contact_id: string;
+  contactId: string;
   name: string | null;
-  first_name: string | null;
-  last_name: string | null;
-  email_address: string | null;
-  phone_number: string | null;
-  account_number: string | null;
-  tax_number: string | null;
-  is_customer: boolean | null;
-  is_supplier: boolean | null;
-  default_currency: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  emailAddress: string | null;
+  phoneNumber: string | null;
+  accountNumber: string | null;
+  taxNumber: string | null;
+  isCustomer: boolean | null;
+  isSupplier: boolean | null;
+  defaultCurrency: string | null;
 };
 
 export interface ActionInput_xero_updatecreditnote {
   /**
    * Xero generated unique identifier for the credit note. Example: "717f2bfc-c6d4-41fd-b238-3f2f0c0cf777"
    */
-  credit_note_id: string;
+  creditNoteId: string;
   /**
    * Type of credit note. ACCRECCREDIT for Accounts Receivable (sales credit notes), ACCPAYCREDIT for Accounts Payable (purchase credit notes).
    */
@@ -20566,7 +20566,7 @@ export interface ActionInput_xero_updatecreditnote {
   /**
    * Contact ID associated with the credit note.
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
    * Date of the credit note in YYYY-MM-DD format.
    */
@@ -20578,11 +20578,11 @@ export interface ActionInput_xero_updatecreditnote {
   /**
    * Line items for the credit note.
    */
-  line_items?: ({  description?: string | undefined;
+  lineItems?: ({  description?: string | undefined;
   quantity?: number | undefined;
-  unit_amount?: number | undefined;
-  account_code?: string | undefined;
-  tax_type?: string | undefined;})[];
+  unitAmount?: number | undefined;
+  accountCode?: string | undefined;
+  taxType?: string | undefined;})[];
   /**
    * Reference or description for the credit note.
    */
@@ -20590,33 +20590,33 @@ export interface ActionInput_xero_updatecreditnote {
   /**
    * Boolean indicating whether the credit note has been sent to the contact. Only writable when credit note is in Awaiting Payment or Paid state.
    */
-  sent_to_contact?: boolean | undefined;
+  sentToContact?: boolean | undefined;
   /**
    * Currency rate for multicurrency transactions.
    */
-  currency_rate?: number | undefined;
+  currencyRate?: number | undefined;
 };
 
 export interface ActionOutput_xero_updatecreditnote {
-  credit_note_id: string;
-  credit_note_number: string | null;
+  creditNoteId: string;
+  creditNoteNumber: string | null;
   type: string | null;
   status: string | null;
   date: string | null;
-  contact_id: string | null;
+  contactId: string | null;
   reference: string | null;
   total: number | null;
-  sub_total: number | null;
-  total_tax: number | null;
-  updated_date_utc: string | null;
-  remaining_credit: number | null;
+  subTotal: number | null;
+  totalTax: number | null;
+  updatedDateUtc: string | null;
+  remainingCredit: number | null;
 };
 
 export interface ActionInput_xero_updateinvoice {
   /**
    * The unique ID of the invoice to update. Example: "12345678-1234-1234-1234-123456789012"
    */
-  invoice_id: string;
+  invoiceId: string;
   /**
    * Invoice type: ACCREC (Sales Invoice) or ACCPAY (Bill).
    */
@@ -20627,7 +20627,7 @@ export interface ActionInput_xero_updateinvoice {
   contact?: {  /**
    * The Xero ID for the contact.
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
    * The full name of the contact or organisation.
    */
@@ -20635,10 +20635,10 @@ export interface ActionInput_xero_updateinvoice {
   /**
    * Line items for the invoice.
    */
-  line_items?: ({  /**
+  lineItems?: ({  /**
    * The Xero ID for the line item (for existing items).
    */
-  line_item_id?: string | undefined;
+  lineItemId?: string | undefined;
   /**
    * Description of the line item.
    */
@@ -20650,15 +20650,15 @@ export interface ActionInput_xero_updateinvoice {
   /**
    * Unit price of the line item.
    */
-  unit_amount?: number | undefined;
+  unitAmount?: number | undefined;
   /**
    * Account code for the line item.
    */
-  account_code?: string | undefined;
+  accountCode?: string | undefined;
   /**
    * Tax type for the line item.
    */
-  tax_type?: string | undefined;})[];
+  taxType?: string | undefined;})[];
   /**
    * Invoice date in YYYY-MM-DD format.
    */
@@ -20666,7 +20666,7 @@ export interface ActionInput_xero_updateinvoice {
   /**
    * Due date for the invoice in YYYY-MM-DD format.
    */
-  due_date?: string | undefined;
+  dueDate?: string | undefined;
   /**
    * Reference text for the invoice.
    */
@@ -20678,20 +20678,20 @@ export interface ActionInput_xero_updateinvoice {
 };
 
 export interface ActionOutput_xero_updateinvoice {
-  invoice_id: string;
-  invoice_number: string;
+  invoiceId: string;
+  invoiceNumber: string;
   type: string;
   status: string;
   total: number;
-  currency_code: string;
-  updated_date_utc: string;
+  currencyCode: string;
+  updatedDateUtc: string;
 };
 
 export interface ActionInput_xero_updateitem {
   /**
    * Unique Xero identifier for the item. Example: "c7f1c1b7-4c44-4f8e-8f6e-5d6c5f5c7e7e"
    */
-  item_id?: string | undefined;
+  itemId?: string | undefined;
   /**
    * User defined item code (item identifier). Required if ItemID is not provided. Example: "ITEM-001"
    */
@@ -20707,80 +20707,80 @@ export interface ActionInput_xero_updateitem {
   /**
    * The purchase description of the item.
    */
-  purchase_description?: string | undefined;
+  purchaseDescription?: string | undefined;
   /**
    * Boolean value, defaults to true. Determines whether the item is sold.
    */
-  is_sold?: boolean | undefined;
+  isSold?: boolean | undefined;
   /**
    * Boolean value, defaults to true. Determines whether the item is purchased.
    */
-  is_purchased?: boolean | undefined;
+  isPurchased?: boolean | undefined;
   /**
    * Unit price for sales.
    */
-  sales_unit_price?: number | undefined;
+  salesUnitPrice?: number | undefined;
   /**
    * Default sales account code for the item.
    */
-  sales_account_code?: string | undefined;
+  salesAccountCode?: string | undefined;
   /**
    * The TaxType to apply to the item on sales invoices.
    */
-  sales_tax_type?: string | undefined;
+  salesTaxType?: string | undefined;
   /**
    * Unit price for purchases.
    */
-  purchase_unit_price?: number | undefined;
+  purchaseUnitPrice?: number | undefined;
   /**
    * Default purchases account code for the item.
    */
-  purchase_account_code?: string | undefined;
+  purchaseAccountCode?: string | undefined;
   /**
    * The TaxType to apply to the item on purchase invoices.
    */
-  purchase_tax_type?: string | undefined;
+  purchaseTaxType?: string | undefined;
   /**
    * The inventory asset account code for the item.
    */
-  inventory_asset_account_code?: string | undefined;
+  inventoryAssetAccountCode?: string | undefined;
   /**
    * Boolean, defaults to false. When true, the item is tracked as inventory.
    */
-  is_tracked_as_inventory?: boolean | undefined;
+  isTrackedAsInventory?: boolean | undefined;
 };
 
 export interface ActionOutput_xero_updateitem {
-  item_id: string;
+  itemId: string;
   code: string;
   name: string;
   description: string;
-  purchase_description: string;
-  is_sold: boolean;
-  is_purchased: boolean;
-  sales_details: {  unit_price: number;
-  account_code: string;
-  tax_type: string;
-  cogs_account_code: string;};
-  purchase_details: {  unit_price: number;
-  account_code: string;
-  tax_type: string;
-  cogs_account_code: string;};
-  is_tracked_as_inventory: boolean;
-  inventory_asset_account_code: string;
+  purchaseDescription: string;
+  isSold: boolean;
+  isPurchased: boolean;
+  salesDetails: {  unitPrice: number;
+  accountCode: string;
+  taxType: string;
+  cogsAccountCode: string;};
+  purchaseDetails: {  unitPrice: number;
+  accountCode: string;
+  taxType: string;
+  cogsAccountCode: string;};
+  isTrackedAsInventory: boolean;
+  inventoryAssetAccountCode: string;
   status: string;
-  updated_date_utc: string;
+  updatedDateUtc: string;
 };
 
 export interface ActionInput_xero_updatepurchaseorder {
   /**
    * Unique Xero identifier for the purchase order. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"
    */
-  purchase_order_id: string;
+  purchaseOrderId: string;
   /**
    * Optional Contact ID to update. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"
    */
-  contact_id?: string | undefined;
+  contactId?: string | undefined;
   /**
    * Date of the purchase order in YYYY-MM-DD format. Example: "2025-04-22"
    */
@@ -20788,7 +20788,7 @@ export interface ActionInput_xero_updatepurchaseorder {
   /**
    * Expected delivery date in YYYY-MM-DD format. Example: "2025-05-01"
    */
-  delivery_date?: string | undefined;
+  deliveryDate?: string | undefined;
   /**
    * Reference for the purchase order. Example: "PO-2025-001"
    */
@@ -20800,7 +20800,7 @@ export interface ActionInput_xero_updatepurchaseorder {
   /**
    * Line items for the purchase order
    */
-  line_items?: ({  /**
+  lineItems?: ({  /**
    * Description of the line item. Example: "Widget A"
    */
   description: string;
@@ -20811,38 +20811,38 @@ export interface ActionInput_xero_updatepurchaseorder {
   /**
    * Unit price. Example: 25.5
    */
-  unit_amount: number;
+  unitAmount: number;
   /**
    * Account code for this line item. Example: "200"
    */
-  account_code: string;
+  accountCode: string;
   /**
    * Tax type for this line item. Example: "OUTPUT2"
    */
-  tax_type?: string | undefined;
+  taxType?: string | undefined;
   /**
    * Line item ID when updating existing line item
    */
-  line_item_id?: string | undefined;})[];
+  lineItemId?: string | undefined;})[];
 };
 
 export interface ActionOutput_xero_updatepurchaseorder {
   /**
    * Unique Xero identifier for the purchase order
    */
-  purchase_order_id: string;
+  purchaseOrderId: string;
   /**
    * Purchase order number
    */
-  purchase_order_number: string;
+  purchaseOrderNumber: string;
   /**
    * Contact ID associated with the purchase order
    */
-  contact_id: string;
+  contactId: string;
   /**
    * Contact name
    */
-  contact_name: string;
+  contactName: string;
   /**
    * Date of the purchase order
    */
@@ -20850,7 +20850,7 @@ export interface ActionOutput_xero_updatepurchaseorder {
   /**
    * Expected delivery date
    */
-  delivery_date: string | null;
+  deliveryDate: string | null;
   /**
    * Reference for the purchase order
    */
@@ -20862,11 +20862,11 @@ export interface ActionOutput_xero_updatepurchaseorder {
   /**
    * Subtotal amount
    */
-  sub_total: number;
+  subTotal: number;
   /**
    * Total tax amount
    */
-  total_tax: number;
+  totalTax: number;
   /**
    * Total amount
    */
@@ -20874,7 +20874,7 @@ export interface ActionOutput_xero_updatepurchaseorder {
   /**
    * UTC timestamp of the update
    */
-  updated_date_utc: string;
+  updatedDateUtc: string;
 };
 
 export interface SyncMetadata_zendesk_articles {

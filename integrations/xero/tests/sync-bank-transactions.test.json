@@ -5,8 +5,8 @@
       "BankTransaction": [
         {
           "id": "b9d7c42c-506a-4e56-a8a1-a41330580834",
-          "bank_transaction_id": "b9d7c42c-506a-4e56-a8a1-a41330580834",
-          "bank_account": {
+          "bankTransactionId": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -24,8 +24,8 @@
           "date": "/Date(1770422400000+0000)/",
           "status": "AUTHORISED",
           "reference": "Fee",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Bank fee",
               "UnitAmount": 15,
@@ -40,16 +40,16 @@
             }
           ],
           "subtotal": 15,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 15,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813455090+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813455090+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "eed8d468-31c5-41c9-b34f-37b400be4c6f",
-          "bank_transaction_id": "eed8d468-31c5-41c9-b34f-37b400be4c6f",
-          "bank_account": {
+          "bankTransactionId": "eed8d468-31c5-41c9-b34f-37b400be4c6f",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -67,8 +67,8 @@
           "date": "/Date(1770854400000+0000)/",
           "status": "AUTHORISED",
           "reference": "Eft",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Misc stationery",
               "UnitAmount": 23.5,
@@ -83,16 +83,16 @@
             }
           ],
           "subtotal": 21.71,
-          "total_tax": 1.79,
+          "totalTax": 1.79,
           "total": 23.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813458217+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813458217+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "5ecad915-ffb0-46b6-b349-2168caa40f66",
-          "bank_transaction_id": "5ecad915-ffb0-46b6-b349-2168caa40f66",
-          "bank_account": {
+          "bankTransactionId": "5ecad915-ffb0-46b6-b349-2168caa40f66",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -109,8 +109,8 @@
           },
           "date": "/Date(1771027200000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Team coffees",
               "UnitAmount": 16,
@@ -125,16 +125,16 @@
             }
           ],
           "subtotal": 16,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 16,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813608257+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813608257+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "84ff3067-c1ee-4413-b489-9d6b40b41ae2",
-          "bank_transaction_id": "84ff3067-c1ee-4413-b489-9d6b40b41ae2",
-          "bank_account": {
+          "bankTransactionId": "84ff3067-c1ee-4413-b489-9d6b40b41ae2",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -151,8 +151,8 @@
           },
           "date": "/Date(1771286400000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Misc kitchen supplies for office",
               "UnitAmount": 65.2,
@@ -167,16 +167,16 @@
             }
           ],
           "subtotal": 60.23,
-          "total_tax": 4.97,
+          "totalTax": 4.97,
           "total": 65.2,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813610447+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813610447+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "8e2347a2-f51f-46b8-ba27-c2c25ed93a09",
-          "bank_transaction_id": "8e2347a2-f51f-46b8-ba27-c2c25ed93a09",
-          "bank_account": {
+          "bankTransactionId": "8e2347a2-f51f-46b8-ba27-c2c25ed93a09",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -194,8 +194,8 @@
           "date": "/Date(1771632000000+0000)/",
           "status": "AUTHORISED",
           "reference": "Gift",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Bouquet for client",
               "UnitAmount": 50,
@@ -210,16 +210,16 @@
             }
           ],
           "subtotal": 46.19,
-          "total_tax": 3.81,
+          "totalTax": 3.81,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813612633+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813612633+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "56d679b7-611f-4c94-9760-60e7b019bc24",
-          "bank_transaction_id": "56d679b7-611f-4c94-9760-60e7b019bc24",
-          "bank_account": {
+          "bankTransactionId": "56d679b7-611f-4c94-9760-60e7b019bc24",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -236,8 +236,8 @@
           },
           "date": "/Date(1771891200000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Team coffee",
               "UnitAmount": 15.6,
@@ -252,16 +252,16 @@
             }
           ],
           "subtotal": 15.6,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 15.6,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813614273+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813614273+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "dc615dfb-6450-490a-bd2f-0b5fd532aff2",
-          "bank_transaction_id": "dc615dfb-6450-490a-bd2f-0b5fd532aff2",
-          "bank_account": {
+          "bankTransactionId": "dc615dfb-6450-490a-bd2f-0b5fd532aff2",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -279,8 +279,8 @@
           "date": "/Date(1772064000000+0000)/",
           "status": "AUTHORISED",
           "reference": "Chq 409",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Monthly carpark",
               "UnitAmount": 148.5,
@@ -302,16 +302,16 @@
             }
           ],
           "subtotal": 137.18,
-          "total_tax": 11.32,
+          "totalTax": 11.32,
           "total": 148.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229813622587+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229813622587+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "9e716adc-32a1-4f81-90f2-1aaae24cfc74",
-          "bank_transaction_id": "9e716adc-32a1-4f81-90f2-1aaae24cfc74",
-          "bank_account": {
+          "bankTransactionId": "9e716adc-32a1-4f81-90f2-1aaae24cfc74",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -329,8 +329,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "DELETED",
           "reference": "Chq 410",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Parking monthly",
               "UnitAmount": 148.5,
@@ -352,16 +352,16 @@
             }
           ],
           "subtotal": 137.18,
-          "total_tax": 11.32,
+          "totalTax": 11.32,
           "total": 148.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229817777813+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229817777813+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "548fb3cf-972b-4bff-8559-0d787cde205a",
-          "bank_transaction_id": "548fb3cf-972b-4bff-8559-0d787cde205a",
-          "bank_account": {
+          "bankTransactionId": "548fb3cf-972b-4bff-8559-0d787cde205a",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -379,8 +379,8 @@
           "date": "/Date(1773100800000+0000)/",
           "status": "AUTHORISED",
           "reference": "Fee",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Bank fee",
               "UnitAmount": 15,
@@ -395,16 +395,16 @@
             }
           ],
           "subtotal": 15,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 15,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229820036867+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229820036867+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "fc5fefd3-a6aa-4a58-954e-4c9352a7b30a",
-          "bank_transaction_id": "fc5fefd3-a6aa-4a58-954e-4c9352a7b30a",
-          "bank_account": {
+          "bankTransactionId": "fc5fefd3-a6aa-4a58-954e-4c9352a7b30a",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -422,8 +422,8 @@
           "date": "/Date(1776124800000+0000)/",
           "status": "DELETED",
           "reference": "Fee",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Bank fee",
               "UnitAmount": 15,
@@ -438,16 +438,16 @@
             }
           ],
           "subtotal": 15,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 15,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1229825658843+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1229825658843+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "86ea16b1-e901-409a-8177-4ec117208cc5",
-          "bank_transaction_id": "86ea16b1-e901-409a-8177-4ec117208cc5",
-          "bank_account": {
+          "bankTransactionId": "86ea16b1-e901-409a-8177-4ec117208cc5",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -464,8 +464,8 @@
           },
           "date": "/Date(1775001600000+0000)/",
           "status": "DELETED",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Print/bind report",
               "UnitAmount": 29.5,
@@ -487,16 +487,16 @@
             }
           ],
           "subtotal": 27.25,
-          "total_tax": 2.25,
+          "totalTax": 2.25,
           "total": 29.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071454290+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071454290+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "8b82178c-c0ad-4515-8f4a-e45a1b203617",
-          "bank_transaction_id": "8b82178c-c0ad-4515-8f4a-e45a1b203617",
-          "bank_account": {
+          "bankTransactionId": "8b82178c-c0ad-4515-8f4a-e45a1b203617",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -514,8 +514,8 @@
           "date": "/Date(1773964800000+0000)/",
           "status": "DELETED",
           "reference": "Eft",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Misc kitchen supplies for office",
               "UnitAmount": 34.1,
@@ -530,16 +530,16 @@
             }
           ],
           "subtotal": 31.5,
-          "total_tax": 2.6,
+          "totalTax": 2.6,
           "total": 34.1,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071454667+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071454667+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "8ded5737-2bbf-4f3a-b437-20d598ea4bcf",
-          "bank_transaction_id": "8ded5737-2bbf-4f3a-b437-20d598ea4bcf",
-          "bank_account": {
+          "bankTransactionId": "8ded5737-2bbf-4f3a-b437-20d598ea4bcf",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -557,8 +557,8 @@
           "date": "/Date(1774051200000+0000)/",
           "status": "DELETED",
           "reference": "Chq 410",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Monthly parking",
               "UnitAmount": 148.5,
@@ -573,16 +573,16 @@
             }
           ],
           "subtotal": 137.18,
-          "total_tax": 11.32,
+          "totalTax": 11.32,
           "total": 148.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071454947+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071454947+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "a858954b-f646-41e4-a0fb-5823bb896c98",
-          "bank_transaction_id": "a858954b-f646-41e4-a0fb-5823bb896c98",
-          "bank_account": {
+          "bankTransactionId": "a858954b-f646-41e4-a0fb-5823bb896c98",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -600,8 +600,8 @@
           "date": "/Date(1774224000000+0000)/",
           "status": "DELETED",
           "reference": "Eft",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Photocopier paper",
               "UnitAmount": 49.2,
@@ -616,16 +616,16 @@
             }
           ],
           "subtotal": 45.45,
-          "total_tax": 3.75,
+          "totalTax": 3.75,
           "total": 49.2,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071455010+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071455010+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "4ec15cf0-1ee8-46ce-9cd9-34ba80511299",
-          "bank_transaction_id": "4ec15cf0-1ee8-46ce-9cd9-34ba80511299",
-          "bank_account": {
+          "bankTransactionId": "4ec15cf0-1ee8-46ce-9cd9-34ba80511299",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -642,8 +642,8 @@
           },
           "date": "/Date(1774742400000+0000)/",
           "status": "DELETED",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Staff coffees",
               "UnitAmount": 22,
@@ -658,16 +658,16 @@
             }
           ],
           "subtotal": 22,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 22,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071455087+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071455087+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "ef8942cc-a47c-489f-b4c8-fc987fd3d356",
-          "bank_transaction_id": "ef8942cc-a47c-489f-b4c8-fc987fd3d356",
-          "bank_account": {
+          "bankTransactionId": "ef8942cc-a47c-489f-b4c8-fc987fd3d356",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -685,8 +685,8 @@
           "date": "/Date(1774742400000+0000)/",
           "status": "DELETED",
           "reference": "Chq 411",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Emergency locksmith - front office door",
               "UnitAmount": 69.5,
@@ -701,16 +701,16 @@
             }
           ],
           "subtotal": 64.2,
-          "total_tax": 5.3,
+          "totalTax": 5.3,
           "total": 69.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071455150+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071455150+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "8997a5fe-c07d-49cc-8936-cb338f9f0ec7",
-          "bank_transaction_id": "8997a5fe-c07d-49cc-8936-cb338f9f0ec7",
-          "bank_account": {
+          "bankTransactionId": "8997a5fe-c07d-49cc-8936-cb338f9f0ec7",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -727,8 +727,8 @@
           },
           "date": "/Date(1773964800000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Misc kitchen supplies for office",
               "UnitAmount": 34.1,
@@ -743,16 +743,16 @@
             }
           ],
           "subtotal": 31.5,
-          "total_tax": 2.6,
+          "totalTax": 2.6,
           "total": 34.1,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071767640+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071767640+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "190f2da9-f696-4612-9e52-35a277674feb",
-          "bank_transaction_id": "190f2da9-f696-4612-9e52-35a277674feb",
-          "bank_account": {
+          "bankTransactionId": "190f2da9-f696-4612-9e52-35a277674feb",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -769,8 +769,8 @@
           },
           "date": "/Date(1774051200000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "",
               "UnitAmount": 148.5,
@@ -785,16 +785,16 @@
             }
           ],
           "subtotal": 137.18,
-          "total_tax": 11.32,
+          "totalTax": 11.32,
           "total": 148.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071840913+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071840913+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "aabb3aeb-6961-4c0a-9ffc-6d43e5283762",
-          "bank_transaction_id": "aabb3aeb-6961-4c0a-9ffc-6d43e5283762",
-          "bank_account": {
+          "bankTransactionId": "aabb3aeb-6961-4c0a-9ffc-6d43e5283762",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -811,8 +811,8 @@
           },
           "date": "/Date(1774224000000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "Misc stationery",
               "UnitAmount": 49.2,
@@ -827,16 +827,16 @@
             }
           ],
           "subtotal": 45.45,
-          "total_tax": 3.75,
+          "totalTax": 3.75,
           "total": 49.2,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385071843253+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385071843253+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "641ec07c-5d5a-4fe8-b7a3-d985854eed9f",
-          "bank_transaction_id": "641ec07c-5d5a-4fe8-b7a3-d985854eed9f",
-          "bank_account": {
+          "bankTransactionId": "641ec07c-5d5a-4fe8-b7a3-d985854eed9f",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -853,8 +853,8 @@
           },
           "date": "/Date(1774742400000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "",
               "UnitAmount": 69.5,
@@ -869,16 +869,16 @@
             }
           ],
           "subtotal": 64.2,
-          "total_tax": 5.3,
+          "totalTax": 5.3,
           "total": 69.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385072132607+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385072132607+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "a3984455-2591-4cc0-801c-c8ac98dfc409",
-          "bank_transaction_id": "a3984455-2591-4cc0-801c-c8ac98dfc409",
-          "bank_account": {
+          "bankTransactionId": "a3984455-2591-4cc0-801c-c8ac98dfc409",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -895,8 +895,8 @@
           },
           "date": "/Date(1774742400000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "",
               "UnitAmount": 22,
@@ -911,16 +911,16 @@
             }
           ],
           "subtotal": 22,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 22,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385072147723+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385072147723+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "823f008c-64e5-4285-b470-7ecf1ab83cd4",
-          "bank_transaction_id": "823f008c-64e5-4285-b470-7ecf1ab83cd4",
-          "bank_account": {
+          "bankTransactionId": "823f008c-64e5-4285-b470-7ecf1ab83cd4",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -937,8 +937,8 @@
           },
           "date": "/Date(1773964800000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": true,
-          "line_items": [
+          "isReconciled": true,
+          "lineItems": [
             {
               "Description": "",
               "UnitAmount": 29.5,
@@ -953,16 +953,16 @@
             }
           ],
           "subtotal": 27.25,
-          "total_tax": 2.25,
+          "totalTax": 2.25,
           "total": 29.5,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1385072864543+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1385072864543+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "c1e03570-043c-4c4d-b3bf-457d46c516d8",
-          "bank_transaction_id": "c1e03570-043c-4c4d-b3bf-457d46c516d8",
-          "bank_account": {
+          "bankTransactionId": "c1e03570-043c-4c4d-b3bf-457d46c516d8",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -980,8 +980,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-001",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -996,16 +996,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704070313+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704070313+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "a6833abc-18bd-4911-acce-73d87ab23ed4",
-          "bank_transaction_id": "a6833abc-18bd-4911-acce-73d87ab23ed4",
-          "bank_account": {
+          "bankTransactionId": "a6833abc-18bd-4911-acce-73d87ab23ed4",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1023,8 +1023,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-001",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -1039,16 +1039,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704141010+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704141010+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "bab937de-4b84-4557-99a8-b01d16fd4a17",
-          "bank_transaction_id": "bab937de-4b84-4557-99a8-b01d16fd4a17",
-          "bank_account": {
+          "bankTransactionId": "bab937de-4b84-4557-99a8-b01d16fd4a17",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1066,8 +1066,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-002",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -1082,16 +1082,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704244213+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704244213+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "f82e3edd-a1a5-4cc7-b32e-ffdc6f419a04",
-          "bank_transaction_id": "f82e3edd-a1a5-4cc7-b32e-ffdc6f419a04",
-          "bank_account": {
+          "bankTransactionId": "f82e3edd-a1a5-4cc7-b32e-ffdc6f419a04",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1109,8 +1109,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-002",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -1125,16 +1125,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704255827+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704255827+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "f921ad84-8418-49d3-9366-ef0b1e371303",
-          "bank_transaction_id": "f921ad84-8418-49d3-9366-ef0b1e371303",
-          "bank_account": {
+          "bankTransactionId": "f921ad84-8418-49d3-9366-ef0b1e371303",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1153,8 +1153,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Updated via Nango API - Success!",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Test transaction for update",
               "UnitAmount": 50,
@@ -1169,16 +1169,16 @@
             }
           ],
           "subtotal": 46.19,
-          "total_tax": 3.81,
+          "totalTax": 3.81,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704621437+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704621437+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "2e060c09-75d0-4ff3-8822-54e3f3b4ba36",
-          "bank_transaction_id": "2e060c09-75d0-4ff3-8822-54e3f3b4ba36",
-          "bank_account": {
+          "bankTransactionId": "2e060c09-75d0-4ff3-8822-54e3f3b4ba36",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1196,8 +1196,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-004",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -1212,16 +1212,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704716093+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704716093+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "8e0f9b46-37de-4d3e-b963-919128b569e8",
-          "bank_transaction_id": "8e0f9b46-37de-4d3e-b963-919128b569e8",
-          "bank_account": {
+          "bankTransactionId": "8e0f9b46-37de-4d3e-b963-919128b569e8",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1239,8 +1239,8 @@
           "date": "/Date(1776643200000+0000)/",
           "status": "AUTHORISED",
           "reference": "Test-BT-004",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies",
               "UnitAmount": 50,
@@ -1255,16 +1255,16 @@
             }
           ],
           "subtotal": 50,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776704725633+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776704725633+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "dcc41fb9-1d48-45f3-9353-3d21f49b2099",
-          "bank_transaction_id": "dcc41fb9-1d48-45f3-9353-3d21f49b2099",
-          "bank_account": {
+          "bankTransactionId": "dcc41fb9-1d48-45f3-9353-3d21f49b2099",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1282,8 +1282,8 @@
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
           "reference": "Updated Reference Test",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Test",
               "UnitAmount": 100,
@@ -1298,16 +1298,16 @@
             }
           ],
           "subtotal": 92.38,
-          "total_tax": 7.62,
+          "totalTax": 7.62,
           "total": 100,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776868751477+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776868751477+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "928ce6d2-bdda-425d-acc2-d4136b5c0347",
-          "bank_transaction_id": "928ce6d2-bdda-425d-acc2-d4136b5c0347",
-          "bank_account": {
+          "bankTransactionId": "928ce6d2-bdda-425d-acc2-d4136b5c0347",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1325,8 +1325,8 @@
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
           "reference": "INV-001",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies purchase",
               "UnitAmount": 50,
@@ -1341,16 +1341,16 @@
             }
           ],
           "subtotal": 100,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 100,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776869112013+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776869112013+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "b1181571-265c-4648-b43f-f0dba32ff845",
-          "bank_transaction_id": "b1181571-265c-4648-b43f-f0dba32ff845",
-          "bank_account": {
+          "bankTransactionId": "b1181571-265c-4648-b43f-f0dba32ff845",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1368,8 +1368,8 @@
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
           "reference": "INV-001",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Office supplies purchase",
               "UnitAmount": 50,
@@ -1384,16 +1384,16 @@
             }
           ],
           "subtotal": 100,
-          "total_tax": 0,
+          "totalTax": 0,
           "total": 100,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776869119833+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776869119833+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
-          "bank_transaction_id": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
-          "bank_account": {
+          "bankTransactionId": "ec66ec20-fa66-4ea5-9320-ce1cea8e966c",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1411,8 +1411,8 @@
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
           "reference": "Updated via Nango dryrun",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Test transaction for update action",
               "UnitAmount": 50,
@@ -1427,16 +1427,16 @@
             }
           ],
           "subtotal": 46.19,
-          "total_tax": 3.81,
+          "totalTax": 3.81,
           "total": 50,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776870390560+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776870390560+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "7b85b85c-216d-44db-aaaf-a812d0f72c9f",
-          "bank_transaction_id": "7b85b85c-216d-44db-aaaf-a812d0f72c9f",
-          "bank_account": {
+          "bankTransactionId": "7b85b85c-216d-44db-aaaf-a812d0f72c9f",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1453,8 +1453,8 @@
           },
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Test line item",
               "UnitAmount": 100,
@@ -1469,16 +1469,16 @@
             }
           ],
           "subtotal": 92.38,
-          "total_tax": 7.62,
+          "totalTax": 7.62,
           "total": 100,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776870759567+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776870759567+0000)/",
+          "hasAttachments": false
         },
         {
           "id": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
-          "bank_transaction_id": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
-          "bank_account": {
+          "bankTransactionId": "59e0de12-fcd3-4348-afee-a3a6c0f9d187",
+          "bankAccount": {
             "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
             "Code": "090",
             "Name": "Business Bank Account"
@@ -1495,8 +1495,8 @@
           },
           "date": "/Date(1776816000000+0000)/",
           "status": "AUTHORISED",
-          "is_reconciled": false,
-          "line_items": [
+          "isReconciled": false,
+          "lineItems": [
             {
               "Description": "Test line item",
               "UnitAmount": 100,
@@ -1511,11 +1511,11 @@
             }
           ],
           "subtotal": 92.38,
-          "total_tax": 7.62,
+          "totalTax": 7.62,
           "total": 100,
-          "currency_code": "USD",
-          "updated_date_utc": "/Date(1776870767823+0000)/",
-          "has_attachments": false
+          "currencyCode": "USD",
+          "updatedDateUtc": "/Date(1776870767823+0000)/",
+          "hasAttachments": false
         }
       ]
     },

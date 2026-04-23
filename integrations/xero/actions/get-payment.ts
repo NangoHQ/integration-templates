@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    payment_id: z.string().describe('The Xero PaymentID to retrieve. Example: "b54e4368-91fd-4aa5-8205-fa3c16b61552"')
+    paymentId: z.string().describe('The Xero PaymentID to retrieve. Example: "b54e4368-91fd-4aa5-8205-fa3c16b61552"')
 });
 
 const OutputSchema = z.object({
@@ -88,7 +88,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://developer.xero.com/documentation/api/accounting/payments
-            endpoint: `api.xro/2.0/Payments/${input.payment_id}`,
+            endpoint: `api.xro/2.0/Payments/${input.paymentId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -98,8 +98,8 @@ const action = createAction({
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Payment with ID "${input.payment_id}" not found.`,
-                payment_id: input.payment_id
+                message: `Payment with ID "${input.paymentId}" not found.`,
+                paymentId: input.paymentId
             });
         }
 
@@ -109,15 +109,15 @@ const action = createAction({
         if (!Array.isArray(paymentsArray) || paymentsArray.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Payment with ID "${input.payment_id}" not found.`,
-                payment_id: input.payment_id
+                message: `Payment with ID "${input.paymentId}" not found.`,
+                paymentId: input.paymentId
             });
         }
 
         const payment = paymentsArray[0];
 
         return {
-            id: input.payment_id,
+            id: input.paymentId,
             payment: typeof payment === 'object' && payment !== null ? payment : null
         };
     }

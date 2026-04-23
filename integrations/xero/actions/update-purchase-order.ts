@@ -2,21 +2,21 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    purchase_order_id: z.string().describe('Unique Xero identifier for the purchase order. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"'),
-    contact_id: z.string().optional().describe('Optional Contact ID to update. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"'),
+    purchaseOrderId: z.string().describe('Unique Xero identifier for the purchase order. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"'),
+    contactId: z.string().optional().describe('Optional Contact ID to update. Example: "8b68b396-8735-4f50-b253-5a3aabe6e0f5"'),
     date: z.string().optional().describe('Date of the purchase order in YYYY-MM-DD format. Example: "2025-04-22"'),
-    delivery_date: z.string().optional().describe('Expected delivery date in YYYY-MM-DD format. Example: "2025-05-01"'),
+    deliveryDate: z.string().optional().describe('Expected delivery date in YYYY-MM-DD format. Example: "2025-05-01"'),
     reference: z.string().optional().describe('Reference for the purchase order. Example: "PO-2025-001"'),
     status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'BILLED', 'DELETED']).optional().describe('Status of the purchase order'),
-    line_items: z
+    lineItems: z
         .array(
             z.object({
                 description: z.string().describe('Description of the line item. Example: "Widget A"'),
                 quantity: z.number().describe('Quantity ordered. Example: 10'),
-                unit_amount: z.number().describe('Unit price. Example: 25.5'),
-                account_code: z.string().describe('Account code for this line item. Example: "200"'),
-                tax_type: z.string().optional().describe('Tax type for this line item. Example: "OUTPUT2"'),
-                line_item_id: z.string().optional().describe('Line item ID when updating existing line item')
+                unitAmount: z.number().describe('Unit price. Example: 25.5'),
+                accountCode: z.string().describe('Account code for this line item. Example: "200"'),
+                taxType: z.string().optional().describe('Tax type for this line item. Example: "OUTPUT2"'),
+                lineItemId: z.string().optional().describe('Line item ID when updating existing line item')
             })
         )
         .optional()
@@ -24,18 +24,18 @@ const InputSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    purchase_order_id: z.string().describe('Unique Xero identifier for the purchase order'),
-    purchase_order_number: z.string().describe('Purchase order number'),
-    contact_id: z.string().describe('Contact ID associated with the purchase order'),
-    contact_name: z.string().describe('Contact name'),
+    purchaseOrderId: z.string().describe('Unique Xero identifier for the purchase order'),
+    purchaseOrderNumber: z.string().describe('Purchase order number'),
+    contactId: z.string().describe('Contact ID associated with the purchase order'),
+    contactName: z.string().describe('Contact name'),
     date: z.string().describe('Date of the purchase order'),
-    delivery_date: z.union([z.string(), z.null()]).describe('Expected delivery date'),
+    deliveryDate: z.union([z.string(), z.null()]).describe('Expected delivery date'),
     reference: z.union([z.string(), z.null()]).describe('Reference for the purchase order'),
     status: z.string().describe('Status of the purchase order'),
-    sub_total: z.number().describe('Subtotal amount'),
-    total_tax: z.number().describe('Total tax amount'),
+    subTotal: z.number().describe('Subtotal amount'),
+    totalTax: z.number().describe('Total tax amount'),
     total: z.number().describe('Total amount'),
-    updated_date_utc: z.string().describe('UTC timestamp of the update')
+    updatedDateUtc: z.string().describe('UTC timestamp of the update')
 });
 
 const ConnectionSchema = z.object({
@@ -138,19 +138,19 @@ const action = createAction({
 
         // Build the purchase order payload
         const purchaseOrderPayload: Record<string, unknown> = {
-            PurchaseOrderID: input.purchase_order_id
+            PurchaseOrderID: input.purchaseOrderId
         };
 
-        if (input.contact_id) {
-            purchaseOrderPayload['Contact'] = { ContactID: input.contact_id };
+        if (input.contactId) {
+            purchaseOrderPayload['Contact'] = { ContactID: input.contactId };
         }
 
         if (input.date) {
             purchaseOrderPayload['Date'] = input.date;
         }
 
-        if (input.delivery_date) {
-            purchaseOrderPayload['DeliveryDate'] = input.delivery_date;
+        if (input.deliveryDate) {
+            purchaseOrderPayload['DeliveryDate'] = input.deliveryDate;
         }
 
         if (input.reference !== undefined) {
@@ -161,21 +161,21 @@ const action = createAction({
             purchaseOrderPayload['Status'] = input.status;
         }
 
-        if (input.line_items && input.line_items.length > 0) {
-            purchaseOrderPayload['LineItems'] = input.line_items.map((item) => {
+        if (input.lineItems && input.lineItems.length > 0) {
+            purchaseOrderPayload['LineItems'] = input.lineItems.map((item) => {
                 const lineItem: Record<string, unknown> = {
                     Description: item.description,
                     Quantity: item.quantity,
-                    UnitAmount: item.unit_amount,
-                    AccountCode: item.account_code
+                    UnitAmount: item.unitAmount,
+                    AccountCode: item.accountCode
                 };
 
-                if (item.tax_type) {
-                    lineItem['TaxType'] = item.tax_type;
+                if (item.taxType) {
+                    lineItem['TaxType'] = item.taxType;
                 }
 
-                if (item.line_item_id) {
-                    lineItem['LineItemID'] = item.line_item_id;
+                if (item.lineItemId) {
+                    lineItem['LineItemID'] = item.lineItemId;
                 }
 
                 return lineItem;
@@ -216,18 +216,18 @@ const action = createAction({
         const contact = contactParse.success ? contactParse.data : undefined;
 
         return {
-            purchase_order_id: typeof purchaseOrder['PurchaseOrderID'] === 'string' ? purchaseOrder['PurchaseOrderID'] : '',
-            purchase_order_number: typeof purchaseOrder['PurchaseOrderNumber'] === 'string' ? purchaseOrder['PurchaseOrderNumber'] : '',
-            contact_id: contact && typeof contact.ContactID === 'string' ? contact.ContactID : '',
-            contact_name: contact && typeof contact.Name === 'string' ? contact.Name : '',
+            purchaseOrderId: typeof purchaseOrder['PurchaseOrderID'] === 'string' ? purchaseOrder['PurchaseOrderID'] : '',
+            purchaseOrderNumber: typeof purchaseOrder['PurchaseOrderNumber'] === 'string' ? purchaseOrder['PurchaseOrderNumber'] : '',
+            contactId: contact && typeof contact.ContactID === 'string' ? contact.ContactID : '',
+            contactName: contact && typeof contact.Name === 'string' ? contact.Name : '',
             date: typeof purchaseOrder['Date'] === 'string' ? purchaseOrder['Date'] : '',
-            delivery_date: typeof purchaseOrder['DeliveryDate'] === 'string' ? purchaseOrder['DeliveryDate'] : null,
+            deliveryDate: typeof purchaseOrder['DeliveryDate'] === 'string' ? purchaseOrder['DeliveryDate'] : null,
             reference: typeof purchaseOrder['Reference'] === 'string' ? purchaseOrder['Reference'] : null,
             status: typeof purchaseOrder['Status'] === 'string' ? purchaseOrder['Status'] : '',
-            sub_total: typeof purchaseOrder['SubTotal'] === 'number' ? purchaseOrder['SubTotal'] : 0,
-            total_tax: typeof purchaseOrder['TotalTax'] === 'number' ? purchaseOrder['TotalTax'] : 0,
+            subTotal: typeof purchaseOrder['SubTotal'] === 'number' ? purchaseOrder['SubTotal'] : 0,
+            totalTax: typeof purchaseOrder['TotalTax'] === 'number' ? purchaseOrder['TotalTax'] : 0,
             total: typeof purchaseOrder['Total'] === 'number' ? purchaseOrder['Total'] : 0,
-            updated_date_utc: typeof purchaseOrder['UpdatedDateUTC'] === 'string' ? purchaseOrder['UpdatedDateUTC'] : ''
+            updatedDateUtc: typeof purchaseOrder['UpdatedDateUTC'] === 'string' ? purchaseOrder['UpdatedDateUTC'] : ''
         };
     }
 });

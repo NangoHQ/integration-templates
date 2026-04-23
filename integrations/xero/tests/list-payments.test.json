@@ -1023,7 +1023,7 @@
         "HasValidationErrors": false
       }
     ],
-    "next_cursor": null
+    "nextCursor": null
   },
   "nango": {
     "getConnection": {}

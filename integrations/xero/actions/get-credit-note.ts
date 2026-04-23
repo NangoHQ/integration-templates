@@ -2,36 +2,36 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    credit_note_id: z.string().describe('The Xero CreditNoteID. Example: "a3c4c3b0-1234-4567-8901-abcdef123456"')
+    creditNoteId: z.string().describe('The Xero CreditNoteID. Example: "a3c4c3b0-1234-4567-8901-abcdef123456"')
 });
 
 const CreditNoteOutputSchema = z.object({
-    credit_note_id: z.string(),
-    credit_note_number: z.union([z.string(), z.null()]),
+    creditNoteId: z.string(),
+    creditNoteNumber: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
     type: z.union([z.string(), z.null()]),
     contact: z.union([
         z.object({
-            contact_id: z.union([z.string(), z.null()]),
+            contactId: z.union([z.string(), z.null()]),
             name: z.union([z.string(), z.null()])
         }),
         z.null()
     ]),
     reference: z.union([z.string(), z.null()]),
-    sub_total: z.union([z.number(), z.null()]),
-    total_tax: z.union([z.number(), z.null()]),
+    subTotal: z.union([z.number(), z.null()]),
+    totalTax: z.union([z.number(), z.null()]),
     total: z.union([z.number(), z.null()]),
-    currency_code: z.union([z.string(), z.null()]),
-    remaining_credit: z.union([z.number(), z.null()]),
-    fully_paid_on_date: z.union([z.string(), z.null()]),
+    currencyCode: z.union([z.string(), z.null()]),
+    remainingCredit: z.union([z.number(), z.null()]),
+    fullyPaidOnDate: z.union([z.string(), z.null()]),
     date: z.union([z.string(), z.null()]),
-    line_amount_types: z.union([z.string(), z.null()]),
-    has_attachments: z.union([z.boolean(), z.null()]),
-    updated_date_utc: z.union([z.string(), z.null()])
+    lineAmountTypes: z.union([z.string(), z.null()]),
+    hasAttachments: z.union([z.boolean(), z.null()]),
+    updatedDateUtc: z.union([z.string(), z.null()])
 });
 
 const OutputSchema = z.object({
-    credit_note: z.union([CreditNoteOutputSchema, z.null()])
+    creditNote: z.union([CreditNoteOutputSchema, z.null()])
 });
 
 const action = createAction({
@@ -109,7 +109,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/creditnotes
         const response = await nango.get({
-            endpoint: `api.xro/2.0/CreditNotes/${input.credit_note_id}`,
+            endpoint: `api.xro/2.0/CreditNotes/${input.creditNoteId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -119,19 +119,19 @@ const action = createAction({
         const responseData = response.data;
 
         if (!responseData || typeof responseData !== 'object') {
-            return { credit_note: null };
+            return { creditNote: null };
         }
 
         const creditNotesData = 'CreditNotes' in responseData ? responseData.CreditNotes : undefined;
 
         if (!Array.isArray(creditNotesData) || creditNotesData.length === 0) {
-            return { credit_note: null };
+            return { creditNote: null };
         }
 
         const creditNote = creditNotesData[0];
 
         if (!creditNote || typeof creditNote !== 'object') {
-            return { credit_note: null };
+            return { creditNote: null };
         }
 
         const isRecord = (val: unknown): val is Record<string, unknown> => {
@@ -178,41 +178,41 @@ const action = createAction({
         const hasAttachments = getBoolean(creditNote, 'HasAttachments');
         const updatedDateUtc = getString(creditNote, 'UpdatedDateUTC');
 
-        let contactObj: { contact_id: string | null; name: string | null } | null = null;
+        let contactObj: { contactId: string | null; name: string | null } | null = null;
         if (creditNote && typeof creditNote === 'object' && 'Contact' in creditNote) {
             const contact = creditNote.Contact;
             if (contact && typeof contact === 'object') {
                 const contactId = getString(contact, 'ContactID');
                 const contactName = getString(contact, 'Name');
                 contactObj = {
-                    contact_id: contactId,
+                    contactId: contactId,
                     name: contactName
                 };
             }
         }
 
         if (!cnId) {
-            return { credit_note: null };
+            return { creditNote: null };
         }
 
         return {
-            credit_note: {
-                credit_note_id: cnId,
-                credit_note_number: cnNumber,
+            creditNote: {
+                creditNoteId: cnId,
+                creditNoteNumber: cnNumber,
                 status: status,
                 type: type,
                 contact: contactObj,
                 reference: reference,
-                sub_total: subTotal,
-                total_tax: totalTax,
+                subTotal: subTotal,
+                totalTax: totalTax,
                 total: total,
-                currency_code: currencyCode,
-                remaining_credit: remainingCredit,
-                fully_paid_on_date: fullyPaidOnDate,
+                currencyCode: currencyCode,
+                remainingCredit: remainingCredit,
+                fullyPaidOnDate: fullyPaidOnDate,
                 date: date,
-                line_amount_types: lineAmountTypes,
-                has_attachments: hasAttachments,
-                updated_date_utc: updatedDateUtc
+                lineAmountTypes: lineAmountTypes,
+                hasAttachments: hasAttachments,
+                updatedDateUtc: updatedDateUtc
             }
         };
     }

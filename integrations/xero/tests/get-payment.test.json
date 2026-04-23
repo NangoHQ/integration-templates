@@ -1,6 +1,6 @@
 {
   "input": {
-    "payment_id": "655ad293-0b35-4c2c-9a97-0ee979dd365f"
+    "paymentId": "655ad293-0b35-4c2c-9a97-0ee979dd365f"
   },
   "output": {
     "id": "655ad293-0b35-4c2c-9a97-0ee979dd365f",

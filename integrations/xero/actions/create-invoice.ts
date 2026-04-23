@@ -4,59 +4,59 @@ import { createAction } from 'nango';
 const LineItemSchema = z.object({
     description: z.string().describe('Description of the line item'),
     quantity: z.number().describe('Quantity of the line item'),
-    unit_amount: z.number().describe('Unit amount of the line item'),
-    account_code: z.string().optional().describe('Account code for the line item'),
-    tax_type: z.string().optional().describe('Tax type for the line item'),
-    item_code: z.string().optional().describe('Item code for existing items')
+    unitAmount: z.number().describe('Unit amount of the line item'),
+    accountCode: z.string().optional().describe('Account code for the line item'),
+    taxType: z.string().optional().describe('Tax type for the line item'),
+    itemCode: z.string().optional().describe('Item code for existing items')
 });
 
 const ContactSchema = z
     .object({
-        contact_id: z.string().optional().describe('Xero Contact ID (preferred)'),
-        name: z.string().optional().describe('Contact name (used if contact_id not provided)')
+        contactId: z.string().optional().describe('Xero Contact ID (preferred)'),
+        name: z.string().optional().describe('Contact name (used if contactId not provided)')
     })
-    .refine((data) => data.contact_id || data.name, {
-        message: 'Either contact_id or name must be provided'
+    .refine((data) => data.contactId || data.name, {
+        message: 'Either contactId or name must be provided'
     });
 
 const InputSchema = z.object({
     type: z.enum(['ACCREC', 'ACCPAY']).describe('Invoice type: ACCREC for Sales Invoice, ACCPAY for Purchase Bill'),
     contact: ContactSchema.describe('Contact for the invoice'),
-    line_items: z.array(LineItemSchema).min(1).describe('Line items for the invoice'),
+    lineItems: z.array(LineItemSchema).min(1).describe('Line items for the invoice'),
     date: z.string().optional().describe('Invoice date (YYYY-MM-DD). Defaults to today if not provided.'),
-    due_date: z.string().optional().describe('Due date (YYYY-MM-DD)'),
-    invoice_number: z.string().optional().describe('Invoice number (auto-generated if not provided for ACCREC)'),
+    dueDate: z.string().optional().describe('Due date (YYYY-MM-DD)'),
+    invoiceNumber: z.string().optional().describe('Invoice number (auto-generated if not provided for ACCREC)'),
     reference: z.string().optional().describe('Reference for the invoice'),
     status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'PAID', 'VOIDED']).optional().describe('Invoice status. Defaults to DRAFT if not provided.'),
-    currency_code: z.string().optional().describe('Currency code (e.g., USD, GBP)'),
-    sent_to_contact: z.boolean().optional().describe('Whether the invoice has been sent to the contact'),
+    currencyCode: z.string().optional().describe('Currency code (e.g., USD, GBP)'),
+    sentToContact: z.boolean().optional().describe('Whether the invoice has been sent to the contact'),
     url: z.string().optional().describe('URL link to a source document')
 });
 
 const OutputSchema = z.object({
-    invoice_id: z.string().describe('Xero Invoice ID'),
-    invoice_number: z.string().describe('Invoice number'),
+    invoiceId: z.string().describe('Xero Invoice ID'),
+    invoiceNumber: z.string().describe('Invoice number'),
     type: z.enum(['ACCREC', 'ACCPAY']).describe('Invoice type'),
     status: z.string().describe('Invoice status'),
     total: z.number().describe('Total amount of the invoice'),
-    sub_total: z.number().describe('Subtotal of the invoice'),
-    total_tax: z.number().describe('Total tax on the invoice'),
-    contact_id: z.string().describe('Xero Contact ID'),
-    contact_name: z.string().describe('Contact name'),
+    subTotal: z.number().describe('Subtotal of the invoice'),
+    totalTax: z.number().describe('Total tax on the invoice'),
+    contactId: z.string().describe('Xero Contact ID'),
+    contactName: z.string().describe('Contact name'),
     date: z.string().describe('Invoice date'),
-    due_date: z.union([z.string(), z.null()]).describe('Due date'),
-    updated_date_utc: z.string().describe('Last updated timestamp in UTC'),
-    currency_code: z.union([z.string(), z.null()]).describe('Currency code'),
-    line_items: z
+    dueDate: z.union([z.string(), z.null()]).describe('Due date'),
+    updatedDateUtc: z.string().describe('Last updated timestamp in UTC'),
+    currencyCode: z.union([z.string(), z.null()]).describe('Currency code'),
+    lineItems: z
         .array(
             z.object({
-                line_item_id: z.string().describe('Line item ID'),
+                lineItemId: z.string().describe('Line item ID'),
                 description: z.string().describe('Line item description'),
                 quantity: z.number().describe('Line item quantity'),
-                unit_amount: z.number().describe('Line item unit amount'),
-                account_code: z.union([z.string(), z.null()]).describe('Account code'),
-                tax_type: z.union([z.string(), z.null()]).describe('Tax type'),
-                line_amount: z.number().describe('Line item total amount')
+                unitAmount: z.number().describe('Line item unit amount'),
+                accountCode: z.union([z.string(), z.null()]).describe('Account code'),
+                taxType: z.union([z.string(), z.null()]).describe('Tax type'),
+                lineAmount: z.number().describe('Line item total amount')
             })
         )
         .describe('Line items')
@@ -134,19 +134,19 @@ function mapLineItem(inputItem: z.infer<typeof LineItemSchema>): Record<string, 
     const lineItem: Record<string, unknown> = {
         Description: inputItem.description,
         Quantity: inputItem.quantity,
-        UnitAmount: inputItem.unit_amount
+        UnitAmount: inputItem.unitAmount
     };
 
-    if (inputItem.account_code) {
-        lineItem['AccountCode'] = inputItem.account_code;
+    if (inputItem.accountCode) {
+        lineItem['AccountCode'] = inputItem.accountCode;
     }
 
-    if (inputItem.tax_type) {
-        lineItem['TaxType'] = inputItem.tax_type;
+    if (inputItem.taxType) {
+        lineItem['TaxType'] = inputItem.taxType;
     }
 
-    if (inputItem.item_code) {
-        lineItem['ItemCode'] = inputItem.item_code;
+    if (inputItem.itemCode) {
+        lineItem['ItemCode'] = inputItem.itemCode;
     }
 
     return lineItem;
@@ -155,8 +155,8 @@ function mapLineItem(inputItem: z.infer<typeof LineItemSchema>): Record<string, 
 function mapContact(inputContact: z.infer<typeof ContactSchema>): Record<string, unknown> {
     const contact: Record<string, unknown> = {};
 
-    if (inputContact.contact_id) {
-        contact['ContactID'] = inputContact.contact_id;
+    if (inputContact.contactId) {
+        contact['ContactID'] = inputContact.contactId;
     }
 
     if (inputContact.name) {
@@ -184,19 +184,19 @@ const action = createAction({
         const invoicePayload: Record<string, unknown> = {
             Type: input.type,
             Contact: mapContact(input.contact),
-            LineItems: input.line_items.map(mapLineItem)
+            LineItems: input.lineItems.map(mapLineItem)
         };
 
         if (input.date) {
             invoicePayload['Date'] = input.date;
         }
 
-        if (input.due_date) {
-            invoicePayload['DueDate'] = input.due_date;
+        if (input.dueDate) {
+            invoicePayload['DueDate'] = input.dueDate;
         }
 
-        if (input.invoice_number) {
-            invoicePayload['InvoiceNumber'] = input.invoice_number;
+        if (input.invoiceNumber) {
+            invoicePayload['InvoiceNumber'] = input.invoiceNumber;
         }
 
         if (input.reference) {
@@ -207,12 +207,12 @@ const action = createAction({
             invoicePayload['Status'] = input.status;
         }
 
-        if (input.currency_code) {
-            invoicePayload['CurrencyCode'] = input.currency_code;
+        if (input.currencyCode) {
+            invoicePayload['CurrencyCode'] = input.currencyCode;
         }
 
-        if (input.sent_to_contact !== undefined) {
-            invoicePayload['SentToContact'] = input.sent_to_contact;
+        if (input.sentToContact !== undefined) {
+            invoicePayload['SentToContact'] = input.sentToContact;
         }
 
         if (input.url) {
@@ -246,7 +246,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'api_error',
                 message: String(responseData['Message'] || 'Unknown Xero API error'),
-                error_number: responseData['ErrorNumber']
+                errorNumber: responseData['ErrorNumber']
             });
         }
 
@@ -289,46 +289,46 @@ const action = createAction({
 
         const lineItemsData = createdInvoice['LineItems'];
         const mappedLineItems: Array<{
-            line_item_id: string;
+            lineItemId: string;
             description: string;
             quantity: number;
-            unit_amount: number;
-            account_code: string | null;
-            tax_type: string | null;
-            line_amount: number;
+            unitAmount: number;
+            accountCode: string | null;
+            taxType: string | null;
+            lineAmount: number;
         }> = [];
 
         if (Array.isArray(lineItemsData)) {
             for (const item of lineItemsData) {
                 if (item && typeof item === 'object') {
                     mappedLineItems.push({
-                        line_item_id: item['LineItemID'] ? String(item['LineItemID']) : '',
+                        lineItemId: item['LineItemID'] ? String(item['LineItemID']) : '',
                         description: item['Description'] ? String(item['Description']) : '',
                         quantity: typeof item['Quantity'] === 'number' ? item['Quantity'] : 0,
-                        unit_amount: typeof item['UnitAmount'] === 'number' ? item['UnitAmount'] : 0,
-                        account_code: item['AccountCode'] ? String(item['AccountCode']) : null,
-                        tax_type: item['TaxType'] ? String(item['TaxType']) : null,
-                        line_amount: typeof item['LineAmount'] === 'number' ? item['LineAmount'] : 0
+                        unitAmount: typeof item['UnitAmount'] === 'number' ? item['UnitAmount'] : 0,
+                        accountCode: item['AccountCode'] ? String(item['AccountCode']) : null,
+                        taxType: item['TaxType'] ? String(item['TaxType']) : null,
+                        lineAmount: typeof item['LineAmount'] === 'number' ? item['LineAmount'] : 0
                     });
                 }
             }
         }
 
         return {
-            invoice_id: createdInvoice['InvoiceID'] ? String(createdInvoice['InvoiceID']) : '',
-            invoice_number: createdInvoice['InvoiceNumber'] ? String(createdInvoice['InvoiceNumber']) : '',
+            invoiceId: createdInvoice['InvoiceID'] ? String(createdInvoice['InvoiceID']) : '',
+            invoiceNumber: createdInvoice['InvoiceNumber'] ? String(createdInvoice['InvoiceNumber']) : '',
             type: createdInvoice['Type'] === 'ACCPAY' ? 'ACCPAY' : 'ACCREC',
             status: createdInvoice['Status'] ? String(createdInvoice['Status']) : '',
             total: typeof createdInvoice['Total'] === 'number' ? createdInvoice['Total'] : 0,
-            sub_total: typeof createdInvoice['SubTotal'] === 'number' ? createdInvoice['SubTotal'] : 0,
-            total_tax: typeof createdInvoice['TotalTax'] === 'number' ? createdInvoice['TotalTax'] : 0,
-            contact_id: contactId,
-            contact_name: contactName,
+            subTotal: typeof createdInvoice['SubTotal'] === 'number' ? createdInvoice['SubTotal'] : 0,
+            totalTax: typeof createdInvoice['TotalTax'] === 'number' ? createdInvoice['TotalTax'] : 0,
+            contactId: contactId,
+            contactName: contactName,
             date: createdInvoice['Date'] ? String(createdInvoice['Date']) : '',
-            due_date: createdInvoice['DueDate'] ? String(createdInvoice['DueDate']) : null,
-            updated_date_utc: createdInvoice['UpdatedDateUTC'] ? String(createdInvoice['UpdatedDateUTC']) : '',
-            currency_code: createdInvoice['CurrencyCode'] ? String(createdInvoice['CurrencyCode']) : null,
-            line_items: mappedLineItems
+            dueDate: createdInvoice['DueDate'] ? String(createdInvoice['DueDate']) : null,
+            updatedDateUtc: createdInvoice['UpdatedDateUTC'] ? String(createdInvoice['UpdatedDateUTC']) : '',
+            currencyCode: createdInvoice['CurrencyCode'] ? String(createdInvoice['CurrencyCode']) : null,
+            lineItems: mappedLineItems
         };
     }
 });

@@ -3,53 +3,53 @@ import { createAction } from 'nango';
 
 // https://developer.xero.com/documentation/api/accounting/purchaseorders
 const ContactSchema = z.object({
-    contact_id: z.string().describe('Xero Contact ID. Example: "a3d8b6c0-1234-5678-9abc-def012345678"')
+    contactId: z.string().describe('Xero Contact ID. Example: "a3d8b6c0-1234-5678-9abc-def012345678"')
 });
 
 const LineItemSchema = z.object({
     description: z.string().describe('Line item description. Example: "Office Supplies"'),
     quantity: z.number().describe('Quantity of items. Example: 5'),
-    unit_amount: z.number().describe('Price per unit. Example: 25.5'),
-    account_code: z.string().optional().describe('Account code for this line item. Example: "200"'),
-    tax_type: z.string().optional().describe('Tax type for this line item. Example: "NONE"'),
-    item_code: z.string().optional().describe('Item code if referencing an existing item. Example: "ITM001"')
+    unitAmount: z.number().describe('Price per unit. Example: 25.5'),
+    accountCode: z.string().optional().describe('Account code for this line item. Example: "200"'),
+    taxType: z.string().optional().describe('Tax type for this line item. Example: "NONE"'),
+    itemCode: z.string().optional().describe('Item code if referencing an existing item. Example: "ITM001"')
 });
 
 const InputSchema = z.object({
     contact: ContactSchema.describe('Contact information for the purchase order'),
     date: z.string().describe('Purchase order date in YYYY-MM-DD format. Example: "2025-01-15"'),
-    line_items: z.array(LineItemSchema).min(1).describe('Line items for the purchase order'),
-    delivery_date: z.string().optional().describe('Expected delivery date in YYYY-MM-DD format. Example: "2025-02-01"'),
+    lineItems: z.array(LineItemSchema).min(1).describe('Line items for the purchase order'),
+    deliveryDate: z.string().optional().describe('Expected delivery date in YYYY-MM-DD format. Example: "2025-02-01"'),
     reference: z.string().optional().describe('Reference for the purchase order. Example: "PO-001"'),
-    attention_to: z.string().optional().describe('Person to address the purchase order to. Example: "John Smith"'),
+    attentionTo: z.string().optional().describe('Person to address the purchase order to. Example: "John Smith"'),
     telephone: z.string().optional().describe('Contact phone number. Example: "+61 2 9876 5432"'),
-    delivery_instructions: z.string().optional().describe('Delivery instructions. Example: "Deliver to rear entrance"'),
+    deliveryInstructions: z.string().optional().describe('Delivery instructions. Example: "Deliver to rear entrance"'),
     status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED', 'BILLED', 'DELETED']).optional().describe('Purchase order status. Example: "DRAFT"')
 });
 
 const OutputSchema = z.object({
-    purchase_order_id: z.string().describe('Xero Purchase Order ID'),
-    purchase_order_number: z.union([z.string(), z.null()]).describe('Xero Purchase Order Number'),
+    purchaseOrderId: z.string().describe('Xero Purchase Order ID'),
+    purchaseOrderNumber: z.union([z.string(), z.null()]).describe('Xero Purchase Order Number'),
     status: z.string().describe('Purchase order status'),
-    contact_id: z.string().describe('Contact ID associated with the purchase order'),
-    contact_name: z.union([z.string(), z.null()]).describe('Contact name'),
+    contactId: z.string().describe('Contact ID associated with the purchase order'),
+    contactName: z.union([z.string(), z.null()]).describe('Contact name'),
     date: z.string().describe('Purchase order date'),
-    line_items: z
+    lineItems: z
         .array(
             z.object({
                 description: z.string(),
                 quantity: z.number(),
-                unit_amount: z.number(),
-                line_amount: z.union([z.number(), z.null()]),
-                account_code: z.union([z.string(), z.null()]),
-                tax_type: z.union([z.string(), z.null()])
+                unitAmount: z.number(),
+                lineAmount: z.union([z.number(), z.null()]),
+                accountCode: z.union([z.string(), z.null()]),
+                taxType: z.union([z.string(), z.null()])
             })
         )
         .describe('Line items'),
     total: z.union([z.number(), z.null()]).describe('Total amount'),
-    sub_total: z.union([z.number(), z.null()]).describe('Subtotal amount'),
-    total_tax: z.union([z.number(), z.null()]).describe('Total tax amount'),
-    updated_date_utc: z.union([z.string(), z.null()]).describe('Last updated timestamp')
+    subTotal: z.union([z.number(), z.null()]).describe('Subtotal amount'),
+    totalTax: z.union([z.number(), z.null()]).describe('Total tax amount'),
+    updatedDateUtc: z.union([z.string(), z.null()]).describe('Last updated timestamp')
 });
 
 const ConnectionsResponseSchema = z.object({
@@ -167,22 +167,22 @@ const action = createAction({
             PurchaseOrders: [
                 {
                     Contact: {
-                        ContactID: input.contact.contact_id
+                        ContactID: input.contact.contactId
                     },
                     Date: input.date,
-                    LineItems: input.line_items.map((item) => ({
+                    LineItems: input.lineItems.map((item) => ({
                         Description: item.description,
                         Quantity: item.quantity,
-                        UnitAmount: item.unit_amount,
-                        ...(item.account_code && { AccountCode: item.account_code }),
-                        ...(item.tax_type && { TaxType: item.tax_type }),
-                        ...(item.item_code && { ItemCode: item.item_code })
+                        UnitAmount: item.unitAmount,
+                        ...(item.accountCode && { AccountCode: item.accountCode }),
+                        ...(item.taxType && { TaxType: item.taxType }),
+                        ...(item.itemCode && { ItemCode: item.itemCode })
                     })),
-                    ...(input.delivery_date && { DeliveryDate: input.delivery_date }),
+                    ...(input.deliveryDate && { DeliveryDate: input.deliveryDate }),
                     ...(input.reference && { Reference: input.reference }),
-                    ...(input.attention_to && { AttentionTo: input.attention_to }),
+                    ...(input.attentionTo && { AttentionTo: input.attentionTo }),
                     ...(input.telephone && { Telephone: input.telephone }),
-                    ...(input.delivery_instructions && { DeliveryInstructions: input.delivery_instructions }),
+                    ...(input.deliveryInstructions && { DeliveryInstructions: input.deliveryInstructions }),
                     ...(input.status && { Status: input.status })
                 }
             ]
@@ -216,24 +216,24 @@ const action = createAction({
         }
 
         return {
-            purchase_order_id: purchaseOrder.PurchaseOrderID,
-            purchase_order_number: purchaseOrder.PurchaseOrderNumber || null,
+            purchaseOrderId: purchaseOrder.PurchaseOrderID,
+            purchaseOrderNumber: purchaseOrder.PurchaseOrderNumber || null,
             status: purchaseOrder.Status,
-            contact_id: purchaseOrder.Contact.ContactID,
-            contact_name: purchaseOrder.Contact.Name || null,
+            contactId: purchaseOrder.Contact.ContactID,
+            contactName: purchaseOrder.Contact.Name || null,
             date: purchaseOrder.Date,
-            line_items: (purchaseOrder.LineItems || []).map((item) => ({
+            lineItems: (purchaseOrder.LineItems || []).map((item) => ({
                 description: item.Description,
                 quantity: item.Quantity,
-                unit_amount: item.UnitAmount,
-                line_amount: item.LineAmount || null,
-                account_code: item.AccountCode || null,
-                tax_type: item.TaxType || null
+                unitAmount: item.UnitAmount,
+                lineAmount: item.LineAmount || null,
+                accountCode: item.AccountCode || null,
+                taxType: item.TaxType || null
             })),
             total: purchaseOrder.Total || null,
-            sub_total: purchaseOrder.SubTotal || null,
-            total_tax: purchaseOrder.TotalTax || null,
-            updated_date_utc: purchaseOrder.UpdatedDateUTC || null
+            subTotal: purchaseOrder.SubTotal || null,
+            totalTax: purchaseOrder.TotalTax || null,
+            updatedDateUtc: purchaseOrder.UpdatedDateUTC || null
         };
     }
 });

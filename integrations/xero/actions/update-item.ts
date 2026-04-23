@@ -6,55 +6,55 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        item_id: z.string().optional().describe('Unique Xero identifier for the item. Example: "c7f1c1b7-4c44-4f8e-8f6e-5d6c5f5c7e7e"'),
+        itemId: z.string().optional().describe('Unique Xero identifier for the item. Example: "c7f1c1b7-4c44-4f8e-8f6e-5d6c5f5c7e7e"'),
         code: z.string().optional().describe('User defined item code (item identifier). Required if ItemID is not provided. Example: "ITEM-001"'),
         name: z.string().optional().describe('The name of the item. Example: "Acme Widget"'),
         description: z.string().optional().describe('The sales description of the item.'),
-        purchase_description: z.string().optional().describe('The purchase description of the item.'),
-        is_sold: z.boolean().optional().describe('Boolean value, defaults to true. Determines whether the item is sold.'),
-        is_purchased: z.boolean().optional().describe('Boolean value, defaults to true. Determines whether the item is purchased.'),
-        sales_unit_price: z.number().optional().describe('Unit price for sales.'),
-        sales_account_code: z.string().optional().describe('Default sales account code for the item.'),
-        sales_tax_type: z.string().optional().describe('The TaxType to apply to the item on sales invoices.'),
-        purchase_unit_price: z.number().optional().describe('Unit price for purchases.'),
-        purchase_account_code: z.string().optional().describe('Default purchases account code for the item.'),
-        purchase_tax_type: z.string().optional().describe('The TaxType to apply to the item on purchase invoices.'),
-        inventory_asset_account_code: z.string().optional().describe('The inventory asset account code for the item.'),
-        is_tracked_as_inventory: z.boolean().optional().describe('Boolean, defaults to false. When true, the item is tracked as inventory.')
+        purchaseDescription: z.string().optional().describe('The purchase description of the item.'),
+        isSold: z.boolean().optional().describe('Boolean value, defaults to true. Determines whether the item is sold.'),
+        isPurchased: z.boolean().optional().describe('Boolean value, defaults to true. Determines whether the item is purchased.'),
+        salesUnitPrice: z.number().optional().describe('Unit price for sales.'),
+        salesAccountCode: z.string().optional().describe('Default sales account code for the item.'),
+        salesTaxType: z.string().optional().describe('The TaxType to apply to the item on sales invoices.'),
+        purchaseUnitPrice: z.number().optional().describe('Unit price for purchases.'),
+        purchaseAccountCode: z.string().optional().describe('Default purchases account code for the item.'),
+        purchaseTaxType: z.string().optional().describe('The TaxType to apply to the item on purchase invoices.'),
+        inventoryAssetAccountCode: z.string().optional().describe('The inventory asset account code for the item.'),
+        isTrackedAsInventory: z.boolean().optional().describe('Boolean, defaults to false. When true, the item is tracked as inventory.')
     })
-    .refine((data) => data.item_id || data.code, {
-        message: 'Either item_id or code is required to identify the item.',
-        path: ['item_id']
+    .refine((data) => data.itemId || data.code, {
+        message: 'Either itemId or code is required to identify the item.',
+        path: ['itemId']
     });
 
 const SalesDetailsSchema = z.object({
-    unit_price: z.number().nullable(),
-    account_code: z.string().nullable(),
-    tax_type: z.string().nullable(),
-    cogs_account_code: z.string().nullable()
+    unitPrice: z.number().nullable(),
+    accountCode: z.string().nullable(),
+    taxType: z.string().nullable(),
+    cogsAccountCode: z.string().nullable()
 });
 
 const PurchaseDetailsSchema = z.object({
-    unit_price: z.number().nullable(),
-    account_code: z.string().nullable(),
-    tax_type: z.string().nullable(),
-    cogs_account_code: z.string().nullable()
+    unitPrice: z.number().nullable(),
+    accountCode: z.string().nullable(),
+    taxType: z.string().nullable(),
+    cogsAccountCode: z.string().nullable()
 });
 
 const OutputSchema = z.object({
-    item_id: z.string(),
+    itemId: z.string(),
     code: z.string(),
     name: z.string().nullable(),
     description: z.string().nullable(),
-    purchase_description: z.string().nullable(),
-    is_sold: z.boolean(),
-    is_purchased: z.boolean(),
-    sales_details: SalesDetailsSchema.nullable(),
-    purchase_details: PurchaseDetailsSchema.nullable(),
-    is_tracked_as_inventory: z.boolean(),
-    inventory_asset_account_code: z.string().nullable(),
+    purchaseDescription: z.string().nullable(),
+    isSold: z.boolean(),
+    isPurchased: z.boolean(),
+    salesDetails: SalesDetailsSchema.nullable(),
+    purchaseDetails: PurchaseDetailsSchema.nullable(),
+    isTrackedAsInventory: z.boolean(),
+    inventoryAssetAccountCode: z.string().nullable(),
     status: z.string(),
-    updated_date_utc: z.string().nullable()
+    updatedDateUtc: z.string().nullable()
 });
 
 // Type inference from schemas
@@ -150,8 +150,8 @@ const action = createAction({
         // either ItemID or Code to identify it, plus any fields to update
         const itemPayload: Record<string, unknown> = {};
 
-        if (input.item_id) {
-            itemPayload['ItemID'] = input.item_id;
+        if (input.itemId) {
+            itemPayload['ItemID'] = input.itemId;
         }
 
         if (input.code) {
@@ -166,52 +166,52 @@ const action = createAction({
             itemPayload['Description'] = input.description;
         }
 
-        if (input.purchase_description !== undefined) {
-            itemPayload['PurchaseDescription'] = input.purchase_description;
+        if (input.purchaseDescription !== undefined) {
+            itemPayload['PurchaseDescription'] = input.purchaseDescription;
         }
 
-        if (input.is_sold !== undefined) {
-            itemPayload['IsSold'] = input.is_sold;
+        if (input.isSold !== undefined) {
+            itemPayload['IsSold'] = input.isSold;
         }
 
-        if (input.is_purchased !== undefined) {
-            itemPayload['IsPurchased'] = input.is_purchased;
+        if (input.isPurchased !== undefined) {
+            itemPayload['IsPurchased'] = input.isPurchased;
         }
 
-        if (input.sales_unit_price !== undefined || input.sales_account_code !== undefined || input.sales_tax_type !== undefined) {
+        if (input.salesUnitPrice !== undefined || input.salesAccountCode !== undefined || input.salesTaxType !== undefined) {
             const salesDetails: Record<string, unknown> = {};
-            if (input.sales_unit_price !== undefined) {
-                salesDetails['UnitPrice'] = input.sales_unit_price;
+            if (input.salesUnitPrice !== undefined) {
+                salesDetails['UnitPrice'] = input.salesUnitPrice;
             }
-            if (input.sales_account_code !== undefined) {
-                salesDetails['AccountCode'] = input.sales_account_code;
+            if (input.salesAccountCode !== undefined) {
+                salesDetails['AccountCode'] = input.salesAccountCode;
             }
-            if (input.sales_tax_type !== undefined) {
-                salesDetails['TaxType'] = input.sales_tax_type;
+            if (input.salesTaxType !== undefined) {
+                salesDetails['TaxType'] = input.salesTaxType;
             }
             itemPayload['SalesDetails'] = salesDetails;
         }
 
-        if (input.purchase_unit_price !== undefined || input.purchase_account_code !== undefined || input.purchase_tax_type !== undefined) {
+        if (input.purchaseUnitPrice !== undefined || input.purchaseAccountCode !== undefined || input.purchaseTaxType !== undefined) {
             const purchaseDetails: Record<string, unknown> = {};
-            if (input.purchase_unit_price !== undefined) {
-                purchaseDetails['UnitPrice'] = input.purchase_unit_price;
+            if (input.purchaseUnitPrice !== undefined) {
+                purchaseDetails['UnitPrice'] = input.purchaseUnitPrice;
             }
-            if (input.purchase_account_code !== undefined) {
-                purchaseDetails['AccountCode'] = input.purchase_account_code;
+            if (input.purchaseAccountCode !== undefined) {
+                purchaseDetails['AccountCode'] = input.purchaseAccountCode;
             }
-            if (input.purchase_tax_type !== undefined) {
-                purchaseDetails['TaxType'] = input.purchase_tax_type;
+            if (input.purchaseTaxType !== undefined) {
+                purchaseDetails['TaxType'] = input.purchaseTaxType;
             }
             itemPayload['PurchaseDetails'] = purchaseDetails;
         }
 
-        if (input.is_tracked_as_inventory !== undefined) {
-            itemPayload['IsTrackedAsInventory'] = input.is_tracked_as_inventory;
+        if (input.isTrackedAsInventory !== undefined) {
+            itemPayload['IsTrackedAsInventory'] = input.isTrackedAsInventory;
         }
 
-        if (input.inventory_asset_account_code !== undefined) {
-            itemPayload['InventoryAssetAccountCode'] = input.inventory_asset_account_code;
+        if (input.inventoryAssetAccountCode !== undefined) {
+            itemPayload['InventoryAssetAccountCode'] = input.inventoryAssetAccountCode;
         }
 
         const requestBody = {
@@ -244,7 +244,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'update_failed',
                 message: 'Failed to update item. No item returned in response.',
-                response_status: xeroResponse.Status ?? 'unknown'
+                responseStatus: xeroResponse.Status ?? 'unknown'
             });
         }
 
@@ -285,10 +285,10 @@ const action = createAction({
             const taxType = sd['TaxType'];
             const cogsAccountCode = sd['COGSAccountCode'];
             return {
-                unit_price: typeof unitPrice === 'number' ? unitPrice : null,
-                account_code: typeof accountCode === 'string' ? accountCode : null,
-                tax_type: typeof taxType === 'string' ? taxType : null,
-                cogs_account_code: typeof cogsAccountCode === 'string' ? cogsAccountCode : null
+                unitPrice: typeof unitPrice === 'number' ? unitPrice : null,
+                accountCode: typeof accountCode === 'string' ? accountCode : null,
+                taxType: typeof taxType === 'string' ? taxType : null,
+                cogsAccountCode: typeof cogsAccountCode === 'string' ? cogsAccountCode : null
             };
         };
 
@@ -302,27 +302,27 @@ const action = createAction({
             const taxType = pd['TaxType'];
             const cogsAccountCode = pd['COGSAccountCode'];
             return {
-                unit_price: typeof unitPrice === 'number' ? unitPrice : null,
-                account_code: typeof accountCode === 'string' ? accountCode : null,
-                tax_type: typeof taxType === 'string' ? taxType : null,
-                cogs_account_code: typeof cogsAccountCode === 'string' ? cogsAccountCode : null
+                unitPrice: typeof unitPrice === 'number' ? unitPrice : null,
+                accountCode: typeof accountCode === 'string' ? accountCode : null,
+                taxType: typeof taxType === 'string' ? taxType : null,
+                cogsAccountCode: typeof cogsAccountCode === 'string' ? cogsAccountCode : null
             };
         };
 
         return {
-            item_id: itemId,
+            itemId: itemId,
             code: getString('Code') ?? '',
             name: getString('Name'),
             description: getString('Description'),
-            purchase_description: getString('PurchaseDescription'),
-            is_sold: getBool('IsSold'),
-            is_purchased: getBool('IsPurchased'),
-            sales_details: getSalesDetails(),
-            purchase_details: getPurchaseDetails(),
-            is_tracked_as_inventory: getBool('IsTrackedAsInventory'),
-            inventory_asset_account_code: getString('InventoryAssetAccountCode'),
+            purchaseDescription: getString('PurchaseDescription'),
+            isSold: getBool('IsSold'),
+            isPurchased: getBool('IsPurchased'),
+            salesDetails: getSalesDetails(),
+            purchaseDetails: getPurchaseDetails(),
+            isTrackedAsInventory: getBool('IsTrackedAsInventory'),
+            inventoryAssetAccountCode: getString('InventoryAssetAccountCode'),
             status: getString('Status') ?? '',
-            updated_date_utc: getString('UpdatedDateUTC')
+            updatedDateUtc: getString('UpdatedDateUTC')
         };
     }
 });

@@ -2,34 +2,34 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    item_id: z.string().describe('The Xero identifier for an Item. Example: 297c2dc5-cc47-4afd-8ec8-74990b8761e9')
+    itemId: z.string().describe('The Xero identifier for an Item. Example: 297c2dc5-cc47-4afd-8ec8-74990b8761e9')
 });
 
 const PurchaseDetailsSchema = z.object({
-    unit_price: z.union([z.number(), z.null()]),
-    account_code: z.union([z.string(), z.null()]),
-    tax_type: z.union([z.string(), z.null()])
+    unitPrice: z.union([z.number(), z.null()]),
+    accountCode: z.union([z.string(), z.null()]),
+    taxType: z.union([z.string(), z.null()])
 });
 
 const SalesDetailsSchema = z.object({
-    unit_price: z.union([z.number(), z.null()]),
-    account_code: z.union([z.string(), z.null()]),
-    tax_type: z.union([z.string(), z.null()])
+    unitPrice: z.union([z.number(), z.null()]),
+    accountCode: z.union([z.string(), z.null()]),
+    taxType: z.union([z.string(), z.null()])
 });
 
 const OutputSchema = z.object({
-    item_id: z.string(),
+    itemId: z.string(),
     code: z.string(),
     name: z.union([z.string(), z.null()]),
-    is_sold: z.boolean(),
-    is_purchased: z.boolean(),
-    is_tracked_as_inventory: z.boolean(),
-    inventory_asset_account_code: z.union([z.string(), z.null()]),
-    total_cost_pool: z.union([z.number(), z.null()]),
-    quantity_on_hand: z.union([z.number(), z.null()]),
-    updated_date_utc: z.string(),
-    purchase_details: z.union([PurchaseDetailsSchema, z.null()]),
-    sales_details: z.union([SalesDetailsSchema, z.null()])
+    isSold: z.boolean(),
+    isPurchased: z.boolean(),
+    isTrackedAsInventory: z.boolean(),
+    inventoryAssetAccountCode: z.union([z.string(), z.null()]),
+    totalCostPool: z.union([z.number(), z.null()]),
+    quantityOnHand: z.union([z.number(), z.null()]),
+    updatedDateUtc: z.string(),
+    purchaseDetails: z.union([PurchaseDetailsSchema, z.null()]),
+    salesDetails: z.union([SalesDetailsSchema, z.null()])
 });
 
 const ConnectionConfigSchema = z.object({
@@ -143,7 +143,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/items
         const response = await nango.get({
-            endpoint: `api.xro/2.0/Items/${input.item_id}`,
+            endpoint: `api.xro/2.0/Items/${input.itemId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -154,8 +154,8 @@ const action = createAction({
         if (!responseParse.success || responseParse.data.Items.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Item with ID ${input.item_id} not found`,
-                item_id: input.item_id
+                message: `Item with ID ${input.itemId} not found`,
+                itemId: input.itemId
             });
         }
 
@@ -174,9 +174,9 @@ const action = createAction({
             const pdParse = PurchaseDetailsDataSchema.safeParse(item.PurchaseDetails);
             if (pdParse.success) {
                 purchaseDetails = {
-                    unit_price: pdParse.data.UnitPrice ?? null,
-                    account_code: pdParse.data.AccountCode ?? null,
-                    tax_type: pdParse.data.TaxType ?? null
+                    unitPrice: pdParse.data.UnitPrice ?? null,
+                    accountCode: pdParse.data.AccountCode ?? null,
+                    taxType: pdParse.data.TaxType ?? null
                 };
             }
         }
@@ -186,26 +186,26 @@ const action = createAction({
             const sdParse = SalesDetailsDataSchema.safeParse(item.SalesDetails);
             if (sdParse.success) {
                 salesDetails = {
-                    unit_price: sdParse.data.UnitPrice ?? null,
-                    account_code: sdParse.data.AccountCode ?? null,
-                    tax_type: sdParse.data.TaxType ?? null
+                    unitPrice: sdParse.data.UnitPrice ?? null,
+                    accountCode: sdParse.data.AccountCode ?? null,
+                    taxType: sdParse.data.TaxType ?? null
                 };
             }
         }
 
         return {
-            item_id: item.ItemID ?? '',
+            itemId: item.ItemID ?? '',
             code: item.Code ?? '',
             name: item.Name ?? null,
-            is_sold: item.IsSold ?? false,
-            is_purchased: item.IsPurchased ?? false,
-            is_tracked_as_inventory: item.IsTrackedAsInventory ?? false,
-            inventory_asset_account_code: item.InventoryAssetAccountCode ?? null,
-            total_cost_pool: item.TotalCostPool ?? null,
-            quantity_on_hand: item.QuantityOnHand ?? null,
-            updated_date_utc: item.UpdatedDateUTC ?? '',
-            purchase_details: purchaseDetails,
-            sales_details: salesDetails
+            isSold: item.IsSold ?? false,
+            isPurchased: item.IsPurchased ?? false,
+            isTrackedAsInventory: item.IsTrackedAsInventory ?? false,
+            inventoryAssetAccountCode: item.InventoryAssetAccountCode ?? null,
+            totalCostPool: item.TotalCostPool ?? null,
+            quantityOnHand: item.QuantityOnHand ?? null,
+            updatedDateUtc: item.UpdatedDateUTC ?? '',
+            purchaseDetails: purchaseDetails,
+            salesDetails: salesDetails
         };
     }
 });

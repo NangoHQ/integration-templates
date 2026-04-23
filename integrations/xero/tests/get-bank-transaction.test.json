@@ -1,24 +1,24 @@
 {
   "input": {
-    "bank_transaction_id": "b9d7c42c-506a-4e56-a8a1-a41330580834"
+    "bankTransactionId": "b9d7c42c-506a-4e56-a8a1-a41330580834"
   },
   "output": {
-    "bank_transaction_id": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+    "bankTransactionId": "b9d7c42c-506a-4e56-a8a1-a41330580834",
     "type": "SPEND",
-    "contact_id": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
-    "contact_name": "Ridgeway Bank",
+    "contactId": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+    "contactName": "Ridgeway Bank",
     "date": "/Date(1770422400000+0000)/",
     "status": "AUTHORISED",
-    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
-    "bank_account_name": "Business Bank Account",
-    "currency_code": "USD",
-    "currency_rate": null,
-    "sub_total": 15,
-    "total_tax": 0,
+    "bankAccountId": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "bankAccountName": "Business Bank Account",
+    "currencyCode": "USD",
+    "currencyRate": null,
+    "subTotal": 15,
+    "totalTax": 0,
     "total": 15,
     "reference": "Fee",
-    "is_reconciled": true,
-    "updated_at": "/Date(1229813455090+0000)/"
+    "isReconciled": true,
+    "updatedAt": "/Date(1229813455090+0000)/"
   },
   "nango": {
     "getConnection": {}

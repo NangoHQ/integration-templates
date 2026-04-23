@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     page: z.number().optional().describe('Page number for pagination. Defaults to 1.'),
     where: z.string().optional().describe('A filter expression in Xero query syntax.'),
-    summary_only: z.boolean().optional().describe('Return a simplified response with limited contact details.'),
-    modified_since: z.string().optional().describe('Return only contacts modified since this ISO 8601 timestamp.')
+    summaryOnly: z.boolean().optional().describe('Return a simplified response with limited contact details.'),
+    modifiedSince: z.string().optional().describe('Return only contacts modified since this ISO 8601 timestamp.')
 });
 
 const ContactSchema = z.object({
@@ -21,7 +21,7 @@ const ContactSchema = z.object({
 
 const OutputSchema = z.object({
     contacts: z.array(ContactSchema),
-    has_more: z.boolean()
+    hasMore: z.boolean()
 });
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -94,15 +94,15 @@ const action = createAction({
                         endpoint: 'api.xro/2.0/Contacts',
                         headers: {
                             'xero-tenant-id': tenantIdFromConnection,
-                            ...(input.modified_since && {
-                                'If-Modified-Since': input.modified_since
+                            ...(input.modifiedSince && {
+                                'If-Modified-Since': input.modifiedSince
                             })
                         },
                         params: {
                             ...(input.page && { page: input.page.toString() }),
                             ...(input.where && { where: input.where }),
-                            ...(input.summary_only && {
-                                summaryOnly: input.summary_only.toString()
+                            ...(input.summaryOnly && {
+                                summaryOnly: input.summaryOnly.toString()
                             })
                         },
                         retries: 3
@@ -112,10 +112,10 @@ const action = createAction({
                     if (isRecord(data) && 'Contacts' in data && Array.isArray(data['Contacts'])) {
                         return {
                             contacts: data['Contacts'].map(mapContact),
-                            has_more: data['Contacts'].length === 100
+                            hasMore: data['Contacts'].length === 100
                         };
                     }
-                    return { contacts: [], has_more: false };
+                    return { contacts: [], hasMore: false };
                 }
             }
             throw new nango.ActionError({
@@ -129,14 +129,14 @@ const action = createAction({
             endpoint: 'api.xro/2.0/Contacts',
             headers: {
                 'xero-tenant-id': tenantId,
-                ...(input.modified_since && {
-                    'If-Modified-Since': input.modified_since
+                ...(input.modifiedSince && {
+                    'If-Modified-Since': input.modifiedSince
                 })
             },
             params: {
                 ...(input.page && { page: input.page.toString() }),
                 ...(input.where && { where: input.where }),
-                ...(input.summary_only && { summaryOnly: input.summary_only.toString() })
+                ...(input.summaryOnly && { summaryOnly: input.summaryOnly.toString() })
             },
             retries: 3
         });
@@ -145,10 +145,10 @@ const action = createAction({
         if (isRecord(data) && 'Contacts' in data && Array.isArray(data['Contacts'])) {
             return {
                 contacts: data['Contacts'].map(mapContact),
-                has_more: data['Contacts'].length === 100
+                hasMore: data['Contacts'].length === 100
             };
         }
-        return { contacts: [], has_more: false };
+        return { contacts: [], hasMore: false };
     }
 });
 

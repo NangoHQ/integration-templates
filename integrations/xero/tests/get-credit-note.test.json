@@ -1,28 +1,28 @@
 {
   "input": {
-    "credit_note_id": "602f5486-664e-492f-b4d1-e12df1d4b8ba"
+    "creditNoteId": "602f5486-664e-492f-b4d1-e12df1d4b8ba"
   },
   "output": {
-    "credit_note": {
-      "credit_note_id": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
-      "credit_note_number": "CN-0014",
+    "creditNote": {
+      "creditNoteId": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+      "creditNoteNumber": "CN-0014",
       "status": "PAID",
       "type": "ACCRECCREDIT",
       "contact": {
-        "contact_id": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+        "contactId": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
         "name": "Boom FM"
       },
       "reference": "Training",
-      "sub_total": 500,
-      "total_tax": 41.25,
+      "subTotal": 500,
+      "totalTax": 41.25,
       "total": 541.25,
-      "currency_code": "USD",
-      "remaining_credit": 0,
-      "fully_paid_on_date": "/Date(1772928000000+0000)/",
+      "currencyCode": "USD",
+      "remainingCredit": 0,
+      "fullyPaidOnDate": "/Date(1772928000000+0000)/",
       "date": "/Date(1772928000000+0000)/",
-      "line_amount_types": "Exclusive",
-      "has_attachments": false,
-      "updated_date_utc": "/Date(1229794712660+0000)/"
+      "lineAmountTypes": "Exclusive",
+      "hasAttachments": false,
+      "updatedDateUtc": "/Date(1229794712660+0000)/"
     }
   },
   "nango": {

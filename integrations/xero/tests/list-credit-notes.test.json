@@ -3,7 +3,7 @@
     "page": 1
   },
   "output": {
-    "credit_notes": [
+    "creditNotes": [
       {
         "CreditNoteID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
         "CreditNoteNumber": "CN-0014",
@@ -554,9 +554,9 @@
     ],
     "pagination": {
       "page": 1,
-      "page_size": 100,
-      "total_pages": null,
-      "total_count": null
+      "pageSize": 100,
+      "totalPages": null,
+      "totalCount": null
     }
   },
   "nango": {

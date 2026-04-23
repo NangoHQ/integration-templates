@@ -1,27 +1,27 @@
 {
   "input": {
-    "item_id": "8bbaf73c-5a32-4458-addf-bd30a36c8551"
+    "itemId": "8bbaf73c-5a32-4458-addf-bd30a36c8551"
   },
   "output": {
-    "item_id": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+    "itemId": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
     "code": "BOOK",
     "name": "Fish out of Water: Finding Your Brand",
-    "is_sold": true,
-    "is_purchased": true,
-    "is_tracked_as_inventory": false,
-    "inventory_asset_account_code": null,
-    "total_cost_pool": null,
-    "quantity_on_hand": null,
-    "updated_date_utc": "/Date(1776682521180+0000)/",
-    "purchase_details": {
-      "unit_price": null,
-      "account_code": null,
-      "tax_type": null
+    "isSold": true,
+    "isPurchased": true,
+    "isTrackedAsInventory": false,
+    "inventoryAssetAccountCode": null,
+    "totalCostPool": null,
+    "quantityOnHand": null,
+    "updatedDateUtc": "/Date(1776682521180+0000)/",
+    "purchaseDetails": {
+      "unitPrice": null,
+      "accountCode": null,
+      "taxType": null
     },
-    "sales_details": {
-      "unit_price": 19.95,
-      "account_code": "200",
-      "tax_type": "TAX001"
+    "salesDetails": {
+      "unitPrice": 19.95,
+      "accountCode": "200",
+      "taxType": "TAX001"
     }
   },
   "nango": {

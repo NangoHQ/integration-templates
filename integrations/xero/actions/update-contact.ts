@@ -2,37 +2,37 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    contact_id: z.string().describe('The unique Xero identifier for the contact. Example: "00000000-0000-0000-0000-000000000000"'),
+    contactId: z.string().describe('The unique Xero identifier for the contact. Example: "00000000-0000-0000-0000-000000000000"'),
     name: z.string().optional().describe('Full name of the contact.'),
-    first_name: z.string().optional().describe('First name of the contact (max 255 chars).'),
-    last_name: z.string().optional().describe('Last name of the contact (max 255 chars).'),
-    email_address: z.string().optional().describe('Email address of the contact.'),
-    phone_number: z.string().optional().describe('Phone number for the contact.'),
-    address_line_1: z.string().optional().describe('Street address line 1.'),
-    address_line_2: z.string().optional().describe('Street address line 2.'),
+    firstName: z.string().optional().describe('First name of the contact (max 255 chars).'),
+    lastName: z.string().optional().describe('Last name of the contact (max 255 chars).'),
+    emailAddress: z.string().optional().describe('Email address of the contact.'),
+    phoneNumber: z.string().optional().describe('Phone number for the contact.'),
+    addressLine1: z.string().optional().describe('Street address line 1.'),
+    addressLine2: z.string().optional().describe('Street address line 2.'),
     city: z.string().optional().describe('City of the address.'),
     region: z.string().optional().describe('Region/state of the address.'),
-    postal_code: z.string().optional().describe('Postal code of the address.'),
+    postalCode: z.string().optional().describe('Postal code of the address.'),
     country: z.string().optional().describe('Country of the address.'),
-    account_number: z.string().optional().describe('Bank account number for the contact.'),
-    tax_number: z.string().optional().describe('Tax number of the contact.'),
-    is_customer: z.boolean().optional().describe('Whether the contact is a customer.'),
-    is_supplier: z.boolean().optional().describe('Whether the contact is a supplier.'),
-    default_currency: z.string().optional().describe('Default currency code for the contact. Example: "USD"')
+    accountNumber: z.string().optional().describe('Bank account number for the contact.'),
+    taxNumber: z.string().optional().describe('Tax number of the contact.'),
+    isCustomer: z.boolean().optional().describe('Whether the contact is a customer.'),
+    isSupplier: z.boolean().optional().describe('Whether the contact is a supplier.'),
+    defaultCurrency: z.string().optional().describe('Default currency code for the contact. Example: "USD"')
 });
 
 const OutputSchema = z.object({
-    contact_id: z.string(),
+    contactId: z.string(),
     name: z.union([z.string(), z.null()]),
-    first_name: z.union([z.string(), z.null()]),
-    last_name: z.union([z.string(), z.null()]),
-    email_address: z.union([z.string(), z.null()]),
-    phone_number: z.union([z.string(), z.null()]),
-    account_number: z.union([z.string(), z.null()]),
-    tax_number: z.union([z.string(), z.null()]),
-    is_customer: z.union([z.boolean(), z.null()]),
-    is_supplier: z.union([z.boolean(), z.null()]),
-    default_currency: z.union([z.string(), z.null()])
+    firstName: z.union([z.string(), z.null()]),
+    lastName: z.union([z.string(), z.null()]),
+    emailAddress: z.union([z.string(), z.null()]),
+    phoneNumber: z.union([z.string(), z.null()]),
+    accountNumber: z.union([z.string(), z.null()]),
+    taxNumber: z.union([z.string(), z.null()]),
+    isCustomer: z.union([z.boolean(), z.null()]),
+    isSupplier: z.union([z.boolean(), z.null()]),
+    defaultCurrency: z.union([z.string(), z.null()])
 });
 
 // Xero API response schemas
@@ -130,46 +130,46 @@ const action = createAction({
         }
 
         const contactPayload: Record<string, unknown> = {
-            ContactID: input.contact_id
+            ContactID: input.contactId
         };
 
         if (input.name) {
             contactPayload['Name'] = input.name;
         }
-        if (input.first_name) {
-            contactPayload['FirstName'] = input.first_name;
+        if (input.firstName) {
+            contactPayload['FirstName'] = input.firstName;
         }
-        if (input.last_name) {
-            contactPayload['LastName'] = input.last_name;
+        if (input.lastName) {
+            contactPayload['LastName'] = input.lastName;
         }
-        if (input.email_address) {
-            contactPayload['EmailAddress'] = input.email_address;
+        if (input.emailAddress) {
+            contactPayload['EmailAddress'] = input.emailAddress;
         }
-        if (input.account_number) {
-            contactPayload['BankAccountDetails'] = input.account_number;
+        if (input.accountNumber) {
+            contactPayload['BankAccountDetails'] = input.accountNumber;
         }
-        if (input.tax_number) {
-            contactPayload['TaxNumber'] = input.tax_number;
+        if (input.taxNumber) {
+            contactPayload['TaxNumber'] = input.taxNumber;
         }
-        if (input.is_customer !== undefined) {
-            contactPayload['IsCustomer'] = input.is_customer;
+        if (input.isCustomer !== undefined) {
+            contactPayload['IsCustomer'] = input.isCustomer;
         }
-        if (input.is_supplier !== undefined) {
-            contactPayload['IsSupplier'] = input.is_supplier;
+        if (input.isSupplier !== undefined) {
+            contactPayload['IsSupplier'] = input.isSupplier;
         }
-        if (input.default_currency) {
-            contactPayload['DefaultCurrency'] = input.default_currency;
+        if (input.defaultCurrency) {
+            contactPayload['DefaultCurrency'] = input.defaultCurrency;
         }
 
-        if (input.address_line_1 || input.address_line_2 || input.city || input.region || input.postal_code || input.country) {
+        if (input.addressLine1 || input.addressLine2 || input.city || input.region || input.postalCode || input.country) {
             const address: Record<string, unknown> = {
                 AddressType: 'POBOX'
             };
-            if (input.address_line_1) {
-                address['AddressLine1'] = input.address_line_1;
+            if (input.addressLine1) {
+                address['AddressLine1'] = input.addressLine1;
             }
-            if (input.address_line_2) {
-                address['AddressLine2'] = input.address_line_2;
+            if (input.addressLine2) {
+                address['AddressLine2'] = input.addressLine2;
             }
             if (input.city) {
                 address['City'] = input.city;
@@ -177,8 +177,8 @@ const action = createAction({
             if (input.region) {
                 address['Region'] = input.region;
             }
-            if (input.postal_code) {
-                address['PostalCode'] = input.postal_code;
+            if (input.postalCode) {
+                address['PostalCode'] = input.postalCode;
             }
             if (input.country) {
                 address['Country'] = input.country;
@@ -186,11 +186,11 @@ const action = createAction({
             contactPayload['Addresses'] = [address];
         }
 
-        if (input.phone_number) {
+        if (input.phoneNumber) {
             contactPayload['Phones'] = [
                 {
                     PhoneType: 'DEFAULT',
-                    PhoneNumber: input.phone_number
+                    PhoneNumber: input.phoneNumber
                 }
             ];
         }
@@ -233,17 +233,17 @@ const action = createAction({
         }
 
         return {
-            contact_id: contact.ContactID,
+            contactId: contact.ContactID,
             name: contact.Name ?? null,
-            first_name: contact.FirstName ?? null,
-            last_name: contact.LastName ?? null,
-            email_address: contact.EmailAddress ?? null,
-            phone_number: input.phone_number ?? null,
-            account_number: contact.BankAccountDetails ?? null,
-            tax_number: contact.TaxNumber ?? null,
-            is_customer: contact.IsCustomer ?? null,
-            is_supplier: contact.IsSupplier ?? null,
-            default_currency: contact.DefaultCurrency ?? null
+            firstName: contact.FirstName ?? null,
+            lastName: contact.LastName ?? null,
+            emailAddress: contact.EmailAddress ?? null,
+            phoneNumber: input.phoneNumber ?? null,
+            accountNumber: contact.BankAccountDetails ?? null,
+            taxNumber: contact.TaxNumber ?? null,
+            isCustomer: contact.IsCustomer ?? null,
+            isSupplier: contact.IsSupplier ?? null,
+            defaultCurrency: contact.DefaultCurrency ?? null
         };
     }
 });

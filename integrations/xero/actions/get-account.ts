@@ -3,30 +3,30 @@ import { createAction } from 'nango';
 
 // https://developer.xero.com/documentation/api/accounting/accounts
 const InputSchema = z.object({
-    account_id: z.string().describe('The Xero identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"')
+    accountId: z.string().describe('The Xero identifier for the account. Example: "99ce6032-0678-4aa0-8148-240c75fee33a"')
 });
 
 // https://developer.xero.com/documentation/api/accounting/accounts
 const OutputSchema = z.object({
-    account_id: z.string(),
+    accountId: z.string(),
     code: z.union([z.string(), z.null()]),
     name: z.union([z.string(), z.null()]),
     type: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
     description: z.union([z.string(), z.null()]),
-    tax_type: z.union([z.string(), z.null()]),
+    taxType: z.union([z.string(), z.null()]),
     class: z.union([z.string(), z.null()]),
-    enable_payments_to_account: z.union([z.boolean(), z.null()]),
-    show_in_expense_claims: z.union([z.boolean(), z.null()]),
-    reporting_code: z.union([z.string(), z.null()]),
-    reporting_code_name: z.union([z.string(), z.null()]),
-    updated_date_utc: z.union([z.string(), z.null()]),
-    bank_account_number: z.union([z.string(), z.null()]),
-    bank_account_type: z.union([z.string(), z.null()]),
-    currency_code: z.union([z.string(), z.null()]),
-    has_attachments: z.union([z.boolean(), z.null()]),
-    add_to_watchlist: z.union([z.boolean(), z.null()]),
-    system_account: z.union([z.string(), z.null()])
+    enablePaymentsToAccount: z.union([z.boolean(), z.null()]),
+    showInExpenseClaims: z.union([z.boolean(), z.null()]),
+    reportingCode: z.union([z.string(), z.null()]),
+    reportingCodeName: z.union([z.string(), z.null()]),
+    updatedDateUtc: z.union([z.string(), z.null()]),
+    bankAccountNumber: z.union([z.string(), z.null()]),
+    bankAccountType: z.union([z.string(), z.null()]),
+    currencyCode: z.union([z.string(), z.null()]),
+    hasAttachments: z.union([z.boolean(), z.null()]),
+    addToWatchlist: z.union([z.boolean(), z.null()]),
+    systemAccount: z.union([z.string(), z.null()])
 });
 
 const ConnectionsResponseSchema = z.object({
@@ -104,7 +104,7 @@ const action = createAction({
 
         // https://developer.xero.com/documentation/api/accounting/accounts
         const response = await nango.get({
-            endpoint: `api.xro/2.0/Accounts/${input.account_id}`,
+            endpoint: `api.xro/2.0/Accounts/${input.accountId}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
@@ -120,7 +120,7 @@ const action = createAction({
         if (responseData.Accounts.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Account with ID ${input.account_id} not found`
+                message: `Account with ID ${input.accountId} not found`
             });
         }
 
@@ -130,25 +130,25 @@ const action = createAction({
         }
 
         return {
-            account_id: typeof account['AccountID'] === 'string' ? account['AccountID'] : '',
+            accountId: typeof account['AccountID'] === 'string' ? account['AccountID'] : '',
             code: typeof account['Code'] === 'string' ? account['Code'] : null,
             name: typeof account['Name'] === 'string' ? account['Name'] : null,
             type: typeof account['Type'] === 'string' ? account['Type'] : null,
             status: typeof account['Status'] === 'string' ? account['Status'] : null,
             description: typeof account['Description'] === 'string' ? account['Description'] : null,
-            tax_type: typeof account['TaxType'] === 'string' ? account['TaxType'] : null,
+            taxType: typeof account['TaxType'] === 'string' ? account['TaxType'] : null,
             class: typeof account['Class'] === 'string' ? account['Class'] : null,
-            enable_payments_to_account: typeof account['EnablePaymentsToAccount'] === 'boolean' ? account['EnablePaymentsToAccount'] : null,
-            show_in_expense_claims: typeof account['ShowInExpenseClaims'] === 'boolean' ? account['ShowInExpenseClaims'] : null,
-            reporting_code: typeof account['ReportingCode'] === 'string' ? account['ReportingCode'] : null,
-            reporting_code_name: typeof account['ReportingCodeName'] === 'string' ? account['ReportingCodeName'] : null,
-            updated_date_utc: typeof account['UpdatedDateUTC'] === 'string' ? account['UpdatedDateUTC'] : null,
-            bank_account_number: typeof account['BankAccountNumber'] === 'string' ? account['BankAccountNumber'] : null,
-            bank_account_type: typeof account['BankAccountType'] === 'string' ? account['BankAccountType'] : null,
-            currency_code: typeof account['CurrencyCode'] === 'string' ? account['CurrencyCode'] : null,
-            has_attachments: typeof account['HasAttachments'] === 'boolean' ? account['HasAttachments'] : null,
-            add_to_watchlist: typeof account['AddToWatchlist'] === 'boolean' ? account['AddToWatchlist'] : null,
-            system_account: typeof account['SystemAccount'] === 'string' ? account['SystemAccount'] : null
+            enablePaymentsToAccount: typeof account['EnablePaymentsToAccount'] === 'boolean' ? account['EnablePaymentsToAccount'] : null,
+            showInExpenseClaims: typeof account['ShowInExpenseClaims'] === 'boolean' ? account['ShowInExpenseClaims'] : null,
+            reportingCode: typeof account['ReportingCode'] === 'string' ? account['ReportingCode'] : null,
+            reportingCodeName: typeof account['ReportingCodeName'] === 'string' ? account['ReportingCodeName'] : null,
+            updatedDateUtc: typeof account['UpdatedDateUTC'] === 'string' ? account['UpdatedDateUTC'] : null,
+            bankAccountNumber: typeof account['BankAccountNumber'] === 'string' ? account['BankAccountNumber'] : null,
+            bankAccountType: typeof account['BankAccountType'] === 'string' ? account['BankAccountType'] : null,
+            currencyCode: typeof account['CurrencyCode'] === 'string' ? account['CurrencyCode'] : null,
+            hasAttachments: typeof account['HasAttachments'] === 'boolean' ? account['HasAttachments'] : null,
+            addToWatchlist: typeof account['AddToWatchlist'] === 'boolean' ? account['AddToWatchlist'] : null,
+            systemAccount: typeof account['SystemAccount'] === 'string' ? account['SystemAccount'] : null
         };
     }
 });

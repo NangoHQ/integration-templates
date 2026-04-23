@@ -4667,7 +4667,7 @@
         "LastPaymentDate": null
       }
     ],
-    "next_page": 2
+    "nextPage": 2
   },
   "nango": {
     "getConnection": {}

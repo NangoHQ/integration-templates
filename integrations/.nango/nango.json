@@ -108129,15 +108129,15 @@
                   "description": "Description of the account",
                   "type": "string"
                 },
-                "tax_type": {
+                "taxType": {
                   "description": "Tax type for the account. Example: \"OUTPUT\"",
                   "type": "string"
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "description": "Whether payments can be made to this account",
                   "type": "boolean"
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "description": "Whether to show in expense claims",
                   "type": "boolean"
                 }
@@ -108152,7 +108152,7 @@
             "ActionOutput_xero_createaccount": {
               "type": "object",
               "properties": {
-                "account_id": {
+                "accountId": {
                   "type": "string"
                 },
                 "code": {
@@ -108174,7 +108174,7 @@
                     }
                   ]
                 },
-                "tax_type": {
+                "taxType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108184,10 +108184,10 @@
                     }
                   ]
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "type": "boolean"
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "type": "boolean"
                 },
                 "status": {
@@ -108195,14 +108195,14 @@
                 }
               },
               "required": [
-                "account_id",
+                "accountId",
                 "code",
                 "name",
                 "type",
                 "description",
-                "tax_type",
-                "enable_payments_to_account",
-                "show_in_expense_claims",
+                "taxType",
+                "enablePaymentsToAccount",
+                "showInExpenseClaims",
                 "status"
               ],
               "additionalProperties": false
@@ -108248,26 +108248,26 @@
                 "contact": {
                   "type": "object",
                   "properties": {
-                    "contact_id": {
+                    "contactId": {
                       "description": "Contact ID. Example: \"00000000-0000-0000-0000-000000000000\"",
                       "type": "string"
                     },
                     "name": {
-                      "description": "Contact name (required if contact_id not provided). Example: \"Acme Corporation\"",
+                      "description": "Contact name (required if contactId not provided). Example: \"Acme Corporation\"",
                       "type": "string"
                     }
                   },
                   "additionalProperties": false,
                   "description": "Contact for the transaction"
                 },
-                "bank_account": {
+                "bankAccount": {
                   "type": "object",
                   "properties": {
                     "code": {
                       "description": "Account code of the bank account. Example: \"090\"",
                       "type": "string"
                     },
-                    "account_id": {
+                    "accountId": {
                       "description": "Account ID of the bank account. Example: \"00000000-0000-0000-0000-000000000000\"",
                       "type": "string"
                     }
@@ -108275,7 +108275,7 @@
                   "additionalProperties": false,
                   "description": "Bank account for the transaction"
                 },
-                "line_items": {
+                "lineItems": {
                   "minItems": 1,
                   "type": "array",
                   "items": {
@@ -108289,27 +108289,27 @@
                         "description": "Quantity of items. Example: 2",
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Price per unit. Example: 50.00"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "type": "string",
                         "description": "Account code for the line item. Example: \"200\""
                       },
-                      "tax_type": {
+                      "taxType": {
                         "description": "Tax type for the line item. Example: \"OUTPUT\"",
                         "type": "string"
                       },
-                      "item_code": {
+                      "itemCode": {
                         "description": "Item code if referencing an existing item.",
                         "type": "string"
                       }
                     },
                     "required": [
                       "description",
-                      "unit_amount",
-                      "account_code"
+                      "unitAmount",
+                      "accountCode"
                     ],
                     "additionalProperties": false
                   },
@@ -108323,7 +108323,7 @@
                   "description": "Reference for the transaction. Example: \"INV-001\"",
                   "type": "string"
                 },
-                "currency_code": {
+                "currencyCode": {
                   "description": "Currency code. Example: \"USD\"",
                   "type": "string"
                 },
@@ -108336,7 +108336,7 @@
                     "DRAFT"
                   ]
                 },
-                "is_reconciled": {
+                "isReconciled": {
                   "description": "Whether the transaction is reconciled.",
                   "type": "boolean"
                 },
@@ -108348,15 +108348,15 @@
               "required": [
                 "type",
                 "contact",
-                "bank_account",
-                "line_items"
+                "bankAccount",
+                "lineItems"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_createbanktransaction": {
               "type": "object",
               "properties": {
-                "bank_transaction_id": {
+                "bankTransactionId": {
                   "type": "string",
                   "description": "Unique identifier for the bank transaction"
                 },
@@ -108368,7 +108368,7 @@
                   ],
                   "description": "Type of bank transaction"
                 },
-                "contact_id": {
+                "contactId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108379,7 +108379,7 @@
                   ],
                   "description": "Contact ID"
                 },
-                "contact_name": {
+                "contactName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108390,7 +108390,7 @@
                   ],
                   "description": "Contact name"
                 },
-                "bank_account_id": {
+                "bankAccountId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108401,7 +108401,7 @@
                   ],
                   "description": "Bank account ID"
                 },
-                "bank_account_code": {
+                "bankAccountCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108427,7 +108427,7 @@
                   ],
                   "description": "Transaction reference"
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108442,7 +108442,7 @@
                   "type": "string",
                   "description": "Transaction status"
                 },
-                "line_amount_types": {
+                "lineAmountTypes": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108453,11 +108453,11 @@
                   ],
                   "description": "Line amount types"
                 },
-                "sub_total": {
+                "subTotal": {
                   "type": "number",
                   "description": "Sub total amount"
                 },
-                "total_tax": {
+                "totalTax": {
                   "type": "number",
                   "description": "Total tax amount"
                 },
@@ -108465,16 +108465,16 @@
                   "type": "number",
                   "description": "Total amount"
                 },
-                "is_reconciled": {
+                "isReconciled": {
                   "type": "boolean",
                   "description": "Whether transaction is reconciled"
                 },
-                "line_items": {
+                "lineItems": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "line_item_id": {
+                      "lineItemId": {
                         "type": "string"
                       },
                       "description": {
@@ -108490,10 +108490,10 @@
                       "quantity": {
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -108503,7 +108503,7 @@
                           }
                         ]
                       },
-                      "tax_type": {
+                      "taxType": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -108513,24 +108513,24 @@
                           }
                         ]
                       },
-                      "line_amount": {
+                      "lineAmount": {
                         "type": "number"
                       }
                     },
                     "required": [
-                      "line_item_id",
+                      "lineItemId",
                       "description",
                       "quantity",
-                      "unit_amount",
-                      "account_code",
-                      "tax_type",
-                      "line_amount"
+                      "unitAmount",
+                      "accountCode",
+                      "taxType",
+                      "lineAmount"
                     ],
                     "additionalProperties": false
                   },
                   "description": "Array of line items"
                 },
-                "created_at": {
+                "createdAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108541,7 +108541,7 @@
                   ],
                   "description": "Creation timestamp"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -108554,24 +108554,24 @@
                 }
               },
               "required": [
-                "bank_transaction_id",
+                "bankTransactionId",
                 "type",
-                "contact_id",
-                "contact_name",
-                "bank_account_id",
-                "bank_account_code",
+                "contactId",
+                "contactName",
+                "bankAccountId",
+                "bankAccountCode",
                 "date",
                 "reference",
-                "currency_code",
+                "currencyCode",
                 "status",
-                "line_amount_types",
-                "sub_total",
-                "total_tax",
+                "lineAmountTypes",
+                "subTotal",
+                "totalTax",
                 "total",
-                "is_reconciled",
-                "line_items",
-                "created_at",
-                "updated_at"
+                "isReconciled",
+                "lineItems",
+                "createdAt",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -108853,7 +108853,7 @@
                   ],
                   "description": "Credit note type. ACCPAYCREDIT for accounts payable, ACCRECCREDIT for accounts receivable."
                 },
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "Contact ID for the credit note. Example: \"430fa14a-f945-44d3-9f97-5df5e28441b8\""
                 },
@@ -108861,7 +108861,7 @@
                   "type": "string",
                   "description": "Date of the credit note in YYYY-MM-DD format. Example: \"2024-01-15\""
                 },
-                "line_items": {
+                "lineItems": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -108874,11 +108874,11 @@
                         "type": "number",
                         "description": "Quantity of the item."
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Unit price of the item."
                       },
-                      "account_code": {
+                      "accountCode": {
                         "type": "string",
                         "description": "Account code for the line item. Example: \"400\""
                       }
@@ -108886,8 +108886,8 @@
                     "required": [
                       "description",
                       "quantity",
-                      "unit_amount",
-                      "account_code"
+                      "unitAmount",
+                      "accountCode"
                     ],
                     "additionalProperties": false
                   },
@@ -108896,20 +108896,20 @@
               },
               "required": [
                 "type",
-                "contact_id",
+                "contactId",
                 "date",
-                "line_items"
+                "lineItems"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_createcreditnote": {
               "type": "object",
               "properties": {
-                "credit_note_id": {
+                "creditNoteId": {
                   "type": "string",
                   "description": "Unique identifier for the created credit note."
                 },
-                "credit_note_number": {
+                "creditNoteNumber": {
                   "type": "string",
                   "description": "Credit note number."
                 },
@@ -108921,7 +108921,7 @@
                   "type": "string",
                   "description": "Status of the credit note."
                 },
-                "contact_name": {
+                "contactName": {
                   "type": "string",
                   "description": "Name of the contact."
                 },
@@ -108935,11 +108935,11 @@
                 }
               },
               "required": [
-                "credit_note_id",
-                "credit_note_number",
+                "creditNoteId",
+                "creditNoteNumber",
                 "type",
                 "status",
-                "contact_name",
+                "contactName",
                 "date",
                 "total"
               ],
@@ -108986,19 +108986,19 @@
                 "contact": {
                   "type": "object",
                   "properties": {
-                    "contact_id": {
+                    "contactId": {
                       "description": "Xero Contact ID (preferred)",
                       "type": "string"
                     },
                     "name": {
-                      "description": "Contact name (used if contact_id not provided)",
+                      "description": "Contact name (used if contactId not provided)",
                       "type": "string"
                     }
                   },
                   "additionalProperties": false,
                   "description": "Contact for the invoice"
                 },
-                "line_items": {
+                "lineItems": {
                   "minItems": 1,
                   "type": "array",
                   "items": {
@@ -109012,19 +109012,19 @@
                         "type": "number",
                         "description": "Quantity of the line item"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Unit amount of the line item"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "description": "Account code for the line item",
                         "type": "string"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "description": "Tax type for the line item",
                         "type": "string"
                       },
-                      "item_code": {
+                      "itemCode": {
                         "description": "Item code for existing items",
                         "type": "string"
                       }
@@ -109032,7 +109032,7 @@
                     "required": [
                       "description",
                       "quantity",
-                      "unit_amount"
+                      "unitAmount"
                     ],
                     "additionalProperties": false
                   },
@@ -109042,11 +109042,11 @@
                   "description": "Invoice date (YYYY-MM-DD). Defaults to today if not provided.",
                   "type": "string"
                 },
-                "due_date": {
+                "dueDate": {
                   "description": "Due date (YYYY-MM-DD)",
                   "type": "string"
                 },
-                "invoice_number": {
+                "invoiceNumber": {
                   "description": "Invoice number (auto-generated if not provided for ACCREC)",
                   "type": "string"
                 },
@@ -109065,11 +109065,11 @@
                     "VOIDED"
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "description": "Currency code (e.g., USD, GBP)",
                   "type": "string"
                 },
-                "sent_to_contact": {
+                "sentToContact": {
                   "description": "Whether the invoice has been sent to the contact",
                   "type": "boolean"
                 },
@@ -109081,18 +109081,18 @@
               "required": [
                 "type",
                 "contact",
-                "line_items"
+                "lineItems"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_createinvoice": {
               "type": "object",
               "properties": {
-                "invoice_id": {
+                "invoiceId": {
                   "type": "string",
                   "description": "Xero Invoice ID"
                 },
-                "invoice_number": {
+                "invoiceNumber": {
                   "type": "string",
                   "description": "Invoice number"
                 },
@@ -109112,19 +109112,19 @@
                   "type": "number",
                   "description": "Total amount of the invoice"
                 },
-                "sub_total": {
+                "subTotal": {
                   "type": "number",
                   "description": "Subtotal of the invoice"
                 },
-                "total_tax": {
+                "totalTax": {
                   "type": "number",
                   "description": "Total tax on the invoice"
                 },
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "Xero Contact ID"
                 },
-                "contact_name": {
+                "contactName": {
                   "type": "string",
                   "description": "Contact name"
                 },
@@ -109132,7 +109132,7 @@
                   "type": "string",
                   "description": "Invoice date"
                 },
-                "due_date": {
+                "dueDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109143,11 +109143,11 @@
                   ],
                   "description": "Due date"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "type": "string",
                   "description": "Last updated timestamp in UTC"
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109158,12 +109158,12 @@
                   ],
                   "description": "Currency code"
                 },
-                "line_items": {
+                "lineItems": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "line_item_id": {
+                      "lineItemId": {
                         "type": "string",
                         "description": "Line item ID"
                       },
@@ -109175,11 +109175,11 @@
                         "type": "number",
                         "description": "Line item quantity"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Line item unit amount"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -109190,7 +109190,7 @@
                         ],
                         "description": "Account code"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -109201,19 +109201,19 @@
                         ],
                         "description": "Tax type"
                       },
-                      "line_amount": {
+                      "lineAmount": {
                         "type": "number",
                         "description": "Line item total amount"
                       }
                     },
                     "required": [
-                      "line_item_id",
+                      "lineItemId",
                       "description",
                       "quantity",
-                      "unit_amount",
-                      "account_code",
-                      "tax_type",
-                      "line_amount"
+                      "unitAmount",
+                      "accountCode",
+                      "taxType",
+                      "lineAmount"
                     ],
                     "additionalProperties": false
                   },
@@ -109221,20 +109221,20 @@
                 }
               },
               "required": [
-                "invoice_id",
-                "invoice_number",
+                "invoiceId",
+                "invoiceNumber",
                 "type",
                 "status",
                 "total",
-                "sub_total",
-                "total_tax",
-                "contact_id",
-                "contact_name",
+                "subTotal",
+                "totalTax",
+                "contactId",
+                "contactName",
                 "date",
-                "due_date",
-                "updated_date_utc",
-                "currency_code",
-                "line_items"
+                "dueDate",
+                "updatedDateUtc",
+                "currencyCode",
+                "lineItems"
               ],
               "additionalProperties": false
             }
@@ -109532,19 +109532,19 @@
             "ActionInput_xero_createpayment": {
               "type": "object",
               "properties": {
-                "invoice_id": {
+                "invoiceId": {
                   "description": "The ID of the invoice to apply payment to. Example: \"00000000-0000-0000-0000-000000000000\"",
                   "type": "string"
                 },
-                "credit_note_id": {
+                "creditNoteId": {
                   "description": "The ID of the credit note to apply payment to. Example: \"00000000-0000-0000-0000-000000000000\"",
                   "type": "string"
                 },
-                "account_id": {
+                "accountId": {
                   "description": "The ID of the bank account to pay from. Example: \"00000000-0000-0000-0000-000000000000\"",
                   "type": "string"
                 },
-                "account_code": {
+                "accountCode": {
                   "description": "The account code of the bank account to pay from. Example: \"001\"",
                   "type": "string"
                 },
@@ -109570,7 +109570,7 @@
             "ActionOutput_xero_createpayment": {
               "type": "object",
               "properties": {
-                "payment_id": {
+                "paymentId": {
                   "type": "string"
                 },
                 "status": {
@@ -109578,7 +109578,7 @@
                 }
               },
               "required": [
-                "payment_id",
+                "paymentId",
                 "status"
               ],
               "additionalProperties": false
@@ -109618,13 +109618,13 @@
                 "contact": {
                   "type": "object",
                   "properties": {
-                    "contact_id": {
+                    "contactId": {
                       "type": "string",
                       "description": "Xero Contact ID. Example: \"a3d8b6c0-1234-5678-9abc-def012345678\""
                     }
                   },
                   "required": [
-                    "contact_id"
+                    "contactId"
                   ],
                   "additionalProperties": false,
                   "description": "Contact information for the purchase order"
@@ -109633,7 +109633,7 @@
                   "type": "string",
                   "description": "Purchase order date in YYYY-MM-DD format. Example: \"2025-01-15\""
                 },
-                "line_items": {
+                "lineItems": {
                   "minItems": 1,
                   "type": "array",
                   "items": {
@@ -109647,19 +109647,19 @@
                         "type": "number",
                         "description": "Quantity of items. Example: 5"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Price per unit. Example: 25.5"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "description": "Account code for this line item. Example: \"200\"",
                         "type": "string"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "description": "Tax type for this line item. Example: \"NONE\"",
                         "type": "string"
                       },
-                      "item_code": {
+                      "itemCode": {
                         "description": "Item code if referencing an existing item. Example: \"ITM001\"",
                         "type": "string"
                       }
@@ -109667,13 +109667,13 @@
                     "required": [
                       "description",
                       "quantity",
-                      "unit_amount"
+                      "unitAmount"
                     ],
                     "additionalProperties": false
                   },
                   "description": "Line items for the purchase order"
                 },
-                "delivery_date": {
+                "deliveryDate": {
                   "description": "Expected delivery date in YYYY-MM-DD format. Example: \"2025-02-01\"",
                   "type": "string"
                 },
@@ -109681,7 +109681,7 @@
                   "description": "Reference for the purchase order. Example: \"PO-001\"",
                   "type": "string"
                 },
-                "attention_to": {
+                "attentionTo": {
                   "description": "Person to address the purchase order to. Example: \"John Smith\"",
                   "type": "string"
                 },
@@ -109689,7 +109689,7 @@
                   "description": "Contact phone number. Example: \"+61 2 9876 5432\"",
                   "type": "string"
                 },
-                "delivery_instructions": {
+                "deliveryInstructions": {
                   "description": "Delivery instructions. Example: \"Deliver to rear entrance\"",
                   "type": "string"
                 },
@@ -109708,18 +109708,18 @@
               "required": [
                 "contact",
                 "date",
-                "line_items"
+                "lineItems"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_createpurchaseorder": {
               "type": "object",
               "properties": {
-                "purchase_order_id": {
+                "purchaseOrderId": {
                   "type": "string",
                   "description": "Xero Purchase Order ID"
                 },
-                "purchase_order_number": {
+                "purchaseOrderNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109734,11 +109734,11 @@
                   "type": "string",
                   "description": "Purchase order status"
                 },
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "Contact ID associated with the purchase order"
                 },
-                "contact_name": {
+                "contactName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109753,7 +109753,7 @@
                   "type": "string",
                   "description": "Purchase order date"
                 },
-                "line_items": {
+                "lineItems": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -109764,10 +109764,10 @@
                       "quantity": {
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number"
                       },
-                      "line_amount": {
+                      "lineAmount": {
                         "anyOf": [
                           {
                             "type": "number"
@@ -109777,7 +109777,7 @@
                           }
                         ]
                       },
-                      "account_code": {
+                      "accountCode": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -109787,7 +109787,7 @@
                           }
                         ]
                       },
-                      "tax_type": {
+                      "taxType": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -109801,10 +109801,10 @@
                     "required": [
                       "description",
                       "quantity",
-                      "unit_amount",
-                      "line_amount",
-                      "account_code",
-                      "tax_type"
+                      "unitAmount",
+                      "lineAmount",
+                      "accountCode",
+                      "taxType"
                     ],
                     "additionalProperties": false
                   },
@@ -109821,7 +109821,7 @@
                   ],
                   "description": "Total amount"
                 },
-                "sub_total": {
+                "subTotal": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -109832,7 +109832,7 @@
                   ],
                   "description": "Subtotal amount"
                 },
-                "total_tax": {
+                "totalTax": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -109843,7 +109843,7 @@
                   ],
                   "description": "Total tax amount"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109856,17 +109856,17 @@
                 }
               },
               "required": [
-                "purchase_order_id",
-                "purchase_order_number",
+                "purchaseOrderId",
+                "purchaseOrderNumber",
                 "status",
-                "contact_id",
-                "contact_name",
+                "contactId",
+                "contactName",
                 "date",
-                "line_items",
+                "lineItems",
                 "total",
-                "sub_total",
-                "total_tax",
-                "updated_date_utc"
+                "subTotal",
+                "totalTax",
+                "updatedDateUtc"
               ],
               "additionalProperties": false
             }
@@ -109901,20 +109901,20 @@
             "ActionInput_xero_getaccount": {
               "type": "object",
               "properties": {
-                "account_id": {
+                "accountId": {
                   "type": "string",
                   "description": "The Xero identifier for the account. Example: \"99ce6032-0678-4aa0-8148-240c75fee33a\""
                 }
               },
               "required": [
-                "account_id"
+                "accountId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_getaccount": {
               "type": "object",
               "properties": {
-                "account_id": {
+                "accountId": {
                   "type": "string"
                 },
                 "code": {
@@ -109967,7 +109967,7 @@
                     }
                   ]
                 },
-                "tax_type": {
+                "taxType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -109987,7 +109987,7 @@
                     }
                   ]
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -109997,7 +109997,7 @@
                     }
                   ]
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -110007,7 +110007,7 @@
                     }
                   ]
                 },
-                "reporting_code": {
+                "reportingCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110017,7 +110017,7 @@
                     }
                   ]
                 },
-                "reporting_code_name": {
+                "reportingCodeName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110027,7 +110027,7 @@
                     }
                   ]
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110037,7 +110037,7 @@
                     }
                   ]
                 },
-                "bank_account_number": {
+                "bankAccountNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110047,7 +110047,7 @@
                     }
                   ]
                 },
-                "bank_account_type": {
+                "bankAccountType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110057,7 +110057,7 @@
                     }
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110067,7 +110067,7 @@
                     }
                   ]
                 },
-                "has_attachments": {
+                "hasAttachments": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -110077,7 +110077,7 @@
                     }
                   ]
                 },
-                "add_to_watchlist": {
+                "addToWatchlist": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -110087,7 +110087,7 @@
                     }
                   ]
                 },
-                "system_account": {
+                "systemAccount": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110099,25 +110099,25 @@
                 }
               },
               "required": [
-                "account_id",
+                "accountId",
                 "code",
                 "name",
                 "type",
                 "status",
                 "description",
-                "tax_type",
+                "taxType",
                 "class",
-                "enable_payments_to_account",
-                "show_in_expense_claims",
-                "reporting_code",
-                "reporting_code_name",
-                "updated_date_utc",
-                "bank_account_number",
-                "bank_account_type",
-                "currency_code",
-                "has_attachments",
-                "add_to_watchlist",
-                "system_account"
+                "enablePaymentsToAccount",
+                "showInExpenseClaims",
+                "reportingCode",
+                "reportingCodeName",
+                "updatedDateUtc",
+                "bankAccountNumber",
+                "bankAccountType",
+                "currencyCode",
+                "hasAttachments",
+                "addToWatchlist",
+                "systemAccount"
               ],
               "additionalProperties": false
             }
@@ -110151,20 +110151,20 @@
             "ActionInput_xero_getbanktransaction": {
               "type": "object",
               "properties": {
-                "bank_transaction_id": {
+                "bankTransactionId": {
                   "type": "string",
                   "description": "The Xero BankTransactionID to retrieve. Example: \"a3d758d4-1234-5678-90ab-cdefghijklmn\""
                 }
               },
               "required": [
-                "bank_transaction_id"
+                "bankTransactionId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_getbanktransaction": {
               "type": "object",
               "properties": {
-                "bank_transaction_id": {
+                "bankTransactionId": {
                   "type": "string"
                 },
                 "type": {
@@ -110177,7 +110177,7 @@
                     }
                   ]
                 },
-                "contact_id": {
+                "contactId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110187,7 +110187,7 @@
                     }
                   ]
                 },
-                "contact_name": {
+                "contactName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110217,7 +110217,7 @@
                     }
                   ]
                 },
-                "bank_account_id": {
+                "bankAccountId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110227,7 +110227,7 @@
                     }
                   ]
                 },
-                "bank_account_name": {
+                "bankAccountName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110237,7 +110237,7 @@
                     }
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110247,7 +110247,7 @@
                     }
                   ]
                 },
-                "currency_rate": {
+                "currencyRate": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -110257,7 +110257,7 @@
                     }
                   ]
                 },
-                "sub_total": {
+                "subTotal": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -110267,7 +110267,7 @@
                     }
                   ]
                 },
-                "total_tax": {
+                "totalTax": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -110297,7 +110297,7 @@
                     }
                   ]
                 },
-                "is_reconciled": {
+                "isReconciled": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -110307,7 +110307,7 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -110319,22 +110319,22 @@
                 }
               },
               "required": [
-                "bank_transaction_id",
+                "bankTransactionId",
                 "type",
-                "contact_id",
-                "contact_name",
+                "contactId",
+                "contactName",
                 "date",
                 "status",
-                "bank_account_id",
-                "bank_account_name",
-                "currency_code",
-                "currency_rate",
-                "sub_total",
-                "total_tax",
+                "bankAccountId",
+                "bankAccountName",
+                "currencyCode",
+                "currencyRate",
+                "subTotal",
+                "totalTax",
                 "total",
                 "reference",
-                "is_reconciled",
-                "updated_at"
+                "isReconciled",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -110368,13 +110368,13 @@
             "ActionInput_xero_getcontact": {
               "type": "object",
               "properties": {
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "The Xero ContactID to retrieve. Example: \"8fecd03b-d211-491a-a3bb-7203920abac7\""
                 }
               },
               "required": [
-                "contact_id"
+                "contactId"
               ],
               "additionalProperties": false
             },
@@ -110607,28 +110607,28 @@
             "ActionInput_xero_getcreditnote": {
               "type": "object",
               "properties": {
-                "credit_note_id": {
+                "creditNoteId": {
                   "type": "string",
                   "description": "The Xero CreditNoteID. Example: \"a3c4c3b0-1234-4567-8901-abcdef123456\""
                 }
               },
               "required": [
-                "credit_note_id"
+                "creditNoteId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_getcreditnote": {
               "type": "object",
               "properties": {
-                "credit_note": {
+                "creditNote": {
                   "anyOf": [
                     {
                       "type": "object",
                       "properties": {
-                        "credit_note_id": {
+                        "creditNoteId": {
                           "type": "string"
                         },
-                        "credit_note_number": {
+                        "creditNoteNumber": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -110663,7 +110663,7 @@
                             {
                               "type": "object",
                               "properties": {
-                                "contact_id": {
+                                "contactId": {
                                   "anyOf": [
                                     {
                                       "type": "string"
@@ -110685,7 +110685,7 @@
                                 }
                               },
                               "required": [
-                                "contact_id",
+                                "contactId",
                                 "name"
                               ],
                               "additionalProperties": false
@@ -110705,7 +110705,7 @@
                             }
                           ]
                         },
-                        "sub_total": {
+                        "subTotal": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -110715,7 +110715,7 @@
                             }
                           ]
                         },
-                        "total_tax": {
+                        "totalTax": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -110735,7 +110735,7 @@
                             }
                           ]
                         },
-                        "currency_code": {
+                        "currencyCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -110745,7 +110745,7 @@
                             }
                           ]
                         },
-                        "remaining_credit": {
+                        "remainingCredit": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -110755,7 +110755,7 @@
                             }
                           ]
                         },
-                        "fully_paid_on_date": {
+                        "fullyPaidOnDate": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -110775,7 +110775,7 @@
                             }
                           ]
                         },
-                        "line_amount_types": {
+                        "lineAmountTypes": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -110785,7 +110785,7 @@
                             }
                           ]
                         },
-                        "has_attachments": {
+                        "hasAttachments": {
                           "anyOf": [
                             {
                               "type": "boolean"
@@ -110795,7 +110795,7 @@
                             }
                           ]
                         },
-                        "updated_date_utc": {
+                        "updatedDateUtc": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -110807,22 +110807,22 @@
                         }
                       },
                       "required": [
-                        "credit_note_id",
-                        "credit_note_number",
+                        "creditNoteId",
+                        "creditNoteNumber",
                         "status",
                         "type",
                         "contact",
                         "reference",
-                        "sub_total",
-                        "total_tax",
+                        "subTotal",
+                        "totalTax",
                         "total",
-                        "currency_code",
-                        "remaining_credit",
-                        "fully_paid_on_date",
+                        "currencyCode",
+                        "remainingCredit",
+                        "fullyPaidOnDate",
                         "date",
-                        "line_amount_types",
-                        "has_attachments",
-                        "updated_date_utc"
+                        "lineAmountTypes",
+                        "hasAttachments",
+                        "updatedDateUtc"
                       ],
                       "additionalProperties": false
                     },
@@ -110833,7 +110833,7 @@
                 }
               },
               "required": [
-                "credit_note"
+                "creditNote"
               ],
               "additionalProperties": false
             }
@@ -110867,13 +110867,13 @@
             "ActionInput_xero_getinvoice": {
               "type": "object",
               "properties": {
-                "invoice_id": {
+                "invoiceId": {
                   "type": "string",
                   "description": "The Xero InvoiceID to retrieve. Example: \"a3b2c1d0-e4f5-6789-abcd-ef0123456789\""
                 }
               },
               "required": [
-                "invoice_id"
+                "invoiceId"
               ],
               "additionalProperties": false
             },
@@ -111036,20 +111036,20 @@
             "ActionInput_xero_getitem": {
               "type": "object",
               "properties": {
-                "item_id": {
+                "itemId": {
                   "type": "string",
                   "description": "The Xero identifier for an Item. Example: 297c2dc5-cc47-4afd-8ec8-74990b8761e9"
                 }
               },
               "required": [
-                "item_id"
+                "itemId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_getitem": {
               "type": "object",
               "properties": {
-                "item_id": {
+                "itemId": {
                   "type": "string"
                 },
                 "code": {
@@ -111065,16 +111065,16 @@
                     }
                   ]
                 },
-                "is_sold": {
+                "isSold": {
                   "type": "boolean"
                 },
-                "is_purchased": {
+                "isPurchased": {
                   "type": "boolean"
                 },
-                "is_tracked_as_inventory": {
+                "isTrackedAsInventory": {
                   "type": "boolean"
                 },
-                "inventory_asset_account_code": {
+                "inventoryAssetAccountCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -111084,7 +111084,7 @@
                     }
                   ]
                 },
-                "total_cost_pool": {
+                "totalCostPool": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -111094,7 +111094,7 @@
                     }
                   ]
                 },
-                "quantity_on_hand": {
+                "quantityOnHand": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -111104,15 +111104,15 @@
                     }
                   ]
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "type": "string"
                 },
-                "purchase_details": {
+                "purchaseDetails": {
                   "anyOf": [
                     {
                       "type": "object",
                       "properties": {
-                        "unit_price": {
+                        "unitPrice": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -111122,7 +111122,7 @@
                             }
                           ]
                         },
-                        "account_code": {
+                        "accountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -111132,7 +111132,7 @@
                             }
                           ]
                         },
-                        "tax_type": {
+                        "taxType": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -111144,9 +111144,9 @@
                         }
                       },
                       "required": [
-                        "unit_price",
-                        "account_code",
-                        "tax_type"
+                        "unitPrice",
+                        "accountCode",
+                        "taxType"
                       ],
                       "additionalProperties": false
                     },
@@ -111155,12 +111155,12 @@
                     }
                   ]
                 },
-                "sales_details": {
+                "salesDetails": {
                   "anyOf": [
                     {
                       "type": "object",
                       "properties": {
-                        "unit_price": {
+                        "unitPrice": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -111170,7 +111170,7 @@
                             }
                           ]
                         },
-                        "account_code": {
+                        "accountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -111180,7 +111180,7 @@
                             }
                           ]
                         },
-                        "tax_type": {
+                        "taxType": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -111192,9 +111192,9 @@
                         }
                       },
                       "required": [
-                        "unit_price",
-                        "account_code",
-                        "tax_type"
+                        "unitPrice",
+                        "accountCode",
+                        "taxType"
                       ],
                       "additionalProperties": false
                     },
@@ -111205,18 +111205,18 @@
                 }
               },
               "required": [
-                "item_id",
+                "itemId",
                 "code",
                 "name",
-                "is_sold",
-                "is_purchased",
-                "is_tracked_as_inventory",
-                "inventory_asset_account_code",
-                "total_cost_pool",
-                "quantity_on_hand",
-                "updated_date_utc",
-                "purchase_details",
-                "sales_details"
+                "isSold",
+                "isPurchased",
+                "isTrackedAsInventory",
+                "inventoryAssetAccountCode",
+                "totalCostPool",
+                "quantityOnHand",
+                "updatedDateUtc",
+                "purchaseDetails",
+                "salesDetails"
               ],
               "additionalProperties": false
             }
@@ -111251,13 +111251,13 @@
             "ActionInput_xero_getpayment": {
               "type": "object",
               "properties": {
-                "payment_id": {
+                "paymentId": {
                   "type": "string",
                   "description": "The Xero PaymentID to retrieve. Example: \"b54e4368-91fd-4aa5-8205-fa3c16b61552\""
                 }
               },
               "required": [
-                "payment_id"
+                "paymentId"
               ],
               "additionalProperties": false
             },
@@ -111305,7 +111305,7 @@
             "ActionInput_xero_getpurchaseorder": {
               "type": "object",
               "properties": {
-                "purchase_order_id": {
+                "purchaseOrderId": {
                   "type": "string",
                   "format": "uuid",
                   "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
@@ -111313,7 +111313,7 @@
                 }
               },
               "required": [
-                "purchase_order_id"
+                "purchaseOrderId"
               ],
               "additionalProperties": false
             },
@@ -111831,7 +111831,7 @@
                   "description": "Order by clause (e.g., \"Date DESC\")",
                   "type": "string"
                 },
-                "if_modified_since": {
+                "ifModifiedSince": {
                   "description": "RFC 7231 formatted timestamp to return only modified records",
                   "type": "string"
                 }
@@ -111841,7 +111841,7 @@
             "ActionOutput_xero_listbanktransactions": {
               "type": "object",
               "properties": {
-                "bank_transactions": {
+                "bankTransactions": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -111975,12 +111975,12 @@
                 "page": {
                   "type": "number"
                 },
-                "total_count": {
+                "totalCount": {
                   "type": "number"
                 }
               },
               "required": [
-                "bank_transactions",
+                "bankTransactions",
                 "page"
               ],
               "additionalProperties": false
@@ -112024,11 +112024,11 @@
                   "description": "A filter expression in Xero query syntax.",
                   "type": "string"
                 },
-                "summary_only": {
+                "summaryOnly": {
                   "description": "Return a simplified response with limited contact details.",
                   "type": "boolean"
                 },
-                "modified_since": {
+                "modifiedSince": {
                   "description": "Return only contacts modified since this ISO 8601 timestamp.",
                   "type": "string"
                 }
@@ -112123,13 +112123,13 @@
                     "additionalProperties": false
                   }
                 },
-                "has_more": {
+                "hasMore": {
                   "type": "boolean"
                 }
               },
               "required": [
                 "contacts",
-                "has_more"
+                "hasMore"
               ],
               "additionalProperties": false
             }
@@ -112176,7 +112176,7 @@
                   "description": "Order by clause. Example: Date DESC",
                   "type": "string"
                 },
-                "if_modified_since": {
+                "ifModifiedSince": {
                   "description": "Only return records modified after this date (ISO 8601 format). Example: 2024-01-01T00:00:00Z",
                   "type": "string"
                 }
@@ -112186,7 +112186,7 @@
             "ActionOutput_xero_listcreditnotes": {
               "type": "object",
               "properties": {
-                "credit_notes": {
+                "creditNotes": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -112363,10 +112363,10 @@
                     "page": {
                       "type": "number"
                     },
-                    "page_size": {
+                    "pageSize": {
                       "type": "number"
                     },
-                    "total_pages": {
+                    "totalPages": {
                       "anyOf": [
                         {
                           "type": "number"
@@ -112376,7 +112376,7 @@
                         }
                       ]
                     },
-                    "total_count": {
+                    "totalCount": {
                       "anyOf": [
                         {
                           "type": "number"
@@ -112389,15 +112389,15 @@
                   },
                   "required": [
                     "page",
-                    "page_size",
-                    "total_pages",
-                    "total_count"
+                    "pageSize",
+                    "totalPages",
+                    "totalCount"
                   ],
                   "additionalProperties": false
                 }
               },
               "required": [
-                "credit_notes",
+                "creditNotes",
                 "pagination"
               ],
               "additionalProperties": false
@@ -112443,11 +112443,11 @@
                   "description": "Filter expression. Example: Type==\"ACCREC\"",
                   "type": "string"
                 },
-                "summary_only": {
+                "summaryOnly": {
                   "description": "Return a summary version of the invoice data.",
                   "type": "boolean"
                 },
-                "modified_since": {
+                "modifiedSince": {
                   "description": "Return invoices modified since this date (ISO 8601 format). Example: 2024-01-01T00:00:00",
                   "type": "string"
                 }
@@ -112645,7 +112645,7 @@
                     "additionalProperties": {}
                   }
                 },
-                "next_page": {
+                "nextPage": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -112658,7 +112658,7 @@
               },
               "required": [
                 "invoices",
-                "next_page"
+                "nextPage"
               ],
               "additionalProperties": false
             }
@@ -112694,7 +112694,7 @@
                   "description": "Pagination cursor (page number). Omit for the first page. Example: \"2\"",
                   "type": "string"
                 },
-                "modified_since": {
+                "modifiedSince": {
                   "description": "Filter items modified since this date (ISO 8601 format). Example: \"2024-01-01T00:00:00\"",
                   "type": "string"
                 }
@@ -112742,7 +112742,7 @@
                           }
                         ]
                       },
-                      "is_sold": {
+                      "isSold": {
                         "anyOf": [
                           {
                             "type": "boolean"
@@ -112752,7 +112752,7 @@
                           }
                         ]
                       },
-                      "is_purchased": {
+                      "isPurchased": {
                         "anyOf": [
                           {
                             "type": "boolean"
@@ -112788,15 +112788,15 @@
                       "code",
                       "name",
                       "description",
-                      "is_sold",
-                      "is_purchased",
+                      "isSold",
+                      "isPurchased",
                       "type",
                       "status"
                     ],
                     "additionalProperties": false
                   }
                 },
-                "next_cursor": {
+                "nextCursor": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -112809,7 +112809,7 @@
               },
               "required": [
                 "items",
-                "next_cursor"
+                "nextCursor"
               ],
               "additionalProperties": false
             }
@@ -112856,7 +112856,7 @@
                   "description": "Order by clause. Example: Date DESC",
                   "type": "string"
                 },
-                "if_modified_since": {
+                "ifModifiedSince": {
                   "description": "ISO 8601 timestamp. Only records changed since this time will be returned.",
                   "type": "string"
                 }
@@ -112986,7 +112986,7 @@
                     "additionalProperties": false
                   }
                 },
-                "next_cursor": {
+                "nextCursor": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -112999,7 +112999,7 @@
               },
               "required": [
                 "payments",
-                "next_cursor"
+                "nextCursor"
               ],
               "additionalProperties": false
             }
@@ -113042,7 +113042,7 @@
                   "description": "Xero where clause for filtering. Example: 'Status == \"DRAFT\"'",
                   "type": "string"
                 },
-                "if_modified_since": {
+                "ifModifiedSince": {
                   "description": "ISO 8601 timestamp to filter records modified since. Example: \"2024-01-01T00:00:00Z\"",
                   "type": "string"
                 }
@@ -113052,7 +113052,7 @@
             "ActionOutput_xero_listpurchaseorders": {
               "type": "object",
               "properties": {
-                "purchase_orders": {
+                "purchaseOrders": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -113142,7 +113142,7 @@
                     "additionalProperties": false
                   }
                 },
-                "next_cursor": {
+                "nextCursor": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113155,8 +113155,8 @@
                 }
               },
               "required": [
-                "purchase_orders",
-                "next_cursor"
+                "purchaseOrders",
+                "nextCursor"
               ],
               "additionalProperties": false
             }
@@ -113272,7 +113272,7 @@
             "ActionInput_xero_updateaccount": {
               "type": "object",
               "properties": {
-                "account_id": {
+                "accountId": {
                   "type": "string",
                   "format": "uuid",
                   "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
@@ -113294,21 +113294,21 @@
                   "description": "Account description. Example: \"Operating expenses\"",
                   "type": "string"
                 },
-                "tax_type": {
+                "taxType": {
                   "description": "Tax type for the account. Example: \"NONE\", \"OUTPUT2\"",
                   "type": "string"
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "description": "Whether payments can be made to this account",
                   "type": "boolean"
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "description": "Whether this account shows in expense claims",
                   "type": "boolean"
                 }
               },
               "required": [
-                "account_id"
+                "accountId"
               ],
               "additionalProperties": false
             },
@@ -113330,7 +113330,7 @@
                 "type": {
                   "type": "string"
                 },
-                "tax_type": {
+                "taxType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113350,10 +113350,10 @@
                     }
                   ]
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "type": "boolean"
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "type": "boolean"
                 }
               },
@@ -113363,10 +113363,10 @@
                 "name",
                 "status",
                 "type",
-                "tax_type",
+                "taxType",
                 "description",
-                "enable_payments_to_account",
-                "show_in_expense_claims"
+                "enablePaymentsToAccount",
+                "showInExpenseClaims"
               ],
               "additionalProperties": false
             }
@@ -113400,7 +113400,7 @@
             "ActionInput_xero_updatebanktransaction": {
               "type": "object",
               "properties": {
-                "bank_transaction_id": {
+                "bankTransactionId": {
                   "type": "string",
                   "description": "The unique ID of the bank transaction to update. Example: \"a54d1234-5678-90ab-cdef-1234567890ab\""
                 },
@@ -113417,11 +113417,11 @@
                     "TRANSFER"
                   ]
                 },
-                "contact_id": {
+                "contactId": {
                   "description": "The ID of the contact associated with the transaction.",
                   "type": "string"
                 },
-                "line_items": {
+                "lineItems": {
                   "description": "The line items for the transaction.",
                   "type": "array",
                   "items": {
@@ -113433,23 +113433,23 @@
                       "quantity": {
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "type": "string"
                       },
-                      "item_code": {
+                      "itemCode": {
                         "type": "string"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "type": "string"
                       }
                     },
                     "additionalProperties": false
                   }
                 },
-                "bank_account_id": {
+                "bankAccountId": {
                   "description": "The ID of the bank account.",
                   "type": "string"
                 },
@@ -113471,17 +113471,17 @@
                 }
               },
               "required": [
-                "bank_transaction_id"
+                "bankTransactionId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_updatebanktransaction": {
               "type": "object",
               "properties": {
-                "bank_transaction": {
+                "bankTransaction": {
                   "type": "object",
                   "properties": {
-                    "bank_transaction_id": {
+                    "bankTransactionId": {
                       "type": "string"
                     },
                     "type": {
@@ -113490,7 +113490,7 @@
                     "contact": {
                       "type": "object",
                       "properties": {
-                        "contact_id": {
+                        "contactId": {
                           "type": "string"
                         },
                         "name": {
@@ -113498,7 +113498,7 @@
                         }
                       },
                       "required": [
-                        "contact_id"
+                        "contactId"
                       ],
                       "additionalProperties": false
                     },
@@ -113508,7 +113508,7 @@
                     "status": {
                       "type": "string"
                     },
-                    "line_items": {
+                    "lineItems": {
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -113519,32 +113519,32 @@
                           "quantity": {
                             "type": "number"
                           },
-                          "unit_amount": {
+                          "unitAmount": {
                             "type": "number"
                           },
-                          "account_code": {
+                          "accountCode": {
                             "type": "string"
                           },
-                          "item_code": {
+                          "itemCode": {
                             "type": "string"
                           },
-                          "tax_type": {
+                          "taxType": {
                             "type": "string"
                           },
-                          "tax_amount": {
+                          "taxAmount": {
                             "type": "number"
                           },
-                          "line_amount": {
+                          "lineAmount": {
                             "type": "number"
                           }
                         },
                         "additionalProperties": false
                       }
                     },
-                    "bank_account": {
+                    "bankAccount": {
                       "type": "object",
                       "properties": {
-                        "account_id": {
+                        "accountId": {
                           "type": "string"
                         },
                         "code": {
@@ -113555,20 +113555,20 @@
                         }
                       },
                       "required": [
-                        "account_id"
+                        "accountId"
                       ],
                       "additionalProperties": false
                     },
-                    "currency_code": {
+                    "currencyCode": {
                       "type": "string"
                     },
-                    "currency_rate": {
+                    "currencyRate": {
                       "type": "number"
                     },
-                    "sub_total": {
+                    "subTotal": {
                       "type": "number"
                     },
-                    "total_tax": {
+                    "totalTax": {
                       "type": "number"
                     },
                     "total": {
@@ -113577,22 +113577,22 @@
                     "reference": {
                       "type": "string"
                     },
-                    "is_reconciled": {
+                    "isReconciled": {
                       "type": "boolean"
                     },
-                    "has_attachments": {
+                    "hasAttachments": {
                       "type": "boolean"
                     }
                   },
                   "required": [
-                    "bank_transaction_id",
+                    "bankTransactionId",
                     "type"
                   ],
                   "additionalProperties": false
                 }
               },
               "required": [
-                "bank_transaction"
+                "bankTransaction"
               ],
               "additionalProperties": false
             }
@@ -113626,7 +113626,7 @@
             "ActionInput_xero_updatecontact": {
               "type": "object",
               "properties": {
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "The unique Xero identifier for the contact. Example: \"00000000-0000-0000-0000-000000000000\""
                 },
@@ -113634,27 +113634,27 @@
                   "description": "Full name of the contact.",
                   "type": "string"
                 },
-                "first_name": {
+                "firstName": {
                   "description": "First name of the contact (max 255 chars).",
                   "type": "string"
                 },
-                "last_name": {
+                "lastName": {
                   "description": "Last name of the contact (max 255 chars).",
                   "type": "string"
                 },
-                "email_address": {
+                "emailAddress": {
                   "description": "Email address of the contact.",
                   "type": "string"
                 },
-                "phone_number": {
+                "phoneNumber": {
                   "description": "Phone number for the contact.",
                   "type": "string"
                 },
-                "address_line_1": {
+                "addressLine1": {
                   "description": "Street address line 1.",
                   "type": "string"
                 },
-                "address_line_2": {
+                "addressLine2": {
                   "description": "Street address line 2.",
                   "type": "string"
                 },
@@ -113666,7 +113666,7 @@
                   "description": "Region/state of the address.",
                   "type": "string"
                 },
-                "postal_code": {
+                "postalCode": {
                   "description": "Postal code of the address.",
                   "type": "string"
                 },
@@ -113674,36 +113674,36 @@
                   "description": "Country of the address.",
                   "type": "string"
                 },
-                "account_number": {
+                "accountNumber": {
                   "description": "Bank account number for the contact.",
                   "type": "string"
                 },
-                "tax_number": {
+                "taxNumber": {
                   "description": "Tax number of the contact.",
                   "type": "string"
                 },
-                "is_customer": {
+                "isCustomer": {
                   "description": "Whether the contact is a customer.",
                   "type": "boolean"
                 },
-                "is_supplier": {
+                "isSupplier": {
                   "description": "Whether the contact is a supplier.",
                   "type": "boolean"
                 },
-                "default_currency": {
+                "defaultCurrency": {
                   "description": "Default currency code for the contact. Example: \"USD\"",
                   "type": "string"
                 }
               },
               "required": [
-                "contact_id"
+                "contactId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_updatecontact": {
               "type": "object",
               "properties": {
-                "contact_id": {
+                "contactId": {
                   "type": "string"
                 },
                 "name": {
@@ -113716,7 +113716,7 @@
                     }
                   ]
                 },
-                "first_name": {
+                "firstName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113726,7 +113726,7 @@
                     }
                   ]
                 },
-                "last_name": {
+                "lastName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113736,7 +113736,7 @@
                     }
                   ]
                 },
-                "email_address": {
+                "emailAddress": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113746,7 +113746,7 @@
                     }
                   ]
                 },
-                "phone_number": {
+                "phoneNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113756,7 +113756,7 @@
                     }
                   ]
                 },
-                "account_number": {
+                "accountNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113766,7 +113766,7 @@
                     }
                   ]
                 },
-                "tax_number": {
+                "taxNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113776,7 +113776,7 @@
                     }
                   ]
                 },
-                "is_customer": {
+                "isCustomer": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -113786,7 +113786,7 @@
                     }
                   ]
                 },
-                "is_supplier": {
+                "isSupplier": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -113796,7 +113796,7 @@
                     }
                   ]
                 },
-                "default_currency": {
+                "defaultCurrency": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113808,17 +113808,17 @@
                 }
               },
               "required": [
-                "contact_id",
+                "contactId",
                 "name",
-                "first_name",
-                "last_name",
-                "email_address",
-                "phone_number",
-                "account_number",
-                "tax_number",
-                "is_customer",
-                "is_supplier",
-                "default_currency"
+                "firstName",
+                "lastName",
+                "emailAddress",
+                "phoneNumber",
+                "accountNumber",
+                "taxNumber",
+                "isCustomer",
+                "isSupplier",
+                "defaultCurrency"
               ],
               "additionalProperties": false
             }
@@ -113853,7 +113853,7 @@
             "ActionInput_xero_updatecreditnote": {
               "type": "object",
               "properties": {
-                "credit_note_id": {
+                "creditNoteId": {
                   "type": "string",
                   "description": "Xero generated unique identifier for the credit note. Example: \"717f2bfc-c6d4-41fd-b238-3f2f0c0cf777\""
                 },
@@ -113865,7 +113865,7 @@
                     "ACCPAYCREDIT"
                   ]
                 },
-                "contact_id": {
+                "contactId": {
                   "description": "Contact ID associated with the credit note.",
                   "type": "string"
                 },
@@ -113885,7 +113885,7 @@
                     "DELETED"
                   ]
                 },
-                "line_items": {
+                "lineItems": {
                   "description": "Line items for the credit note.",
                   "type": "array",
                   "items": {
@@ -113897,13 +113897,13 @@
                       "quantity": {
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "type": "string"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "type": "string"
                       }
                     },
@@ -113914,27 +113914,27 @@
                   "description": "Reference or description for the credit note.",
                   "type": "string"
                 },
-                "sent_to_contact": {
+                "sentToContact": {
                   "description": "Boolean indicating whether the credit note has been sent to the contact. Only writable when credit note is in Awaiting Payment or Paid state.",
                   "type": "boolean"
                 },
-                "currency_rate": {
+                "currencyRate": {
                   "description": "Currency rate for multicurrency transactions.",
                   "type": "number"
                 }
               },
               "required": [
-                "credit_note_id"
+                "creditNoteId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_updatecreditnote": {
               "type": "object",
               "properties": {
-                "credit_note_id": {
+                "creditNoteId": {
                   "type": "string"
                 },
-                "credit_note_number": {
+                "creditNoteNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -113974,7 +113974,7 @@
                     }
                   ]
                 },
-                "contact_id": {
+                "contactId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114004,7 +114004,7 @@
                     }
                   ]
                 },
-                "sub_total": {
+                "subTotal": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -114014,7 +114014,7 @@
                     }
                   ]
                 },
-                "total_tax": {
+                "totalTax": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -114024,7 +114024,7 @@
                     }
                   ]
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114034,7 +114034,7 @@
                     }
                   ]
                 },
-                "remaining_credit": {
+                "remainingCredit": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -114046,18 +114046,18 @@
                 }
               },
               "required": [
-                "credit_note_id",
-                "credit_note_number",
+                "creditNoteId",
+                "creditNoteNumber",
                 "type",
                 "status",
                 "date",
-                "contact_id",
+                "contactId",
                 "reference",
                 "total",
-                "sub_total",
-                "total_tax",
-                "updated_date_utc",
-                "remaining_credit"
+                "subTotal",
+                "totalTax",
+                "updatedDateUtc",
+                "remainingCredit"
               ],
               "additionalProperties": false
             }
@@ -114091,7 +114091,7 @@
             "ActionInput_xero_updateinvoice": {
               "type": "object",
               "properties": {
-                "invoice_id": {
+                "invoiceId": {
                   "type": "string",
                   "description": "The unique ID of the invoice to update. Example: \"12345678-1234-1234-1234-123456789012\""
                 },
@@ -114107,7 +114107,7 @@
                   "description": "The contact associated with the invoice.",
                   "type": "object",
                   "properties": {
-                    "contact_id": {
+                    "contactId": {
                       "description": "The Xero ID for the contact.",
                       "type": "string"
                     },
@@ -114118,13 +114118,13 @@
                   },
                   "additionalProperties": false
                 },
-                "line_items": {
+                "lineItems": {
                   "description": "Line items for the invoice.",
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "line_item_id": {
+                      "lineItemId": {
                         "description": "The Xero ID for the line item (for existing items).",
                         "type": "string"
                       },
@@ -114136,15 +114136,15 @@
                         "description": "Quantity of the line item.",
                         "type": "number"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "description": "Unit price of the line item.",
                         "type": "number"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "description": "Account code for the line item.",
                         "type": "string"
                       },
-                      "tax_type": {
+                      "taxType": {
                         "description": "Tax type for the line item.",
                         "type": "string"
                       }
@@ -114156,7 +114156,7 @@
                   "description": "Invoice date in YYYY-MM-DD format.",
                   "type": "string"
                 },
-                "due_date": {
+                "dueDate": {
                   "description": "Due date for the invoice in YYYY-MM-DD format.",
                   "type": "string"
                 },
@@ -114178,17 +114178,17 @@
                 }
               },
               "required": [
-                "invoice_id"
+                "invoiceId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_updateinvoice": {
               "type": "object",
               "properties": {
-                "invoice_id": {
+                "invoiceId": {
                   "type": "string"
                 },
-                "invoice_number": {
+                "invoiceNumber": {
                   "type": "string"
                 },
                 "type": {
@@ -114200,21 +114200,21 @@
                 "total": {
                   "type": "number"
                 },
-                "currency_code": {
+                "currencyCode": {
                   "type": "string"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "type": "string"
                 }
               },
               "required": [
-                "invoice_id",
-                "invoice_number",
+                "invoiceId",
+                "invoiceNumber",
                 "type",
                 "status",
                 "total",
-                "currency_code",
-                "updated_date_utc"
+                "currencyCode",
+                "updatedDateUtc"
               ],
               "additionalProperties": false
             }
@@ -114249,7 +114249,7 @@
             "ActionInput_xero_updateitem": {
               "type": "object",
               "properties": {
-                "item_id": {
+                "itemId": {
                   "description": "Unique Xero identifier for the item. Example: \"c7f1c1b7-4c44-4f8e-8f6e-5d6c5f5c7e7e\"",
                   "type": "string"
                 },
@@ -114265,47 +114265,47 @@
                   "description": "The sales description of the item.",
                   "type": "string"
                 },
-                "purchase_description": {
+                "purchaseDescription": {
                   "description": "The purchase description of the item.",
                   "type": "string"
                 },
-                "is_sold": {
+                "isSold": {
                   "description": "Boolean value, defaults to true. Determines whether the item is sold.",
                   "type": "boolean"
                 },
-                "is_purchased": {
+                "isPurchased": {
                   "description": "Boolean value, defaults to true. Determines whether the item is purchased.",
                   "type": "boolean"
                 },
-                "sales_unit_price": {
+                "salesUnitPrice": {
                   "description": "Unit price for sales.",
                   "type": "number"
                 },
-                "sales_account_code": {
+                "salesAccountCode": {
                   "description": "Default sales account code for the item.",
                   "type": "string"
                 },
-                "sales_tax_type": {
+                "salesTaxType": {
                   "description": "The TaxType to apply to the item on sales invoices.",
                   "type": "string"
                 },
-                "purchase_unit_price": {
+                "purchaseUnitPrice": {
                   "description": "Unit price for purchases.",
                   "type": "number"
                 },
-                "purchase_account_code": {
+                "purchaseAccountCode": {
                   "description": "Default purchases account code for the item.",
                   "type": "string"
                 },
-                "purchase_tax_type": {
+                "purchaseTaxType": {
                   "description": "The TaxType to apply to the item on purchase invoices.",
                   "type": "string"
                 },
-                "inventory_asset_account_code": {
+                "inventoryAssetAccountCode": {
                   "description": "The inventory asset account code for the item.",
                   "type": "string"
                 },
-                "is_tracked_as_inventory": {
+                "isTrackedAsInventory": {
                   "description": "Boolean, defaults to false. When true, the item is tracked as inventory.",
                   "type": "boolean"
                 }
@@ -114315,7 +114315,7 @@
             "ActionOutput_xero_updateitem": {
               "type": "object",
               "properties": {
-                "item_id": {
+                "itemId": {
                   "type": "string"
                 },
                 "code": {
@@ -114341,7 +114341,7 @@
                     }
                   ]
                 },
-                "purchase_description": {
+                "purchaseDescription": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114351,18 +114351,18 @@
                     }
                   ]
                 },
-                "is_sold": {
+                "isSold": {
                   "type": "boolean"
                 },
-                "is_purchased": {
+                "isPurchased": {
                   "type": "boolean"
                 },
-                "sales_details": {
+                "salesDetails": {
                   "anyOf": [
                     {
                       "type": "object",
                       "properties": {
-                        "unit_price": {
+                        "unitPrice": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -114372,7 +114372,7 @@
                             }
                           ]
                         },
-                        "account_code": {
+                        "accountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114382,7 +114382,7 @@
                             }
                           ]
                         },
-                        "tax_type": {
+                        "taxType": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114392,7 +114392,7 @@
                             }
                           ]
                         },
-                        "cogs_account_code": {
+                        "cogsAccountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114404,10 +114404,10 @@
                         }
                       },
                       "required": [
-                        "unit_price",
-                        "account_code",
-                        "tax_type",
-                        "cogs_account_code"
+                        "unitPrice",
+                        "accountCode",
+                        "taxType",
+                        "cogsAccountCode"
                       ],
                       "additionalProperties": false
                     },
@@ -114416,12 +114416,12 @@
                     }
                   ]
                 },
-                "purchase_details": {
+                "purchaseDetails": {
                   "anyOf": [
                     {
                       "type": "object",
                       "properties": {
-                        "unit_price": {
+                        "unitPrice": {
                           "anyOf": [
                             {
                               "type": "number"
@@ -114431,7 +114431,7 @@
                             }
                           ]
                         },
-                        "account_code": {
+                        "accountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114441,7 +114441,7 @@
                             }
                           ]
                         },
-                        "tax_type": {
+                        "taxType": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114451,7 +114451,7 @@
                             }
                           ]
                         },
-                        "cogs_account_code": {
+                        "cogsAccountCode": {
                           "anyOf": [
                             {
                               "type": "string"
@@ -114463,10 +114463,10 @@
                         }
                       },
                       "required": [
-                        "unit_price",
-                        "account_code",
-                        "tax_type",
-                        "cogs_account_code"
+                        "unitPrice",
+                        "accountCode",
+                        "taxType",
+                        "cogsAccountCode"
                       ],
                       "additionalProperties": false
                     },
@@ -114475,10 +114475,10 @@
                     }
                   ]
                 },
-                "is_tracked_as_inventory": {
+                "isTrackedAsInventory": {
                   "type": "boolean"
                 },
-                "inventory_asset_account_code": {
+                "inventoryAssetAccountCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114491,7 +114491,7 @@
                 "status": {
                   "type": "string"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114503,19 +114503,19 @@
                 }
               },
               "required": [
-                "item_id",
+                "itemId",
                 "code",
                 "name",
                 "description",
-                "purchase_description",
-                "is_sold",
-                "is_purchased",
-                "sales_details",
-                "purchase_details",
-                "is_tracked_as_inventory",
-                "inventory_asset_account_code",
+                "purchaseDescription",
+                "isSold",
+                "isPurchased",
+                "salesDetails",
+                "purchaseDetails",
+                "isTrackedAsInventory",
+                "inventoryAssetAccountCode",
                 "status",
-                "updated_date_utc"
+                "updatedDateUtc"
               ],
               "additionalProperties": false
             }
@@ -114549,11 +114549,11 @@
             "ActionInput_xero_updatepurchaseorder": {
               "type": "object",
               "properties": {
-                "purchase_order_id": {
+                "purchaseOrderId": {
                   "type": "string",
                   "description": "Unique Xero identifier for the purchase order. Example: \"8b68b396-8735-4f50-b253-5a3aabe6e0f5\""
                 },
-                "contact_id": {
+                "contactId": {
                   "description": "Optional Contact ID to update. Example: \"8b68b396-8735-4f50-b253-5a3aabe6e0f5\"",
                   "type": "string"
                 },
@@ -114561,7 +114561,7 @@
                   "description": "Date of the purchase order in YYYY-MM-DD format. Example: \"2025-04-22\"",
                   "type": "string"
                 },
-                "delivery_date": {
+                "deliveryDate": {
                   "description": "Expected delivery date in YYYY-MM-DD format. Example: \"2025-05-01\"",
                   "type": "string"
                 },
@@ -114580,7 +114580,7 @@
                     "DELETED"
                   ]
                 },
-                "line_items": {
+                "lineItems": {
                   "description": "Line items for the purchase order",
                   "type": "array",
                   "items": {
@@ -114594,19 +114594,19 @@
                         "type": "number",
                         "description": "Quantity ordered. Example: 10"
                       },
-                      "unit_amount": {
+                      "unitAmount": {
                         "type": "number",
                         "description": "Unit price. Example: 25.5"
                       },
-                      "account_code": {
+                      "accountCode": {
                         "type": "string",
                         "description": "Account code for this line item. Example: \"200\""
                       },
-                      "tax_type": {
+                      "taxType": {
                         "description": "Tax type for this line item. Example: \"OUTPUT2\"",
                         "type": "string"
                       },
-                      "line_item_id": {
+                      "lineItemId": {
                         "description": "Line item ID when updating existing line item",
                         "type": "string"
                       }
@@ -114614,34 +114614,34 @@
                     "required": [
                       "description",
                       "quantity",
-                      "unit_amount",
-                      "account_code"
+                      "unitAmount",
+                      "accountCode"
                     ],
                     "additionalProperties": false
                   }
                 }
               },
               "required": [
-                "purchase_order_id"
+                "purchaseOrderId"
               ],
               "additionalProperties": false
             },
             "ActionOutput_xero_updatepurchaseorder": {
               "type": "object",
               "properties": {
-                "purchase_order_id": {
+                "purchaseOrderId": {
                   "type": "string",
                   "description": "Unique Xero identifier for the purchase order"
                 },
-                "purchase_order_number": {
+                "purchaseOrderNumber": {
                   "type": "string",
                   "description": "Purchase order number"
                 },
-                "contact_id": {
+                "contactId": {
                   "type": "string",
                   "description": "Contact ID associated with the purchase order"
                 },
-                "contact_name": {
+                "contactName": {
                   "type": "string",
                   "description": "Contact name"
                 },
@@ -114649,7 +114649,7 @@
                   "type": "string",
                   "description": "Date of the purchase order"
                 },
-                "delivery_date": {
+                "deliveryDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114675,11 +114675,11 @@
                   "type": "string",
                   "description": "Status of the purchase order"
                 },
-                "sub_total": {
+                "subTotal": {
                   "type": "number",
                   "description": "Subtotal amount"
                 },
-                "total_tax": {
+                "totalTax": {
                   "type": "number",
                   "description": "Total tax amount"
                 },
@@ -114687,24 +114687,24 @@
                   "type": "number",
                   "description": "Total amount"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "type": "string",
                   "description": "UTC timestamp of the update"
                 }
               },
               "required": [
-                "purchase_order_id",
-                "purchase_order_number",
-                "contact_id",
-                "contact_name",
+                "purchaseOrderId",
+                "purchaseOrderNumber",
+                "contactId",
+                "contactName",
                 "date",
-                "delivery_date",
+                "deliveryDate",
                 "reference",
                 "status",
-                "sub_total",
-                "total_tax",
+                "subTotal",
+                "totalTax",
                 "total",
-                "updated_date_utc"
+                "updatedDateUtc"
               ],
               "additionalProperties": false
             }
@@ -114746,7 +114746,7 @@
                 "id": {
                   "type": "string"
                 },
-                "account_id": {
+                "accountId": {
                   "type": "string"
                 },
                 "code": {
@@ -114799,7 +114799,7 @@
                     }
                   ]
                 },
-                "tax_type": {
+                "taxType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114809,7 +114809,7 @@
                     }
                   ]
                 },
-                "enable_payments_to_account": {
+                "enablePaymentsToAccount": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -114819,7 +114819,7 @@
                     }
                   ]
                 },
-                "show_in_expense_claims": {
+                "showInExpenseClaims": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -114839,7 +114839,7 @@
                     }
                   ]
                 },
-                "system_account": {
+                "systemAccount": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114849,7 +114849,7 @@
                     }
                   ]
                 },
-                "bank_account_number": {
+                "bankAccountNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114859,7 +114859,7 @@
                     }
                   ]
                 },
-                "bank_account_type": {
+                "bankAccountType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114869,7 +114869,7 @@
                     }
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114879,7 +114879,7 @@
                     }
                   ]
                 },
-                "reporting_code": {
+                "reportingCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114889,7 +114889,7 @@
                     }
                   ]
                 },
-                "reporting_code_name": {
+                "reportingCodeName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114899,7 +114899,7 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -114912,23 +114912,23 @@
               },
               "required": [
                 "id",
-                "account_id",
+                "accountId",
                 "code",
                 "name",
                 "type",
                 "status",
                 "description",
-                "tax_type",
-                "enable_payments_to_account",
-                "show_in_expense_claims",
+                "taxType",
+                "enablePaymentsToAccount",
+                "showInExpenseClaims",
                 "class",
-                "system_account",
-                "bank_account_number",
-                "bank_account_type",
-                "currency_code",
-                "reporting_code",
-                "reporting_code_name",
-                "updated_at"
+                "systemAccount",
+                "bankAccountNumber",
+                "bankAccountType",
+                "currencyCode",
+                "reportingCode",
+                "reportingCodeName",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -114968,10 +114968,10 @@
                 "id": {
                   "type": "string"
                 },
-                "bank_transaction_id": {
+                "bankTransactionId": {
                   "type": "string"
                 },
-                "bank_account": {},
+                "bankAccount": {},
                 "type": {
                   "type": "string"
                 },
@@ -114985,47 +114985,47 @@
                 "reference": {
                   "type": "string"
                 },
-                "is_reconciled": {
+                "isReconciled": {
                   "type": "boolean"
                 },
-                "line_items": {},
+                "lineItems": {},
                 "subtotal": {
                   "type": "number"
                 },
-                "total_tax": {
+                "totalTax": {
                   "type": "number"
                 },
                 "total": {
                   "type": "number"
                 },
-                "currency_code": {
+                "currencyCode": {
                   "type": "string"
                 },
-                "currency_rate": {
+                "currencyRate": {
                   "type": "number"
                 },
                 "url": {
                   "type": "string"
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "type": "string"
                 },
-                "has_attachments": {
+                "hasAttachments": {
                   "type": "boolean"
                 },
-                "prepayment_id": {
+                "prepaymentId": {
                   "type": "string"
                 },
-                "overpayment_id": {
+                "overpaymentId": {
                   "type": "string"
                 }
               },
               "required": [
                 "id",
-                "bank_transaction_id",
+                "bankTransactionId",
                 "type",
                 "status",
-                "updated_date_utc"
+                "updatedDateUtc"
               ],
               "additionalProperties": false
             }
@@ -115067,7 +115067,7 @@
                 "id": {
                   "type": "string"
                 },
-                "contact_id": {
+                "contactId": {
                   "type": "string"
                 },
                 "name": {
@@ -115080,7 +115080,7 @@
                     }
                   ]
                 },
-                "first_name": {
+                "firstName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115090,7 +115090,7 @@
                     }
                   ]
                 },
-                "last_name": {
+                "lastName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115100,7 +115100,7 @@
                     }
                   ]
                 },
-                "email_address": {
+                "emailAddress": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115120,31 +115120,31 @@
                     "additionalProperties": {}
                   }
                 },
-                "is_supplier": {
+                "isSupplier": {
                   "type": "boolean"
                 },
-                "is_customer": {
+                "isCustomer": {
                   "type": "boolean"
                 },
                 "status": {
                   "type": "string"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 }
               },
               "required": [
                 "id",
-                "contact_id",
+                "contactId",
                 "name",
-                "first_name",
-                "last_name",
-                "email_address",
+                "firstName",
+                "lastName",
+                "emailAddress",
                 "phones",
-                "is_supplier",
-                "is_customer",
+                "isSupplier",
+                "isCustomer",
                 "status",
-                "updated_at"
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -115322,7 +115322,7 @@
                 "id": {
                   "type": "string"
                 },
-                "invoice_number": {
+                "invoiceNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115362,7 +115362,7 @@
                     }
                   ]
                 },
-                "due_date": {
+                "dueDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115382,7 +115382,7 @@
                     }
                   ]
                 },
-                "sub_total": {
+                "subTotal": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115392,7 +115392,7 @@
                     }
                   ]
                 },
-                "total_tax": {
+                "totalTax": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115402,7 +115402,7 @@
                     }
                   ]
                 },
-                "amount_due": {
+                "amountDue": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115412,7 +115412,7 @@
                     }
                   ]
                 },
-                "amount_paid": {
+                "amountPaid": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115422,7 +115422,7 @@
                     }
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115432,24 +115432,24 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 }
               },
               "required": [
                 "id",
-                "invoice_number",
+                "invoiceNumber",
                 "type",
                 "status",
                 "date",
-                "due_date",
+                "dueDate",
                 "total",
-                "sub_total",
-                "total_tax",
-                "amount_due",
-                "amount_paid",
-                "currency_code",
-                "updated_at"
+                "subTotal",
+                "totalTax",
+                "amountDue",
+                "amountPaid",
+                "currencyCode",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -115500,28 +115500,28 @@
                 "description": {
                   "type": "string"
                 },
-                "is_tracked": {
+                "isTracked": {
                   "type": "boolean"
                 },
-                "quantity_on_hand": {
+                "quantityOnHand": {
                   "type": "number"
                 },
-                "average_cost": {
+                "averageCost": {
                   "type": "number"
                 },
-                "is_sold": {
+                "isSold": {
                   "type": "boolean"
                 },
-                "is_purchased": {
+                "isPurchased": {
                   "type": "boolean"
                 },
-                "sales_details": {
+                "salesDetails": {
                   "type": "string"
                 },
-                "purchase_details": {
+                "purchaseDetails": {
                   "type": "string"
                 },
-                "updated_at": {
+                "updatedAt": {
                   "type": "string"
                 }
               },
@@ -115530,14 +115530,14 @@
                 "code",
                 "name",
                 "description",
-                "is_tracked",
-                "quantity_on_hand",
-                "average_cost",
-                "is_sold",
-                "is_purchased",
-                "sales_details",
-                "purchase_details",
-                "updated_at"
+                "isTracked",
+                "quantityOnHand",
+                "averageCost",
+                "isSold",
+                "isPurchased",
+                "salesDetails",
+                "purchaseDetails",
+                "updatedAt"
               ],
               "additionalProperties": false
             }
@@ -115589,7 +115589,7 @@
                     }
                   ]
                 },
-                "legal_name": {
+                "legalName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115599,7 +115599,7 @@
                     }
                   ]
                 },
-                "organisation_type": {
+                "organisationType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115609,7 +115609,7 @@
                     }
                   ]
                 },
-                "base_currency": {
+                "baseCurrency": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115619,7 +115619,7 @@
                     }
                   ]
                 },
-                "country_code": {
+                "countryCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115629,7 +115629,7 @@
                     }
                   ]
                 },
-                "is_demo_company": {
+                "isDemoCompany": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -115639,7 +115639,7 @@
                     }
                   ]
                 },
-                "organisation_status": {
+                "organisationStatus": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115649,7 +115649,7 @@
                     }
                   ]
                 },
-                "financial_year_end_day": {
+                "financialYearEndDay": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115659,7 +115659,7 @@
                     }
                   ]
                 },
-                "financial_year_end_month": {
+                "financialYearEndMonth": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115669,7 +115669,7 @@
                     }
                   ]
                 },
-                "sales_tax_basis": {
+                "salesTaxBasis": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115679,7 +115679,7 @@
                     }
                   ]
                 },
-                "sales_tax_period": {
+                "salesTaxPeriod": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115689,7 +115689,7 @@
                     }
                   ]
                 },
-                "default_sales_tax": {
+                "defaultSalesTax": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115699,7 +115699,7 @@
                     }
                   ]
                 },
-                "default_purchases_tax": {
+                "defaultPurchasesTax": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115709,7 +115709,7 @@
                     }
                   ]
                 },
-                "created_at": {
+                "createdAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115719,7 +115719,7 @@
                     }
                   ]
                 },
-                "updated_at": {
+                "updatedAt": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115739,7 +115739,7 @@
                     }
                   ]
                 },
-                "line_of_business": {
+                "lineOfBusiness": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115749,7 +115749,7 @@
                     }
                   ]
                 },
-                "organisation_entity_type": {
+                "organisationEntityType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115759,7 +115759,7 @@
                     }
                   ]
                 },
-                "short_code": {
+                "shortCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115793,24 +115793,24 @@
               "required": [
                 "id",
                 "name",
-                "legal_name",
-                "organisation_type",
-                "base_currency",
-                "country_code",
-                "is_demo_company",
-                "organisation_status",
-                "financial_year_end_day",
-                "financial_year_end_month",
-                "sales_tax_basis",
-                "sales_tax_period",
-                "default_sales_tax",
-                "default_purchases_tax",
-                "created_at",
-                "updated_at",
+                "legalName",
+                "organisationType",
+                "baseCurrency",
+                "countryCode",
+                "isDemoCompany",
+                "organisationStatus",
+                "financialYearEndDay",
+                "financialYearEndMonth",
+                "salesTaxBasis",
+                "salesTaxPeriod",
+                "defaultSalesTax",
+                "defaultPurchasesTax",
+                "createdAt",
+                "updatedAt",
                 "timezone",
-                "line_of_business",
-                "organisation_entity_type",
-                "short_code",
+                "lineOfBusiness",
+                "organisationEntityType",
+                "shortCode",
                 "class",
                 "edition"
               ],
@@ -115872,7 +115872,7 @@
                     }
                   ]
                 },
-                "currency_rate": {
+                "currencyRate": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -115882,7 +115882,7 @@
                     }
                   ]
                 },
-                "payment_type": {
+                "paymentType": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115902,7 +115902,7 @@
                     }
                   ]
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115922,7 +115922,7 @@
                     }
                   ]
                 },
-                "is_reconciled": {
+                "isReconciled": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -115932,7 +115932,7 @@
                     }
                   ]
                 },
-                "account_id": {
+                "accountId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115942,7 +115942,7 @@
                     }
                   ]
                 },
-                "invoice_id": {
+                "invoiceId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115952,7 +115952,7 @@
                     }
                   ]
                 },
-                "credit_note_id": {
+                "creditNoteId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115962,7 +115962,7 @@
                     }
                   ]
                 },
-                "prepayment_id": {
+                "prepaymentId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115972,7 +115972,7 @@
                     }
                   ]
                 },
-                "overpayment_id": {
+                "overpaymentId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115982,7 +115982,7 @@
                     }
                   ]
                 },
-                "bank_account_number": {
+                "bankAccountNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -115992,7 +115992,7 @@
                     }
                   ]
                 },
-                "bank_account_name": {
+                "bankAccountName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116012,7 +116012,7 @@
                     }
                   ]
                 },
-                "has_attachments": {
+                "hasAttachments": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -116022,7 +116022,7 @@
                     }
                   ]
                 },
-                "has_account_id": {
+                "hasAccountId": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -116032,7 +116032,7 @@
                     }
                   ]
                 },
-                "has_validation_errors": {
+                "hasValidationErrors": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -116042,7 +116042,7 @@
                     }
                   ]
                 },
-                "batch_payment_id": {
+                "batchPaymentId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116057,24 +116057,24 @@
                 "id",
                 "date",
                 "amount",
-                "currency_rate",
-                "payment_type",
+                "currencyRate",
+                "paymentType",
                 "status",
-                "updated_date_utc",
+                "updatedDateUtc",
                 "reference",
-                "is_reconciled",
-                "account_id",
-                "invoice_id",
-                "credit_note_id",
-                "prepayment_id",
-                "overpayment_id",
-                "bank_account_number",
-                "bank_account_name",
+                "isReconciled",
+                "accountId",
+                "invoiceId",
+                "creditNoteId",
+                "prepaymentId",
+                "overpaymentId",
+                "bankAccountNumber",
+                "bankAccountName",
                 "details",
-                "has_attachments",
-                "has_account_id",
-                "has_validation_errors",
-                "batch_payment_id"
+                "hasAttachments",
+                "hasAccountId",
+                "hasValidationErrors",
+                "batchPaymentId"
               ],
               "additionalProperties": false
             }
@@ -116303,7 +116303,7 @@
                 "id": {
                   "type": "string"
                 },
-                "purchase_order_number": {
+                "purchaseOrderNumber": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116313,7 +116313,7 @@
                     }
                   ]
                 },
-                "contact_id": {
+                "contactId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116323,7 +116323,7 @@
                     }
                   ]
                 },
-                "contact_name": {
+                "contactName": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116353,7 +116353,7 @@
                     }
                   ]
                 },
-                "delivery_date": {
+                "deliveryDate": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116373,7 +116373,7 @@
                     }
                   ]
                 },
-                "updated_date_utc": {
+                "updatedDateUtc": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116383,7 +116383,7 @@
                     }
                   ]
                 },
-                "currency_code": {
+                "currencyCode": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116403,7 +116403,7 @@
                     }
                   ]
                 },
-                "sub_total": {
+                "subTotal": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -116413,7 +116413,7 @@
                     }
                   ]
                 },
-                "total_tax": {
+                "totalTax": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -116423,7 +116423,7 @@
                     }
                   ]
                 },
-                "line_items": {
+                "lineItems": {
                   "anyOf": [
                     {
                       "type": "array",
@@ -116455,7 +116455,7 @@
                     }
                   ]
                 },
-                "currency_rate": {
+                "currencyRate": {
                   "anyOf": [
                     {
                       "type": "number"
@@ -116465,7 +116465,7 @@
                     }
                   ]
                 },
-                "sent_to_contact": {
+                "sentToContact": {
                   "anyOf": [
                     {
                       "type": "boolean"
@@ -116475,7 +116475,7 @@
                     }
                   ]
                 },
-                "delivery_address": {
+                "deliveryAddress": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116485,7 +116485,7 @@
                     }
                   ]
                 },
-                "attention_to": {
+                "attentionTo": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116505,7 +116505,7 @@
                     }
                   ]
                 },
-                "delivery_instructions": {
+                "deliveryInstructions": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116515,7 +116515,7 @@
                     }
                   ]
                 },
-                "purchase_order_id": {
+                "purchaseOrderId": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -116528,28 +116528,28 @@
               },
               "required": [
                 "id",
-                "purchase_order_number",
-                "contact_id",
-                "contact_name",
+                "purchaseOrderNumber",
+                "contactId",
+                "contactName",
                 "status",
                 "date",
-                "delivery_date",
+                "deliveryDate",
                 "reference",
-                "updated_date_utc",
-                "currency_code",
+                "updatedDateUtc",
+                "currencyCode",
                 "total",
-                "sub_total",
-                "total_tax",
-                "line_items",
+                "subTotal",
+                "totalTax",
+                "lineItems",
                 "attachments",
                 "url",
-                "currency_rate",
-                "sent_to_contact",
-                "delivery_address",
-                "attention_to",
+                "currencyRate",
+                "sentToContact",
+                "deliveryAddress",
+                "attentionTo",
                 "telephone",
-                "delivery_instructions",
-                "purchase_order_id"
+                "deliveryInstructions",
+                "purchaseOrderId"
               ],
               "additionalProperties": false
             }

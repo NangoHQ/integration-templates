@@ -48,7 +48,7 @@ type CreditNote = z.infer<typeof CreditNoteSchema>;
 // Checkpoint schema for incremental sync
 // Note: Must use z.string(), not z.string().optional() to match ZodCheckpoint type
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updatedAfter: z.string()
 });
 
 type Checkpoint = z.infer<typeof CheckpointSchema>;
@@ -173,11 +173,11 @@ const sync = createSync({
         };
 
         // Add If-Modified-Since header if checkpoint exists
-        if (checkpoint && checkpoint.updated_after) {
-            proxyConfig.headers['If-Modified-Since'] = checkpoint.updated_after;
+        if (checkpoint && checkpoint.updatedAfter) {
+            proxyConfig.headers['If-Modified-Since'] = checkpoint.updatedAfter;
         }
 
-        let lastUpdatedDate: string | undefined = checkpoint ? checkpoint.updated_after : undefined;
+        let lastUpdatedDate: string | undefined = checkpoint ? checkpoint.updatedAfter : undefined;
 
         // Paginate through credit notes
         for await (const page of nango.paginate(proxyConfig)) {
@@ -291,7 +291,7 @@ const sync = createSync({
             // Save checkpoint after each page
             if (lastUpdatedDate) {
                 const newCheckpoint: Checkpoint = {
-                    updated_after: lastUpdatedDate
+                    updatedAfter: lastUpdatedDate
                 };
                 await nango.saveCheckpoint(newCheckpoint);
             }

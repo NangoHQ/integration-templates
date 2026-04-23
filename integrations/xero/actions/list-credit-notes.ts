@@ -5,7 +5,7 @@ const InputSchema = z.object({
     page: z.number().optional().describe('Page number for pagination. Example: 1'),
     where: z.string().optional().describe('Filter condition using Xero where clause. Example: Type=="ACCRECCREDIT"'),
     order: z.string().optional().describe('Order by clause. Example: Date DESC'),
-    if_modified_since: z.string().optional().describe('Only return records modified after this date (ISO 8601 format). Example: 2024-01-01T00:00:00Z')
+    ifModifiedSince: z.string().optional().describe('Only return records modified after this date (ISO 8601 format). Example: 2024-01-01T00:00:00Z')
 });
 
 const CreditNoteSchema = z.object({
@@ -39,12 +39,12 @@ const CreditNoteSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    credit_notes: z.array(CreditNoteSchema),
+    creditNotes: z.array(CreditNoteSchema),
     pagination: z.object({
         page: z.number(),
-        page_size: z.number(),
-        total_pages: z.number().nullable(),
-        total_count: z.number().nullable()
+        pageSize: z.number(),
+        totalPages: z.number().nullable(),
+        totalCount: z.number().nullable()
     })
 });
 
@@ -99,8 +99,8 @@ const action = createAction({
             'xero-tenant-id': tenantId
         };
 
-        if (input['if_modified_since']) {
-            headers['If-Modified-Since'] = input['if_modified_since'];
+        if (input['ifModifiedSince']) {
+            headers['If-Modified-Since'] = input['ifModifiedSince'];
         }
 
         const params: Record<string, string | number> = {};
@@ -125,12 +125,12 @@ const action = createAction({
         const responseData = response.data;
         if (!responseData || typeof responseData !== 'object') {
             return {
-                credit_notes: [],
+                creditNotes: [],
                 pagination: {
                     page: input['page'] || 1,
-                    page_size: 100,
-                    total_pages: null,
-                    total_count: null
+                    pageSize: 100,
+                    totalPages: null,
+                    totalCount: null
                 }
             };
         }
@@ -214,12 +214,12 @@ const action = createAction({
         }
 
         return {
-            credit_notes: mappedCreditNotes,
+            creditNotes: mappedCreditNotes,
             pagination: {
                 page: pageNum,
-                page_size: pageSize,
-                total_pages: totalPages,
-                total_count: totalCount
+                pageSize: pageSize,
+                totalPages: totalPages,
+                totalCount: totalCount
             }
         };
     }

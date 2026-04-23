@@ -12,26 +12,26 @@ const ConnectionResponseSchema = z.object({
 });
 
 const BankTransactionInputSchema = z.object({
-    bank_transaction_id: z.string().describe('The unique ID of the bank transaction to update. Example: "a54d1234-5678-90ab-cdef-1234567890ab"'),
+    bankTransactionId: z.string().describe('The unique ID of the bank transaction to update. Example: "a54d1234-5678-90ab-cdef-1234567890ab"'),
     type: z
         .enum(['RECEIVE', 'SPEND', 'RECEIVE-OVERPAYMENT', 'RECEIVE-PREPAYMENT', 'SPEND-OVERPAYMENT', 'SPEND-PREPAYMENT', 'TRANSFER'])
         .optional()
         .describe('The type of bank transaction.'),
-    contact_id: z.string().optional().describe('The ID of the contact associated with the transaction.'),
-    line_items: z
+    contactId: z.string().optional().describe('The ID of the contact associated with the transaction.'),
+    lineItems: z
         .array(
             z.object({
                 description: z.string().optional(),
                 quantity: z.number().optional(),
-                unit_amount: z.number().optional(),
-                account_code: z.string().optional(),
-                item_code: z.string().optional(),
-                tax_type: z.string().optional()
+                unitAmount: z.number().optional(),
+                accountCode: z.string().optional(),
+                itemCode: z.string().optional(),
+                taxType: z.string().optional()
             })
         )
         .optional()
         .describe('The line items for the transaction.'),
-    bank_account_id: z.string().optional().describe('The ID of the bank account.'),
+    bankAccountId: z.string().optional().describe('The ID of the bank account.'),
     date: z.string().optional().describe('The date of the transaction (YYYY-MM-DD).'),
     reference: z.string().optional().describe('A reference for the transaction.'),
     status: z.enum(['AUTHORISED', 'DELETED']).optional().describe('The status of the transaction.')
@@ -40,45 +40,45 @@ const BankTransactionInputSchema = z.object({
 const BankTransactionLineItemOutputSchema = z.object({
     description: z.string().optional(),
     quantity: z.number().optional(),
-    unit_amount: z.number().optional(),
-    account_code: z.string().optional(),
-    item_code: z.string().optional(),
-    tax_type: z.string().optional(),
-    tax_amount: z.number().optional(),
-    line_amount: z.number().optional()
+    unitAmount: z.number().optional(),
+    accountCode: z.string().optional(),
+    itemCode: z.string().optional(),
+    taxType: z.string().optional(),
+    taxAmount: z.number().optional(),
+    lineAmount: z.number().optional()
 });
 
 const BankAccountOutputSchema = z.object({
-    account_id: z.string(),
+    accountId: z.string(),
     code: z.string().optional(),
     name: z.string().optional()
 });
 
 const ContactOutputSchema = z.object({
-    contact_id: z.string(),
+    contactId: z.string(),
     name: z.string().optional()
 });
 
 const BankTransactionOutputSchema = z.object({
-    bank_transaction_id: z.string(),
+    bankTransactionId: z.string(),
     type: z.string(),
     contact: ContactOutputSchema.optional(),
     date: z.string().optional(),
     status: z.string().optional(),
-    line_items: z.array(BankTransactionLineItemOutputSchema).optional(),
-    bank_account: BankAccountOutputSchema.optional(),
-    currency_code: z.string().optional(),
-    currency_rate: z.number().optional(),
-    sub_total: z.number().optional(),
-    total_tax: z.number().optional(),
+    lineItems: z.array(BankTransactionLineItemOutputSchema).optional(),
+    bankAccount: BankAccountOutputSchema.optional(),
+    currencyCode: z.string().optional(),
+    currencyRate: z.number().optional(),
+    subTotal: z.number().optional(),
+    totalTax: z.number().optional(),
     total: z.number().optional(),
     reference: z.string().optional(),
-    is_reconciled: z.boolean().optional(),
-    has_attachments: z.boolean().optional()
+    isReconciled: z.boolean().optional(),
+    hasAttachments: z.boolean().optional()
 });
 
 const UpdateBankTransactionOutputSchema = z.object({
-    bank_transaction: BankTransactionOutputSchema
+    bankTransaction: BankTransactionOutputSchema
 });
 
 function isNonNullObject(value: unknown): value is { [key: string]: unknown } {
@@ -168,23 +168,23 @@ const action = createAction({
             });
         }
 
-        const lineItems = input.line_items?.map((item) => ({
+        const lineItems = input.lineItems?.map((item) => ({
             Description: item.description,
             Quantity: item.quantity,
-            UnitAmount: item.unit_amount,
-            AccountCode: item.account_code,
-            ItemCode: item.item_code,
-            TaxType: item.tax_type
+            UnitAmount: item.unitAmount,
+            AccountCode: item.accountCode,
+            ItemCode: item.itemCode,
+            TaxType: item.taxType
         }));
 
         const requestBody: Record<string, unknown> = {
             BankTransactions: [
                 {
-                    BankTransactionID: input.bank_transaction_id,
+                    BankTransactionID: input.bankTransactionId,
                     ...(input.type && { Type: input.type }),
-                    ...(input.contact_id && { Contact: { ContactID: input.contact_id } }),
+                    ...(input.contactId && { Contact: { ContactID: input.contactId } }),
                     ...(lineItems && { LineItems: lineItems }),
-                    ...(input.bank_account_id && { BankAccount: { AccountID: input.bank_account_id } }),
+                    ...(input.bankAccountId && { BankAccount: { AccountID: input.bankAccountId } }),
                     ...(input.date && { Date: input.date }),
                     ...(input.reference && { Reference: input.reference }),
                     ...(input.status && { Status: input.status })
@@ -233,10 +233,10 @@ const action = createAction({
         const contactData = transaction['Contact'];
         const contactName = isNonNullObject(contactData) ? contactData['Name'] : undefined;
         const contactId = isNonNullObject(contactData) ? contactData['ContactID'] : undefined;
-        const contact: { contact_id: string; name?: string } | undefined =
+        const contact: { contactId: string; name?: string } | undefined =
             typeof contactId === 'string'
                 ? {
-                      contact_id: contactId,
+                      contactId: contactId,
                       ...(typeof contactName === 'string' ? { name: contactName } : {})
                   }
                 : undefined;
@@ -245,10 +245,10 @@ const action = createAction({
         const bankAccountCode = isNonNullObject(bankAccountData) ? bankAccountData['Code'] : undefined;
         const bankAccountName = isNonNullObject(bankAccountData) ? bankAccountData['Name'] : undefined;
         const bankAccountId = isNonNullObject(bankAccountData) ? bankAccountData['AccountID'] : undefined;
-        const bankAccount: { account_id: string; code?: string; name?: string } | undefined =
+        const bankAccount: { accountId: string; code?: string; name?: string } | undefined =
             typeof bankAccountId === 'string'
                 ? {
-                      account_id: bankAccountId,
+                      accountId: bankAccountId,
                       ...(typeof bankAccountCode === 'string' ? { code: bankAccountCode } : {}),
                       ...(typeof bankAccountName === 'string' ? { name: bankAccountName } : {})
                   }
@@ -258,12 +258,12 @@ const action = createAction({
         const mappedLineItems: Array<{
             description?: string;
             quantity?: number;
-            unit_amount?: number;
-            account_code?: string;
-            item_code?: string;
-            tax_type?: string;
-            tax_amount?: number;
-            line_amount?: number;
+            unitAmount?: number;
+            accountCode?: string;
+            itemCode?: string;
+            taxType?: string;
+            taxAmount?: number;
+            lineAmount?: number;
         }> = [];
 
         if (Array.isArray(lineItemsData)) {
@@ -272,12 +272,12 @@ const action = createAction({
                     const mappedItem: {
                         description?: string;
                         quantity?: number;
-                        unit_amount?: number;
-                        account_code?: string;
-                        item_code?: string;
-                        tax_type?: string;
-                        tax_amount?: number;
-                        line_amount?: number;
+                        unitAmount?: number;
+                        accountCode?: string;
+                        itemCode?: string;
+                        taxType?: string;
+                        taxAmount?: number;
+                        lineAmount?: number;
                     } = {};
 
                     const description = item['Description'];
@@ -292,32 +292,32 @@ const action = createAction({
 
                     const unitAmount = item['UnitAmount'];
                     if (typeof unitAmount === 'number') {
-                        mappedItem.unit_amount = unitAmount;
+                        mappedItem.unitAmount = unitAmount;
                     }
 
                     const accountCode = item['AccountCode'];
                     if (typeof accountCode === 'string') {
-                        mappedItem.account_code = accountCode;
+                        mappedItem.accountCode = accountCode;
                     }
 
                     const itemCode = item['ItemCode'];
                     if (typeof itemCode === 'string') {
-                        mappedItem.item_code = itemCode;
+                        mappedItem.itemCode = itemCode;
                     }
 
                     const taxType = item['TaxType'];
                     if (typeof taxType === 'string') {
-                        mappedItem.tax_type = taxType;
+                        mappedItem.taxType = taxType;
                     }
 
                     const taxAmount = item['TaxAmount'];
                     if (typeof taxAmount === 'number') {
-                        mappedItem.tax_amount = taxAmount;
+                        mappedItem.taxAmount = taxAmount;
                     }
 
                     const lineAmount = item['LineAmount'];
                     if (typeof lineAmount === 'number') {
-                        mappedItem.line_amount = lineAmount;
+                        mappedItem.lineAmount = lineAmount;
                     }
 
                     mappedLineItems.push(mappedItem);
@@ -325,33 +325,33 @@ const action = createAction({
             }
         }
 
-        const result: { bank_transaction: z.infer<typeof BankTransactionOutputSchema> } = {
-            bank_transaction: {
-                bank_transaction_id: typeof transaction['BankTransactionID'] === 'string' ? transaction['BankTransactionID'] : '',
+        const result: { bankTransaction: z.infer<typeof BankTransactionOutputSchema> } = {
+            bankTransaction: {
+                bankTransactionId: typeof transaction['BankTransactionID'] === 'string' ? transaction['BankTransactionID'] : '',
                 type: typeof transaction['Type'] === 'string' ? transaction['Type'] : '',
                 date: typeof transaction['Date'] === 'string' ? transaction['Date'] : undefined,
                 status: typeof transaction['Status'] === 'string' ? transaction['Status'] : undefined,
-                currency_code: typeof transaction['CurrencyCode'] === 'string' ? transaction['CurrencyCode'] : undefined,
-                currency_rate: typeof transaction['CurrencyRate'] === 'number' ? transaction['CurrencyRate'] : undefined,
-                sub_total: typeof transaction['SubTotal'] === 'number' ? transaction['SubTotal'] : undefined,
-                total_tax: typeof transaction['TotalTax'] === 'number' ? transaction['TotalTax'] : undefined,
+                currencyCode: typeof transaction['CurrencyCode'] === 'string' ? transaction['CurrencyCode'] : undefined,
+                currencyRate: typeof transaction['CurrencyRate'] === 'number' ? transaction['CurrencyRate'] : undefined,
+                subTotal: typeof transaction['SubTotal'] === 'number' ? transaction['SubTotal'] : undefined,
+                totalTax: typeof transaction['TotalTax'] === 'number' ? transaction['TotalTax'] : undefined,
                 total: typeof transaction['Total'] === 'number' ? transaction['Total'] : undefined,
                 reference: typeof transaction['Reference'] === 'string' ? transaction['Reference'] : undefined,
-                is_reconciled: typeof transaction['IsReconciled'] === 'boolean' ? transaction['IsReconciled'] : undefined,
-                has_attachments: typeof transaction['HasAttachments'] === 'boolean' ? transaction['HasAttachments'] : undefined
+                isReconciled: typeof transaction['IsReconciled'] === 'boolean' ? transaction['IsReconciled'] : undefined,
+                hasAttachments: typeof transaction['HasAttachments'] === 'boolean' ? transaction['HasAttachments'] : undefined
             }
         };
 
         if (contact !== undefined) {
-            result.bank_transaction.contact = contact;
+            result.bankTransaction.contact = contact;
         }
 
         if (bankAccount !== undefined) {
-            result.bank_transaction.bank_account = bankAccount;
+            result.bankTransaction.bankAccount = bankAccount;
         }
 
         if (mappedLineItems.length > 0) {
-            result.bank_transaction.line_items = mappedLineItems;
+            result.bankTransaction.lineItems = mappedLineItems;
         }
 
         return result;

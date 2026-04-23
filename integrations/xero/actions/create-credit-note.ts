@@ -3,26 +3,26 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     type: z.enum(['ACCPAYCREDIT', 'ACCRECCREDIT']).describe('Credit note type. ACCPAYCREDIT for accounts payable, ACCRECCREDIT for accounts receivable.'),
-    contact_id: z.string().describe('Contact ID for the credit note. Example: "430fa14a-f945-44d3-9f97-5df5e28441b8"'),
+    contactId: z.string().describe('Contact ID for the credit note. Example: "430fa14a-f945-44d3-9f97-5df5e28441b8"'),
     date: z.string().describe('Date of the credit note in YYYY-MM-DD format. Example: "2024-01-15"'),
-    line_items: z
+    lineItems: z
         .array(
             z.object({
                 description: z.string().describe('Description of the line item.'),
                 quantity: z.number().describe('Quantity of the item.'),
-                unit_amount: z.number().describe('Unit price of the item.'),
-                account_code: z.string().describe('Account code for the line item. Example: "400"')
+                unitAmount: z.number().describe('Unit price of the item.'),
+                accountCode: z.string().describe('Account code for the line item. Example: "400"')
             })
         )
         .describe('Array of line items for the credit note.')
 });
 
 const OutputSchema = z.object({
-    credit_note_id: z.string().describe('Unique identifier for the created credit note.'),
-    credit_note_number: z.string().describe('Credit note number.'),
+    creditNoteId: z.string().describe('Unique identifier for the created credit note.'),
+    creditNoteNumber: z.string().describe('Credit note number.'),
     type: z.string().describe('Type of credit note.'),
     status: z.string().describe('Status of the credit note.'),
-    contact_name: z.string().describe('Name of the contact.'),
+    contactName: z.string().describe('Name of the contact.'),
     date: z.string().describe('Date of the credit note.'),
     total: z.number().describe('Total amount of the credit note.')
 });
@@ -95,14 +95,14 @@ const action = createAction({
                 {
                     Type: input.type,
                     Contact: {
-                        ContactID: input.contact_id
+                        ContactID: input.contactId
                     },
                     Date: input.date,
-                    LineItems: input.line_items.map((item) => ({
+                    LineItems: input.lineItems.map((item) => ({
                         Description: item.description,
                         Quantity: item.quantity,
-                        UnitAmount: item.unit_amount,
-                        AccountCode: item.account_code
+                        UnitAmount: item.unitAmount,
+                        AccountCode: item.accountCode
                     }))
                 }
             ]
@@ -149,11 +149,11 @@ const action = createAction({
                 : undefined;
 
         return {
-            credit_note_id: 'CreditNoteID' in createdCreditNote ? String(createdCreditNote['CreditNoteID']) : '',
-            credit_note_number: 'CreditNoteNumber' in createdCreditNote ? String(createdCreditNote['CreditNoteNumber']) : '',
+            creditNoteId: 'CreditNoteID' in createdCreditNote ? String(createdCreditNote['CreditNoteID']) : '',
+            creditNoteNumber: 'CreditNoteNumber' in createdCreditNote ? String(createdCreditNote['CreditNoteNumber']) : '',
             type: 'Type' in createdCreditNote ? String(createdCreditNote['Type']) : '',
             status: 'Status' in createdCreditNote ? String(createdCreditNote['Status']) : '',
-            contact_name: contactObj && 'Name' in contactObj ? String(contactObj['Name']) : '',
+            contactName: contactObj && 'Name' in contactObj ? String(contactObj['Name']) : '',
             date: 'Date' in createdCreditNote ? String(createdCreditNote['Date']) : '',
             total: 'Total' in createdCreditNote ? Number(createdCreditNote['Total']) : 0
         };

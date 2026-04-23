@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     page: z.number().optional().describe('Page number for pagination. Example: 1'),
     where: z.string().optional().describe('Xero where clause for filtering. Example: \'Status == "DRAFT"\''),
-    if_modified_since: z.string().optional().describe('ISO 8601 timestamp to filter records modified since. Example: "2024-01-01T00:00:00Z"')
+    ifModifiedSince: z.string().optional().describe('ISO 8601 timestamp to filter records modified since. Example: "2024-01-01T00:00:00Z"')
 });
 
 const PurchaseOrderSchema = z.object({
@@ -33,8 +33,8 @@ const PurchaseOrderSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    purchase_orders: z.array(PurchaseOrderSchema),
-    next_cursor: z.string().nullable().describe('Pagination cursor for next page. Null if no more pages.')
+    purchaseOrders: z.array(PurchaseOrderSchema),
+    nextCursor: z.string().nullable().describe('Pagination cursor for next page. Null if no more pages.')
 });
 
 async function resolveTenantId(nango: {
@@ -113,8 +113,8 @@ const action = createAction({
             'xero-tenant-id': tenantId
         };
 
-        if (input['if_modified_since'] !== undefined && input['if_modified_since'] !== '') {
-            headers['If-Modified-Since'] = input['if_modified_since'];
+        if (input['ifModifiedSince'] !== undefined && input['ifModifiedSince'] !== '') {
+            headers['If-Modified-Since'] = input['ifModifiedSince'];
         }
 
         // https://developer.xero.com/documentation/api/accounting/purchaseorders
@@ -175,8 +175,8 @@ const action = createAction({
         const nextCursor = rawPurchaseOrders.length === 100 && input['page'] !== undefined ? String(input['page'] + 1) : null;
 
         return {
-            purchase_orders: purchaseOrders,
-            next_cursor: nextCursor
+            purchaseOrders: purchaseOrders,
+            nextCursor: nextCursor
         };
     }
 });

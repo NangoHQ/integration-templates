@@ -1,21 +1,21 @@
 {
   "input": {
-    "credit_note_id": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+    "creditNoteId": "79a94d1b-852b-4f8d-8783-9d04125ce470",
     "reference": "Updated via Nango API"
   },
   "output": {
-    "credit_note_id": "79a94d1b-852b-4f8d-8783-9d04125ce470",
-    "credit_note_number": "CN-0033",
+    "creditNoteId": "79a94d1b-852b-4f8d-8783-9d04125ce470",
+    "creditNoteNumber": "CN-0033",
     "type": "ACCRECCREDIT",
     "status": "DRAFT",
     "date": "/Date(1705276800000+0000)/",
-    "contact_id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+    "contactId": "af6fde8e-1595-43c9-9393-d6d046ddf376",
     "reference": "Updated via Nango API",
     "total": 108.25,
-    "sub_total": 100,
-    "total_tax": 8.25,
-    "updated_date_utc": "/Date(1776869963527+0000)/",
-    "remaining_credit": 108.25
+    "subTotal": 100,
+    "totalTax": 8.25,
+    "updatedDateUtc": "/Date(1776869963527+0000)/",
+    "remainingCredit": 108.25
   },
   "nango": {
     "getConnection": {}

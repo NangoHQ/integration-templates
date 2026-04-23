@@ -3,32 +3,32 @@ import { z } from 'zod';
 
 const PurchaseOrderSchema = z.object({
     id: z.string(),
-    purchase_order_number: z.union([z.string(), z.null()]),
-    contact_id: z.union([z.string(), z.null()]),
-    contact_name: z.union([z.string(), z.null()]),
+    purchaseOrderNumber: z.union([z.string(), z.null()]),
+    contactId: z.union([z.string(), z.null()]),
+    contactName: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
     date: z.union([z.string(), z.null()]),
-    delivery_date: z.union([z.string(), z.null()]),
+    deliveryDate: z.union([z.string(), z.null()]),
     reference: z.union([z.string(), z.null()]),
-    updated_date_utc: z.union([z.string(), z.null()]),
-    currency_code: z.union([z.string(), z.null()]),
+    updatedDateUtc: z.union([z.string(), z.null()]),
+    currencyCode: z.union([z.string(), z.null()]),
     total: z.union([z.number(), z.null()]),
-    sub_total: z.union([z.number(), z.null()]),
-    total_tax: z.union([z.number(), z.null()]),
-    line_items: z.union([z.array(z.unknown()), z.null()]),
+    subTotal: z.union([z.number(), z.null()]),
+    totalTax: z.union([z.number(), z.null()]),
+    lineItems: z.union([z.array(z.unknown()), z.null()]),
     attachments: z.union([z.array(z.unknown()), z.null()]),
     url: z.union([z.string(), z.null()]),
-    currency_rate: z.union([z.number(), z.null()]),
-    sent_to_contact: z.union([z.boolean(), z.null()]),
-    delivery_address: z.union([z.string(), z.null()]),
-    attention_to: z.union([z.string(), z.null()]),
+    currencyRate: z.union([z.number(), z.null()]),
+    sentToContact: z.union([z.boolean(), z.null()]),
+    deliveryAddress: z.union([z.string(), z.null()]),
+    attentionTo: z.union([z.string(), z.null()]),
     telephone: z.union([z.string(), z.null()]),
-    delivery_instructions: z.union([z.string(), z.null()]),
-    purchase_order_id: z.union([z.string(), z.null()])
+    deliveryInstructions: z.union([z.string(), z.null()]),
+    purchaseOrderId: z.union([z.string(), z.null()])
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updatedAfter: z.string(),
     page: z.number()
 });
 
@@ -121,7 +121,7 @@ const sync = createSync({
         const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResponse);
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : null;
 
-        const syncWindowStart = checkpoint?.updated_after ?? '';
+        const syncWindowStart = checkpoint?.updatedAfter ?? '';
         let latestUpdatedAt = syncWindowStart;
         let page = checkpoint?.page ?? 1;
 
@@ -173,28 +173,28 @@ const sync = createSync({
 
                 return {
                     id: typeof item['PurchaseOrderID'] === 'string' ? item['PurchaseOrderID'] : String(item['PurchaseOrderID'] || ''),
-                    purchase_order_number: typeof item['PurchaseOrderNumber'] === 'string' ? item['PurchaseOrderNumber'] : null,
-                    contact_id: typeof item['ContactID'] === 'string' ? item['ContactID'] : null,
-                    contact_name: contactName,
+                    purchaseOrderNumber: typeof item['PurchaseOrderNumber'] === 'string' ? item['PurchaseOrderNumber'] : null,
+                    contactId: typeof item['ContactID'] === 'string' ? item['ContactID'] : null,
+                    contactName: contactName,
                     status: typeof item['Status'] === 'string' ? item['Status'] : null,
                     date: typeof item['Date'] === 'string' ? item['Date'] : null,
-                    delivery_date: typeof item['DeliveryDate'] === 'string' ? item['DeliveryDate'] : null,
+                    deliveryDate: typeof item['DeliveryDate'] === 'string' ? item['DeliveryDate'] : null,
                     reference: typeof item['Reference'] === 'string' ? item['Reference'] : null,
-                    updated_date_utc: updatedDateUtc,
-                    currency_code: typeof item['CurrencyCode'] === 'string' ? item['CurrencyCode'] : null,
+                    updatedDateUtc: updatedDateUtc,
+                    currencyCode: typeof item['CurrencyCode'] === 'string' ? item['CurrencyCode'] : null,
                     total: typeof item['Total'] === 'number' ? item['Total'] : null,
-                    sub_total: typeof item['SubTotal'] === 'number' ? item['SubTotal'] : null,
-                    total_tax: typeof item['TotalTax'] === 'number' ? item['TotalTax'] : null,
-                    line_items: Array.isArray(item['LineItems']) ? item['LineItems'] : null,
+                    subTotal: typeof item['SubTotal'] === 'number' ? item['SubTotal'] : null,
+                    totalTax: typeof item['TotalTax'] === 'number' ? item['TotalTax'] : null,
+                    lineItems: Array.isArray(item['LineItems']) ? item['LineItems'] : null,
                     attachments: Array.isArray(item['Attachments']) ? item['Attachments'] : null,
                     url: typeof item['URL'] === 'string' ? item['URL'] : null,
-                    currency_rate: typeof item['CurrencyRate'] === 'number' ? item['CurrencyRate'] : null,
-                    sent_to_contact: typeof item['SentToContact'] === 'boolean' ? item['SentToContact'] : null,
-                    delivery_address: typeof item['DeliveryAddress'] === 'string' ? item['DeliveryAddress'] : null,
-                    attention_to: typeof item['AttentionTo'] === 'string' ? item['AttentionTo'] : null,
+                    currencyRate: typeof item['CurrencyRate'] === 'number' ? item['CurrencyRate'] : null,
+                    sentToContact: typeof item['SentToContact'] === 'boolean' ? item['SentToContact'] : null,
+                    deliveryAddress: typeof item['DeliveryAddress'] === 'string' ? item['DeliveryAddress'] : null,
+                    attentionTo: typeof item['AttentionTo'] === 'string' ? item['AttentionTo'] : null,
                     telephone: typeof item['Telephone'] === 'string' ? item['Telephone'] : null,
-                    delivery_instructions: typeof item['DeliveryInstructions'] === 'string' ? item['DeliveryInstructions'] : null,
-                    purchase_order_id: typeof item['PurchaseOrderID'] === 'string' ? item['PurchaseOrderID'] : null
+                    deliveryInstructions: typeof item['DeliveryInstructions'] === 'string' ? item['DeliveryInstructions'] : null,
+                    purchaseOrderId: typeof item['PurchaseOrderID'] === 'string' ? item['PurchaseOrderID'] : null
                 };
             });
 
@@ -206,7 +206,7 @@ const sync = createSync({
             if (hasMorePages) {
                 page += 1;
                 await nango.saveCheckpoint({
-                    updated_after: syncWindowStart,
+                    updatedAfter: syncWindowStart,
                     page
                 });
                 continue;
@@ -215,7 +215,7 @@ const sync = createSync({
             latestUpdatedAt = pageLatestUpdatedAt;
 
             await nango.saveCheckpoint({
-                updated_after: latestUpdatedAt,
+                updatedAfter: latestUpdatedAt,
                 page: 1
             });
             break;

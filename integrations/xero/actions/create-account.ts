@@ -27,21 +27,21 @@ const InputSchema = z.object({
         ])
         .describe('Account type classification'),
     description: z.string().optional().describe('Description of the account'),
-    tax_type: z.string().optional().describe('Tax type for the account. Example: "OUTPUT"'),
-    enable_payments_to_account: z.boolean().optional().describe('Whether payments can be made to this account'),
-    show_in_expense_claims: z.boolean().optional().describe('Whether to show in expense claims')
+    taxType: z.string().optional().describe('Tax type for the account. Example: "OUTPUT"'),
+    enablePaymentsToAccount: z.boolean().optional().describe('Whether payments can be made to this account'),
+    showInExpenseClaims: z.boolean().optional().describe('Whether to show in expense claims')
 });
 
 // Output schema matching Xero account response
 const OutputSchema = z.object({
-    account_id: z.string(),
+    accountId: z.string(),
     code: z.string(),
     name: z.string(),
     type: z.string(),
     description: z.union([z.string(), z.null()]),
-    tax_type: z.union([z.string(), z.null()]),
-    enable_payments_to_account: z.boolean(),
-    show_in_expense_claims: z.boolean(),
+    taxType: z.union([z.string(), z.null()]),
+    enablePaymentsToAccount: z.boolean(),
+    showInExpenseClaims: z.boolean(),
     status: z.string()
 });
 
@@ -170,12 +170,12 @@ const action = createAction({
                     Name: input.name,
                     Type: input.type,
                     ...(input.description && { Description: input.description }),
-                    ...(input.tax_type && { TaxType: input.tax_type }),
-                    ...(input.enable_payments_to_account !== undefined && {
-                        EnablePaymentsToAccount: input.enable_payments_to_account
+                    ...(input.taxType && { TaxType: input.taxType }),
+                    ...(input.enablePaymentsToAccount !== undefined && {
+                        EnablePaymentsToAccount: input.enablePaymentsToAccount
                     }),
-                    ...(input.show_in_expense_claims !== undefined && {
-                        ShowInExpenseClaims: input.show_in_expense_claims
+                    ...(input.showInExpenseClaims !== undefined && {
+                        ShowInExpenseClaims: input.showInExpenseClaims
                     })
                 }
             ]
@@ -226,14 +226,14 @@ const action = createAction({
         }
 
         return {
-            account_id: createdAccount.AccountID,
+            accountId: createdAccount.AccountID,
             code: createdAccount.Code,
             name: createdAccount.Name,
             type: createdAccount.Type,
             description: createdAccount.Description ?? null,
-            tax_type: createdAccount.TaxType ?? null,
-            enable_payments_to_account: createdAccount.EnablePaymentsToAccount ?? false,
-            show_in_expense_claims: createdAccount.ShowInExpenseClaims ?? false,
+            taxType: createdAccount.TaxType ?? null,
+            enablePaymentsToAccount: createdAccount.EnablePaymentsToAccount ?? false,
+            showInExpenseClaims: createdAccount.ShowInExpenseClaims ?? false,
             status: createdAccount.Status ?? 'ACTIVE'
         };
     }

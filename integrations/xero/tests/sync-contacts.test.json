@@ -5,11 +5,11 @@
       "Contact": [
         {
           "id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
-          "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+          "contactId": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
           "name": "RITE Agency",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -24,18 +24,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": true,
+          "isSupplier": true,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776682521490+0000)/"
+          "updatedAt": "/Date(1776682521490+0000)/"
         },
         {
           "id": "a50f6bf4-0b71-409a-aee9-e4bc7a635765",
-          "contact_id": "a50f6bf4-0b71-409a-aee9-e4bc7a635765",
+          "contactId": "a50f6bf4-0b71-409a-aee9-e4bc7a635765",
           "name": "Eastside Club",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -50,18 +50,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776682522100+0000)/"
+          "updatedAt": "/Date(1776682522100+0000)/"
         },
         {
           "id": "eae2e2e8-d34f-4906-80fc-d4f24d9f4f80",
-          "contact_id": "eae2e2e8-d34f-4906-80fc-d4f24d9f4f80",
+          "contactId": "eae2e2e8-d34f-4906-80fc-d4f24d9f4f80",
           "name": "Luna Cafe",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -76,18 +76,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776682522327+0000)/"
+          "updatedAt": "/Date(1776682522327+0000)/"
         },
         {
           "id": "1e519400-5654-4c85-a264-516255a9c1a8",
-          "contact_id": "1e519400-5654-4c85-a264-516255a9c1a8",
+          "contactId": "1e519400-5654-4c85-a264-516255a9c1a8",
           "name": "Abby & Wells",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -102,18 +102,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776682522827+0000)/"
+          "updatedAt": "/Date(1776682522827+0000)/"
         },
         {
           "id": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
-          "contact_id": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
+          "contactId": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
           "name": "nango test",
-          "first_name": "nango",
-          "last_name": "test",
-          "email_address": "api@nango.dev",
+          "firstName": "nango",
+          "lastName": "test",
+          "emailAddress": "api@nango.dev",
           "phones": [
             {
               "PhoneType": "DDI"
@@ -128,18 +128,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776686923210+0000)/"
+          "updatedAt": "/Date(1776686923210+0000)/"
         },
         {
           "id": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
-          "contact_id": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
+          "contactId": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
           "name": "Test Contact from Nango",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -166,18 +166,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776703842417+0000)/"
+          "updatedAt": "/Date(1776703842417+0000)/"
         },
         {
           "id": "e0b62e9c-2e79-49eb-b04b-3be00e0034ff",
-          "contact_id": "e0b62e9c-2e79-49eb-b04b-3be00e0034ff",
+          "contactId": "e0b62e9c-2e79-49eb-b04b-3be00e0034ff",
           "name": "Test Contact 2026-04-20",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -204,18 +204,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776703915337+0000)/"
+          "updatedAt": "/Date(1776703915337+0000)/"
         },
         {
           "id": "5ae50ac7-e7cc-456c-bf05-66dc47ad0ff1",
-          "contact_id": "5ae50ac7-e7cc-456c-bf05-66dc47ad0ff1",
+          "contactId": "5ae50ac7-e7cc-456c-bf05-66dc47ad0ff1",
           "name": "Test Contact from Nango 2026-04-20",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -242,18 +242,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776703919053+0000)/"
+          "updatedAt": "/Date(1776703919053+0000)/"
         },
         {
           "id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
-          "contact_id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+          "contactId": "af6fde8e-1595-43c9-9393-d6d046ddf376",
           "name": "Test Customer",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -280,18 +280,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776703999580+0000)/"
+          "updatedAt": "/Date(1776703999580+0000)/"
         },
         {
           "id": "23c3e629-c6a5-48ab-ab73-a339d0025c8f",
-          "contact_id": "23c3e629-c6a5-48ab-ab73-a339d0025c8f",
+          "contactId": "23c3e629-c6a5-48ab-ab73-a339d0025c8f",
           "name": "Test Contact Mock Recording",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -318,18 +318,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776704137840+0000)/"
+          "updatedAt": "/Date(1776704137840+0000)/"
         },
         {
           "id": "65d4104d-e2ec-4971-8504-ebf8f3fb6740",
-          "contact_id": "65d4104d-e2ec-4971-8504-ebf8f3fb6740",
+          "contactId": "65d4104d-e2ec-4971-8504-ebf8f3fb6740",
           "name": "Test Validation Contact",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -356,18 +356,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776704233800+0000)/"
+          "updatedAt": "/Date(1776704233800+0000)/"
         },
         {
           "id": "9a777d01-2bfb-4623-807d-129d3f077e21",
-          "contact_id": "9a777d01-2bfb-4623-807d-129d3f077e21",
+          "contactId": "9a777d01-2bfb-4623-807d-129d3f077e21",
           "name": "Coco Cafe",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -382,18 +382,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
-          "contact_id": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+          "contactId": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
           "name": "Ridgeway Bank",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -408,18 +408,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
-          "contact_id": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
+          "contactId": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
           "name": "Office Supplies Company",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -434,18 +434,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "f41cbe7c-de57-4927-b8a0-49fb0151be77",
-          "contact_id": "f41cbe7c-de57-4927-b8a0-49fb0151be77",
+          "contactId": "f41cbe7c-de57-4927-b8a0-49fb0151be77",
           "name": "7-Eleven",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -472,18 +472,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
-          "contact_id": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
+          "contactId": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
           "name": "Woolworths Market",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -498,18 +498,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "406e9eba-9939-48de-a300-57853bb1a6a4",
-          "contact_id": "406e9eba-9939-48de-a300-57853bb1a6a4",
+          "contactId": "406e9eba-9939-48de-a300-57853bb1a6a4",
           "name": "Gable Print",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -524,18 +524,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "940f1da6-6d14-46e5-a692-77de93732f96",
-          "contact_id": "940f1da6-6d14-46e5-a692-77de93732f96",
+          "contactId": "940f1da6-6d14-46e5-a692-77de93732f96",
           "name": "Orlena Greenville",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -562,18 +562,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
-          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contactId": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
           "name": "Dimples Warehouse",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI",
@@ -600,18 +600,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "d8ce2ea5-d312-4c34-9656-8554b8071a81",
-          "contact_id": "d8ce2ea5-d312-4c34-9656-8554b8071a81",
+          "contactId": "d8ce2ea5-d312-4c34-9656-8554b8071a81",
           "name": "Fulton Airport Parking",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -626,18 +626,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
-          "contact_id": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
+          "contactId": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
           "name": "Espresso 31",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -664,18 +664,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "2e68080d-b3bd-4051-b33c-9f031550b958",
-          "contact_id": "2e68080d-b3bd-4051-b33c-9f031550b958",
+          "contactId": "2e68080d-b3bd-4051-b33c-9f031550b958",
           "name": "24 Locks",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -690,18 +690,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "f6ecf9a4-ee5a-4e9c-b52b-bec4737e8623",
-          "contact_id": "f6ecf9a4-ee5a-4e9c-b52b-bec4737e8623",
+          "contactId": "f6ecf9a4-ee5a-4e9c-b52b-bec4737e8623",
           "name": "Epicenter Cafe",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -728,18 +728,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
-          "contact_id": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
+          "contactId": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
           "name": "Melrose Parking",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -754,18 +754,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
-          "contact_id": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
+          "contactId": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
           "name": "Berry Brew",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -780,18 +780,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "162c177a-3391-4742-890f-f3ebfe0df1f3",
-          "contact_id": "162c177a-3391-4742-890f-f3ebfe0df1f3",
+          "contactId": "162c177a-3391-4742-890f-f3ebfe0df1f3",
           "name": "Brunswick Petals",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -806,18 +806,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221873+0000)/"
+          "updatedAt": "/Date(1776708221873+0000)/"
         },
         {
           "id": "aacecb74-ef1e-44e0-ba52-0bc521639697",
-          "contact_id": "aacecb74-ef1e-44e0-ba52-0bc521639697",
+          "contactId": "aacecb74-ef1e-44e0-ba52-0bc521639697",
           "name": "PC Complete",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -832,18 +832,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "c01292e3-1a1a-4a70-b120-1218f8f71096",
-          "contact_id": "c01292e3-1a1a-4a70-b120-1218f8f71096",
+          "contactId": "c01292e3-1a1a-4a70-b120-1218f8f71096",
           "name": "Bayside Wholesale",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -870,18 +870,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "3f58af86-b4d9-4ac9-950c-2e4cdd94d5be",
-          "contact_id": "3f58af86-b4d9-4ac9-950c-2e4cdd94d5be",
+          "contactId": "3f58af86-b4d9-4ac9-950c-2e4cdd94d5be",
           "name": "SMART Agency",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -896,18 +896,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "cade9142-f5fe-4970-b39e-2f388b8740c0",
-          "contact_id": "cade9142-f5fe-4970-b39e-2f388b8740c0",
+          "contactId": "cade9142-f5fe-4970-b39e-2f388b8740c0",
           "name": "Central Copiers",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -922,18 +922,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
-          "contact_id": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
+          "contactId": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
           "name": "Xero",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -948,18 +948,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "f4af0a9b-e710-4611-8618-4360944ce1f3",
-          "contact_id": "f4af0a9b-e710-4611-8618-4360944ce1f3",
+          "contactId": "f4af0a9b-e710-4611-8618-4360944ce1f3",
           "name": "Truxton Property Management",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -974,18 +974,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
-          "contact_id": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
+          "contactId": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
           "name": "Swanston Security",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1000,18 +1000,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "537d4d64-2fc1-4521-89c3-489d20fae20d",
-          "contact_id": "537d4d64-2fc1-4521-89c3-489d20fae20d",
+          "contactId": "537d4d64-2fc1-4521-89c3-489d20fae20d",
           "name": "MCO Cleaning Services",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1026,18 +1026,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40",
-          "contact_id": "4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40",
+          "contactId": "4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40",
           "name": "Carlton Functions",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1052,18 +1052,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "b553bc60-5fb9-4d5e-b604-71aaf657cd3d",
-          "contact_id": "b553bc60-5fb9-4d5e-b604-71aaf657cd3d",
+          "contactId": "b553bc60-5fb9-4d5e-b604-71aaf657cd3d",
           "name": "Net Connect",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1090,18 +1090,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
-          "contact_id": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+          "contactId": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
           "name": "ABC Furniture",
-          "first_name": "Trish",
-          "last_name": "Rawlings",
-          "email_address": "info@abfl.com",
+          "firstName": "Trish",
+          "lastName": "Rawlings",
+          "emailAddress": "info@abfl.com",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1128,18 +1128,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "f93cd75c-9412-4a8c-91a3-b41fe751aa01",
-          "contact_id": "f93cd75c-9412-4a8c-91a3-b41fe751aa01",
+          "contactId": "f93cd75c-9412-4a8c-91a3-b41fe751aa01",
           "name": "Capital Cab Co",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1166,18 +1166,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "1d80716b-427e-4cad-80c6-c4b3a18eb23d",
-          "contact_id": "1d80716b-427e-4cad-80c6-c4b3a18eb23d",
+          "contactId": "1d80716b-427e-4cad-80c6-c4b3a18eb23d",
           "name": "Hoyt Productions",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1192,18 +1192,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "8f48b066-e047-459d-80dd-d495b36608d0",
-          "contact_id": "8f48b066-e047-459d-80dd-d495b36608d0",
+          "contactId": "8f48b066-e047-459d-80dd-d495b36608d0",
           "name": "PowerDirect",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1230,18 +1230,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "ddd4ba65-9b7e-4adf-be7a-e91efbb6c082",
-          "contact_id": "ddd4ba65-9b7e-4adf-be7a-e91efbb6c082",
+          "contactId": "ddd4ba65-9b7e-4adf-be7a-e91efbb6c082",
           "name": "Gateway Motors",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1256,18 +1256,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": true,
-          "is_customer": false,
+          "isSupplier": true,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221900+0000)/"
+          "updatedAt": "/Date(1776708221900+0000)/"
         },
         {
           "id": "fd89489e-699c-4d77-a881-10c127bfbeb3",
-          "contact_id": "fd89489e-699c-4d77-a881-10c127bfbeb3",
+          "contactId": "fd89489e-699c-4d77-a881-10c127bfbeb3",
           "name": "Hamilton Smith Ltd",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "info@hsg.co",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "info@hsg.co",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1294,18 +1294,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "65a44264-dea0-481a-b49d-18a334a72334",
-          "contact_id": "65a44264-dea0-481a-b49d-18a334a72334",
+          "contactId": "65a44264-dea0-481a-b49d-18a334a72334",
           "name": "Ridgeway University",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1332,18 +1332,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
-          "contact_id": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+          "contactId": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
           "name": "Boom FM",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1358,18 +1358,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "b68deed5-49c8-416a-9f35-2ab14bb1fb6b",
-          "contact_id": "b68deed5-49c8-416a-9f35-2ab14bb1fb6b",
+          "contactId": "b68deed5-49c8-416a-9f35-2ab14bb1fb6b",
           "name": "Bayside Club",
-          "first_name": "Bob",
-          "last_name": "Partridge",
-          "email_address": "secretarybob@bsclub.co",
+          "firstName": "Bob",
+          "lastName": "Partridge",
+          "emailAddress": "secretarybob@bsclub.co",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1396,18 +1396,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": true,
+          "isSupplier": true,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "5b96e86b-418e-48e8-8949-308c14aec278",
-          "contact_id": "5b96e86b-418e-48e8-8949-308c14aec278",
+          "contactId": "5b96e86b-418e-48e8-8949-308c14aec278",
           "name": "Marine Systems",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1434,18 +1434,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "fa52f698-1244-47cd-8fb9-5f32b6490a55",
-          "contact_id": "fa52f698-1244-47cd-8fb9-5f32b6490a55",
+          "contactId": "fa52f698-1244-47cd-8fb9-5f32b6490a55",
           "name": "City Agency",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1460,18 +1460,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
-          "contact_id": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
+          "contactId": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
           "name": "DIISR - Small Business Services",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1498,18 +1498,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "021b18f8-b62f-4d8a-889e-71fd5427892a",
-          "contact_id": "021b18f8-b62f-4d8a-889e-71fd5427892a",
+          "contactId": "021b18f8-b62f-4d8a-889e-71fd5427892a",
           "name": "Young Bros Transport",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "rog@ybt.co",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "rog@ybt.co",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1536,18 +1536,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": true,
-          "is_customer": true,
+          "isSupplier": true,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "378f211a-64c2-4327-bab3-9b057f4f51d9",
-          "contact_id": "378f211a-64c2-4327-bab3-9b057f4f51d9",
+          "contactId": "378f211a-64c2-4327-bab3-9b057f4f51d9",
           "name": "Port & Philip Freight",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1574,18 +1574,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "47f61ab1-5245-40a2-a3a5-bc224c850c8d",
-          "contact_id": "47f61ab1-5245-40a2-a3a5-bc224c850c8d",
+          "contactId": "47f61ab1-5245-40a2-a3a5-bc224c850c8d",
           "name": "Bank West",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1612,18 +1612,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "3cbd5263-0965-4c4e-932c-bf50e3297610",
-          "contact_id": "3cbd5263-0965-4c4e-932c-bf50e3297610",
+          "contactId": "3cbd5263-0965-4c4e-932c-bf50e3297610",
           "name": "Rex Media Group",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "info@rexmedia.co",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "info@rexmedia.co",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1650,18 +1650,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "85d15bf3-207f-4278-8449-e12dade98c66",
-          "contact_id": "85d15bf3-207f-4278-8449-e12dade98c66",
+          "contactId": "85d15bf3-207f-4278-8449-e12dade98c66",
           "name": "Basket Case",
-          "first_name": "",
-          "last_name": "",
-          "email_address": "",
+          "firstName": "",
+          "lastName": "",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1688,18 +1688,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "2aaaeb6b-b519-4698-9b0a-f74ba1d39be6",
-          "contact_id": "2aaaeb6b-b519-4698-9b0a-f74ba1d39be6",
+          "contactId": "2aaaeb6b-b519-4698-9b0a-f74ba1d39be6",
           "name": "Petrie McLoud Watson & Associates",
-          "first_name": null,
-          "last_name": null,
-          "email_address": null,
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": null,
           "phones": [
             {
               "PhoneType": "DDI"
@@ -1714,18 +1714,18 @@
               "PhoneType": "MOBILE"
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776708221917+0000)/"
+          "updatedAt": "/Date(1776708221917+0000)/"
         },
         {
           "id": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
-          "contact_id": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
+          "contactId": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
           "name": "City Limousines",
-          "first_name": "Martin",
-          "last_name": "Dale",
-          "email_address": "",
+          "firstName": "Martin",
+          "lastName": "Dale",
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1752,18 +1752,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776722395877+0000)/"
+          "updatedAt": "/Date(1776722395877+0000)/"
         },
         {
           "id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
-          "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+          "contactId": "ed178511-a781-44fc-aa98-d2f0ad750a95",
           "name": "Test Contact",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1790,18 +1790,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": true,
+          "isSupplier": false,
+          "isCustomer": true,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776748024770+0000)/"
+          "updatedAt": "/Date(1776748024770+0000)/"
         },
         {
           "id": "96c78111-ef15-4a04-acf8-f9c367649e11",
-          "contact_id": "96c78111-ef15-4a04-acf8-f9c367649e11",
+          "contactId": "96c78111-ef15-4a04-acf8-f9c367649e11",
           "name": "Test Contact 1776869086",
-          "first_name": "Test",
-          "last_name": "Contact",
-          "email_address": "test1776869086@example.com",
+          "firstName": "Test",
+          "lastName": "Contact",
+          "emailAddress": "test1776869086@example.com",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1828,18 +1828,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776869092383+0000)/"
+          "updatedAt": "/Date(1776869092383+0000)/"
         },
         {
           "id": "908cc2f9-a5eb-4414-a375-cc6d66f3672d",
-          "contact_id": "908cc2f9-a5eb-4414-a375-cc6d66f3672d",
+          "contactId": "908cc2f9-a5eb-4414-a375-cc6d66f3672d",
           "name": "Test Contact 1776869155",
-          "first_name": "Test",
-          "last_name": "Contact",
-          "email_address": "test1776869155@example.com",
+          "firstName": "Test",
+          "lastName": "Contact",
+          "emailAddress": "test1776869155@example.com",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1866,18 +1866,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776869160453+0000)/"
+          "updatedAt": "/Date(1776869160453+0000)/"
         },
         {
           "id": "5fe67a74-e028-46ac-9115-36465e09971f",
-          "contact_id": "5fe67a74-e028-46ac-9115-36465e09971f",
+          "contactId": "5fe67a74-e028-46ac-9115-36465e09971f",
           "name": "Test Contact Updated",
-          "first_name": "Test",
-          "last_name": "User",
-          "email_address": "test@example.com",
+          "firstName": "Test",
+          "lastName": "User",
+          "emailAddress": "test@example.com",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1904,18 +1904,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776869863153+0000)/"
+          "updatedAt": "/Date(1776869863153+0000)/"
         },
         {
           "id": "99ab9271-7569-495b-b4a0-aeb20f34ad86",
-          "contact_id": "99ab9271-7569-495b-b4a0-aeb20f34ad86",
+          "contactId": "99ab9271-7569-495b-b4a0-aeb20f34ad86",
           "name": "Test Contact 1776870625",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1942,18 +1942,18 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776870631400+0000)/"
+          "updatedAt": "/Date(1776870631400+0000)/"
         },
         {
           "id": "57a8730f-c972-43b3-a339-9750b62f74c5",
-          "contact_id": "57a8730f-c972-43b3-a339-9750b62f74c5",
+          "contactId": "57a8730f-c972-43b3-a339-9750b62f74c5",
           "name": "Test Contact for Mocks",
-          "first_name": null,
-          "last_name": null,
-          "email_address": "",
+          "firstName": null,
+          "lastName": null,
+          "emailAddress": "",
           "phones": [
             {
               "PhoneType": "DDI",
@@ -1980,10 +1980,10 @@
               "PhoneCountryCode": ""
             }
           ],
-          "is_supplier": false,
-          "is_customer": false,
+          "isSupplier": false,
+          "isCustomer": false,
           "status": "ACTIVE",
-          "updated_at": "/Date(1776870639023+0000)/"
+          "updatedAt": "/Date(1776870639023+0000)/"
         }
       ]
     },

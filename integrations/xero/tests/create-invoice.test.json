@@ -4,37 +4,37 @@
     "contact": {
       "name": "Test Customer"
     },
-    "line_items": [
+    "lineItems": [
       {
         "description": "Test service",
         "quantity": 1,
-        "unit_amount": 100
+        "unitAmount": 100
       }
     ]
   },
   "output": {
-    "invoice_id": "65c277e0-100e-499b-a99c-3dc57d2876dd",
-    "invoice_number": "INV-0042",
+    "invoiceId": "65c277e0-100e-499b-a99c-3dc57d2876dd",
+    "invoiceNumber": "INV-0042",
     "type": "ACCREC",
     "status": "DRAFT",
     "total": 100,
-    "sub_total": 100,
-    "total_tax": 0,
-    "contact_id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
-    "contact_name": "Test Customer",
+    "subTotal": 100,
+    "totalTax": 0,
+    "contactId": "af6fde8e-1595-43c9-9393-d6d046ddf376",
+    "contactName": "Test Customer",
     "date": "/Date(1776816000000+0000)/",
-    "due_date": null,
-    "updated_date_utc": "/Date(1776869961550+0000)/",
-    "currency_code": "USD",
-    "line_items": [
+    "dueDate": null,
+    "updatedDateUtc": "/Date(1776869961550+0000)/",
+    "currencyCode": "USD",
+    "lineItems": [
       {
-        "line_item_id": "04a6a75e-57b1-4387-9b78-0641ac9b90df",
+        "lineItemId": "04a6a75e-57b1-4387-9b78-0641ac9b90df",
         "description": "Test service",
         "quantity": 1,
-        "unit_amount": 100,
-        "account_code": null,
-        "tax_type": null,
-        "line_amount": 100
+        "unitAmount": 100,
+        "accountCode": null,
+        "taxType": null,
+        "lineAmount": 100
       }
     ]
   },
