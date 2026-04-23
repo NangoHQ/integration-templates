@@ -19,7 +19,7 @@ const TenantsResponseSchema = z.array(z.unknown());
 
 const action = createAction({
     description: 'Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.',
-    version: '1.0.0',
+    version: '2.0.0',
     endpoint: {
         method: 'GET',
         path: '/actions/get-tenants',
