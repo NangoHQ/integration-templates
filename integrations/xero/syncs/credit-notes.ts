@@ -140,8 +140,14 @@ const sync = createSync({
                         latestUpdatedDateUTC = updatedDateUTC;
                     }
 
-                    const getString = (key: string): string | undefined => { const v = r[key]; return typeof v === 'string' ? v : undefined; };
-                    const getNumber = (key: string): number | undefined => { const v = r[key]; return typeof v === 'number' ? v : undefined; };
+                    const getString = (key: string): string | undefined => {
+                        const v = r[key];
+                        return typeof v === 'string' ? v : undefined;
+                    };
+                    const getNumber = (key: string): number | undefined => {
+                        const v = r[key];
+                        return typeof v === 'number' ? v : undefined;
+                    };
 
                     const contact = r['Contact'];
                     const lineItemsRaw = r['LineItems'];
@@ -164,9 +170,7 @@ const sync = createSync({
                         Total: getNumber('Total'),
                         CurrencyRate: getNumber('CurrencyRate'),
                         RemainingCredit: getNumber('RemainingCredit'),
-                        Contact: contactParsed.success
-                            ? { ContactID: contactParsed.data.ContactID, Name: contactParsed.data.Name }
-                            : undefined,
+                        Contact: contactParsed.success ? { ContactID: contactParsed.data.ContactID, Name: contactParsed.data.Name } : undefined,
                         LineItems: Array.isArray(lineItemsRaw)
                             ? lineItemsRaw
                                   .map((item) => {
