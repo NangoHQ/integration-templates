@@ -40,7 +40,7 @@ interface UsersResponse {
 
 const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
     description: 'Sync Linear users with profile and active state fields',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

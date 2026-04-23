@@ -18,7 +18,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync<{ Team: typeof TeamSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync Linear teams visible to the authenticated user',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/teams' }],

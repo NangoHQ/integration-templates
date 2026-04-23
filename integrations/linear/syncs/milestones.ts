@@ -46,7 +46,7 @@ interface MilestonesResponse {
 
 const sync = createSync({
     description: 'Sync Linear milestones for project planning',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,

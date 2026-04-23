@@ -72393,7 +72393,7 @@
           "Issue",
           "SyncMetadata_linear_issues"
         ],
-        "version": "",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -72587,7 +72587,7 @@
         "usedModels": [
           "Milestone"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -72695,7 +72695,7 @@
         "usedModels": [
           "Project"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -72936,7 +72936,7 @@
         "usedModels": [
           "Roadmap"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -73061,7 +73061,7 @@
         "usedModels": [
           "Team"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -73154,7 +73154,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
