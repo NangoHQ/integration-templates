@@ -1,6 +1,9 @@
 {
   "nango": {
     "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    },
     "batchSave": {
       "CreditNote": [
         {
@@ -390,10 +393,10 @@
     "get": {
       "/api.xro/2.0/CreditNotes": {
         "response": {
-          "Id": "8d951c5d-f2b9-4181-a0c2-f61fb1eb8838",
+          "Id": "1ec76dbe-8c04-487e-a82c-3d85bc198344",
           "Status": "OK",
-          "ProviderName": "NangoAPP2",
-          "DateTimeUTC": "/Date(1776871826966)/",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1776959540509)/",
           "pagination": {
             "page": 1,
             "pageSize": 100,
@@ -1087,9 +1090,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 22 Apr 2026 15:30:27 GMT",
+          "date": "Thu, 23 Apr 2026 15:52:20 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "22881",
+          "content-length": "22880",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -1101,15 +1104,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4984",
-          "x-ratelimit-reset": "1776871866",
-          "etag": "W/\"5961-/Tn19eJxjIUuEPpJP1ttWbKn/nw\""
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1776959597",
+          "etag": "W/\"5960-NvDXTf3O9rOKQ8GYEGNI4nYK3PA\""
         },
-        "hash": "29be1a775fcad849539c604ab4b88aeb4ca88109",
+        "hash": "086f787272b2ac7ff3782fe9b0bc536f1c3f762e",
         "request": {
           "params": {
+            "includeArchived": "false",
             "page": "1",
-            "undefined": "100"
+            "pageSize": "100"
           },
           "headers": {
             "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"

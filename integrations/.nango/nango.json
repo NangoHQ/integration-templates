@@ -111587,6 +111587,82 @@
       },
       {
         "type": "action",
+        "description": "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-tenants",
+          "group": "Tenants"
+        },
+        "input": "ActionInput_xero_gettenants",
+        "name": "get-tenants",
+        "output": [
+          "ActionOutput_xero_gettenants"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_xero_gettenants",
+          "ActionOutput_xero_gettenants"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_xero_gettenants": {
+              "type": "null"
+            },
+            "ActionOutput_xero_gettenants": {
+              "type": "object",
+              "properties": {
+                "tenants": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "authEventId": {
+                        "type": "string"
+                      },
+                      "tenantId": {
+                        "type": "string"
+                      },
+                      "tenantType": {
+                        "type": "string"
+                      },
+                      "tenantName": {
+                        "type": "string"
+                      },
+                      "createdDateUtc": {
+                        "type": "string"
+                      },
+                      "updatedDateUtc": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "authEventId",
+                      "tenantId",
+                      "tenantType",
+                      "tenantName",
+                      "createdDateUtc",
+                      "updatedDateUtc"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "tenants"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
         "description": "List accounts in the Xero chart of accounts.",
         "endpoint": {
           "method": "GET",
@@ -114934,7 +115010,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",

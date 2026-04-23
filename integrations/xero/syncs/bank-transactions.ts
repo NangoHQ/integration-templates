@@ -107,86 +107,81 @@ const sync = createSync({
             throw new Error('Unable to resolve Xero tenant ID.');
         }
 
+        const isIncremental = checkpoint && checkpoint.updatedAfter.length > 0;
+
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
 
         // Use If-Modified-Since header if we have a checkpoint with a non-empty value
-        if (checkpoint && checkpoint.updatedAfter.length > 0) {
+        if (isIncremental) {
             headers['If-Modified-Since'] = checkpoint.updatedAfter;
         }
 
-        let page = 1;
-        let hasMore = true;
-        let lastUpdatedDateUTC = checkpoint?.updatedAfter ?? '';
+        let latestUpdatedDateUTC = checkpoint?.updatedAfter ?? '';
 
-        while (hasMore) {
-            // https://developer.xero.com/documentation/api/accounting/banktransactions
-            const response = await nango.get({
-                endpoint: 'api.xro/2.0/BankTransactions',
-                headers,
-                params: {
-                    page: String(page)
-                },
-                retries: 10
-            });
+        // https://developer.xero.com/documentation/api/accounting/banktransactions
+        for await (const bankTransactions of nango.paginate({
+            endpoint: 'api.xro/2.0/BankTransactions',
+            headers,
+            params: {
+                pageSize: '100',
+                includeArchived: isIncremental ? 'true' : 'false'
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                response_path: 'BankTransactions',
+                offset_calculation_method: 'per-page',
+                offset_start_value: 1
+            },
+            retries: 10
+        })) {
+            const mappedTransactions = z
+                .array(z.record(z.string(), z.unknown()))
+                .parse(bankTransactions)
+                .map((transaction) => {
+                    const updatedDateUTC = typeof transaction['UpdatedDateUTC'] === 'string' ? transaction['UpdatedDateUTC'] : '';
 
-            const bankTransactions = z.array(z.object({}).passthrough()).parse(response.data?.BankTransactions ?? []);
+                    if (updatedDateUTC && updatedDateUTC > latestUpdatedDateUTC) {
+                        latestUpdatedDateUTC = updatedDateUTC;
+                    }
 
-            if (bankTransactions.length === 0) {
-                hasMore = false;
-                break;
-            }
-
-            let pageLatestUpdatedDateUTC = lastUpdatedDateUTC;
-
-            const mappedTransactions = bankTransactions.map((tx) => {
-                const transaction = z.object({}).passthrough().parse(tx);
-                const updatedDateUTC = typeof transaction['UpdatedDateUTC'] === 'string' ? transaction['UpdatedDateUTC'] : '';
-
-                if (updatedDateUTC && updatedDateUTC > pageLatestUpdatedDateUTC) {
-                    pageLatestUpdatedDateUTC = updatedDateUTC;
-                }
-
-                return {
-                    id: String(transaction['BankTransactionID'] ?? ''),
-                    bankTransactionId: String(transaction['BankTransactionID'] ?? ''),
-                    bankAccount: transaction['BankAccount'],
-                    type: String(transaction['Type'] ?? ''),
-                    contact: transaction['Contact'],
-                    date: transaction['Date'] ? String(transaction['Date']) : undefined,
-                    status: String(transaction['Status'] ?? ''),
-                    reference: transaction['Reference'] ? String(transaction['Reference']) : undefined,
-                    isReconciled: transaction['IsReconciled'] === true,
-                    lineItems: transaction['LineItems'],
-                    subtotal: typeof transaction['SubTotal'] === 'number' ? transaction['SubTotal'] : undefined,
-                    totalTax: typeof transaction['TotalTax'] === 'number' ? transaction['TotalTax'] : undefined,
-                    total: typeof transaction['Total'] === 'number' ? transaction['Total'] : undefined,
-                    currencyCode: transaction['CurrencyCode'] ? String(transaction['CurrencyCode']) : undefined,
-                    currencyRate: typeof transaction['CurrencyRate'] === 'number' ? transaction['CurrencyRate'] : undefined,
-                    url: transaction['Url'] ? String(transaction['Url']) : undefined,
-                    updatedDateUtc: updatedDateUTC,
-                    hasAttachments: transaction['HasAttachments'] === true,
-                    prepaymentId: transaction['PrepaymentID'] ? String(transaction['PrepaymentID']) : undefined,
-                    overpaymentId: transaction['OverpaymentID'] ? String(transaction['OverpaymentID']) : undefined
-                };
-            });
-
-            await nango.batchSave(mappedTransactions, 'BankTransaction');
-
-            if (pageLatestUpdatedDateUTC !== lastUpdatedDateUTC) {
-                lastUpdatedDateUTC = pageLatestUpdatedDateUTC;
-                await nango.saveCheckpoint({
-                    updatedAfter: lastUpdatedDateUTC
+                    return {
+                        id: String(transaction['BankTransactionID'] ?? ''),
+                        bankTransactionId: String(transaction['BankTransactionID'] ?? ''),
+                        bankAccount: transaction['BankAccount'],
+                        type: String(transaction['Type'] ?? ''),
+                        contact: transaction['Contact'],
+                        date: transaction['Date'] ? String(transaction['Date']) : undefined,
+                        status: String(transaction['Status'] ?? ''),
+                        reference: transaction['Reference'] ? String(transaction['Reference']) : undefined,
+                        isReconciled: transaction['IsReconciled'] === true,
+                        lineItems: transaction['LineItems'],
+                        subtotal: typeof transaction['SubTotal'] === 'number' ? transaction['SubTotal'] : undefined,
+                        totalTax: typeof transaction['TotalTax'] === 'number' ? transaction['TotalTax'] : undefined,
+                        total: typeof transaction['Total'] === 'number' ? transaction['Total'] : undefined,
+                        currencyCode: transaction['CurrencyCode'] ? String(transaction['CurrencyCode']) : undefined,
+                        currencyRate: typeof transaction['CurrencyRate'] === 'number' ? transaction['CurrencyRate'] : undefined,
+                        url: transaction['Url'] ? String(transaction['Url']) : undefined,
+                        updatedDateUtc: updatedDateUTC,
+                        hasAttachments: transaction['HasAttachments'] === true,
+                        prepaymentId: transaction['PrepaymentID'] ? String(transaction['PrepaymentID']) : undefined,
+                        overpaymentId: transaction['OverpaymentID'] ? String(transaction['OverpaymentID']) : undefined
+                    };
                 });
-            }
 
-            // Xero returns up to 100 records per page by default
-            if (bankTransactions.length < 100) {
-                hasMore = false;
-            } else {
-                page += 1;
+            const authorisedTransactions = mappedTransactions.filter((t) => t.status === 'AUTHORISED');
+            await nango.batchSave(authorisedTransactions, 'BankTransaction');
+
+            if (isIncremental) {
+                const deletedTransactions = mappedTransactions.filter((t) => t.status === 'DELETED');
+                await nango.batchDelete(deletedTransactions, 'BankTransaction');
             }
+        }
+
+        if (latestUpdatedDateUTC !== (checkpoint?.updatedAfter ?? '')) {
+            await nango.saveCheckpoint({ updatedAfter: latestUpdatedDateUTC });
         }
     }
 });

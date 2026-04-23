@@ -100,53 +100,51 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
         const checkpoint = await nango.getCheckpoint();
         const tenantId = await resolveTenantId(nango);
 
+        const isIncremental = checkpoint && checkpoint.modifiedAfter.length > 0;
+
+        const headers: Record<string, string> = {
+            'xero-tenant-id': tenantId
+        };
+
+        if (isIncremental) {
+            headers['If-Modified-Since'] = checkpoint.modifiedAfter;
+        }
+
         let page = 1;
         let hasMore = true;
+        let latestUpdatedAt = checkpoint?.modifiedAfter ?? '';
 
         while (hasMore) {
             // https://developer.xero.com/documentation/api/accounting/contacts
             const response = await nango.get({
                 endpoint: 'api.xro/2.0/Contacts',
-                headers: {
-                    'xero-tenant-id': tenantId,
-                    ...(checkpoint && checkpoint.modifiedAfter && { 'If-Modified-Since': checkpoint.modifiedAfter })
-                },
+                headers,
                 params: {
-                    page: page,
-                    pageSize: 100
+                    page,
+                    pageSize: 100,
+                    includeArchived: isIncremental ? 'true' : 'false'
                 },
-                retries: 3
+                retries: 10
             });
 
-            const parsedResponse = z.record(z.string(), z.unknown()).parse(response);
-            const contactsData = parsedResponse['data'];
-            if (!contactsData || typeof contactsData !== 'object') {
+            const contactsArray = z.object({ Contacts: z.array(z.unknown()) }).parse(response.data).Contacts;
+
+            if (contactsArray.length === 0) {
                 hasMore = false;
                 break;
             }
 
-            const contactsRecord = z.record(z.string(), z.unknown()).parse(contactsData);
-            const contactsArray = contactsRecord['Contacts'];
-            if (!Array.isArray(contactsArray)) {
-                hasMore = false;
-                break;
-            }
-
-            const parsedPage = z.array(z.unknown()).parse(contactsArray);
-
-            if (parsedPage.length === 0) {
-                hasMore = false;
-                break;
-            }
-
-            const contacts = parsedPage
-                .map((rawContact: unknown) => {
-                    const contact = XeroContactSchema.safeParse(rawContact);
-                    if (!contact.success) {
+            const contacts = contactsArray
+                .map((raw) => {
+                    const parsed = XeroContactSchema.safeParse(raw);
+                    if (!parsed.success) {
                         return null;
                     }
-
-                    const data = contact.data;
+                    const data = parsed.data;
+                    const updatedAt = data.UpdatedDateUTC ?? new Date().toISOString();
+                    if (updatedAt > latestUpdatedAt) {
+                        latestUpdatedAt = updatedAt;
+                    }
                     return {
                         id: data.ContactID,
                         contactId: data.ContactID,
@@ -158,32 +156,28 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
                         isSupplier: data.IsSupplier ?? false,
                         isCustomer: data.IsCustomer ?? false,
                         status: data.ContactStatus ?? 'ACTIVE',
-                        updatedAt: data.UpdatedDateUTC ?? new Date().toISOString()
+                        updatedAt
                     };
                 })
-                .filter((contact): contact is NonNullable<typeof contact> => contact !== null);
+                .filter((c): c is NonNullable<typeof c> => c !== null);
 
-            if (contacts.length === 0) {
-                hasMore = false;
-                break;
+            const activeContacts = contacts.filter((c) => c.status === 'ACTIVE');
+            await nango.batchSave(activeContacts, 'Contact');
+
+            if (isIncremental) {
+                const archivedContacts = contacts.filter((c) => c.status === 'ARCHIVED');
+                await nango.batchDelete(archivedContacts, 'Contact');
             }
 
-            await nango.batchSave(contacts, 'Contact');
-
-            // Update checkpoint with the most recent UpdatedDateUTC
-            const lastContact = contacts[contacts.length - 1];
-            if (lastContact && lastContact.updatedAt) {
-                await nango.saveCheckpoint({
-                    modifiedAfter: lastContact.updatedAt
-                });
-            }
-
-            // Check if there are more pages
-            if (parsedPage.length < 100) {
+            if (contactsArray.length < 100) {
                 hasMore = false;
             } else {
                 page += 1;
             }
+        }
+
+        if (latestUpdatedAt !== (checkpoint?.modifiedAfter ?? '')) {
+            await nango.saveCheckpoint({ modifiedAfter: latestUpdatedAt });
         }
     }
 });

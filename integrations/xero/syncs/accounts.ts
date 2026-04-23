@@ -22,6 +22,10 @@ const AccountSchema = z.object({
     updatedAt: z.union([z.string(), z.null()])
 });
 
+const CheckpointSchema = z.object({
+    updatedAfter: z.string()
+});
+
 interface ConnectionInfo {
     connection_config?: Record<string, unknown>;
     metadata?: Record<string, unknown> | null;
@@ -95,6 +99,7 @@ const sync = createSync({
     version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'GET',
@@ -106,9 +111,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: Chart of accounts is a small reference dataset.
-        // Using full refresh to ensure deleted accounts are properly detected.
-        await nango.trackDeletesStart('Account');
+        const checkpoint = await nango.getCheckpoint();
 
         const connection = await nango.getConnection();
 
@@ -124,88 +127,66 @@ const sync = createSync({
             'xero-tenant-id': tenantId
         };
 
-        let page = 1;
-        let hasMore = true;
-
-        while (hasMore) {
-            // https://developer.xero.com/documentation/api/accounting/accounts
-            const response = await nango.get({
-                endpoint: 'api.xro/2.0/Accounts',
-                headers,
-                params: { page: String(page) },
-                retries: 3
-            });
-
-            const responseData = response.data;
-
-            if (typeof responseData !== 'object' || responseData === null) {
-                break;
-            }
-
-            const data: Record<string, unknown> = responseData;
-            const accountsRaw = 'Accounts' in data && Array.isArray(data['Accounts']) ? data['Accounts'] : [];
-
-            if (!Array.isArray(accountsRaw) || accountsRaw.length === 0) {
-                break;
-            }
-
-            const mappedAccounts = accountsRaw
-                .filter((item): item is Record<string, unknown> => typeof item === 'object' && item !== null)
-                .map((account) => {
-                    const accountId = account['AccountID'];
-                    const code = account['Code'];
-                    const name = account['Name'];
-                    const type = account['Type'];
-                    const status = account['Status'];
-                    const description = account['Description'];
-                    const taxType = account['TaxType'];
-                    const enablePayments = account['EnablePaymentsToAccount'];
-                    const showInClaims = account['ShowInExpenseClaims'];
-                    const classValue = account['Class'];
-                    const systemAccount = account['SystemAccount'];
-                    const bankAccountNumber = account['BankAccountNumber'];
-                    const bankAccountType = account['BankAccountType'];
-                    const currencyCode = account['CurrencyCode'];
-                    const reportingCode = account['ReportingCode'];
-                    const reportingCodeName = account['ReportingCodeName'];
-                    const updatedAt = account['UpdatedDateUTC'];
-
-                    return {
-                        id: typeof accountId === 'string' ? accountId : '',
-                        accountId: typeof accountId === 'string' ? accountId : '',
-                        code: typeof code === 'string' ? code : null,
-                        name: typeof name === 'string' ? name : null,
-                        type: typeof type === 'string' ? type : null,
-                        status: typeof status === 'string' ? status : null,
-                        description: typeof description === 'string' ? description : null,
-                        taxType: typeof taxType === 'string' ? taxType : null,
-                        enablePaymentsToAccount: typeof enablePayments === 'boolean' ? enablePayments : null,
-                        showInExpenseClaims: typeof showInClaims === 'boolean' ? showInClaims : null,
-                        class: typeof classValue === 'string' ? classValue : null,
-                        systemAccount: typeof systemAccount === 'string' ? systemAccount : null,
-                        bankAccountNumber: typeof bankAccountNumber === 'string' ? bankAccountNumber : null,
-                        bankAccountType: typeof bankAccountType === 'string' ? bankAccountType : null,
-                        currencyCode: typeof currencyCode === 'string' ? currencyCode : null,
-                        reportingCode: typeof reportingCode === 'string' ? reportingCode : null,
-                        reportingCodeName: typeof reportingCodeName === 'string' ? reportingCodeName : null,
-                        updatedAt: typeof updatedAt === 'string' ? updatedAt : null
-                    };
-                })
-                .filter((account) => account.id !== '');
-
-            if (mappedAccounts.length > 0) {
-                await nango.batchSave(mappedAccounts, 'Account');
-            }
-
-            // Xero returns up to 100 records per page
-            if (accountsRaw.length < 100) {
-                hasMore = false;
-            } else {
-                page += 1;
-            }
+        // If it is an incremental sync, only fetch the changed accounts
+        if (checkpoint && checkpoint.updatedAfter.length > 0) {
+            headers['If-Modified-Since'] = checkpoint.updatedAfter;
         }
 
-        await nango.trackDeletesEnd('Account');
+        // https://developer.xero.com/documentation/api/accounting/accounts
+        const response = await nango.get({
+            endpoint: 'api.xro/2.0/Accounts',
+            headers,
+            retries: 10
+        });
+
+        const responseData = response.data;
+        const data: Record<string, unknown> = typeof responseData === 'object' && responseData !== null ? responseData : {};
+        const accountsRaw = 'Accounts' in data && Array.isArray(data['Accounts']) ? data['Accounts'] : [];
+
+        let latestUpdatedAt = checkpoint?.updatedAfter ?? '';
+
+        const mappedAccounts = accountsRaw
+            .filter((item): item is Record<string, unknown> => typeof item === 'object' && item !== null)
+            .map((account) => {
+                const updatedAt = typeof account['UpdatedDateUTC'] === 'string' ? account['UpdatedDateUTC'] : null;
+                if (updatedAt && updatedAt > latestUpdatedAt) {
+                    latestUpdatedAt = updatedAt;
+                }
+                return {
+                    id: typeof account['AccountID'] === 'string' ? account['AccountID'] : '',
+                    accountId: typeof account['AccountID'] === 'string' ? account['AccountID'] : '',
+                    code: typeof account['Code'] === 'string' ? account['Code'] : null,
+                    name: typeof account['Name'] === 'string' ? account['Name'] : null,
+                    type: typeof account['Type'] === 'string' ? account['Type'] : null,
+                    status: typeof account['Status'] === 'string' ? account['Status'] : null,
+                    description: typeof account['Description'] === 'string' ? account['Description'] : null,
+                    taxType: typeof account['TaxType'] === 'string' ? account['TaxType'] : null,
+                    enablePaymentsToAccount: typeof account['EnablePaymentsToAccount'] === 'boolean' ? account['EnablePaymentsToAccount'] : null,
+                    showInExpenseClaims: typeof account['ShowInExpenseClaims'] === 'boolean' ? account['ShowInExpenseClaims'] : null,
+                    class: typeof account['Class'] === 'string' ? account['Class'] : null,
+                    systemAccount: typeof account['SystemAccount'] === 'string' ? account['SystemAccount'] : null,
+                    bankAccountNumber: typeof account['BankAccountNumber'] === 'string' ? account['BankAccountNumber'] : null,
+                    bankAccountType: typeof account['BankAccountType'] === 'string' ? account['BankAccountType'] : null,
+                    currencyCode: typeof account['CurrencyCode'] === 'string' ? account['CurrencyCode'] : null,
+                    reportingCode: typeof account['ReportingCode'] === 'string' ? account['ReportingCode'] : null,
+                    reportingCodeName: typeof account['ReportingCodeName'] === 'string' ? account['ReportingCodeName'] : null,
+                    updatedAt
+                };
+            })
+            .filter((account) => account.id !== '');
+
+        const activeAccounts = mappedAccounts.filter((a) => a.status === 'ACTIVE');
+        await nango.batchSave(activeAccounts, 'Account');
+
+        // On incremental sync, mark archived accounts as deleted
+        if (checkpoint && checkpoint.updatedAfter.length > 0) {
+            const archivedAccounts = mappedAccounts.filter((a) => a.status === 'ARCHIVED');
+            await nango.batchDelete(archivedAccounts, 'Account');
+        }
+
+        if (latestUpdatedAt !== (checkpoint?.updatedAfter ?? '')) {
+            await nango.saveCheckpoint({ updatedAfter: latestUpdatedAt });
+        }
     }
 });
 

@@ -19981,6 +19981,18 @@ export interface ActionOutput_xero_getpurchaseorder {
   UpdatedDateUTC?: string | null | undefined;} | null;
 };
 
+export type ActionInput_xero_gettenants = void
+
+export interface ActionOutput_xero_gettenants {
+  tenants: ({  id: string;
+  authEventId: string;
+  tenantId: string;
+  tenantType: string;
+  tenantName: string;
+  createdDateUtc: string;
+  updatedDateUtc: string;})[];
+};
+
 export interface ActionInput_xero_listaccounts {
   /**
    * Xero where clause to filter accounts. Example: "Status==\"ACTIVE\""

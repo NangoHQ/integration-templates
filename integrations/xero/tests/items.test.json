@@ -1,6 +1,9 @@
 {
   "nango": {
     "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    },
     "batchSave": {
       "Item": [
         {
@@ -375,47 +378,12 @@
   },
   "api": {
     "get": {
-      "/connections": {
-        "response": [
-          {
-            "id": "a8c67266-a372-46bb-a653-390d9beebd38",
-            "authEventId": "99b1cee8-0835-41ac-b2ef-c0fd1daedee0",
-            "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e",
-            "tenantType": "ORGANISATION",
-            "tenantName": "Demo Company (Global)",
-            "createdDateUtc": "2026-04-22T14:21:06.8729970",
-            "updatedDateUtc": "2026-04-22T14:21:06.8754670"
-          }
-        ],
-        "status": 200,
-        "headers": {
-          "date": "Wed, 22 Apr 2026 15:30:40 GMT",
-          "content-type": "application/json",
-          "content-length": "309",
-          "connection": "keep-alive",
-          "x-xss-protection": "0",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
-          "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-          "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4975",
-          "x-ratelimit-reset": "1776871866",
-          "etag": "W/\"135-7NQ4Tk0T10XkJLI7Pp75pxp5VH4\""
-        },
-        "hash": "884ad8a5c0c12496782c3aaf905c06e9be491e4d",
-        "request": {}
-      },
       "/api.xro/2.0/Items": {
         "response": {
-          "Id": "733be090-c9ae-4540-8731-adc66b74cd3e",
+          "Id": "68ca12c3-c7e9-43bd-9668-d4cd986319d3",
           "Status": "OK",
-          "ProviderName": "NangoAPP2",
-          "DateTimeUTC": "/Date(1776871840962)/",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1776959602473)/",
           "Items": [
             {
               "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
@@ -865,9 +833,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 22 Apr 2026 15:30:41 GMT",
+          "date": "Thu, 23 Apr 2026 15:53:22 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "15584",
+          "content-length": "15583",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -879,16 +847,12 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4974",
-          "x-ratelimit-reset": "1776871866",
-          "etag": "W/\"3ce0-jpSUiVTJQBxweGMb5iq3BODYZ8U\""
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1776959659",
+          "etag": "W/\"3cdf-46qcnBrdPDVyVystXzDzISph8dI\""
         },
-        "hash": "71c3a7a7e576a011ebf204016087508dd13c74db",
+        "hash": "145fff061dd705cc04310e5f20fb205dc4d14f73",
         "request": {
-          "params": {
-            "page": "1",
-            "pageSize": "100"
-          },
           "headers": {
             "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
           }

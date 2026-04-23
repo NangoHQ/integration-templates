@@ -1,6 +1,9 @@
 {
   "nango": {
     "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    },
     "batchSave": {
       "Account": [
         {
@@ -827,7 +830,7 @@
           "id": "4e804fa1-cf8a-4123-aefa-3bf62c4b300b",
           "accountId": "4e804fa1-cf8a-4123-aefa-3bf62c4b300b",
           "code": "77777",
-          "name": "OpenCode Test Account 2",
+          "name": "OpenCode Test Account 2 - Updated",
           "type": "REVENUE",
           "status": "ACTIVE",
           "description": "Second test account",
@@ -841,7 +844,7 @@
           "currencyCode": null,
           "reportingCode": "REV",
           "reportingCodeName": "Revenue",
-          "updatedAt": "/Date(1776869183340+0000)/"
+          "updatedAt": "/Date(1776870841743+0000)/"
         },
         {
           "id": "c0f7668c-1c46-47bf-8d65-62f8ba2da059",
@@ -1393,10 +1396,10 @@
     "get": {
       "/api.xro/2.0/Accounts": {
         "response": {
-          "Id": "0de7de92-1acc-4e1e-a0f7-8346308f33a7",
+          "Id": "883f4d23-69f9-4d69-9995-f61dc0a73a70",
           "Status": "OK",
-          "ProviderName": "NangoAPP2",
-          "DateTimeUTC": "/Date(1776870372502)/",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1776959469249)/",
           "Accounts": [
             {
               "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
@@ -2177,7 +2180,7 @@
             {
               "AccountID": "4e804fa1-cf8a-4123-aefa-3bf62c4b300b",
               "Code": "77777",
-              "Name": "OpenCode Test Account 2",
+              "Name": "OpenCode Test Account 2 - Updated",
               "Status": "ACTIVE",
               "Type": "REVENUE",
               "TaxType": "OUTPUT",
@@ -2189,7 +2192,7 @@
               "ReportingCode": "REV",
               "ReportingCodeName": "Revenue",
               "HasAttachments": false,
-              "UpdatedDateUTC": "/Date(1776869183340+0000)/",
+              "UpdatedDateUTC": "/Date(1776870841743+0000)/",
               "AddToWatchlist": false
             },
             {
@@ -2695,9 +2698,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 22 Apr 2026 15:06:12 GMT",
+          "date": "Thu, 23 Apr 2026 15:51:09 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "45810",
+          "content-length": "45819",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -2709,15 +2712,12 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4972",
-          "x-ratelimit-reset": "1776870408",
-          "etag": "W/\"b2f2-96y6GUmVX6n9OCaAvWC76PwRVFY\""
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1776959523",
+          "etag": "W/\"b2fb-HBvScxYMppal4LcmKIdRmRdds2s\""
         },
-        "hash": "2f63f3d7d8436f61158177707019aeea5edf7b21",
+        "hash": "42438108427ee057957c446e2aa462f3875ee899",
         "request": {
-          "params": {
-            "page": "1"
-          },
           "headers": {
             "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
           }

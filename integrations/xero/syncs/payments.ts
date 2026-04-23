@@ -33,8 +33,6 @@ const CheckpointSchema = z.object({
     updatedAfter: z.string()
 });
 
-type Checkpoint = z.infer<typeof CheckpointSchema>;
-
 // Zod schema for validating Xero Payment response
 const XeroPaymentSchema = z.object({
     PaymentID: z.string(),
@@ -73,24 +71,7 @@ const PaymentsResponseSchema = z.object({
         .optional()
 });
 
-// Zod schema for validating connection response
-const ConnectionResponseSchema = z.object({
-    connection_config: z.object({ tenant_id: z.string() }).optional(),
-    metadata: z.object({ tenantId: z.string() }).optional()
-});
-
-// Zod schema for validating connections API response
-// Xero Connections API returns an array directly, not wrapped in a data property
-const ConnectionSchema = z.object({
-    id: z.string().optional(),
-    tenantId: z.string().optional(),
-    tenantName: z.string().optional(),
-    tenantType: z.string().optional(),
-    createdDateUtc: z.string().optional(),
-    updatedDateUtc: z.string().optional()
-});
-
-const ConnectionsArraySchema = z.array(ConnectionSchema);
+const ConnectionsArraySchema = z.array(z.object({ tenantId: z.string().optional() }));
 
 const sync = createSync({
     description: 'Sync payments from Xero.',
@@ -106,111 +87,70 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
 
-        // Use empty string as default for initial run
-        const typedCheckpoint: Checkpoint = checkpoint ?? { updatedAfter: '' };
-
-        // Resolve tenant ID from connection config, metadata, or connections API
-        // https://developer.xero.com/documentation/api/accounting/overview#tenant-id-resolution
         const connection = await nango.getConnection();
-
-        // Validate connection response with Zod
-        const connectionResult = ConnectionResponseSchema.safeParse(connection);
         let tenantId: string | undefined;
 
-        if (connectionResult.success) {
-            const conn = connectionResult.data;
-            if (conn.connection_config && typeof conn.connection_config.tenant_id === 'string') {
-                tenantId = conn.connection_config.tenant_id;
-            } else if (conn.metadata && typeof conn.metadata.tenantId === 'string') {
-                tenantId = conn.metadata.tenantId;
-            }
+        const configParse = z.object({ tenant_id: z.string().optional() }).safeParse(connection.connection_config);
+        if (configParse.success && configParse.data.tenant_id) tenantId = configParse.data.tenant_id;
+
+        if (!tenantId) {
+            const metaParse = z.object({ tenantId: z.string().optional() }).safeParse(connection.metadata);
+            if (metaParse.success && metaParse.data.tenantId) tenantId = metaParse.data.tenantId;
         }
 
         if (!tenantId) {
-            // Fetch from Connections API
             // https://developer.xero.com/documentation/api/accounting/overview#connections
-            const connections = await nango.get({
-                endpoint: 'connections',
-                retries: 10
-            });
-
-            // Validate connections response with Zod
+            const connections = await nango.get({ endpoint: 'connections', retries: 10 });
             const connectionsResult = ConnectionsArraySchema.safeParse(connections.data);
-
-            if (!connectionsResult.success) {
-                throw new Error('Invalid connections response from Xero API');
-            }
+            if (!connectionsResult.success) throw new Error('Invalid connections response from Xero API');
 
             const connectionsData = connectionsResult.data;
-
-            if (connectionsData.length === 0) {
-                throw new Error('No Xero tenants found for this connection');
-            }
-
-            if (connectionsData.length > 1) {
+            if (connectionsData.length === 0) throw new Error('No Xero tenants found for this connection');
+            if (connectionsData.length > 1)
                 throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
 
             const firstConnectionItem = connectionsData[0];
-            if (!firstConnectionItem || typeof firstConnectionItem.tenantId !== 'string') {
-                throw new Error('Invalid tenant data in connections response');
-            }
-
+            if (!firstConnectionItem?.tenantId) throw new Error('Invalid tenant data in connections response');
             tenantId = firstConnectionItem.tenantId;
         }
 
-        if (!tenantId) {
-            throw new Error('Unable to resolve Xero tenant ID');
+        if (!tenantId) throw new Error('Unable to resolve Xero tenant ID');
+
+        const isIncremental = checkpoint && checkpoint.updatedAfter.length > 0;
+
+        const headers: Record<string, string> = { 'xero-tenant-id': tenantId };
+
+        if (isIncremental) {
+            headers['If-Modified-Since'] = checkpoint.updatedAfter;
         }
 
-        const headers: Record<string, string> = {
-            'xero-tenant-id': tenantId
-        };
-
-        // Add If-Modified-Since header for incremental sync
-        if (typedCheckpoint.updatedAfter) {
-            headers['If-Modified-Since'] = typedCheckpoint.updatedAfter;
-        }
-
-        // https://developer.xero.com/documentation/api/accounting/payments
-        // Xero uses page-based pagination with page parameter
         let page = 1;
-        const pageSize = 100;
+        let hasMore = true;
+        let latestUpdatedDateUTC = checkpoint?.updatedAfter ?? '';
 
-        while (true) {
+        while (hasMore) {
             // https://developer.xero.com/documentation/api/accounting/payments
             const response = await nango.get({
                 endpoint: 'api.xro/2.0/Payments',
                 headers,
                 params: {
-                    page: page.toString()
+                    page: page.toString(),
+                    includeArchived: isIncremental ? 'true' : 'false'
                 },
-                retries: 3
+                retries: 10
             });
 
-            // Validate response with Zod
-            const responseResult = PaymentsResponseSchema.safeParse(response.data);
-
-            if (!responseResult.success) {
-                throw new Error('Invalid payments response: ' + responseResult.error.message);
-            }
-
-            const paymentsData = responseResult.data.Payments ?? [];
+            const paymentsData = PaymentsResponseSchema.parse(response.data).Payments ?? [];
 
             if (paymentsData.length === 0) {
+                hasMore = false;
                 break;
             }
 
-            const payments = paymentsData.map((record: unknown) => {
-                // Validate payment record with Zod
-                const paymentResult = XeroPaymentSchema.safeParse(record);
-
-                if (!paymentResult.success) {
-                    throw new Error('Invalid payment record: ' + paymentResult.error.message);
-                }
-
-                const payment = paymentResult.data;
-
+            const mapped = paymentsData.map((record: unknown) => {
+                const payment = XeroPaymentSchema.parse(record);
+                const updatedDateUtc = payment.UpdatedDateUTC ?? null;
+                if (updatedDateUtc && updatedDateUtc > latestUpdatedDateUTC) latestUpdatedDateUTC = updatedDateUtc;
                 return {
                     id: payment.PaymentID,
                     date: payment.Date ?? null,
@@ -218,7 +158,7 @@ const sync = createSync({
                     currencyRate: payment.CurrencyRate ?? null,
                     paymentType: payment.PaymentType ?? null,
                     status: payment.Status ?? null,
-                    updatedDateUtc: payment.UpdatedDateUTC ?? null,
+                    updatedDateUtc,
                     reference: payment.Reference ?? null,
                     isReconciled: payment.IsReconciled ?? null,
                     accountId: payment.Account?.AccountID ?? null,
@@ -236,33 +176,23 @@ const sync = createSync({
                 };
             });
 
-            if (payments.length > 0) {
-                await nango.batchSave(payments, 'Payment');
+            const activePayments = mapped.filter((p) => p.status !== 'DELETED');
+            await nango.batchSave(activePayments, 'Payment');
 
-                // Save checkpoint with the most recent UpdatedDateUTC
-                const validDates = payments.map((p) => p.updatedDateUtc).filter((d): d is string => d !== null);
-
-                if (validDates.length > 0) {
-                    // Sort and get the latest date
-                    validDates.sort();
-                    const latestDate = validDates[validDates.length - 1];
-                    if (latestDate) {
-                        await nango.saveCheckpoint({
-                            updatedAfter: latestDate
-                        });
-                    }
-                }
+            if (isIncremental) {
+                const deletedPayments = mapped.filter((p) => p.status === 'DELETED');
+                await nango.batchDelete(deletedPayments, 'Payment');
             }
 
-            // Check if there are more pages
-            const pagination = responseResult.data.pagination;
-            const totalPages = pagination?.pageCount ?? 1;
-
-            if (page >= totalPages || paymentsData.length < pageSize) {
-                break;
+            if (paymentsData.length < 100) {
+                hasMore = false;
+            } else {
+                page += 1;
             }
+        }
 
-            page += 1;
+        if (latestUpdatedDateUTC !== (checkpoint?.updatedAfter ?? '')) {
+            await nango.saveCheckpoint({ updatedAfter: latestUpdatedDateUTC });
         }
     }
 });

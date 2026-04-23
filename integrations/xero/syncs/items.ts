@@ -68,11 +68,8 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
     ],
 
     exec: async (nango) => {
-        const checkpointResult = await nango.getCheckpoint();
-        const checkpoint = checkpointResult || null;
-        let latestUpdatedAt = checkpoint?.updatedAfter ?? '';
+        const checkpoint = await nango.getCheckpoint();
 
-        // Resolve tenant ID: connection_config -> metadata -> connections API
         const connectionResult = await nango.getConnection();
         const connectionParsed = ConnectionSchema.safeParse(connectionResult);
         const connection = connectionParsed.success ? connectionParsed.data : {};
@@ -84,22 +81,15 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
 
         if (!tenantId) {
             // https://developer.xero.com/documentation/api/accounting/overview#connections
-            const connectionsResponse = await nango.get({
-                endpoint: 'connections',
-                retries: 10
-            });
-
+            const connectionsResponse = await nango.get({ endpoint: 'connections', retries: 10 });
             const connectionsParsed = ConnectionsResponseSchema.safeParse(connectionsResponse);
-            if (!connectionsParsed.success) {
-                throw new Error('Invalid connections response');
-            }
+            if (!connectionsParsed.success) throw new Error('Invalid connections response');
+
             const connectionsData = connectionsParsed.data.data;
-            if (!connectionsData || connectionsData.length === 0) {
-                throw new Error('No Xero tenants found for this connection');
-            }
-            if (connectionsData.length > 1) {
+            if (!connectionsData || connectionsData.length === 0) throw new Error('No Xero tenants found for this connection');
+            if (connectionsData.length > 1)
                 throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
+
             tenantId = connectionsData[0]?.tenantId;
         }
 
@@ -107,107 +97,59 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
             throw new Error('Unable to resolve xero-tenant-id');
         }
 
+        const headers: Record<string, string> = { 'xero-tenant-id': tenantId };
+
+        if (checkpoint && checkpoint.updatedAfter.length > 0) {
+            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+        }
+
         // https://developer.xero.com/documentation/api/accounting/items
-        // Xero uses manual pagination with page numbers; Nango's built-in paginate
-        // doesn't have a configuration for Xero, so we use a manual loop
-        let page = 1;
-        const pageSize = 100;
+        const response = await nango.get({
+            endpoint: 'api.xro/2.0/Items',
+            headers,
+            retries: 10
+        });
 
-        // Xero API requires manual pagination since Nango's built-in paginate
-        // method doesn't have a configuration for Xero
-        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
-        while (true) {
-            const response = await nango.get({
-                endpoint: 'api.xro/2.0/Items',
-                headers: {
-                    'xero-tenant-id': tenantId,
-                    ...(checkpoint?.updatedAfter && { 'If-Modified-Since': checkpoint.updatedAfter })
-                },
-                params: {
-                    page: String(page),
-                    pageSize: String(pageSize)
-                },
-                retries: 3
-            });
+        const itemsArray = ItemsResponseSchema.parse(response.data).Items;
+        let latestUpdatedAt = checkpoint?.updatedAfter ?? '';
 
-            const itemsData = response.data;
-            if (!itemsData || typeof itemsData !== 'object') {
-                break;
-            }
+        const items = itemsArray
+            .map((rawItem: unknown) => {
+                const parsed = XeroItemSchema.safeParse(rawItem);
+                if (!parsed.success) return null;
 
-            let itemsArray: unknown[] = [];
-            if (Array.isArray(itemsData)) {
-                itemsArray = itemsData;
-            } else {
-                const parsedResponse = ItemsResponseSchema.safeParse(itemsData);
-                if (parsedResponse.success && Array.isArray(parsedResponse.data.Items)) {
-                    itemsArray = parsedResponse.data.Items;
+                const item = parsed.data;
+
+                // UpdatedDateUTC comes in format "/Date(1488338552390+0000)/"
+                let updatedAt = item.UpdatedDateUTC ?? '';
+                if (updatedAt.startsWith('/Date(') && updatedAt.endsWith(')/')) {
+                    const timestamp = parseInt(updatedAt.slice(6, -2).replace(/[+-]\d{4}/, ''), 10);
+                    if (!isNaN(timestamp)) updatedAt = new Date(timestamp).toISOString();
                 }
-            }
-            if (itemsArray.length === 0) {
-                break;
-            }
 
-            let pageLatestUpdatedAt = latestUpdatedAt;
+                if (updatedAt && updatedAt > latestUpdatedAt) latestUpdatedAt = updatedAt;
 
-            const items = itemsArray
-                .map((rawItem: unknown) => {
-                    const parsed = XeroItemSchema.safeParse(rawItem);
-                    if (!parsed.success) {
-                        return null;
-                    }
-                    const item = parsed.data;
+                return {
+                    id: item.ItemID,
+                    code: item.Code ?? '',
+                    name: item.Name ?? '',
+                    description: item.Description ?? '',
+                    isTracked: item.IsTrackedAsInventory ?? false,
+                    quantityOnHand: item.QuantityOnHand ?? 0,
+                    averageCost: item.AverageCost ?? 0,
+                    isSold: item.IsSold ?? false,
+                    isPurchased: item.IsPurchased ?? false,
+                    salesDetails: item.SalesDetails ? JSON.stringify(item.SalesDetails) : '',
+                    purchaseDetails: item.PurchaseDetails ? JSON.stringify(item.PurchaseDetails) : '',
+                    updatedAt
+                };
+            })
+            .filter((item): item is NonNullable<typeof item> => item !== null);
 
-                    // Parse UpdatedDateUTC which comes in format "/Date(1488338552390+0000)/"
-                    let updatedAt = item.UpdatedDateUTC || '';
-                    if (updatedAt.startsWith('/Date(') && updatedAt.endsWith(')/')) {
-                        const timestampStr = updatedAt.slice(6, -2);
-                        const timestamp = parseInt(timestampStr.replace(/[+-]\d{4}/, ''), 10);
-                        if (!isNaN(timestamp)) {
-                            updatedAt = new Date(timestamp).toISOString();
-                        }
-                    }
+        await nango.batchSave(items, 'Item');
 
-                    if (updatedAt && updatedAt > pageLatestUpdatedAt) {
-                        pageLatestUpdatedAt = updatedAt;
-                    }
-
-                    return {
-                        id: item.ItemID,
-                        code: item.Code || '',
-                        name: item.Name || '',
-                        description: item.Description || '',
-                        isTracked: item.IsTrackedAsInventory || false,
-                        quantityOnHand: item.QuantityOnHand || 0,
-                        averageCost: item.AverageCost || 0,
-                        isSold: item.IsSold || false,
-                        isPurchased: item.IsPurchased || false,
-                        salesDetails: item.SalesDetails ? JSON.stringify(item.SalesDetails) : '',
-                        purchaseDetails: item.PurchaseDetails ? JSON.stringify(item.PurchaseDetails) : '',
-                        updatedAt: updatedAt
-                    };
-                })
-                .filter((item): item is NonNullable<typeof item> => item !== null);
-
-            if (items.length === 0) {
-                break;
-            }
-
-            await nango.batchSave(items, 'Item');
-
-            if (pageLatestUpdatedAt !== latestUpdatedAt) {
-                latestUpdatedAt = pageLatestUpdatedAt;
-                await nango.saveCheckpoint({
-                    updatedAfter: latestUpdatedAt
-                });
-            }
-
-            // If we got fewer items than page size, we've reached the end
-            if (itemsArray.length < pageSize) {
-                break;
-            }
-
-            page += 1;
+        if (latestUpdatedAt !== (checkpoint?.updatedAfter ?? '')) {
+            await nango.saveCheckpoint({ updatedAfter: latestUpdatedAt });
         }
     }
 });

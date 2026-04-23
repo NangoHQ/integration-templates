@@ -1,6 +1,9 @@
 {
   "nango": {
     "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    },
     "batchSave": {
       "Contact": [
         {
@@ -1995,10 +1998,10 @@
     "get": {
       "/api.xro/2.0/Contacts": {
         "response": {
-          "Id": "92e0f3ac-b2ce-4d29-98cb-8614e0db6a4d",
+          "Id": "60ac6bd7-9f7d-49ed-8ed5-c85ad66ff3b1",
           "Status": "OK",
-          "ProviderName": "NangoAPP2",
-          "DateTimeUTC": "/Date(1776871052341)/",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1776959501836)/",
           "pagination": {
             "page": 1,
             "pageSize": 100,
@@ -5173,9 +5176,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 22 Apr 2026 15:17:32 GMT",
+          "date": "Thu, 23 Apr 2026 15:51:41 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "79905",
+          "content-length": "79904",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -5187,13 +5190,14 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4985",
-          "x-ratelimit-reset": "1776871089",
-          "etag": "W/\"13821-t8lYnafBk6YzEWZFAp1XlyPW4Ds\""
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1776959523",
+          "etag": "W/\"13820-Z4vkNseo4uxAAYayHpYZqhhaU50\""
         },
-        "hash": "71818e8dbe1ffe2fe5bbce28d885dba11da66bc2",
+        "hash": "78f49ed882940378d313ae4013a1937ea9c380d8",
         "request": {
           "params": {
+            "includeArchived": "false",
             "page": "1",
             "pageSize": "100"
           },
