@@ -128,7 +128,7 @@ const action = createAction({
         }
 
         return {
-            accountId: typeof account['AccountID'] === 'string' ? account['AccountID'] : '',
+            accountId: typeof account['AccountID'] === 'string' ? account['AccountID'] : (() => { throw new Error('Account is missing required AccountID'); })(),
             code: typeof account['Code'] === 'string' ? account['Code'] : null,
             name: typeof account['Name'] === 'string' ? account['Name'] : null,
             type: typeof account['Type'] === 'string' ? account['Type'] : null,

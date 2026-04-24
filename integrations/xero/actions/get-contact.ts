@@ -6,71 +6,71 @@ const InputSchema = z.object({
 });
 
 const AddressSchema = z.object({
-    AddressType: z.string().optional(),
-    AddressLine1: z.string().optional(),
-    AddressLine2: z.string().optional(),
-    City: z.string().optional(),
-    Region: z.string().optional(),
-    PostalCode: z.string().optional(),
-    Country: z.string().optional(),
-    AttentionTo: z.string().optional()
+    AddressType: z.string().nullish(),
+    AddressLine1: z.string().nullish(),
+    AddressLine2: z.string().nullish(),
+    City: z.string().nullish(),
+    Region: z.string().nullish(),
+    PostalCode: z.string().nullish(),
+    Country: z.string().nullish(),
+    AttentionTo: z.string().nullish()
 });
 
 const PhoneSchema = z.object({
-    PhoneType: z.string().optional(),
-    PhoneNumber: z.string().optional(),
-    PhoneAreaCode: z.string().optional(),
-    PhoneCountryCode: z.string().optional()
+    PhoneType: z.string().nullish(),
+    PhoneNumber: z.string().nullish(),
+    PhoneAreaCode: z.string().nullish(),
+    PhoneCountryCode: z.string().nullish()
 });
 
 const ContactPersonSchema = z.object({
-    FirstName: z.string().optional(),
-    LastName: z.string().optional(),
-    EmailAddress: z.string().optional(),
-    IncludeInEmails: z.boolean().optional()
+    FirstName: z.string().nullish(),
+    LastName: z.string().nullish(),
+    EmailAddress: z.string().nullish(),
+    IncludeInEmails: z.boolean().nullish()
 });
 
 const ContactGroupSchema = z.object({
-    ContactGroupID: z.string().optional(),
-    Name: z.string().optional(),
-    Status: z.string().optional()
+    ContactGroupID: z.string().nullish(),
+    Name: z.string().nullish(),
+    Status: z.string().nullish()
 });
 
 const ContactSchema = z.object({
     ContactID: z.string(),
-    ContactNumber: z.string().optional(),
-    AccountNumber: z.string().optional(),
-    ContactStatus: z.string().optional(),
+    ContactNumber: z.string().nullish(),
+    AccountNumber: z.string().nullish(),
+    ContactStatus: z.string().nullish(),
     Name: z.string(),
-    FirstName: z.string().optional(),
-    LastName: z.string().optional(),
-    EmailAddress: z.string().optional(),
-    SkypeUserName: z.string().optional(),
-    ContactPersons: z.array(ContactPersonSchema).optional(),
-    BankAccountDetails: z.string().optional(),
-    TaxNumber: z.string().optional(),
-    AccountsReceivableTaxType: z.string().optional(),
-    AccountsPayableTaxType: z.string().optional(),
-    Addresses: z.array(AddressSchema).optional(),
-    Phones: z.array(PhoneSchema).optional(),
-    IsSupplier: z.boolean().optional(),
-    IsCustomer: z.boolean().optional(),
-    DefaultCurrency: z.string().optional(),
-    XeroNetworkKey: z.string().optional(),
-    DefaultSalesAccountCode: z.string().optional(),
-    DefaultPurchasesAccountCode: z.string().optional(),
-    SalesTrackingCategories: z.array(z.unknown()).optional(),
-    PurchasesTrackingCategories: z.array(z.unknown()).optional(),
-    TrackingCategoryName: z.string().optional(),
-    TrackingCategoryOption: z.string().optional(),
+    FirstName: z.string().nullish(),
+    LastName: z.string().nullish(),
+    EmailAddress: z.string().nullish(),
+    SkypeUserName: z.string().nullish(),
+    ContactPersons: z.array(ContactPersonSchema).nullish(),
+    BankAccountDetails: z.string().nullish(),
+    TaxNumber: z.string().nullish(),
+    AccountsReceivableTaxType: z.string().nullish(),
+    AccountsPayableTaxType: z.string().nullish(),
+    Addresses: z.array(AddressSchema).nullish(),
+    Phones: z.array(PhoneSchema).nullish(),
+    IsSupplier: z.boolean().nullish(),
+    IsCustomer: z.boolean().nullish(),
+    DefaultCurrency: z.string().nullish(),
+    XeroNetworkKey: z.string().nullish(),
+    DefaultSalesAccountCode: z.string().nullish(),
+    DefaultPurchasesAccountCode: z.string().nullish(),
+    SalesTrackingCategories: z.array(z.unknown()).nullish(),
+    PurchasesTrackingCategories: z.array(z.unknown()).nullish(),
+    TrackingCategoryName: z.string().nullish(),
+    TrackingCategoryOption: z.string().nullish(),
     PaymentTerms: z.unknown().optional(),
-    ContactGroups: z.array(ContactGroupSchema).optional(),
-    Website: z.string().optional(),
+    ContactGroups: z.array(ContactGroupSchema).nullish(),
+    Website: z.string().nullish(),
     BatchPayments: z.unknown().optional(),
-    Discount: z.number().optional(),
+    Discount: z.number().nullish(),
     Balances: z.unknown().optional(),
-    HasAttachments: z.boolean().optional(),
-    ValidationErrors: z.array(z.unknown()).optional()
+    HasAttachments: z.boolean().nullish(),
+    ValidationErrors: z.array(z.unknown()).nullish()
 });
 
 const OutputSchema = z.object({

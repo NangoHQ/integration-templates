@@ -34,6 +34,8 @@ const OutputSchema = z.object({
     creditNote: z.union([CreditNoteOutputSchema, z.null()])
 });
 
+const ConnectionsResponseSchema = z.array(z.object({ tenantId: z.string() }));
+
 const action = createAction({
     description: 'Retrieve a credit note by CreditNoteID',
     version: '1.0.0',
@@ -79,25 +81,26 @@ const action = createAction({
                 retries: 10
             });
 
-            const connectionsData = connectionsResponse.data;
+            const parsedConnections = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
 
-            if (connectionsData && typeof connectionsData === 'object' && 'data' in connectionsData && Array.isArray(connectionsData.data)) {
-                const connections = connectionsData.data;
-                if (connections.length === 1) {
-                    const first = connections[0];
-                    if (first && typeof first === 'object' && 'tenantId' in first) {
-                        const tid = first['tenantId'];
-                        if (typeof tid === 'string') {
-                            tenantId = tid;
-                        }
-                    }
-                } else if (connections.length > 1) {
-                    throw new nango.ActionError({
-                        type: 'multiple_tenants',
-                        message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
-                    });
-                }
+            if (!parsedConnections.success) {
+                throw new nango.ActionError({ type: 'invalid_response', message: 'Failed to parse connections response' });
             }
+
+            const connections = parsedConnections.data;
+
+            if (connections.length === 0) {
+                throw new nango.ActionError({ type: 'no_tenant', message: 'No Xero tenants found for this connection' });
+            }
+
+            if (connections.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_tenants',
+                    message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                });
+            }
+
+            tenantId = connections[0]!.tenantId;
         }
 
         if (!tenantId) {
