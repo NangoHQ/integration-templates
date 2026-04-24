@@ -36,7 +36,7 @@ const InputSchema = z.object({
     date: z.string().optional().describe('Transaction date in YYYY-MM-DD format. Defaults to today.'),
     reference: z.string().optional().describe('Reference for the transaction. Example: "INV-001"'),
     currencyCode: z.string().optional().describe('Currency code. Example: "USD"'),
-    status: z.enum(['AUTHORISED', 'DELETED', 'DRAFT']).optional().describe('Status of the transaction. Defaults to AUTHORISED.'),
+    status: z.enum(['AUTHORISED', 'DELETED']).optional().describe('Status of the transaction. Defaults to AUTHORISED.'),
     isReconciled: z.boolean().optional().describe('Whether the transaction is reconciled.'),
     url: z.string().optional().describe('URL link for the transaction.')
 });
