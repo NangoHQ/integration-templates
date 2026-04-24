@@ -1,0 +1,220 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "WorkflowState": [
+        {
+          "id": "f2df5b5c-eebd-4229-b0c3-33bf526b911b",
+          "name": "Done",
+          "color": "#5e6ad2",
+          "type": "completed",
+          "position": 3,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        },
+        {
+          "id": "c5e3fb5d-a1b8-4173-8f3a-c45ccf01c6db",
+          "name": "In Progress",
+          "color": "#f2c94c",
+          "type": "started",
+          "position": 2,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        },
+        {
+          "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
+          "name": "Backlog",
+          "color": "#bec2c8",
+          "type": "backlog",
+          "position": 0,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        },
+        {
+          "id": "672e3df6-a1cf-45ad-8ae2-83338e5942be",
+          "name": "Duplicate",
+          "color": "#95a2b3",
+          "type": "canceled",
+          "position": 5,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        },
+        {
+          "id": "2d073bf5-b1aa-462c-bfe3-016c2e4b8182",
+          "name": "Canceled",
+          "color": "#95a2b3",
+          "type": "canceled",
+          "position": 4,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        },
+        {
+          "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
+          "name": "Todo",
+          "color": "#e2e2e2",
+          "type": "unstarted",
+          "position": 1,
+          "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+          "teamName": "Nango-API",
+          "createdAt": "2026-04-21T07:37:24.757Z",
+          "updatedAt": "2026-04-21T07:37:24.757Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "WorkflowState": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "workflowStates": {
+              "nodes": [
+                {
+                  "id": "f2df5b5c-eebd-4229-b0c3-33bf526b911b",
+                  "name": "Done",
+                  "color": "#5e6ad2",
+                  "description": null,
+                  "type": "completed",
+                  "position": 3,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                },
+                {
+                  "id": "c5e3fb5d-a1b8-4173-8f3a-c45ccf01c6db",
+                  "name": "In Progress",
+                  "color": "#f2c94c",
+                  "description": null,
+                  "type": "started",
+                  "position": 2,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                },
+                {
+                  "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
+                  "name": "Backlog",
+                  "color": "#bec2c8",
+                  "description": null,
+                  "type": "backlog",
+                  "position": 0,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                },
+                {
+                  "id": "672e3df6-a1cf-45ad-8ae2-83338e5942be",
+                  "name": "Duplicate",
+                  "color": "#95a2b3",
+                  "description": null,
+                  "type": "canceled",
+                  "position": 5,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                },
+                {
+                  "id": "2d073bf5-b1aa-462c-bfe3-016c2e4b8182",
+                  "name": "Canceled",
+                  "color": "#95a2b3",
+                  "description": null,
+                  "type": "canceled",
+                  "position": 4,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                },
+                {
+                  "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
+                  "name": "Todo",
+                  "color": "#e2e2e2",
+                  "description": null,
+                  "type": "unstarted",
+                  "position": 1,
+                  "team": {
+                    "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                    "name": "Nango-API"
+                  },
+                  "createdAt": "2026-04-21T07:37:24.757Z",
+                  "updatedAt": "2026-04-21T07:37:24.757Z"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "0acb183e-bbac-43ff-86f5-ffe6c188224e"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:51:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777027906",
+          "cf-ray": "9f148cef8972c4ac-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"713-ofJhvfi5BJkuTMmnRIHfFHkQIYU\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjc4NjMsImV4cCI6MTc3NzYzMjY2M30.hol2TITB7xGjTr3Z-b1R5qfWErwuJvuwTEVIrZLfREw; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "420",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999580",
+          "x-ratelimit-complexity-reset": "1777031463023",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1777031463023",
+          "x-request-id": "9f148cefa258c4ac-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "4e1e2e86af7c33692d02d5652503b357d79ce9d9",
+        "request": {
+          "data": "sha1:f625f34eed58ca452aa616fd3e90926217fbd4d2"
+        }
+      }
+    }
+  }
+}

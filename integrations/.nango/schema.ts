@@ -4187,26 +4187,26 @@ export interface SyncMetadata_github_issues {
 
 export interface Issue {
   id: string;
-  createdAt: string;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  state?: {  id: string;
+  name?: string | undefined;
+  color?: string | undefined;};
+  assignee?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  labels?: ({  id: string;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  project?: {  id: string;
+  name?: string | undefined;};
+  cycle?: {  id: string;
+  name?: string | undefined;};
   updatedAt: string;
-  key: string;
-  summary: string;
-  issueType: string;
-  status: string;
-  assignee: string | null;
-  url: string;
-  webUrl: string;
-  projectId: string;
-  projectKey: string;
-  projectName: string;
-  comments: ({  id: string;
-  createdAt: string;
-  updatedAt: string;
-  author: {  accountId: string | null;
-  active: boolean;
-  displayName: string;
-  emailAddress: string | null;};
-  body: {};})[];
+  createdAt?: string | undefined;
+  url?: string | undefined;
+  priority?: number | undefined;
 };
 
 export interface SyncMetadata_github_issueslite {
@@ -10952,11 +10952,23 @@ export interface SyncMetadata_jira_issues {
 
 export interface Project {
   id: string;
-  key: string;
   name: string;
-  url: string;
-  projectTypeKey: string;
-  webUrl: string;
+  state?: string | undefined;
+  status?: {  id: string;
+  name: string;
+  type: string;
+  color?: string | undefined;};
+  progress?: number | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  lead?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  teams?: ({  id: string;
+  key?: string | undefined;
+  name?: string | undefined;})[];
 };
 
 export interface SyncMetadata_jira_projects {
@@ -11891,140 +11903,1371 @@ export interface ActionOutput_lever_users {
   managerId: string | null;})[];
 };
 
-export interface LinearIssue {
+export interface Cycle {
   id: string;
-  assigneeId: string | null;
-  creatorId: string | null;
+  name?: string | undefined;
+  number: number;
+  startsAt: string;
+  endsAt: string;
+  teamId?: string | undefined;
   createdAt: string;
   updatedAt: string;
-  description: string | null;
-  dueDate: string | null;
-  projectId: string | null;
-  teamId: string;
-  title: string;
-  status: string;
-  estimate: string | null;
+  completedAt?: string | undefined;
+  archivedAt?: string | undefined;
 };
 
-export interface SyncMetadata_linear_issues {
+export interface SyncMetadata_linear_cycles {
+  teamId?: string | undefined;
 };
 
-export interface LinearMilestone {
+export interface IssueLabel {
   id: string;
   name: string;
-  progress: number;
-  description: string | null;
+  color?: string | undefined;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt: string;
+  teamId?: string | undefined;
+};
+
+export interface SyncMetadata_linear_issuelabels {
+  teamId?: string | undefined;
+};
+
+export interface Milestone {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  progress?: number | undefined;
+  status?: string | undefined;
+  targetDate?: string | undefined;
   createdAt: string;
   updatedAt: string;
-  status: string;
-  project: {  id: string;
-  name: string;};
+  project?: {  id: string;
+  name?: string | undefined;};
 };
 
-export interface SyncMetadata_linear_milestones {
-};
-
-export interface LinearProject {
+export interface Roadmap {
   id: string;
+  name: string;
+  description?: string | undefined;
+  updatedAt: string;
+  createdAt: string;
+  archivedAt?: string | undefined;
+  color?: string | undefined;
+  slugId: string;
+  sortOrder: number;
   url: string;
+  creatorId?: string | undefined;
+  ownerId?: string | undefined;
+  projectIds: string[];
+  teamIds: string[];
+};
+
+export interface Team {
+  id: string;
+  name?: string | undefined;
+  key?: string | undefined;
+  description?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  private?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
+};
+
+export interface WorkflowState {
+  id: string;
   name: string;
-  description: string | null;
-  createdAt: string;
-  updatedAt: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  position?: number | undefined;
+  teamId?: string | undefined;
+  teamName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_linear_addissuelabel {
+  /**
+   * The identifier of the issue to add the label to. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  id: string;
+  /**
+   * The identifier of the label to add. Example: "123e4567-e89b-12d3-a456-426614174001"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_linear_addissuelabel {
+  success: boolean;
+  issueId?: string | undefined;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  updatedAt?: string | undefined;
+  labelIds?: string[] | undefined;
+};
+
+export interface ActionInput_linear_archivecycle {
+  /**
+   * The identifier of the cycle to archive. Example: "cycle-uuid"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_archivecycle {
+  id: string;
+  name?: string | undefined;
+  number: number;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  completedAt?: string | undefined;
+  success: boolean;
+};
+
+export interface ActionInput_linear_archiveissue {
+  /**
+   * The identifier of the issue to archive. Example: "c0b0b0b0-0000-0000-0000-000000000000" or "TEAM-123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_archiveissue {
+  success: boolean;
+  issue?: {  id: string;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  archivedAt?: string | undefined;
+  state?: {  id?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_linear_createattachment {
+  /**
+   * The issue to associate the attachment with. Can be a UUID or issue identifier (e.g., LIN-123). Example: "590a1127-f98b-49fc-ba74-2df8751c089e"
+   */
+  issueId: string;
+  /**
+   * The attachment title. Example: "Exception"
+   */
+  title: string;
+  /**
+   * Attachment location which is also used as a unique identifier for the attachment. Example: "https://example.com/123"
+   */
+  url: string;
+  /**
+   * The attachment subtitle. Example: "Open"
+   */
+  subtitle?: string | undefined;
+  /**
+   * An icon url to display with the attachment. Should be of jpg or png format. Example: "https://example.com/icon.png"
+   */
+  iconUrl?: string | undefined;
+  /**
+   * Attachment metadata object with string and number values. Example: {"exceptionId": "exc-123"}
+   */
+  metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Indicates if attachments for the same source application should be grouped in the Linear UI.
+   */
+  groupBySource?: boolean | undefined;
+  /**
+   * Create attachment as a user with the provided name. This option is only available to OAuth applications creating attachments in actor=application mode.
+   */
+  createAsUser?: string | undefined;
+  /**
+   * Create a linked comment with markdown body.
+   */
+  commentBody?: string | undefined;
+};
+
+export interface ActionOutput_linear_createattachment {
+  id: string;
+  success: boolean;
+  title: string;
+  url: string;
+  subtitle?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_linear_createcomment {
+  /**
+   * The ID of the Linear issue to comment on. Example: "issue-uuid"
+   */
+  issueId: string;
+  /**
+   * The comment body content.
+   */
+  body: string;
+  /**
+   * The ID of the parent comment for threaded replies.
+   */
+  parentId?: string | undefined;
+};
+
+export interface ActionOutput_linear_createcomment {
+  id: string;
+  body?: string | undefined;
+  url?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  userId?: string | undefined;
+  userName?: string | undefined;
+  issueId?: string | undefined;
+  issueIdentifier?: string | undefined;
+  parentId?: string | undefined;
+};
+
+export interface ActionInput_linear_createcycle {
+  /**
+   * The ID of the team this cycle belongs to. Example: "9cfb482a-81e3-4154-b5b9-2c805e70a02d"
+   */
   teamId: string;
+  /**
+   * The name of the cycle. Example: "Sprint 23"
+   */
+  name: string;
+  /**
+   * The description of the cycle.
+   */
+  description?: string | undefined;
+  /**
+   * The start date of the cycle in ISO 8601 format. Example: "2024-01-15T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * The end date of the cycle in ISO 8601 format. Example: "2024-01-29T00:00:00Z"
+   */
+  endsAt: string;
+  /**
+   * The completion date of the cycle in ISO 8601 format.
+   */
+  completedAt?: string | undefined;
 };
 
-export interface SyncMetadata_linear_projects {
-};
-
-export interface LinearRoadmap {
+export interface ActionOutput_linear_createcycle {
   id: string;
   name: string;
-  description: string | null;
-  createdAt: string;
-  updatedAt: string;
-  teamId: string;
-  projectIds: string;
+  number: number;
+  description?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  completedAt?: string | undefined;
+  isActive?: boolean | undefined;
+  isNext?: boolean | undefined;
+  isPrevious?: boolean | undefined;
+  progress?: number | undefined;
+  team?: {  id: string;
+  name?: string | undefined;};
 };
 
-export interface SyncMetadata_linear_roadmaps {
+export interface ActionInput_linear_createissuelabel {
+  /**
+   * The name of the issue label. Example: "Bug"
+   */
+  name: string;
+  /**
+   * The color of the label as a HEX string. Example: "#EB5757"
+   */
+  color?: string | undefined;
+  /**
+   * The identifier of the team to associate the label with. If omitted, the label will be workspace-level.
+   */
+  teamId?: string | undefined;
+  /**
+   * The description of the label.
+   */
+  description?: string | undefined;
 };
 
-export interface LinearTeam {
+export interface ActionOutput_linear_createissuelabel {
   id: string;
   name: string;
-  description: string | null;
-  createdAt: string;
-  updatedAt: string;
+  color: string;
+  description?: string | undefined;
+  teamId?: string | undefined;
 };
 
-export interface SyncMetadata_linear_teams {
+export interface ActionInput_linear_createissuerelation {
+  /**
+   * ID of the primary issue. Example: "c5748ccf-c67f-4af4-bd74-fe513dc4c054"
+   */
+  issueId: string;
+  /**
+   * ID of the related issue. Example: "71bc4480-3aa1-4c56-b657-827996658662"
+   */
+  relatedIssueId: string;
+  /**
+   * Type of relationship between the issues.
+   */
+  type: 'blocks' | 'blocked_by' | 'duplicate' | 'duplicate_of' | 'related';
 };
 
-export interface LinearUser {
+export interface ActionOutput_linear_createissuerelation {
   id: string;
-  admin: boolean;
-  email: string;
-  firstName: string;
-  lastName?: string | undefined;
-  avatarUrl: string | null;
-};
-
-export interface SyncMetadata_linear_users {
+  type: string;
+  issueId?: string | undefined;
+  issueIdentifier?: string | undefined;
+  relatedIssueId?: string | undefined;
+  relatedIssueIdentifier?: string | undefined;
 };
 
 export interface ActionInput_linear_createissue {
+  /**
+   * Team ID. Example: "9cfb482a-81e3-4154-b5b9-2c805e70a02d"
+   */
   teamId: string;
+  /**
+   * Issue title
+   */
   title: string;
+  /**
+   * Issue description in markdown
+   */
   description?: string | undefined;
-  projectId?: string | undefined;
-  milestoneId?: string | undefined;
-  assigneeId?: string | undefined;
+  /**
+   * Priority from 0 (no priority) to 4 (low). 1=urgent, 2=high, 3=medium
+   */
   priority?: number | undefined;
-  parentId?: string | undefined;
-  estimate?: number | undefined;
-  dueDate?: string | undefined;
+  /**
+   * Workflow state ID
+   */
+  stateId?: string | undefined;
+  /**
+   * Assignee user ID
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Cycle ID
+   */
+  cycleId?: string | undefined;
+  /**
+   * Array of label IDs
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * Project ID
+   */
+  projectId?: string | undefined;
 };
 
 export interface ActionOutput_linear_createissue {
   id: string;
-  assigneeId: string | null;
-  creatorId: string | null;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  priority?: number | undefined;
+  stateId?: string | undefined;
+  assigneeId?: string | undefined;
+  teamId?: string | undefined;
+  cycleId?: string | undefined;
+  projectId?: string | undefined;
+};
+
+export interface ActionInput_linear_createproject {
+  /**
+   * The name of the project.
+   */
+  name: string;
+  /**
+   * The description for the project.
+   */
+  description?: string | undefined;
+  /**
+   * The identifier of the project lead.
+   */
+  leadId?: string | undefined;
+  /**
+   * The identifiers of the teams this project is associated with.
+   */
+  teamIds: string[];
+  /**
+   * The planned target date of the project in ISO date format.
+   */
+  targetDate?: string | undefined;
+  /**
+   * The planned start date of the project in ISO date format.
+   */
+  startDate?: string | undefined;
+  /**
+   * The state of the project (e.g. planned, started, paused, completed, canceled).
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_linear_createproject {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  slugId?: string | undefined;
+  url?: string | undefined;
+  state?: string | undefined;
+  status?: {  id: string;
+  name: string;} | undefined;
+  lead?: {  id: string;
+  name: string;} | undefined;
+  teamIds?: string[] | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_linear_deleteattachment {
+  /**
+   * The identifier of the attachment to delete. Example: "f4485af5-5d5a-4baf-bb8f-d66cbf7254c8"
+   */
+  attachmentId: string;
+};
+
+export interface ActionOutput_linear_deleteattachment {
+  success: boolean;
+  attachmentId?: string | undefined;
+};
+
+export interface ActionInput_linear_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "abc123"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_linear_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_linear_deleteissuelabel {
+  /**
+   * The ID of the issue label to delete. Example: "label-uuid"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_linear_deleteissuelabel {
+  success: boolean;
+  entityId?: string | undefined;
+  lastSyncId?: number | undefined;
+};
+
+export interface ActionInput_linear_deleteissuerelation {
+  /**
+   * The identifier of the issue relation to delete. Example: "abc123-def456"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_deleteissuerelation {
+  success: boolean;
+  entityId?: string | undefined;
+  lastSyncId?: number | undefined;
+};
+
+export interface ActionInput_linear_deleteissue {
+  /**
+   * The identifier of the issue to delete. Example: "3e03fa02-a23a-40ac-93f4-bbdfd6120caf"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_deleteissue {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_linear_getattachment {
+  /**
+   * Attachment ID. Example: "47e14163-404c-4a34-b775-5c536d67760a"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_getattachment {
+  id: string;
+  title: string;
+  subtitle?: string | undefined;
+  url: string;
+  source?: {  [key: string]: unknown | undefined;};
+  sourceType?: string | undefined;
+  metadata: {  [key: string]: unknown | undefined;};
+  groupBySource: boolean;
   createdAt: string;
   updatedAt: string;
-  description: string | null;
-  dueDate: string | null;
-  projectId: string | null;
-  teamId: string;
-  title: string;
-  status: string;
-  estimate: string | null;
+  archivedAt?: string | undefined;
+  bodyData?: string | undefined;
+  issue: {  id: string;
+  identifier: string;
+  title: string;};
+  originalIssue?: {  id: string;
+  identifier: string;
+  title: string;} | undefined;
+  creator?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  externalUserCreator?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
 };
 
-export interface ActionInput_linear_fetchfields {
+export interface ActionInput_linear_getcomment {
+  /**
+   * Linear comment ID. Example: "comment-id-123"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_linear_getcomment {
+  id: string;
+  body?: string | undefined;
+  resolved: boolean;
+  resolvedAt?: string | undefined;
+  issue?: {  id: string;
+  identifier?: string | undefined;
+  title?: string | undefined;};
+  user?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_linear_getcycle {
+  /**
+   * The unique identifier of the Linear cycle. Example: "cycle-id-123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_getcycle {
+  id: string;
+  team?: {  id: string;
+  name: string;} | undefined;
+  progress?: number | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+};
+
+export interface ActionInput_linear_getissuelabel {
+  /**
+   * The unique identifier of the issue label. Example: "abc123-def456"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_getissuelabel {
+  id: string;
   name: string;
+  color: string;
+  archived: boolean;
+  team?: {  id: string;
+  name: string;} | undefined;
 };
 
-export interface ActionOutput_linear_fetchfields {
-  fields: ({})[];
+export interface ActionInput_linear_getissue {
+  /**
+   * Issue ID or identifier. Example: "c7a3b3c0-0000-0000-0000-000000000000" or "TEAM-123"
+   */
+  id: string;
 };
 
-export type ActionInput_linear_fetchmodels = void
-
-export interface ActionOutput_linear_fetchmodels {
-  models: ({  name: string;})[];
+export interface ActionOutput_linear_getissue {
+  id: string;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  number?: number | undefined;
+  priority?: number | undefined;
+  estimate?: number | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
+  state?: {  id: string;
+  name?: string | undefined;
+  color?: string | undefined;};
+  assignee?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  team?: {  id: string;
+  name?: string | undefined;
+  key?: string | undefined;};
+  labels?: ({  id: string;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  project?: {  id: string;
+  name?: string | undefined;
+  url?: string | undefined;};
 };
 
-export interface ActionInput_linear_fetchteams {
+export interface ActionInput_linear_getproject {
+  /**
+   * The unique identifier of the Linear project. Example: "7b277fbc-8b76-4cdc-ad25-cd735ca33d0c"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_linear_getproject {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  lead?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  progress?: number | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  startedAt?: string | undefined;
+  canceledAt?: string | undefined;
+  completedAt?: string | undefined;
+};
+
+export interface ActionInput_linear_getteam {
+  /**
+   * Team ID. Example: "team-id-123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_getteam {
+  id: string;
+  name: string;
+  key: string;
+  description?: string | undefined;
+  states?: ({  id: string;
+  name: string;
+  color?: string | undefined;
+  type?: string | undefined;})[];
+};
+
+export interface ActionInput_linear_getuser {
+  /**
+   * Linear user ID. Example: "usr_123abc"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_linear_getuser {
+  id: string;
+  name: string;
+  email: string;
+  displayName?: string | undefined;
+  admin: boolean;
+  active: boolean;
+};
+
+export interface ActionInput_linear_getviewer {
+};
+
+export interface ActionOutput_linear_getviewer {
+  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  avatarUrl?: string | undefined;
+  displayName?: string | undefined;
+  organization?: {  id: string;
+  name?: string | undefined;
+  urlKey?: string | undefined;};
+};
+
+export interface ActionInput_linear_getworkflowstate {
+  /**
+   * The ID of the workflow state to retrieve. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  stateId: string;
+};
+
+export interface ActionOutput_linear_getworkflowstate {
+  id: string;
+  name?: string | undefined;
+  team?: {  id: string;
+  name?: string | undefined;};
+  type?: string | undefined;
+  position?: number | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_linear_listattachments {
+  /**
+   * The number of items to forward paginate. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
   after?: string | undefined;
-  pageSize?: number | undefined;
+  /**
+   * Filter returned attachments using Linear AttachmentFilter fields.
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * By which field should the pagination order. Available options are createdAt (default) and updatedAt.
+   */
+  orderBy?: 'createdAt' | 'updatedAt' | undefined;
 };
 
-export interface ActionOutput_linear_fetchteams {
-  teams: ({  id: string;
-  name: string;})[];
+export interface ActionOutput_linear_listattachments {
+  items: ({  id: string;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt?: string | undefined;
+  title: string;
+  subtitle?: string | undefined;
+  url: string;
+  sourceType?: string | undefined;
+  metadata: {  [key: string]: unknown | undefined;};
+  groupBySource: boolean;
+  bodyData?: string | undefined;
+  creator?: {  id: string;
+  name: string;
+  email: string;} | undefined;
+  externalUserCreator?: {  id: string;
+  name: string;
+  email: string;} | undefined;
+  issue: {  id: string;
+  identifier: string;
+  title: string;};
+  originalIssue?: {  id: string;
+  identifier: string;
+  title: string;} | undefined;})[];
   pageInfo: {  hasNextPage: boolean;
-  endCursor: string | null;};
+  endCursor?: string | undefined;};
+  /**
+   * Cursor for the next page of results, if available.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_listcomments {
+  /**
+   * Number of items to return. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * Cursor for forward pagination.
+   */
+  after?: string | undefined;
+  /**
+   * Comment filter object.
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * Order by field, e.g. "createdAt" or "updatedAt".
+   */
+  orderBy?: string | undefined;
+};
+
+export interface ActionOutput_linear_listcomments {
+  items: ({  id: string;
+  body: string;
+  createdAt: string;
+  updatedAt: string;
+  url: string;
+  user?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  issue?: {  id: string;
+  identifier?: string | undefined;
+  title?: string | undefined;};
+  parent?: {  id: string;} | undefined;
+  editedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+  pageInfo: {  hasNextPage: boolean;
+  endCursor?: string | undefined;
+  hasPreviousPage: boolean;
+  startCursor?: string | undefined;};
+};
+
+export interface ActionInput_linear_listcycles {
+  /**
+   * Number of cycles to return. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Cycle filter object. Example: { team: { id: { eq: "team-id" } } }
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * Order by field. Example: "updatedAt" or "createdAt"
+   */
+  orderBy?: string | undefined;
+};
+
+export interface ActionOutput_linear_listcycles {
+  nodes: ({  id: string;
+  name?: string | undefined;
+  number?: number | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  completedAt?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  team?: {  id: string;
+  name?: string | undefined;};})[];
+  pageInfo: {  hasNextPage: boolean;
+  endCursor?: string | undefined;};
+};
+
+export interface ActionInput_linear_listissuelabels {
+  /**
+   * The number of items to forward paginate. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * A cursor to be used with first for forward pagination.
+   */
+  after?: string | undefined;
+  /**
+   * [Alpha] Filter returned issue labels.
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * Ordering of returned results. Example: "updatedAt", "createdAt".
+   */
+  orderBy?: string | undefined;
+};
+
+export interface ActionOutput_linear_listissuelabels {
+  nodes: ({  id: string;
+  name: string;
+  color: string;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
+  isGroup?: boolean | undefined;
+  parent?: {  id: string;} | undefined;
+  creator?: {  id: string;} | undefined;
+  team?: {  id: string;
+  name: string;} | undefined;})[];
+  pageInfo: {  hasNextPage: boolean;
+  endCursor?: string | undefined;};
+};
+
+export interface ActionInput_linear_listissues {
+  /**
+   * Number of issues to return per page. Example: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor for forward pagination. Example: "eyJvcmRlciI6..."
+   */
+  after?: string | undefined;
+  /**
+   * Field to order by. Example: "updatedAt" or "createdAt"
+   */
+  orderBy?: string | undefined;
+  /**
+   * Issue filter object. Example: { state: { type: { eq: "started" } } }
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_linear_listissues {
+  issues: ({  id: string;
+  identifier: string;
+  title: string;
+  description?: string | undefined;
+  priority?: number | undefined;
+  state?: {  id: string;
+  name: string;
+  type: string;
+  color?: string | undefined;};
+  team?: {  id: string;
+  key: string;
+  name: string;} | undefined;
+  assignee?: {  id: string;
+  name: string;
+  email?: string | undefined;};
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;})[];
+  pageInfo: {  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  startCursor?: string | undefined;
+  endCursor?: string | undefined;};
+  /**
+   * Convenience field matching pageInfo.endCursor when hasNextPage is true
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_listprojects {
+  /**
+   * Number of projects to return. Maximum: 100.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Project filter object. Example: { state: { eq: "started" } }
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * Order by field. Example: "updatedAt"
+   */
+  orderBy?: string | undefined;
+};
+
+export interface ActionOutput_linear_listprojects {
+  projects: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  state: string;
+  progress?: number | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+  lead?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  teams?: {  nodes: ({  id: string;
+  name: string;
+  key: string;})[];} | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_listteams {
+  /**
+   * Number of teams to return per page. Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_linear_listteams {
+  items: ({  id: string;
+  name: string;
+  key?: string | undefined;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_listusers {
+  /**
+   * The number of items to return per page. Max 250. Example: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Example: "abc123"
+   */
+  after?: string | undefined;
+  /**
+   * Order by field. Available options are createdAt (default) and updatedAt. Example: "updatedAt"
+   */
+  orderBy?: string | undefined;
+  /**
+   * Filter options for users
+   */
+  filter?: {  /**
+   * Filter by user active state. Example: true
+   */
+  active?: boolean | undefined;};
+  /**
+   * Include disabled/suspended users (default: false). Example: true
+   */
+  includeDisabled?: boolean | undefined;
+};
+
+export interface ActionOutput_linear_listusers {
+  users: ({  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  active?: boolean | undefined;
+  admin?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  lastSeen?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_listworkflowstates {
+  /**
+   * Number of workflow states to return. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Order by field. Example: "updatedAt", "createdAt".
+   */
+  orderBy?: string | undefined;
+  /**
+   * Filter options for workflow states.
+   */
+  filter?: {  /**
+   * Filter by team ID.
+   */
+  teamId?: string | undefined;};
+};
+
+export interface ActionOutput_linear_listworkflowstates {
+  items: ({  id: string;
+  name: string;
+  type: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  position?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  team?: {  id: string;
+  key: string;
+  name: string;} | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_removeissuelabel {
+  /**
+   * The identifier of the issue to remove the label from. Example: "ISS-123"
+   */
+  issueId: string;
+  /**
+   * The identifier of the label to remove. Example: "label-uuid"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_linear_removeissuelabel {
+  success: boolean;
+  issueId: string;
+  labelId: string;
+  issue?: {  id: string;
+  identifier?: string | undefined;
+  title?: string | undefined;
+  updatedAt?: string | undefined;};
+};
+
+export interface ActionInput_linear_resolvecomment {
+  /**
+   * The identifier of the comment to resolve. Example: "comment-id-123"
+   */
+  id: string;
+  /**
+   * The identifier of the child comment that resolves the thread. If not provided, the thread is resolved without a specific resolving comment.
+   */
+  resolvingCommentId?: string | undefined;
+};
+
+export interface ActionOutput_linear_resolvecomment {
+  success: boolean;
+  commentId?: string | undefined;
+  lastSyncId?: number | undefined;
+};
+
+export interface ActionInput_linear_searchissues {
+  /**
+   * Full-text search term. Example: "login bug"
+   */
+  term: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_linear_searchissues {
+  items: ({  id: string;
+  identifier: string;
+  title: string;
+  description?: string | undefined;
+  priority?: number | undefined;
+  priorityLabel?: string | undefined;
+  url?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  assignee?: {  id: string;
+  name?: string | undefined;};
+  state?: {  id: string;
+  name?: string | undefined;};
+  team?: {  id: string;
+  name?: string | undefined;
+  key?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_linear_unarchiveissue {
+  id: string;
+};
+
+export interface ActionOutput_linear_unarchiveissue {
+  success: boolean;
+  issueId: string;
+  identifier: string;
+  title: string;
+  archivedAt: string;
+};
+
+export interface ActionInput_linear_unarchiveproject {
+  /**
+   * The identifier of the project to restore. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_linear_unarchiveproject {
+  id: string;
+  name: string;
+  slugId: string;
+  state?: string | undefined;
+  archivedAt?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  url?: string | undefined;
+};
+
+export interface ActionInput_linear_unresolvecomment {
+  /**
+   * The identifier of the comment to unresolve. Example: "comment-id-123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_linear_unresolvecomment {
+  /**
+   * Whether the operation was successful.
+   */
+  success: boolean;
+  /**
+   * The identifier of the last sync operation.
+   */
+  lastSyncId: string;
+  /**
+   * The identifier of the unresolved comment.
+   */
+  commentId: string;
+};
+
+export interface ActionInput_linear_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "comment-id-123"
+   */
+  id: string;
+  /**
+   * The new text content for the comment.
+   */
+  body: string;
+};
+
+export interface ActionOutput_linear_updatecomment {
+  id: string;
+  body?: string | undefined;
+};
+
+export interface ActionInput_linear_updatecycle {
+  /**
+   * The identifier of the cycle to update. Example: "cycle-id"
+   */
+  id: string;
+  /**
+   * The custom name of the cycle.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the cycle.
+   */
+  description?: string | undefined;
+  /**
+   * The start date and time of the cycle. ISO 8601 format.
+   */
+  startsAt?: string | undefined;
+  /**
+   * The end date and time of the cycle. ISO 8601 format.
+   */
+  endsAt?: string | undefined;
+  /**
+   * The completion time of the cycle. Pass null to mark as uncompleted.
+   */
+  completedAt?: string | undefined;
+};
+
+export interface ActionOutput_linear_updatecycle {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  startsAt: string;
+  endsAt: string;
+  completedAt?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  number: number;
+  isActive: boolean;
+  isFuture: boolean;
+  isNext: boolean;
+  isPast: boolean;
+  isPrevious: boolean;
+  progress: number;
+};
+
+export interface ActionInput_linear_updateissuelabel {
+  /**
+   * The identifier of the label to update.
+   */
+  id: string;
+  /**
+   * The name of the label.
+   */
+  name?: string | undefined;
+  /**
+   * The color of the label as a HEX string.
+   */
+  color?: string | undefined;
+  /**
+   * The description of the label.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_linear_updateissuelabel {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
+};
+
+export interface ActionInput_linear_updateissuerelation {
+  /**
+   * The identifier of the issue relation to update. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+  /**
+   * The identifier of the issue that is related to another issue. Can be a UUID or issue identifier (e.g., 'LIN-123').
+   */
+  issueId?: string | undefined;
+  /**
+   * The identifier of the related issue. Can be a UUID or issue identifier (e.g., 'LIN-123').
+   */
+  relatedIssueId?: string | undefined;
+  /**
+   * The type of relation of the issue to the related issue.
+   */
+  type?: 'blocks' | 'duplicate' | 'related' | 'similar' | undefined;
+};
+
+export interface ActionOutput_linear_updateissuerelation {
+  id: string;
+  type: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
+  issueId?: string | undefined;
+  relatedIssueId?: string | undefined;
+};
+
+export interface ActionInput_linear_updateissue {
+  /**
+   * The identifier of the issue to update. Example: "ISSUE-123" or UUID
+   */
+  id: string;
+  /**
+   * The title of the issue
+   */
+  title?: string | undefined;
+  /**
+   * The description of the issue in markdown format. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * The priority of the issue. 0 = no priority, 1 = urgent, 2 = high, 3 = medium, 4 = low. Pass null to clear.
+   */
+  priority?: number | undefined;
+  /**
+   * The identifier of the workflow state to move the issue to. Pass null to clear.
+   */
+  stateId?: string | undefined;
+  /**
+   * The identifier of the user to assign the issue to. Pass null to clear.
+   */
+  assigneeId?: string | undefined;
+  /**
+   * The identifiers of labels to attach to the issue. Pass null to clear.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * The identifier of the project to add the issue to. Pass null to clear.
+   */
+  projectId?: string | undefined;
+};
+
+export interface ActionOutput_linear_updateissue {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  priority?: number | undefined;
+  stateId?: string | undefined;
+  stateName?: string | undefined;
+  assigneeId?: string | undefined;
+  assigneeName?: string | undefined;
+  labelIds?: string[] | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  updatedAt?: string | undefined;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_linear_updateproject {
+  /**
+   * The identifier of the project to update. Example: "project-uuid"
+   */
+  projectId: string;
+  /**
+   * The new name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * The new description of the project.
+   */
+  description?: string | undefined;
+  /**
+   * The ID of the project status to set.
+   */
+  status?: string | undefined;
+  /**
+   * The planned target date of the project in ISO 8601 format. Example: "2025-12-31"
+   */
+  targetDate?: string | undefined;
+  /**
+   * The identifier of the project lead. Example: "user-uuid"
+   */
+  leadId?: string | undefined;
+};
+
+export interface ActionOutput_linear_updateproject {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  state?: string | undefined;
+  status?: {  id: string;
+  name: string;
+  type: string;} | undefined;
+  targetDate?: string | undefined;
+  slugId?: string | undefined;
+  leadId?: string | undefined;
+  url?: string | undefined;
+  updatedAt?: string | undefined;
+  createdAt?: string | undefined;
 };
 
 export interface LinkedInMessage {

@@ -1,0 +1,71 @@
+{
+  "input": {
+    "id": "cc856e7c-80c0-4a6e-80ed-69967493976a"
+  },
+  "output": {
+    "success": true,
+    "entityId": "cc856e7c-80c0-4a6e-80ed-69967493976a",
+    "lastSyncId": 558429464
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "issueRelationDelete": {
+              "success": true,
+              "entityId": "cc856e7c-80c0-4a6e-80ed-69967493976a",
+              "lastSyncId": 558429464
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:05:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4924",
+          "x-ratelimit-reset": "1777025150",
+          "cf-ray": "9f144a4c9df7fc83-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"7b-QyyJIUPwsTR+jPKtP2Rp5lV4jj4\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjUxMzMsImV4cCI6MTc3NzYyOTkzM30.vPrFV_uUBOfTjT9XQbl1j5_j2buXwrZRF04dr2fxl_A; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "2",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999998",
+          "x-ratelimit-complexity-reset": "1777028733593",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1777028733593",
+          "x-request-id": "9f144a4cb43bfc83-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "d347a3bbcdf821bcd9c73447fcf2603ff9f0d7d8",
+        "request": {
+          "data": {
+            "query": "\n                    mutation IssueRelationDelete($id: String!) {\n                        issueRelationDelete(id: $id) {\n                            success\n                            entityId\n                            lastSyncId\n                        }\n                    }\n                ",
+            "variables": {
+              "id": "cc856e7c-80c0-4a6e-80ed-69967493976a"
+            }
+          }
+        }
+      }
+    }
+  }
+}

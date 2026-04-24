@@ -1,0 +1,85 @@
+{
+  "input": {
+    "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+    "labelId": "9e19c152-7d16-4362-8695-91c555b8411e"
+  },
+  "output": {
+    "success": true,
+    "issueId": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+    "identifier": "NAN-5",
+    "title": "Test Issue Updated via Nango Action",
+    "updatedAt": "2026-04-24T10:01:32.764Z",
+    "labelIds": [
+      "9e19c152-7d16-4362-8695-91c555b8411e"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "issueAddLabel": {
+              "success": true,
+              "issue": {
+                "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+                "identifier": "NAN-5",
+                "title": "Test Issue Updated via Nango Action",
+                "updatedAt": "2026-04-24T10:01:32.764Z",
+                "labelIds": [
+                  "9e19c152-7d16-4362-8695-91c555b8411e"
+                ]
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:01:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1777024906",
+          "cf-ray": "9f1444b51963fc83-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"100-fYa50iurjdpH/TuLiPEuYCz968k\"",
+          "set-cookie": "<redacted>",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "4",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999996",
+          "x-ratelimit-complexity-reset": "1777028504559",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1777028504559",
+          "x-request-id": "9f1444b5360efc83-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "094b946555822b46182ff3e95add459c638494c3",
+        "request": {
+          "data": {
+            "query": "\n                    mutation IssueAddLabel($id: String!, $labelId: String!) {\n                        issueAddLabel(id: $id, labelId: $labelId) {\n                            success\n                            issue {\n                                id\n                                identifier\n                                title\n                                updatedAt\n                                labelIds\n                            }\n                        }\n                    }\n                ",
+            "variables": {
+              "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+              "labelId": "9e19c152-7d16-4362-8695-91c555b8411e"
+            }
+          }
+        }
+      }
+    }
+  }
+}
