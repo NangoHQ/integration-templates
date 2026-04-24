@@ -34,9 +34,7 @@ const ConnectionResponseSchema = z.object({
     tenantName: z.string().optional()
 });
 
-const ConnectionsApiResponseSchema = z.object({
-    data: z.array(ConnectionResponseSchema)
-});
+const ConnectionsApiResponseSchema = z.array(ConnectionResponseSchema);
 
 const OrganisationApiResponseSchema = z.object({
     Organisations: z
@@ -93,15 +91,15 @@ async function resolveTenantId(nango: {
 
     const parsedConnections = ConnectionsApiResponseSchema.parse(connections.data);
 
-    if (parsedConnections.data.length === 0) {
+    if (parsedConnections.length === 0) {
         throw new Error('No tenants found. Please connect a Xero organisation.');
     }
 
-    if (parsedConnections.data.length > 1) {
+    if (parsedConnections.length > 1) {
         throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
     }
 
-    const firstConnection = parsedConnections.data[0];
+    const firstConnection = parsedConnections[0];
     if (firstConnection && typeof firstConnection.tenantId === 'string') {
         return firstConnection.tenantId;
     }

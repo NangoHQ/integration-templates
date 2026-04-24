@@ -112114,7 +112114,7 @@
                       "SystemAccount": {
                         "anyOf": [
                           {
-                            "type": "boolean"
+                            "type": "string"
                           },
                           {
                             "type": "null"
@@ -113028,14 +113028,7 @@
                       "LineAmountTypes": {
                         "type": "string"
                       },
-                      "PaymentTerms": {
-                        "anyOf": [
-                          {},
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
+                      "PaymentTerms": {},
                       "LastPaymentDate": {
                         "anyOf": [
                           {
@@ -113050,7 +113043,7 @@
                     "required": [
                       "InvoiceID"
                     ],
-                    "additionalProperties": {}
+                    "additionalProperties": false
                   }
                 },
                 "nextPage": {

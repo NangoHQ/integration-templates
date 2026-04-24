@@ -5,7 +5,7 @@ const ConnectionResponseSchema = z.array(
     z.object({
         id: z.string(),
         tenantId: z.string(),
-        tenantName: z.string()
+        tenantName: z.string().optional()
     })
 );
 

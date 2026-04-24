@@ -109,40 +109,30 @@ const action = createAction({
         // 3. Call GET connections and use connections.data[0]['tenantId']
         // https://developer.xero.com/documentation/guides/oauth2/connections
         if (!tenantId) {
+            // https://developer.xero.com/documentation/guides/oauth2/connections
             const connectionsResponse = await nango.get({
-                endpoint: 'https://api.xero.com/connections',
+                endpoint: 'connections',
                 retries: 10
             });
 
-            // Validate the connections response structure
-            if (!isObject(connectionsResponse.data)) {
+            const connectionsSchema = z.array(z.object({ tenantId: z.string() }));
+            const parsedConnections = connectionsSchema.safeParse(connectionsResponse.data);
+
+            if (!parsedConnections.success) {
                 throw new Error('Failed to retrieve Xero connections');
             }
 
-            const data = connectionsResponse.data['data'];
-            if (!Array.isArray(data)) {
-                throw new Error('Failed to retrieve Xero connections');
-            }
+            const connections = parsedConnections.data;
 
-            if (data.length === 0) {
+            if (connections.length === 0) {
                 throw new Error('No Xero tenants found for this connection.');
             }
 
-            if (data.length > 1) {
+            if (connections.length > 1) {
                 throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
             }
 
-            const firstConnection = data[0];
-            if (!isObject(firstConnection)) {
-                throw new Error('Failed to resolve tenant ID from connections.');
-            }
-
-            const resolvedTenantId = firstConnection['tenantId'];
-            if (!resolvedTenantId || typeof resolvedTenantId !== 'string') {
-                throw new Error('Failed to resolve tenant ID from connections.');
-            }
-
-            tenantId = resolvedTenantId;
+            tenantId = connections[0]!.tenantId;
         }
 
         // Build the item payload for update

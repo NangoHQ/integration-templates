@@ -15,7 +15,7 @@ const AccountSchema = z.object({
     TaxType: z.union([z.string(), z.null()]),
     Description: z.union([z.string(), z.null()]),
     Class: z.union([z.string(), z.null()]),
-    SystemAccount: z.union([z.boolean(), z.null()]),
+    SystemAccount: z.union([z.string(), z.null()]),
     EnablePaymentsToAccount: z.union([z.boolean(), z.null()]),
     ShowInExpenseClaims: z.union([z.boolean(), z.null()]),
     BankAccountNumber: z.union([z.string(), z.null()]),
@@ -69,23 +69,8 @@ const XeroApiResponseSchema = z.object({
     Accounts: z.array(z.unknown())
 });
 
-// Schema for raw account from API
-const RawAccountSchema = z.object({
-    AccountID: z.unknown(),
-    Code: z.unknown(),
-    Name: z.unknown(),
-    Status: z.unknown(),
-    Type: z.unknown(),
-    TaxType: z.unknown(),
-    Description: z.unknown(),
-    Class: z.unknown(),
-    SystemAccount: z.unknown(),
-    EnablePaymentsToAccount: z.unknown(),
-    ShowInExpenseClaims: z.unknown(),
-    BankAccountNumber: z.unknown(),
-    BankAccountType: z.unknown(),
-    CurrencyCode: z.unknown()
-});
+// Schema for raw account from API — only AccountID is required; all other fields are optional
+const RawAccountSchema = z.looseObject({ AccountID: z.unknown() });
 
 const action = createAction({
     description: 'List accounts in the Xero chart of accounts.',
@@ -221,7 +206,7 @@ const action = createAction({
                 TaxType: getStringProperty(raw, 'TaxType') ?? null,
                 Description: getStringProperty(raw, 'Description') ?? null,
                 Class: getStringProperty(raw, 'Class') ?? null,
-                SystemAccount: getBooleanProperty(raw, 'SystemAccount') ?? null,
+                SystemAccount: getStringProperty(raw, 'SystemAccount') ?? null,
                 EnablePaymentsToAccount: getBooleanProperty(raw, 'EnablePaymentsToAccount') ?? null,
                 ShowInExpenseClaims: getBooleanProperty(raw, 'ShowInExpenseClaims') ?? null,
                 BankAccountNumber: getStringProperty(raw, 'BankAccountNumber') ?? null,

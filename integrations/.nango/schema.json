@@ -73731,7 +73731,7 @@
               },
               "SystemAccount": {
                 "type": [
-                  "boolean",
+                  "string",
                   "null"
                 ]
               },

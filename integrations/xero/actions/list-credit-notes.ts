@@ -71,7 +71,7 @@ const action = createAction({
         if (!tenantId) {
             const connectionsResponse = await nango.get({
                 // https://developer.xero.com/documentation/api/accounting/overview#connections
-                endpoint: 'api.xro/2.0/Connections',
+                endpoint: 'connections',
                 retries: 10
             });
 

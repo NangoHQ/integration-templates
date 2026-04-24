@@ -413,10 +413,8 @@ const action = createAction({
             payments.push(mappedPayment);
         }
 
-        // Xero uses page-based pagination with 100 records per page
-        // If we received a full page, there might be more data
         const currentPage = input['page'] ?? 1;
-        const nextCursor = payments.length === 100 ? String(currentPage + 1) : null;
+        const nextCursor = paymentsArray.length === 100 ? String(currentPage + 1) : null;
 
         return {
             payments,

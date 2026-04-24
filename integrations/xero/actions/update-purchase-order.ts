@@ -215,19 +215,61 @@ const action = createAction({
         const contactParse = ContactSchema.safeParse(purchaseOrder['Contact']);
         const contact = contactParse.success ? contactParse.data : undefined;
 
+        const purchaseOrderId = purchaseOrder['PurchaseOrderID'];
+        const purchaseOrderNumber = purchaseOrder['PurchaseOrderNumber'];
+        const contactId = contact?.ContactID;
+        const contactName = contact?.Name;
+        const date = purchaseOrder['Date'];
+        const status = purchaseOrder['Status'];
+        const subTotal = purchaseOrder['SubTotal'];
+        const totalTax = purchaseOrder['TotalTax'];
+        const total = purchaseOrder['Total'];
+        const updatedDateUtc = purchaseOrder['UpdatedDateUTC'];
+
+        if (typeof purchaseOrderId !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: PurchaseOrderID' });
+        }
+        if (typeof purchaseOrderNumber !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: PurchaseOrderNumber' });
+        }
+        if (typeof contactId !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: Contact.ContactID' });
+        }
+        if (typeof contactName !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: Contact.Name' });
+        }
+        if (typeof date !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: Date' });
+        }
+        if (typeof status !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: Status' });
+        }
+        if (typeof subTotal !== 'number') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: SubTotal' });
+        }
+        if (typeof totalTax !== 'number') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: TotalTax' });
+        }
+        if (typeof total !== 'number') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: Total' });
+        }
+        if (typeof updatedDateUtc !== 'string') {
+            throw new nango.ActionError({ type: 'invalid_response', message: 'Xero response missing required field: UpdatedDateUTC' });
+        }
+
         return {
-            purchaseOrderId: typeof purchaseOrder['PurchaseOrderID'] === 'string' ? purchaseOrder['PurchaseOrderID'] : '',
-            purchaseOrderNumber: typeof purchaseOrder['PurchaseOrderNumber'] === 'string' ? purchaseOrder['PurchaseOrderNumber'] : '',
-            contactId: contact && typeof contact.ContactID === 'string' ? contact.ContactID : '',
-            contactName: contact && typeof contact.Name === 'string' ? contact.Name : '',
-            date: typeof purchaseOrder['Date'] === 'string' ? purchaseOrder['Date'] : '',
+            purchaseOrderId,
+            purchaseOrderNumber,
+            contactId,
+            contactName,
+            date,
             deliveryDate: typeof purchaseOrder['DeliveryDate'] === 'string' ? purchaseOrder['DeliveryDate'] : null,
             reference: typeof purchaseOrder['Reference'] === 'string' ? purchaseOrder['Reference'] : null,
-            status: typeof purchaseOrder['Status'] === 'string' ? purchaseOrder['Status'] : '',
-            subTotal: typeof purchaseOrder['SubTotal'] === 'number' ? purchaseOrder['SubTotal'] : 0,
-            totalTax: typeof purchaseOrder['TotalTax'] === 'number' ? purchaseOrder['TotalTax'] : 0,
-            total: typeof purchaseOrder['Total'] === 'number' ? purchaseOrder['Total'] : 0,
-            updatedDateUtc: typeof purchaseOrder['UpdatedDateUTC'] === 'string' ? purchaseOrder['UpdatedDateUTC'] : ''
+            status,
+            subTotal,
+            totalTax,
+            total,
+            updatedDateUtc
         };
     }
 });

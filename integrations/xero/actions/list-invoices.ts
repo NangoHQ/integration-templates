@@ -16,8 +16,8 @@ const InvoiceSchema = z
         InvoiceNumber: z.string().optional(),
         Type: z.string().optional(),
         Reference: z.string().nullable().optional(),
-        Prepayments: z.array(z.any()).optional(),
-        Overpayments: z.array(z.any()).optional(),
+        Prepayments: z.array(z.unknown()).optional(),
+        Overpayments: z.array(z.unknown()).optional(),
         AmountDue: z.number().optional(),
         AmountPaid: z.number().optional(),
         AmountCredited: z.number().optional(),
@@ -29,19 +29,19 @@ const InvoiceSchema = z
         TotalTax: z.number().optional(),
         Total: z.number().optional(),
         TotalDiscount: z.number().optional(),
-        InvoiceItems: z.array(z.any()).optional(),
+        InvoiceItems: z.array(z.unknown()).optional(),
         UpdatedDateUTC: z.string().optional(),
         CurrencyCode: z.string().optional(),
         FullyPaidOnDate: z.string().nullable().optional(),
         Date: z.string().optional(),
         DueDate: z.string().nullable().optional(),
         StatusAttributeString: z.string().optional(),
-        ValidationErrors: z.array(z.any()).optional(),
-        Warnings: z.array(z.any()).optional(),
-        Contact: z.any().optional(),
-        LineItems: z.array(z.any()).optional(),
-        Payments: z.array(z.any()).optional(),
-        CreditNotes: z.array(z.any()).optional(),
+        ValidationErrors: z.array(z.unknown()).optional(),
+        Warnings: z.array(z.unknown()).optional(),
+        Contact: z.unknown().optional(),
+        LineItems: z.array(z.unknown()).optional(),
+        Payments: z.array(z.unknown()).optional(),
+        CreditNotes: z.array(z.unknown()).optional(),
         BrandingThemeID: z.string().optional(),
         Url: z.string().optional(),
         SentToContact: z.boolean().optional(),
@@ -51,10 +51,9 @@ const InvoiceSchema = z
         CISRate: z.number().optional(),
         RCMApplicable: z.boolean().optional(),
         LineAmountTypes: z.string().optional(),
-        PaymentTerms: z.any().nullable().optional(),
+        PaymentTerms: z.unknown().optional(),
         LastPaymentDate: z.string().nullable().optional()
-    })
-    .passthrough();
+    });
 
 const OutputSchema = z.object({
     invoices: z.array(InvoiceSchema),
@@ -161,62 +160,18 @@ const action = createAction({
         const responseData = response.data;
         const rawInvoices = 'Invoices' in responseData && Array.isArray(responseData['Invoices']) ? responseData['Invoices'] : [];
 
-        // Validate each invoice against schema
         const invoices: z.infer<typeof InvoiceSchema>[] = [];
         for (const rawInvoice of rawInvoices) {
-            if (rawInvoice && typeof rawInvoice === 'object' && !Array.isArray(rawInvoice)) {
-                const inv = rawInvoice;
-                const validatedInvoice: z.infer<typeof InvoiceSchema> = {
-                    InvoiceID: typeof inv['InvoiceID'] === 'string' ? inv['InvoiceID'] : '',
-                    InvoiceNumber: typeof inv['InvoiceNumber'] === 'string' ? inv['InvoiceNumber'] : undefined,
-                    Type: typeof inv['Type'] === 'string' ? inv['Type'] : undefined,
-                    Reference: typeof inv['Reference'] === 'string' ? inv['Reference'] : null,
-                    Prepayments: Array.isArray(inv['Prepayments']) ? inv['Prepayments'] : undefined,
-                    Overpayments: Array.isArray(inv['Overpayments']) ? inv['Overpayments'] : undefined,
-                    AmountDue: typeof inv['AmountDue'] === 'number' ? inv['AmountDue'] : undefined,
-                    AmountPaid: typeof inv['AmountPaid'] === 'number' ? inv['AmountPaid'] : undefined,
-                    AmountCredited: typeof inv['AmountCredited'] === 'number' ? inv['AmountCredited'] : undefined,
-                    CurrencyRate: typeof inv['CurrencyRate'] === 'number' ? inv['CurrencyRate'] : undefined,
-                    IsDiscounted: typeof inv['IsDiscounted'] === 'boolean' ? inv['IsDiscounted'] : undefined,
-                    HasAttachments: typeof inv['HasAttachments'] === 'boolean' ? inv['HasAttachments'] : undefined,
-                    InvoiceStatus: typeof inv['InvoiceStatus'] === 'string' ? inv['InvoiceStatus'] : undefined,
-                    SubTotal: typeof inv['SubTotal'] === 'number' ? inv['SubTotal'] : undefined,
-                    TotalTax: typeof inv['TotalTax'] === 'number' ? inv['TotalTax'] : undefined,
-                    Total: typeof inv['Total'] === 'number' ? inv['Total'] : undefined,
-                    TotalDiscount: typeof inv['TotalDiscount'] === 'number' ? inv['TotalDiscount'] : undefined,
-                    InvoiceItems: Array.isArray(inv['InvoiceItems']) ? inv['InvoiceItems'] : undefined,
-                    UpdatedDateUTC: typeof inv['UpdatedDateUTC'] === 'string' ? inv['UpdatedDateUTC'] : undefined,
-                    CurrencyCode: typeof inv['CurrencyCode'] === 'string' ? inv['CurrencyCode'] : undefined,
-                    FullyPaidOnDate: typeof inv['FullyPaidOnDate'] === 'string' ? inv['FullyPaidOnDate'] : null,
-                    Date: typeof inv['Date'] === 'string' ? inv['Date'] : undefined,
-                    DueDate: typeof inv['DueDate'] === 'string' ? inv['DueDate'] : null,
-                    StatusAttributeString: typeof inv['StatusAttributeString'] === 'string' ? inv['StatusAttributeString'] : undefined,
-                    ValidationErrors: Array.isArray(inv['ValidationErrors']) ? inv['ValidationErrors'] : undefined,
-                    Warnings: Array.isArray(inv['Warnings']) ? inv['Warnings'] : undefined,
-                    Contact: inv['Contact'],
-                    LineItems: Array.isArray(inv['LineItems']) ? inv['LineItems'] : undefined,
-                    Payments: Array.isArray(inv['Payments']) ? inv['Payments'] : undefined,
-                    CreditNotes: Array.isArray(inv['CreditNotes']) ? inv['CreditNotes'] : undefined,
-                    BrandingThemeID: typeof inv['BrandingThemeID'] === 'string' ? inv['BrandingThemeID'] : undefined,
-                    Url: typeof inv['Url'] === 'string' ? inv['Url'] : undefined,
-                    SentToContact: typeof inv['SentToContact'] === 'boolean' ? inv['SentToContact'] : undefined,
-                    ExpectedPaymentDate: typeof inv['ExpectedPaymentDate'] === 'string' ? inv['ExpectedPaymentDate'] : null,
-                    PlannedPaymentDate: typeof inv['PlannedPaymentDate'] === 'string' ? inv['PlannedPaymentDate'] : null,
-                    CISDeduction: typeof inv['CISDeduction'] === 'number' ? inv['CISDeduction'] : undefined,
-                    CISRate: typeof inv['CISRate'] === 'number' ? inv['CISRate'] : undefined,
-                    RCMApplicable: typeof inv['RCMApplicable'] === 'boolean' ? inv['RCMApplicable'] : undefined,
-                    LineAmountTypes: typeof inv['LineAmountTypes'] === 'string' ? inv['LineAmountTypes'] : undefined,
-                    PaymentTerms: inv['PaymentTerms'] ?? null,
-                    LastPaymentDate: typeof inv['LastPaymentDate'] === 'string' ? inv['LastPaymentDate'] : null
-                };
-                invoices.push(validatedInvoice);
+            const parsed = InvoiceSchema.safeParse(rawInvoice);
+            if (parsed.success) {
+                invoices.push(parsed.data);
             }
         }
 
         // Determine next page - Xero uses page-based pagination
         // If we received invoices, there might be more pages
         const currentPage = input.page ?? 1;
-        const nextPage = invoices.length > 0 ? currentPage + 1 : null;
+        const nextPage = invoices.length === 100 ? currentPage + 1 : null;
 
         return {
             invoices: invoices,

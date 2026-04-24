@@ -46,7 +46,8 @@ const XeroContactSchema = z.object({
     TaxNumber: z.string().optional(),
     IsCustomer: z.boolean().optional(),
     IsSupplier: z.boolean().optional(),
-    DefaultCurrency: z.string().optional()
+    DefaultCurrency: z.string().optional(),
+    Phones: z.array(z.object({ PhoneType: z.string().optional(), PhoneNumber: z.string().optional() })).optional()
 });
 
 const XeroContactsResponseSchema = z.object({
@@ -95,31 +96,30 @@ const action = createAction({
                 retries: 10
             });
 
-            const connectionsData = connectionsResponse.data;
-            if (connectionsData && typeof connectionsData === 'object' && 'data' in connectionsData && Array.isArray(connectionsData.data)) {
-                const connections = connectionsData.data;
-                if (connections.length === 0) {
-                    throw new nango.ActionError({
-                        type: 'no_tenant',
-                        message: 'No Xero tenant found for this connection.'
-                    });
-                }
-                if (connections.length > 1) {
-                    throw new nango.ActionError({
-                        type: 'multiple_tenants',
-                        message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
-                    });
-                }
-                const firstConnection = connections[0];
-                if (
-                    firstConnection &&
-                    typeof firstConnection === 'object' &&
-                    'tenantId' in firstConnection &&
-                    typeof firstConnection['tenantId'] === 'string'
-                ) {
-                    tenantId = firstConnection['tenantId'];
-                }
+            const connectionsSchema = z.array(z.object({ tenantId: z.string() }));
+            const parsedConnections = connectionsSchema.safeParse(connectionsResponse.data);
+
+            if (!parsedConnections.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Invalid connections response from Xero API'
+                });
             }
+
+            const connections = parsedConnections.data;
+            if (connections.length === 0) {
+                throw new nango.ActionError({
+                    type: 'no_tenant',
+                    message: 'No Xero tenant found for this connection.'
+                });
+            }
+            if (connections.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_tenants',
+                    message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                });
+            }
+            tenantId = connections[0]!.tenantId;
 
             if (!tenantId) {
                 throw new nango.ActionError({
@@ -133,22 +133,22 @@ const action = createAction({
             ContactID: input.contactId
         };
 
-        if (input.name) {
+        if (input.name !== undefined) {
             contactPayload['Name'] = input.name;
         }
-        if (input.firstName) {
+        if (input.firstName !== undefined) {
             contactPayload['FirstName'] = input.firstName;
         }
-        if (input.lastName) {
+        if (input.lastName !== undefined) {
             contactPayload['LastName'] = input.lastName;
         }
-        if (input.emailAddress) {
+        if (input.emailAddress !== undefined) {
             contactPayload['EmailAddress'] = input.emailAddress;
         }
-        if (input.accountNumber) {
+        if (input.accountNumber !== undefined) {
             contactPayload['BankAccountDetails'] = input.accountNumber;
         }
-        if (input.taxNumber) {
+        if (input.taxNumber !== undefined) {
             contactPayload['TaxNumber'] = input.taxNumber;
         }
         if (input.isCustomer !== undefined) {
@@ -157,36 +157,36 @@ const action = createAction({
         if (input.isSupplier !== undefined) {
             contactPayload['IsSupplier'] = input.isSupplier;
         }
-        if (input.defaultCurrency) {
+        if (input.defaultCurrency !== undefined) {
             contactPayload['DefaultCurrency'] = input.defaultCurrency;
         }
 
-        if (input.addressLine1 || input.addressLine2 || input.city || input.region || input.postalCode || input.country) {
+        if (input.addressLine1 !== undefined || input.addressLine2 !== undefined || input.city !== undefined || input.region !== undefined || input.postalCode !== undefined || input.country !== undefined) {
             const address: Record<string, unknown> = {
                 AddressType: 'POBOX'
             };
-            if (input.addressLine1) {
+            if (input.addressLine1 !== undefined) {
                 address['AddressLine1'] = input.addressLine1;
             }
-            if (input.addressLine2) {
+            if (input.addressLine2 !== undefined) {
                 address['AddressLine2'] = input.addressLine2;
             }
-            if (input.city) {
+            if (input.city !== undefined) {
                 address['City'] = input.city;
             }
-            if (input.region) {
+            if (input.region !== undefined) {
                 address['Region'] = input.region;
             }
-            if (input.postalCode) {
+            if (input.postalCode !== undefined) {
                 address['PostalCode'] = input.postalCode;
             }
-            if (input.country) {
+            if (input.country !== undefined) {
                 address['Country'] = input.country;
             }
             contactPayload['Addresses'] = [address];
         }
 
-        if (input.phoneNumber) {
+        if (input.phoneNumber !== undefined) {
             contactPayload['Phones'] = [
                 {
                     PhoneType: 'DEFAULT',
@@ -238,7 +238,7 @@ const action = createAction({
             firstName: contact.FirstName ?? null,
             lastName: contact.LastName ?? null,
             emailAddress: contact.EmailAddress ?? null,
-            phoneNumber: input.phoneNumber ?? null,
+            phoneNumber: contact.Phones?.find((p) => p.PhoneType === 'DEFAULT')?.PhoneNumber ?? null,
             accountNumber: contact.BankAccountDetails ?? null,
             taxNumber: contact.TaxNumber ?? null,
             isCustomer: contact.IsCustomer ?? null,

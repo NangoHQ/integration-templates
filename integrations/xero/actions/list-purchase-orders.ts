@@ -171,8 +171,8 @@ const action = createAction({
                 DeliveryAddress: typeof po['DeliveryAddress'] === 'string' ? po['DeliveryAddress'] : undefined
             }));
 
-        // Xero uses page-based pagination; next page exists if we got a full page
-        const nextCursor = rawPurchaseOrders.length === 100 && input['page'] !== undefined ? String(input['page'] + 1) : null;
+        const currentPage = input['page'] ?? 1;
+        const nextCursor = rawPurchaseOrders.length === 100 ? String(currentPage + 1) : null;
 
         return {
             purchaseOrders: purchaseOrders,

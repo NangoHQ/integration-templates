@@ -98,7 +98,14 @@ const action = createAction({
 
             const parsedConnections = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
 
-            if (!parsedConnections.success || parsedConnections.data.length === 0) {
+            if (!parsedConnections.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Invalid connections response from Xero API'
+                });
+            }
+
+            if (parsedConnections.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_tenant_found',
                     message: 'No Xero tenants found. Please connect a Xero organization.'
@@ -176,8 +183,11 @@ const action = createAction({
         }));
 
         let nextCursor: string | null = null;
-        if (pagination && pagination.page < pagination.pageCount) {
-            nextCursor = (pagination.page + 1).toString();
+        if (pagination) {
+            nextCursor = pagination.page < pagination.pageCount ? (pagination.page + 1).toString() : null;
+        } else {
+            // Xero default page size is 100; if no pagination object, infer more pages from item count
+            nextCursor = items.length === 100 ? (pageNumber + 1).toString() : null;
         }
 
         return {
