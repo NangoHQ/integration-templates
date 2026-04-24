@@ -167,10 +167,11 @@
           "x-ratelimit-reset": "1776870772",
           "etag": "W/\"ad1-j9mCxPdkg/ZEB7NSBcaK2PI4ifQ\""
         },
-        "hash": "7b001a6686f536fd2642a2c24d2170a8e20adbb7",
+        "hash": "fe4ce785805b4ecebae56a6ee30181e7cd915218",
         "request": {
           "headers": {
-            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e",
+            "Idempotency-Key": "00000000-0000-0000-0000-000000000000"
           },
           "data": {
             "BankTransactions": [

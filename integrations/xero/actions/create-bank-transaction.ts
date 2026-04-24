@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
@@ -199,7 +200,8 @@ const action = createAction({
         const response = await nango.put({
             endpoint: 'api.xro/2.0/BankTransactions',
             headers: {
-                'xero-tenant-id': tenantId
+                'xero-tenant-id': tenantId,
+                'Idempotency-Key': randomUUID()
             },
             data: {
                 BankTransactions: [bankTransactionPayload]

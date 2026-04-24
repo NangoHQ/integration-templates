@@ -108332,8 +108332,7 @@
                   "type": "string",
                   "enum": [
                     "AUTHORISED",
-                    "DELETED",
-                    "DRAFT"
+                    "DELETED"
                   ]
                 },
                 "isReconciled": {

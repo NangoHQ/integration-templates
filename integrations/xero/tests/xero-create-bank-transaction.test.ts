@@ -1,5 +1,10 @@
 import { vi, expect, it, describe } from 'vitest';
 
+vi.mock('crypto', async (importOriginal) => {
+    const actual = await importOriginal<typeof import('crypto')>();
+    return { ...actual, randomUUID: () => '00000000-0000-0000-0000-000000000000' };
+});
+
 import createAction from '../actions/create-bank-transaction.js';
 
 describe('xero create-bank-transaction tests', () => {

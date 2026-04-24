@@ -71239,8 +71239,7 @@
           "type": "string",
           "enum": [
             "AUTHORISED",
-            "DELETED",
-            "DRAFT"
+            "DELETED"
           ],
           "description": "Status of the transaction. Defaults to AUTHORISED."
         },

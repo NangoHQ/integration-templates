@@ -19071,7 +19071,7 @@ export interface ActionInput_xero_createbanktransaction {
   /**
    * Status of the transaction. Defaults to AUTHORISED.
    */
-  status?: 'AUTHORISED' | 'DELETED' | 'DRAFT' | undefined;
+  status?: 'AUTHORISED' | 'DELETED' | undefined;
   /**
    * Whether the transaction is reconciled.
    */
