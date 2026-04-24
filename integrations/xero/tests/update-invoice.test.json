@@ -1,0 +1,307 @@
+{
+  "input": {
+    "InvoiceID": "07e71ce4-9801-4cce-914b-dc07e9c0ca5e",
+    "Reference": "Book Updated"
+  },
+  "output": {
+    "InvoiceID": "07e71ce4-9801-4cce-914b-dc07e9c0ca5e",
+    "InvoiceNumber": "INV-0017",
+    "Type": "ACCREC",
+    "Status": "AUTHORISED",
+    "Date": "/Date(1772928000000+0000)/",
+    "DueDate": "/Date(1773792000000+0000)/",
+    "LineAmountTypes": "Exclusive",
+    "Reference": "Book Updated",
+    "CurrencyCode": "USD",
+    "SubTotal": 19.95,
+    "TotalTax": 1.75,
+    "Total": 21.7,
+    "AmountDue": 21.7,
+    "AmountPaid": 0,
+    "UpdatedDateUTC": "/Date(1777031906030+0000)/",
+    "HasErrors": false,
+    "Contact": {
+      "ContactID": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
+      "Name": "City Limousines",
+      "ContactStatus": "ACTIVE",
+      "FirstName": "Martin",
+      "LastName": "Dale",
+      "EmailAddress": "",
+      "BankAccountDetails": "",
+      "Addresses": [
+        {
+          "AddressType": "STREET",
+          "City": "",
+          "Region": "",
+          "PostalCode": "",
+          "Country": "",
+          "AttentionTo": ""
+        },
+        {
+          "AddressType": "POBOX",
+          "AddressLine1": "1206 Harbour Tower\r\n",
+          "AddressLine2": "59-65 South Street",
+          "AddressLine3": "",
+          "AddressLine4": "",
+          "City": "Coppertown",
+          "Region": "",
+          "PostalCode": "",
+          "Country": "",
+          "AttentionTo": "Accounts Dept"
+        }
+      ],
+      "Phones": [
+        {
+          "PhoneType": "FAX",
+          "PhoneNumber": "",
+          "PhoneAreaCode": "",
+          "PhoneCountryCode": ""
+        },
+        {
+          "PhoneType": "MOBILE",
+          "PhoneNumber": "7774001",
+          "PhoneAreaCode": "01",
+          "PhoneCountryCode": ""
+        },
+        {
+          "PhoneType": "DDI",
+          "PhoneNumber": "",
+          "PhoneAreaCode": "",
+          "PhoneCountryCode": ""
+        },
+        {
+          "PhoneType": "DEFAULT",
+          "PhoneNumber": "8004001",
+          "PhoneAreaCode": "01",
+          "PhoneCountryCode": ""
+        }
+      ],
+      "UpdatedDateUTC": "/Date(1776722395877+0000)/",
+      "ContactGroups": [
+        {
+          "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
+          "Name": "Training customers",
+          "Status": "ACTIVE",
+          "Contacts": [],
+          "HasValidationErrors": false
+        }
+      ],
+      "IsSupplier": false,
+      "IsCustomer": true,
+      "SalesTrackingCategories": [],
+      "PurchasesTrackingCategories": [],
+      "ContactPersons": [],
+      "HasValidationErrors": false
+    },
+    "LineItems": [
+      {
+        "LineItemID": "8dbdc273-ac9d-4950-9376-83d57a08d548",
+        "Description": "'Fish out of Water: Finding Your Brand'",
+        "Quantity": 1,
+        "UnitAmount": 19.95,
+        "AccountCode": "200",
+        "TaxType": "TAX001",
+        "LineAmount": 19.95,
+        "TaxAmount": 1.75,
+        "ItemCode": "BOOK",
+        "Item": {
+          "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+          "Name": "Fish out of Water: Finding Your Brand",
+          "Code": "BOOK"
+        },
+        "Tracking": [],
+        "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+        "ValidationErrors": []
+      }
+    ],
+    "Prepayments": [],
+    "Overpayments": [],
+    "SentToContact": true,
+    "SentToEmailAddress": "",
+    "CurrencyRate": 1,
+    "IsDiscounted": false,
+    "InvoicePaymentServices": [],
+    "DateString": "2026-03-08T00:00:00",
+    "DueDateString": "2026-03-18T00:00:00",
+    "StatusAttributeString": "OK"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/Invoices": {
+        "response": {
+          "Id": "5e8cefab-f519-48a6-9485-1c6084dfcaf8",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777031906081)/",
+          "Invoices": [
+            {
+              "Type": "ACCREC",
+              "InvoiceID": "07e71ce4-9801-4cce-914b-dc07e9c0ca5e",
+              "InvoiceNumber": "INV-0017",
+              "Reference": "Book Updated",
+              "Prepayments": [],
+              "Overpayments": [],
+              "AmountDue": 21.7,
+              "AmountPaid": 0,
+              "SentToContact": true,
+              "SentToEmailAddress": "",
+              "CurrencyRate": 1,
+              "IsDiscounted": false,
+              "HasErrors": false,
+              "InvoicePaymentServices": [],
+              "Contact": {
+                "ContactID": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
+                "ContactStatus": "ACTIVE",
+                "Name": "City Limousines",
+                "FirstName": "Martin",
+                "LastName": "Dale",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": "",
+                    "AttentionTo": ""
+                  },
+                  {
+                    "AddressType": "POBOX",
+                    "AddressLine1": "1206 Harbour Tower\r\n",
+                    "AddressLine2": "59-65 South Street",
+                    "AddressLine3": "",
+                    "AddressLine4": "",
+                    "City": "Coppertown",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": "",
+                    "AttentionTo": "Accounts Dept"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "7774001",
+                    "PhoneAreaCode": "01",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "8004001",
+                    "PhoneAreaCode": "01",
+                    "PhoneCountryCode": ""
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776722395877+0000)/",
+                "ContactGroups": [
+                  {
+                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
+                    "Name": "Training customers",
+                    "Status": "ACTIVE",
+                    "Contacts": [],
+                    "HasValidationErrors": false
+                  }
+                ],
+                "IsSupplier": false,
+                "IsCustomer": true,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-08T00:00:00",
+              "Date": "/Date(1772928000000+0000)/",
+              "DueDateString": "2026-03-18T00:00:00",
+              "DueDate": "/Date(1773792000000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "BOOK",
+                  "Description": "'Fish out of Water: Finding Your Brand'",
+                  "UnitAmount": 19.95,
+                  "TaxType": "TAX001",
+                  "TaxAmount": 1.75,
+                  "LineAmount": 19.95,
+                  "AccountCode": "200",
+                  "Item": {
+                    "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+                    "Name": "Fish out of Water: Finding Your Brand",
+                    "Code": "BOOK"
+                  },
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "8dbdc273-ac9d-4950-9376-83d57a08d548",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 19.95,
+              "TotalTax": 1.75,
+              "Total": 21.7,
+              "UpdatedDateUTC": "/Date(1777031906030+0000)/",
+              "CurrencyCode": "USD",
+              "StatusAttributeString": "OK"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 11:58:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4012",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1777031964",
+          "etag": "W/\"fac-2jeWFt+HeDlQuBpUkbuMs4+vCkw\""
+        },
+        "hash": "c20d1f818fe00b409149f4b2bc2b4850310d4b52",
+        "request": {
+          "params": {
+            "summarizeErrors": "false"
+          },
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Invoices": [
+              {
+                "InvoiceID": "07e71ce4-9801-4cce-914b-dc07e9c0ca5e",
+                "Reference": "Book Updated"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

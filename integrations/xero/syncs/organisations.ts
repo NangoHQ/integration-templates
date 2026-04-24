@@ -1,116 +1,161 @@
 import { createSync } from 'nango';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { parseDate } from '../utils.js';
-
-import type { ProxyConfiguration } from 'nango';
-import type { Address, Phone } from '../models.js';
-import { Organisation } from '../models.js';
 import { z } from 'zod';
 
+const OrganisationSchema = z.object({
+    id: z.string(),
+    Name: z.string().optional(),
+    LegalName: z.string().optional(),
+    ShortCode: z.string().optional(),
+    LineOfBusiness: z.string().optional(),
+    BaseCurrency: z.string().optional(),
+    CountryCode: z.string().optional(),
+    IsDemoCompany: z.boolean().optional(),
+    OrganisationStatus: z.string().optional(),
+    TaxNumber: z.string().optional(),
+    FinancialYearEndDay: z.number().optional(),
+    FinancialYearEndMonth: z.number().optional(),
+    DefaultSalesTax: z.string().optional(),
+    DefaultPurchasesTax: z.string().optional(),
+    PeriodLockDate: z.string().optional(),
+    CreatedDateUTC: z.string().optional(),
+    UpdatedDateUTC: z.string().optional()
+});
+
 const sync = createSync({
-    description: 'Fetches organisation details in Xero.',
-    version: '2.0.0',
+    description: 'Sync Xero organisation records for connected tenants.',
+    version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'full',
-
+    models: {
+        Organisation: OrganisationSchema
+    },
     endpoints: [
         {
             method: 'GET',
-            path: '/organisations',
-            group: 'Organisations'
+            path: '/syncs/organisations'
         }
     ],
 
-    scopes: ['accounting.settings', 'accounting.settings.read'],
-
-    models: {
-        Organisation: Organisation
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const tenant_id = await getTenantId(nango);
+        const tenantId = await resolveTenantId(nango);
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/organisation
-            endpoint: 'api.xro/2.0/Organisation',
-            headers: {
-                'xero-tenant-id': tenant_id
-            },
-            retries: 10
+        const headers: Record<string, string> = {
+            'xero-tenant-id': tenantId
         };
 
-        const res = await nango.get(config);
-        if (res.data.Organisations) {
-            const mappedOrganisations = res.data.Organisations.map(mapXeroOrganisation);
-            await nango.batchSave(mappedOrganisations, 'Organisation');
+        // https://developer.xero.com/documentation/api/accounting/organisation
+        const response = await nango.get({
+            endpoint: 'api.xro/2.0/Organisation',
+            headers,
+            retries: 3
+        });
+
+        if (typeof response.data !== 'object' || response.data === null) {
+            return;
         }
-        await nango.deleteRecordsFromPreviousExecutions('Organisation');
+
+        const apiResponse = z
+            .object({
+                Organisations: z
+                    .array(
+                        z.object({
+                            OrganisationID: z.string(),
+                            Name: z.string().optional(),
+                            LegalName: z.string().optional(),
+                            ShortCode: z.string().optional(),
+                            LineOfBusiness: z.string().optional(),
+                            BaseCurrency: z.string().optional(),
+                            CountryCode: z.string().optional(),
+                            IsDemoCompany: z.boolean().optional(),
+                            OrganisationStatus: z.string().optional(),
+                            TaxNumber: z.string().optional(),
+                            FinancialYearEndDay: z.number().optional(),
+                            FinancialYearEndMonth: z.number().optional(),
+                            DefaultSalesTax: z.string().optional(),
+                            DefaultPurchasesTax: z.string().optional(),
+                            PeriodLockDate: z.string().optional(),
+                            CreatedDateUTC: z.string().optional(),
+                            UpdatedDateUTC: z.string().optional()
+                        })
+                    )
+                    .optional()
+            })
+            .safeParse(response.data);
+
+        if (!apiResponse.success || !apiResponse.data.Organisations || apiResponse.data.Organisations.length === 0) {
+            return;
+        }
+
+        const organisations = apiResponse.data.Organisations.map((org) => ({
+            id: org.OrganisationID,
+            ...(org.Name !== undefined && { Name: org.Name }),
+            ...(org.LegalName !== undefined && { LegalName: org.LegalName }),
+            ...(org.ShortCode !== undefined && { ShortCode: org.ShortCode }),
+            ...(org.LineOfBusiness !== undefined && { LineOfBusiness: org.LineOfBusiness }),
+            ...(org.BaseCurrency !== undefined && { BaseCurrency: org.BaseCurrency }),
+            ...(org.CountryCode !== undefined && { CountryCode: org.CountryCode }),
+            ...(org.IsDemoCompany !== undefined && { IsDemoCompany: org.IsDemoCompany }),
+            ...(org.OrganisationStatus !== undefined && { OrganisationStatus: org.OrganisationStatus }),
+            ...(org.TaxNumber !== undefined && { TaxNumber: org.TaxNumber }),
+            ...(org.FinancialYearEndDay !== undefined && { FinancialYearEndDay: org.FinancialYearEndDay }),
+            ...(org.FinancialYearEndMonth !== undefined && { FinancialYearEndMonth: org.FinancialYearEndMonth }),
+            ...(org.DefaultSalesTax !== undefined && { DefaultSalesTax: org.DefaultSalesTax }),
+            ...(org.DefaultPurchasesTax !== undefined && { DefaultPurchasesTax: org.DefaultPurchasesTax }),
+            ...(org.PeriodLockDate !== undefined && { PeriodLockDate: org.PeriodLockDate }),
+            ...(org.CreatedDateUTC !== undefined && { CreatedDateUTC: org.CreatedDateUTC }),
+            ...(org.UpdatedDateUTC !== undefined && { UpdatedDateUTC: org.UpdatedDateUTC })
+        }));
+
+        if (organisations.length === 0) {
+            return;
+        }
+
+        await nango.batchSave(organisations, 'Organisation');
     }
 });
 
+async function resolveTenantId(nango: Parameters<(typeof sync)['exec']>[0]): Promise<string> {
+    const connectionSchema = z.object({
+        connection_config: z.record(z.string(), z.unknown()).optional(),
+        metadata: z.record(z.string(), z.unknown()).optional()
+    });
+
+    const rawConnection = await nango.getConnection();
+    const connection = connectionSchema.parse(rawConnection);
+
+    if (connection.connection_config && typeof connection.connection_config['tenant_id'] === 'string' && connection.connection_config['tenant_id'].length > 0) {
+        return connection.connection_config['tenant_id'];
+    }
+
+    if (connection.metadata && typeof connection.metadata['tenantId'] === 'string' && connection.metadata['tenantId'].length > 0) {
+        return connection.metadata['tenantId'];
+    }
+
+    // https://developer.xero.com/documentation/api/accounting/connections
+    const connectionsResponse = await nango.get({
+        endpoint: 'connections',
+        retries: 10
+    });
+
+    if (!Array.isArray(connectionsResponse.data)) {
+        throw new Error('Invalid response from Xero connections endpoint.');
+    }
+
+    if (connectionsResponse.data.length === 0) {
+        throw new Error('No Xero tenants found for this connection.');
+    }
+
+    if (connectionsResponse.data.length > 1) {
+        throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
+    }
+
+    const tenantSchema = z.object({
+        tenantId: z.string()
+    });
+
+    const first = tenantSchema.parse(connectionsResponse.data[0]);
+    return first.tenantId;
+}
+
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapXeroOrganisation(xeroOrganisation: any): Organisation {
-    return {
-        id: xeroOrganisation.OrganisationID,
-        ...(xeroOrganisation.APIKey && { apiKey: xeroOrganisation.APIKey }),
-        name: xeroOrganisation.Name,
-        legalName: xeroOrganisation.LegalName,
-        paysTax: xeroOrganisation.PaysTax,
-        version: xeroOrganisation.Version,
-        organisationType: xeroOrganisation.OrganisationType,
-        baseCurrency: xeroOrganisation.BaseCurrency,
-        countryCode: xeroOrganisation.CountryCode,
-        isDemoCompany: xeroOrganisation.IsDemoCompany,
-        organisationStatus: xeroOrganisation.OrganisationStatus,
-        registrationNumber: xeroOrganisation.RegistrationNumber,
-        employerIdentificationNumber: xeroOrganisation.EmployerIdentificationNumber,
-        taxNumber: xeroOrganisation.TaxNumber,
-        financialYearEndDay: xeroOrganisation.FinancialYearEndDay,
-        financialYearEndMonth: xeroOrganisation.FinancialYearEndMonth,
-        salesTaxBasis: xeroOrganisation.SalesTaxBasis,
-        salesTaxPeriod: xeroOrganisation.SalesTaxPeriod,
-        defaultSalesTax: xeroOrganisation.DefaultSalesTax,
-        defaultPurchasesTax: xeroOrganisation.DefaultPurchasesTax,
-        ...(xeroOrganisation.PeriodLockDate && { periodLockDate: parseDate(xeroOrganisation.PeriodLockDate).toISOString() }),
-        ...(xeroOrganisation.EndOfYearLockDate && { endOfYearLockDate: parseDate(xeroOrganisation.EndOfYearLockDate).toISOString() }),
-        ...(xeroOrganisation.CreatedDateUTC && { createdDateUTC: parseDate(xeroOrganisation.CreatedDateUTC).toISOString() }),
-        timezone: xeroOrganisation.Timezone,
-        organisationEntityType: xeroOrganisation.OrganisationEntityType,
-        shortCode: xeroOrganisation.ShortCode,
-        edition: xeroOrganisation.Edition,
-        class: xeroOrganisation.Class,
-        lineOfBusiness: xeroOrganisation.LineOfBusiness,
-        addresses: xeroOrganisation.Addresses?.map(mapXeroAddress),
-        phones: xeroOrganisation.Phones?.map(mapXeroPhone),
-        externalLinks: xeroOrganisation.ExternalLinks,
-        paymentTerms: xeroOrganisation.PaymentTerms
-    };
-}
-
-function mapXeroAddress(xeroAddress: any): Address {
-    return {
-        addressType: xeroAddress.AddressType,
-        addressLine1: xeroAddress.AddressLine1,
-        addressLine2: xeroAddress.AddressLine2,
-        addressLine3: xeroAddress.AddressLine3,
-        addressLine4: xeroAddress.AddressLine4,
-        city: xeroAddress.City,
-        region: xeroAddress.Region,
-        postalCode: xeroAddress.PostalCode,
-        country: xeroAddress.Country,
-        attentionTo: xeroAddress.AttentionTo
-    };
-}
-function mapXeroPhone(xeroPhone: any): Phone {
-    return {
-        phoneType: xeroPhone.PhoneType,
-        phoneNumber: xeroPhone.PhoneNumber,
-        phoneAreaCode: xeroPhone.PhoneAreaCode,
-        phoneCountryCode: xeroPhone.PhoneCountryCode
-    };
-}
