@@ -108592,9 +108592,7 @@
           "ActionOutput_xero_createcontact"
         ],
         "scopes": [
-          "accounting.contacts",
-          "accounting.settings",
-          "accounting.transactions"
+          "accounting.contacts"
         ],
         "usedModels": [
           "ActionInput_xero_createcontact",
