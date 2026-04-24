@@ -11,8 +11,8 @@ const InputSchema = z
         date: z.string().describe('The date of the payment in YYYY-MM-DD format. Example: "2024-01-15"'),
         reference: z.string().optional().describe('Optional reference for the payment. Example: "Payment for Invoice #123"')
     })
-    .refine((data) => data.invoiceId || data.creditNoteId, {
-        message: 'Either invoiceId or creditNoteId must be provided'
+    .refine((data) => Boolean(data.invoiceId) !== Boolean(data.creditNoteId), {
+        message: 'Exactly one of invoiceId or creditNoteId must be provided'
     })
     .refine((data) => data.accountId || data.accountCode, {
         message: 'Either accountId or accountCode must be provided'
