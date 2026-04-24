@@ -20596,46 +20596,52 @@
         "id": {
           "type": "string"
         },
-        "createdAt": {
+        "identifier": {
           "type": "string"
         },
-        "updatedAt": {
+        "title": {
           "type": "string"
         },
-        "key": {
+        "description": {
           "type": "string"
         },
-        "summary": {
-          "type": "string"
-        },
-        "issueType": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
+        "state": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "assignee": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
-        "url": {
-          "type": "string"
-        },
-        "webUrl": {
-          "type": "string"
-        },
-        "projectId": {
-          "type": "string"
-        },
-        "projectKey": {
-          "type": "string"
-        },
-        "projectName": {
-          "type": "string"
-        },
-        "comments": {
+        "labels": {
           "type": "array",
           "items": {
             "type": "object",
@@ -20643,73 +20649,65 @@
               "id": {
                 "type": "string"
               },
-              "createdAt": {
+              "name": {
                 "type": "string"
               },
-              "updatedAt": {
+              "color": {
                 "type": "string"
-              },
-              "author": {
-                "type": "object",
-                "properties": {
-                  "accountId": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "active": {
-                    "type": "boolean"
-                  },
-                  "displayName": {
-                    "type": "string"
-                  },
-                  "emailAddress": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "accountId",
-                  "active",
-                  "displayName",
-                  "emailAddress"
-                ],
-                "additionalProperties": false
-              },
-              "body": {
-                "type": "object",
-                "additionalProperties": false
               }
             },
             "required": [
-              "id",
-              "createdAt",
-              "updatedAt",
-              "author",
-              "body"
+              "id"
             ],
             "additionalProperties": false
           }
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "cycle": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
         }
       },
       "required": [
         "id",
-        "createdAt",
-        "updatedAt",
-        "key",
-        "summary",
-        "issueType",
-        "status",
-        "assignee",
-        "url",
-        "webUrl",
-        "projectId",
-        "projectKey",
-        "projectName",
-        "comments"
+        "updatedAt"
       ],
       "additionalProperties": false
     },
@@ -39992,29 +39990,95 @@
         "id": {
           "type": "string"
         },
-        "key": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
-        "url": {
+        "state": {
           "type": "string"
         },
-        "projectTypeKey": {
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "progress": {
+          "type": "number"
+        },
+        "startDate": {
           "type": "string"
         },
-        "webUrl": {
+        "targetDate": {
           "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "lead": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "teams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
         "id",
-        "key",
         "name",
-        "url",
-        "projectTypeKey",
-        "webUrl"
+        "createdAt",
+        "updatedAt"
       ],
       "additionalProperties": false
     },
@@ -44362,85 +44426,7 @@
       ],
       "additionalProperties": false
     },
-    "LinearIssue": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "assigneeId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "creatorId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "dueDate": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "projectId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "teamId": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "estimate": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "assigneeId",
-        "creatorId",
-        "createdAt",
-        "updatedAt",
-        "description",
-        "dueDate",
-        "projectId",
-        "teamId",
-        "title",
-        "status",
-        "estimate"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_linear_issues": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "LinearMilestone": {
+    "Cycle": {
       "type": "object",
       "properties": {
         "id": {
@@ -44449,14 +44435,17 @@
         "name": {
           "type": "string"
         },
-        "progress": {
+        "number": {
           "type": "number"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "startsAt": {
+          "type": "string"
+        },
+        "endsAt": {
+          "type": "string"
+        },
+        "teamId": {
+          "type": "string"
         },
         "createdAt": {
           "type": "string"
@@ -44464,10 +44453,1437 @@
         "updatedAt": {
           "type": "string"
         },
+        "completedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "number",
+        "startsAt",
+        "endsAt",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_linear_cycles": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IssueLabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "teamId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_linear_issuelabels": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Milestone": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "number"
+        },
         "status": {
           "type": "string"
         },
+        "targetDate": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
         "project": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "Roadmap": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "slugId": {
+          "type": "string"
+        },
+        "sortOrder": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "creatorId": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "projectIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "teamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "updatedAt",
+        "createdAt",
+        "slugId",
+        "sortOrder",
+        "url",
+        "projectIds",
+        "teamIds"
+      ],
+      "additionalProperties": false
+    },
+    "Team": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "WorkflowState": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "teamId": {
+          "type": "string"
+        },
+        "teamName": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_addissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue to add the label to. Example: \"123e4567-e89b-12d3-a456-426614174000\""
+        },
+        "labelId": {
+          "type": "string",
+          "description": "The identifier of the label to add. Example: \"123e4567-e89b-12d3-a456-426614174001\""
+        }
+      },
+      "required": [
+        "id",
+        "labelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_addissuelabel": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_archivecycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the cycle to archive. Example: \"cycle-uuid\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_archivecycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "number"
+        },
+        "startsAt": {
+          "type": "string"
+        },
+        "endsAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "number",
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_archiveissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue to archive. Example: \"c0b0b0b0-0000-0000-0000-000000000000\" or \"TEAM-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_archiveissue": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "issue": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "archivedAt": {
+              "type": "string"
+            },
+            "state": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createattachment": {
+      "type": "object",
+      "properties": {
+        "issueId": {
+          "type": "string",
+          "description": "The issue to associate the attachment with. Can be a UUID or issue identifier (e.g., LIN-123). Example: \"590a1127-f98b-49fc-ba74-2df8751c089e\""
+        },
+        "title": {
+          "type": "string",
+          "description": "The attachment title. Example: \"Exception\""
+        },
+        "url": {
+          "type": "string",
+          "description": "Attachment location which is also used as a unique identifier for the attachment. Example: \"https://example.com/123\""
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "The attachment subtitle. Example: \"Open\""
+        },
+        "iconUrl": {
+          "type": "string",
+          "description": "An icon url to display with the attachment. Should be of jpg or png format. Example: \"https://example.com/icon.png\""
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Attachment metadata object with string and number values. Example: {\"exceptionId\": \"exc-123\"}"
+        },
+        "groupBySource": {
+          "type": "boolean",
+          "description": "Indicates if attachments for the same source application should be grouped in the Linear UI."
+        },
+        "createAsUser": {
+          "type": "string",
+          "description": "Create attachment as a user with the provided name. This option is only available to OAuth applications creating attachments in actor=application mode."
+        },
+        "commentBody": {
+          "type": "string",
+          "description": "Create a linked comment with markdown body."
+        }
+      },
+      "required": [
+        "issueId",
+        "title",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createattachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "title",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createcomment": {
+      "type": "object",
+      "properties": {
+        "issueId": {
+          "type": "string",
+          "description": "The ID of the Linear issue to comment on. Example: \"issue-uuid\""
+        },
+        "body": {
+          "type": "string",
+          "description": "The comment body content."
+        },
+        "parentId": {
+          "type": "string",
+          "description": "The ID of the parent comment for threaded replies."
+        }
+      },
+      "required": [
+        "issueId",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "issueIdentifier": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createcycle": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string",
+          "description": "The ID of the team this cycle belongs to. Example: \"9cfb482a-81e3-4154-b5b9-2c805e70a02d\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the cycle. Example: \"Sprint 23\""
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the cycle."
+        },
+        "startsAt": {
+          "type": "string",
+          "description": "The start date of the cycle in ISO 8601 format. Example: \"2024-01-15T00:00:00Z\""
+        },
+        "endsAt": {
+          "type": "string",
+          "description": "The end date of the cycle in ISO 8601 format. Example: \"2024-01-29T00:00:00Z\""
+        },
+        "completedAt": {
+          "type": "string",
+          "description": "The completion date of the cycle in ISO 8601 format."
+        }
+      },
+      "required": [
+        "teamId",
+        "name",
+        "startsAt",
+        "endsAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createcycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startsAt": {
+          "type": "string"
+        },
+        "endsAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isNext": {
+          "type": "boolean"
+        },
+        "isPrevious": {
+          "type": "boolean"
+        },
+        "progress": {
+          "type": "number"
+        },
+        "team": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "number"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createissuelabel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the issue label. Example: \"Bug\""
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the label as a HEX string. Example: \"#EB5757\""
+        },
+        "teamId": {
+          "type": "string",
+          "description": "The identifier of the team to associate the label with. If omitted, the label will be workspace-level."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the label."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "teamId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createissuerelation": {
+      "type": "object",
+      "properties": {
+        "issueId": {
+          "type": "string",
+          "description": "ID of the primary issue. Example: \"c5748ccf-c67f-4af4-bd74-fe513dc4c054\""
+        },
+        "relatedIssueId": {
+          "type": "string",
+          "description": "ID of the related issue. Example: \"71bc4480-3aa1-4c56-b657-827996658662\""
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "blocks",
+            "blocked_by",
+            "duplicate",
+            "duplicate_of",
+            "related"
+          ],
+          "description": "Type of relationship between the issues."
+        }
+      },
+      "required": [
+        "issueId",
+        "relatedIssueId",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createissuerelation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "issueIdentifier": {
+          "type": "string"
+        },
+        "relatedIssueId": {
+          "type": "string"
+        },
+        "relatedIssueIdentifier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createissue": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string",
+          "description": "Team ID. Example: \"9cfb482a-81e3-4154-b5b9-2c805e70a02d\""
+        },
+        "title": {
+          "type": "string",
+          "description": "Issue title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Issue description in markdown"
+        },
+        "priority": {
+          "type": "number",
+          "description": "Priority from 0 (no priority) to 4 (low). 1=urgent, 2=high, 3=medium"
+        },
+        "stateId": {
+          "type": "string",
+          "description": "Workflow state ID"
+        },
+        "assigneeId": {
+          "type": "string",
+          "description": "Assignee user ID"
+        },
+        "cycleId": {
+          "type": "string",
+          "description": "Cycle ID"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of label IDs"
+        },
+        "projectId": {
+          "type": "string",
+          "description": "Project ID"
+        }
+      },
+      "required": [
+        "teamId",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "stateId": {
+          "type": "string"
+        },
+        "assigneeId": {
+          "type": "string"
+        },
+        "teamId": {
+          "type": "string"
+        },
+        "cycleId": {
+          "type": "string"
+        },
+        "projectId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_createproject": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description for the project."
+        },
+        "leadId": {
+          "type": "string",
+          "description": "The identifier of the project lead."
+        },
+        "teamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The identifiers of the teams this project is associated with."
+        },
+        "targetDate": {
+          "type": "string",
+          "description": "The planned target date of the project in ISO date format."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The planned start date of the project in ISO date format."
+        },
+        "status": {
+          "type": "string",
+          "description": "The state of the project (e.g. planned, started, paused, completed, canceled)."
+        }
+      },
+      "required": [
+        "name",
+        "teamIds"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_createproject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "slugId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "lead": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "teamIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "targetDate": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_deleteattachment": {
+      "type": "object",
+      "properties": {
+        "attachmentId": {
+          "type": "string",
+          "description": "The identifier of the attachment to delete. Example: \"f4485af5-5d5a-4baf-bb8f-d66cbf7254c8\""
+        }
+      },
+      "required": [
+        "attachmentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_deleteattachment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "attachmentId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_deletecomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to delete. Example: \"abc123\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_deleteissuelabel": {
+      "type": "object",
+      "properties": {
+        "labelId": {
+          "type": "string",
+          "description": "The ID of the issue label to delete. Example: \"label-uuid\""
+        }
+      },
+      "required": [
+        "labelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_deleteissuelabel": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "lastSyncId": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_deleteissuerelation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue relation to delete. Example: \"abc123-def456\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_deleteissuerelation": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "lastSyncId": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_deleteissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue to delete. Example: \"3e03fa02-a23a-40ac-93f4-bbdfd6120caf\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_deleteissue": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getattachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Attachment ID. Example: \"47e14163-404c-4a34-b775-5c536d67760a\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getattachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "sourceType": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "groupBySource": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        },
+        "bodyData": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "identifier",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "originalIssue": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "identifier",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "creator": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "externalUserCreator": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "metadata",
+        "groupBySource",
+        "createdAt",
+        "updatedAt",
+        "issue"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getcomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "Linear comment ID. Example: \"comment-id-123\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "resolved": {
+          "type": "boolean"
+        },
+        "resolvedAt": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "resolved"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getcycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the Linear cycle. Example: \"cycle-id-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getcycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "team": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "progress": {
+          "type": "number"
+        },
+        "startsAt": {
+          "type": "string"
+        },
+        "endsAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the issue label. Example: \"abc123-def456\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "team": {
           "type": "object",
           "properties": {
             "id": {
@@ -44487,235 +45903,53 @@
       "required": [
         "id",
         "name",
-        "progress",
-        "description",
-        "createdAt",
-        "updatedAt",
-        "status",
-        "project"
+        "color",
+        "archived"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_linear_milestones": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "LinearProject": {
+    "ActionInput_linear_getissue": {
       "type": "object",
       "properties": {
         "id": {
+          "type": "string",
+          "description": "Issue ID or identifier. Example: \"c7a3b3c0-0000-0000-0000-000000000000\" or \"TEAM-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
           "type": "string"
         },
         "url": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "teamId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "url",
-        "name",
-        "description",
-        "createdAt",
-        "updatedAt",
-        "teamId"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_linear_projects": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "LinearRoadmap": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "teamId": {
-          "type": "string"
-        },
-        "projectIds": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "createdAt",
-        "updatedAt",
-        "teamId",
-        "projectIds"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_linear_roadmaps": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "LinearTeam": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "createdAt",
-        "updatedAt"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_linear_teams": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "LinearUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "admin": {
-          "type": "boolean"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "avatarUrl": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "admin",
-        "email",
-        "firstName",
-        "avatarUrl"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_linear_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_linear_createissue": {
-      "type": "object",
-      "properties": {
-        "teamId": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "projectId": {
-          "type": "string"
-        },
-        "milestoneId": {
-          "type": "string"
-        },
-        "assigneeId": {
-          "type": "string"
+        "number": {
+          "type": "number"
         },
         "priority": {
           "type": "number"
         },
-        "parentId": {
-          "type": "string"
-        },
         "estimate": {
           "type": "number"
         },
         "dueDate": {
           "type": "string"
-        }
-      },
-      "required": [
-        "teamId",
-        "title"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_linear_createissue": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "assigneeId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "creatorId": {
-          "type": [
-            "string",
-            "null"
-          ]
         },
         "createdAt": {
           "type": "string"
@@ -44723,127 +45957,64 @@
         "updatedAt": {
           "type": "string"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "dueDate": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "projectId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "teamId": {
+        "archivedAt": {
           "type": "string"
         },
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "estimate": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "assigneeId",
-        "creatorId",
-        "createdAt",
-        "updatedAt",
-        "description",
-        "dueDate",
-        "projectId",
-        "teamId",
-        "title",
-        "status",
-        "estimate"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_linear_fetchfields": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_linear_fetchfields": {
-      "type": "object",
-      "properties": {
-        "fields": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "fields"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_linear_fetchmodels": {
-      "type": "null"
-    },
-    "ActionOutput_linear_fetchmodels": {
-      "type": "object",
-      "properties": {
-        "models": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              }
+        "state": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
             },
-            "required": [
-              "name"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "models"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_linear_fetchteams": {
-      "type": "object",
-      "properties": {
-        "after": {
-          "type": "string"
+            "name": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
-        "pageSize": {
-          "type": "number"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ActionOutput_linear_fetchteams": {
-      "type": "object",
-      "properties": {
-        "teams": {
+        "assignee": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "team": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "labels": {
           "type": "array",
           "items": {
             "type": "object",
@@ -44853,11 +46024,487 @@
               },
               "name": {
                 "type": "string"
+              },
+              "color": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getproject": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The unique identifier of the Linear project. Example: \"7b277fbc-8b76-4cdc-ad25-cd735ca33d0c\""
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getproject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "lead": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "progress": {
+          "type": "number"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "targetDate": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string"
+        },
+        "canceledAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getteam": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Team ID. Example: \"team-id-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getteam": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
               }
             },
             "required": [
               "id",
               "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Linear user ID. Example: \"usr_123abc\""
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "admin": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "admin",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getviewer": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getviewer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "avatarUrl": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "urlKey": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_getworkflowstate": {
+      "type": "object",
+      "properties": {
+        "stateId": {
+          "type": "string",
+          "description": "The ID of the workflow state to retrieve. Example: \"123e4567-e89b-12d3-a456-426614174000\""
+        }
+      },
+      "required": [
+        "stateId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_getworkflowstate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "type": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listattachments": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "The number of items to forward paginate. Defaults to 50."
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Filter returned attachments using Linear AttachmentFilter fields."
+        },
+        "orderBy": {
+          "type": "string",
+          "enum": [
+            "createdAt",
+            "updatedAt"
+          ],
+          "description": "By which field should the pagination order. Available options are createdAt (default) and updatedAt."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listattachments": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "archivedAt": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "subtitle": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "sourceType": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "groupBySource": {
+                "type": "boolean"
+              },
+              "bodyData": {
+                "type": "string"
+              },
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email"
+                ],
+                "additionalProperties": false
+              },
+              "externalUserCreator": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email"
+                ],
+                "additionalProperties": false
+              },
+              "issue": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "identifier",
+                  "title"
+                ],
+                "additionalProperties": false
+              },
+              "originalIssue": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "identifier",
+                  "title"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "createdAt",
+              "updatedAt",
+              "title",
+              "url",
+              "metadata",
+              "groupBySource",
+              "issue"
             ],
             "additionalProperties": false
           }
@@ -44869,22 +46516,1726 @@
               "type": "boolean"
             },
             "endCursor": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasNextPage"
+          ],
+          "additionalProperties": false
+        },
+        "nextCursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results, if available."
+        }
+      },
+      "required": [
+        "items",
+        "pageInfo"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listcomments": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of items to return. Defaults to 50."
+        },
+        "after": {
+          "type": "string",
+          "description": "Cursor for forward pagination."
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Comment filter object."
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Order by field, e.g. \"createdAt\" or \"updatedAt\"."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listcomments": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "issue": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "editedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "body",
+              "createdAt",
+              "updatedAt",
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "endCursor": {
+              "type": "string"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "startCursor": {
+              "type": "string"
             }
           },
           "required": [
             "hasNextPage",
-            "endCursor"
+            "hasPreviousPage"
           ],
           "additionalProperties": false
         }
       },
       "required": [
-        "teams",
+        "items",
         "pageInfo"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listcycles": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of cycles to return. Example: 10"
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Cycle filter object. Example: { team: { id: { eq: \"team-id\" } } }"
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Order by field. Example: \"updatedAt\" or \"createdAt\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listcycles": {
+      "type": "object",
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "number": {
+                "type": "number"
+              },
+              "startsAt": {
+                "type": "string"
+              },
+              "endsAt": {
+                "type": "string"
+              },
+              "completedAt": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "endCursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasNextPage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "nodes",
+        "pageInfo"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listissuelabels": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "The number of items to forward paginate. Defaults to 50."
+        },
+        "after": {
+          "type": "string",
+          "description": "A cursor to be used with first for forward pagination."
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "[Alpha] Filter returned issue labels."
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Ordering of returned results. Example: \"updatedAt\", \"createdAt\"."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listissuelabels": {
+      "type": "object",
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "archivedAt": {
+                "type": "string"
+              },
+              "isGroup": {
+                "type": "boolean"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "color"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "endCursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasNextPage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "nodes",
+        "pageInfo"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listissues": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of issues to return per page. Example: 50"
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor for forward pagination. Example: \"eyJvcmRlciI6...\""
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Field to order by. Example: \"updatedAt\" or \"createdAt\""
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Issue filter object. Example: { state: { type: { eq: \"started\" } } }"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listissues": {
+      "type": "object",
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "state": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "identifier",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "startCursor": {
+              "type": "string"
+            },
+            "endCursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasNextPage",
+            "hasPreviousPage"
+          ],
+          "additionalProperties": false
+        },
+        "nextCursor": {
+          "type": "string",
+          "description": "Convenience field matching pageInfo.endCursor when hasNextPage is true"
+        }
+      },
+      "required": [
+        "issues",
+        "pageInfo"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listprojects": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of projects to return. Maximum: 100."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Project filter object. Example: { state: { eq: \"started\" } }"
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Order by field. Example: \"updatedAt\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listprojects": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "progress": {
+                "type": "number"
+              },
+              "startDate": {
+                "type": "string"
+              },
+              "targetDate": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "lead": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email"
+                ],
+                "additionalProperties": false
+              },
+              "teams": {
+                "type": "object",
+                "properties": {
+                  "nodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "key"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "nodes"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projects"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listteams": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of teams to return per page. Default: 50."
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listteams": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listusers": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "The number of items to return per page. Max 250. Example: 50"
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Example: \"abc123\""
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Order by field. Available options are createdAt (default) and updatedAt. Example: \"updatedAt\""
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Filter options for users"
+        },
+        "includeDisabled": {
+          "type": "boolean",
+          "description": "Include disabled/suspended users (default: false). Example: true"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listusers": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "admin": {
+                "type": "boolean"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "lastSeen": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_listworkflowstates": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "description": "Number of workflow states to return. Defaults to 50."
+        },
+        "after": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "Order by field. Example: \"updatedAt\", \"createdAt\"."
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "teamId": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Filter options for workflow states."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_listworkflowstates": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_removeissuelabel": {
+      "type": "object",
+      "properties": {
+        "issueId": {
+          "type": "string",
+          "description": "The identifier of the issue to remove the label from. Example: \"ISS-123\""
+        },
+        "labelId": {
+          "type": "string",
+          "description": "The identifier of the label to remove. Example: \"label-uuid\""
+        }
+      },
+      "required": [
+        "issueId",
+        "labelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_removeissuelabel": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "labelId": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success",
+        "issueId",
+        "labelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_resolvecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the comment to resolve. Example: \"comment-id-123\""
+        },
+        "resolvingCommentId": {
+          "type": "string",
+          "description": "The identifier of the child comment that resolves the thread. If not provided, the thread is resolved without a specific resolving comment."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_resolvecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "commentId": {
+          "type": "string"
+        },
+        "lastSyncId": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_searchissues": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "type": "string",
+          "description": "Full-text search term. Example: \"login bug\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of results per page. Default: 50."
+        }
+      },
+      "required": [
+        "term"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_searchissues": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "priorityLabel": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "state": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "identifier",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_unarchiveissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_unarchiveissue": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "issueId",
+        "identifier",
+        "title",
+        "archivedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_unarchiveproject": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The identifier of the project to restore. Example: \"123e4567-e89b-12d3-a456-426614174000\""
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_unarchiveproject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slugId": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "slugId",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_unresolvecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the comment to unresolve. Example: \"comment-id-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_unresolvecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the operation was successful."
+        },
+        "lastSyncId": {
+          "type": "string",
+          "description": "The identifier of the last sync operation."
+        },
+        "commentId": {
+          "type": "string",
+          "description": "The identifier of the unresolved comment."
+        }
+      },
+      "required": [
+        "success",
+        "lastSyncId",
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updatecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the comment to update. Example: \"comment-id-123\""
+        },
+        "body": {
+          "type": "string",
+          "description": "The new text content for the comment."
+        }
+      },
+      "required": [
+        "id",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updatecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updatecycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the cycle to update. Example: \"cycle-id\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The custom name of the cycle."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the cycle."
+        },
+        "startsAt": {
+          "type": "string",
+          "description": "The start date and time of the cycle. ISO 8601 format."
+        },
+        "endsAt": {
+          "type": "string",
+          "description": "The end date and time of the cycle. ISO 8601 format."
+        },
+        "completedAt": {
+          "type": "string",
+          "description": "The completion time of the cycle. Pass null to mark as uncompleted."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updatecycle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startsAt": {
+          "type": "string"
+        },
+        "endsAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "number": {
+          "type": "number"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isFuture": {
+          "type": "boolean"
+        },
+        "isNext": {
+          "type": "boolean"
+        },
+        "isPast": {
+          "type": "boolean"
+        },
+        "isPrevious": {
+          "type": "boolean"
+        },
+        "progress": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "startsAt",
+        "endsAt",
+        "createdAt",
+        "updatedAt",
+        "number",
+        "isActive",
+        "isFuture",
+        "isNext",
+        "isPast",
+        "isPrevious",
+        "progress"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updateissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the label to update."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the label."
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the label as a HEX string."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the label."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updateissuelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updateissuerelation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue relation to update. Example: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\""
+        },
+        "issueId": {
+          "type": "string",
+          "description": "The identifier of the issue that is related to another issue. Can be a UUID or issue identifier (e.g., 'LIN-123')."
+        },
+        "relatedIssueId": {
+          "type": "string",
+          "description": "The identifier of the related issue. Can be a UUID or issue identifier (e.g., 'LIN-123')."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "blocks",
+            "duplicate",
+            "related",
+            "similar"
+          ],
+          "description": "The type of relation of the issue to the related issue."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updateissuerelation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        },
+        "issueId": {
+          "type": "string"
+        },
+        "relatedIssueId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updateissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the issue to update. Example: \"ISSUE-123\" or UUID"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the issue"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the issue in markdown format. Pass null to clear."
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority of the issue. 0 = no priority, 1 = urgent, 2 = high, 3 = medium, 4 = low. Pass null to clear."
+        },
+        "stateId": {
+          "type": "string",
+          "description": "The identifier of the workflow state to move the issue to. Pass null to clear."
+        },
+        "assigneeId": {
+          "type": "string",
+          "description": "The identifier of the user to assign the issue to. Pass null to clear."
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The identifiers of labels to attach to the issue. Pass null to clear."
+        },
+        "projectId": {
+          "type": "string",
+          "description": "The identifier of the project to add the issue to. Pass null to clear."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updateissue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "stateId": {
+          "type": "string"
+        },
+        "stateName": {
+          "type": "string"
+        },
+        "assigneeId": {
+          "type": "string"
+        },
+        "assigneeName": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projectId": {
+          "type": "string"
+        },
+        "projectName": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linear_updateproject": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The identifier of the project to update. Example: \"project-uuid\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "The new description of the project."
+        },
+        "status": {
+          "type": "string",
+          "description": "The ID of the project status to set."
+        },
+        "targetDate": {
+          "type": "string",
+          "description": "The planned target date of the project in ISO 8601 format. Example: \"2025-12-31\""
+        },
+        "leadId": {
+          "type": "string",
+          "description": "The identifier of the project lead. Example: \"user-uuid\""
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linear_updateproject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "targetDate": {
+          "type": "string"
+        },
+        "slugId": {
+          "type": "string"
+        },
+        "leadId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ],
       "additionalProperties": false
     },

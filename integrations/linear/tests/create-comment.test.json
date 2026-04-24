@@ -1,0 +1,95 @@
+{
+  "input": {
+    "issueId": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
+    "body": "This is a test comment created via Nango action."
+  },
+  "output": {
+    "id": "e6ef786b-7333-4ba8-8c37-e931e5e01314",
+    "body": "This is a test comment created via Nango action.",
+    "url": "https://linear.app/nango-api/issue/NAN-14/test-issue-for-comment-creation#comment-e6ef786b",
+    "createdAt": "2026-04-24T10:07:30.470Z",
+    "updatedAt": "2026-04-24T10:07:30.456Z",
+    "userId": "5e854765-e42d-4ce6-9e66-789add44f493",
+    "userName": "victor+linear@nango.dev",
+    "issueId": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
+    "issueIdentifier": "NAN-14"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "commentCreate": {
+              "success": true,
+              "comment": {
+                "id": "e6ef786b-7333-4ba8-8c37-e931e5e01314",
+                "body": "This is a test comment created via Nango action.",
+                "url": "https://linear.app/nango-api/issue/NAN-14/test-issue-for-comment-creation#comment-e6ef786b",
+                "createdAt": "2026-04-24T10:07:30.470Z",
+                "updatedAt": "2026-04-24T10:07:30.456Z",
+                "user": {
+                  "id": "5e854765-e42d-4ce6-9e66-789add44f493",
+                  "name": "victor+linear@nango.dev"
+                },
+                "issue": {
+                  "id": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
+                  "identifier": "NAN-14"
+                },
+                "parent": null
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:07:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1777025283",
+          "cf-ray": "9f144d26fc768e5d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"1ff-dabUi7R9Kjd3RDdcwCqDvS4iVs4\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjUyNTAsImV4cCI6MTc3NzYzMDA1MH0.AHuOv6xVXuBLtxJs3btos_HyvLchgKcojG4E9avdk4o; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "6",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999992",
+          "x-ratelimit-complexity-reset": "1777028850453",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4998",
+          "x-ratelimit-requests-reset": "1777028850453",
+          "x-request-id": "9f144d27161e8e5d-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "3b16855e10affa9bc30284692b867c45203fbfd6",
+        "request": {
+          "data": {
+            "query": "\n            mutation CreateComment($input: CommentCreateInput!) {\n                commentCreate(input: $input) {\n                    success\n                    comment {\n                        id\n                        body\n                        url\n                        createdAt\n                        updatedAt\n                        user {\n                            id\n                            name\n                        }\n                        issue {\n                            id\n                            identifier\n                        }\n                        parent {\n                            id\n                        }\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "input": {
+                "issueId": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
+                "body": "This is a test comment created via Nango action."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

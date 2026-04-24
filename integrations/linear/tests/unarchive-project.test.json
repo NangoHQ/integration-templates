@@ -1,0 +1,85 @@
+{
+  "input": {
+    "projectId": "85a25ff7-dd3c-4e55-9ce5-ed4c14dbafde"
+  },
+  "output": {
+    "id": "85a25ff7-dd3c-4e55-9ce5-ed4c14dbafde",
+    "name": "Temp Archived Project 1777025656176",
+    "slugId": "96de6a8fa9d1",
+    "state": "backlog",
+    "archivedAt": null,
+    "createdAt": "2026-04-24T10:14:16.285Z",
+    "updatedAt": "2026-04-24T10:14:16.285Z",
+    "url": "https://linear.app/nango-api/project/temp-archived-project-1777025656176-96de6a8fa9d1"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projectUnarchive": {
+              "success": true,
+              "lastSyncId": 0,
+              "entity": {
+                "id": "85a25ff7-dd3c-4e55-9ce5-ed4c14dbafde",
+                "name": "Temp Archived Project 1777025656176",
+                "slugId": "96de6a8fa9d1",
+                "state": "backlog",
+                "archivedAt": null,
+                "createdAt": "2026-04-24T10:14:16.285Z",
+                "updatedAt": "2026-04-24T10:14:16.285Z",
+                "url": "https://linear.app/nango-api/project/temp-archived-project-1777025656176-96de6a8fa9d1"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:15:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1777025724",
+          "cf-ray": "9f14583a5c6f0eda-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"18a-rImwVnyJtv4UuSFUnrEQ+6u+M5U\"",
+          "set-cookie": "<redacted>",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "3",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999997",
+          "x-ratelimit-complexity-reset": "1777029304339",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1777029304339",
+          "x-request-id": "9f14583a83780eda-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "465aaa90df9669ad30af909e43454cc2920dd65e",
+        "request": {
+          "data": {
+            "query": "\n                    mutation projectUnarchive($id: String!) {\n                        projectUnarchive(id: $id) {\n                            success\n                            lastSyncId\n                            entity {\n                                id\n                                name\n                                slugId\n                                state\n                                archivedAt\n                                createdAt\n                                updatedAt\n                                url\n                            }\n                        }\n                    }\n                ",
+            "variables": {
+              "id": "85a25ff7-dd3c-4e55-9ce5-ed4c14dbafde"
+            }
+          }
+        }
+      }
+    }
+  }
+}

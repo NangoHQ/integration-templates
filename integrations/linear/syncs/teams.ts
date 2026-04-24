@@ -1,92 +1,165 @@
 import { createSync } from 'nango';
-import { LinearTeam } from '../models.js';
 import { z } from 'zod';
 
+const TeamSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    key: z.string().optional(),
+    description: z.string().optional(),
+    color: z.string().optional(),
+    icon: z.string().optional(),
+    private: z.boolean().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    archivedAt: z.string().optional()
+});
+
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z.object({
+        teams: z.object({
+            nodes: z.array(
+                z.object({
+                    id: z.string(),
+                    name: z.string().nullish(),
+                    key: z.string().nullish(),
+                    description: z.string().nullish(),
+                    color: z.string().nullish(),
+                    icon: z.string().nullish(),
+                    private: z.boolean().nullish(),
+                    createdAt: z.string().nullish(),
+                    updatedAt: z.string().nullish(),
+                    archivedAt: z.string().nullish()
+                })
+            ),
+            pageInfo: z.object({
+                hasNextPage: z.boolean(),
+                endCursor: z.string().nullish()
+            })
+        })
+    })
+});
+
+type TeamVariables = {
+    first: number;
+    orderBy: string;
+    filter?: { updatedAt: { gte: string } };
+    after?: string;
+};
+
 const sync = createSync({
-    description: 'Fetches a list of teams from Linear',
-    version: '2.0.0',
-    frequency: 'every 5min',
+    description: 'Sync Linear teams visible to the authenticated user.',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/teams',
-            group: 'Teams'
-        }
-    ],
-
+    checkpoint: CheckpointSchema,
+    endpoints: [{ method: 'GET', path: '/syncs/teams' }],
     models: {
-        LinearTeam: LinearTeam
+        Team: TeamSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const { lastSyncDate } = nango;
-        const pageSize = 50;
-        let after = '';
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
 
-        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+        let cursor: string | undefined;
+        let isFirstPage = true;
+        let highWaterMark: string | undefined;
+
         while (true) {
-            const filterParam = lastSyncDate
-                ? `
-            , filter: {
-                updatedAt: { gte: "${lastSyncDate.toISOString()}" }
-            }`
-                : '';
+            const variables: TeamVariables = {
+                first: 100,
+                orderBy: 'updatedAt'
+            };
 
-            const afterParam = after ? `, after: "${after}"` : '';
+            if (checkpoint?.updated_after) {
+                variables.filter = { updatedAt: { gte: checkpoint.updated_after } };
+            }
 
-            const query = `
-            query {
-                teams (first: ${pageSize}${afterParam}${filterParam}) {
-                    nodes {
-                        id
-                        name
-                        description
-                        createdAt
-                        updatedAt
-                    }
-                    pageInfo {
-                        hasNextPage
-                        endCursor
-                    }
-                }
-            }`;
+            if (cursor) {
+                variables.after = cursor;
+            }
 
             const response = await nango.post({
-                baseUrlOverride: 'https://api.linear.app',
+                // https://linear.app/developers
                 endpoint: '/graphql',
                 data: {
-                    query: query
+                    query: `
+                        query Teams($filter: TeamFilter, $after: String, $first: Int, $orderBy: PaginationOrderBy) {
+                            teams(filter: $filter, after: $after, first: $first, orderBy: $orderBy) {
+                                nodes {
+                                    id
+                                    name
+                                    key
+                                    description
+                                    color
+                                    icon
+                                    private
+                                    createdAt
+                                    updatedAt
+                                    archivedAt
+                                }
+                                pageInfo {
+                                    hasNextPage
+                                    endCursor
+                                }
+                            }
+                        }
+                    `,
+                    variables
                 },
-                retries: 10
+                retries: 3
             });
 
-            await nango.batchSave(mapTeams(response.data.data.teams.nodes), 'LinearTeam');
+            const parsed = GraphQLResponseSchema.parse(response.data);
+            const teams = parsed.data.teams.nodes;
+            const pageInfo = parsed.data.teams.pageInfo;
 
-            if (!response.data.data.teams.pageInfo.hasNextPage || !response.data.data.teams.pageInfo.endCursor) {
-                break;
-            } else {
-                after = response.data.data.teams.pageInfo.endCursor;
+            if (!Array.isArray(teams)) {
+                throw new Error('Expected teams.nodes to be an array');
             }
+
+            if (teams.length === 0) {
+                break;
+            }
+
+            const mappedTeams = teams.map((team) => ({
+                id: team.id,
+                ...(team.name != null && { name: team.name }),
+                ...(team.key != null && { key: team.key }),
+                ...(team.description != null && { description: team.description }),
+                ...(team.color != null && { color: team.color }),
+                ...(team.icon != null && { icon: team.icon }),
+                ...(team.private != null && { private: team.private }),
+                ...(team.createdAt != null && { createdAt: team.createdAt }),
+                ...(team.updatedAt != null && { updatedAt: team.updatedAt }),
+                ...(team.archivedAt != null && { archivedAt: team.archivedAt })
+            }));
+
+            await nango.batchSave(mappedTeams, 'Team');
+
+            const firstTeam = mappedTeams[0];
+            if (isFirstPage && firstTeam && firstTeam.updatedAt) {
+                highWaterMark = firstTeam.updatedAt;
+                isFirstPage = false;
+            }
+
+            if (!pageInfo.hasNextPage || !pageInfo.endCursor) {
+                break;
+            }
+
+            cursor = pageInfo.endCursor;
+        }
+
+        if (highWaterMark) {
+            await nango.saveCheckpoint({ updated_after: highWaterMark });
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapTeams(records: any[]): LinearTeam[] {
-    return records.map((record: any) => {
-        return {
-            id: record.id,
-            name: record.name,
-            description: record.description,
-            createdAt: new Date(record.createdAt).toISOString(),
-            updatedAt: new Date(record.updatedAt).toISOString()
-        };
-    });
-}
