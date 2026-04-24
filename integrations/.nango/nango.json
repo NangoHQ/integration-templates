@@ -66704,7 +66704,7 @@
           "ActionInput_linear_createissue",
           "ActionOutput_linear_createissue"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_linear_createissue": {
@@ -68554,7 +68554,14 @@
                       "type": "boolean"
                     },
                     "endCursor": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -69361,10 +69368,24 @@
                       "type": "boolean"
                     },
                     "startCursor": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "endCursor": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -69416,7 +69437,9 @@
               "properties": {
                 "first": {
                   "description": "Number of projects to return. Maximum: 100.",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "cursor": {
                   "description": "Pagination cursor from the previous response. Omit for the first page.",
@@ -69489,9 +69512,7 @@
                           }
                         },
                         "required": [
-                          "id",
-                          "name",
-                          "email"
+                          "id"
                         ],
                         "additionalProperties": false
                       },
@@ -71319,7 +71340,7 @@
         "usedModels": [
           "Issue"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -71472,7 +71493,7 @@
         "usedModels": [
           "Milestone"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -71554,7 +71575,7 @@
         "usedModels": [
           "Project"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -71684,7 +71705,7 @@
         "usedModels": [
           "Roadmap"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -71779,7 +71800,7 @@
         "usedModels": [
           "Team"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -71850,7 +71871,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {

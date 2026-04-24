@@ -44,8 +44,8 @@ const IssueSchema = z.object({
 const PageInfoSchema = z.object({
     hasNextPage: z.boolean(),
     hasPreviousPage: z.boolean(),
-    startCursor: z.string().optional(),
-    endCursor: z.string().optional()
+    startCursor: z.string().nullable().optional(),
+    endCursor: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -195,7 +195,7 @@ const action = createAction({
         return {
             issues: parsedNodes.data,
             pageInfo: connection.pageInfo,
-            ...(connection.pageInfo.hasNextPage && connection.pageInfo.endCursor !== undefined && { nextCursor: connection.pageInfo.endCursor })
+            ...(connection.pageInfo.hasNextPage && connection.pageInfo.endCursor != null && { nextCursor: connection.pageInfo.endCursor })
         };
     }
 });

@@ -74,7 +74,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear issues with state, assignee, labels, project, and cycle data.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
     endpoints: [

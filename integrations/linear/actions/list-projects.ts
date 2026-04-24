@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('Number of projects to return. Maximum: 100.'),
+    first: z.number().int().min(1).max(100).optional().describe('Number of projects to return. Maximum: 100.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     filter: z.record(z.string(), z.unknown()).optional().describe('Project filter object. Example: { state: { eq: "started" } }'),
     orderBy: z.string().optional().describe('Order by field. Example: "updatedAt"')
@@ -16,8 +16,8 @@ const TeamSchema = z.object({
 
 const LeadSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    email: z.string()
+    name: z.string().optional(),
+    email: z.string().optional()
 });
 
 const ProjectSchema = z.object({

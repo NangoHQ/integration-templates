@@ -13,7 +13,7 @@ const InputSchema = z.object({
 
 const PageInfoSchema = z.object({
     hasNextPage: z.boolean(),
-    endCursor: z.string().optional()
+    endCursor: z.string().nullable().optional()
 });
 
 const AttachmentSchema = z.object({

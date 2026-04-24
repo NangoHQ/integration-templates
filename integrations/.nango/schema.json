@@ -47169,9 +47169,7 @@
                   }
                 },
                 "required": [
-                  "id",
-                  "name",
-                  "email"
+                  "id"
                 ],
                 "additionalProperties": false
               },

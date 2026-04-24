@@ -18,16 +18,16 @@ const ProviderStatusSchema = z.object({
 
 const ProviderProjectSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    description: z.string().optional(),
-    state: z.string().optional(),
+    name: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    state: z.string().nullable().optional(),
     status: ProviderStatusSchema.nullable().optional(),
     targetDate: z.string().nullable().optional(),
-    slugId: z.string().optional(),
+    slugId: z.string().nullable().optional(),
     lead: z.object({ id: z.string() }).nullable().optional(),
-    url: z.string().optional(),
-    updatedAt: z.string().optional(),
-    createdAt: z.string().optional()
+    url: z.string().nullable().optional(),
+    updatedAt: z.string().nullable().optional(),
+    createdAt: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -153,7 +153,7 @@ const action = createAction({
 
         return {
             id: project.id,
-            name: project.name,
+            name: project.name ?? '',
             ...(project.description != null && { description: project.description }),
             ...(project.state != null && { state: project.state }),
             ...(project.status != null && {

@@ -12828,8 +12828,8 @@ export interface ActionOutput_linear_listprojects {
   updatedAt?: string | undefined;
   url?: string | undefined;
   lead?: {  id: string;
-  name: string;
-  email: string;} | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
   teams?: {  nodes: ({  id: string;
   name: string;
   key: string;})[];} | undefined;})[];

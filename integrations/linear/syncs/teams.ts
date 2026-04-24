@@ -52,7 +52,7 @@ type TeamVariables = {
 
 const sync = createSync({
     description: 'Sync Linear teams visible to the authenticated user.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
