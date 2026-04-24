@@ -81,7 +81,10 @@ const sync = createSync<{ Team: typeof TeamSchema }, undefined, typeof Checkpoin
                 throw new Error('Linear teams response did not include pagination info');
             }
 
-            if (nodes && nodes.length > 0) {
+            if (!Array.isArray(nodes)) {
+                throw new Error('Linear teams response did not include nodes; aborting to prevent incorrect delete reconciliation');
+            }
+            if (nodes.length > 0) {
                 const teams = nodes.map(
                     (team: {
                         id: string;

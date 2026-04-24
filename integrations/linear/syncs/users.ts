@@ -109,7 +109,10 @@ const sync = createSync<{ User: UserModel }, undefined, CheckpointType>({
                 throw new Error('Linear users response did not include pagination info');
             }
 
-            if (!Array.isArray(nodes) || nodes.length === 0) {
+            if (!Array.isArray(nodes)) {
+                throw new Error('Linear users response did not include nodes; aborting to prevent incorrect delete reconciliation');
+            }
+            if (nodes.length === 0) {
                 await nango.saveCheckpoint({ after: '' });
                 break;
             }

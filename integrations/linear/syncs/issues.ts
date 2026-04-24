@@ -341,10 +341,10 @@ const sync = createSync({
             if (issues.length > 0) {
                 await nango.batchSave(issues, 'Issue');
 
-                // Advance the lower bound only after the whole updatedAt window finishes.
-                const lastIssue = issues[issues.length - 1];
-                if (lastIssue) {
-                    lastUpdatedAt = lastIssue.updatedAt;
+                // Results are ordered newest-first; track the highest updatedAt seen.
+                const firstIssue = issues[0];
+                if (firstIssue && firstIssue.updatedAt > lastUpdatedAt) {
+                    lastUpdatedAt = firstIssue.updatedAt;
                 }
             }
 

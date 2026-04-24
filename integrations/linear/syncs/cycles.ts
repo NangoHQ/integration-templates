@@ -104,7 +104,10 @@ const sync = createSync({
                 throw new Error('Linear cycles response did not include a cycles connection');
             }
 
-            const edges = cyclesData.edges || [];
+            if (!cyclesData.edges) {
+                throw new Error('Linear cycles response did not include edges; aborting to prevent incorrect delete reconciliation');
+            }
+            const edges = cyclesData.edges;
             const cycles = edges.map(
                 (edge: {
                     node: {

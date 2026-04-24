@@ -70,7 +70,7 @@
           "cf-cache-status": "DYNAMIC",
           "cache-control": "no-store",
           "etag": "W/\"206-y4VPUQM2Nv/YzK7lr1zoIyYUq64\"",
-          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzY4NDM2MDEsImV4cCI6MTc3NzQ0ODQwMX0.Sj5_VMhu6o7hDBH4y7ME2T7GInsfS0lMcxyYz39IFv8; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "set-cookie": "<redacted>",
           "via": "1.1 google",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-complexity": "4",
