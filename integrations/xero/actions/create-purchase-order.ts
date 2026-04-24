@@ -224,13 +224,13 @@ const action = createAction({
                 description: item.Description,
                 quantity: item.Quantity,
                 unitAmount: item.UnitAmount,
-                lineAmount: item.LineAmount || null,
-                accountCode: item.AccountCode || null,
-                taxType: item.TaxType || null
+                lineAmount: item.LineAmount ?? null,
+                accountCode: item.AccountCode ?? null,
+                taxType: item.TaxType ?? null
             })),
-            total: purchaseOrder.Total || null,
-            subTotal: purchaseOrder.SubTotal || null,
-            totalTax: purchaseOrder.TotalTax || null,
+            total: purchaseOrder.Total ?? null,
+            subTotal: purchaseOrder.SubTotal ?? null,
+            totalTax: purchaseOrder.TotalTax ?? null,
             updatedDateUtc: purchaseOrder.UpdatedDateUTC || null
         };
     }
