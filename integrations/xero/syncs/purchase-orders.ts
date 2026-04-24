@@ -136,7 +136,7 @@ const sync = createSync({
             };
 
             if (syncWindowStart) {
-                headers['If-Modified-Since'] = syncWindowStart;
+                headers['If-Modified-Since'] = new Date(syncWindowStart).toISOString().slice(0, 19);
             }
 
             // https://developer.xero.com/documentation/api/accounting/purchaseorders
@@ -156,6 +156,7 @@ const sync = createSync({
             const rawPurchaseOrders = parsed.data.PurchaseOrders;
 
             if (rawPurchaseOrders.length === 0) {
+                await nango.saveCheckpoint({ updatedAfter: latestUpdatedAt, page: 1 });
                 break;
             }
 
@@ -174,7 +175,7 @@ const sync = createSync({
                 return {
                     id: typeof item['PurchaseOrderID'] === 'string' ? item['PurchaseOrderID'] : String(item['PurchaseOrderID'] || ''),
                     purchaseOrderNumber: typeof item['PurchaseOrderNumber'] === 'string' ? item['PurchaseOrderNumber'] : null,
-                    contactId: typeof item['ContactID'] === 'string' ? item['ContactID'] : null,
+                    contactId: contactIsObject && 'ContactID' in contactVal && typeof contactVal['ContactID'] === 'string' ? contactVal['ContactID'] : null,
                     contactName: contactName,
                     status: typeof item['Status'] === 'string' ? item['Status'] : null,
                     date: typeof item['Date'] === 'string' ? item['Date'] : null,

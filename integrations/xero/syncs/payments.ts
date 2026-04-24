@@ -121,7 +121,7 @@ const sync = createSync({
         const headers: Record<string, string> = { 'xero-tenant-id': tenantId };
 
         if (isIncremental) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         let page = 1;

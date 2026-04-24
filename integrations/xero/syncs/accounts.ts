@@ -51,47 +51,30 @@ function resolveTenantId(connection: ConnectionInfo): string {
     throw new Error('Missing tenant_id. Please configure tenant_id in connection_config or use the get-tenants action to set tenantId in metadata.');
 }
 
-async function fetchTenantIdWithRetry(
-    nango: {
-        get: (config: { endpoint: string; retries: number }) => Promise<{ data: Array<{ tenantId: string }> }>;
-    },
-    maxRetries: number
-): Promise<string> {
-    let lastError: Error | undefined;
+async function fetchTenantId(nango: {
+    get: (config: { endpoint: string; retries: number }) => Promise<{ data: Array<{ tenantId: string }> }>;
+}): Promise<string> {
+    // https://developer.xero.com/documentation/api/accounting/connections
+    const response = await nango.get({
+        endpoint: 'connections',
+        retries: 3
+    });
 
-    for (let attempt = 0; attempt < maxRetries; attempt++) {
-        // @allowTryCatch Retry logic with exponential backoff for fetching tenant ID
-        try {
-            // https://developer.xero.com/documentation/api/accounting/connections
-            const response = await nango.get({
-                endpoint: 'connections',
-                retries: 3
-            });
-
-            const connections = response.data;
-            if (!Array.isArray(connections) || connections.length === 0) {
-                throw new Error('No tenants found for this connection.');
-            }
-
-            if (connections.length > 1) {
-                throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
-
-            const tenantId = connections[0]?.tenantId;
-            if (typeof tenantId === 'string' && tenantId) {
-                return tenantId;
-            }
-
-            throw new Error('Invalid tenant data returned from connections endpoint.');
-        } catch (error) {
-            lastError = error instanceof Error ? error : new Error(String(error));
-            if (attempt < maxRetries - 1) {
-                await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
-            }
-        }
+    const connections = response.data;
+    if (!Array.isArray(connections) || connections.length === 0) {
+        throw new Error('No tenants found for this connection.');
     }
 
-    throw lastError ?? new Error('Failed to fetch tenant ID after retries.');
+    if (connections.length > 1) {
+        throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
+    }
+
+    const tenantId = connections[0]?.tenantId;
+    if (typeof tenantId === 'string' && tenantId) {
+        return tenantId;
+    }
+
+    throw new Error('Invalid tenant data returned from connections endpoint.');
 }
 
 const sync = createSync({
@@ -120,7 +103,7 @@ const sync = createSync({
         try {
             tenantId = resolveTenantId(connection);
         } catch {
-            tenantId = await fetchTenantIdWithRetry(nango, 10);
+            tenantId = await fetchTenantId(nango);
         }
 
         const headers: Record<string, string> = {
@@ -129,7 +112,7 @@ const sync = createSync({
 
         // If it is an incremental sync, only fetch the changed accounts
         if (checkpoint && checkpoint.updatedAfter.length > 0) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         // https://developer.xero.com/documentation/api/accounting/accounts

@@ -112,7 +112,7 @@ const sync = createSync({
 
         // Use If-Modified-Since header if we have a checkpoint with a non-empty value
         if (isIncremental) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         let latestUpdatedDateUTC = checkpoint?.updatedAfter ?? '';

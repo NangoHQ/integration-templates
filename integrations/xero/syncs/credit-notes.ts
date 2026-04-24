@@ -102,7 +102,7 @@ const sync = createSync({
         };
 
         if (isIncremental) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         let latestUpdatedDateUTC = checkpoint?.updatedAfter ?? '';

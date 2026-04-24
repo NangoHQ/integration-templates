@@ -98,7 +98,7 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
         const headers: Record<string, string> = { 'xero-tenant-id': tenantId };
 
         if (checkpoint && checkpoint.updatedAfter.length > 0) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         // https://developer.xero.com/documentation/api/accounting/items

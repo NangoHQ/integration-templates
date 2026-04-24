@@ -161,7 +161,14 @@ const action = createAction({
             contactPayload['DefaultCurrency'] = input.defaultCurrency;
         }
 
-        if (input.addressLine1 !== undefined || input.addressLine2 !== undefined || input.city !== undefined || input.region !== undefined || input.postalCode !== undefined || input.country !== undefined) {
+        if (
+            input.addressLine1 !== undefined ||
+            input.addressLine2 !== undefined ||
+            input.city !== undefined ||
+            input.region !== undefined ||
+            input.postalCode !== undefined ||
+            input.country !== undefined
+        ) {
             const address: Record<string, unknown> = {
                 AddressType: 'POBOX'
             };

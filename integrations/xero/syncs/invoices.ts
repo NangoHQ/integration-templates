@@ -77,7 +77,7 @@ const sync = createSync({
         };
 
         if (isIncremental) {
-            headers['If-Modified-Since'] = checkpoint.updatedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.updatedAfter).toISOString().slice(0, 19);
         }
 
         const XeroInvoiceSchema = z.object({
@@ -122,8 +122,8 @@ const sync = createSync({
             const mapped = invoices
                 .filter((inv) => inv.InvoiceID)
                 .map((inv) => {
-                    const updatedAt = inv.UpdatedDateUTC ?? new Date().toISOString();
-                    if (updatedAt > latestUpdatedDateUTC) latestUpdatedDateUTC = updatedAt;
+                    const updatedAt = inv.UpdatedDateUTC ?? '';
+                    if (updatedAt && updatedAt > latestUpdatedDateUTC) latestUpdatedDateUTC = updatedAt;
                     return {
                         id: inv.InvoiceID!,
                         invoiceNumber: inv.InvoiceNumber ?? null,

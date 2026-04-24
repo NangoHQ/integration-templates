@@ -107,7 +107,7 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
         };
 
         if (isIncremental) {
-            headers['If-Modified-Since'] = checkpoint.modifiedAfter;
+            headers['If-Modified-Since'] = new Date(checkpoint.modifiedAfter).toISOString().slice(0, 19);
         }
 
         let page = 1;
@@ -141,8 +141,8 @@ const sync = createSync<{ Contact: typeof ContactSchema }, undefined, typeof Che
                         return null;
                     }
                     const data = parsed.data;
-                    const updatedAt = data.UpdatedDateUTC ?? new Date().toISOString();
-                    if (updatedAt > latestUpdatedAt) {
+                    const updatedAt = data.UpdatedDateUTC ?? '';
+                    if (updatedAt && updatedAt > latestUpdatedAt) {
                         latestUpdatedAt = updatedAt;
                     }
                     return {
