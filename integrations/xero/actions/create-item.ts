@@ -14,27 +14,29 @@ const SalesDetailsSchema = z.object({
     TaxType: z.string().optional().describe('Tax type for sales')
 });
 
-const InputSchema = z.object({
-    Code: z.string().max(30).describe('User defined item code (max 30 characters). Example: "ITEM-001"'),
-    Name: z.string().optional().describe('Name of the item. Example: "Sample Product"'),
-    Description: z.string().optional().describe('Description of the item'),
-    PurchaseDescription: z.string().optional().describe('Description shown on purchase transactions'),
-    IsTrackedAsInventory: z.boolean().optional().describe('Whether the item is tracked as inventory'),
-    InventoryAssetAccountCode: z.string().optional().describe('Inventory asset account code (required if IsTrackedAsInventory is true)'),
-    IsSold: z.boolean().optional().describe('Whether the item is sold'),
-    IsPurchased: z.boolean().optional().describe('Whether the item is purchased'),
-    PurchaseDetails: PurchaseDetailsSchema.optional().describe('Purchase details for the item'),
-    SalesDetails: SalesDetailsSchema.optional().describe('Sales details for the item')
-}).superRefine((data, ctx) => {
-    if (data.IsTrackedAsInventory) {
-        if (!data.InventoryAssetAccountCode) {
-            ctx.addIssue({ code: 'custom', path: ['InventoryAssetAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
+const InputSchema = z
+    .object({
+        Code: z.string().max(30).describe('User defined item code (max 30 characters). Example: "ITEM-001"'),
+        Name: z.string().optional().describe('Name of the item. Example: "Sample Product"'),
+        Description: z.string().optional().describe('Description of the item'),
+        PurchaseDescription: z.string().optional().describe('Description shown on purchase transactions'),
+        IsTrackedAsInventory: z.boolean().optional().describe('Whether the item is tracked as inventory'),
+        InventoryAssetAccountCode: z.string().optional().describe('Inventory asset account code (required if IsTrackedAsInventory is true)'),
+        IsSold: z.boolean().optional().describe('Whether the item is sold'),
+        IsPurchased: z.boolean().optional().describe('Whether the item is purchased'),
+        PurchaseDetails: PurchaseDetailsSchema.optional().describe('Purchase details for the item'),
+        SalesDetails: SalesDetailsSchema.optional().describe('Sales details for the item')
+    })
+    .superRefine((data, ctx) => {
+        if (data.IsTrackedAsInventory) {
+            if (!data.InventoryAssetAccountCode) {
+                ctx.addIssue({ code: 'custom', path: ['InventoryAssetAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
+            }
+            if (!data.PurchaseDetails?.COGSAccountCode) {
+                ctx.addIssue({ code: 'custom', path: ['PurchaseDetails', 'COGSAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
+            }
         }
-        if (!data.PurchaseDetails?.COGSAccountCode) {
-            ctx.addIssue({ code: 'custom', path: ['PurchaseDetails', 'COGSAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
-        }
-    }
-});
+    });
 
 const ItemOutputSchema = z.object({
     ItemID: z.string(),
