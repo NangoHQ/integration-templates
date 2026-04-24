@@ -23,15 +23,11 @@ const CheckpointSchema = z.object({
 });
 
 // Zod schema for connections API response
-const ConnectionsResponseSchema = z.object({
-    data: z
-        .array(
-            z.object({
-                tenantId: z.string().optional()
-            })
-        )
-        .optional()
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        tenantId: z.string().optional()
+    })
+);
 
 async function resolveTenantId(nango: {
     getConnection: () => Promise<{ connection_config?: Record<string, unknown>; metadata?: Record<string, unknown> | null }>;
@@ -50,7 +46,7 @@ async function resolveTenantId(nango: {
     const parseResult = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
     if (!parseResult.success) throw new Error('Failed to parse connections response');
 
-    const connections = parseResult.data.data ?? [];
+    const connections = parseResult.data;
     if (connections.length > 1) throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
 
     const tenantId = connections[0]?.tenantId;

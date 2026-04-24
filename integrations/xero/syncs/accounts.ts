@@ -53,7 +53,7 @@ function resolveTenantId(connection: ConnectionInfo): string {
 
 async function fetchTenantIdWithRetry(
     nango: {
-        get: (config: { endpoint: string; retries: number }) => Promise<{ data: { data?: Array<{ tenantId: string }> } }>;
+        get: (config: { endpoint: string; retries: number }) => Promise<{ data: Array<{ tenantId: string }> }>;
     },
     maxRetries: number
 ): Promise<string> {
@@ -68,7 +68,7 @@ async function fetchTenantIdWithRetry(
                 retries: 3
             });
 
-            const connections = response.data.data;
+            const connections = response.data;
             if (!Array.isArray(connections) || connections.length === 0) {
                 throw new Error('No tenants found for this connection.');
             }

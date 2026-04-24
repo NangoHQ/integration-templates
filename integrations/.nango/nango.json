@@ -111603,7 +111603,7 @@
           "ActionInput_xero_gettenants",
           "ActionOutput_xero_gettenants"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_gettenants": {

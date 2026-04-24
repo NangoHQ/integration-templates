@@ -52,9 +52,7 @@ const ConnectionSchema = z.object({
     tenantName: z.string().optional()
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(ConnectionSchema)
-});
+const ConnectionsResponseSchema = z.array(ConnectionSchema);
 
 // Account response schema
 const AccountResponseSchema = z.object({
@@ -130,7 +128,7 @@ const action = createAction({
                 });
             }
 
-            const connections = parsedConnections.data.data;
+            const connections = parsedConnections.data;
 
             if (connections.length === 0) {
                 throw new nango.ActionError({

@@ -22,13 +22,11 @@ const OutputSchema = z.object({
     nextCursor: z.union([z.string(), z.null()])
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            tenantId: z.string()
-        })
-    )
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        tenantId: z.string()
+    })
+);
 
 const ItemsResponseSchema = z.object({
     Items: z
@@ -100,14 +98,14 @@ const action = createAction({
 
             const parsedConnections = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
 
-            if (!parsedConnections.success || !parsedConnections.data.data || parsedConnections.data.data.length === 0) {
+            if (!parsedConnections.success || parsedConnections.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_tenant_found',
                     message: 'No Xero tenants found. Please connect a Xero organization.'
                 });
             }
 
-            const connectionsList = parsedConnections.data.data;
+            const connectionsList = parsedConnections.data;
             if (connectionsList.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',

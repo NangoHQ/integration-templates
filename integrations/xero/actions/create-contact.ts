@@ -47,14 +47,12 @@ const OutputSchema = z.object({
     IsCustomer: z.boolean()
 });
 
-const TenantResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            tenantId: z.string(),
-            tenantName: z.string().optional()
-        })
-    )
-});
+const TenantResponseSchema = z.array(
+    z.object({
+        tenantId: z.string(),
+        tenantName: z.string().optional()
+    })
+);
 
 const ContactResponseSchema = z.object({
     Contacts: z.array(
@@ -120,12 +118,12 @@ const action = createAction({
                 retries: 10
             });
 
-            const parsedConnections = TenantResponseSchema.safeParse(connectionsResponse);
+            const parsedConnections = TenantResponseSchema.safeParse(connectionsResponse.data);
             if (!parsedConnections.success) {
                 throw new Error('Failed to parse connections response');
             }
 
-            const connections = parsedConnections.data.data;
+            const connections = parsedConnections.data;
 
             if (connections.length === 0) {
                 throw new nango.ActionError({

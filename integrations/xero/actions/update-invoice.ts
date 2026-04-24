@@ -60,15 +60,13 @@ const XeroInvoiceResponseSchema = z.object({
 });
 
 // Zod schema for Connections API response
-const ConnectionsResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            id: z.string(),
-            tenantId: z.string(),
-            tenantName: z.string().optional()
-        })
-    )
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        id: z.string(),
+        tenantId: z.string(),
+        tenantName: z.string().optional()
+    })
+);
 
 async function resolveTenantId(nango: Parameters<ReturnType<typeof createAction>['exec']>[0]): Promise<string> {
     // 1. Check connection.connection_config['tenant_id']
@@ -100,8 +98,7 @@ async function resolveTenantId(nango: Parameters<ReturnType<typeof createAction>
         retries: 10
     });
 
-    const parsedConnections = ConnectionsResponseSchema.parse(connectionsResponse.data);
-    const connections = parsedConnections.data;
+    const connections = ConnectionsResponseSchema.parse(connectionsResponse.data);
 
     if (connections.length === 0) {
         throw new nango.ActionError({

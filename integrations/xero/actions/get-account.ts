@@ -29,9 +29,7 @@ const OutputSchema = z.object({
     systemAccount: z.union([z.string(), z.null()])
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(z.object({}).passthrough())
-});
+const ConnectionsResponseSchema = z.array(z.object({}).passthrough());
 
 const AccountsResponseSchema = z.object({
     Accounts: z.array(z.object({}).passthrough())
@@ -64,15 +62,15 @@ async function resolveTenantId(nangoGet: NangoGet, connection: Connection): Prom
     }
 
     const connectionsData = parsedConnections.data;
-    if (connectionsData.data.length === 0) {
+    if (connectionsData.length === 0) {
         throw new Error('No tenants found for this connection');
     }
 
-    if (connectionsData.data.length > 1) {
+    if (connectionsData.length > 1) {
         throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
     }
 
-    const firstConnection = connectionsData.data[0];
+    const firstConnection = connectionsData[0];
     if (firstConnection === undefined) {
         throw new Error('No connection available');
     }

@@ -52,15 +52,13 @@ const OutputSchema = z.object({
     updatedDateUtc: z.union([z.string(), z.null()]).describe('Last updated timestamp')
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            id: z.string(),
-            tenantId: z.string(),
-            tenantName: z.string().optional()
-        })
-    )
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        id: z.string(),
+        tenantId: z.string(),
+        tenantName: z.string().optional()
+    })
+);
 
 const PurchaseOrderResponseSchema = z.object({
     PurchaseOrders: z.array(
@@ -123,21 +121,21 @@ async function resolveTenantId(nango: {
     });
 
     const parsed = ConnectionsResponseSchema.safeParse(connections.data);
-    if (!parsed.success || parsed.data.data.length === 0) {
+    if (!parsed.success || parsed.data.length === 0) {
         throw new nango.ActionError({
             type: 'no_tenant_found',
             message: 'No Xero tenant found. Please configure a tenant_id in connection_config or metadata.'
         });
     }
 
-    if (parsed.data.data.length > 1) {
+    if (parsed.data.length > 1) {
         throw new nango.ActionError({
             type: 'multiple_tenants',
             message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
         });
     }
 
-    const firstConnection = parsed.data.data[0];
+    const firstConnection = parsed.data[0];
     if (!firstConnection) {
         throw new nango.ActionError({
             type: 'no_tenant_found',

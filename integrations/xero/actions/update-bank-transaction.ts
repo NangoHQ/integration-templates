@@ -1,15 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const ConnectionResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            id: z.string(),
-            tenantId: z.string(),
-            tenantName: z.string()
-        })
-    )
-});
+const ConnectionResponseSchema = z.array(
+    z.object({
+        id: z.string(),
+        tenantId: z.string(),
+        tenantName: z.string()
+    })
+);
 
 const BankTransactionInputSchema = z.object({
     bankTransactionId: z.string().describe('The unique ID of the bank transaction to update. Example: "a54d1234-5678-90ab-cdef-1234567890ab"'),
@@ -134,7 +132,7 @@ const action = createAction({
                 });
             }
 
-            const connections = parsedConnections.data.data;
+            const connections = parsedConnections.data;
 
             if (connections.length === 0) {
                 throw new nango.ActionError({

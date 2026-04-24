@@ -40,9 +40,7 @@ const ConnectionSchema = z.object({
     metadata: z.record(z.string(), z.unknown()).optional()
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(z.object({ tenantId: z.string() })).optional()
-});
+const ConnectionsResponseSchema = z.array(z.object({ tenantId: z.string() }));
 
 const ItemsResponseSchema = z.object({
     Items: z.array(z.unknown())
@@ -82,10 +80,10 @@ const sync = createSync<typeof models, undefined, typeof CheckpointSchema | unde
         if (!tenantId) {
             // https://developer.xero.com/documentation/api/accounting/overview#connections
             const connectionsResponse = await nango.get({ endpoint: 'connections', retries: 10 });
-            const connectionsParsed = ConnectionsResponseSchema.safeParse(connectionsResponse);
+            const connectionsParsed = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
             if (!connectionsParsed.success) throw new Error('Invalid connections response');
 
-            const connectionsData = connectionsParsed.data.data;
+            const connectionsData = connectionsParsed.data;
             if (!connectionsData || connectionsData.length === 0) throw new Error('No Xero tenants found for this connection');
             if (connectionsData.length > 1)
                 throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');

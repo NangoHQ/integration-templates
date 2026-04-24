@@ -44,9 +44,7 @@ const ConnectionSchema = z.object({
     tenantId: z.string()
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(z.unknown())
-});
+const ConnectionsResponseSchema = z.array(z.unknown());
 
 const PurchaseDetailsDataSchema = z.object({
     UnitPrice: z.number().optional(),
@@ -119,7 +117,7 @@ const action = createAction({
 
             const connectionsParse = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
             if (connectionsParse.success) {
-                const connections = connectionsParse.data.data;
+                const connections = connectionsParse.data;
                 if (connections.length === 1) {
                     const connParse = ConnectionSchema.safeParse(connections[0]);
                     if (connParse.success) {

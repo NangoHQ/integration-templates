@@ -110,10 +110,8 @@ const action = createAction({
                 retries: 10
             });
 
-            const connectionsDataSchema = z.object({
-                data: z.unknown()
-            });
-            const parsedConnections = connectionsDataSchema.safeParse(connectionsResponse);
+            const connectionsDataSchema = z.array(z.unknown());
+            const parsedConnections = connectionsDataSchema.safeParse(connectionsResponse.data);
 
             if (!parsedConnections.success) {
                 throw new nango.ActionError({
@@ -122,14 +120,7 @@ const action = createAction({
                 });
             }
 
-            const rawConnectionsData = parsedConnections.data.data;
-            if (!Array.isArray(rawConnectionsData)) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Connections data is not an array'
-                });
-            }
-            const connections = rawConnectionsData;
+            const connections = parsedConnections.data;
 
             if (connections.length === 0) {
                 throw new nango.ActionError({

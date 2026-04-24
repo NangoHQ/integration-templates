@@ -34,15 +34,11 @@ const GeneralLedgerSchema = z.object({
     lines: z.array(LedgerLineSchema)
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z
-        .array(
-            z.object({
-                tenantId: z.string().optional()
-            })
-        )
-        .optional()
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        tenantId: z.string().optional()
+    })
+);
 
 function parseDate(xeroDateString: string): Date {
     const match = xeroDateString.match(/\/Date\((\d+)([+-]\d{4})?\)\//);
@@ -88,7 +84,7 @@ async function resolveTenantId(nango: {
         throw new Error('Failed to parse connections response');
     }
 
-    const connections = parseResult.data.data ?? [];
+    const connections = parseResult.data;
     if (connections.length === 1 && connections[0]?.tenantId) {
         return connections[0].tenantId;
     }

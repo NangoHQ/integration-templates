@@ -24,13 +24,11 @@ const BankTransactionSchema = z.object({
     overpaymentId: z.string().optional()
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z.array(
-        z.object({
-            tenantId: z.string()
-        })
-    )
-});
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        tenantId: z.string()
+    })
+);
 
 // Checkpoint uses empty string to indicate no previous checkpoint
 const CheckpointSchema = z.object({
@@ -85,8 +83,7 @@ const sync = createSync({
                 retries: 10
             });
 
-            const parsedConnections = ConnectionsResponseSchema.parse(connections);
-            const connectionsData = parsedConnections.data;
+            const connectionsData = ConnectionsResponseSchema.parse(connections.data);
 
             if (connectionsData.length === 0) {
                 throw new Error('No Xero tenants found for this connection.');
