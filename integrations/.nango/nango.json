@@ -109253,7 +109253,6 @@
           "ActionOutput_xero_createitem"
         ],
         "scopes": [
-          "accounting.transactions",
           "accounting.settings"
         ],
         "usedModels": [

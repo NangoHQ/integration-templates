@@ -25,6 +25,15 @@ const InputSchema = z.object({
     IsPurchased: z.boolean().optional().describe('Whether the item is purchased'),
     PurchaseDetails: PurchaseDetailsSchema.optional().describe('Purchase details for the item'),
     SalesDetails: SalesDetailsSchema.optional().describe('Sales details for the item')
+}).superRefine((data, ctx) => {
+    if (data.IsTrackedAsInventory) {
+        if (!data.InventoryAssetAccountCode) {
+            ctx.addIssue({ code: 'custom', path: ['InventoryAssetAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
+        }
+        if (!data.PurchaseDetails?.COGSAccountCode) {
+            ctx.addIssue({ code: 'custom', path: ['PurchaseDetails', 'COGSAccountCode'], message: 'Required when IsTrackedAsInventory is true' });
+        }
+    }
 });
 
 const ItemOutputSchema = z.object({
@@ -127,7 +136,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.transactions', 'accounting.settings'],
+    scopes: ['accounting.settings'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const tenantId = await resolveTenantId(nango);
