@@ -95,7 +95,7 @@ function mapInvoice(raw: unknown): z.infer<typeof InvoiceSchema> | null {
 
 const sync = createSync({
     description: 'Sync invoices from Xero.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/invoices' }],
     frequency: 'every hour',
     models: {
@@ -190,7 +190,7 @@ const sync = createSync({
                 await nango.batchSave(active, 'Invoice');
             }
 
-            if (checkpoint !== null && checkpoint !== undefined && stale.length > 0) {
+            if (stale.length > 0) {
                 await nango.batchDelete(
                     stale.map((item) => ({ id: item.id })),
                     'Invoice'

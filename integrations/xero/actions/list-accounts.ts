@@ -24,7 +24,7 @@ const AccountSchema = z.object({
     Class: z.string().optional().describe('Account class type.'),
     ReportingCode: z.string().optional(),
     ReportingCodeName: z.string().optional(),
-    SystemAccount: z.string().optional(),
+    SystemAccount: z.string().nullable().optional(),
     AddToWatchlist: z.boolean().optional()
 });
 
@@ -39,7 +39,7 @@ const AccountsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List accounts in the Xero chart of accounts.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'GET',
         path: '/actions/list-accounts',

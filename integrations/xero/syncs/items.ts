@@ -114,7 +114,7 @@ function mapXeroItem(xeroItem: z.infer<typeof XeroItemSchema>): z.infer<typeof I
 
 const sync = createSync({
     description: 'Sync inventory and catalog items from Xero.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

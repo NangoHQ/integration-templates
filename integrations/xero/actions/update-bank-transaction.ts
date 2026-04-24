@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const ConnectionSchema = z.object({
-    connection_config: z.record(z.string(), z.string()).optional(),
+    connection_config: z.record(z.string(), z.unknown()).optional(),
     metadata: z.record(z.string(), z.unknown()).nullable().optional()
 });
 
@@ -84,7 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing bank transaction.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-bank-transaction',

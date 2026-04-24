@@ -20003,10 +20003,6 @@ export interface ActionOutput_xero_listitems {
 
 export interface ActionInput_xero_listpayments {
   /**
-   * Page number for pagination. Up to 100 payments per page.
-   */
-  page?: number | undefined;
-  /**
    * Filter expression e.g. Status=="AUTHORISED"
    */
   where?: string | undefined;

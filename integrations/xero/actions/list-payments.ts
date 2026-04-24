@@ -2,7 +2,6 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page: z.number().optional().describe('Page number for pagination. Up to 100 payments per page.'),
     where: z.string().optional().describe('Filter expression e.g. Status=="AUTHORISED"'),
     order: z.string().optional().describe('Order by expression e.g. Date ASC'),
     if_modified_since: z.string().optional().describe('UTC timestamp in yyyy-mm-ddThh:mm:ss format for the If-Modified-Since header')
@@ -63,7 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List payments with filters and pagination',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'GET',
         path: '/actions/list-payments'
@@ -152,9 +151,6 @@ const action = createAction({
         }
 
         const params: Record<string, string | number> = {};
-        if (input.page !== undefined) {
-            params['page'] = input.page;
-        }
         if (input.where !== undefined && input.where.length > 0) {
             params['where'] = input.where;
         }

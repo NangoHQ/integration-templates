@@ -17,15 +17,7 @@ const ConnectionSchema = z.object({
     metadata: z.record(z.string(), z.unknown()).optional()
 });
 
-const ConnectionsResponseSchema = z.object({
-    data: z
-        .array(
-            z.object({
-                tenantId: z.string()
-            })
-        )
-        .optional()
-});
+const ConnectionsResponseSchema = z.array(z.object({ tenantId: z.string() }));
 
 const AccountsResponseSchema = z.object({
     Accounts: z
@@ -116,7 +108,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a payment against an invoice or credit note.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/create-payment',
@@ -171,19 +163,19 @@ const action = createAction({
                 retries: 10
             });
             const parsed = ConnectionsResponseSchema.parse(connectionsResponse.data);
-            if (!parsed.data || parsed.data.length === 0) {
+            if (parsed.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_tenant',
                     message: 'No Xero tenants found for this connection.'
                 });
             }
-            if (parsed.data.length > 1) {
+            if (parsed.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
-            const firstConnection = parsed.data[0];
+            const firstConnection = parsed[0];
             if (!firstConnection) {
                 throw new nango.ActionError({
                     type: 'no_tenant',

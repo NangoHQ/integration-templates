@@ -23,7 +23,7 @@ const OrganisationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Xero organisation records for connected tenants.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -111,6 +111,7 @@ const sync = createSync({
         }
 
         await nango.batchSave(organisations, 'Organisation');
+        await nango.deleteRecordsFromPreviousExecutions('Organisation');
     }
 });
 

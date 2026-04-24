@@ -90,7 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a payment by PaymentID.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'GET',
         path: '/actions/get-payment',
@@ -130,9 +130,9 @@ const action = createAction({
                 return connection.metadata['tenantId'];
             }
 
-            // https://developer.xero.com/documentation/api/accounting/overview#get-organisation
+            // https://developer.xero.com/documentation/api/accounting/connections
             const connectionsResponse = await nango.get({
-                endpoint: 'api.xro/2.0/Connections',
+                endpoint: 'connections',
                 retries: 10
             });
 

@@ -67,7 +67,7 @@ const OutputSchema = ProviderInvoiceSchema;
 
 const action = createAction({
     description: 'Update an existing invoice.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-invoice',
@@ -148,8 +148,8 @@ async function resolveTenantId(nango: Parameters<(typeof action)['exec']>[0]): P
     }
 
     const response = await nango.get({
-        // https://developer.xero.com/documentation/api/accounting/overview
-        endpoint: 'api.xro/2.0/connections',
+        // https://developer.xero.com/documentation/api/accounting/connections
+        endpoint: 'connections',
         retries: 10
     });
 

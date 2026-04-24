@@ -52,7 +52,7 @@ function parseXeroDate(value: unknown): string {
 
 const sync = createSync({
     description: 'Sync purchase orders from Xero.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/purchase-orders' }],
     frequency: 'every hour',
     autoStart: true,
@@ -170,11 +170,11 @@ const sync = createSync({
                 await nango.batchDelete(deletedOrders, 'PurchaseOrder');
             }
 
-            if (latestUpdatedDate.length > 0) {
-                await nango.saveCheckpoint({ updated_after: latestUpdatedDate });
-            }
-
             page = page + 1;
+        }
+
+        if (latestUpdatedDate.length > 0) {
+            await nango.saveCheckpoint({ updated_after: latestUpdatedDate });
         }
     }
 });

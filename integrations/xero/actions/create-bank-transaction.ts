@@ -111,18 +111,23 @@ const action = createAction({
         let tenantId: string | undefined;
 
         if (typeof connection.connection_config === 'object' && connection.connection_config !== null && 'tenant_id' in connection.connection_config) {
-            tenantId = String(connection.connection_config['tenant_id']);
+            const val = connection.connection_config['tenant_id'];
+            if (typeof val === 'string' && val.length > 0) {
+                tenantId = val;
+            }
         }
 
         if (!tenantId && typeof connection.metadata === 'object' && connection.metadata !== null && 'tenantId' in connection.metadata) {
-            tenantId = String(connection.metadata['tenantId']);
+            const val = connection.metadata['tenantId'];
+            if (typeof val === 'string' && val.length > 0) {
+                tenantId = val;
+            }
         }
 
         if (!tenantId) {
             // https://developer.xero.com/documentation/api/accounting/overview
             const connectionsResponse = await nango.get({
                 endpoint: '/connections',
-                baseUrlOverride: 'https://api.xero.com',
                 retries: 10
             });
 

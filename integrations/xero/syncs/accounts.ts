@@ -87,7 +87,7 @@ function mapAccount(record: z.infer<typeof XeroAccountSchema>): z.infer<typeof A
 
 const sync = createSync({
     description: 'Sync accounts from the Xero chart of accounts.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/accounts' }],
@@ -214,12 +214,12 @@ const sync = createSync({
                     }
                 }
             }
+        }
 
-            if (latestDate) {
-                await nango.saveCheckpoint({
-                    updated_after: latestDate.toUTCString()
-                });
-            }
+        if (latestDate) {
+            await nango.saveCheckpoint({
+                updated_after: latestDate.toUTCString()
+            });
         }
     }
 });

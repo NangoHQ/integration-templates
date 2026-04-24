@@ -33,7 +33,7 @@ const ProviderAccountSchema = z.object({
     Class: z.string().optional(),
     ReportingCode: z.string().optional(),
     ReportingCodeName: z.string().optional(),
-    SystemAccount: z.string().optional(),
+    SystemAccount: z.string().nullable().optional(),
     HasAttachments: z.boolean().optional()
 });
 
@@ -51,13 +51,13 @@ const OutputSchema = z.object({
     class: z.string().optional(),
     reporting_code: z.string().optional(),
     reporting_code_name: z.string().optional(),
-    system_account: z.string().optional(),
+    system_account: z.string().nullable().optional(),
     has_attachments: z.boolean().optional()
 });
 
 const action = createAction({
     description: 'Update an existing account.',
-    version: '1.0.0',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-account',

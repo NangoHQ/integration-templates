@@ -73261,10 +73261,6 @@
     "ActionInput_xero_listpayments": {
       "type": "object",
       "properties": {
-        "page": {
-          "type": "number",
-          "description": "Page number for pagination. Up to 100 payments per page."
-        },
         "where": {
           "type": "string",
           "description": "Filter expression e.g. Status==\"AUTHORISED\""

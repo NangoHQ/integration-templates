@@ -99,23 +99,20 @@ const action = createAction({
             });
 
             const connectionsData = connectionsResponse.data;
-            if (connectionsData && typeof connectionsData === 'object' && 'data' in connectionsData) {
-                const data = connectionsData['data'];
-                if (Array.isArray(data)) {
-                    if (data.length === 1) {
-                        const first = data[0];
-                        if (first && typeof first === 'object' && 'tenantId' in first) {
-                            const tenantIdVal = first['tenantId'];
-                            if (typeof tenantIdVal === 'string') {
-                                tenantId = tenantIdVal;
-                            }
+            if (Array.isArray(connectionsData)) {
+                if (connectionsData.length === 1) {
+                    const first = connectionsData[0];
+                    if (first && typeof first === 'object' && 'tenantId' in first) {
+                        const tenantIdVal = first['tenantId'];
+                        if (typeof tenantIdVal === 'string') {
+                            tenantId = tenantIdVal;
                         }
-                    } else if (data.length > 1) {
-                        throw new nango.ActionError({
-                            type: 'multiple_tenants',
-                            message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
-                        });
                     }
+                } else if (connectionsData.length > 1) {
+                    throw new nango.ActionError({
+                        type: 'multiple_tenants',
+                        message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                    });
                 }
             }
         }

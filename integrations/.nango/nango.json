@@ -108588,7 +108588,7 @@
           "ActionInput_xero_createcreditnote",
           "ActionOutput_xero_createcreditnote"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_createcreditnote": {
@@ -108998,7 +108998,7 @@
           "ActionInput_xero_createitem",
           "ActionOutput_xero_createitem"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_createitem": {
@@ -109192,7 +109192,7 @@
           "ActionInput_xero_createpayment",
           "ActionOutput_xero_createpayment"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_createpayment": {
@@ -110281,7 +110281,7 @@
           "ActionInput_xero_getpayment",
           "ActionOutput_xero_getpayment"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_getpayment": {
@@ -110590,7 +110590,7 @@
           "ActionInput_xero_listaccounts",
           "ActionOutput_xero_listaccounts"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_listaccounts": {
@@ -110684,7 +110684,14 @@
                         "type": "string"
                       },
                       "SystemAccount": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
                       },
                       "AddToWatchlist": {
                         "type": "boolean"
@@ -111473,16 +111480,12 @@
           "ActionInput_xero_listpayments",
           "ActionOutput_xero_listpayments"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_listpayments": {
               "type": "object",
               "properties": {
-                "page": {
-                  "description": "Page number for pagination. Up to 100 payments per page.",
-                  "type": "number"
-                },
                 "where": {
                   "description": "Filter expression e.g. Status==\"AUTHORISED\"",
                   "type": "string"
@@ -111841,7 +111844,7 @@
           "ActionInput_xero_updateaccount",
           "ActionOutput_xero_updateaccount"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updateaccount": {
@@ -111956,7 +111959,14 @@
                   "type": "string"
                 },
                 "system_account": {
-                  "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "has_attachments": {
                   "type": "boolean"
@@ -111991,7 +112001,7 @@
           "ActionInput_xero_updatebanktransaction",
           "ActionOutput_xero_updatebanktransaction"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updatebanktransaction": {
@@ -112121,7 +112131,7 @@
           "ActionInput_xero_updatecontact",
           "ActionOutput_xero_updatecontact"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updatecontact": {
@@ -112258,7 +112268,7 @@
           "ActionInput_xero_updatecreditnote",
           "ActionOutput_xero_updatecreditnote"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updatecreditnote": {
@@ -112370,7 +112380,7 @@
           "ActionInput_xero_updateinvoice",
           "ActionOutput_xero_updateinvoice"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updateinvoice": {
@@ -112538,7 +112548,7 @@
           "ActionInput_xero_updateitem",
           "ActionOutput_xero_updateitem"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_updateitem": {
@@ -113137,7 +113147,7 @@
         "usedModels": [
           "Account"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113236,7 +113246,7 @@
         "usedModels": [
           "BankTransaction"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113312,7 +113322,7 @@
         "usedModels": [
           "Contact"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113390,7 +113400,7 @@
         "usedModels": [
           "CreditNote"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113493,7 +113503,7 @@
         "usedModels": [
           "Invoice"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113584,7 +113594,7 @@
         "usedModels": [
           "Item"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113641,7 +113651,7 @@
         "usedModels": [
           "Organisation"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113731,7 +113741,7 @@
         "usedModels": [
           "Payment"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -113821,7 +113831,7 @@
         "usedModels": [
           "PurchaseOrder"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
