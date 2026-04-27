@@ -2697,12 +2697,8 @@
           "x-ratelimit-reset": "1777034111",
           "etag": "W/\"b768-hLaVeci4z9tvTQ6yClxeI2VQCoU\""
         },
-        "hash": "2c782b89d2b066792e7a1ba6db69a79bc23602dd",
+        "hash": "42438108427ee057957c446e2aa462f3875ee899",
         "request": {
-          "params": {
-            "page": "1",
-            "per_page": "100"
-          },
           "headers": {
             "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
           }

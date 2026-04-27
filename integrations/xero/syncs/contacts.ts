@@ -165,7 +165,9 @@ const sync = createSync({
                 offset_name_in_request: 'page',
                 response_path: 'Contacts',
                 offset_calculation_method: 'per-page',
-                offset_start_value: 1
+                offset_start_value: 1,
+                limit_name_in_request: 'pagesize',
+                limit: 100
             },
             retries: 10
         };

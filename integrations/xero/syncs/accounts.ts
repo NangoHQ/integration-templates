@@ -1,4 +1,4 @@
-import { createSync, ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const AccountSchema = z.object({
@@ -97,6 +97,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+
         const connection = await nango.getConnection();
 
         let tenantId: string | undefined;
@@ -158,8 +160,6 @@ const sync = createSync({
             throw new Error('Could not resolve xero-tenant-id');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
@@ -171,47 +171,39 @@ const sync = createSync({
             params['includeArchived'] = 'true';
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/accounts
+        // https://developer.xero.com/documentation/api/accounting/accounts
+        const response = await nango.get({
             endpoint: 'api.xro/2.0/Accounts',
             headers,
             params,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit: 100,
-                limit_name_in_request: 'per_page',
-                response_path: 'Accounts'
-            },
             retries: 3
-        };
+        });
+
+        const accountsRaw = z
+            .object({ Accounts: z.array(XeroAccountSchema).optional() })
+            .safeParse(response.data)
+            .data?.Accounts ?? [];
+
+        const mapped = accountsRaw.map(mapAccount);
+
+        const active = mapped.filter((a) => a.Status === 'ACTIVE');
+        if (active.length > 0) {
+            await nango.batchSave(active, 'Account');
+        }
+
+        if (checkpoint) {
+            const archived = mapped.filter((a) => a.Status === 'ARCHIVED');
+            if (archived.length > 0) {
+                await nango.batchDelete(archived, 'Account');
+            }
+        }
 
         let latestDate: Date | null = null;
-
-        for await (const page of nango.paginate(config)) {
-            const parsedPage = page.map((item) => XeroAccountSchema.parse(item));
-            const mapped = parsedPage.map(mapAccount);
-
-            const active = mapped.filter((a) => a.Status === 'ACTIVE');
-            if (active.length > 0) {
-                await nango.batchSave(active, 'Account');
-            }
-
-            if (checkpoint) {
-                const archived = mapped.filter((a) => a.Status === 'ARCHIVED');
-                if (archived.length > 0) {
-                    await nango.batchDelete(archived, 'Account');
-                }
-            }
-
-            for (const record of parsedPage) {
-                if (record.UpdatedDateUTC) {
-                    const d = parseMsJsonDate(record.UpdatedDateUTC);
-                    if (d && (!latestDate || d > latestDate)) {
-                        latestDate = d;
-                    }
+        for (const record of accountsRaw) {
+            if (record.UpdatedDateUTC) {
+                const d = parseMsJsonDate(record.UpdatedDateUTC);
+                if (d && (!latestDate || d > latestDate)) {
+                    latestDate = d;
                 }
             }
         }
