@@ -38,6 +38,8 @@ const sync = createSync({
 
     exec: async (nango) => {
         const tenantId = await resolveTenantId(nango);
+        
+        await nango.trackDeletesStart('Organisation');
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
@@ -111,7 +113,7 @@ const sync = createSync({
         }
 
         await nango.batchSave(organisations, 'Organisation');
-        await nango.deleteRecordsFromPreviousExecutions('Organisation');
+        await nango.trackDeletesEnd('Organisation');
     }
 });
 

@@ -179,10 +179,7 @@ const sync = createSync({
             retries: 3
         });
 
-        const accountsRaw = z
-            .object({ Accounts: z.array(XeroAccountSchema).optional() })
-            .safeParse(response.data)
-            .data?.Accounts ?? [];
+        const accountsRaw = z.object({ Accounts: z.array(XeroAccountSchema).optional() }).safeParse(response.data).data?.Accounts ?? [];
 
         const mapped = accountsRaw.map(mapAccount);
 
