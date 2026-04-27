@@ -38,7 +38,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const tenantId = await resolveTenantId(nango);
-        
+
         await nango.trackDeletesStart('Organisation');
 
         const headers: Record<string, string> = {
