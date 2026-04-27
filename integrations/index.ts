@@ -917,6 +917,7 @@ import './xero/syncs/accounts.js';
 import './xero/syncs/bank-transactions.js';
 import './xero/syncs/contacts.js';
 import './xero/syncs/credit-notes.js';
+import './xero/syncs/general-ledger.js';
 import './xero/syncs/invoices.js';
 import './xero/syncs/items.js';
 import './xero/syncs/organisations.js';

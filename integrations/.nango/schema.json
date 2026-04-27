@@ -45832,44 +45832,37 @@
           "type": "string"
         },
         "date": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "transactionId": {
-          "type": "string"
+        "number": {
+          "type": "number"
         },
-        "void": {
-          "type": "boolean"
+        "reference": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "approved": {
-          "type": "boolean"
+        "sourceId": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "currency": {
-          "type": "string"
+        "sourceType": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "createdDate": {
-          "type": "string"
-        },
-        "updatedDate": {
-          "type": "string"
-        },
-        "isReversal": {
-          "type": "boolean"
-        },
-        "subsidiary": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "name"
-          ],
-          "additionalProperties": false
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "lines": {
           "type": "array",
@@ -45882,28 +45875,73 @@
               "accountId": {
                 "type": "string"
               },
+              "accountCode": {
+                "type": "string"
+              },
               "accountName": {
                 "type": "string"
               },
-              "cleared": {
-                "type": "boolean"
-              },
-              "credit": {
-                "type": "number"
-              },
-              "debit": {
-                "type": "number"
-              },
               "description": {
                 "type": "string"
+              },
+              "netAmount": {
+                "type": "number"
+              },
+              "grossAmount": {
+                "type": "number"
+              },
+              "taxAmount": {
+                "type": "number"
+              },
+              "taxType": {
+                "type": "string"
+              },
+              "taxName": {
+                "type": "string"
+              },
+              "trackingCategories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "option": {
+                      "type": "string"
+                    },
+                    "trackingCategoryId": {
+                      "type": "string"
+                    },
+                    "trackingOptionId": {
+                      "type": "string"
+                    },
+                    "options": {
+                      "type": "array",
+                      "items": {}
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "option",
+                    "trackingCategoryId",
+                    "trackingOptionId",
+                    "options"
+                  ],
+                  "additionalProperties": false
+                }
               }
             },
             "required": [
               "journalLineId",
               "accountId",
+              "accountCode",
               "accountName",
-              "cleared",
-              "description"
+              "description",
+              "netAmount",
+              "grossAmount",
+              "taxAmount",
+              "trackingCategories"
             ],
             "additionalProperties": false
           }
@@ -45912,14 +45950,11 @@
       "required": [
         "id",
         "date",
-        "transactionId",
-        "void",
-        "approved",
-        "currency",
+        "number",
+        "reference",
+        "sourceId",
+        "sourceType",
         "createdDate",
-        "updatedDate",
-        "isReversal",
-        "subsidiary",
         "lines"
       ],
       "additionalProperties": false
