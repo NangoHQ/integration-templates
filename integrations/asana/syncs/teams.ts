@@ -83,9 +83,7 @@ const sync = createSync({
                 return;
             }
 
-            workspaceIds = parsedWorkspaces.data.data
-                .filter((workspace) => workspace.name !== 'Personal Projects')
-                .map((workspace) => workspace.gid);
+            workspaceIds = parsedWorkspaces.data.data.filter((workspace) => workspace.name !== 'Personal Projects').map((workspace) => workspace.gid);
         }
 
         if (!workspaceIds || workspaceIds.length === 0) {
