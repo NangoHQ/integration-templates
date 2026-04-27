@@ -1,0 +1,104 @@
+{
+  "input": {
+    "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+    "name": "Dryrun Cycle V",
+    "startsAt": "2026-08-01T00:00:00Z",
+    "endsAt": "2026-08-14T00:00:00Z"
+  },
+  "output": {
+    "id": "1a75fab2-1063-4275-a2ca-a7fb2442974f",
+    "name": "Dryrun Cycle V",
+    "number": 16,
+    "startsAt": "2026-08-01T00:00:00.000Z",
+    "endsAt": "2026-08-14T00:00:00.000Z",
+    "isActive": false,
+    "isNext": false,
+    "isPrevious": false,
+    "progress": 0,
+    "team": {
+      "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+      "name": "Nango-API"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "cycleCreate": {
+              "success": true,
+              "cycle": {
+                "id": "1a75fab2-1063-4275-a2ca-a7fb2442974f",
+                "name": "Dryrun Cycle V",
+                "number": 16,
+                "description": null,
+                "startsAt": "2026-08-01T00:00:00.000Z",
+                "endsAt": "2026-08-14T00:00:00.000Z",
+                "completedAt": null,
+                "isActive": false,
+                "isNext": false,
+                "isPrevious": false,
+                "progress": 0,
+                "team": {
+                  "id": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                  "name": "Nango-API"
+                }
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 10:14:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1777025724",
+          "cf-ray": "9f1457ac39984afe-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"17c-FhV+y9sZfZm4cuhPpOQtP4vMxjA\"",
+          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjU2ODEsImV4cCI6MTc3NzYzMDQ4MX0.aQjXXQGHdM9gwNV5KKnyS9Tt_M-mdquSnDOFWgSgX0Y; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "5",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999995",
+          "x-ratelimit-complexity-reset": "1777029281373",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1777029281373",
+          "x-request-id": "9f1457ac44eb4afe-PDX",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare"
+        },
+        "hash": "09831312a2ad5bf1714048d731440ccbff14189b",
+        "request": {
+          "data": {
+            "query": "\n            mutation CycleCreate($input: CycleCreateInput!) {\n                cycleCreate(input: $input) {\n                    success\n                    cycle {\n                        id\n                        name\n                        number\n                        description\n                        startsAt\n                        endsAt\n                        completedAt\n                        isActive\n                        isNext\n                        isPrevious\n                        progress\n                        team {\n                            id\n                            name\n                        }\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "input": {
+                "teamId": "7df5329e-651f-4d1d-b519-78d44a509f11",
+                "name": "Dryrun Cycle V",
+                "startsAt": "2026-08-01T00:00:00Z",
+                "endsAt": "2026-08-14T00:00:00Z"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
