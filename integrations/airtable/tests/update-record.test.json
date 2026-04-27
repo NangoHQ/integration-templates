@@ -1,0 +1,161 @@
+{
+  "input": {
+    "baseId": "appBeIpEI3hxUKRMo",
+    "tableIdOrName": "tblUjn1mvv35fQ0c3",
+    "recordId": "rec0YSum488QkBuvM",
+    "fields": {
+      "Task": "Updated via Nango"
+    }
+  },
+  "output": {
+    "id": "rec0YSum488QkBuvM",
+    "createdTime": "2023-11-29T16:36:07.000Z",
+    "fields": {
+      "Task": "Updated via Nango",
+      "Assignee": [
+        "rece7sSfykM5IdYpb"
+      ],
+      "Daily time required": 0.29999999999999877,
+      "Start": "2024-01-04",
+      "Deadline": "2024-01-09",
+      "Project": [
+        "recgCZeXd5hohgAaK"
+      ],
+      "Availability": [
+        1
+      ],
+      "Duration": 4,
+      "Status": "To do",
+      "Range": "01-04 → 01-09",
+      "Photo (from Assignee)": [
+        {
+          "id": "attIGpBs2L4p6BIIZ",
+          "width": 300,
+          "height": 300,
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/gRTanMtE0FiIZlzLg2QZKg/HWB4-mU6R3-rJQdbU4l8l-aUsKXSVitQFfVAXPsRdGTdRbdvdoyQZJpx-3IY4CP8Hf0znS5Ka9zZFX6-FZFGFFbXYR736wpYnCPs6-kCSnuIhXAiZ5-j7cTiZ1TywjEDpCtTvaQhRQzQdO2m0GxSQw/iolt4qMKzwGbuGaBGIIMT36OTyGYk9Axni9BG_rMq4o",
+          "filename": "Avatars-26.png",
+          "size": 93745,
+          "type": "image/png",
+          "thumbnails": {
+            "small": {
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/QaBwGHeY8AhYrqu8jh6A9w/JB-l_5sn_EiqtmYNUX8vPDNeWCrot0S7IydcdyrhsV1sXJAZsD7gKtK_-9JIjEyv_nXQ_wvPYu2Sk1GkUsvccbuF8uKHHzIH_quN-GCwSULgWDnN2Hq2M7aWE3bMl5a1RCQH0ZCQVYtEaYUYhvN7SQ/MvHRlW8LPI8lX237X4XQUv7Knkzn8roJLA1e-723T2g",
+              "width": 36,
+              "height": 36
+            },
+            "large": {
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/mBOd90kYfJiw1lsKHbLhPw/CQUMcZLpemWqvFhyjUIhOshtQEHOOYXPTVuq1yIVWGoEEYdEMG56-CWLxHhLzFRsj64ZVzrMRZLWa_33CqybR0YSPiZD92mcUIzjI-7BVlZyAkfFZW8LWFovMWVUgIF57cr4dnXY_dnYJsMWDciLDg/9lYgZBgpnOKW5v8yWox_dW3srRfcQBfowwOdvwecjfY",
+              "width": 300,
+              "height": 300
+            },
+            "full": {
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/coDdJDI0bWDeLWRsKNOQag/NkITzWGyoTCDtYN1Y2afPtcv-n_xoavNwXSj4gQHfEj-gfuB_sAJYd78KJbGaA77hRJluM2dvcdIom9fS_0dOzq3_at1hkpjDM-s92QdbPAonXHlmdQHafaTOfWrElaTSpEHz_Yt_zOkw-x2Lymdzg/10DwT7ygawwuO2DkD1V8-KfeduE3Tu_erI1kBHX2QbA",
+              "width": 300,
+              "height": 300
+            }
+          }
+        }
+      ],
+      "Is Overdue": "Yes",
+      "Order": "aa",
+      "Predecessors": [
+        "recmoFKNvG3BduBLh"
+      ],
+      "Successors": [
+        "recBZ6U5VHK5hd1qc"
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v0/appBeIpEI3hxUKRMo/tblUjn1mvv35fQ0c3/rec0YSum488QkBuvM": {
+        "response": {
+          "id": "rec0YSum488QkBuvM",
+          "createdTime": "2023-11-29T16:36:07.000Z",
+          "fields": {
+            "Task": "Updated via Nango",
+            "Assignee": [
+              "rece7sSfykM5IdYpb"
+            ],
+            "Daily time required": 0.29999999999999877,
+            "Start": "2024-01-04",
+            "Deadline": "2024-01-09",
+            "Project": [
+              "recgCZeXd5hohgAaK"
+            ],
+            "Availability": [
+              1
+            ],
+            "Duration": 4,
+            "Status": "To do",
+            "Range": "01-04 → 01-09",
+            "Photo (from Assignee)": [
+              {
+                "id": "attIGpBs2L4p6BIIZ",
+                "width": 300,
+                "height": 300,
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/gRTanMtE0FiIZlzLg2QZKg/HWB4-mU6R3-rJQdbU4l8l-aUsKXSVitQFfVAXPsRdGTdRbdvdoyQZJpx-3IY4CP8Hf0znS5Ka9zZFX6-FZFGFFbXYR736wpYnCPs6-kCSnuIhXAiZ5-j7cTiZ1TywjEDpCtTvaQhRQzQdO2m0GxSQw/iolt4qMKzwGbuGaBGIIMT36OTyGYk9Axni9BG_rMq4o",
+                "filename": "Avatars-26.png",
+                "size": 93745,
+                "type": "image/png",
+                "thumbnails": {
+                  "small": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/QaBwGHeY8AhYrqu8jh6A9w/JB-l_5sn_EiqtmYNUX8vPDNeWCrot0S7IydcdyrhsV1sXJAZsD7gKtK_-9JIjEyv_nXQ_wvPYu2Sk1GkUsvccbuF8uKHHzIH_quN-GCwSULgWDnN2Hq2M7aWE3bMl5a1RCQH0ZCQVYtEaYUYhvN7SQ/MvHRlW8LPI8lX237X4XQUv7Knkzn8roJLA1e-723T2g",
+                    "width": 36,
+                    "height": 36
+                  },
+                  "large": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/mBOd90kYfJiw1lsKHbLhPw/CQUMcZLpemWqvFhyjUIhOshtQEHOOYXPTVuq1yIVWGoEEYdEMG56-CWLxHhLzFRsj64ZVzrMRZLWa_33CqybR0YSPiZD92mcUIzjI-7BVlZyAkfFZW8LWFovMWVUgIF57cr4dnXY_dnYJsMWDciLDg/9lYgZBgpnOKW5v8yWox_dW3srRfcQBfowwOdvwecjfY",
+                    "width": 300,
+                    "height": 300
+                  },
+                  "full": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/coDdJDI0bWDeLWRsKNOQag/NkITzWGyoTCDtYN1Y2afPtcv-n_xoavNwXSj4gQHfEj-gfuB_sAJYd78KJbGaA77hRJluM2dvcdIom9fS_0dOzq3_at1hkpjDM-s92QdbPAonXHlmdQHafaTOfWrElaTSpEHz_Yt_zOkw-x2Lymdzg/10DwT7ygawwuO2DkD1V8-KfeduE3Tu_erI1kBHX2QbA",
+                    "width": 300,
+                    "height": 300
+                  }
+                }
+              }
+            ],
+            "Is Overdue": "Yes",
+            "Order": "aa",
+            "Predecessors": [
+              "recmoFKNvG3BduBLh"
+            ],
+            "Successors": [
+              "recBZ6U5VHK5hd1qc"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:33:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1835",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1777286029",
+          "etag": "W/\"72b-SXwwp9iNHe3yH4IwBgoc5LnnEZw\""
+        },
+        "hash": "21b48e3d399c08828d9b841bebaf6d3fd6c6b79d",
+        "request": {
+          "data": {
+            "fields": {
+              "Task": "Updated via Nango"
+            }
+          }
+        }
+      }
+    }
+  }
+}
