@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // Provider schemas matching the Airtable Metadata API response
@@ -70,8 +71,6 @@ const CheckpointSchema = z.object({
     lastProcessedBaseId: z.string()
 });
 
-type TablesCheckpoint = z.infer<typeof CheckpointSchema>;
-
 const sync = createSync({
     description: 'Sync Airtable table schemas across bases in scope',
     version: '2.0.0',
@@ -84,17 +83,18 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = (await nango.getCheckpoint()) as TablesCheckpoint | null;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint).data ?? null;
         await nango.trackDeletesStart('Table');
 
         const bases: z.infer<typeof AirtableBaseSchema>[] = [];
 
         // Step 1: List all bases
-        // https://airtable.com/developers/web/api/list-bases
-        const listBasesProxyConfig = {
+        const listBasesProxyConfig: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
             paginate: {
-                type: 'cursor' as const,
+                type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'offset',
                 response_path: 'bases'

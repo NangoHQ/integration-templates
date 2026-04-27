@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // https://airtable.com/developers/web/api/get-base-schema
@@ -32,8 +33,6 @@ const CheckpointSchema = z.object({
     lastProcessedBaseId: z.string()
 });
 
-type ViewsCheckpoint = z.infer<typeof CheckpointSchema>;
-
 const sync = createSync({
     description: 'Sync Airtable views for bases and tables in scope',
     version: '1.0.0',
@@ -46,7 +45,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = (await nango.getCheckpoint()) as ViewsCheckpoint | null;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint).data ?? null;
 
         // Blocker: The Airtable Metadata API views endpoint does not support
         // timestamp-based filtering or cursor-based pagination. It is a structural
@@ -56,11 +56,11 @@ const sync = createSync({
         // refresh window is complete.
         await nango.trackDeletesStart('View');
 
-        // https://airtable.com/developers/web/api/list-bases
-        const listBasesProxyConfig = {
+        const listBasesProxyConfig: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
             paginate: {
-                type: 'cursor' as const,
+                type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'offset',
                 response_path: 'bases'

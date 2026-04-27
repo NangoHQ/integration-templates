@@ -1468,7 +1468,7 @@
           "ActionInput_airtable_createwebhook",
           "ActionOutput_airtable_createwebhook"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_airtable_createwebhook": {
@@ -3062,7 +3062,7 @@
           "ActionInput_airtable_listwebhooks",
           "ActionOutput_airtable_listwebhooks"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_airtable_listwebhooks": {
@@ -4098,7 +4098,7 @@
         "usedModels": [
           "Base"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -4154,7 +4154,7 @@
         "usedModels": [
           "Table"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {

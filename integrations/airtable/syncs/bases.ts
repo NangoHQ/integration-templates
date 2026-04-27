@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // Normalized model for sync output
@@ -11,8 +12,6 @@ const BaseSchema = z.object({
 const CheckpointSchema = z.object({
     offset: z.string()
 });
-
-type BasesCheckpoint = z.infer<typeof CheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync Airtable bases visible to the authenticated user',
@@ -32,21 +31,21 @@ const sync = createSync({
         // we use full refresh with deletion tracking.
         await nango.trackDeletesStart('Base');
 
-        const checkpoint = (await nango.getCheckpoint()) as BasesCheckpoint | null;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint).data ?? null;
         const offset: string | undefined = checkpoint?.offset;
         let nextOffset = offset;
 
-        // https://airtable.com/developers/web/api/list-bases
         // The List Bases endpoint uses offset-based pagination where offset is a string token
-        const proxyConfig = {
+        const proxyConfig: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
             paginate: {
-                type: 'cursor' as const,
+                type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'offset',
                 response_path: 'bases',
-                ...(offset && { cursor_start_value: offset }),
-                on_page: async ({ nextPageParam }: { nextPageParam?: string | number | undefined }) => {
+                on_page: async ({ nextPageParam }) => {
                     nextOffset = typeof nextPageParam === 'string' ? nextPageParam : undefined;
                 }
             },

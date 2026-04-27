@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const WebhookSchema = z.object({
@@ -30,8 +31,6 @@ const CheckpointSchema = z.object({
     lastProcessedBaseId: z.string()
 });
 
-type WebhooksCheckpoint = z.infer<typeof CheckpointSchema>;
-
 type Webhook = z.infer<typeof WebhookSchema>;
 
 const sync = createSync({
@@ -52,7 +51,8 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpoint = (await nango.getCheckpoint()) as WebhooksCheckpoint | null;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint).data ?? null;
 
         // Get metadata or discover bases
         const metadata = await nango.getMetadata<{ baseId?: string }>();
@@ -63,12 +63,12 @@ const sync = createSync({
             await nango.log(`Using baseId from metadata: ${metadata.baseId}`);
         } else {
             // Discover bases using the Metadata API
-            // https://airtable.com/developers/web/api/list-bases
             await nango.log('Discovering bases via Metadata API');
-            const listBasesProxyConfig = {
+            const listBasesProxyConfig: ProxyConfiguration = {
+                // https://airtable.com/developers/web/api/list-bases
                 endpoint: '/v0/meta/bases',
                 paginate: {
-                    type: 'cursor' as const,
+                    type: 'cursor',
                     cursor_name_in_request: 'offset',
                     cursor_path_in_response: 'offset',
                     response_path: 'bases'
