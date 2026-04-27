@@ -1,0 +1,181 @@
+{
+  "input": {
+    "type": "SPEND",
+    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+    "bank_account_code": "090",
+    "date": "2026-04-24",
+    "reference": "Test transaction",
+    "line_items": [
+      {
+        "description": "Office supplies",
+        "quantity": 1,
+        "unit_amount": 20,
+        "account_code": "400"
+      }
+    ]
+  },
+  "output": {
+    "bank_transaction_id": "8b3df47a-0132-4f97-a1f2-791240209058",
+    "type": "SPEND",
+    "status": "AUTHORISED",
+    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+    "contact_name": "RITE Agency",
+    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "bank_account_code": "090",
+    "bank_account_name": "Business Bank Account",
+    "date": "/Date(1776988800000+0000)/",
+    "reference": "Test transaction",
+    "sub_total": 18.48,
+    "total_tax": 1.52,
+    "total": 20,
+    "currency_code": "USD",
+    "line_items": [
+      {
+        "line_item_id": "721427c2-c48d-4ea5-a8d4-6d77368da93a",
+        "description": "Office supplies",
+        "quantity": 1,
+        "unit_amount": 20,
+        "account_code": "400",
+        "tax_type": "INPUT",
+        "tax_amount": 1.52,
+        "line_amount": 20
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/BankTransactions": {
+        "response": {
+          "Id": "4dbf5c90-8eaa-4a9e-b81b-3f162f72ed61",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777034183939)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "8b3df47a-0132-4f97-a1f2-791240209058",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Test transaction",
+              "IsReconciled": false,
+              "CurrencyRate": 1,
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "ContactStatus": "ACTIVE",
+                "Name": "RITE Agency",
+                "Addresses": [
+                  {
+                    "AddressType": "POBOX"
+                  },
+                  {
+                    "AddressType": "STREET"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT"
+                  },
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "MOBILE"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776682521490+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-24T00:00:00",
+              "Date": "/Date(1776988800000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "Description": "Office supplies",
+                  "UnitAmount": 20,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 1.52,
+                  "LineAmount": 20,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "721427c2-c48d-4ea5-a8d4-6d77368da93a",
+                  "AccountID": "eb01b8c7-f9b0-49ef-86f4-ed89b4ac33d5",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 18.48,
+              "TotalTax": 1.52,
+              "Total": 20,
+              "UpdatedDateUTC": "/Date(1777034183893+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:36:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2106",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777034201",
+          "etag": "W/\"83a-pUIYjMIhHb+lgfiZ/GqTWqwh6L8\""
+        },
+        "hash": "b2a32d71660420cfa273361ab749988ff245adfc",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "BankTransactions": [
+              {
+                "Type": "SPEND",
+                "Contact": {
+                  "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740"
+                },
+                "LineItems": [
+                  {
+                    "Description": "Office supplies",
+                    "Quantity": 1,
+                    "UnitAmount": 20,
+                    "AccountCode": "400"
+                  }
+                ],
+                "BankAccount": {
+                  "Code": "090"
+                },
+                "Date": "2026-04-24",
+                "Reference": "Test transaction"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

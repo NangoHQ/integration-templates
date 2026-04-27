@@ -1,68 +1,257 @@
-import { createAction } from 'nango';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { toItem, toXeroItem, toFailedItem } from '../mappers/to-item.js';
+import { z } from 'zod';
+import { createAction, ProxyConfiguration } from 'nango';
 
-import type { ProxyConfiguration } from 'nango';
+const InputSchema = z
+    .object({
+        item_id: z.string().optional().describe('Xero Item ID. Example: "8bbaf73c-5a32-4458-addf-bd30a36c8551"'),
+        code: z.string().optional().describe('Item Code. Example: "BOOK"'),
+        name: z.string().optional().describe('The name of the item'),
+        is_sold: z.boolean().optional().describe('When true the item will be available on sales transactions'),
+        is_purchased: z.boolean().optional().describe('When true the item is available for purchase transactions'),
+        description: z.string().optional().describe('The sales description of the item'),
+        purchase_description: z.string().optional().describe('The purchase description of the item'),
+        purchase_details: z
+            .object({
+                unit_price: z.number().optional(),
+                account_code: z.string().optional(),
+                cogs_account_code: z.string().optional(),
+                tax_type: z.string().optional()
+            })
+            .optional(),
+        sales_details: z
+            .object({
+                unit_price: z.number().optional(),
+                account_code: z.string().optional(),
+                tax_type: z.string().optional()
+            })
+            .optional()
+    })
+    .refine((data) => data.item_id || data.code, {
+        message: 'Either item_id or code is required to identify the item.'
+    });
 
-import type { ActionErrorResponse } from '../models.js';
-import { ItemActionResponse, Anonymous_xero_action_updateitem_input } from '../models.js';
+const PurchaseDetailsSchema = z.object({
+    UnitPrice: z.number().optional(),
+    AccountCode: z.string().optional(),
+    COGSAccountCode: z.string().optional(),
+    TaxType: z.string().optional()
+});
+
+const SalesDetailsSchema = z.object({
+    UnitPrice: z.number().optional(),
+    AccountCode: z.string().optional(),
+    TaxType: z.string().optional()
+});
+
+const ProviderItemSchema = z.object({
+    ItemID: z.string(),
+    Code: z.string().optional(),
+    Name: z.string().optional(),
+    Description: z.string().optional(),
+    PurchaseDescription: z.string().optional(),
+    IsSold: z.boolean().optional(),
+    IsPurchased: z.boolean().optional(),
+    IsTrackedAsInventory: z.boolean().optional(),
+    PurchaseDetails: PurchaseDetailsSchema.optional(),
+    SalesDetails: SalesDetailsSchema.optional(),
+    UpdatedDateUTC: z.string().optional(),
+    ValidationErrors: z.array(z.object({ Message: z.string() })).optional()
+});
+
+const OutputSchema = z.object({
+    item: ProviderItemSchema
+});
+
+const ConnectionSchema = z.object({
+    connection_config: z.object({ tenant_id: z.string().optional() }).optional(),
+    metadata: z.object({ tenantId: z.string().optional() }).optional()
+});
+
+const ConnectionsResponseSchema = z.array(
+    z.object({
+        tenantId: z.string()
+    })
+);
 
 const action = createAction({
-    description: 'Updates one or more items in Xero.',
-    version: '2.0.0',
-
+    description: 'Update an existing item.',
+    version: '3.0.0',
     endpoint: {
-        method: 'PUT',
-        path: '/items',
+        method: 'POST',
+        path: '/actions/update-item',
         group: 'Items'
     },
-
-    input: Anonymous_xero_action_updateitem_input,
-    output: ItemActionResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['accounting.settings'],
 
-    exec: async (nango, input): Promise<ItemActionResponse> => {
-        const tenant_id = await getTenantId(nango);
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connectionResult = ConnectionSchema.safeParse(await nango.getConnection());
+        if (!connectionResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_connection',
+                message: 'Unable to read connection.',
+                errors: connectionResult.error.issues
+            });
+        }
+        const connection = connectionResult.data;
 
-        // Validate the credit notes:
+        let tenantId: string | undefined;
+        if (connection.connection_config && connection.connection_config.tenant_id) {
+            tenantId = connection.connection_config.tenant_id;
+        } else if (connection.metadata && connection.metadata.tenantId) {
+            tenantId = connection.metadata.tenantId;
+        }
 
-        // Check for required fields
-        const invalidItems = input.filter((x: any) => !x.item_code);
-        if (invalidItems.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `Some items are missing required fields.\nInvalid items:\n${JSON.stringify(invalidItems, null, 4)}`
+        if (!tenantId) {
+            const connectionsConfig: ProxyConfiguration = {
+                // https://developer.xero.com/documentation/guides/oauth2/tenants
+                endpoint: 'connections',
+                retries: 10
+            };
+            const connectionsResponse = await nango.get(connectionsConfig);
+            const connectionsResult = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
+            if (!connectionsResult.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected response from Xero connections endpoint.',
+                    errors: connectionsResult.error.issues
+                });
+            }
+            const connections = connectionsResult.data;
+            if (connections.length === 1) {
+                const firstConnection = connections[0];
+                if (firstConnection) {
+                    tenantId = firstConnection.tenantId;
+                }
+            } else if (connections.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_tenants',
+                    message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                });
+            }
+        }
+
+        if (!tenantId) {
+            throw new nango.ActionError({
+                type: 'missing_tenant_id',
+                message: 'Could not resolve xero-tenant-id. Please set tenant_id in connection_config or tenantId in metadata.'
             });
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/items/#post-items
+        const item: {
+            ItemID?: string;
+            Code?: string;
+            Name?: string;
+            IsSold?: boolean;
+            IsPurchased?: boolean;
+            Description?: string;
+            PurchaseDescription?: string;
+            PurchaseDetails?: {
+                UnitPrice?: number;
+                AccountCode?: string;
+                COGSAccountCode?: string;
+                TaxType?: string;
+            };
+            SalesDetails?: {
+                UnitPrice?: number;
+                AccountCode?: string;
+                TaxType?: string;
+            };
+        } = {};
+
+        if (input.item_id !== undefined) {
+            item.ItemID = input.item_id;
+        }
+        if (input.code !== undefined) {
+            item.Code = input.code;
+        }
+        if (input.name !== undefined) {
+            item.Name = input.name;
+        }
+        if (input.is_sold !== undefined) {
+            item.IsSold = input.is_sold;
+        }
+        if (input.is_purchased !== undefined) {
+            item.IsPurchased = input.is_purchased;
+        }
+        if (input.description !== undefined) {
+            item.Description = input.description;
+        }
+        if (input.purchase_description !== undefined) {
+            item.PurchaseDescription = input.purchase_description;
+        }
+        if (input.purchase_details !== undefined) {
+            item.PurchaseDetails = {};
+            if (input.purchase_details.unit_price !== undefined) {
+                item.PurchaseDetails.UnitPrice = input.purchase_details.unit_price;
+            }
+            if (input.purchase_details.account_code !== undefined) {
+                item.PurchaseDetails.AccountCode = input.purchase_details.account_code;
+            }
+            if (input.purchase_details.cogs_account_code !== undefined) {
+                item.PurchaseDetails.COGSAccountCode = input.purchase_details.cogs_account_code;
+            }
+            if (input.purchase_details.tax_type !== undefined) {
+                item.PurchaseDetails.TaxType = input.purchase_details.tax_type;
+            }
+        }
+        if (input.sales_details !== undefined) {
+            item.SalesDetails = {};
+            if (input.sales_details.unit_price !== undefined) {
+                item.SalesDetails.UnitPrice = input.sales_details.unit_price;
+            }
+            if (input.sales_details.account_code !== undefined) {
+                item.SalesDetails.AccountCode = input.sales_details.account_code;
+            }
+            if (input.sales_details.tax_type !== undefined) {
+                item.SalesDetails.TaxType = input.sales_details.tax_type;
+            }
+        }
+
+        const postConfig: ProxyConfiguration = {
+            // https://developer.xero.com/documentation/api/accounting/items
             endpoint: 'api.xro/2.0/Items',
-            headers: {
-                'xero-tenant-id': tenant_id
-            },
             data: {
-                Items: input.map(toXeroItem)
+                Items: [item]
+            },
+            headers: {
+                'xero-tenant-id': tenantId
             },
             retries: 3
         };
+        const response = await nango.post(postConfig);
 
-        const res = await nango.post(config);
-        const items = res.data.Items;
-
-        const failedItems = items.filter((x: any) => x.ValidationErrors.length > 0);
-        if (failedItems.length > 0) {
-            await nango.log(
-                `Some items could not be updated in Xero due to validation errors. Note that the remaining items (${
-                    input.length - failedItems.length
-                }) were updated successfully. Affected items:\n${JSON.stringify(failedItems, null, 4)}`,
-                { level: 'error' }
-            );
+        const providerResponseResult = z
+            .object({
+                Items: z.array(ProviderItemSchema)
+            })
+            .safeParse(response.data);
+        if (!providerResponseResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Xero when updating item.',
+                errors: providerResponseResult.error.issues
+            });
         }
-        const succeededItems = items.filter((x: any) => x.ValidationErrors.length === 0);
+
+        const updatedItem = providerResponseResult.data.Items[0];
+        if (!updatedItem) {
+            throw new nango.ActionError({
+                type: 'no_item_returned',
+                message: 'No item returned from Xero after update.'
+            });
+        }
+
+        if (updatedItem.ValidationErrors && updatedItem.ValidationErrors.length > 0) {
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: updatedItem.ValidationErrors.map((e) => e.Message).join(', ')
+            });
+        }
 
         return {
-            succeededItems: succeededItems.map(toItem),
-            failedItems: failedItems.map(toFailedItem)
+            item: updatedItem
         };
     }
 });

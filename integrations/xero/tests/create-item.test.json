@@ -1,0 +1,83 @@
+{
+  "input": {
+    "code": "TEST-ITEM-1777032315",
+    "name": "Test Item"
+  },
+  "output": {
+    "itemId": "bf16b305-039c-49e9-ba9c-556fdd5d690e",
+    "code": "TEST-ITEM-1777032315",
+    "name": "Test Item",
+    "isSold": true,
+    "isPurchased": true,
+    "isTrackedAsInventory": false,
+    "purchaseDetails": {},
+    "salesDetails": {},
+    "updatedDateUTC": "/Date(1777032320853)/"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/Items": {
+        "response": {
+          "Id": "7c2784f1-148e-4890-bb33-4c92a16aa619",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032320875)/",
+          "Items": [
+            {
+              "ItemID": "bf16b305-039c-49e9-ba9c-556fdd5d690e",
+              "Code": "TEST-ITEM-1777032315",
+              "UpdatedDateUTC": "/Date(1777032320853)/",
+              "PurchaseDetails": {},
+              "SalesDetails": {},
+              "Name": "Test Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true,
+              "ValidationErrors": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:05:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "533",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1777032336",
+          "etag": "W/\"215-OpNshqs9sRxTM6IHJzdOvZVKTzw\""
+        },
+        "hash": "1f5428b07ed1644a5d09c01e0b30fcc0b9a44bc4",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Items": [
+              {
+                "Code": "TEST-ITEM-1777032315",
+                "Name": "Test Item"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

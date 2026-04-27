@@ -1,0 +1,222 @@
+{
+  "input": {
+    "purchase_order_id": "fa004ba7-d015-4603-99bf-777054aaa61b",
+    "reference": "Updated via Nango test"
+  },
+  "output": {
+    "id": "fa004ba7-d015-4603-99bf-777054aaa61b",
+    "purchase_order_number": "PO-0003",
+    "date": "/Date(1776211200000+0000)/",
+    "delivery_date": "/Date(1776816000000+0000)/",
+    "attention_to": "Stores",
+    "has_errors": false,
+    "is_discounted": false,
+    "type": "PURCHASEORDER",
+    "currency_rate": 1,
+    "currency_code": "USD",
+    "contact": {
+      "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+      "Name": "Dimples Warehouse",
+      "ContactStatus": "ACTIVE",
+      "Addresses": [],
+      "Phones": [],
+      "ContactGroups": [],
+      "ContactPersons": [],
+      "IsSupplier": false,
+      "IsCustomer": false,
+      "SalesTrackingCategories": [],
+      "PurchasesTrackingCategories": [],
+      "HasValidationErrors": false,
+      "UpdatedDateUTC": "/Date(1776708221873+0000)/"
+    },
+    "status": "AUTHORISED",
+    "sent_to_contact": false,
+    "delivery_address": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+    "telephone": "800 1234 5678",
+    "delivery_instructions": "﻿﻿Regular order - deliver to Warehouse",
+    "line_amount_types": "Inclusive",
+    "reference": "Updated via Nango test",
+    "branding_theme_id": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+    "line_items": [
+      {
+        "Description": "Golf balls - white - 3-pack",
+        "Quantity": 10,
+        "UnitAmount": 12,
+        "AccountCode": "300",
+        "TaxType": "INPUT",
+        "LineItemID": "369c110f-75eb-449d-9996-ab44365b281b",
+        "LineAmount": 120,
+        "TaxAmount": 9.15,
+        "Tracking": []
+      },
+      {
+        "Description": "Golf balls - white - 6-pack",
+        "Quantity": 10,
+        "UnitAmount": 20,
+        "AccountCode": "300",
+        "TaxType": "INPUT",
+        "LineItemID": "25be88b5-7b9e-42d7-8954-dd56d6efe12b",
+        "LineAmount": 200,
+        "TaxAmount": 15.24,
+        "Tracking": []
+      },
+      {
+        "Description": "Golf balls - white single",
+        "Quantity": 10,
+        "UnitAmount": 4.2,
+        "AccountCode": "300",
+        "TaxType": "INPUT",
+        "LineItemID": "296a5567-0694-42cd-a024-ddcfd6a232c5",
+        "LineAmount": 42,
+        "TaxAmount": 3.2,
+        "Tracking": []
+      }
+    ],
+    "sub_total": 334.41,
+    "total_tax": 27.59,
+    "total": 362,
+    "total_discount": 0,
+    "updated_date_utc": "/Date(1777033446057+0000)/"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/PurchaseOrders": {
+        "response": {
+          "Id": "d7e0b129-7863-4799-9c52-d07ecb760840",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777033446089)/",
+          "PurchaseOrders": [
+            {
+              "PurchaseOrderID": "fa004ba7-d015-4603-99bf-777054aaa61b",
+              "PurchaseOrderNumber": "PO-0003",
+              "DateString": "2026-04-15T00:00:00",
+              "Date": "/Date(1776211200000+0000)/",
+              "DeliveryDateString": "2026-04-22T00:00:00",
+              "DeliveryDate": "/Date(1776816000000+0000)/",
+              "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+              "AttentionTo": "Stores",
+              "Telephone": "800 1234 5678",
+              "DeliveryInstructions": "﻿﻿Regular order - deliver to Warehouse",
+              "HasErrors": false,
+              "IsDiscounted": false,
+              "TotalDiscount": 0,
+              "SentToContact": false,
+              "Reference": "Updated via Nango test",
+              "Type": "PURCHASEORDER",
+              "CurrencyRate": 1,
+              "CurrencyCode": "USD",
+              "Contact": {
+                "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                "ContactStatus": "ACTIVE",
+                "Name": "Dimples Warehouse",
+                "Addresses": [],
+                "Phones": [],
+                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": false,
+                "IsCustomer": false,
+                "DefaultCurrency": "USD",
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "GB3-White",
+                  "ItemID": "53c1d46d-cf8e-45d2-8dc1-9bd73b0ca9e2",
+                  "Description": "Golf balls - white - 3-pack",
+                  "UnitAmount": 12,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 9.15,
+                  "LineAmount": 120,
+                  "AccountCode": "300",
+                  "Tracking": [],
+                  "Quantity": 10,
+                  "LineItemID": "369c110f-75eb-449d-9996-ab44365b281b",
+                  "AccountID": "ae8074e0-1ac1-4b37-8546-afa9fa6ace9e"
+                },
+                {
+                  "ItemCode": "GB6-White",
+                  "ItemID": "9ce48e6a-118b-40a5-ae43-2e7dea8b18ad",
+                  "Description": "Golf balls - white - 6-pack",
+                  "UnitAmount": 20,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 15.24,
+                  "LineAmount": 200,
+                  "AccountCode": "300",
+                  "Tracking": [],
+                  "Quantity": 10,
+                  "LineItemID": "25be88b5-7b9e-42d7-8954-dd56d6efe12b",
+                  "AccountID": "ae8074e0-1ac1-4b37-8546-afa9fa6ace9e"
+                },
+                {
+                  "ItemCode": "GB1-White",
+                  "ItemID": "3644c19f-7c46-4e18-93fa-5550c307bcdd",
+                  "Description": "Golf balls - white single",
+                  "UnitAmount": 4.2,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 3.2,
+                  "LineAmount": 42,
+                  "AccountCode": "300",
+                  "Tracking": [],
+                  "Quantity": 10,
+                  "LineItemID": "296a5567-0694-42cd-a024-ddcfd6a232c5",
+                  "AccountID": "ae8074e0-1ac1-4b37-8546-afa9fa6ace9e"
+                }
+              ],
+              "SubTotal": 334.41,
+              "TotalTax": 27.59,
+              "Total": 362,
+              "UpdatedDateUTC": "/Date(1777033446057+0000)/"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:24:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3416",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777033492",
+          "etag": "W/\"d58-mTuxbCcFu2vSnx8j4kHou+wL9r8\""
+        },
+        "hash": "f37ce1dd34d482cf70cca79dac0ca7b60c405f0d",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "PurchaseOrders": [
+              {
+                "PurchaseOrderID": "fa004ba7-d015-4603-99bf-777054aaa61b",
+                "Reference": "Updated via Nango test"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

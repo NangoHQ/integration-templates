@@ -1,0 +1,86 @@
+{
+  "input": {
+    "itemId": "8bbaf73c-5a32-4458-addf-bd30a36c8551"
+  },
+  "output": {
+    "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+    "Code": "BOOK",
+    "Name": "Fish out of Water: Finding Your Brand",
+    "IsSold": true,
+    "IsPurchased": true,
+    "Description": "'Fish out of Water: Finding Your Brand",
+    "PurchaseDescription": "'Fish out of Water: Finding Your Brand",
+    "IsTrackedAsInventory": false,
+    "UpdatedDateUTC": "/Date(1776682521180+0000)/",
+    "PurchaseDetails": {},
+    "SalesDetails": {
+      "UnitPrice": 19.95,
+      "AccountCode": "200",
+      "TaxType": "TAX001"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/Items/8bbaf73c-5a32-4458-addf-bd30a36c8551": {
+        "response": {
+          "Id": "65175b9e-aabb-428b-a07a-fd9f2049fb4a",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032314114)/",
+          "Items": [
+            {
+              "ItemID": "8bbaf73c-5a32-4458-addf-bd30a36c8551",
+              "Code": "BOOK",
+              "Description": "'Fish out of Water: Finding Your Brand",
+              "PurchaseDescription": "'Fish out of Water: Finding Your Brand",
+              "UpdatedDateUTC": "/Date(1776682521180+0000)/",
+              "PurchaseDetails": {},
+              "SalesDetails": {
+                "UnitPrice": 19.95,
+                "AccountCode": "200",
+                "TaxType": "TAX001"
+              },
+              "Name": "Fish out of Water: Finding Your Brand",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true,
+              "ValidationErrors": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:05:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "785",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1777032336",
+          "etag": "W/\"311-Gw04BE56Bl4V3+y99rfnnYTJyEQ\""
+        },
+        "hash": "e9ddd75ed8412bbdd28ed5d9f5e965908765a9b8",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

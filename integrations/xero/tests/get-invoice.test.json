@@ -1,0 +1,154 @@
+{
+  "input": {
+    "InvoiceID": "8a3fdcc9-83eb-4fdd-83e0-52ec1b40b072"
+  },
+  "output": {
+    "InvoiceID": "8a3fdcc9-83eb-4fdd-83e0-52ec1b40b072",
+    "InvoiceNumber": "AP",
+    "Type": "ACCPAY",
+    "Contact": {
+      "ContactID": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
+      "Name": "Xero"
+    },
+    "Date": "/Date(1776297600000+0000)/",
+    "DueDate": "/Date(1776297600000+0000)/",
+    "Status": "AUTHORISED",
+    "LineItems": [
+      {
+        "LineItemID": "3e1b05d8-bff3-4bd4-9856-afca27c16b6e",
+        "Description": "Monthly subscription",
+        "Quantity": 1,
+        "UnitAmount": 29,
+        "LineAmount": 29
+      }
+    ],
+    "SubTotal": 29,
+    "TotalTax": 2.39,
+    "Total": 31.39,
+    "UpdatedDateUTC": "/Date(1229791330237+0000)/"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/Invoices/8a3fdcc9-83eb-4fdd-83e0-52ec1b40b072": {
+        "response": {
+          "Id": "31cbfee8-3933-4871-86d4-2b3c83768b41",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032133834)/",
+          "Invoices": [
+            {
+              "Type": "ACCPAY",
+              "InvoiceID": "8a3fdcc9-83eb-4fdd-83e0-52ec1b40b072",
+              "InvoiceNumber": "AP",
+              "Reference": "",
+              "Prepayments": [],
+              "Overpayments": [],
+              "AmountDue": 31.39,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "IsDiscounted": false,
+              "HasAttachments": false,
+              "HasErrors": false,
+              "Attachments": [],
+              "RepeatingInvoiceID": "01e01427-6b48-4d5f-aa2e-87c43f2a32a9",
+              "InvoicePaymentServices": [],
+              "Contact": {
+                "ContactID": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
+                "ContactStatus": "ACTIVE",
+                "Name": "Xero",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET"
+                  },
+                  {
+                    "AddressType": "POBOX"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "MOBILE"
+                  },
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "DEFAULT"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": true,
+                "IsCustomer": false,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-16T00:00:00",
+              "Date": "/Date(1776297600000+0000)/",
+              "DueDateString": "2026-04-16T00:00:00",
+              "DueDate": "/Date(1776297600000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Monthly subscription",
+                  "UnitAmount": 29,
+                  "TaxType": "INPUT",
+                  "TaxAmount": 2.39,
+                  "LineAmount": 29,
+                  "AccountCode": "412",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "3e1b05d8-bff3-4bd4-9856-afca27c16b6e",
+                  "AccountID": "d2429b4f-ad8b-45e5-815a-13f5ecb0d5c1",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 29,
+              "TotalTax": 2.39,
+              "Total": 31.39,
+              "UpdatedDateUTC": "/Date(1229791330237+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:02:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2474",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1777032150",
+          "etag": "W/\"9aa-aDnoa/JQhscRApHMgNZzpFSGfOQ\""
+        },
+        "hash": "64492d29bba554ed54da1a73f17e350401bb4c6c",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

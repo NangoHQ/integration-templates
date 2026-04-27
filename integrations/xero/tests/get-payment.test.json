@@ -1,0 +1,183 @@
+{
+  "input": {
+    "paymentId": "655ad293-0b35-4c2c-9a97-0ee979dd365f"
+  },
+  "output": {
+    "PaymentID": "655ad293-0b35-4c2c-9a97-0ee979dd365f",
+    "Date": "/Date(1772064000000+0000)/",
+    "Amount": 541.25,
+    "BankAmount": 541.25,
+    "CurrencyRate": 1,
+    "Reference": "",
+    "Status": "AUTHORISED",
+    "PaymentType": "ACCRECPAYMENT",
+    "IsReconciled": true,
+    "UpdatedDateUTC": "/Date(1229803587127+0000)/",
+    "BatchPaymentID": "ac90d19b-7166-4400-8e34-eb81b39288b7",
+    "HasAccount": true,
+    "HasValidationErrors": false,
+    "Account": {
+      "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+      "Code": "090",
+      "Name": "Business Bank Account"
+    },
+    "Invoice": {
+      "InvoiceID": "cb5119d0-9759-49d3-800b-7d0a90818178",
+      "InvoiceNumber": "INV-0001",
+      "Type": "ACCREC",
+      "Status": "PAID",
+      "AmountDue": 0,
+      "AmountPaid": 541.25,
+      "Total": 541.25,
+      "CurrencyCode": "USD",
+      "Contact": {
+        "ContactID": "fd89489e-699c-4d77-a881-10c127bfbeb3",
+        "Name": "Hamilton Smith Ltd"
+      }
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/Payments/655ad293-0b35-4c2c-9a97-0ee979dd365f": {
+        "response": {
+          "Id": "06ac7cc0-103e-4144-b2d3-bc2237274fa2",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032420361)/",
+          "Payments": [
+            {
+              "PaymentID": "655ad293-0b35-4c2c-9a97-0ee979dd365f",
+              "BatchPaymentID": "ac90d19b-7166-4400-8e34-eb81b39288b7",
+              "BatchPayment": {
+                "Account": {
+                  "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4"
+                },
+                "BatchPaymentID": "ac90d19b-7166-4400-8e34-eb81b39288b7",
+                "DateString": "2026-02-26T00:00:00",
+                "Date": "/Date(1772064000000+0000)/",
+                "Type": "RECBATCH",
+                "Status": "AUTHORISED",
+                "TotalAmount": 541.25,
+                "UpdatedDateUTC": "/Date(1229803587157+0000)/",
+                "IsReconciled": true
+              },
+              "Date": "/Date(1772064000000+0000)/",
+              "BankAmount": 541.25,
+              "Amount": 541.25,
+              "Reference": "",
+              "CurrencyRate": 1,
+              "PaymentType": "ACCRECPAYMENT",
+              "Status": "AUTHORISED",
+              "UpdatedDateUTC": "/Date(1229803587127+0000)/",
+              "HasAccount": true,
+              "IsReconciled": true,
+              "Account": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Invoice": {
+                "Type": "ACCREC",
+                "InvoiceID": "cb5119d0-9759-49d3-800b-7d0a90818178",
+                "InvoiceNumber": "INV-0001",
+                "Reference": "Monthly Support",
+                "Payments": [
+                  {
+                    "PaymentID": "ac90d19b-7166-4400-8e34-eb81b39288b7",
+                    "Date": "/Date(1772064000000+0000)/",
+                    "Amount": 541.25,
+                    "Reference": "",
+                    "CurrencyRate": 0,
+                    "HasAccount": false,
+                    "HasValidationErrors": false
+                  }
+                ],
+                "Prepayments": [],
+                "Overpayments": [],
+                "AmountDue": 0,
+                "AmountPaid": 541.25,
+                "SentToContact": false,
+                "IsDiscounted": false,
+                "HasErrors": false,
+                "InvoicePaymentServices": [],
+                "Contact": {
+                  "ContactID": "fd89489e-699c-4d77-a881-10c127bfbeb3",
+                  "Name": "Hamilton Smith Ltd",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "DateString": "2026-02-17T00:00:00",
+                "Date": "/Date(1771286400000+0000)/",
+                "DueDateString": "2026-02-28T00:00:00",
+                "DueDate": "/Date(1772236800000+0000)/",
+                "Status": "PAID",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "Support-M",
+                    "Description": "Desktop/network support via email & phone.\r\nPer month fixed fee for minimum 20 hours/month.",
+                    "UnitAmount": 500,
+                    "TaxType": "OUTPUT",
+                    "TaxAmount": 41.25,
+                    "LineAmount": 500,
+                    "AccountCode": "200",
+                    "Item": {
+                      "ItemID": "e82eaa5c-3c5f-47ed-b2a9-7de266ab1eaf",
+                      "Name": "Desktop/network support via email & phone",
+                      "Code": "Support-M"
+                    },
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "c2dfa47a-2150-4324-b656-d9df12533896",
+                    "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                    "DiscountEnteredAsPercent": true,
+                    "ValidationErrors": []
+                  }
+                ],
+                "SubTotal": 500,
+                "TotalTax": 41.25,
+                "Total": 541.25,
+                "UpdatedDateUTC": "/Date(1229803587127+0000)/",
+                "CurrencyCode": "USD",
+                "FullyPaidOnDate": "/Date(1772064000000+0000)/"
+              },
+              "HasValidationErrors": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:07:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3722",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1777032460",
+          "etag": "W/\"e8a-MJ+5aGusox4WLSIsJmDnD7lmc3A\""
+        },
+        "hash": "2ab5802fe0f7a0ccf0b4ab7e1c1efd726ac22bf9",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}
