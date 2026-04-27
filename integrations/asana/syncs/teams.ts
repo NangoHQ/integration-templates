@@ -18,7 +18,8 @@ const MetadataSchema = z.object({
 });
 
 const WorkspaceItemSchema = z.object({
-    gid: z.string()
+    gid: z.string(),
+    name: z.string().optional()
 });
 
 const WorkspacesResponseSchema = z.object({
@@ -70,7 +71,8 @@ const sync = createSync({
             const workspacesResponse = await nango.get({
                 endpoint: '/api/1.0/workspaces',
                 params: {
-                    limit: 100
+                    limit: 100,
+                    opt_fields: 'gid,name'
                 },
                 retries: 3
             });
@@ -81,7 +83,9 @@ const sync = createSync({
                 return;
             }
 
-            workspaceIds = parsedWorkspaces.data.data.map((workspace) => workspace.gid);
+            workspaceIds = parsedWorkspaces.data.data
+                .filter((workspace) => workspace.name !== 'Personal Projects')
+                .map((workspace) => workspace.gid);
         }
 
         if (!workspaceIds || workspaceIds.length === 0) {

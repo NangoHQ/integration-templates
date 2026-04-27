@@ -109,15 +109,18 @@ const sync = createSync({
                 const workspacesResponse = await nango.get({
                     // https://developers.asana.com/reference/getworkspaces
                     endpoint: '/api/1.0/workspaces',
+                    params: { opt_fields: 'gid,name' },
                     retries: 3
                 });
                 const workspacesData = z
                     .object({
-                        data: z.array(z.object({ gid: z.string() })).optional()
+                        data: z.array(z.object({ gid: z.string(), name: z.string().optional() })).optional()
                     })
                     .safeParse(workspacesResponse.data);
                 if (workspacesData.success && workspacesData.data.data) {
-                    workspaceIds = workspacesData.data.data.map((w) => w.gid);
+                    workspaceIds = workspacesData.data.data
+                        .filter((w) => w.name !== 'Personal Projects')
+                        .map((w) => w.gid);
                 }
             }
 
