@@ -1,52 +1,46 @@
-import { createAction } from 'nango';
-import { deleteWebhookSchema } from '../schema.zod.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, DeleteWebhook } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
 
-interface WebhookMetadata {
-    webhooks: Record<string, string>;
-}
+const InputSchema = z.object({
+    base_id: z.string().describe('The ID of the Airtable base containing the webhook. Example: "appXXXXXXXXXXXXXX"'),
+    webhook_id: z.string().describe('The ID of the webhook to delete. Example: "achXXXXXXXXXXXXXX"')
+});
+
+const ProviderResponseSchema = z.object({
+    success: z.boolean().optional()
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    base_id: z.string(),
+    webhook_id: z.string()
+});
 
 const action = createAction({
-    description: 'Delete a webhook',
-    version: '1.0.0',
-
+    description: 'Delete an Airtable webhook from a base.',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/webhooks',
+        method: 'POST',
+        path: '/actions/delete-webhook',
         group: 'Webhooks'
     },
-
-    input: DeleteWebhook,
-    output: SuccessResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['webhook:manage'],
-    metadata: z.object({ webhooks: z.record(z.string(), z.any()) }),
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        await nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
-
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.delete({
             // https://airtable.com/developers/web/api/delete-a-webhook
-            endpoint: `/v0/bases/${input.baseId}/webhooks/${input.webhookId}`,
+            endpoint: `/v0/bases/${input.base_id}/webhooks/${input.webhook_id}`,
             retries: 3
-        };
+        });
 
-        await nango.delete(config);
-
-        const metadata = await nango.getMetadata<WebhookMetadata>();
-
-        if (metadata?.['webhooks']) {
-            const { [input.webhookId]: _, ...rest } = metadata['webhooks'];
-
-            await nango.updateMetadata({
-                webhooks: rest
-            });
-        }
+        const parsed = ProviderResponseSchema.parse(response.data);
 
         return {
-            success: true
+            success: parsed.success ?? true,
+            base_id: input.base_id,
+            webhook_id: input.webhook_id
         };
     }
 });

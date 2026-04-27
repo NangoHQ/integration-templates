@@ -1,0 +1,242 @@
+{
+  "input": {
+    "base_id": "appJxrbEgLaF00M2f",
+    "webhook_id": "achVr70HDuRlmakwi"
+  },
+  "output": {
+    "payloads": [
+      {
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "baseTransactionNumber": 31,
+        "payloadFormat": "v0",
+        "timestamp": "2026-04-24T15:07:42.507Z",
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recMbCU9yOWtAlmYZ": {
+                "createdTime": "2026-04-24T15:07:42.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test record for delete action validate",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "baseTransactionNumber": 32,
+        "payloadFormat": "v0",
+        "timestamp": "2026-04-24T15:07:45.328Z",
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recWJCBrc52C4szop": {
+                "createdTime": "2026-04-24T15:07:45.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "baseTransactionNumber": 33,
+        "payloadFormat": "v0",
+        "timestamp": "2026-04-24T15:08:56.494Z",
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "destroyedRecordIds": [
+              "recMbCU9yOWtAlmYZ"
+            ]
+          }
+        }
+      }
+    ],
+    "cursor": 4,
+    "might_have_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v0/bases/appJxrbEgLaF00M2f/webhooks/achVr70HDuRlmakwi/payloads": {
+        "response": {
+          "payloads": [
+            {
+              "timestamp": "2026-04-24T15:07:42.507Z",
+              "baseTransactionNumber": 31,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recMbCU9yOWtAlmYZ": {
+                      "createdTime": "2026-04-24T15:07:42.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test record for delete action validate",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:07:45.328Z",
+              "baseTransactionNumber": 32,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recWJCBrc52C4szop": {
+                      "createdTime": "2026-04-24T15:07:45.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:08:56.494Z",
+              "baseTransactionNumber": 33,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "destroyedRecordIds": [
+                    "recMbCU9yOWtAlmYZ"
+                  ]
+                }
+              }
+            }
+          ],
+          "cursor": 4,
+          "mightHaveMore": false,
+          "payloadFormat": "v0"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 15:09:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1777043354",
+          "set-cookie": "AWSALBTG=ij1lEQNneXQZxQH9sm+WDG72uHN1GSOrjlXYa/pjG27ga9nagbPmzCN54Fove+gcUGpasUWLuPxvT4k3PwWOTFAONzly0E1z8t5MFjQrC9GjXFLp/ktONJd4VEpFGeQG00pQc0OQBQp1N8ZdAciMbxLd+mjsZq4KXbRkJBzF9qAzPnEgpW4=; Expires=Fri, 01 May 2026 15:09:07 GMT; Path=/, AWSALBTGCORS=ij1lEQNneXQZxQH9sm+WDG72uHN1GSOrjlXYa/pjG27ga9nagbPmzCN54Fove+gcUGpasUWLuPxvT4k3PwWOTFAONzly0E1z8t5MFjQrC9GjXFLp/ktONJd4VEpFGeQG00pQc0OQBQp1N8ZdAciMbxLd+mjsZq4KXbRkJBzF9qAzPnEgpW4=; Expires=Fri, 01 May 2026 15:09:07 GMT; Path=/; SameSite=None; Secure, brw=brw19i3N8efbxoBx5; path=/; expires=Sat, 24 Apr 2027 15:09:07 GMT; domain=.airtable.com; samesite=none; secure, brwConsent=opt-in; path=/; expires=Fri, 24 Apr 2026 15:14:07 GMT; domain=.airtable.com; samesite=none; secure",
+          "server": "Tengine",
+          "access-control-allow-methods": "DELETE,GET,OPTIONS,PATCH,POST,PUT",
+          "access-control-allow-headers": "authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with",
+          "etag": "W/\"6e3-aF4447F17UndRM1LX36ZUCePdg4\"",
+          "airtable-datacenter-regions": "us-east-1",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "580121f6f41ac14336ae3c50c70704fb178025db",
+        "request": {}
+      }
+    }
+  }
+}
