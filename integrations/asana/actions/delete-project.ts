@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_gid: z.string().describe('Globally unique identifier for the project. Example: "1205341234567890"')
+    project_gid: z.string().min(1).describe('Globally unique identifier for the project. Example: "1205341234567890"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -28,7 +28,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
             // https://developers.asana.com/reference/deleteproject
-            endpoint: `/api/1.0/projects/${input.project_gid}`,
+            endpoint: `/api/1.0/projects/${encodeURIComponent(input.project_gid)}`,
             retries: 1
         });
 

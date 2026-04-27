@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    team_gid: z.string().describe('Globally unique identifier for the team. Example: "12345"'),
+    team_gid: z.string().min(1).describe('Globally unique identifier for the team. Example: "12345"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to the Asana offset token.'),
     opt_fields: z.string().optional().describe('Comma-separated list of optional fields to include in the response. Example: "name,email,photo"')
 });
@@ -48,7 +48,7 @@ const action = createAction({
     exec: async (nango, input) => {
         const config: ProxyConfiguration = {
             // https://developers.asana.com/reference/getusersforteam
-            endpoint: `/api/1.0/teams/${input.team_gid}/users`,
+            endpoint: `/api/1.0/teams/${encodeURIComponent(input.team_gid)}/users`,
             params: {
                 ...(input.cursor && { offset: input.cursor }),
                 ...(input.opt_fields && { opt_fields: input.opt_fields })

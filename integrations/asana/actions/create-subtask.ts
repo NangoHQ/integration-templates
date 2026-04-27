@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    parent_task_gid: z.string().describe('The globally unique identifier of the parent task. Example: "12345"'),
+    parent_task_gid: z.string().min(1).describe('The globally unique identifier of the parent task. Example: "12345"'),
     name: z.string().describe('The name of the subtask. Example: "Review draft"'),
     assignee: z.string().optional().describe('The user gid to assign the subtask to. Example: "67890"'),
     due_on: z.string().optional().describe('Localized due date in YYYY-MM-DD format. Example: "2024-12-31"'),
@@ -153,7 +153,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.asana.com/reference/createsubtaskfortask
-            endpoint: `/api/1.0/tasks/${input.parent_task_gid}/subtasks`,
+            endpoint: `/api/1.0/tasks/${encodeURIComponent(input.parent_task_gid)}/subtasks`,
             data: { data: body },
             retries: 3
         });

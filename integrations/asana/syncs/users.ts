@@ -77,6 +77,33 @@ const sync = createSync({
         // support modified_since or any timestamp-based filtering. Therefore only
         // full refresh is possible. We use a workspace_index checkpoint to resume
         // across workspaces within a run.
+        let workspaceIds: string[] = [];
+        if (!metadata.team_id) {
+            if (metadata.workspace_id) {
+                workspaceIds = [metadata.workspace_id];
+            } else {
+                const workspacesResponse = await nango.get({
+                    // https://developers.asana.com/reference/getworkspaces
+                    endpoint: '/api/1.0/workspaces',
+                    params: { opt_fields: 'gid,name' },
+                    retries: 3
+                });
+                const workspacesData = z
+                    .object({
+                        data: z.array(z.object({ gid: z.string(), name: z.string().optional() })).optional()
+                    })
+                    .safeParse(workspacesResponse.data);
+                if (workspacesData.success && workspacesData.data.data) {
+                    workspaceIds = workspacesData.data.data.filter((w) => w.name !== 'Personal Projects').map((w) => w.gid);
+                }
+            }
+
+            if (workspaceIds.length === 0) {
+                await nango.log('No workspaces found for this connection');
+                return;
+            }
+        }
+
         if (!hasResumeCheckpoint) {
             await nango.trackDeletesStart('User');
         }
@@ -102,26 +129,6 @@ const sync = createSync({
                 await saveUsers(nango, page);
             }
         } else {
-            let workspaceIds: string[] = [];
-            if (metadata.workspace_id) {
-                workspaceIds = [metadata.workspace_id];
-            } else {
-                const workspacesResponse = await nango.get({
-                    // https://developers.asana.com/reference/getworkspaces
-                    endpoint: '/api/1.0/workspaces',
-                    params: { opt_fields: 'gid,name' },
-                    retries: 3
-                });
-                const workspacesData = z
-                    .object({
-                        data: z.array(z.object({ gid: z.string(), name: z.string().optional() })).optional()
-                    })
-                    .safeParse(workspacesResponse.data);
-                if (workspacesData.success && workspacesData.data.data) {
-                    workspaceIds = workspacesData.data.data.filter((w) => w.name !== 'Personal Projects').map((w) => w.gid);
-                }
-            }
-
             for (let i = startIndex; i < workspaceIds.length; i++) {
                 for await (const page of nango.paginate<unknown>({
                     // https://developers.asana.com/reference/getusersforworkspace

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    task_gid: z.string().describe('The globally unique identifier of the task to update. Example: "123456789"'),
+    task_gid: z.string().min(1).describe('The globally unique identifier of the task to update. Example: "123456789"'),
     name: z.string().optional().describe('The new name of the task.'),
     notes: z.string().optional().describe('Free-form textual information associated with the task (its description).'),
     assignee: z.string().nullable().optional().describe('The user gid to assign the task to, or null to remove the assignee.'),
@@ -202,7 +202,7 @@ const action = createAction({
 
         // https://developers.asana.com/reference/updatetask
         const response = await nango.put({
-            endpoint: `/api/1.0/tasks/${input.task_gid}`,
+            endpoint: `/api/1.0/tasks/${encodeURIComponent(input.task_gid)}`,
             data: {
                 data: payload
             },

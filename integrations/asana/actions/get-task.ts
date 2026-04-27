@@ -67,23 +67,23 @@ const ProviderTaskSchema = z
         gid: z.string(),
         name: z.string(),
         resource_type: z.string().optional(),
-        assignee: z.union([UserSchema, z.null()]).optional(),
+        assignee: UserSchema.nullable().optional(),
         assignee_status: z.string().optional(),
-        assignee_section: z.union([CompactResourceSchema, z.null()]).optional(),
+        assignee_section: CompactResourceSchema.nullable().optional(),
         due_on: z.string().nullable().optional(),
         due_at: z.string().nullable().optional(),
         completed: z.boolean().optional(),
         completed_at: z.string().nullable().optional(),
-        completed_by: z.union([UserSchema, z.null()]).optional(),
+        completed_by: UserSchema.nullable().optional(),
         created_at: z.string().optional(),
-        created_by: z.union([UserSchema, z.null()]).optional(),
+        created_by: UserSchema.nullable().optional(),
         modified_at: z.string().optional(),
         notes: z.string().optional(),
         html_notes: z.string().optional(),
         permalink_url: z.string().optional(),
         projects: z.array(CompactResourceSchema).optional(),
         workspace: CompactResourceSchema.optional(),
-        parent: z.union([CompactResourceSchema, z.null()]).optional(),
+        parent: CompactResourceSchema.nullable().optional(),
         tags: z.array(CompactResourceSchema).optional(),
         followers: z.array(UserSchema).optional(),
         custom_fields: z.array(CustomFieldSchema).optional(),
@@ -141,7 +141,7 @@ const action = createAction({
 
         // https://developers.asana.com/reference/gettask
         const response = await nango.get({
-            endpoint: `/api/1.0/tasks/${input.task_gid}`,
+            endpoint: `/api/1.0/tasks/${encodeURIComponent(input.task_gid)}`,
             params: params,
             retries: 3
         });

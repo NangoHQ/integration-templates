@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    section_gid: z.string().describe('The globally unique identifier for the section. Example: "12345"'),
+    section_gid: z.string().min(1).describe('The globally unique identifier for the section. Example: "12345"'),
     cursor: z.string().optional().describe('Pagination cursor (offset token) from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Number of results per page (1-100). Defaults to 20.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (1-100). Defaults to 20.'),
     opt_fields: z.array(z.string()).optional().describe('Array of field names to include in the response. Example: ["name", "assignee", "due_on"]')
 });
 
@@ -155,7 +155,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://developers.asana.com/reference/gettasksforsection
-            endpoint: `/api/1.0/sections/${input.section_gid}/tasks`,
+            endpoint: `/api/1.0/sections/${encodeURIComponent(input.section_gid)}/tasks`,
             params,
             retries: 3
         });

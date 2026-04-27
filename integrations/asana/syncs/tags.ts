@@ -121,7 +121,10 @@ const sync = createSync({
                 retries: 3
             })) {
                 const rawBatch = z.array(z.unknown()).safeParse(batch);
-                if (!rawBatch.success || rawBatch.data.length === 0) {
+                if (!rawBatch.success) {
+                    throw new Error(`Invalid tag batch payload: ${rawBatch.error.message}`);
+                }
+                if (rawBatch.data.length === 0) {
                     continue;
                 }
 

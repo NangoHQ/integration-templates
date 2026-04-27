@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_gid: z.string().describe('Globally unique identifier for the project. Example: "1200000000000001"'),
+    project_gid: z.string().min(1).describe('Globally unique identifier for the project. Example: "1200000000000001"'),
     completed_since: z
         .string()
         .optional()
         .describe('Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword "now".'),
-    limit: z.number().min(1).max(100).optional().describe('Results per page. The value must be between 1 and 100. Defaults to 100.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Results per page. The value must be between 1 and 100. Defaults to 100.'),
     cursor: z.string().optional().describe('Pagination cursor (offset token) from the previous response. Omit for the first page.')
 });
 
@@ -75,7 +75,7 @@ const action = createAction({
 
         const config = {
             // https://developers.asana.com/reference/gettasksforproject
-            endpoint: `/api/1.0/projects/${input.project_gid}/tasks`,
+            endpoint: `/api/1.0/projects/${encodeURIComponent(input.project_gid)}/tasks`,
             params,
             retries: 3
         };

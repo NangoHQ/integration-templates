@@ -2888,60 +2888,46 @@
           "type": "string"
         },
         "assignee": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "gid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "resource_type": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "gid"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
         },
         "assignee_status": {
           "type": "string"
         },
         "assignee_section": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "gid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "resource_type": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "gid"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
         },
         "due_on": {
           "type": "string"
@@ -2956,63 +2942,49 @@
           "type": "string"
         },
         "completed_by": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "gid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "resource_type": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "gid"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
         },
         "created_at": {
           "type": "string"
         },
         "created_by": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "gid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "resource_type": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "gid"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
         },
         "modified_at": {
           "type": "string"
@@ -3066,29 +3038,22 @@
           "additionalProperties": false
         },
         "parent": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "gid": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "resource_type": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "gid"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
         },
         "tags": {
           "type": "array",

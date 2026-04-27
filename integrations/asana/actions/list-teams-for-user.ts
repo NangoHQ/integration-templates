@@ -5,7 +5,7 @@ const InputSchema = z.object({
     user_gid: z.string().describe('User GID, email, or "me". Example: "me"'),
     organization: z.string().describe('Workspace or organization GID to filter teams. Example: "12345"'),
     cursor: z.string().optional().describe('Pagination offset cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Number of results per page (1-100). Defaults to 100.')
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (1-100). Defaults to 100.')
 });
 
 const ProviderOrganizationSchema = z.object({

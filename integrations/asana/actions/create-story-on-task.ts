@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    task_gid: z.string().describe('The task to operate on. Example: "123456789"'),
+    task_gid: z.string().min(1).describe('The task to operate on. Example: "123456789"'),
     text: z.string().optional().describe('The plain text of the comment to add. Cannot be used with html_text.'),
     html_text: z.string().optional().describe('HTML formatted text for a comment. Cannot be used with text.')
 });

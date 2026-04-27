@@ -2373,10 +2373,12 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The task to operate on. Example: \"1200000000000001\""
                 },
                 "tag_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The tag to add to the task. Example: \"1200000000000002\""
                 }
               },
@@ -2584,6 +2586,7 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The task to operate on. Example: \"123456789\""
                 },
                 "text": {
@@ -2666,6 +2669,7 @@
               "properties": {
                 "parent_task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier of the parent task. Example: \"12345\""
                 },
                 "name": {
@@ -3205,6 +3209,7 @@
               "properties": {
                 "project_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the project. Example: \"1205341234567890\""
                 }
               },
@@ -3257,6 +3262,7 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier for the task to delete. Example: \"1209876543210987\""
                 }
               },
@@ -3315,6 +3321,7 @@
               "properties": {
                 "project_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier of the project. Example: \"1211440849237745\""
                 },
                 "opt_fields": {
@@ -4133,6 +4140,7 @@
               "properties": {
                 "team_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the team. Example: \"12345\""
                 }
               },
@@ -4615,6 +4623,7 @@
               "properties": {
                 "workspace_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the workspace or organization. Example: \"12345\""
                 },
                 "cursor": {
@@ -4623,7 +4632,7 @@
                 },
                 "limit": {
                   "description": "Results per page. The number of objects to return per page. The value must be between 1 and 100.",
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -5287,6 +5296,7 @@
               "properties": {
                 "project_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the project. Example: \"1200000000000001\""
                 },
                 "completed_since": {
@@ -5295,7 +5305,7 @@
                 },
                 "limit": {
                   "description": "Results per page. The value must be between 1 and 100. Defaults to 100.",
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -5423,6 +5433,7 @@
               "properties": {
                 "section_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier for the section. Example: \"12345\""
                 },
                 "cursor": {
@@ -5431,7 +5442,7 @@
                 },
                 "limit": {
                   "description": "Number of results per page (1-100). Defaults to 20.",
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -6398,7 +6409,7 @@
                 },
                 "limit": {
                   "description": "Number of results per page (1-100). Defaults to 100.",
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "maximum": 100
                 }
@@ -6495,6 +6506,7 @@
               "properties": {
                 "workspace_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the workspace or organization. Example: \"12345\""
                 },
                 "cursor": {
@@ -6503,7 +6515,7 @@
                 },
                 "limit": {
                   "description": "Number of results per page. Must be between 1 and 100. Defaults to 100.",
-                  "type": "number",
+                  "type": "integer",
                   "minimum": 1,
                   "maximum": 100
                 }
@@ -6579,6 +6591,7 @@
               "properties": {
                 "team_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the team. Example: \"12345\""
                 },
                 "cursor": {
@@ -6855,10 +6868,12 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier for the task. Example: \"123456789\""
                 },
                 "project_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier for the project to remove the task from. Example: \"987654321\""
                 }
               },
@@ -6905,10 +6920,12 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The task to remove the tag from. Example: \"12345\""
                 },
                 "tag_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The tag to remove from the task. Example: \"67890\""
                 }
               },
@@ -6962,6 +6979,7 @@
               "properties": {
                 "project_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Globally unique identifier for the project. Example: \"120987654321\""
                 },
                 "name": {
@@ -7303,6 +7321,7 @@
               "properties": {
                 "task_gid": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The globally unique identifier of the task to update. Example: \"123456789\""
                 },
                 "name": {

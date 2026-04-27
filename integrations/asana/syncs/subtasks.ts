@@ -70,7 +70,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
         const legacyCheckpointResult = LegacyCheckpointSchema.safeParse(rawCheckpoint);
-        const hasResumeCheckpoint = checkpointResult.success && checkpointResult.data.delete_tracking_started;
+        const hasResumeCheckpoint = (checkpointResult.success && checkpointResult.data.delete_tracking_started) || legacyCheckpointResult.success;
         const startIndex = checkpointResult.success
             ? checkpointResult.data.task_index
             : legacyCheckpointResult.success

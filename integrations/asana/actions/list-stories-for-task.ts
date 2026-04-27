@@ -39,6 +39,7 @@ const ProviderResponseSchema = z.object({
             path: z.string().optional(),
             uri: z.string().optional()
         })
+        .nullable()
         .optional()
 });
 

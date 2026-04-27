@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_gid: z.string().describe('Globally unique identifier for the team. Example: "12345"')
+    team_gid: z.string().min(1).describe('Globally unique identifier for the team. Example: "12345"')
 });
 
 const OrganizationSchema = z.object({
@@ -68,7 +68,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developers.asana.com/reference/getteam
-            endpoint: `/api/1.0/teams/${input.team_gid}`,
+            endpoint: `/api/1.0/teams/${encodeURIComponent(input.team_gid)}`,
             params: {
                 opt_fields:
                     'name,description,html_description,organization,permalink_url,visibility,edit_team_name_or_description_access_level,edit_team_visibility_or_trash_team_access_level,member_invite_management_access_level,guest_invite_management_access_level,join_request_management_access_level,team_member_removal_access_level,team_content_management_access_level,endorsed'

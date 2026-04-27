@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_gid: z.string().describe('Globally unique identifier for the project. Example: "120987654321"'),
+    project_gid: z.string().min(1).describe('Globally unique identifier for the project. Example: "120987654321"'),
     name: z.string().optional().describe('Name of the project.'),
     notes: z.string().nullable().optional().describe('Free-form text notes for the project.'),
     html_notes: z.string().nullable().optional().describe('HTML-formatted notes for the project.'),
@@ -117,7 +117,7 @@ const action = createAction({
 
         // https://developers.asana.com/reference/updateproject
         const response = await nango.put({
-            endpoint: `/api/1.0/projects/${input.project_gid}`,
+            endpoint: `/api/1.0/projects/${encodeURIComponent(input.project_gid)}`,
             data: {
                 data: payload
             },

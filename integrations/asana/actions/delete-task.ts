@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    task_gid: z.string().describe('The globally unique identifier for the task to delete. Example: "1209876543210987"')
+    task_gid: z.string().min(1, 'task_gid is required').describe('The globally unique identifier for the task to delete. Example: "1209876543210987"')
 });
 
 const OutputSchema = z.object({

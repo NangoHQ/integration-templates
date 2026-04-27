@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    workspace_gid: z.string().describe('Globally unique identifier for the workspace or organization. Example: "12345"'),
+    workspace_gid: z.string().min(1).describe('Globally unique identifier for the workspace or organization. Example: "12345"'),
     cursor: z.string().optional().describe('Pagination cursor (offset token) from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Number of results per page. Must be between 1 and 100. Defaults to 100.')
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page. Must be between 1 and 100. Defaults to 100.')
 });
 
 const TeamSchema = z.object({
@@ -49,7 +49,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://developers.asana.com/reference/getteamsforworkspace
-            endpoint: `/workspaces/${input.workspace_gid}/teams`,
+            endpoint: `/workspaces/${encodeURIComponent(input.workspace_gid)}/teams`,
             params,
             baseUrlOverride: 'https://app.asana.com/api/1.0',
             retries: 3

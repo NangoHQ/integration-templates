@@ -826,11 +826,11 @@ export interface ActionOutput_asana_gettask {
   assignee?: {  gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;
-  email?: string | undefined;} | null;
+  email?: string | undefined;};
   assignee_status?: string | undefined;
   assignee_section?: {  gid: string;
   name?: string | undefined;
-  resource_type?: string | undefined;} | null;
+  resource_type?: string | undefined;};
   due_on?: string | undefined;
   due_at?: string | undefined;
   completed?: boolean | undefined;
@@ -838,12 +838,12 @@ export interface ActionOutput_asana_gettask {
   completed_by?: {  gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;
-  email?: string | undefined;} | null;
+  email?: string | undefined;};
   created_at?: string | undefined;
   created_by?: {  gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;
-  email?: string | undefined;} | null;
+  email?: string | undefined;};
   modified_at?: string | undefined;
   notes?: string | undefined;
   html_notes?: string | undefined;
@@ -856,7 +856,7 @@ export interface ActionOutput_asana_gettask {
   resource_type?: string | undefined;};
   parent?: {  gid: string;
   name?: string | undefined;
-  resource_type?: string | undefined;} | null;
+  resource_type?: string | undefined;};
   tags?: ({  gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;})[];

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    task_gid: z.string().describe('The task to operate on. Example: "1200000000000001"'),
-    tag_gid: z.string().describe('The tag to add to the task. Example: "1200000000000002"')
+    task_gid: z.string().min(1).describe('The task to operate on. Example: "1200000000000001"'),
+    tag_gid: z.string().min(1).describe('The tag to add to the task. Example: "1200000000000002"')
 });
 
 const OutputSchema = z.object({
@@ -25,7 +25,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.asana.com/reference/addtagfortask
         const response = await nango.post({
-            endpoint: `/tasks/${input.task_gid}/addTag`,
+            endpoint: `/tasks/${encodeURIComponent(input.task_gid)}/addTag`,
             baseUrlOverride: 'https://app.asana.com/api/1.0',
             data: {
                 data: {

@@ -116,27 +116,26 @@ const sync = createSync({
         const hasResumeCheckpoint = parsedCheckpoint?.success ?? false;
         const startIndex = parsedCheckpoint?.success ? parsedCheckpoint.data.scope_index : 0;
 
-        let workspaceIds = metadata?.workspace_ids ?? [];
+        const workspaceIds = metadata?.workspace_ids ?? [];
         const teamIds = metadata?.team_ids ?? [];
 
         if (workspaceIds.length === 0 && teamIds.length === 0) {
             // https://developers.asana.com/reference/getworkspaces
-            const workspaceResponse = await nango.get({
+            for await (const batch of nango.paginate({
                 endpoint: '/api/1.0/workspaces',
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'offset',
+                    cursor_path_in_response: 'next_page.offset',
+                    response_path: 'data',
+                    limit_name_in_request: 'limit',
+                    limit: 100
+                },
                 retries: 3
-            });
-
-            const workspacesData = workspaceResponse.data;
-            if (workspacesData && Array.isArray(workspacesData.data)) {
-                const parsedWorkspaces = z
-                    .array(
-                        z.object({
-                            gid: z.string()
-                        })
-                    )
-                    .safeParse(workspacesData.data);
+            })) {
+                const parsedWorkspaces = z.array(z.object({ gid: z.string() })).safeParse(batch);
                 if (parsedWorkspaces.success) {
-                    workspaceIds = parsedWorkspaces.data.map((workspace) => workspace.gid);
+                    workspaceIds.push(...parsedWorkspaces.data.map((w) => w.gid));
                 }
             }
         }

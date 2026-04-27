@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_gid: z.string().describe('The globally unique identifier of the project. Example: "1211440849237745"'),
+    project_gid: z.string().min(1).describe('The globally unique identifier of the project. Example: "1211440849237745"'),
     opt_fields: z.string().optional().describe('Comma-separated list of optional fields to include in the response.')
 });
 
@@ -31,7 +31,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.asana.com/reference/getproject
         const response = await nango.get({
-            endpoint: `/api/1.0/projects/${input.project_gid}`,
+            endpoint: `/api/1.0/projects/${encodeURIComponent(input.project_gid)}`,
             params: {
                 ...(input.opt_fields !== undefined && { opt_fields: input.opt_fields })
             },

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    task_gid: z.string().describe('The task to remove the tag from. Example: "12345"'),
-    tag_gid: z.string().describe('The tag to remove from the task. Example: "67890"')
+    task_gid: z.string().min(1).describe('The task to remove the tag from. Example: "12345"'),
+    tag_gid: z.string().min(1).describe('The tag to remove from the task. Example: "67890"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -29,7 +29,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developers.asana.com/reference/removetagfortask
-            endpoint: `/api/1.0/tasks/${input.task_gid}/removeTag`,
+            endpoint: `/api/1.0/tasks/${encodeURIComponent(input.task_gid)}/removeTag`,
             data: {
                 data: {
                     tag: input.tag_gid

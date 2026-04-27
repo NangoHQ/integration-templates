@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    workspace_gid: z.string().describe('Globally unique identifier for the workspace or organization. Example: "12345"'),
+    workspace_gid: z.string().min(1).describe('Globally unique identifier for the workspace or organization. Example: "12345"'),
     cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Results per page. The number of objects to return per page. The value must be between 1 and 100.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Results per page. The number of objects to return per page. The value must be between 1 and 100.'),
     archived: z.boolean().optional().describe('Only return projects whose archived field takes on the value of this parameter.')
 });
 
@@ -86,7 +86,7 @@ const action = createAction({
 
         // https://developers.asana.com/reference/getprojectsforworkspace
         const response = await nango.get({
-            endpoint: `/api/1.0/workspaces/${input.workspace_gid}/projects`,
+            endpoint: `/api/1.0/workspaces/${encodeURIComponent(input.workspace_gid)}/projects`,
             params: params,
             retries: 3
         });

@@ -55,14 +55,7 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-
-        if (!parsed.data) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Unexpected response from Asana API.'
-            });
-        }
+        ProviderResponseSchema.parse(response.data);
 
         return {
             success: true
