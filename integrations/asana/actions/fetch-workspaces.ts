@@ -1,31 +1,61 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { Anonymous_asana_action_fetchworkspaces_output, Limit } from '../models.js';
+
+const InputSchema = z.object({
+    limit: z.number().min(1).max(100).optional().describe('Maximum number of workspaces to return. Defaults to 10.')
+});
+
+const WorkspaceSchema = z.object({
+    gid: z.string(),
+    name: z.string(),
+    resource_type: z.string().optional(),
+    is_organization: z.boolean().optional()
+});
+
+const OutputSchema = z.object({
+    items: z.array(WorkspaceSchema)
+});
 
 const action = createAction({
-    description: 'Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync',
-    version: '2.0.0',
-
+    description: 'Fetch workspaces with a limit (default 10) for the authenticated user, for use when selecting projects to sync.',
+    version: '3.0.0',
     endpoint: {
         method: 'GET',
-        path: '/workspaces/limit'
+        path: '/actions/fetch-workspaces',
+        group: 'Workspaces'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['workspaces:read'],
 
-    input: Limit,
-    output: Anonymous_asana_action_fetchworkspaces_output,
-
-    exec: async (nango, input): Promise<Anonymous_asana_action_fetchworkspaces_output> => {
-        const limit = input?.limit || 10;
-
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.asana.com/reference/getworkspaces
         const response = await nango.get({
             endpoint: '/api/1.0/workspaces',
             params: {
-                opt_fields: 'is_organization',
-                limit
+                limit: input.limit ?? 10,
+                opt_fields: 'gid,name,resource_type,is_organization'
             },
             retries: 3
         });
 
-        return response.data.data;
+        const providerResponse = z
+            .object({
+                data: z.array(z.unknown())
+            })
+            .safeParse(response.data);
+
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Asana API: could not parse workspaces data.'
+            });
+        }
+
+        // can't do a lookup of the protected "Personal Projects" workspace
+        const items = providerResponse.data.data.map((item) => WorkspaceSchema.parse(item)).filter((workspace) => workspace.name !== 'Personal Projects');
+
+        return { items };
     }
 });
 

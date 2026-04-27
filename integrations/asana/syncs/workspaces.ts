@@ -1,43 +1,70 @@
-import { createSync } from 'nango';
-import { AsanaWorkspace } from '../models.js';
+import { createSync, ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const WorkspaceSchema = z.object({
+    id: z.string(),
+    gid: z.string(),
+    name: z.string().optional(),
+    is_organization: z.boolean().optional(),
+    email_domains: z.array(z.string()).optional(),
+    resource_type: z.string().optional()
+});
+
 const sync = createSync({
-    description: 'Retrieve all workspaces for a user',
-    version: '2.0.0',
+    description: 'Sync workspaces visible to the authenticated Asana user.',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/workspaces',
-            group: 'Workspaces'
-        }
-    ],
-
+    endpoints: [{ method: 'POST', path: '/syncs/workspaces' }],
     models: {
-        AsanaWorkspace: AsanaWorkspace
+        Workspace: WorkspaceSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const params: Record<string, string> = {
-            limit: '100',
-            opt_fields: ['gid', 'name', 'resource_type', 'is_organization'].join(',')
+        await nango.trackDeletesStart('Workspace');
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.asana.com/reference/getworkspaces
+            endpoint: '/api/1.0/workspaces',
+            params: {
+                opt_fields: 'gid,name,is_organization,email_domains,resource_type'
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'offset',
+                cursor_path_in_response: 'next_page.offset',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
+            retries: 3
         };
 
-        for await (const workspaces of nango.paginate<AsanaWorkspace>({ endpoint: '/api/1.0/workspaces', params, retries: 10 })) {
-            const workspacesWithId = workspaces.map((workspace) => {
-                return {
-                    ...workspace,
-                    id: workspace.gid
-                };
-            });
-            await nango.batchSave(workspacesWithId, 'AsanaWorkspace');
+        for await (const page of nango.paginate(proxyConfig)) {
+            const workspaces = page.map(
+                (workspace: {
+                    gid: string;
+                    name?: string | null;
+                    is_organization?: boolean | null;
+                    email_domains?: string[] | null;
+                    resource_type?: string | null;
+                }) => ({
+                    id: workspace.gid,
+                    gid: workspace.gid,
+                    ...(workspace.name != null && { name: workspace.name }),
+                    ...(workspace.is_organization != null && { is_organization: workspace.is_organization }),
+                    ...(workspace.email_domains != null && { email_domains: workspace.email_domains }),
+                    ...(workspace.resource_type != null && { resource_type: workspace.resource_type })
+                })
+            );
+
+            if (workspaces.length > 0) {
+                await nango.batchSave(workspaces, 'Workspace');
+            }
         }
+
+        await nango.trackDeletesEnd('Workspace');
     }
 });
 

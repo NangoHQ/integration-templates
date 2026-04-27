@@ -1,33 +1,51 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { NangoActionError } from '../models.js';
-import { Anonymous_asana_action_deletetask_output, Id } from '../models.js';
+
+const InputSchema = z.object({
+    task_gid: z.string().describe('The globally unique identifier for the task to delete. Example: "1209876543210987"')
+});
+
+const OutputSchema = z.object({
+    task_gid: z.string().describe('The globally unique identifier of the deleted task.'),
+    success: z.boolean().describe('Whether the deletion was successful.')
+});
 
 const action = createAction({
-    description: 'Delete a task.',
-    version: '2.0.0',
-
+    description: 'Delete a task by gid.',
+    version: '3.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/tasks',
+        method: 'POST',
+        path: '/actions/delete-task',
         group: 'Tasks'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['tasks:delete'],
 
-    input: Id,
-    output: Anonymous_asana_action_deletetask_output,
-
-    exec: async (nango, input): Promise<Anonymous_asana_action_deletetask_output> => {
-        if (!input.id) {
-            throw new nango.ActionError<NangoActionError>({
-                type: 'validation_error',
-                message: 'You must specify a task id (gid) to delete.'
-            });
-        }
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            endpoint: `/api/1.0/tasks/${input.id}`,
-            retries: 3
+            // https://developers.asana.com/reference/delete-task
+            endpoint: `/api/1.0/tasks/${input.task_gid}`,
+            retries: 1
         });
 
-        return response.status === 200;
+        const providerResponse = z
+            .object({
+                data: z.unknown().optional()
+            })
+            .parse(response.data);
+
+        if (providerResponse.data === undefined) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Asana did not return a data field.'
+            });
+        }
+
+        return {
+            task_gid: input.task_gid,
+            success: true
+        };
     }
 });
 

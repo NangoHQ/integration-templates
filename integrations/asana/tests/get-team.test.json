@@ -1,0 +1,81 @@
+{
+  "input": {
+    "team_gid": "1211440849237740"
+  },
+  "output": {
+    "gid": "1211440849237740",
+    "name": "Nango's first team",
+    "description": "",
+    "html_description": "<body></body>",
+    "organization": {
+      "gid": "1202775892569436",
+      "name": "nango.dev"
+    },
+    "permalink_url": "https://app.asana.com/0/1211440849237740",
+    "visibility": "request_to_join",
+    "edit_team_name_or_description_access_level": "all_team_members",
+    "edit_team_visibility_or_trash_team_access_level": "all_team_members",
+    "member_invite_management_access_level": "all_team_members",
+    "guest_invite_management_access_level": "all_team_members",
+    "join_request_management_access_level": "all_team_members",
+    "team_member_removal_access_level": "all_team_members",
+    "team_content_management_access_level": "no_restriction",
+    "endorsed": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/teams/1211440849237740": {
+        "response": {
+          "data": {
+            "gid": "1211440849237740",
+            "description": "",
+            "html_description": "<body></body>",
+            "name": "Nango's first team",
+            "organization": {
+              "gid": "1202775892569436",
+              "name": "nango.dev",
+              "resource_type": "workspace"
+            },
+            "permalink_url": "https://app.asana.com/0/1211440849237740",
+            "edit_team_name_or_description_access_level": "all_team_members",
+            "edit_team_visibility_or_trash_team_access_level": "all_team_members",
+            "member_invite_management_access_level": "all_team_members",
+            "guest_invite_management_access_level": "all_team_members",
+            "join_request_management_access_level": "all_team_members",
+            "team_member_removal_access_level": "all_team_members",
+            "team_content_management_access_level": "no_restriction",
+            "visibility": "request_to_join",
+            "endorsed": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:27:09 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "729",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1777300081",
+          "etag": "W/\"2d9-Fi89SH7r8w/p4jHHciCVzsehFns\""
+        },
+        "hash": "12a9bf9215a83c56f2308676fb9dfdce029282d1",
+        "request": {
+          "params": {
+            "opt_fields": "name,description,html_description,organization,permalink_url,visibility,edit_team_name_or_description_access_level,edit_team_visibility_or_trash_team_access_level,member_invite_management_access_level,guest_invite_management_access_level,join_request_management_access_level,team_member_removal_access_level,team_content_management_access_level,endorsed"
+          }
+        }
+      }
+    }
+  }
+}
