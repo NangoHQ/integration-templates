@@ -42,6 +42,7 @@ const sync = createSync({
         AirtableRecord: AirtableRecordSchema
     },
     metadata: MetadataSchema,
+    scopes: ['data.records:read'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();
@@ -58,65 +59,68 @@ const sync = createSync({
         // Airtable list records only exposes page offsets, so this remains a checkpointed full refresh.
         await nango.trackDeletesStart('AirtableRecord');
 
-        const queryParams = new URLSearchParams();
-        if (metadata.view) {
-            queryParams.set('view', metadata.view);
-        }
-        if (metadata.filterByFormula) {
-            queryParams.set('filterByFormula', metadata.filterByFormula);
-        }
-        if (metadata.fields) {
-            for (const field of metadata.fields) {
-                queryParams.append('fields[]', field);
+        try {
+            const queryParams = new URLSearchParams();
+            if (metadata.view) {
+                queryParams.set('view', metadata.view);
             }
-        }
-        if (metadata.sort) {
-            for (let i = 0; i < metadata.sort.length; i++) {
-                const s = metadata.sort[i];
-                if (!s) {
-                    continue;
-                }
-                queryParams.set(`sort[${i}][field]`, s.field);
-                if (s.direction) {
-                    queryParams.set(`sort[${i}][direction]`, s.direction);
+            if (metadata.filterByFormula) {
+                queryParams.set('filterByFormula', metadata.filterByFormula);
+            }
+            if (metadata.fields) {
+                for (const field of metadata.fields) {
+                    queryParams.append('fields[]', field);
                 }
             }
+            if (metadata.sort) {
+                for (let i = 0; i < metadata.sort.length; i++) {
+                    const s = metadata.sort[i];
+                    if (!s) {
+                        continue;
+                    }
+                    queryParams.set(`sort[${i}][field]`, s.field);
+                    if (s.direction) {
+                        queryParams.set(`sort[${i}][direction]`, s.direction);
+                    }
+                }
+            }
+
+            const queryString = queryParams.toString();
+            const endpoint = `/v0/${metadata.baseId}/${metadata.tableIdOrName}${queryString ? `?${queryString}` : ''}`;
+
+            do {
+                const response = await nango.get({
+                    // https://airtable.com/developers/web/api/list-records
+                    endpoint,
+                    params: {
+                        pageSize: 100,
+                        ...(offset ? { offset } : {})
+                    },
+                    retries: 3
+                });
+
+                const providerResponse = RecordsResponseSchema.parse(response.data);
+
+                const records = providerResponse.records.map((record) => ({
+                    id: record.id,
+                    createdTime: record.createdTime,
+                    ...(record.fields !== undefined && { fields: record.fields })
+                }));
+
+                if (records.length > 0) {
+                    await nango.batchSave(records, 'AirtableRecord');
+                }
+
+                offset = providerResponse.offset;
+                if (offset) {
+                    await nango.saveCheckpoint({ offset });
+                }
+            } while (offset);
+
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('AirtableRecord');
         }
-
-        const queryString = queryParams.toString();
-        const endpoint = `/v0/${metadata.baseId}/${metadata.tableIdOrName}${queryString ? `?${queryString}` : ''}`;
-
-        do {
-            const response = await nango.get({
-                // https://airtable.com/developers/web/api/list-records
-                endpoint,
-                params: {
-                    pageSize: 100,
-                    ...(offset ? { offset } : {})
-                },
-                retries: 3
-            });
-
-            const providerResponse = RecordsResponseSchema.parse(response.data);
-
-            const records = providerResponse.records.map((record) => ({
-                id: record.id,
-                createdTime: record.createdTime,
-                ...(record.fields !== undefined && { fields: record.fields })
-            }));
-
-            if (records.length > 0) {
-                await nango.batchSave(records, 'AirtableRecord');
-            }
-
-            offset = providerResponse.offset;
-            if (offset) {
-                await nango.saveCheckpoint({ offset });
-            }
-        } while (offset);
-
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('AirtableRecord');
     }
 });
 

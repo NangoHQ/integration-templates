@@ -50,7 +50,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
             // https://airtable.com/developers/web/api/update-comment
-            endpoint: `/v0/${input.base_id}/${input.table_id_or_name}/${input.record_id}/comments/${input.row_comment_id}`,
+            endpoint: `/v0/${encodeURIComponent(input.base_id)}/${encodeURIComponent(input.table_id_or_name)}/${encodeURIComponent(input.record_id)}/comments/${encodeURIComponent(input.row_comment_id)}`,
             data: {
                 text: input.text
             },

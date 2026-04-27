@@ -27,12 +27,12 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data:records:write'],
+    scopes: ['data.records:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
             // https://airtable.com/developers/web/api/delete-record
-            endpoint: `/v0/${input.baseId}/${input.tableIdOrName}/${input.recordId}`,
+            endpoint: `/v0/${encodeURIComponent(input.baseId)}/${encodeURIComponent(input.tableIdOrName)}/${encodeURIComponent(input.recordId)}`,
             retries: 1
         });
 

@@ -36,7 +36,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
             // https://airtable.com/developers/web/api/update-record
-            endpoint: `/v0/${input.baseId}/${input.tableIdOrName}/${input.recordId}`,
+            endpoint: `/v0/${encodeURIComponent(input.baseId)}/${encodeURIComponent(input.tableIdOrName)}/${encodeURIComponent(input.recordId)}`,
             data: {
                 fields: input.fields,
                 ...(input.typecast !== undefined && { typecast: input.typecast })

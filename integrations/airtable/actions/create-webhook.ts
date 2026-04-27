@@ -7,7 +7,7 @@ const WebhookFiltersSchema = z.object({
     changeTypes: z.array(z.string()).optional().describe('The types of changes to watch. Example: ["add", "update", "remove"]'),
     fromSources: z.array(z.string()).optional().describe('The sources of changes to watch. Example: ["client", "formSubmission"]'),
     watchDataInFieldIds: z.array(z.string()).optional().describe('Field IDs to watch for data changes. Example: ["fldXXXXXXXXXXXXXX"]'),
-    watchSchemaInFieldIds: z.array(z.string()).optional().describe('Field IDs to watch for schema changes. Example: ["fldXXXXXXXXXXXXXX"]')
+    watchSchemasOfFieldIds: z.array(z.string()).optional().describe('Field IDs to watch for schema changes. Example: ["fldXXXXXXXXXXXXXX"]')
 });
 
 const WebhookIncludesSchema = z.object({

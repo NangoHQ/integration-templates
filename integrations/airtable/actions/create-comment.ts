@@ -45,7 +45,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://airtable.com/developers/web/api/create-comment
         const response = await nango.post({
-            endpoint: `/v0/${input.base_id}/${input.table_id_or_name}/${input.record_id}/comments`,
+            endpoint: `/v0/${encodeURIComponent(input.base_id)}/${encodeURIComponent(input.table_id_or_name)}/${encodeURIComponent(input.record_id)}/comments`,
             data: {
                 text: input.text
             },

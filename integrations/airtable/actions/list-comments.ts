@@ -84,20 +84,39 @@ const action = createAction({
                 });
             }
 
+            const id = 'id' in item && typeof item.id === 'string' ? item.id : null;
+            const text = 'text' in item && typeof item.text === 'string' ? item.text : null;
+            const createdTime = 'createdTime' in item && typeof item.createdTime === 'string' ? item.createdTime : null;
+
+            if (!id || text === null || !createdTime) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Comment item is missing required fields (id, text, or createdTime)'
+                });
+            }
+
             const authorItem = 'author' in item && item.author !== null && typeof item.author === 'object' ? item.author : {};
-            const authorId = 'id' in authorItem && typeof authorItem.id === 'string' ? authorItem.id : '';
+            const authorId = 'id' in authorItem && typeof authorItem.id === 'string' ? authorItem.id : null;
+
+            if (!authorId) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Comment author is missing required id field'
+                });
+            }
+
             const authorEmail = 'email' in authorItem && typeof authorItem.email === 'string' ? authorItem.email : undefined;
             const authorName = 'name' in authorItem && typeof authorItem.name === 'string' ? authorItem.name : undefined;
 
             return {
-                id: 'id' in item && typeof item.id === 'string' ? item.id : '',
+                id,
                 author: {
                     id: authorId,
                     ...(authorEmail !== undefined && { email: authorEmail }),
                     ...(authorName !== undefined && { name: authorName })
                 },
-                text: 'text' in item && typeof item.text === 'string' ? item.text : '',
-                createdTime: 'createdTime' in item && typeof item.createdTime === 'string' ? item.createdTime : '',
+                text,
+                createdTime,
                 lastUpdatedTime: 'lastUpdatedTime' in item && typeof item.lastUpdatedTime === 'string' ? item.lastUpdatedTime : undefined
             };
         });

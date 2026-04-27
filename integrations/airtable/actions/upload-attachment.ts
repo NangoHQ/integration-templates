@@ -31,7 +31,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://airtable.com/developers/web/api/upload-attachment
         const response = await nango.post({
-            endpoint: `/v0/${input.base_id}/${input.record_id}/${input.attachment_field_id_or_name}/uploadAttachment`,
+            endpoint: `/v0/${encodeURIComponent(input.base_id)}/${encodeURIComponent(input.record_id)}/${encodeURIComponent(input.attachment_field_id_or_name)}/uploadAttachment`,
             baseUrlOverride: 'https://content.airtable.com',
             data: {
                 contentType: input.content_type,

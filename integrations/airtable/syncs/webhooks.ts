@@ -68,6 +68,7 @@ const sync = createSync({
     models: {
         Webhook: WebhookSchema
     },
+    scopes: ['webhook:manage', 'schema.bases:read'],
     endpoints: [{ method: 'POST', path: '/syncs/webhooks' }],
 
     exec: async (nango) => {
@@ -83,72 +84,75 @@ const sync = createSync({
         // Airtable does not expose changed-only webhook configuration reads, so resume uses base-list pagination.
         await nango.trackDeletesStart('Webhook');
 
-        do {
-            const baseIds: string[] = [];
+        try {
+            do {
+                const baseIds: string[] = [];
 
-            if (metadata.baseId) {
-                baseIds.push(metadata.baseId);
-            } else {
-                const basesResponse = await nango.get({
-                    // https://airtable.com/developers/web/api/list-bases
-                    endpoint: '/v0/meta/bases',
-                    params: {
-                        ...(offset ? { offset } : {})
-                    },
-                    retries: 3
-                });
+                if (metadata.baseId) {
+                    baseIds.push(metadata.baseId);
+                } else {
+                    const basesResponse = await nango.get({
+                        // https://airtable.com/developers/web/api/list-bases
+                        endpoint: '/v0/meta/bases',
+                        params: {
+                            ...(offset ? { offset } : {})
+                        },
+                        retries: 3
+                    });
 
-                const basesResult = ProviderBasesResponseSchema.parse(basesResponse.data);
-                for (const base of basesResult.bases) {
-                    baseIds.push(base.id);
-                }
-                offset = basesResult.offset;
-            }
-
-            if (baseIds.length === 0) {
-                break;
-            }
-
-            const webhooks: z.infer<typeof WebhookSchema>[] = [];
-            for (const baseId of baseIds) {
-                // https://airtable.com/developers/web/api/list-webhooks
-                const response = await nango.get({
-                    endpoint: `/v0/bases/${baseId}/webhooks`,
-                    retries: 3
-                });
-
-                const parsed = ProviderWebhooksResponseSchema.safeParse(response.data);
-                if (!parsed.success) {
-                    throw new Error('Invalid webhooks response: ' + JSON.stringify(parsed.error.issues));
+                    const basesResult = ProviderBasesResponseSchema.parse(basesResponse.data);
+                    for (const base of basesResult.bases) {
+                        baseIds.push(base.id);
+                    }
+                    offset = basesResult.offset;
                 }
 
-                webhooks.push(
-                    ...parsed.data.webhooks.map((webhook) => ({
-                        id: webhook.id,
-                        baseId,
-                        isHookEnabled: webhook.isHookEnabled,
-                        areNotificationsEnabled: webhook.areNotificationsEnabled,
-                        cursorForNextPayload: webhook.cursorForNextPayload,
-                        ...(webhook.notificationUrl != null && { notificationUrl: webhook.notificationUrl }),
-                        ...(webhook.expirationTime != null && { expirationTime: webhook.expirationTime }),
-                        ...(webhook.lastSuccessfulNotificationTime != null && { lastSuccessfulNotificationTime: webhook.lastSuccessfulNotificationTime }),
-                        ...(webhook.lastNotificationResult != null && { lastNotificationResult: webhook.lastNotificationResult }),
-                        ...(webhook.specification != null && { specification: webhook.specification })
-                    }))
-                );
-            }
+                if (baseIds.length === 0) {
+                    break;
+                }
 
-            if (webhooks.length > 0) {
-                await nango.batchSave(webhooks, 'Webhook');
-            }
+                const webhooks: z.infer<typeof WebhookSchema>[] = [];
+                for (const baseId of baseIds) {
+                    // https://airtable.com/developers/web/api/list-webhooks
+                    const response = await nango.get({
+                        endpoint: `/v0/bases/${baseId}/webhooks`,
+                        retries: 3
+                    });
 
-            if (!metadata.baseId && offset) {
-                await nango.saveCheckpoint({ offset });
-            }
-        } while (!metadata.baseId && offset);
+                    const parsed = ProviderWebhooksResponseSchema.safeParse(response.data);
+                    if (!parsed.success) {
+                        throw new Error('Invalid webhooks response: ' + JSON.stringify(parsed.error.issues));
+                    }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Webhook');
+                    webhooks.push(
+                        ...parsed.data.webhooks.map((webhook) => ({
+                            id: webhook.id,
+                            baseId,
+                            isHookEnabled: webhook.isHookEnabled,
+                            areNotificationsEnabled: webhook.areNotificationsEnabled,
+                            cursorForNextPayload: webhook.cursorForNextPayload,
+                            ...(webhook.notificationUrl != null && { notificationUrl: webhook.notificationUrl }),
+                            ...(webhook.expirationTime != null && { expirationTime: webhook.expirationTime }),
+                            ...(webhook.lastSuccessfulNotificationTime != null && { lastSuccessfulNotificationTime: webhook.lastSuccessfulNotificationTime }),
+                            ...(webhook.lastNotificationResult != null && { lastNotificationResult: webhook.lastNotificationResult }),
+                            ...(webhook.specification != null && { specification: webhook.specification })
+                        }))
+                    );
+                }
+
+                if (webhooks.length > 0) {
+                    await nango.batchSave(webhooks, 'Webhook');
+                }
+
+                if (!metadata.baseId && offset) {
+                    await nango.saveCheckpoint({ offset });
+                }
+            } while (!metadata.baseId && offset);
+
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('Webhook');
+        }
     }
 });
 

@@ -43,11 +43,12 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data.records:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://airtable.com/developers/web/api/update-multiple-records
         const response = await nango.patch({
-            endpoint: `/v0/${input.base_id}/${input.table_id_or_name}`,
+            endpoint: `/v0/${encodeURIComponent(input.base_id)}/${encodeURIComponent(input.table_id_or_name)}`,
             data: {
                 records: input.records.map((record) => ({
                     id: record.id,

@@ -58,6 +58,13 @@ const action = createAction({
             payload['options'] = input.options;
         }
 
+        if (Object.keys(payload).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of name, description, or options must be provided.'
+            });
+        }
+
         // https://airtable.com/developers/web/api/update-field
         const response = await nango.patch({
             endpoint: `/v0/meta/bases/${input.baseId}/tables/${input.tableId}/fields/${input.columnId}`,

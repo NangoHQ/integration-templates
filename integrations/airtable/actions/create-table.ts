@@ -23,12 +23,29 @@ const ViewSchema = z.object({
     type: z.string()
 });
 
+const ProviderFieldResponseSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.string(),
+    description: z.string().nullable().optional(),
+    options: z.record(z.string(), z.unknown()).optional()
+});
+
 const FieldResponseSchema = z.object({
     id: z.string(),
     name: z.string(),
     type: z.string(),
     description: z.string().optional(),
     options: z.record(z.string(), z.unknown()).optional()
+});
+
+const ProviderOutputSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string().nullable().optional(),
+    primaryFieldId: z.string(),
+    fields: z.array(ProviderFieldResponseSchema),
+    views: z.array(ViewSchema)
 });
 
 const OutputSchema = z.object({
@@ -67,9 +84,22 @@ const action = createAction({
 
         const response = await nango.post(config);
 
-        const table = OutputSchema.parse(response.data);
+        const providerTable = ProviderOutputSchema.parse(response.data);
 
-        return table;
+        return {
+            id: providerTable.id,
+            name: providerTable.name,
+            ...(providerTable.description != null && { description: providerTable.description }),
+            primaryFieldId: providerTable.primaryFieldId,
+            fields: providerTable.fields.map((f) => ({
+                id: f.id,
+                name: f.name,
+                type: f.type,
+                ...(f.description != null && { description: f.description }),
+                ...(f.options !== undefined && { options: f.options })
+            })),
+            views: providerTable.views
+        };
     }
 });
 

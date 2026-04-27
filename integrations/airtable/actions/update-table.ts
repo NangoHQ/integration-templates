@@ -86,7 +86,7 @@ const action = createAction({
 
         const response = await nango.patch({
             // https://airtable.com/developers/web/api/update-table
-            endpoint: `/v0/meta/bases/${input.baseId}/tables/${input.tableIdOrName}`,
+            endpoint: `/v0/meta/bases/${encodeURIComponent(input.baseId)}/tables/${encodeURIComponent(input.tableIdOrName)}`,
             data: requestBody,
             retries: 3
         });

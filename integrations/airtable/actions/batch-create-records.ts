@@ -8,7 +8,7 @@ const RecordInputSchema = z.object({
 const InputSchema = z.object({
     baseId: z.string().describe('Airtable base ID. Example: "appXXXXXXXXXXXXXX"'),
     tableIdOrName: z.string().describe('Table ID or name. Example: "tblXXXXXXXXXXXXXX" or "My Table"'),
-    records: z.array(RecordInputSchema).describe('Array of records to create. Maximum 10 records per request.'),
+    records: z.array(RecordInputSchema).max(10).describe('Array of records to create. Maximum 10 records per request.'),
     typecast: z.boolean().optional().describe('If true, the Airtable API will perform best-effort automatic data conversion.')
 });
 

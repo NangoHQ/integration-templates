@@ -46,6 +46,7 @@ const sync = createSync({
     models: {
         View: ViewSchema
     },
+    scopes: ['schema.bases:read'],
 
     endpoints: [
         {
@@ -61,56 +62,59 @@ const sync = createSync({
         // Airtable view metadata comes from full table schema reads, so resume is based on the paginated bases list.
         await nango.trackDeletesStart('View');
 
-        do {
-            const basesResponse = await nango.get({
-                // https://airtable.com/developers/web/api/list-bases
-                endpoint: '/v0/meta/bases',
-                params: {
-                    ...(offset ? { offset } : {})
-                },
-                retries: 3
-            });
-
-            const basesData = ProviderBasesResponseSchema.parse(basesResponse.data);
-            const allViews: z.infer<typeof ViewSchema>[] = [];
-
-            for (const base of basesData.bases) {
-                const tablesResponse = await nango.get({
-                    // https://airtable.com/developers/web/api/get-base-schema
-                    // Returns tables including their views as embedded metadata.
-                    endpoint: `/v0/meta/bases/${base.id}/tables`,
+        try {
+            do {
+                const basesResponse = await nango.get({
+                    // https://airtable.com/developers/web/api/list-bases
+                    endpoint: '/v0/meta/bases',
+                    params: {
+                        ...(offset ? { offset } : {})
+                    },
                     retries: 3
                 });
 
-                const tablesData = z.object({ tables: z.array(TableSchema) }).parse(tablesResponse.data);
+                const basesData = ProviderBasesResponseSchema.parse(basesResponse.data);
+                const allViews: z.infer<typeof ViewSchema>[] = [];
 
-                for (const table of tablesData.tables) {
-                    const tableViews = table.views ?? [];
-                    const views = tableViews.map((view) => ({
-                        id: view.id,
-                        ...(view.name != null && { name: view.name }),
-                        ...(view.type != null && { type: view.type }),
-                        base_id: base.id,
-                        table_id: table.id,
-                        ...(table.name != null && { table_name: table.name })
-                    }));
+                for (const base of basesData.bases) {
+                    const tablesResponse = await nango.get({
+                        // https://airtable.com/developers/web/api/get-base-schema
+                        // Returns tables including their views as embedded metadata.
+                        endpoint: `/v0/meta/bases/${base.id}/tables`,
+                        retries: 3
+                    });
 
-                    allViews.push(...views);
+                    const tablesData = z.object({ tables: z.array(TableSchema) }).parse(tablesResponse.data);
+
+                    for (const table of tablesData.tables) {
+                        const tableViews = table.views ?? [];
+                        const views = tableViews.map((view) => ({
+                            id: view.id,
+                            ...(view.name != null && { name: view.name }),
+                            ...(view.type != null && { type: view.type }),
+                            base_id: base.id,
+                            table_id: table.id,
+                            ...(table.name != null && { table_name: table.name })
+                        }));
+
+                        allViews.push(...views);
+                    }
                 }
-            }
 
-            if (allViews.length > 0) {
-                await nango.batchSave(allViews, 'View');
-            }
+                if (allViews.length > 0) {
+                    await nango.batchSave(allViews, 'View');
+                }
 
-            offset = basesData.offset;
-            if (offset) {
-                await nango.saveCheckpoint({ offset });
-            }
-        } while (offset);
+                offset = basesData.offset;
+                if (offset) {
+                    await nango.saveCheckpoint({ offset });
+                }
+            } while (offset);
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('View');
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('View');
+        }
     }
 });
 

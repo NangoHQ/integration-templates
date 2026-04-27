@@ -32,6 +32,7 @@ const sync = createSync({
     models: {
         Base: BaseSchema
     },
+    scopes: ['schema.bases:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -40,36 +41,39 @@ const sync = createSync({
         // Airtable exposes page offsets for resume state, but no changed-since filter or delete feed for bases.
         await nango.trackDeletesStart('Base');
 
-        do {
-            const response = await nango.get({
-                // https://airtable.com/developers/web/api/list-bases
-                endpoint: '/v0/meta/bases',
-                params: {
-                    ...(offset ? { offset } : {})
-                },
-                retries: 3
-            });
+        try {
+            do {
+                const response = await nango.get({
+                    // https://airtable.com/developers/web/api/list-bases
+                    endpoint: '/v0/meta/bases',
+                    params: {
+                        ...(offset ? { offset } : {})
+                    },
+                    retries: 3
+                });
 
-            const providerResponse = ProviderBasesResponseSchema.parse(response.data);
+                const providerResponse = ProviderBasesResponseSchema.parse(response.data);
 
-            const bases = providerResponse.bases.map((base) => ({
-                id: base.id,
-                ...(base.name != null && { name: base.name }),
-                ...(base.permissionLevel != null && { permissionLevel: base.permissionLevel })
-            }));
+                const bases = providerResponse.bases.map((base) => ({
+                    id: base.id,
+                    ...(base.name != null && { name: base.name }),
+                    ...(base.permissionLevel != null && { permissionLevel: base.permissionLevel })
+                }));
 
-            if (bases.length > 0) {
-                await nango.batchSave(bases, 'Base');
-            }
+                if (bases.length > 0) {
+                    await nango.batchSave(bases, 'Base');
+                }
 
-            offset = providerResponse.offset;
-            if (offset) {
-                await nango.saveCheckpoint({ offset });
-            }
-        } while (offset);
+                offset = providerResponse.offset;
+                if (offset) {
+                    await nango.saveCheckpoint({ offset });
+                }
+            } while (offset);
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Base');
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('Base');
+        }
     }
 });
 
