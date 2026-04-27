@@ -939,6 +939,7 @@ import './xero/actions/get-invoice.js';
 import './xero/actions/get-item.js';
 import './xero/actions/get-payment.js';
 import './xero/actions/get-purchase-order.js';
+import './xero/actions/get-tenants.js';
 import './xero/actions/list-accounts.js';
 import './xero/actions/list-bank-transactions.js';
 import './xero/actions/list-contacts.js';
