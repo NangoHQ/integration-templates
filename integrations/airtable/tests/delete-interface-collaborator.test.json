@@ -1,0 +1,52 @@
+{
+  "input": {
+    "baseId": "app1shqFopYvVLdac",
+    "pageBundleId": "pagFake1234567890",
+    "userOrGroupId": "usrFake1234567890"
+  },
+  "output": {
+    "success": false,
+    "baseId": "app1shqFopYvVLdac",
+    "pageBundleId": "pagFake1234567890",
+    "userOrGroupId": "usrFake1234567890",
+    "error": "Interface page or collaborator not found. Verify the IDs and ensure the base has interface pages with collaborators."
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v0/meta/bases/app1shqFopYvVLdac/interfaces/pagFake1234567890/collaborators/usrFake1234567890": {
+        "response": {
+          "error": "NOT_FOUND"
+        },
+        "status": 404,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:31:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "21",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1777285952",
+          "set-cookie": "AWSALBTG=bMrB/7MIfhdSsiBvp92KIULdUX+hJefHybT8wYInAie8WzPv7aDA7zQwhuaGvGXhGlhk29tlzjOTnSpBjy0pevJlXAhgL/Ly1voNFMvCp0+b+iZJCnC+BF4P7VjLH4pqYpFbvLVPxgDSWn4AypO++5rHBxStlqfbi0m4Tp5JuUwAF7S7nr0=; Expires=Mon, 04 May 2026 10:31:46 GMT; Path=/, AWSALBTGCORS=bMrB/7MIfhdSsiBvp92KIULdUX+hJefHybT8wYInAie8WzPv7aDA7zQwhuaGvGXhGlhk29tlzjOTnSpBjy0pevJlXAhgL/Ly1voNFMvCp0+b+iZJCnC+BF4P7VjLH4pqYpFbvLVPxgDSWn4AypO++5rHBxStlqfbi0m4Tp5JuUwAF7S7nr0=; Expires=Mon, 04 May 2026 10:31:46 GMT; Path=/; SameSite=None; Secure, brw=brwUmr1yFVqzYl5kj; path=/; expires=Tue, 27 Apr 2027 10:31:46 GMT; domain=.airtable.com; samesite=none; secure, brwConsent=opt-in; path=/; expires=Mon, 27 Apr 2026 10:36:46 GMT; domain=.airtable.com; samesite=none; secure",
+          "server": "Tengine",
+          "access-control-allow-methods": "DELETE,GET,OPTIONS,PATCH,POST,PUT",
+          "access-control-allow-headers": "authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with",
+          "etag": "W/\"15-tcRCab2ZDkTZ4I9Oh2TI8Kt8AAg\"",
+          "airtable-datacenter-regions": "us-east-1",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "545c42b55ad6159f4d123f58703f1413766eb9b9",
+        "request": {}
+      }
+    }
+  }
+}

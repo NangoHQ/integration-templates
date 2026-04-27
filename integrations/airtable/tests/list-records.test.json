@@ -1,0 +1,518 @@
+{
+  "input": {
+    "baseId": "appJxrbEgLaF00M2f",
+    "tableIdOrName": "Table 1"
+  },
+  "output": {
+    "records": [
+      {
+        "id": "rec0gK1LIhmseBPyf",
+        "createdTime": "2026-04-24T15:07:29.000Z",
+        "fields": {
+          "Name": "Test Record",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "rec1Evpodg3WBeGIe",
+        "createdTime": "2026-04-24T15:27:56.000Z",
+        "fields": {
+          "Name": "Test",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recF1zfLm0nz7jKoq",
+        "createdTime": "2026-04-27T10:20:50.000Z",
+        "fields": {
+          "Name": "Batch Replace Updated",
+          "Attachment Summary": {
+            "state": "empty",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recHLJDdPvcozhSei",
+        "createdTime": "2026-04-23T06:38:41.000Z",
+        "fields": {
+          "Attachments": [
+            {
+              "id": "atttpTUIVMwyVTurW",
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/u-37phKGJva_LhCBDVKMjw/YExdOsAl7uKDq949G8JnrBrlFiDioZpdM2FeVSKMAtxrGCRHH9gVQ6SSbp9XBQ27cNirg3snNVxArEuUOA4d-ART67ajmE-zKavLUQd9ebnBbKvRW376F8EdJz_cgGdAHKNGSbRPKFF5MimD7o0sEQ/-Qocfm2eV9n9Ks22dJcrcn96zi7wWpqu4MpoY1vDmA0",
+              "filename": "test.txt",
+              "size": 13,
+              "type": "text/plain"
+            },
+            {
+              "id": "attOoPBVne8Trmexv",
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/WoNZIyNpoBG0dizBMPoEsA/L5IoZWlCEhsvJXxQmU3hhO_AVnfAlSWYK3DMSzEX2ugG1Ym4DBYmhUXOiffZUyWHR1HosGAAPnmTb9ojcWtWC_1QsErnUej7uCs5qSudYCSuNRocqxa2iIrBp2MD7vqXOnaqkSAI6m05RptXUhsgQA/ohgAUR6YfXMx-XQNUz6-JHO60mRDPX1qKE5Xq9AYVXs",
+              "filename": "test.txt",
+              "size": 13,
+              "type": "text/plain"
+            }
+          ],
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "unsupportedAttachmentType",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recII5qBqylCINRyg",
+        "createdTime": "2026-04-27T10:22:48.000Z",
+        "fields": {
+          "Name": "Updated Test Record",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recLEwRJ8aAHAyRUy",
+        "createdTime": "2026-03-19T14:09:21.000Z",
+        "fields": {
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recOJ2Gs6NjheOLSp",
+        "createdTime": "2026-04-27T10:34:37.000Z",
+        "fields": {
+          "Name": "Test Record for Get Action",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recPTZYq8X7cA1fmN",
+        "createdTime": "2026-04-27T10:19:34.000Z",
+        "fields": {
+          "Name": "Test Record 2",
+          "Notes": "Second test note",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recRfuR6a9ufoGiLS",
+        "createdTime": "2026-04-27T10:19:34.000Z",
+        "fields": {
+          "Name": "Test Record 1",
+          "Notes": "First test note",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recWJCBrc52C4szop",
+        "createdTime": "2026-04-24T15:07:45.000Z",
+        "fields": {
+          "Name": "Test Record",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recWsJGqTEObUmxhd",
+        "createdTime": "2026-04-24T15:05:12.000Z",
+        "fields": {
+          "Name": "Dryrun Record 2",
+          "Notes": "Dryrun note 2",
+          "Attachment Summary": {
+            "state": "empty",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recXpizkWZYwR4VnI",
+        "createdTime": "2026-03-19T14:09:21.000Z",
+        "fields": {
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "reciXoOk5GCAzi5vC",
+        "createdTime": "2026-04-27T10:19:27.000Z",
+        "fields": {
+          "Name": "Test Record 2",
+          "Notes": "Second test note",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recmWbwE5tQIxtrVs",
+        "createdTime": "2026-04-23T06:36:47.000Z",
+        "fields": {
+          "Name": "Test Record 1",
+          "Notes": "Updated note via batch update",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "reco2yc0hRE0UyUja",
+        "createdTime": "2026-04-27T10:19:27.000Z",
+        "fields": {
+          "Name": "Test Record 1",
+          "Notes": "First test note",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recslM5i7emIT0Mn9",
+        "createdTime": "2026-04-24T15:05:12.000Z",
+        "fields": {
+          "Name": "Dryrun Record 1",
+          "Notes": "Dryrun note 1",
+          "Attachment Summary": {
+            "state": "empty",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "id": "recz74Xxg5wOVDUYx",
+        "createdTime": "2026-03-19T14:09:21.000Z",
+        "fields": {
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      }
+    ],
+    "hasMore": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v0/appJxrbEgLaF00M2f/Table%201": {
+        "response": {
+          "records": [
+            {
+              "id": "rec0gK1LIhmseBPyf",
+              "createdTime": "2026-04-24T15:07:29.000Z",
+              "fields": {
+                "Name": "Test Record",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "rec1Evpodg3WBeGIe",
+              "createdTime": "2026-04-24T15:27:56.000Z",
+              "fields": {
+                "Name": "Test",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recF1zfLm0nz7jKoq",
+              "createdTime": "2026-04-27T10:20:50.000Z",
+              "fields": {
+                "Name": "Batch Replace Updated",
+                "Attachment Summary": {
+                  "state": "empty",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recHLJDdPvcozhSei",
+              "createdTime": "2026-04-23T06:38:41.000Z",
+              "fields": {
+                "Attachments": [
+                  {
+                    "id": "atttpTUIVMwyVTurW",
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/u-37phKGJva_LhCBDVKMjw/YExdOsAl7uKDq949G8JnrBrlFiDioZpdM2FeVSKMAtxrGCRHH9gVQ6SSbp9XBQ27cNirg3snNVxArEuUOA4d-ART67ajmE-zKavLUQd9ebnBbKvRW376F8EdJz_cgGdAHKNGSbRPKFF5MimD7o0sEQ/-Qocfm2eV9n9Ks22dJcrcn96zi7wWpqu4MpoY1vDmA0",
+                    "filename": "test.txt",
+                    "size": 13,
+                    "type": "text/plain"
+                  },
+                  {
+                    "id": "attOoPBVne8Trmexv",
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/WoNZIyNpoBG0dizBMPoEsA/L5IoZWlCEhsvJXxQmU3hhO_AVnfAlSWYK3DMSzEX2ugG1Ym4DBYmhUXOiffZUyWHR1HosGAAPnmTb9ojcWtWC_1QsErnUej7uCs5qSudYCSuNRocqxa2iIrBp2MD7vqXOnaqkSAI6m05RptXUhsgQA/ohgAUR6YfXMx-XQNUz6-JHO60mRDPX1qKE5Xq9AYVXs",
+                    "filename": "test.txt",
+                    "size": 13,
+                    "type": "text/plain"
+                  }
+                ],
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "unsupportedAttachmentType",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recII5qBqylCINRyg",
+              "createdTime": "2026-04-27T10:22:48.000Z",
+              "fields": {
+                "Name": "Updated Test Record",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recLEwRJ8aAHAyRUy",
+              "createdTime": "2026-03-19T14:09:21.000Z",
+              "fields": {
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recOJ2Gs6NjheOLSp",
+              "createdTime": "2026-04-27T10:34:37.000Z",
+              "fields": {
+                "Name": "Test Record for Get Action",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recPTZYq8X7cA1fmN",
+              "createdTime": "2026-04-27T10:19:34.000Z",
+              "fields": {
+                "Name": "Test Record 2",
+                "Notes": "Second test note",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recRfuR6a9ufoGiLS",
+              "createdTime": "2026-04-27T10:19:34.000Z",
+              "fields": {
+                "Name": "Test Record 1",
+                "Notes": "First test note",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recWJCBrc52C4szop",
+              "createdTime": "2026-04-24T15:07:45.000Z",
+              "fields": {
+                "Name": "Test Record",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recWsJGqTEObUmxhd",
+              "createdTime": "2026-04-24T15:05:12.000Z",
+              "fields": {
+                "Name": "Dryrun Record 2",
+                "Notes": "Dryrun note 2",
+                "Attachment Summary": {
+                  "state": "empty",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recXpizkWZYwR4VnI",
+              "createdTime": "2026-03-19T14:09:21.000Z",
+              "fields": {
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "reciXoOk5GCAzi5vC",
+              "createdTime": "2026-04-27T10:19:27.000Z",
+              "fields": {
+                "Name": "Test Record 2",
+                "Notes": "Second test note",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recmWbwE5tQIxtrVs",
+              "createdTime": "2026-04-23T06:36:47.000Z",
+              "fields": {
+                "Name": "Test Record 1",
+                "Notes": "Updated note via batch update",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "reco2yc0hRE0UyUja",
+              "createdTime": "2026-04-27T10:19:27.000Z",
+              "fields": {
+                "Name": "Test Record 1",
+                "Notes": "First test note",
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recslM5i7emIT0Mn9",
+              "createdTime": "2026-04-24T15:05:12.000Z",
+              "fields": {
+                "Name": "Dryrun Record 1",
+                "Notes": "Dryrun note 1",
+                "Attachment Summary": {
+                  "state": "empty",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            },
+            {
+              "id": "recz74Xxg5wOVDUYx",
+              "createdTime": "2026-03-19T14:09:21.000Z",
+              "fields": {
+                "Attachment Summary": {
+                  "state": "error",
+                  "errorType": "emptyDependency",
+                  "value": null,
+                  "isStale": false
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:39:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4199",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4878",
+          "x-ratelimit-reset": "1777286400",
+          "etag": "W/\"1067-u+UxHZx4nD3UwARROyJ/tcDn//o\""
+        },
+        "hash": "cec41ffd71a45d255d1d62efe6d2cdbf0217a8cc",
+        "request": {}
+      }
+    }
+  }
+}

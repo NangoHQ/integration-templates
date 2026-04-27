@@ -1,0 +1,1623 @@
+{
+  "input": {
+    "baseId": "appJxrbEgLaF00M2f",
+    "webhookId": "achVr70HDuRlmakwi"
+  },
+  "output": {
+    "payloads": [
+      {
+        "timestamp": "2026-04-24T15:07:42.507Z",
+        "baseTransactionNumber": 31,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recMbCU9yOWtAlmYZ": {
+                "createdTime": "2026-04-24T15:07:42.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test record for delete action validate",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 1
+      },
+      {
+        "timestamp": "2026-04-24T15:07:45.328Z",
+        "baseTransactionNumber": 32,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recWJCBrc52C4szop": {
+                "createdTime": "2026-04-24T15:07:45.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 2
+      },
+      {
+        "timestamp": "2026-04-24T15:08:56.494Z",
+        "baseTransactionNumber": 33,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "destroyedRecordIds": [
+              "recMbCU9yOWtAlmYZ"
+            ]
+          }
+        },
+        "cursor": 3
+      },
+      {
+        "timestamp": "2026-04-24T15:09:42.628Z",
+        "baseTransactionNumber": 36,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recACUTT9vJKEr3KI": {
+                "createdTime": "2026-04-24T15:09:43.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test record for delete action save2",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 4
+      },
+      {
+        "timestamp": "2026-04-24T15:10:58.153Z",
+        "baseTransactionNumber": 37,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "destroyedRecordIds": [
+              "recACUTT9vJKEr3KI"
+            ]
+          }
+        },
+        "cursor": 5
+      },
+      {
+        "timestamp": "2026-04-24T15:12:31.997Z",
+        "baseTransactionNumber": 38,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recfCi2QGS7j24Zfv": {
+                "createdTime": "2026-04-24T15:12:32.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Temp Delete Me 1",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              },
+              "recstHcz87zHFcSAL": {
+                "createdTime": "2026-04-24T15:12:32.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Temp Delete Me 2",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 6
+      },
+      {
+        "timestamp": "2026-04-24T15:12:42.606Z",
+        "baseTransactionNumber": 39,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tbldBkl22VIG2sT42": {
+            "createdRecordsById": {
+              "recWH6lLAqx5yYJEe": {
+                "createdTime": "2026-04-24T15:12:43.000Z",
+                "cellValuesByFieldId": {
+                  "flddd5ccAg7ArDIBB": "Test Record",
+                  "fld3bvi22MLLiqDAU": "Active"
+                }
+              }
+            }
+          }
+        },
+        "cursor": 7
+      },
+      {
+        "timestamp": "2026-04-24T15:12:53.010Z",
+        "baseTransactionNumber": 40,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tbldBkl22VIG2sT42": {
+            "changedRecordsById": {
+              "recWH6lLAqx5yYJEe": {
+                "current": {
+                  "cellValuesByFieldId": {
+                    "flddd5ccAg7ArDIBB": "Updated Test Record",
+                    "fld3bvi22MLLiqDAU": "Done"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 8
+      },
+      {
+        "timestamp": "2026-04-24T15:17:40.516Z",
+        "baseTransactionNumber": 41,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "changedRecordsById": {
+              "recslM5i7emIT0Mn9": {
+                "current": {
+                  "cellValuesByFieldId": {
+                    "fldagYnWofuTkZGQF": "Dryrun Record 1",
+                    "fldtuoKH0f6DKYqwZ": "Dryrun note 1"
+                  }
+                }
+              },
+              "recWsJGqTEObUmxhd": {
+                "current": {
+                  "cellValuesByFieldId": {
+                    "fldagYnWofuTkZGQF": "Dryrun Record 2",
+                    "fldtuoKH0f6DKYqwZ": "Dryrun note 2"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 9
+      },
+      {
+        "timestamp": "2026-04-24T15:21:30.091Z",
+        "baseTransactionNumber": 43,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "destroyedRecordIds": [
+              "recfCi2QGS7j24Zfv",
+              "recstHcz87zHFcSAL"
+            ]
+          }
+        },
+        "cursor": 10
+      },
+      {
+        "timestamp": "2026-04-24T15:21:44.506Z",
+        "baseTransactionNumber": 44,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "rec2d3LrSKirCAbVp": {
+                "createdTime": "2026-04-24T15:21:44.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Temp Delete Me 1",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              },
+              "reckMlu0COFvgVEQr": {
+                "createdTime": "2026-04-24T15:21:44.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Temp Delete Me 2",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 11
+      },
+      {
+        "timestamp": "2026-04-24T15:22:00.874Z",
+        "baseTransactionNumber": 45,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblRgiSOLlimcvmOc": {
+            "createdRecordsById": {
+              "recRx33465zGk5n7P": {
+                "createdTime": "2026-04-24T15:22:01.000Z",
+                "cellValuesByFieldId": {
+                  "fldlbCcxDUW8kWs3T": "Test Record 1",
+                  "fldVqQe22uwFNdPrn": "Active"
+                }
+              },
+              "recqofy5ZdAfsUV0v": {
+                "createdTime": "2026-04-24T15:22:01.000Z",
+                "cellValuesByFieldId": {
+                  "fldlbCcxDUW8kWs3T": "Test Record 2",
+                  "fldVqQe22uwFNdPrn": "Pending"
+                }
+              }
+            }
+          }
+        },
+        "cursor": 12
+      },
+      {
+        "timestamp": "2026-04-24T15:22:01.378Z",
+        "baseTransactionNumber": 46,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "destroyedRecordIds": [
+              "rec2d3LrSKirCAbVp",
+              "reckMlu0COFvgVEQr"
+            ]
+          }
+        },
+        "cursor": 13
+      },
+      {
+        "timestamp": "2026-04-24T15:22:23.977Z",
+        "baseTransactionNumber": 47,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblRgiSOLlimcvmOc": {
+            "createdRecordsById": {
+              "recptMuWTaUsECEvz": {
+                "createdTime": "2026-04-24T15:22:24.000Z",
+                "cellValuesByFieldId": {
+                  "fldlbCcxDUW8kWs3T": "Test Record 1",
+                  "fldVqQe22uwFNdPrn": "Active"
+                }
+              },
+              "recWGcWMVpVHQEzf4": {
+                "createdTime": "2026-04-24T15:22:24.000Z",
+                "cellValuesByFieldId": {
+                  "fldlbCcxDUW8kWs3T": "Test Record 2",
+                  "fldVqQe22uwFNdPrn": "Pending"
+                }
+              }
+            }
+          }
+        },
+        "cursor": 14
+      },
+      {
+        "timestamp": "2026-04-24T15:27:55.798Z",
+        "baseTransactionNumber": 48,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "rec1Evpodg3WBeGIe": {
+                "createdTime": "2026-04-24T15:27:56.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 15
+      },
+      {
+        "timestamp": "2026-04-27T10:19:26.909Z",
+        "baseTransactionNumber": 49,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "reco2yc0hRE0UyUja": {
+                "createdTime": "2026-04-27T10:19:27.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record 1",
+                  "fldtuoKH0f6DKYqwZ": "First test note",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              },
+              "reciXoOk5GCAzi5vC": {
+                "createdTime": "2026-04-27T10:19:27.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record 2",
+                  "fldtuoKH0f6DKYqwZ": "Second test note",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 16
+      },
+      {
+        "timestamp": "2026-04-27T10:19:34.510Z",
+        "baseTransactionNumber": 50,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recRfuR6a9ufoGiLS": {
+                "createdTime": "2026-04-27T10:19:34.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record 1",
+                  "fldtuoKH0f6DKYqwZ": "First test note",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              },
+              "recPTZYq8X7cA1fmN": {
+                "createdTime": "2026-04-27T10:19:34.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record 2",
+                  "fldtuoKH0f6DKYqwZ": "Second test note",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 17
+      },
+      {
+        "timestamp": "2026-04-27T10:20:50.038Z",
+        "baseTransactionNumber": 51,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recF1zfLm0nz7jKoq": {
+                "createdTime": "2026-04-27T10:20:50.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Batch Replace Test",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 18
+      },
+      {
+        "timestamp": "2026-04-27T10:21:03.962Z",
+        "baseTransactionNumber": 52,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "changedRecordsById": {
+              "recF1zfLm0nz7jKoq": {
+                "current": {
+                  "cellValuesByFieldId": {
+                    "fldagYnWofuTkZGQF": "Batch Replace Updated",
+                    "fldV5CueFSrUBiex7": {
+                      "state": "empty",
+                      "value": null,
+                      "isStale": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 19
+      },
+      {
+        "timestamp": "2026-04-27T10:22:47.798Z",
+        "baseTransactionNumber": 54,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recII5qBqylCINRyg": {
+                "createdTime": "2026-04-27T10:22:48.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record for Batch Update",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 20
+      },
+      {
+        "timestamp": "2026-04-27T10:22:56.294Z",
+        "baseTransactionNumber": 55,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "changedRecordsById": {
+              "recII5qBqylCINRyg": {
+                "current": {
+                  "cellValuesByFieldId": {
+                    "fldagYnWofuTkZGQF": "Updated Test Record"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 21
+      },
+      {
+        "timestamp": "2026-04-27T10:34:37.389Z",
+        "baseTransactionNumber": 63,
+        "payloadFormat": "v0",
+        "actionMetadata": {
+          "source": "publicApi",
+          "sourceMetadata": {
+            "user": {
+              "id": "usrpy9Yee7o4NAdRO",
+              "email": "api@nango.dev",
+              "permissionLevel": "create",
+              "name": "Nango Developer",
+              "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+            }
+          }
+        },
+        "changedTablesById": {
+          "tblNPITrPesLLh2eA": {
+            "createdRecordsById": {
+              "recOJ2Gs6NjheOLSp": {
+                "createdTime": "2026-04-27T10:34:37.000Z",
+                "cellValuesByFieldId": {
+                  "fldagYnWofuTkZGQF": "Test Record for Get Action",
+                  "fldV5CueFSrUBiex7": {
+                    "state": "error",
+                    "errorType": "emptyDependency",
+                    "value": null,
+                    "isStale": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cursor": 22
+      }
+    ],
+    "mightHaveMore": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v0/bases/appJxrbEgLaF00M2f/webhooks/achVr70HDuRlmakwi/payloads": {
+        "response": {
+          "payloads": [
+            {
+              "timestamp": "2026-04-24T15:07:42.507Z",
+              "baseTransactionNumber": 31,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recMbCU9yOWtAlmYZ": {
+                      "createdTime": "2026-04-24T15:07:42.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test record for delete action validate",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:07:45.328Z",
+              "baseTransactionNumber": 32,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recWJCBrc52C4szop": {
+                      "createdTime": "2026-04-24T15:07:45.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:08:56.494Z",
+              "baseTransactionNumber": 33,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "destroyedRecordIds": [
+                    "recMbCU9yOWtAlmYZ"
+                  ]
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:09:42.628Z",
+              "baseTransactionNumber": 36,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recACUTT9vJKEr3KI": {
+                      "createdTime": "2026-04-24T15:09:43.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test record for delete action save2",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:10:58.153Z",
+              "baseTransactionNumber": 37,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "destroyedRecordIds": [
+                    "recACUTT9vJKEr3KI"
+                  ]
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:12:31.997Z",
+              "baseTransactionNumber": 38,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recfCi2QGS7j24Zfv": {
+                      "createdTime": "2026-04-24T15:12:32.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Temp Delete Me 1",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    },
+                    "recstHcz87zHFcSAL": {
+                      "createdTime": "2026-04-24T15:12:32.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Temp Delete Me 2",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:12:42.606Z",
+              "baseTransactionNumber": 39,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tbldBkl22VIG2sT42": {
+                  "createdRecordsById": {
+                    "recWH6lLAqx5yYJEe": {
+                      "createdTime": "2026-04-24T15:12:43.000Z",
+                      "cellValuesByFieldId": {
+                        "flddd5ccAg7ArDIBB": "Test Record",
+                        "fld3bvi22MLLiqDAU": "Active"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:12:53.010Z",
+              "baseTransactionNumber": 40,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tbldBkl22VIG2sT42": {
+                  "changedRecordsById": {
+                    "recWH6lLAqx5yYJEe": {
+                      "current": {
+                        "cellValuesByFieldId": {
+                          "flddd5ccAg7ArDIBB": "Updated Test Record",
+                          "fld3bvi22MLLiqDAU": "Done"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:17:40.516Z",
+              "baseTransactionNumber": 41,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "changedRecordsById": {
+                    "recslM5i7emIT0Mn9": {
+                      "current": {
+                        "cellValuesByFieldId": {
+                          "fldagYnWofuTkZGQF": "Dryrun Record 1",
+                          "fldtuoKH0f6DKYqwZ": "Dryrun note 1"
+                        }
+                      }
+                    },
+                    "recWsJGqTEObUmxhd": {
+                      "current": {
+                        "cellValuesByFieldId": {
+                          "fldagYnWofuTkZGQF": "Dryrun Record 2",
+                          "fldtuoKH0f6DKYqwZ": "Dryrun note 2"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:21:30.091Z",
+              "baseTransactionNumber": 43,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "destroyedRecordIds": [
+                    "recfCi2QGS7j24Zfv",
+                    "recstHcz87zHFcSAL"
+                  ]
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:21:44.506Z",
+              "baseTransactionNumber": 44,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "rec2d3LrSKirCAbVp": {
+                      "createdTime": "2026-04-24T15:21:44.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Temp Delete Me 1",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    },
+                    "reckMlu0COFvgVEQr": {
+                      "createdTime": "2026-04-24T15:21:44.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Temp Delete Me 2",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:22:00.874Z",
+              "baseTransactionNumber": 45,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblRgiSOLlimcvmOc": {
+                  "createdRecordsById": {
+                    "recRx33465zGk5n7P": {
+                      "createdTime": "2026-04-24T15:22:01.000Z",
+                      "cellValuesByFieldId": {
+                        "fldlbCcxDUW8kWs3T": "Test Record 1",
+                        "fldVqQe22uwFNdPrn": "Active"
+                      }
+                    },
+                    "recqofy5ZdAfsUV0v": {
+                      "createdTime": "2026-04-24T15:22:01.000Z",
+                      "cellValuesByFieldId": {
+                        "fldlbCcxDUW8kWs3T": "Test Record 2",
+                        "fldVqQe22uwFNdPrn": "Pending"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:22:01.378Z",
+              "baseTransactionNumber": 46,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "destroyedRecordIds": [
+                    "rec2d3LrSKirCAbVp",
+                    "reckMlu0COFvgVEQr"
+                  ]
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:22:23.977Z",
+              "baseTransactionNumber": 47,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblRgiSOLlimcvmOc": {
+                  "createdRecordsById": {
+                    "recptMuWTaUsECEvz": {
+                      "createdTime": "2026-04-24T15:22:24.000Z",
+                      "cellValuesByFieldId": {
+                        "fldlbCcxDUW8kWs3T": "Test Record 1",
+                        "fldVqQe22uwFNdPrn": "Active"
+                      }
+                    },
+                    "recWGcWMVpVHQEzf4": {
+                      "createdTime": "2026-04-24T15:22:24.000Z",
+                      "cellValuesByFieldId": {
+                        "fldlbCcxDUW8kWs3T": "Test Record 2",
+                        "fldVqQe22uwFNdPrn": "Pending"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-24T15:27:55.798Z",
+              "baseTransactionNumber": 48,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "rec1Evpodg3WBeGIe": {
+                      "createdTime": "2026-04-24T15:27:56.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:19:26.909Z",
+              "baseTransactionNumber": 49,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "reco2yc0hRE0UyUja": {
+                      "createdTime": "2026-04-27T10:19:27.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record 1",
+                        "fldtuoKH0f6DKYqwZ": "First test note",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    },
+                    "reciXoOk5GCAzi5vC": {
+                      "createdTime": "2026-04-27T10:19:27.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record 2",
+                        "fldtuoKH0f6DKYqwZ": "Second test note",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:19:34.510Z",
+              "baseTransactionNumber": 50,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recRfuR6a9ufoGiLS": {
+                      "createdTime": "2026-04-27T10:19:34.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record 1",
+                        "fldtuoKH0f6DKYqwZ": "First test note",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    },
+                    "recPTZYq8X7cA1fmN": {
+                      "createdTime": "2026-04-27T10:19:34.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record 2",
+                        "fldtuoKH0f6DKYqwZ": "Second test note",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:20:50.038Z",
+              "baseTransactionNumber": 51,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recF1zfLm0nz7jKoq": {
+                      "createdTime": "2026-04-27T10:20:50.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Batch Replace Test",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:21:03.962Z",
+              "baseTransactionNumber": 52,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "changedRecordsById": {
+                    "recF1zfLm0nz7jKoq": {
+                      "current": {
+                        "cellValuesByFieldId": {
+                          "fldagYnWofuTkZGQF": "Batch Replace Updated",
+                          "fldV5CueFSrUBiex7": {
+                            "state": "empty",
+                            "value": null,
+                            "isStale": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:22:47.798Z",
+              "baseTransactionNumber": 54,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recII5qBqylCINRyg": {
+                      "createdTime": "2026-04-27T10:22:48.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record for Batch Update",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:22:56.294Z",
+              "baseTransactionNumber": 55,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "changedRecordsById": {
+                    "recII5qBqylCINRyg": {
+                      "current": {
+                        "cellValuesByFieldId": {
+                          "fldagYnWofuTkZGQF": "Updated Test Record"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "timestamp": "2026-04-27T10:34:37.389Z",
+              "baseTransactionNumber": 63,
+              "actionMetadata": {
+                "source": "publicApi",
+                "sourceMetadata": {
+                  "user": {
+                    "id": "usrpy9Yee7o4NAdRO",
+                    "email": "api@nango.dev",
+                    "permissionLevel": "create",
+                    "name": "Nango Developer",
+                    "profilePicUrl": "https://static.airtable.com/images/userIcons/user_icon_7.png"
+                  }
+                }
+              },
+              "payloadFormat": "v0",
+              "changedTablesById": {
+                "tblNPITrPesLLh2eA": {
+                  "createdRecordsById": {
+                    "recOJ2Gs6NjheOLSp": {
+                      "createdTime": "2026-04-27T10:34:37.000Z",
+                      "cellValuesByFieldId": {
+                        "fldagYnWofuTkZGQF": "Test Record for Get Action",
+                        "fldV5CueFSrUBiex7": {
+                          "state": "error",
+                          "errorType": "emptyDependency",
+                          "value": null,
+                          "isStale": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "cursor": 23,
+          "mightHaveMore": false,
+          "payloadFormat": "v0"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:38:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1777286326",
+          "set-cookie": "AWSALBTG=T07i9F/KfCSPWQuu7x8twGE5WnrXye0hTAz6w1tSBwg+Wjcx3+DO8I3UigF8S+DA28g8LFghAM5cgbJ6QXw5+HTJownD9XZcsusJqfqeI4lRxpiLdhIEkZi49I3D8UVhFJOKxL4FFNHd7ohm8e4ppfRh6MBGGiNx487t1P+p87Sj1kgbLMM=; Expires=Mon, 04 May 2026 10:38:09 GMT; Path=/, AWSALBTGCORS=T07i9F/KfCSPWQuu7x8twGE5WnrXye0hTAz6w1tSBwg+Wjcx3+DO8I3UigF8S+DA28g8LFghAM5cgbJ6QXw5+HTJownD9XZcsusJqfqeI4lRxpiLdhIEkZi49I3D8UVhFJOKxL4FFNHd7ohm8e4ppfRh6MBGGiNx487t1P+p87Sj1kgbLMM=; Expires=Mon, 04 May 2026 10:38:09 GMT; Path=/; SameSite=None; Secure, brw=brwWCJqsmaQACtZGU; path=/; expires=Tue, 27 Apr 2027 10:38:09 GMT; domain=.airtable.com; samesite=none; secure, brwConsent=opt-in; path=/; expires=Mon, 27 Apr 2026 10:43:09 GMT; domain=.airtable.com; samesite=none; secure",
+          "server": "Tengine",
+          "access-control-allow-methods": "DELETE,GET,OPTIONS,PATCH,POST,PUT",
+          "access-control-allow-headers": "authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with",
+          "etag": "W/\"36d0-t7QAwy/Fqds+BOA8dPXGOpNoJbI\"",
+          "airtable-datacenter-regions": "us-east-1",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "580121f6f41ac14336ae3c50c70704fb178025db",
+        "request": {}
+      }
+    }
+  }
+}

@@ -89,61 +89,814 @@ export interface ActionOutput_aircall_deleteuser {
 export interface Base {
   id: string;
   name: string;
-  permissionLevel: 'none' | 'read' | 'comment' | 'edit' | 'create';
-};
-
-export interface SyncMetadata_airtable_bases {
+  permission_level?: 'create' | 'edit' | 'read' | undefined;
 };
 
 export interface Table {
+  id: string;
   baseId: string;
   baseName: string;
-  id: string;
+  tableId: string;
+  tableName: string;
+  description?: string | undefined;
+  primaryFieldId: string;
+  fields: ({  id: string;
   name: string;
+  type: string;
+  description?: string | undefined;})[];
   views: ({  id: string;
   name: string;
   type: string;})[];
-  fields: ({  id: string;
-  description: string;
-  name: string;
-  type: string;
-  options?: {} | undefined;})[];
-  primaryFieldId: string;
 };
 
-export interface SyncMetadata_airtable_tables {
+export interface View {
+  id: string;
+  base_id: string;
+  table_id: string;
+  name: string;
+  type: string;
+};
+
+export interface Webhook {
+  id: string;
+  notificationUrl: string;
+  expirationTime: string;
+  areNotificationsEnabled: boolean;
+  isHookEnabled: boolean;
+  cursorForNextPayload?: number | undefined;
+  lastSuccessfulNotificationTime?: string | undefined;
+  lastNotificationResult?: {  success: boolean;
+  error?: {  message: string;} | undefined;};
+  specification?: {} | undefined;
+};
+
+export interface ActionInput_airtable_batchcreaterecords {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tblXXXXXXXXXXXXXX" or "Table Name"
+   */
+  tableIdOrName: string;
+  /**
+   * Array of records to create. Each record should have a `fields` object containing the field values.
+   */
+  records: ({  /**
+   * A mapping of field IDs or names to field values.
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * If true, Airtable will attempt to convert cell values to the appropriate type.
+   */
+  typecast?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_batchcreaterecords {
+  /**
+   * Array of created records with their IDs and field values.
+   */
+  records: ({  /**
+   * The unique identifier of the created record.
+   */
+  id: string;
+  /**
+   * The timestamp when the record was created.
+   */
+  createdTime: string;
+  /**
+   * The field values of the created record.
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_airtable_batchdeleterecords {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tblXXXXXXXXXXXXXX" or "My Table"
+   */
+  tableIdOrName: string;
+  /**
+   * Array of record IDs to delete (maximum 10). Example: ["recXXXXXXXXXXXXXX"]
+   */
+  recordIds: string[];
+};
+
+export interface ActionOutput_airtable_batchdeleterecords {
+  records: ({  id: string;
+  deleted: boolean;})[];
+};
+
+export interface ActionInput_airtable_batchreplacerecords {
+  /**
+   * Airtable base ID. Example: "app123abc456"
+   */
+  baseId: string;
+  /**
+   * Table ID or name. Example: "My Table" or "tbl123abc456"
+   */
+  tableIdOrName: string;
+  /**
+   * Array of records to replace (max 10 records per request)
+   */
+  records: ({  /**
+   * Airtable record ID. Example: "rec123abc456"
+   */
+  id: string;
+  /**
+   * The field values for this record
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * If true, allows Airtable to coerce field values to the correct type
+   */
+  typecast?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_batchreplacerecords {
+  records: ({  id: string;
+  createdTime: string;
+  /**
+   * Field values keyed by field name or field ID
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_airtable_batchupdaterecords {
+  /**
+   * The Airtable base ID. Example: "app1234567890abcd"
+   */
+  base_id: string;
+  /**
+   * The table ID or table name.
+   */
+  table_id_or_name: string;
+  /**
+   * Array of records to update. Maximum 10 records per request.
+   */
+  records: ({  /**
+   * The Airtable record ID. Example: "rec1234567890abcd"
+   */
+  id: string;
+  /**
+   * The fields to update for this record.
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Whether to typecast the values. Default is false.
+   */
+  typecast?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_batchupdaterecords {
+  records: ({  id: string;
+  created_time?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_airtable_createcomment {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tblXXXXXXXXXXXXXX" or "Table 1"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record to comment on. Example: "recXXXXXXXXXXXXXX"
+   */
+  recordId: string;
+  /**
+   * The text content of the comment. Use @[userId] to mention users. Example: "Hello world" or "Hey @[usrXXXXXXXXXXXXXX]"
+   */
+  text: string;
+};
+
+export interface ActionOutput_airtable_createcomment {
+  /**
+   * The ID of the created comment
+   */
+  id: string;
+  author: {  id: string;
+  email: string;
+  name: string;};
+  text: string;
+  createdTime: string;
+  lastUpdatedTime?: string | undefined;
+  mentioned?: {  [key: string]: {  displayName: string;
+  email: string;
+  id: string;
+  type: string;};} | undefined;
+};
+
+export interface ActionInput_airtable_createfield {
+  /**
+   * Airtable base ID. Example: "appXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * Airtable table ID. Example: "tblXXXXXXXXXX"
+   */
+  tableId: string;
+  /**
+   * The name of the new field.
+   */
+  name: string;
+  /**
+   * The type of the new field. Example: "singleLineText", "number", "singleSelect"
+   */
+  type: string;
+  /**
+   * A long-form description of the field.
+   */
+  description?: string | undefined;
+  /**
+   * Type-specific options for the field.
+   */
+  options?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_airtable_createfield {
+  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  options?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_airtable_createrecord {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXX"
+   */
+  base_id: string;
+  /**
+   * The table ID or name. Example: "tblXXXXXXXXXXXXXX" or "Table Name"
+   */
+  table_id_or_name: string;
+  /**
+   * The field values for the new record. Keys are field names or IDs.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_airtable_createrecord {
+  id: string;
+  created_time: string;
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_airtable_createtable {
+  /**
+   * Airtable base ID. Example: app1234567890ABC
+   */
+  base_id: string;
+  /**
+   * Table name
+   */
+  name: string;
+  /**
+   * Table description (max 20k characters)
+   */
+  description?: string | undefined;
+  /**
+   * Array of field definitions. At least one field is required. Each field must have name, type, and optional description and options. Field types: singleLineText, singleSelect, number, checkbox, email, url, multilineText, date, dateTime, etc. Options vary by type (e.g., {precision: 2} for number, {choices: [{name: "Option 1"}]} for singleSelect)
+   */
+  fields: ({  /**
+   * Field name
+   */
+  name: string;
+  /**
+   * Field type (e.g., singleLineText, singleSelect, number, checkbox, email, url, multilineText, date, dateTime)
+   */
+  type: string;
+  /**
+   * Field description
+   */
+  description?: string | undefined;
+  options?: {} | undefined;})[];
+  /**
+   * Name of the field to use as the primary field. If omitted, the first field will be used.
+   */
+  primary_field_name?: string | undefined;
+};
+
+export interface ActionOutput_airtable_createtable {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  primary_field_id: string;
+  fields: ({  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;})[];
 };
 
 export interface ActionInput_airtable_createwebhook {
+  /**
+   * The ID of the base to create the webhook on. Example: "appXXXXXXXXXXXXXX"
+   */
   baseId: string;
-  specification: {  options: {  filters: {  recordChangeScope?: string | undefined;
-  dataTypes: string[];
-  changeTypes: string[];
-  fromSources: string[];
-  sourceOptions?: {  formPageSubmission?: {  pageId: string;} | undefined;
-  formSubmission?: {  viewId: string;} | undefined;};
-  watchDataInFieldIds: string[];
-  watchSchemasOfFieldIds: string[];};
-  includes?: {  includeCellValuesInFieldIds?: string[] | 'all' | undefined;
-  "includePreviousCellValues:"?: boolean | undefined;
-  includePreviousFieldDefinitions?: boolean | undefined;};};};
+  /**
+   * The URL that will receive webhook notifications. Example: "https://example.com/webhook"
+   */
+  notificationUrl: string;
+  /**
+   * Webhook specification defining what changes to monitor
+   */
+  specification?: {  options?: {  filters?: {  /**
+   * Data types to monitor. Example: ["tableData"]
+   */
+  dataTypes?: ({  0: 'tableData';
+  1: 'tableFields';
+  2: 'tableMetadata';})[] | undefined;
+  /**
+   * Table ID to limit monitoring to specific table. Example: "tblXXXXXXXXXXXXXX"
+   */
+  recordChangeScope?: string | undefined;
+  /**
+   * Types of changes to monitor. Example: ["add", "update"]
+   */
+  changeTypes?: ({  0: 'add';
+  1: 'update';
+  2: 'remove';})[] | undefined;
+  /**
+   * Field IDs to watch for data changes. Example: ["fldXXXXXXXXXXXXXX"]
+   */
+  watchDataInFieldIds?: string[] | undefined;
+  /**
+   * Field IDs to watch for schema changes. Example: ["fldXXXXXXXXXXXXXX"]
+   */
+  watchSchemasOfFieldIds?: string[] | undefined;};};};
 };
 
 export interface ActionOutput_airtable_createwebhook {
-  id: string;
+  /**
+   * The ID of the created webhook
+   */
+  webhookId: string;
+  /**
+   * The ID of the base
+   */
+  baseId: string;
+  /**
+   * Base64-encoded MAC secret for verifying webhook payloads
+   */
+  macSecretBase64: string;
+  /**
+   * When the webhook expires
+   */
   expirationTime: string;
 };
 
-export interface ActionInput_airtable_deletewebhook {
+export interface ActionInput_airtable_deletecomment {
+  /**
+   * The ID of the Airtable base
+   */
   baseId: string;
-  webhookId: string;
+  /**
+   * The ID or name of the table
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record
+   */
+  recordId: string;
+  /**
+   * The ID of the comment to delete
+   */
+  rowCommentId: string;
 };
 
-export interface ActionOutput_airtable_deletewebhook {
+export interface ActionOutput_airtable_deletecomment {
+  /**
+   * Whether the comment was successfully deleted
+   */
   success: boolean;
+  /**
+   * The ID of the deleted comment
+   */
+  rowCommentId: string;
+};
+
+export interface ActionInput_airtable_deleteinterfacecollaborator {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID of the interface page bundle. Example: "pag1234567890abcd"
+   */
+  pageBundleId: string;
+  /**
+   * The ID of the user or user group to remove as a collaborator. Example: "usr1234567890abcd" or "grp1234567890abcd"
+   */
+  userOrGroupId: string;
+};
+
+export interface ActionOutput_airtable_deleteinterfacecollaborator {
+  /**
+   * Whether the collaborator was successfully removed
+   */
+  success: boolean;
+  /**
+   * The ID of the Airtable base
+   */
+  baseId: string;
+  /**
+   * The ID of the interface page bundle
+   */
+  pageBundleId: string;
+  /**
+   * The ID of the removed collaborator
+   */
+  userOrGroupId: string;
+  /**
+   * Error message if the deletion failed
+   */
+  error?: string | undefined;
+};
+
+export interface ActionInput_airtable_deleterecord {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tbl1234567890abcd" or "Projects"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record to delete. Example: "rec1234567890abcd"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_airtable_deleterecord {
+  /**
+   * Whether the record was successfully deleted
+   */
+  deleted: boolean;
+  /**
+   * The ID of the deleted record
+   */
+  id: string;
+};
+
+export interface ActionInput_airtable_getbasecollaborators {
+  /**
+   * The ID of the Airtable base
+   */
+  baseId: string;
+};
+
+export interface ActionOutput_airtable_getbasecollaborators {
+  id?: string | undefined;
+  name?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  workspaceId?: string | undefined;
+  collaborators?: {  workspaceCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];
+  baseCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];};
+  individualCollaborators?: {  workspaceCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];
+  baseCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];};
+  groupCollaborators?: {  workspaceCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];
+  baseCollaborators?: ({  userId?: string | undefined;
+  email?: string | undefined;
+  permissionLevel?: string | undefined;
+  createdTime?: string | undefined;
+  grantedByUserId?: string | undefined;})[];};
+};
+
+export interface ActionInput_airtable_getbaseschema {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+};
+
+export interface ActionOutput_airtable_getbaseschema {
+  tables: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  primaryFieldId: string;
+  fields: ({  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  options?: {  [key: string]: unknown | undefined;};})[];})[];
+};
+
+export interface ActionInput_airtable_getrecord {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tbl1234567890abcd" or "Users"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record to retrieve. Example: "rec1234567890abcd"
+   */
+  recordId: string;
+  /**
+   * The format to return cell values. Use "json" or "string". Defaults to "json".
+   */
+  cellFormat?: string | undefined;
+  /**
+   * The time zone to use when formatting dates. Example: "America/New_York"
+   */
+  timeZone?: string | undefined;
+  /**
+   * The user locale to use when formatting dates. Example: "en-US"
+   */
+  userLocale?: string | undefined;
+  /**
+   * If true, field values are keyed by field ID instead of field name.
+   */
+  returnFieldsByFieldId?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_getrecord {
+  /**
+   * The unique identifier of the record.
+   */
+  id: string;
+  /**
+   * The ISO 8601 timestamp when the record was created.
+   */
+  createdTime: string;
+  /**
+   * The field values of the record, keyed by field name or field ID.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_airtable_getuserinfo {
+};
+
+export interface ActionOutput_airtable_getuserinfo {
+  /**
+   * The user ID. Example: "usrX9e810wHn3mMLz"
+   */
+  id: string;
+  /**
+   * The user email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * The OAuth scopes granted to the connection. Example: ["data.records:read", "data.records:write"]
+   */
+  scopes?: string[] | undefined;
+};
+
+export interface ActionInput_airtable_getviewmetadata {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID of the view to retrieve metadata for. Example: "viw1234567890abcd"
+   */
+  viewId: string;
+};
+
+export interface ActionOutput_airtable_getviewmetadata {
+  id: string;
+  name: string;
+  type: string;
+};
+
+export interface ActionInput_airtable_listbases {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_airtable_listbases {
+  items: ({  id: string;
+  name: string;
+  permissionLevel: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_airtable_listcomments {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXX"
+   */
+  base_id: string;
+  /**
+   * The ID or name of the table. Example: "tblXXXXXXXXXXXXXX" or "Table 1"
+   */
+  table_id_or_name: string;
+  /**
+   * The ID of the record to list comments for. Example: "recXXXXXXXXXXXXXX"
+   */
+  record_id: string;
+  /**
+   * Pagination offset token from the previous response. Omit for the first page.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_airtable_listcomments {
+  comments: ({  id: string;
+  author: {  id: string;
+  email: string;
+  name: string;};
+  text: string;
+  createdTime: string;
+  lastUpdatedTime?: string | null | undefined;})[];
+  offset?: string | undefined;
+};
+
+export interface ActionInput_airtable_listrecords {
+  /**
+   * The ID of the Airtable base
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table
+   */
+  tableIdOrName: string;
+  /**
+   * The name or ID of a view in the table
+   */
+  view?: string | undefined;
+  /**
+   * A formula used to filter records
+   */
+  filterByFormula?: string | undefined;
+  /**
+   * Array of field names to return
+   */
+  fields?: string[] | undefined;
+  /**
+   * Sort order for records
+   */
+  sort?: ({  field: string;
+  direction?: 'asc' | 'desc' | undefined;})[];
+  /**
+   * Number of records per page (1-100)
+   */
+  pageSize?: number | undefined;
+  /**
+   * Maximum number of records to return
+   */
+  maxRecords?: number | undefined;
+  /**
+   * Format for cell values
+   */
+  cellFormat?: 'json' | 'string' | undefined;
+  /**
+   * Time zone for date formatting
+   */
+  timeZone?: string | undefined;
+  /**
+   * User locale for formatting
+   */
+  userLocale?: string | undefined;
+  /**
+   * Return field IDs instead of names
+   */
+  returnFieldsByFieldId?: boolean | undefined;
+  /**
+   * Additional metadata to include
+   */
+  recordMetadata?: ({  0: 'commentCount';})[] | undefined;
+  /**
+   * Pagination offset from previous response
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_airtable_listrecords {
+  records: ({  id: string;
+  createdTime: string;
+  fields: {  [key: string]: unknown | undefined;};
+  commentCount?: number | undefined;})[];
+  /**
+   * Offset for fetching next page
+   */
+  offset?: string | undefined;
+  /**
+   * Whether there are more records to fetch
+   */
+  hasMore: boolean;
+};
+
+export interface ActionInput_airtable_listviews {
+  /**
+   * The ID of the Airtable base. Example: "appXXXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * Optional table ID to filter views by table. Example: "tblXXXXXXXXXXXXXXXX"
+   */
+  tableId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_airtable_listviews {
+  /**
+   * List of views in the base
+   */
+  views: ({  /**
+   * Unique identifier for the view
+   */
+  id: string;
+  /**
+   * Name of the view
+   */
+  name: string;
+  /**
+   * Type of view (e.g., grid, form, gallery, kanban)
+   */
+  type: string;
+  /**
+   * ID of the table containing this view
+   */
+  tableId?: string | undefined;
+  /**
+   * Name of the table containing this view
+   */
+  tableName?: string | undefined;})[];
+  /**
+   * Cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_airtable_listwebhookpayloads {
+  /**
+   * The ID of the base containing the webhook. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID of the webhook to list payloads for. Example: "achXXXXXXXXXXXXXX"
+   */
+  webhookId: string;
+  /**
+   * Pagination cursor. The cursor of the first webhook payload to retrieve. Omit for the first page.
+   */
+  cursor?: number | undefined;
+};
+
+export interface ActionOutput_airtable_listwebhookpayloads {
+  payloads: ({  timestamp: string;
+  baseTransactionNumber: number;
+  payloadFormat: string;
+  actionMetadata: {  source: string;
+  sourceMetadata: {  user: {  id: string;
+  email: string;
+  permissionLevel: string;
+  name?: string | undefined;
+  profilePicUrl?: string | undefined;};};};
+  changedTablesById: {  [key: string]: {  createdRecordsById?: {  [key: string]: {  createdTime: string;
+  cellValuesByFieldId: {  [key: string]: unknown | undefined;};};};
+  changedRecordsById?: {  [key: string]: {  current: {  cellValuesByFieldId: {  [key: string]: unknown | undefined;};};};};
+  destroyedRecordIds?: string[] | undefined;};};
+  createdTablesById?: {  [key: string]: unknown | undefined;};
+  destroyedTableIds?: string[] | undefined;
+  error?: string | undefined;
+  errorCode?: string | undefined;
+  cursor: number;})[];
+  mightHaveMore: boolean;
+  nextCursor?: number | undefined;
 };
 
 export interface ActionInput_airtable_listwebhooks {
+  /**
+   * The ID of the Airtable base. Example: "app00000000000000"
+   */
   baseId: string;
 };
 
@@ -152,32 +905,300 @@ export interface ActionOutput_airtable_listwebhooks {
   areNotificationsEnabled: boolean;
   cursorForNextPayload: number;
   isHookEnabled: boolean;
-  lastSuccessfulNotificationTime: string | null;
+  lastSuccessfulNotificationTime?: string | undefined;
+  notificationUrl?: string | undefined;
+  lastNotificationResult?: {  [key: string]: unknown | undefined;};
   expirationTime?: string | undefined;
-  specification: {  options: {  filters: {  recordChangeScope?: string | undefined;
-  dataTypes: string[];
-  changeTypes: string[];
-  fromSources: string[];
-  sourceOptions?: {  formPageSubmission?: {  pageId: string;} | undefined;
-  formSubmission?: {  viewId: string;} | undefined;};
-  watchDataInFieldIds: string[];
-  watchSchemasOfFieldIds: string[];};
-  includes?: {  includeCellValuesInFieldIds?: string[] | 'all' | undefined;
-  "includePreviousCellValues:"?: boolean | undefined;
-  includePreviousFieldDefinitions?: boolean | undefined;};};};
-  lastNotificationResult: {  success: boolean;
-  error?: {  message: string;} | undefined;
-  completionTimestamp?: string | undefined;
-  durationMs?: number | undefined;
-  retryNumber?: number | undefined;
-  willBeRetried?: boolean | undefined;} | null;})[];
+  specification: {  [key: string]: unknown | undefined;};})[];
 };
 
-export type ActionInput_airtable_whoami = void
+export interface ActionInput_airtable_refreshwebhook {
+  /**
+   * The ID of the base containing the webhook. Example: "appXXXXXXXXXXXXXX"
+   */
+  base_id: string;
+  /**
+   * The ID of the webhook to refresh. Example: "achXXXXXXXXXXXXXX"
+   */
+  webhook_id: string;
+};
 
-export interface ActionOutput_airtable_whoami {
+export interface ActionOutput_airtable_refreshwebhook {
+  /**
+   * The new expiration time of the webhook in ISO 8601 format.
+   */
+  expiration_time?: string | undefined;
+};
+
+export interface ActionInput_airtable_replacerecord {
+  /**
+   * The ID of the base. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tblXXXXXXXXXXXXXX" or "Table Name"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record to replace. Example: "recXXXXXXXXXXXXXX"
+   */
+  recordId: string;
+  /**
+   * Object containing field names or IDs as keys and field values. Example: {"Name": "New Value", "Status": "Done"}
+   */
+  fields: {  [key: string]: unknown | undefined;};
+  /**
+   * If true, the Airtable API will perform best-effort automatic data conversion from string values. Default: false
+   */
+  typecast?: boolean | undefined;
+  /**
+   * If true, returns field objects where the key is the field ID instead of field name. Default: false
+   */
+  returnFieldsByFieldId?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_replacerecord {
   id: string;
-  email: string | null;
+  fields: {  [key: string]: unknown | undefined;};
+  createdTime: string;
+};
+
+export interface ActionInput_airtable_setwebhooknotifications {
+  /**
+   * The ID of the base containing the webhook. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * The ID of the webhook to update. Example: "achXXXXXXXXXXXXXX"
+   */
+  webhookId: string;
+  /**
+   * Whether to enable or disable notifications for this webhook.
+   */
+  enabled: boolean;
+};
+
+export interface ActionOutput_airtable_setwebhooknotifications {
+  /**
+   * Whether the notification setting was successfully updated.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_airtable_updatecomment {
+  /**
+   * The ID of the Airtable base. Example: "appW06xK1bV2n2Gj2"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tblt8x1D5J6Q0jB7Q" or "Projects"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID of the record. Example: "recU8x4f5L6m7N8o9"
+   */
+  recordId: string;
+  /**
+   * The ID of the comment to update. Example: "comx8x9y0z1a2b3c4"
+   */
+  rowCommentId: string;
+  /**
+   * The new text for the comment.
+   */
+  text: string;
+};
+
+export interface ActionOutput_airtable_updatecomment {
+  id: string;
+  author: {  id: string;
+  email: string;
+  name: string;};
+  text: string;
+  createdTime: string;
+  lastUpdatedTime?: string | undefined;
+};
+
+export interface ActionInput_airtable_updatefield {
+  /**
+   * The ID of the base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tbl1234567890abcd" or "Table Name"
+   */
+  tableId: string;
+  /**
+   * The ID of the field to update. Example: "fld1234567890abcd"
+   */
+  fieldId: string;
+  /**
+   * The new name for the field.
+   */
+  name?: string | undefined;
+  /**
+   * The new description for the field. Pass null to clear the description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_airtable_updatefield {
+  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_airtable_updaterecord {
+  /**
+   * Airtable Base ID. Example: "appXXXXXXXXXXXXXX"
+   */
+  baseId: string;
+  /**
+   * Table ID or name. Example: "tblXXXXXXXXXXXXXX" or "Table 1"
+   */
+  tableIdOrName: string;
+  /**
+   * Record ID to update. Example: "recXXXXXXXXXXXXXX"
+   */
+  recordId: string;
+  fields: {  [key: string]: unknown | undefined;};
+  /**
+   * If true, Airtable will try to convert values to the appropriate type
+   */
+  typecast?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_updaterecord {
+  id: string;
+  createdTime?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_airtable_updatetable {
+  /**
+   * Airtable base ID. Example: "app1234567890"
+   */
+  baseId: string;
+  /**
+   * Table ID or name. Example: "tbl1234567890" or "Apartments"
+   */
+  tableIdOrName: string;
+  /**
+   * New name for the table.
+   */
+  name?: string | undefined;
+  /**
+   * New description for the table. Maximum 20,000 characters.
+   */
+  description?: string | undefined;
+  /**
+   * Date dependency settings for the table.
+   */
+  dateDependencySettings?: {  enabled: boolean;
+  fieldIds?: string[] | undefined;};
+};
+
+export interface ActionOutput_airtable_updatetable {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  primaryFieldId: string;
+  fields: ({  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  options?: unknown | undefined;})[];
+  views: ({  id: string;
+  name: string;
+  type: string;})[];
+  dateDependencySettings?: {  enabled: boolean;
+  fieldIds?: string[] | undefined;};
+};
+
+export interface ActionInput_airtable_uploadattachment {
+  /**
+   * The ID of the base containing the record. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID of the record to upload the attachment to. Example: "rec1234567890abcd"
+   */
+  recordId: string;
+  /**
+   * The ID or name of the attachment field. Example: "Attachments" or "fld1234567890abcd"
+   */
+  attachmentFieldIdOrName: string;
+  /**
+   * Base64-encoded file content to upload
+   */
+  file: string;
+  /**
+   * The name of the file. Example: "document.pdf"
+   */
+  filename: string;
+  /**
+   * MIME type of the file. Example: "application/pdf" or "image/png"
+   */
+  contentType: string;
+};
+
+export interface ActionOutput_airtable_uploadattachment {
+  id: string;
+  createdTime: string;
+  fields?: {  [key: string]: ({  id: string;
+  url: string;
+  filename: string;})[];} | undefined;
+};
+
+export interface ActionInput_airtable_upsertrecords {
+  /**
+   * The ID of the Airtable base. Example: "app1234567890abcd"
+   */
+  baseId: string;
+  /**
+   * The ID or name of the table. Example: "tbl9876543210efgh" or "Tasks"
+   */
+  tableIdOrName: string;
+  /**
+   * Field names to match on for upsert. Records matching on these fields will be updated; non-matching records will be created.
+   */
+  fieldsToMergeOn: string[];
+  /**
+   * Records to upsert (update or create).
+   */
+  records: ({  /**
+   * Record ID. Required if updating an existing record by ID instead of using fieldsToMergeOn matching.
+   */
+  id?: string | undefined;
+  /**
+   * The field values for the record. Keys are field names or field IDs.
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * If true, Airtable will perform typecasting on the data. Default: false.
+   */
+  typecast?: boolean | undefined;
+};
+
+export interface ActionOutput_airtable_upsertrecords {
+  /**
+   * The upserted records with their operation status.
+   */
+  records: ({  id: string;
+  createdTime: string;
+  fields: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether the record was created or updated.
+   */
+  operation: 'created' | 'updated';})[];
+  /**
+   * IDs of records that were updated.
+   */
+  updatedRecordIds?: string[] | undefined;
+  /**
+   * IDs of records that were created.
+   */
+  createdRecordIds?: string[] | undefined;
 };
 
 export interface ActionInput_algolia_createcontacts {

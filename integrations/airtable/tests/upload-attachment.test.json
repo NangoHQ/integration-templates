@@ -1,0 +1,196 @@
+{
+  "input": {
+    "baseId": "appBeIpEI3hxUKRMo",
+    "recordId": "rec60CDONv2s5YbNi",
+    "attachmentFieldIdOrName": "Attachments",
+    "file": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+    "filename": "test-upload.png",
+    "contentType": "image/png"
+  },
+  "output": {
+    "id": "rec60CDONv2s5YbNi",
+    "createdTime": "2024-01-31T13:46:04.000Z",
+    "fields": {
+      "fldfa0UV8LHUInJEe": [
+        {
+          "id": "attyIp3xkAIEdz5ek",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/92R_4Du20DBkRt5DsumtGQ/xZ_S9r-vVci23FoiGaMXvyCb74DSwZQFzUdk0tT3uFF4ptzFvaRg6Qtonfu6SXEmooir3uthg5G7Rj5kheHNFLz-P4_2py88jb4duFcexJmaO1PFWiYOvfiDodxkIZ2IPzTewVuzdZJCAo2pRAPl4A/ts9w4BardePH8i7zZ0baFQugG9PjBYPgrMRTpWTKSDc",
+          "filename": "7.jpg"
+        },
+        {
+          "id": "attZtuJimPnAnlqIh",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/mtl_OHvBWmWzyvka6nI-yg/R3nJx5essXE_pAHD3gN5If48Ot95Wzf_vQFHcpInsY5POCGbx8s9ZzzFsN0PhndLpQLDnmW2hDNJUWqWURKa_TkrrmKG0-0VN2cG3yedsr_fBHHJa7lXHbxgCDllW8sQEFsX0Y25B0HyFkQWVo7k7Q/mP3vyczayEqUecVBnssnNSzY-irk8WbNCoUeKqj17Sg",
+          "filename": "test.txt"
+        },
+        {
+          "id": "attIkW8DSgi1rWuxi",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/wL85UxSC1zgBNZ39EQUEFQ/UaxA6IPyPMdar_xT3eqckMDWS2I3xDnQikgdz1Fqow37SwMq9PO8Tim9SQA2QYU00njtfbACNaJ2dcSz14JFEglBPsFNm_RInqYLDKMTrY6YH4oct48z-JtnNDm1UF3S0IRn-zuoutaDaisxC5IfSg/si5AMpUSP_oMBSsMUWTnRQp7LcwiGHO8gLNV-J8UdUU",
+          "filename": "test.txt"
+        },
+        {
+          "id": "attTZ8xSBgbupDhTu",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/-nmcWR3ZgW7VdL7igWcKhQ/UeBP7TKK9TppLg2AVuBkBKr_Zow0KyRrn7fDM0ngONtlwQTrpYjM0QI7OXhZUhMYnNqdn7grXJ2-gJiMQXRd4UC9_P7g59nlKuooFFzTVRD_SPNPrJYFZc7IsOaRhCrJMs7jT02q176ZF3QVz-4i-Uf0irL2bwRfEYOd6dSlzac/VBbA1eWc4mqvQQ5trrP04CY5F_K2HNlQvXnNsaAS880",
+          "filename": "test-upload.png"
+        },
+        {
+          "id": "att1tRTKoyHYpcgZH",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/VE3GpEvzBkI-V4Bt5lqgTw/cdZyp1xvAWoZ1FRGzz4P8cLr1W4QCu9gWCYxW1Diffc1zSPth3YC1FzaK1s23Ws62i0H9PEZg6Dky0DiYElaB5e-B4W5fV3SGRES-Wo78w4tvFZd6WJ41GXS0FMgAOKiUfiL6KWwi2ejp8v09QpKq1BfW6Q-QfDKt3wuLidASWg/LijiXzXQStpRVlx0faD7MWYhERRfa2vlMtJM79PVYRY",
+          "filename": "test-upload.png"
+        },
+        {
+          "id": "attWlvzaWmWqEUELK",
+          "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/nwZPmB8uQ_ajmwSX5cBuEw/WQJUeAPcECuSxmBjR3AFs-gg7Sv2oB-vCZmpNRAENGa6q_KJYscfLr5BIm8L7I5cxq7J2iqPn4u9x11QmR8cXi-Z7NLtTakWzTIiXTYDgzgmNy2Long44xoVrSbYmxwvZG0yIlOkA0xTUp1DqCdI_akIhuTBPflHouwWZ8UhxWg/hXritNxlGgr05y0mp6tiYCm-r8qm5bRkbIKLUNtCLD8",
+          "filename": "test-upload.png"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v0/appBeIpEI3hxUKRMo/rec60CDONv2s5YbNi/Attachments/uploadAttachment": {
+        "response": {
+          "id": "rec60CDONv2s5YbNi",
+          "createdTime": "2024-01-31T13:46:04.000Z",
+          "fields": {
+            "fldfa0UV8LHUInJEe": [
+              {
+                "id": "attyIp3xkAIEdz5ek",
+                "width": 832,
+                "height": 605,
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/92R_4Du20DBkRt5DsumtGQ/xZ_S9r-vVci23FoiGaMXvyCb74DSwZQFzUdk0tT3uFF4ptzFvaRg6Qtonfu6SXEmooir3uthg5G7Rj5kheHNFLz-P4_2py88jb4duFcexJmaO1PFWiYOvfiDodxkIZ2IPzTewVuzdZJCAo2pRAPl4A/ts9w4BardePH8i7zZ0baFQugG9PjBYPgrMRTpWTKSDc",
+                "filename": "7.jpg",
+                "size": 274497,
+                "type": "image/jpeg",
+                "thumbnails": {
+                  "small": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/oO_cv5-MqrJXr7IxR8fo0Q/Po3wfUdE5hbFbHTNMSUlo_6mR7kRFUJOPem8WlFmqmFOY0NTVwyOhfzPkhuap1jrKjAPEuAHHUu7GtRm2fZC3YxDK5tMPojFutwF0G6mgVVb-IHUI-nVeb2FFoe5knsm50uXSiiSjirzKxaQP3_Bhg/A2K3w_VGbhnMaNOEbNdO1BOCbBUVORWFsHSQimikQPA",
+                    "width": 49,
+                    "height": 36
+                  },
+                  "large": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/yPkf4pmTcRhThIUo-F5gGw/gHTKJq3rU0dFCv2ifFznehjT75roWF0lc_TBUdMiOQQZmqhIxu7lIb4DgA9IyWEYsGTlPcXXnJY0C8fr6GCsWTPOIkjG6oonnwRaDRfD238hNKwJgsElMJuIn9nesdNy3o_jhmOsu3nRr0oM2PCD9A/SqABWTugzgKC25nVUeeAeT_mSUFVNRoyr9KaIBfDNu4",
+                    "width": 704,
+                    "height": 512
+                  },
+                  "full": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/GIeHllGjIPOJ9CJrodHreQ/PmZgTWX5WQxHfYP1z_U8c9ul7qqvk1-tYgjVzu__QqcruQmFlufulWfyVHFq0ZAq7zSYymQGb472Nii6JPKUfeRKhcibXjwDKZWnMxgfmhqsBHAabuOvJG0rYgtQJukDuWVKr31IupeTw8hAZmUoAw/Wy8qT--7xxgwpqAWZRqvfj1xoQ5e_AyUJRYso1bNEDQ",
+                    "width": 832,
+                    "height": 605
+                  }
+                }
+              },
+              {
+                "id": "attZtuJimPnAnlqIh",
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/mtl_OHvBWmWzyvka6nI-yg/R3nJx5essXE_pAHD3gN5If48Ot95Wzf_vQFHcpInsY5POCGbx8s9ZzzFsN0PhndLpQLDnmW2hDNJUWqWURKa_TkrrmKG0-0VN2cG3yedsr_fBHHJa7lXHbxgCDllW8sQEFsX0Y25B0HyFkQWVo7k7Q/mP3vyczayEqUecVBnssnNSzY-irk8WbNCoUeKqj17Sg",
+                "filename": "test.txt",
+                "size": 11,
+                "type": "text/plain"
+              },
+              {
+                "id": "attIkW8DSgi1rWuxi",
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/wL85UxSC1zgBNZ39EQUEFQ/UaxA6IPyPMdar_xT3eqckMDWS2I3xDnQikgdz1Fqow37SwMq9PO8Tim9SQA2QYU00njtfbACNaJ2dcSz14JFEglBPsFNm_RInqYLDKMTrY6YH4oct48z-JtnNDm1UF3S0IRn-zuoutaDaisxC5IfSg/si5AMpUSP_oMBSsMUWTnRQp7LcwiGHO8gLNV-J8UdUU",
+                "filename": "test.txt",
+                "size": 11,
+                "type": "text/plain"
+              },
+              {
+                "id": "attTZ8xSBgbupDhTu",
+                "width": 1,
+                "height": 1,
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/-nmcWR3ZgW7VdL7igWcKhQ/UeBP7TKK9TppLg2AVuBkBKr_Zow0KyRrn7fDM0ngONtlwQTrpYjM0QI7OXhZUhMYnNqdn7grXJ2-gJiMQXRd4UC9_P7g59nlKuooFFzTVRD_SPNPrJYFZc7IsOaRhCrJMs7jT02q176ZF3QVz-4i-Uf0irL2bwRfEYOd6dSlzac/VBbA1eWc4mqvQQ5trrP04CY5F_K2HNlQvXnNsaAS880",
+                "filename": "test-upload.png",
+                "size": 70,
+                "type": "image/png",
+                "thumbnails": {
+                  "small": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/UreaJ1BuLgP-Pf6N5-i2zQ/OWTHhj-5e798zFH5qxKXbkw1Xh6KWQfRsjs1eV4gY5VV0nIXn2QLk29nd208e16AzVbpGPKI1Njvy9os-1NsqDBXso5Od3PJgWrnm2ibb8vDqL7GbUJWoZWVngiCU86je6kZf6adm7QNWGIrVz815w/WgN5YsyH7XwWqgSRkJqFmp7jldjtydkKLt6ARKCQYxo",
+                    "width": 1,
+                    "height": 1
+                  },
+                  "large": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/dkXd_S5kx7eitHDTZCxLRw/xEiolLQcanFT-QzT-2PtHUjPouCfU8m9yWi-tGwmEuAvqFUZ-xTxMDxSmx5Kdq5PTCIQhQAHB_k4fur7sdEN8I9KcApG8bFFumoxdnV-QWRTtywYDxiri-xF2bdPdafhzeyJRFhO-PV9YGbxr-wHwg/DjK7FxqmCub1yPwKoLdycyGhIp1YFgaEd4GVUEMFQ24",
+                    "width": 1,
+                    "height": 1
+                  },
+                  "full": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/H5obrRRct_cjCKvl-COHoA/dOrZ0-giQJ9jg6j9Go9pb5d_B-4ahkBK_Z8juVr0DEW8ObdIL8vt2ChgDRdyHc9H-6Dm9TlfzHa1JMyrufltME0U881e4GyvW1O07tkZeClakiTu6PQhX6DybiolZfqbvxkC6DgOaNUtpc1ffufCQA/HXyk_C27uQ1i7Tkvi5kT9ZZvA6YXIjOqXHa30cXOlyA",
+                    "width": 1,
+                    "height": 1
+                  }
+                }
+              },
+              {
+                "id": "att1tRTKoyHYpcgZH",
+                "width": 1,
+                "height": 1,
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/VE3GpEvzBkI-V4Bt5lqgTw/cdZyp1xvAWoZ1FRGzz4P8cLr1W4QCu9gWCYxW1Diffc1zSPth3YC1FzaK1s23Ws62i0H9PEZg6Dky0DiYElaB5e-B4W5fV3SGRES-Wo78w4tvFZd6WJ41GXS0FMgAOKiUfiL6KWwi2ejp8v09QpKq1BfW6Q-QfDKt3wuLidASWg/LijiXzXQStpRVlx0faD7MWYhERRfa2vlMtJM79PVYRY",
+                "filename": "test-upload.png",
+                "size": 70,
+                "type": "image/png",
+                "thumbnails": {
+                  "small": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/b1Rvnhbieh14KcNx-IOjZg/-Ct5ZeKNjEP0-dyhTpG6HxfJIxK7GmH647FWn20pNjLvF-dUNOlb33qtw8phxF-mVsuwsO3GLZc3t_SqojxUhPLJYiGHUoClLyklF_xmk0SrqHbLKjpY_XUcH3TZeB84DX1DsRoU3LB3RcmfPf5HhA/BE8d6BWmLEoQMdeCjp-tVn3UCz277S79YacVy56uJbk",
+                    "width": 1,
+                    "height": 1
+                  },
+                  "large": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/EdnPyidKDCCOK5nLPWCptQ/Hg20ZC9SL4qkZz-xiY6SNQx97OelQv6sp4cLIBPN01wsgAFIUD_yeHGbcnnhdngiS0yXo_iPVwIYjotjU-B-htqG8RqJ3GYNmBmDcOeyeP58zvfOwMjRaoUXQdYob3FY_G8P0YdoiOWGrxLpjdR7CA/V7-OggA8alHUvzvjVZXmAVLwTVuzNjzyYN0VWyHKKfY",
+                    "width": 1,
+                    "height": 1
+                  },
+                  "full": {
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/9ZHz4nH9tOmjXpDjCGEaLw/io0YVkkYAFhfwS-HebEKJcHlL5Y1khpUsg2USpC0c9GvfpSQN0JKxYaR___EQLwbEGO2QCgCNRmc0_MjdLjrc5Vm8yS1fouobw1ev1JRw7HfxLnXauh7pnHv1PPgesNBF7SJQZF1-RhDBb9RY2OGQw/j_3NWxGS3cEqlnMWu4MMaPx-zIeSJVhh5OkkyJv-ESs",
+                    "width": 1,
+                    "height": 1
+                  }
+                }
+              },
+              {
+                "id": "attWlvzaWmWqEUELK",
+                "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777298400000/nwZPmB8uQ_ajmwSX5cBuEw/WQJUeAPcECuSxmBjR3AFs-gg7Sv2oB-vCZmpNRAENGa6q_KJYscfLr5BIm8L7I5cxq7J2iqPn4u9x11QmR8cXi-Z7NLtTakWzTIiXTYDgzgmNy2Long44xoVrSbYmxwvZG0yIlOkA0xTUp1DqCdI_akIhuTBPflHouwWZ8UhxWg/hXritNxlGgr05y0mp6tiYCm-r8qm5bRkbIKLUNtCLD8",
+                "filename": "test-upload.png",
+                "size": 70,
+                "type": "image/png"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:42:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1777286530",
+          "set-cookie": "AWSALBTG=mOI9w0Wb+8DRG0OHfTuCXyTvy7hO01kQo55rbOZBscWljv3bFf5KvbphyU87RjQFoHt3x74mWA+cz0wR0sKtj6GKsIYPTX8OGZBBdnkw856kfjU/k53nV71r6zEpizHkUCo/Bnf09WEq2vUWBrh2qLgtsG1oPEzylaquWT7kj9fewC/oMKM=; Expires=Mon, 04 May 2026 10:42:07 GMT; Path=/, AWSALBTGCORS=mOI9w0Wb+8DRG0OHfTuCXyTvy7hO01kQo55rbOZBscWljv3bFf5KvbphyU87RjQFoHt3x74mWA+cz0wR0sKtj6GKsIYPTX8OGZBBdnkw856kfjU/k53nV71r6zEpizHkUCo/Bnf09WEq2vUWBrh2qLgtsG1oPEzylaquWT7kj9fewC/oMKM=; Expires=Mon, 04 May 2026 10:42:07 GMT; Path=/; SameSite=None; Secure, brw=brwIFkjGQjmU30FZ6; path=/; expires=Tue, 27 Apr 2027 10:42:07 GMT; domain=.airtable.com; samesite=none; secure, brwConsent=opt-in; path=/; expires=Mon, 27 Apr 2026 10:47:07 GMT; domain=.airtable.com; samesite=none; secure",
+          "server": "Tengine",
+          "access-control-allow-methods": "DELETE,GET,OPTIONS,PATCH,POST,PUT",
+          "access-control-allow-headers": "authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with",
+          "etag": "W/\"14e0-tJdlO9ZZt+zBhY1Cu6PX5u8D2iM\"",
+          "airtable-datacenter-regions": "us-east-1",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "af0efa7d629daa7ba70cd483656aa6623f231406",
+        "request": {
+          "data": {
+            "contentType": "image/png",
+            "filename": "test-upload.png",
+            "file": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+          }
+        }
+      }
+    }
+  }
+}

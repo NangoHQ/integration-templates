@@ -1,0 +1,172 @@
+{
+  "input": {
+    "baseId": "appJxrbEgLaF00M2f",
+    "viewId": "viw0blRVotxirM8ac"
+  },
+  "output": {
+    "id": "viw0blRVotxirM8ac",
+    "name": "Grid view",
+    "type": "grid"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v0/meta/bases/appJxrbEgLaF00M2f/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblNPITrPesLLh2eA",
+              "name": "Table 1",
+              "primaryFieldId": "fldagYnWofuTkZGQF",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldagYnWofuTkZGQF",
+                  "name": "Name"
+                },
+                {
+                  "type": "multilineText",
+                  "id": "fldtuoKH0f6DKYqwZ",
+                  "name": "Notes"
+                },
+                {
+                  "type": "singleCollaborator",
+                  "id": "fldRaxvlByBGSG2Vs",
+                  "name": "Assignee"
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selqEiuFiZaenwlE1",
+                        "name": "Todo",
+                        "color": "redLight2"
+                      },
+                      {
+                        "id": "sel7B1eOEdPSJt5gG",
+                        "name": "In progress",
+                        "color": "yellowLight2"
+                      },
+                      {
+                        "id": "selAdMNjMqnr8yoI8",
+                        "name": "Done",
+                        "color": "greenLight2"
+                      }
+                    ]
+                  },
+                  "id": "fldmIATZCbZ4IThgr",
+                  "name": "Status"
+                },
+                {
+                  "type": "multipleAttachments",
+                  "options": {
+                    "isReversed": false
+                  },
+                  "id": "fldY5j634hbfNCXCh",
+                  "name": "Attachments"
+                },
+                {
+                  "type": "aiText",
+                  "options": {
+                    "referencedFieldIds": [
+                      "fldY5j634hbfNCXCh"
+                    ],
+                    "prompt": [
+                      "You are a professional document analyst specializing in summarizing content from various file types. Your task is to extract key points and provide a concise summary of the content found in the attached files. Ensure that the summary captures the main ideas and any important details without including unnecessary information.\n\nAnalyze the content of the attached files to identify the main themes and significant details. Summarize these points clearly and concisely, ensuring that the summary is informative and relevant to the document's purpose.\n\nFormat your response as plain text, keeping it concise and to the point. If you cannot summarize the content, output \"Unable to summarize the content.\" Example: \"The document discusses the impact of climate change on polar bears, highlighting the loss of habitat and food sources.\" (Real examples should be longer and more detailed.)\n\nFiles:\n",
+                      {
+                        "field": {
+                          "fieldId": "fldY5j634hbfNCXCh"
+                        }
+                      }
+                    ]
+                  },
+                  "id": "fldV5CueFSrUBiex7",
+                  "name": "Attachment Summary",
+                  "description": "An AI generated summary of the Attachments field. Upload files to Attachments to generate a summary."
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw0blRVotxirM8ac",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tbldBkl22VIG2sT42",
+              "name": "Test Table Create",
+              "primaryFieldId": "flddd5ccAg7ArDIBB",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "flddd5ccAg7ArDIBB",
+                  "name": "Name"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fld3bvi22MLLiqDAU",
+                  "name": "Status"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw0hQvJ5vQgLp0O3",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tblRgiSOLlimcvmOc",
+              "name": "Test Table Create Mock",
+              "primaryFieldId": "fldlbCcxDUW8kWs3T",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldlbCcxDUW8kWs3T",
+                  "name": "Name"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fldVqQe22uwFNdPrn",
+                  "name": "Status"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwVhhtN4O1TXu41n",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:25:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2585",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1777285553",
+          "etag": "W/\"a19-sD2opJi+oT5C+LxCMwD/ecV8XBw\""
+        },
+        "hash": "3cd88f736182f9a7d055208f91d48d28d8cb464d",
+        "request": {}
+      }
+    }
+  }
+}

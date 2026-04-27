@@ -1,0 +1,146 @@
+{
+  "input": {
+    "baseId": "appBeIpEI3hxUKRMo",
+    "tableIdOrName": "tblUjn1mvv35fQ0c3",
+    "fieldsToMergeOn": [
+      "Task"
+    ],
+    "records": [
+      {
+        "fields": {
+          "Task": "Test Upsert Task",
+          "Status": "To do"
+        }
+      },
+      {
+        "fields": {
+          "Task": "Another Test Task",
+          "Status": "In progress"
+        }
+      }
+    ]
+  },
+  "output": {
+    "records": [
+      {
+        "id": "rec7MjbXTWufCOriu",
+        "createdTime": "2026-04-24T15:17:51.000Z",
+        "fields": {
+          "Status": "To do",
+          "Task": "Test Upsert Task",
+          "Order": "b0c",
+          "Range": {
+            "error": "#ERROR!"
+          },
+          "Is Overdue": "Yes"
+        },
+        "operation": "updated"
+      },
+      {
+        "id": "rec5eAVShGjrZXpAt",
+        "createdTime": "2026-04-27T10:33:34.000Z",
+        "fields": {
+          "Task": "Another Test Task",
+          "Status": "In progress",
+          "Order": "b0d",
+          "Range": {
+            "error": "#ERROR!"
+          },
+          "Is Overdue": "Yes"
+        },
+        "operation": "updated"
+      }
+    ],
+    "updatedRecordIds": [
+      "rec7MjbXTWufCOriu",
+      "rec5eAVShGjrZXpAt"
+    ],
+    "createdRecordIds": []
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v0/appBeIpEI3hxUKRMo/tblUjn1mvv35fQ0c3": {
+        "response": {
+          "records": [
+            {
+              "id": "rec7MjbXTWufCOriu",
+              "createdTime": "2026-04-24T15:17:51.000Z",
+              "fields": {
+                "Status": "To do",
+                "Task": "Test Upsert Task",
+                "Order": "b0c",
+                "Range": {
+                  "error": "#ERROR!"
+                },
+                "Is Overdue": "Yes"
+              }
+            },
+            {
+              "id": "rec5eAVShGjrZXpAt",
+              "createdTime": "2026-04-27T10:33:34.000Z",
+              "fields": {
+                "Task": "Another Test Task",
+                "Status": "In progress",
+                "Order": "b0d",
+                "Range": {
+                  "error": "#ERROR!"
+                },
+                "Is Overdue": "Yes"
+              }
+            }
+          ],
+          "updatedRecords": [
+            "rec7MjbXTWufCOriu",
+            "rec5eAVShGjrZXpAt"
+          ],
+          "createdRecords": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 10:34:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "465",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1777286137",
+          "etag": "W/\"1d1-XLw3wdIPHox9lT96l0DuBaqyKa0\""
+        },
+        "hash": "64b1b7d70382f0fe07b1984da6af7e3fc8ecb081",
+        "request": {
+          "data": {
+            "performUpsert": {
+              "fieldsToMergeOn": [
+                "Task"
+              ]
+            },
+            "records": [
+              {
+                "fields": {
+                  "Task": "Test Upsert Task",
+                  "Status": "To do"
+                }
+              },
+              {
+                "fields": {
+                  "Task": "Another Test Task",
+                  "Status": "In progress"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
