@@ -116,7 +116,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.transactions'],
+    scopes: ['accounting.payments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const hasInvoice = input.invoice_id !== undefined && input.invoice_id.length > 0;

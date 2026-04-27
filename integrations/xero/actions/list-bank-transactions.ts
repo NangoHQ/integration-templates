@@ -70,7 +70,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.transactions', 'accounting.transactions.read'],
+    scopes: ['accounting.banktransactions', 'accounting.banktransactions.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.xero.com/documentation/guides/oauth2/tenants

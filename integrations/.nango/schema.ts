@@ -19724,6 +19724,18 @@ export interface ActionOutput_xero_getpurchaseorder {
   Type?: string | undefined;
 };
 
+export type ActionInput_xero_gettenants = void
+
+export interface ActionOutput_xero_gettenants {
+  tenants: ({  id: string;
+  authEventId: string;
+  tenantId: string;
+  tenantType: string;
+  tenantName: string;
+  createdDateUtc: string;
+  updatedDateUtc: string;})[];
+};
+
 export interface ActionInput_xero_listaccounts {
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.

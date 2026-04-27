@@ -108194,7 +108194,7 @@
           "ActionOutput_xero_createbanktransaction"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.banktransactions"
         ],
         "usedModels": [
           "ActionInput_xero_createbanktransaction",
@@ -108389,14 +108389,14 @@
         ],
         "scopes": [
           "accounting.contacts",
-          "accounting.transactions",
+          "accounting.invoices",
           "accounting.settings"
         ],
         "usedModels": [
           "ActionInput_xero_createcontact",
           "ActionOutput_xero_createcontact"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_createcontact": {
@@ -108582,7 +108582,7 @@
           "ActionOutput_xero_createcreditnote"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_createcreditnote",
@@ -108814,13 +108814,13 @@
           "ActionOutput_xero_createinvoice"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_createinvoice",
           "ActionOutput_xero_createinvoice"
         ],
-        "version": "1.0.0",
+        "version": "3.0.0",
         "json_schema": {
           "definitions": {
             "ActionInput_xero_createinvoice": {
@@ -108991,7 +108991,7 @@
           "ActionOutput_xero_createitem"
         ],
         "scopes": [
-          "accounting.transactions",
+          "accounting.invoices",
           "accounting.settings"
         ],
         "usedModels": [
@@ -109186,7 +109186,7 @@
           "ActionOutput_xero_createpayment"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.payments"
         ],
         "usedModels": [
           "ActionInput_xero_createpayment",
@@ -109339,7 +109339,7 @@
           "ActionOutput_xero_createpurchaseorder"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_createpurchaseorder",
@@ -109580,7 +109580,7 @@
           "ActionOutput_xero_getbanktransaction"
         ],
         "scopes": [
-          "accounting.transactions",
+          "accounting.banktransactions",
           "accounting.settings"
         ],
         "usedModels": [
@@ -109885,8 +109885,8 @@
           "ActionOutput_xero_getcreditnote"
         ],
         "scopes": [
-          "accounting.transactions.read",
-          "accounting.transactions"
+          "accounting.invoices.read",
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_getcreditnote",
@@ -110040,8 +110040,8 @@
           "ActionOutput_xero_getinvoice"
         ],
         "scopes": [
-          "accounting.transactions.read",
-          "accounting.transactions"
+          "accounting.invoices.read",
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_getinvoice",
@@ -110274,8 +110274,8 @@
           "ActionOutput_xero_getpayment"
         ],
         "scopes": [
-          "accounting.transactions",
-          "accounting.transactions.read"
+          "accounting.payments",
+          "accounting.payments.read"
         ],
         "usedModels": [
           "ActionInput_xero_getpayment",
@@ -110455,8 +110455,8 @@
           "ActionOutput_xero_getpurchaseorder"
         ],
         "scopes": [
-          "accounting.transactions",
-          "accounting.transactions.read"
+          "accounting.invoices",
+          "accounting.invoices.read"
         ],
         "usedModels": [
           "ActionInput_xero_getpurchaseorder",
@@ -110563,6 +110563,82 @@
               },
               "required": [
                 "PurchaseOrderID"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/actions/get-tenants",
+          "group": "Tenants"
+        },
+        "input": "ActionInput_xero_gettenants",
+        "name": "get-tenants",
+        "output": [
+          "ActionOutput_xero_gettenants"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_xero_gettenants",
+          "ActionOutput_xero_gettenants"
+        ],
+        "version": "2.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_xero_gettenants": {
+              "type": "null"
+            },
+            "ActionOutput_xero_gettenants": {
+              "type": "object",
+              "properties": {
+                "tenants": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "authEventId": {
+                        "type": "string"
+                      },
+                      "tenantId": {
+                        "type": "string"
+                      },
+                      "tenantType": {
+                        "type": "string"
+                      },
+                      "tenantName": {
+                        "type": "string"
+                      },
+                      "createdDateUtc": {
+                        "type": "string"
+                      },
+                      "updatedDateUtc": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "authEventId",
+                      "tenantId",
+                      "tenantType",
+                      "tenantName",
+                      "createdDateUtc",
+                      "updatedDateUtc"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "tenants"
               ],
               "additionalProperties": false
             }
@@ -110731,8 +110807,8 @@
           "ActionOutput_xero_listbanktransactions"
         ],
         "scopes": [
-          "accounting.transactions",
-          "accounting.transactions.read"
+          "accounting.banktransactions",
+          "accounting.banktransactions.read"
         ],
         "usedModels": [
           "ActionInput_xero_listbanktransactions",
@@ -111039,8 +111115,8 @@
           "ActionOutput_xero_listcreditnotes"
         ],
         "scopes": [
-          "accounting.transactions",
-          "accounting.transactions.read"
+          "accounting.invoices",
+          "accounting.invoices.read"
         ],
         "usedModels": [
           "ActionInput_xero_listcreditnotes",
@@ -111263,7 +111339,7 @@
           "ActionOutput_xero_listinvoices"
         ],
         "scopes": [
-          "accounting.transactions.read"
+          "accounting.invoices.read"
         ],
         "usedModels": [
           "ActionInput_xero_listinvoices",
@@ -111473,8 +111549,8 @@
           "ActionOutput_xero_listpayments"
         ],
         "scopes": [
-          "accounting.transactions",
-          "accounting.transactions.read"
+          "accounting.payments",
+          "accounting.payments.read"
         ],
         "usedModels": [
           "ActionInput_xero_listpayments",
@@ -111645,7 +111721,7 @@
           "ActionOutput_xero_listpurchaseorders"
         ],
         "scopes": [
-          "accounting.transactions",
+          "accounting.invoices",
           "accounting.settings"
         ],
         "usedModels": [
@@ -111995,7 +112071,7 @@
           "ActionOutput_xero_updatebanktransaction"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.banktransactions"
         ],
         "usedModels": [
           "ActionInput_xero_updatebanktransaction",
@@ -112262,7 +112338,7 @@
           "ActionOutput_xero_updatecreditnote"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_updatecreditnote",
@@ -112374,7 +112450,7 @@
           "ActionOutput_xero_updateinvoice"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_updateinvoice",
@@ -112729,7 +112805,7 @@
           "ActionOutput_xero_updatepurchaseorder"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_updatepurchaseorder",
@@ -114011,7 +114087,7 @@
         ],
         "runs": "every hour",
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices.read"
         ],
         "sync_type": "full",
         "track_deletes": false,

@@ -56,7 +56,7 @@ const sync = createSync({
     endpoints: [{ method: 'GET', path: '/syncs/purchase-orders' }],
     frequency: 'every hour',
     autoStart: true,
-    scopes: ['accounting.transactions'],
+    scopes: ['accounting.invoices.read'],
     checkpoint: CheckpointSchema,
     models: {
         PurchaseOrder: PurchaseOrderSchema

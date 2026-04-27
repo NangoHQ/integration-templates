@@ -72593,6 +72593,57 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_xero_gettenants": {
+      "type": "null"
+    },
+    "ActionOutput_xero_gettenants": {
+      "type": "object",
+      "properties": {
+        "tenants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "authEventId": {
+                "type": "string"
+              },
+              "tenantId": {
+                "type": "string"
+              },
+              "tenantType": {
+                "type": "string"
+              },
+              "tenantName": {
+                "type": "string"
+              },
+              "createdDateUtc": {
+                "type": "string"
+              },
+              "updatedDateUtc": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "authEventId",
+              "tenantId",
+              "tenantType",
+              "tenantName",
+              "createdDateUtc",
+              "updatedDateUtc"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "tenants"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_xero_listaccounts": {
       "type": "object",
       "properties": {

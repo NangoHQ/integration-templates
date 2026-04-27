@@ -38,7 +38,7 @@
           "ActionOutput_xero_createcreditnote"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_createcreditnote",
@@ -60,7 +60,7 @@
           "ActionOutput_xero_createinvoice"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_createinvoice",
@@ -104,7 +104,7 @@
           "ActionOutput_xero_createpayment"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.payments"
         ],
         "usedModels": [
           "ActionInput_xero_createpayment",
@@ -168,7 +168,7 @@
           "ActionOutput_xero_updatecreditnote"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_updatecreditnote",
@@ -190,7 +190,7 @@
           "ActionOutput_xero_updateinvoice"
         ],
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices"
         ],
         "usedModels": [
           "ActionInput_xero_updateinvoice",
@@ -269,7 +269,7 @@
         ],
         "runs": "every hour",
         "scopes": [
-          "accounting.transactions"
+          "accounting.banktransactions.read"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
@@ -327,7 +327,7 @@
         ],
         "runs": "every hour",
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices.read"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
@@ -385,7 +385,7 @@
         ],
         "runs": "every hour",
         "scopes": [
-          "accounting.transactions"
+          "accounting.invoices.read"
         ],
         "sync_type": "incremental",
         "track_deletes": false,
@@ -473,7 +473,7 @@
         ],
         "runs": "every hour",
         "scopes": [
-          "accounting.transactions"
+          "accounting.payments.read"
         ],
         "sync_type": "incremental",
         "track_deletes": false,

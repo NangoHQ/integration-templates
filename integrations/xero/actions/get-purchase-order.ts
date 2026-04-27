@@ -48,7 +48,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.transactions', 'accounting.transactions.read'],
+    scopes: ['accounting.invoices', 'accounting.invoices.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
