@@ -611,6 +611,7 @@
                   "description": "Table ID or name. Example: \"tblXXXXXXXXXXXXXX\" or \"My Table\""
                 },
                 "records": {
+                  "maxItems": 10,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -889,7 +890,9 @@
         "output": [
           "ActionOutput_airtable_batchupdaterecords"
         ],
-        "scopes": [],
+        "scopes": [
+          "data.records:write"
+        ],
         "usedModels": [
           "ActionInput_airtable_batchupdaterecords",
           "ActionOutput_airtable_batchupdaterecords"
@@ -1687,7 +1690,7 @@
                                 "type": "string"
                               }
                             },
-                            "watchSchemaInFieldIds": {
+                            "watchSchemasOfFieldIds": {
                               "description": "Field IDs to watch for schema changes. Example: [\"fldXXXXXXXXXXXXXX\"]",
                               "type": "array",
                               "items": {
@@ -1860,7 +1863,7 @@
           "ActionOutput_airtable_deleterecord"
         ],
         "scopes": [
-          "data:records:write"
+          "data.records:write"
         ],
         "usedModels": [
           "ActionInput_airtable_deleterecord",
@@ -2984,7 +2987,9 @@
         "output": [
           "ActionOutput_airtable_listwebhooks"
         ],
-        "scopes": [],
+        "scopes": [
+          "webhook:manage"
+        ],
         "usedModels": [
           "ActionInput_airtable_listwebhooks",
           "ActionOutput_airtable_listwebhooks"
@@ -4160,7 +4165,9 @@
           "Base"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "schema.bases:read"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -4211,7 +4218,9 @@
           "AirtableRecord"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "data.records:read"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -4437,7 +4446,9 @@
           "View"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "schema.bases:read"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -4498,7 +4509,10 @@
           "Webhook"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "webhook:manage",
+          "schema.bases:read"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [

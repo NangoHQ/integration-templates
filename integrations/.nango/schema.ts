@@ -486,7 +486,7 @@ export interface ActionInput_airtable_createwebhook {
   /**
    * Field IDs to watch for schema changes. Example: ["fldXXXXXXXXXXXXXX"]
    */
-  watchSchemaInFieldIds?: string[] | undefined;};
+  watchSchemasOfFieldIds?: string[] | undefined;};
   includes?: {  /**
    * Field IDs to include cell values for, or "all".
    */

@@ -1537,7 +1537,7 @@
                       },
                       "description": "Field IDs to watch for data changes. Example: [\"fldXXXXXXXXXXXXXX\"]"
                     },
-                    "watchSchemaInFieldIds": {
+                    "watchSchemasOfFieldIds": {
                       "type": "array",
                       "items": {
                         "type": "string"
