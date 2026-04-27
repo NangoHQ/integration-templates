@@ -39,8 +39,6 @@ const sync = createSync({
     exec: async (nango) => {
         const tenantId = await resolveTenantId(nango);
 
-        await nango.trackDeletesStart('Organisation');
-
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
@@ -87,6 +85,8 @@ const sync = createSync({
         if (!apiResponse.success || !apiResponse.data.Organisations || apiResponse.data.Organisations.length === 0) {
             return;
         }
+
+        await nango.trackDeletesStart('Organisation');
 
         const organisations = apiResponse.data.Organisations.map((org) => ({
             id: org.OrganisationID,
