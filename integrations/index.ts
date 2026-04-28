@@ -26,12 +26,20 @@ import './anrok/actions/void-transaction.js';
 // -- Integration: asana
 import './asana/syncs/projects.js';
 import './asana/syncs/tasks.js';
+import './asana/syncs/sections.js';
 import './asana/syncs/users.js';
 import './asana/syncs/workspaces.js';
 import './asana/actions/create-task.js';
 import './asana/actions/delete-task.js';
 import './asana/actions/fetch-projects.js';
 import './asana/actions/fetch-workspaces.js';
+import './asana/actions/create-section.js';
+import './asana/actions/delete-section.js';
+import './asana/actions/delete-story.js';
+import './asana/actions/delete-tag.js';
+import './asana/actions/get-section.js';
+import './asana/actions/list-sections-for-project.js';
+import './asana/actions/search-tasks-in-workspace.js';
 import './asana/actions/update-task.js';
 
 // -- Integration: ashby
