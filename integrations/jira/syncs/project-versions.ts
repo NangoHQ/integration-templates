@@ -151,8 +151,7 @@ const sync = createSync({
 
             const versions = ProjectVersionsSchema.safeParse(response.data);
             if (!versions.success) {
-                await nango.log(`Failed to parse versions for project ${projectKey}: ${versions.error.message}`);
-                continue;
+                throw new Error(`Failed to parse versions for project ${projectKey}: ${versions.error.message}`);
             }
 
             const mappedVersions = versions.data.map((version) => ({

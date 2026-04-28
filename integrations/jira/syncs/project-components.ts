@@ -32,12 +32,6 @@ const JiraComponentSchema = z.object({
         .optional()
 });
 
-const CheckpointSchema = z.object({
-    projectIndex: z.number()
-});
-
-type Checkpoint = z.infer<typeof CheckpointSchema>;
-
 async function getCloudIdAndBaseUrl(nango: Parameters<Parameters<typeof createSync>[0]['exec']>[0]): Promise<{ cloudId: string; baseUrl: string }> {
     const connection = await nango.getConnection();
 
@@ -181,20 +175,12 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         ProjectComponent: ProjectComponentSchema
     },
     endpoints: [{ path: '/syncs/project-components', method: 'POST' }],
 
     exec: async (nango) => {
-        const checkpointData = await nango.getCheckpoint();
-        let checkpoint: Checkpoint | undefined;
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointData);
-        if (parsedCheckpoint.success) {
-            checkpoint = parsedCheckpoint.data;
-        }
-
         const projectKeys = await getProjectKeys(nango);
 
         if (projectKeys.length === 0) {
@@ -202,17 +188,11 @@ const sync = createSync({
             return;
         }
 
+        const { cloudId } = await getCloudIdAndBaseUrl(nango);
+
         await nango.trackDeletesStart('ProjectComponent');
 
-        const { cloudId } = await getCloudIdAndBaseUrl(nango);
-        let projectIndex = checkpoint?.projectIndex ?? 0;
-
-        if (projectIndex >= projectKeys.length) {
-            projectIndex = 0;
-            await nango.saveCheckpoint({ projectIndex: 0 });
-        }
-
-        while (projectIndex < projectKeys.length) {
+        for (let projectIndex = 0; projectIndex < projectKeys.length; projectIndex++) {
             const projectKey = projectKeys[projectIndex];
 
             // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-project-components/#api-rest-api-3-project-projectidorkey-components-get
@@ -245,12 +225,6 @@ const sync = createSync({
             if (components.length > 0) {
                 await nango.batchSave(components, 'ProjectComponent');
             }
-
-            projectIndex++;
-            const newCheckpoint: Checkpoint = {
-                projectIndex
-            };
-            await nango.saveCheckpoint(newCheckpoint);
         }
 
         await nango.clearCheckpoint();

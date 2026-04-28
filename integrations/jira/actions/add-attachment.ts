@@ -153,7 +153,9 @@ const action = createAction({
                 'X-Atlassian-Token': 'no-check',
                 'Content-Type': `multipart/form-data; boundary=${boundary}`
             },
-            body: body.toString('binary')
+            // Cast needed because nango types body as string, but underlying fetch accepts Uint8Array.
+            // Passing binary data as a UTF-8 string (toString('binary')) corrupts bytes > 127.
+            body: new Uint8Array(body) as unknown as string
         });
 
         if (!fetchResponse.ok) {

@@ -93,8 +93,8 @@ const action = createAction({
 
             const firstResource = accessibleResources[0];
             if (firstResource) {
-                cloudId = firstResource.id;
-                baseUrl = firstResource.url;
+                if (!cloudId) cloudId = firstResource.id;
+                if (!baseUrl) baseUrl = firstResource.url;
             }
 
             // Cache for subsequent runs

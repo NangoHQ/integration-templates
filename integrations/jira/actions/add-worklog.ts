@@ -65,19 +65,17 @@ const action = createAction({
         // Retrieve connection configuration for cloudId and baseUrl
         const connection = await nango.getConnection();
         let cloudId = connection.connection_config?.['cloudId'];
-        let baseUrl = connection.connection_config?.['baseUrl'];
 
         // Fallback to metadata if connection config is not available
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const metadata = await nango.getMetadata<{ cloudId?: string; baseUrl?: string }>();
             cloudId = metadata?.cloudId;
-            baseUrl = metadata?.baseUrl;
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             throw new nango.ActionError({
                 type: 'invalid_connection',
-                message: 'Missing cloudId or baseUrl in connection configuration. Please reconnect your Jira account.'
+                message: 'Missing cloudId in connection configuration. Please reconnect your Jira account.'
             });
         }
 

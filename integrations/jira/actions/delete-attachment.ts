@@ -52,8 +52,8 @@ const action = createAction({
             const accessibleData = accessibleResponse.data;
             if (Array.isArray(accessibleData) && accessibleData.length > 0) {
                 const firstResource = accessibleData[0];
-                cloudId = firstResource.id;
-                baseUrl = firstResource.url;
+                if (!cloudId) cloudId = firstResource.id;
+                if (!baseUrl) baseUrl = firstResource.url;
 
                 // Cache the values in metadata for subsequent runs
                 if (cloudId && baseUrl) {

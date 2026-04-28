@@ -64,18 +64,16 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         let cloudId = connection.connection_config?.['cloudId'];
-        let baseUrl = connection.connection_config?.['baseUrl'];
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const metadata = await nango.getMetadata<{ cloudId?: string; baseUrl?: string }>();
             cloudId = metadata?.cloudId;
-            baseUrl = metadata?.baseUrl;
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             throw new nango.ActionError({
                 type: 'invalid_connection',
-                message: 'Could not resolve cloudId and baseUrl from connection or metadata'
+                message: 'Could not resolve cloudId from connection or metadata'
             });
         }
 

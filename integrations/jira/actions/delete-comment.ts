@@ -49,30 +49,26 @@ const action = createAction({
     scopes: ['write:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // Use provided cloudId/baseUrl or resolve from connection
+        // Use provided cloudId or resolve from connection
         let cloudId = input.cloudId;
-        let baseUrl = input.baseUrl;
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const connection = await nango.getConnection();
 
             // Resolve cloudId from connection_config
             const parsedConfig = ConnectionConfigSchema.safeParse(connection.connection_config);
             cloudId = cloudId || (parsedConfig.success ? parsedConfig.data.cloudId : undefined);
-            baseUrl = baseUrl || (parsedConfig.success ? parsedConfig.data.baseUrl : undefined);
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const metadata = await nango.getMetadata();
             const parsedMetadata = MetadataSchema.safeParse(metadata);
             cloudId = cloudId || (parsedMetadata.success ? parsedMetadata.data.cloudId : undefined);
-            baseUrl = baseUrl || (parsedMetadata.success ? parsedMetadata.data.baseUrl : undefined);
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             // https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#access-to-data-using-access-tokens
             const accessibleResources = await nango.get({
-                // https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#access-to-data-using-access-tokens
                 endpoint: 'oauth/token/accessible-resources',
                 retries: 3
             });
@@ -93,13 +89,8 @@ const action = createAction({
                 });
             }
 
-            const resolvedCloudId = firstResource.id;
-            const resolvedBaseUrl = firstResource.url;
-
-            await nango.updateMetadata({ cloudId: resolvedCloudId, baseUrl: resolvedBaseUrl });
-
-            cloudId = resolvedCloudId;
-            baseUrl = resolvedBaseUrl;
+            cloudId = firstResource.id;
+            await nango.updateMetadata({ cloudId });
         }
 
         const parsedCloudId = CloudIdSchema.safeParse({ id: cloudId });

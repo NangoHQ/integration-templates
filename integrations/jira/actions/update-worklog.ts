@@ -11,8 +11,8 @@ const InputSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    cloudId: z.string(),
-    baseUrl: z.string()
+    cloudId: z.string().optional(),
+    baseUrl: z.string().optional()
 });
 
 const VisibilitySchema = z.object({

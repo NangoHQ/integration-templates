@@ -60,17 +60,11 @@ const sync = createSync({
         // The /rest/api/3/users/search endpoint returns all users (active, inactive, and previously deleted)
         // but cannot filter by modification time. There is also no dedicated endpoint to retrieve
         // deleted users or changes since a timestamp. Therefore, full refresh with trackDeletes is required.
-        await nango.trackDeletesStart('User');
 
         const metadataResult = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
         const parsedMetadata = MetadataSchema.safeParse(metadataResult);
         const metadata = parsedMetadata.success ? parsedMetadata.data : undefined;
         const currentQuery = metadata?.query ?? '';
-
-        const parsedCheckpoint = StoredCheckpointSchema.safeParse(await nango.getCheckpoint());
-        let currentOffset = parsedCheckpoint.success && (parsedCheckpoint.data.query ?? '') === currentQuery ? parsedCheckpoint.data.offset : 0;
-        let resumedFromCheckpoint = currentOffset > 0;
-        let sawUsersInRun = false;
 
         // Get cloudId from metadata or connection config
         // Note: cloudId may be stored in either location depending on the connection setup
@@ -84,6 +78,13 @@ const sync = createSync({
         if (!cloudId) {
             throw new Error('Missing cloudId in connection configuration or metadata');
         }
+
+        await nango.trackDeletesStart('User');
+
+        const parsedCheckpoint = StoredCheckpointSchema.safeParse(await nango.getCheckpoint());
+        let currentOffset = parsedCheckpoint.success && (parsedCheckpoint.data.query ?? '') === currentQuery ? parsedCheckpoint.data.offset : 0;
+        let resumedFromCheckpoint = currentOffset > 0;
+        let sawUsersInRun = false;
 
         const pageSize = 100;
 

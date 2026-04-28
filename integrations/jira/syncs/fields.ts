@@ -76,9 +76,10 @@ const sync = createSync({
         const fields: z.infer<typeof FieldSchema>[] = [];
         for (const item of rawData) {
             const parseResult = FieldSchema.safeParse(item);
-            if (parseResult.success) {
-                fields.push(parseResult.data);
+            if (!parseResult.success) {
+                throw new Error(`Failed to parse Jira field: ${parseResult.error.message}`);
             }
+            fields.push(parseResult.data);
         }
 
         if (fields.length > 0) {

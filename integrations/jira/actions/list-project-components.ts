@@ -64,15 +64,16 @@ const action = createAction({
                     retries: 3
                 });
 
-                const parsed = CloudIdMetadataSchema.safeParse(resp.data?.[0]);
-                if (!parsed.success || !parsed.data.cloudId || !parsed.data.baseUrl) {
+                const AccessibleResourceSchema = z.object({ id: z.string(), url: z.string() });
+                const parsed = AccessibleResourceSchema.safeParse(resp.data?.[0]);
+                if (!parsed.success) {
                     throw new nango.ActionError({
                         type: 'missing_cloud_id',
                         message: 'Unable to resolve Jira cloudId and baseUrl from connection or metadata'
                     });
                 }
-                cloudId = parsed.data.cloudId;
-                baseUrl = parsed.data.baseUrl;
+                if (!cloudId) cloudId = parsed.data.id;
+                if (!baseUrl) baseUrl = parsed.data.url;
 
                 await nango.updateMetadata({ cloudId, baseUrl });
             }

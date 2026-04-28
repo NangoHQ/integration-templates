@@ -114,7 +114,7 @@ const action = createAction({
             baseUrl = metadata?.baseUrl;
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const response = await nango.get({
                 // https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#2-get-a-list-of-sites-the-user-can-access
                 endpoint: 'oauth/token/accessible-resources',
@@ -138,16 +138,12 @@ const action = createAction({
                 });
             }
 
-            const resolvedCloudId = firstResource.id;
-            const resolvedBaseUrl = firstResource.url;
-
-            await nango.updateMetadata({
-                cloudId: resolvedCloudId,
-                baseUrl: resolvedBaseUrl
-            });
-
-            cloudId = resolvedCloudId;
-            baseUrl = resolvedBaseUrl;
+            cloudId = firstResource.id;
+            try {
+                await nango.updateMetadata({ cloudId, baseUrl: firstResource.url });
+            } catch {
+                // best-effort cache; user retrieval should still succeed
+            }
         }
 
         if (!cloudId) {

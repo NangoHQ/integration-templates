@@ -41,7 +41,7 @@ const action = createAction({
         }
 
         // If still missing, fetch from accessible-resources endpoint
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             const accessibleResourcesResponse = await nango.get({
                 // https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
                 endpoint: 'oauth/token/accessible-resources',
@@ -57,13 +57,12 @@ const action = createAction({
             }
 
             cloudId = resources[0].id;
-            baseUrl = resources[0].url;
         }
 
-        if (!cloudId || !baseUrl) {
+        if (!cloudId) {
             throw new nango.ActionError({
                 type: 'missing_cloud_id',
-                message: 'Unable to determine Jira Cloud ID or base URL.'
+                message: 'Unable to determine Jira Cloud ID.'
             });
         }
 

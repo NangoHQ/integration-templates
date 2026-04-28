@@ -106,7 +106,7 @@ const action = createAction({
 
         // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-status/#api-rest-api-3-status-idorname-get
         const response = await nango.get({
-            endpoint: `/ex/jira/${cloudId}/rest/api/3/status/${input.statusIdOrName}`,
+            endpoint: `/ex/jira/${cloudId}/rest/api/3/status/${encodeURIComponent(input.statusIdOrName)}`,
             headers: {
                 'X-Atlassian-Token': 'no-check'
             },
