@@ -107,13 +107,17 @@ const action = createAction({
             baseUrlOverride: 'https://app.asana.com/api/1.0'
         };
 
-        const response = await nango.get(config);
-
-        if (response.status === 402) {
-            throw new nango.ActionError({
-                type: 'premium_required',
-                message: 'Search is only available to premium Asana users.'
-            });
+        let response;
+        try {
+            response = await nango.get(config);
+        } catch (error: any) {
+            if (error?.response?.status === 402) {
+                throw new nango.ActionError({
+                    type: 'premium_required',
+                    message: 'Search is only available to premium Asana users.'
+                });
+            }
+            throw error;
         }
 
         const SearchResponseSchema = z.object({

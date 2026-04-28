@@ -62,9 +62,9 @@ const sync = createSync({
         const checkpointRaw = await nango.getCheckpoint();
         const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
         const checkpoint = checkpointResult.success ? checkpointResult.data : { project_index: 0, offset: '' };
-        let projectIndex = checkpoint.project_index;
-        let offset = checkpoint.offset;
-        const isFreshRun = !checkpointResult.success || checkpointRaw == null;
+        const isFreshRun = !checkpointResult.success || checkpointRaw == null || checkpoint.project_index >= projectIds.length;
+        let projectIndex = isFreshRun ? 0 : checkpoint.project_index;
+        let offset = isFreshRun ? '' : checkpoint.offset;
 
         if (isFreshRun) {
             await nango.trackDeletesStart('Section');
