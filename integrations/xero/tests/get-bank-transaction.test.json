@@ -1,0 +1,153 @@
+{
+  "input": {
+    "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834"
+  },
+  "output": {
+    "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+    "Type": "SPEND",
+    "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+    "ContactName": "Ridgeway Bank",
+    "Date": "/Date(1770422400000+0000)/",
+    "DateString": "2026-02-07T00:00:00",
+    "Status": "AUTHORISED",
+    "Reference": "Fee",
+    "IsReconciled": true,
+    "CurrencyCode": "USD",
+    "Total": 15,
+    "SubTotal": 15,
+    "TotalTax": 0,
+    "LineAmountTypes": "Inclusive",
+    "LineItems": [
+      {
+        "LineItemID": "f433c812-2cc5-42d1-ba5c-cea4fe153923",
+        "Description": "Bank fee",
+        "Quantity": 1,
+        "UnitAmount": 15,
+        "AccountCode": "404",
+        "TaxType": "NONE",
+        "TaxAmount": 0,
+        "LineAmount": 15
+      }
+    ],
+    "BankAccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "BankAccountCode": "090",
+    "BankAccountName": "Business Bank Account",
+    "UpdatedDateUTC": "/Date(1229813455090+0000)/",
+    "HasAttachments": false
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/BankTransactions/b9d7c42c-506a-4e56-a8a1-a41330580834": {
+        "response": {
+          "Id": "a24044e6-db99-4d45-9864-03a88da38fb8",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032620370)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "b9d7c42c-506a-4e56-a8a1-a41330580834",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Fee",
+              "IsReconciled": true,
+              "HasAttachments": false,
+              "Attachments": [],
+              "Contact": {
+                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
+                "ContactStatus": "ACTIVE",
+                "Name": "Ridgeway Bank",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET"
+                  },
+                  {
+                    "AddressType": "POBOX"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "MOBILE"
+                  },
+                  {
+                    "PhoneType": "DEFAULT"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-02-07T00:00:00",
+              "Date": "/Date(1770422400000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "Description": "Bank fee",
+                  "UnitAmount": 15,
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 15,
+                  "AccountCode": "404",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "f433c812-2cc5-42d1-ba5c-cea4fe153923",
+                  "AccountID": "269479fb-cc8e-4e5f-b0b6-cc4eccf045e0",
+                  "DiscountEnteredAsPercent": true,
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 15,
+              "TotalTax": 0,
+              "Total": 15,
+              "UpdatedDateUTC": "/Date(1229813455090+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:10:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2152",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1777032672",
+          "etag": "W/\"868-eP6Dbg0LiFxHumA/lS2lpeEPVwc\""
+        },
+        "hash": "174b029f9dcf95cd6b2679c2001e180546a82242",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

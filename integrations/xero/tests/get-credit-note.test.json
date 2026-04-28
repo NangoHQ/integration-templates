@@ -1,0 +1,251 @@
+{
+  "input": {
+    "credit_note_id": "602f5486-664e-492f-b4d1-e12df1d4b8ba"
+  },
+  "output": {
+    "credit_note_id": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+    "credit_note_number": "CN-0014",
+    "type": "ACCRECCREDIT",
+    "status": "PAID",
+    "reference": "Training",
+    "date": "/Date(1772928000000+0000)/",
+    "sub_total": 500,
+    "total_tax": 41.25,
+    "total": 541.25,
+    "updated_date_utc": "/Date(1229794712660+0000)/",
+    "currency_code": "USD",
+    "fully_paid_on_date": "/Date(1772928000000+0000)/",
+    "remaining_credit": 0,
+    "has_attachments": false,
+    "has_errors": false,
+    "line_items": [
+      {
+        "ItemCode": "Train-MS",
+        "Description": "CREDIT Half day training - Microsoft Office and include in suite of training INV-0013",
+        "UnitAmount": 500,
+        "TaxType": "OUTPUT",
+        "TaxAmount": 41.25,
+        "LineAmount": 500,
+        "AccountCode": "200",
+        "Item": {
+          "ItemID": "e5cc8904-5865-4846-ad0c-5d9b695b8af9",
+          "Name": "Half day training - Microsoft Office",
+          "Code": "Train-MS"
+        },
+        "Tracking": [
+          {
+            "Name": "Region",
+            "Option": "Eastside",
+            "TrackingCategoryID": "fa437cfd-f005-4538-ae84-943857da5c8c",
+            "TrackingOptionID": "7b354c1c-cf59-42fc-9449-a65c51988335"
+          }
+        ],
+        "Quantity": 1,
+        "LineItemID": "2c140c4b-97af-46f9-b6e0-732a512dd1cd",
+        "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+        "DiscountEnteredAsPercent": true,
+        "ValidationErrors": []
+      }
+    ],
+    "contact": {
+      "ContactID": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+      "ContactStatus": "ACTIVE",
+      "Name": "Boom FM",
+      "Addresses": [
+        {
+          "AddressType": "POBOX"
+        },
+        {
+          "AddressType": "STREET"
+        }
+      ],
+      "Phones": [
+        {
+          "PhoneType": "DDI"
+        },
+        {
+          "PhoneType": "FAX"
+        },
+        {
+          "PhoneType": "DEFAULT"
+        },
+        {
+          "PhoneType": "MOBILE"
+        }
+      ],
+      "UpdatedDateUTC": "/Date(1776708221917+0000)/",
+      "ContactGroups": [],
+      "ContactPersons": [],
+      "HasValidationErrors": false
+    },
+    "allocations": [
+      {
+        "AllocationID": "a5be6139-7e3a-4d48-b664-50a89f0bb632",
+        "Amount": 541.25,
+        "Date": "/Date(1772928000000+0000)/",
+        "Invoice": {
+          "InvoiceID": "4c4db294-3633-45cd-8706-f0b3b0079609",
+          "InvoiceNumber": "INV-0010",
+          "Payments": [],
+          "CreditNotes": [],
+          "Prepayments": [],
+          "Overpayments": [],
+          "IsDiscounted": false,
+          "InvoiceAddresses": [],
+          "HasErrors": false,
+          "InvoicePaymentServices": [],
+          "LineItems": []
+        }
+      }
+    ],
+    "payments": []
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/CreditNotes/602f5486-664e-492f-b4d1-e12df1d4b8ba": {
+        "response": {
+          "Id": "3ca33a85-9f7d-47f5-8bcb-96c0f2eac537",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777031805373)/",
+          "CreditNotes": [
+            {
+              "CreditNoteID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+              "CreditNoteNumber": "CN-0014",
+              "Payments": [],
+              "ID": "602f5486-664e-492f-b4d1-e12df1d4b8ba",
+              "HasErrors": false,
+              "Type": "ACCRECCREDIT",
+              "Reference": "Training",
+              "RemainingCredit": 0,
+              "Allocations": [
+                {
+                  "AllocationID": "a5be6139-7e3a-4d48-b664-50a89f0bb632",
+                  "Amount": 541.25,
+                  "Date": "/Date(1772928000000+0000)/",
+                  "Invoice": {
+                    "InvoiceID": "4c4db294-3633-45cd-8706-f0b3b0079609",
+                    "InvoiceNumber": "INV-0010",
+                    "Payments": [],
+                    "CreditNotes": [],
+                    "Prepayments": [],
+                    "Overpayments": [],
+                    "IsDiscounted": false,
+                    "InvoiceAddresses": [],
+                    "HasErrors": false,
+                    "InvoicePaymentServices": [],
+                    "LineItems": []
+                  }
+                }
+              ],
+              "HasAttachments": false,
+              "Attachments": [],
+              "Contact": {
+                "ContactID": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
+                "ContactStatus": "ACTIVE",
+                "Name": "Boom FM",
+                "Addresses": [
+                  {
+                    "AddressType": "POBOX"
+                  },
+                  {
+                    "AddressType": "STREET"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "DEFAULT"
+                  },
+                  {
+                    "PhoneType": "MOBILE"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-03-08T00:00:00",
+              "Date": "/Date(1772928000000+0000)/",
+              "Status": "PAID",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "ItemCode": "Train-MS",
+                  "Description": "CREDIT Half day training - Microsoft Office and include in suite of training INV-0013",
+                  "UnitAmount": 500,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 41.25,
+                  "LineAmount": 500,
+                  "AccountCode": "200",
+                  "Item": {
+                    "ItemID": "e5cc8904-5865-4846-ad0c-5d9b695b8af9",
+                    "Name": "Half day training - Microsoft Office",
+                    "Code": "Train-MS"
+                  },
+                  "Tracking": [
+                    {
+                      "Name": "Region",
+                      "Option": "Eastside",
+                      "TrackingCategoryID": "fa437cfd-f005-4538-ae84-943857da5c8c",
+                      "TrackingOptionID": "7b354c1c-cf59-42fc-9449-a65c51988335"
+                    }
+                  ],
+                  "Quantity": 1,
+                  "LineItemID": "2c140c4b-97af-46f9-b6e0-732a512dd1cd",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "DiscountEnteredAsPercent": true,
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 500,
+              "TotalTax": 41.25,
+              "Total": 541.25,
+              "UpdatedDateUTC": "/Date(1229794712660+0000)/",
+              "CurrencyCode": "USD",
+              "FullyPaidOnDate": "/Date(1772928000000+0000)/"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 11:56:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3409",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1777031838",
+          "etag": "W/\"d51-il0bA8GA3urm9f9ZzNicHSUFeEY\""
+        },
+        "hash": "7cf9df3ff5e0f468e0753079734fb4f62814999f",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          }
+        }
+      }
+    }
+  }
+}

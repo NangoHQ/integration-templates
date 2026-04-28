@@ -1,91 +1,244 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { Contact as XeroContact } from '../types.js';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { toXeroContact, toContact } from '../mappers/to-contact.js';
 
-import type { ProxyConfiguration } from 'nango';
+const AddressSchema = z.object({
+    AddressType: z.string(),
+    AddressLine1: z.string().optional(),
+    AddressLine2: z.string().optional(),
+    City: z.string().optional(),
+    Region: z.string().optional(),
+    PostalCode: z.string().optional(),
+    Country: z.string().optional()
+});
 
-import type { FailedContact, ActionErrorResponse } from '../models.js';
-import { ContactActionResponse, Anonymous_xero_action_createcontact_input } from '../models.js';
+const PhoneSchema = z.object({
+    PhoneType: z.string(),
+    PhoneNumber: z.string().optional(),
+    PhoneAreaCode: z.string().optional(),
+    PhoneCountryCode: z.string().optional()
+});
+
+const ContactPersonSchema = z.object({
+    FirstName: z.string().optional(),
+    LastName: z.string().optional(),
+    EmailAddress: z.string().optional(),
+    IncludeInEmails: z.boolean().optional()
+});
+
+const InputSchema = z.object({
+    Name: z.string().describe('Full name of the contact. Max length 255.'),
+    ContactNumber: z.string().optional().describe('External identifier for the contact. Max length 50.'),
+    AccountNumber: z.string().optional().describe('User defined account number.'),
+    FirstName: z.string().optional(),
+    LastName: z.string().optional(),
+    EmailAddress: z.string().optional(),
+    TaxNumber: z.string().optional(),
+    BankAccountDetails: z.string().optional(),
+    Website: z.string().optional(),
+    IsCustomer: z.boolean().optional(),
+    IsSupplier: z.boolean().optional(),
+    DefaultCurrency: z.string().optional(),
+    Addresses: z.array(AddressSchema).optional(),
+    Phones: z.array(PhoneSchema).optional(),
+    ContactPersons: z.array(ContactPersonSchema).optional()
+});
+
+const OutputSchema = z.object({
+    ContactID: z.string().optional(),
+    Name: z.string(),
+    ContactNumber: z.string().optional(),
+    AccountNumber: z.string().optional(),
+    FirstName: z.string().optional(),
+    LastName: z.string().optional(),
+    EmailAddress: z.string().optional(),
+    ContactStatus: z.string().optional(),
+    IsCustomer: z.boolean().optional(),
+    IsSupplier: z.boolean().optional()
+});
+
+const ProviderContactSchema = z.object({
+    ContactID: z.string().optional(),
+    Name: z.string(),
+    ContactNumber: z.string().optional(),
+    AccountNumber: z.string().optional(),
+    FirstName: z.string().optional(),
+    LastName: z.string().optional(),
+    EmailAddress: z.string().optional(),
+    ContactStatus: z.string().optional(),
+    IsCustomer: z.boolean().optional(),
+    IsSupplier: z.boolean().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    Id: z.string(),
+    Status: z.string(),
+    Contacts: z.array(z.unknown())
+});
+
+const ConnectionItemSchema = z.object({
+    tenantId: z.string(),
+    tenantName: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Creates one or multiple contacts in Xero.\nNote: Does NOT check if these contacts already exist.',
-    version: '2.0.0',
-
+    description: 'Create a contact in Xero.',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
-        path: '/contacts',
+        path: '/actions/create-contact',
         group: 'Contacts'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['accounting.contacts', 'accounting.invoices', 'accounting.settings'],
 
-    input: Anonymous_xero_action_createcontact_input,
-    output: ContactActionResponse,
-    scopes: ['accounting.contacts'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
 
-    exec: async (nango, input): Promise<ContactActionResponse> => {
-        const tenant_id = await getTenantId(nango);
+        let tenantId: string | undefined;
 
-        // Check if input is an array
-        if (!input || !input.length) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `You must pass an array of contacts! Received: ${JSON.stringify(input)}`
-            });
+        if (
+            connection.connection_config !== null &&
+            connection.connection_config !== undefined &&
+            typeof connection.connection_config === 'object' &&
+            'tenant_id' in connection.connection_config &&
+            typeof connection.connection_config['tenant_id'] === 'string' &&
+            connection.connection_config['tenant_id'].length > 0
+        ) {
+            tenantId = connection.connection_config['tenant_id'];
         }
 
-        // Check if every contact has at least name set (this is required by Xero)
-        const invalidContacts = input.filter((x: any) => !x.name);
-        if (invalidContacts.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `Some contacts are missing the name property, which is mandatory in Xero. Affected contacts:\n${JSON.stringify(invalidContacts, null, 4)}`
-            });
+        if (!tenantId) {
+            if (
+                connection.metadata !== null &&
+                connection.metadata !== undefined &&
+                typeof connection.metadata === 'object' &&
+                'tenantId' in connection.metadata &&
+                typeof connection.metadata['tenantId'] === 'string' &&
+                connection.metadata['tenantId'].length > 0
+            ) {
+                tenantId = connection.metadata['tenantId'];
+            }
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/contacts/#post-contacts
+        if (!tenantId) {
+            const connectionsResponse = await nango.get({
+                // https://developer.xero.com/documentation/api/accounting/connections
+                endpoint: 'connections',
+                retries: 10
+            });
+
+            const connections = z.array(ConnectionItemSchema).parse(connectionsResponse.data);
+
+            if (connections.length === 0) {
+                throw new nango.ActionError({
+                    type: 'no_tenants',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
+
+            if (connections.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_tenants',
+                    message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                });
+            }
+
+            const firstConnection = connections[0];
+            if (firstConnection === undefined) {
+                throw new nango.ActionError({
+                    type: 'no_tenants',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
+
+            tenantId = firstConnection.tenantId;
+        }
+
+        const contactBody: Record<string, unknown> = {
+            Name: input.Name
+        };
+
+        if (input.ContactNumber !== undefined) {
+            contactBody['ContactNumber'] = input.ContactNumber;
+        }
+        if (input.AccountNumber !== undefined) {
+            contactBody['AccountNumber'] = input.AccountNumber;
+        }
+        if (input.FirstName !== undefined) {
+            contactBody['FirstName'] = input.FirstName;
+        }
+        if (input.LastName !== undefined) {
+            contactBody['LastName'] = input.LastName;
+        }
+        if (input.EmailAddress !== undefined) {
+            contactBody['EmailAddress'] = input.EmailAddress;
+        }
+        if (input.TaxNumber !== undefined) {
+            contactBody['TaxNumber'] = input.TaxNumber;
+        }
+        if (input.BankAccountDetails !== undefined) {
+            contactBody['BankAccountDetails'] = input.BankAccountDetails;
+        }
+        if (input.Website !== undefined) {
+            contactBody['Website'] = input.Website;
+        }
+        if (input.IsCustomer !== undefined) {
+            contactBody['IsCustomer'] = input.IsCustomer;
+        }
+        if (input.IsSupplier !== undefined) {
+            contactBody['IsSupplier'] = input.IsSupplier;
+        }
+        if (input.DefaultCurrency !== undefined) {
+            contactBody['DefaultCurrency'] = input.DefaultCurrency;
+        }
+        if (input.Addresses !== undefined) {
+            contactBody['Addresses'] = input.Addresses;
+        }
+        if (input.Phones !== undefined) {
+            contactBody['Phones'] = input.Phones;
+        }
+        if (input.ContactPersons !== undefined) {
+            contactBody['ContactPersons'] = input.ContactPersons;
+        }
+
+        const response = await nango.put({
+            // https://developer.xero.com/documentation/api/accounting/contacts
             endpoint: 'api.xro/2.0/Contacts',
-            headers: {
-                'xero-tenant-id': tenant_id
-            },
-            params: {
-                summarizeErrors: 'false'
-            },
             data: {
-                Contacts: input.map(toXeroContact)
+                Contacts: [contactBody]
+            },
+            headers: {
+                'xero-tenant-id': tenantId
             },
             retries: 3
-        };
+        });
 
-        const res = await nango.post(config);
-        const contacts: XeroContact[] = res.data.Contacts;
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        // Check if Xero failed import of any contacts
-        const failedContacts = contacts.filter((x: any) => x.HasValidationErrors);
-        if (failedContacts.length > 0) {
-            await nango.log(
-                `Some contacts could not be created in Xero due to validation errors. Note that the remaining contacts (${
-                    input.length - failedContacts.length
-                }) were created successfully. Affected contacts:\n${JSON.stringify(failedContacts, null, 4)}`,
-                { level: 'error' }
-            );
+        if (!Array.isArray(providerResponse.Contacts) || providerResponse.Contacts.length === 0) {
+            throw new nango.ActionError({
+                type: 'no_contact_returned',
+                message: 'Xero did not return any contacts in the response.'
+            });
         }
 
-        const succeededContacts = contacts.filter((x: any) => !x.HasValidationErrors);
+        const createdContact = ProviderContactSchema.parse(providerResponse.Contacts[0]);
 
-        const response = {
-            succeededContacts: succeededContacts.map(toContact),
-            failedContacts: failedContacts.map(mapFailedXeroContact)
+        return {
+            ContactID: createdContact.ContactID,
+            Name: createdContact.Name,
+            ...(createdContact.ContactNumber !== undefined && { ContactNumber: createdContact.ContactNumber }),
+            ...(createdContact.AccountNumber !== undefined && { AccountNumber: createdContact.AccountNumber }),
+            ...(createdContact.FirstName !== undefined && { FirstName: createdContact.FirstName }),
+            ...(createdContact.LastName !== undefined && { LastName: createdContact.LastName }),
+            ...(createdContact.EmailAddress !== undefined && { EmailAddress: createdContact.EmailAddress }),
+            ...(createdContact.ContactStatus !== undefined && { ContactStatus: createdContact.ContactStatus }),
+            ...(createdContact.IsCustomer !== undefined && { IsCustomer: createdContact.IsCustomer }),
+            ...(createdContact.IsSupplier !== undefined && { IsSupplier: createdContact.IsSupplier })
         };
-
-        return response;
     }
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-
-function mapFailedXeroContact(xeroContact: any): FailedContact {
-    return {
-        ...toContact(xeroContact),
-        validation_errors: xeroContact.ValidationErrors
-    };
-}

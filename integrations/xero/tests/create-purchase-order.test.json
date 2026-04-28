@@ -1,0 +1,138 @@
+{
+  "input": {
+    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+    "date": "2026-04-24",
+    "line_items": [
+      {
+        "description": "Test item",
+        "quantity": 1,
+        "unit_amount": 100
+      }
+    ]
+  },
+  "output": {
+    "purchase_order_id": "201348a5-6570-44d0-923a-c0e05209d862",
+    "purchase_order_number": "PO-0013",
+    "status": "DRAFT",
+    "date": "/Date(1776988800000+0000)/",
+    "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+    "contact_name": "RITE Agency",
+    "total": 100,
+    "line_items": [
+      {
+        "description": "Test item",
+        "quantity": 1,
+        "unit_amount": 100,
+        "line_amount": 100
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/PurchaseOrders": {
+        "response": {
+          "Id": "293410bc-9d57-4e53-974a-c3ba0bfb885d",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777031944630)/",
+          "PurchaseOrders": [
+            {
+              "PurchaseOrderID": "201348a5-6570-44d0-923a-c0e05209d862",
+              "PurchaseOrderNumber": "PO-0013",
+              "DateString": "2026-04-24T00:00:00",
+              "Date": "/Date(1776988800000+0000)/",
+              "HasErrors": false,
+              "IsDiscounted": false,
+              "TotalDiscount": 0,
+              "SentToContact": false,
+              "Type": "PURCHASEORDER",
+              "CurrencyRate": 1,
+              "CurrencyCode": "USD",
+              "Contact": {
+                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                "ContactStatus": "ACTIVE",
+                "Name": "RITE Agency",
+                "Addresses": [],
+                "Phones": [],
+                "UpdatedDateUTC": "/Date(1776682521490+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": true,
+                "IsCustomer": true,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test item",
+                  "UnitAmount": 100,
+                  "TaxAmount": 0,
+                  "LineAmount": 100,
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "85576169-d2e5-4406-864f-75e1934a1a36"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 0,
+              "Total": 100,
+              "UpdatedDateUTC": "/Date(1777031944600+0000)/"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 11:59:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1624",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1777031964",
+          "etag": "W/\"658-aEQk2Nz1PzYBDo0p6wlnD9F5/q0\""
+        },
+        "hash": "dd1a07eebb6a70d35ca5199ff11cbe09adb7d70c",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "PurchaseOrders": [
+              {
+                "Contact": {
+                  "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740"
+                },
+                "Date": "2026-04-24",
+                "LineItems": [
+                  {
+                    "Description": "Test item",
+                    "Quantity": 1,
+                    "UnitAmount": 100
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

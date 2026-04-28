@@ -1,0 +1,146 @@
+{
+  "input": {
+    "bank_transaction_id": "f921ad84-8418-49d3-9366-ef0b1e371303",
+    "reference": "Updated again via Nango"
+  },
+  "output": {
+    "bank_transaction_id": "f921ad84-8418-49d3-9366-ef0b1e371303",
+    "type": "SPEND",
+    "status": "AUTHORISED",
+    "date": "/Date(1776643200000+0000)/",
+    "reference": "Updated again via Nango",
+    "contact_id": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
+    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "updated_date_utc": "/Date(1777032840107+0000)/",
+    "sub_total": 46.19,
+    "total_tax": 3.81,
+    "total": 50
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/BankTransactions": {
+        "response": {
+          "Id": "1ef6dc0b-e3da-4658-a4ea-f46c23f4079b",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032840177)/",
+          "BankTransactions": [
+            {
+              "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
+              "BankAccount": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Type": "SPEND",
+              "Reference": "Updated again via Nango",
+              "IsReconciled": false,
+              "CurrencyRate": 1,
+              "HasAttachments": false,
+              "Attachments": [],
+              "Contact": {
+                "ContactID": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
+                "ContactNumber": "211f9ce8bbedd85eab2bec2c0c3326c1c1c4fa739531b55d1d",
+                "ContactStatus": "ACTIVE",
+                "Name": "nango test",
+                "FirstName": "nango",
+                "LastName": "test",
+                "EmailAddress": "api@nango.dev",
+                "Addresses": [
+                  {
+                    "AddressType": "POBOX"
+                  },
+                  {
+                    "AddressType": "STREET"
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT"
+                  },
+                  {
+                    "PhoneType": "DDI"
+                  },
+                  {
+                    "PhoneType": "FAX"
+                  },
+                  {
+                    "PhoneType": "MOBILE"
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776686923210+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2026-04-20T00:00:00",
+              "Date": "/Date(1776643200000+0000)/",
+              "Status": "AUTHORISED",
+              "LineAmountTypes": "Inclusive",
+              "LineItems": [
+                {
+                  "Description": "Test transaction for update",
+                  "UnitAmount": 50,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 3.81,
+                  "LineAmount": 50,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "4daae2c7-9419-4260-91d8-bb2ef85ff158",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 46.19,
+              "TotalTax": 3.81,
+              "Total": 50,
+              "UpdatedDateUTC": "/Date(1777032840107+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:14:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2365",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4924",
+          "x-ratelimit-reset": "1777032812",
+          "etag": "W/\"93d-WSPbKl9KqABqH/d0TdbG71EC2gw\""
+        },
+        "hash": "ea80f3e84c61a1db0b9c2b2466096eed6146be80",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "BankTransactions": [
+              {
+                "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
+                "Reference": "Updated again via Nango"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

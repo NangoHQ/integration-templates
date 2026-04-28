@@ -1,0 +1,981 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    },
+    "batchSave": {
+      "PurchaseOrder": [
+        {
+          "id": "3a797a72-e889-41fb-81bd-204d850d8e93",
+          "purchase_order_number": "PO-0004",
+          "date": "2026-04-15T00:00:00.000Z",
+          "delivery_date": "2026-04-22T00:00:00.000Z",
+          "status": "AUTHORISED",
+          "reference": "GBW-Reg-3",
+          "sub_total": 230.95,
+          "total_tax": 19.05,
+          "total": 250,
+          "updated_date_utc": "2013-11-22T17:57:06.203Z",
+          "currency_code": "USD",
+          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contact_name": "Dimples Warehouse"
+        },
+        {
+          "id": "8e0eed56-1aab-4452-b667-bceed6776826",
+          "purchase_order_number": "PO-0005",
+          "date": "2026-04-16T00:00:00.000Z",
+          "delivery_date": "2026-04-23T00:00:00.000Z",
+          "status": "AUTHORISED",
+          "reference": "GBW-Reg-4",
+          "sub_total": 38.8,
+          "total_tax": 3.2,
+          "total": 42,
+          "updated_date_utc": "2013-11-22T17:58:14.640Z",
+          "currency_code": "USD",
+          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contact_name": "Dimples Warehouse"
+        },
+        {
+          "id": "9888b438-5811-4d4e-a3ca-b86af7c4ac28",
+          "purchase_order_number": "PO-0006",
+          "date": "2026-04-19T00:00:00.000Z",
+          "status": "AUTHORISED",
+          "reference": "711",
+          "sub_total": 831.41,
+          "total_tax": 68.59,
+          "total": 900,
+          "updated_date_utc": "2013-11-22T18:05:02.683Z",
+          "currency_code": "USD",
+          "contact_id": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+          "contact_name": "ABC Furniture"
+        },
+        {
+          "id": "33c3c979-9a72-44a2-b09e-2a64abe6977d",
+          "purchase_order_number": "PO-0007",
+          "date": "2026-05-16T00:00:00.000Z",
+          "status": "DRAFT",
+          "reference": "GBW-Reg-5",
+          "sub_total": 334.41,
+          "total_tax": 27.59,
+          "total": 362,
+          "updated_date_utc": "2013-11-22T18:08:28.543Z",
+          "currency_code": "USD",
+          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contact_name": "Dimples Warehouse"
+        },
+        {
+          "id": "64a9c869-62a0-4697-b111-bbdccf1036e3",
+          "purchase_order_number": "PO-0002",
+          "date": "2026-04-10T00:00:00.000Z",
+          "delivery_date": "2026-04-12T00:00:00.000Z",
+          "expected_arrival_date": "2026-04-19T00:00:00.000Z",
+          "status": "AUTHORISED",
+          "reference": "GB1-White",
+          "sub_total": 434.18,
+          "total_tax": 35.82,
+          "total": 470,
+          "updated_date_utc": "2013-11-22T19:54:24.310Z",
+          "currency_code": "USD",
+          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contact_name": "Dimples Warehouse"
+        },
+        {
+          "id": "1b0e1ad4-a9ef-4e76-a51c-e85d5e08d15a",
+          "purchase_order_number": "PO-0001",
+          "date": "2026-03-25T00:00:00.000Z",
+          "delivery_date": "2026-03-26T00:00:00.000Z",
+          "status": "BILLED",
+          "reference": "710",
+          "sub_total": 923.79,
+          "total_tax": 76.21,
+          "total": 1000,
+          "updated_date_utc": "2013-11-22T19:55:01.173Z",
+          "currency_code": "USD",
+          "contact_id": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+          "contact_name": "ABC Furniture"
+        },
+        {
+          "id": "39b11498-a833-4b4e-8f62-387e30a9c61c",
+          "purchase_order_number": "PO-0008",
+          "date": "2026-04-20T00:00:00.000Z",
+          "status": "DRAFT",
+          "reference": "Updated via Nango Action",
+          "sub_total": 100,
+          "total_tax": 0,
+          "total": 100,
+          "updated_date_utc": "2026-04-20T17:00:21.677Z",
+          "currency_code": "USD",
+          "contact_id": "1e519400-5654-4c85-a264-516255a9c1a8",
+          "contact_name": "Abby & Wells"
+        },
+        {
+          "id": "4670c408-eb63-4f3c-a8c2-fb73774d232d",
+          "purchase_order_number": "PO-0009",
+          "date": "2025-01-15T00:00:00.000Z",
+          "status": "DRAFT",
+          "reference": "PO-001",
+          "sub_total": 127.5,
+          "total_tax": 0,
+          "total": 127.5,
+          "updated_date_utc": "2026-04-22T15:02:09.460Z",
+          "currency_code": "USD",
+          "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+          "contact_name": "Test Contact"
+        },
+        {
+          "id": "fe008eec-9201-4cb8-aa21-c3654336f1e6",
+          "purchase_order_number": "PO-0010",
+          "date": "2025-01-15T00:00:00.000Z",
+          "status": "DRAFT",
+          "reference": "PO-001",
+          "sub_total": 127.5,
+          "total_tax": 0,
+          "total": 127.5,
+          "updated_date_utc": "2026-04-22T15:02:18.737Z",
+          "currency_code": "USD",
+          "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+          "contact_name": "Test Contact"
+        },
+        {
+          "id": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+          "purchase_order_number": "PO-0011",
+          "date": "2025-01-15T00:00:00.000Z",
+          "status": "DRAFT",
+          "reference": "Updated via API",
+          "sub_total": 127.5,
+          "total_tax": 0,
+          "total": 127.5,
+          "updated_date_utc": "2026-04-22T15:14:34.630Z",
+          "currency_code": "USD",
+          "contact_id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+          "contact_name": "Test Contact"
+        },
+        {
+          "id": "d0c924d1-aa9d-4d79-9e52-ebd251916404",
+          "purchase_order_number": "PO-0012",
+          "date": "2026-04-24T00:00:00.000Z",
+          "status": "DRAFT",
+          "sub_total": 100,
+          "total_tax": 0,
+          "total": 100,
+          "updated_date_utc": "2026-04-24T11:58:45.433Z",
+          "currency_code": "USD",
+          "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+          "contact_name": "RITE Agency"
+        },
+        {
+          "id": "201348a5-6570-44d0-923a-c0e05209d862",
+          "purchase_order_number": "PO-0013",
+          "date": "2026-04-24T00:00:00.000Z",
+          "status": "DRAFT",
+          "sub_total": 100,
+          "total_tax": 0,
+          "total": 100,
+          "updated_date_utc": "2026-04-24T11:59:04.600Z",
+          "currency_code": "USD",
+          "contact_id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+          "contact_name": "RITE Agency"
+        },
+        {
+          "id": "fa004ba7-d015-4603-99bf-777054aaa61b",
+          "purchase_order_number": "PO-0003",
+          "date": "2026-04-15T00:00:00.000Z",
+          "delivery_date": "2026-04-22T00:00:00.000Z",
+          "status": "AUTHORISED",
+          "reference": "Updated via Nango test",
+          "sub_total": 334.41,
+          "total_tax": 27.59,
+          "total": 362,
+          "updated_date_utc": "2026-04-24T12:24:06.057Z",
+          "currency_code": "USD",
+          "contact_id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+          "contact_name": "Dimples Warehouse"
+        }
+      ]
+    },
+    "batchDelete": {
+      "PurchaseOrder": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/PurchaseOrders": [
+        {
+          "response": {
+            "Id": "97eac221-e2f6-4394-aa3d-cb8709506a2e",
+            "Status": "OK",
+            "ProviderName": "NangoAPI",
+            "DateTimeUTC": "/Date(1777034144632)/",
+            "pagination": {
+              "page": 1,
+              "pageSize": 100,
+              "pageCount": 1,
+              "itemCount": 13
+            },
+            "PurchaseOrders": [
+              {
+                "PurchaseOrderID": "3a797a72-e889-41fb-81bd-204d850d8e93",
+                "PurchaseOrderNumber": "PO-0004",
+                "DateString": "2026-04-15T00:00:00",
+                "Date": "/Date(1776211200000+0000)/",
+                "DeliveryDateString": "2026-04-22T00:00:00",
+                "DeliveryDate": "/Date(1776816000000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "Stores",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "Regular order - deliver to Warehouse",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "GBW-Reg-3",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Dimples Warehouse",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "GB9-White",
+                    "Description": "Golf balls - white - 9-pack",
+                    "UnitAmount": 25,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 19.05,
+                    "LineAmount": 250,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "092e5638-3730-4dcd-8997-469ecd42c48e"
+                  }
+                ],
+                "SubTotal": 230.95,
+                "TotalTax": 19.05,
+                "Total": 250,
+                "UpdatedDateUTC": "/Date(1385143026203+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "8e0eed56-1aab-4452-b667-bceed6776826",
+                "PurchaseOrderNumber": "PO-0005",
+                "DateString": "2026-04-16T00:00:00",
+                "Date": "/Date(1776297600000+0000)/",
+                "DeliveryDateString": "2026-04-23T00:00:00",
+                "DeliveryDate": "/Date(1776902400000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "Stores",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "Regular order - deliver to Warehouse",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "GBW-Reg-4",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Dimples Warehouse",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "GB1-White",
+                    "Description": "Golf balls - white single",
+                    "UnitAmount": 4.2,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 3.2,
+                    "LineAmount": 42,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "9f5c48e1-ad56-4821-81ed-f548a66b291e"
+                  }
+                ],
+                "SubTotal": 38.8,
+                "TotalTax": 3.2,
+                "Total": 42,
+                "UpdatedDateUTC": "/Date(1385143094640+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "9888b438-5811-4d4e-a3ca-b86af7c4ac28",
+                "PurchaseOrderNumber": "PO-0006",
+                "DateString": "2026-04-19T00:00:00",
+                "Date": "/Date(1776556800000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "FOH",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "Deliver ASAP to Front of House\r\nTo be sited in the main office. Fully assembled.",
+                "HasErrors": false,
+                "IsDiscounted": true,
+                "Reference": "711",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "ABC Furniture",
+                  "FirstName": "Trish",
+                  "LastName": "Rawlings",
+                  "Addresses": [],
+                  "Phones": [
+                    {
+                      "PhoneType": "DEFAULT",
+                      "PhoneNumber": "124578",
+                      "PhoneAreaCode": "800",
+                      "PhoneCountryCode": "1"
+                    }
+                  ],
+                  "UpdatedDateUTC": "/Date(1776708221900+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "Description": "Coffee table for office",
+                    "UnitAmount": 1000,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 68.59,
+                    "LineAmount": 900,
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "DiscountRate": 10,
+                    "LineItemID": "19c96385-3dc0-4290-8dd9-329c301598cf"
+                  }
+                ],
+                "SubTotal": 831.41,
+                "TotalTax": 68.59,
+                "Total": 900,
+                "UpdatedDateUTC": "/Date(1385143502683+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "33c3c979-9a72-44a2-b09e-2a64abe6977d",
+                "PurchaseOrderNumber": "PO-0007",
+                "DateString": "2026-05-16T00:00:00",
+                "Date": "/Date(1778889600000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "Stores",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "﻿﻿Regular order - deliver to Warehouse",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "GBW-Reg-5",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Dimples Warehouse",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "DRAFT",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "GB6-White",
+                    "Description": "Golf balls - white - 6-pack",
+                    "UnitAmount": 20,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 15.24,
+                    "LineAmount": 200,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "8e782169-b952-4beb-8e64-6bfa86b69bfa"
+                  },
+                  {
+                    "ItemCode": "GB3-White",
+                    "Description": "Golf balls - white - 3-pack",
+                    "UnitAmount": 12,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 9.15,
+                    "LineAmount": 120,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "a009045f-9e42-4fd5-b2d2-840afa712d41"
+                  },
+                  {
+                    "ItemCode": "GB1-White",
+                    "Description": "Golf balls - white single",
+                    "UnitAmount": 4.2,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 3.2,
+                    "LineAmount": 42,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "e8bd732c-85ae-471c-94e5-96a74536cb42"
+                  }
+                ],
+                "SubTotal": 334.41,
+                "TotalTax": 27.59,
+                "Total": 362,
+                "UpdatedDateUTC": "/Date(1385143708543+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "64a9c869-62a0-4697-b111-bbdccf1036e3",
+                "PurchaseOrderNumber": "PO-0002",
+                "DateString": "2026-04-10T00:00:00",
+                "Date": "/Date(1775779200000+0000)/",
+                "DeliveryDateString": "2026-04-12T00:00:00",
+                "DeliveryDate": "/Date(1775952000000+0000)/",
+                "ExpectedArrivalDateString": "2026-04-19T00:00:00",
+                "ExpectedArrivalDate": "/Date(1776556800000+0000)/",
+                "DeliveryAddress": "Bayside Club\r\n148 Bay Harbour Road\r\nRidge Heights\r\nMadeupville MA 60010\r\nUSA",
+                "AttentionTo": "Club Secretary",
+                "Telephone": "202-2024455",
+                "DeliveryInstructions": "Urgent delivery - send directly to Doug (Club Secretary) at the Bayside Club",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "GB1-White",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Dimples Warehouse",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "Description": "Delivery charge",
+                    "UnitAmount": 50,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 3.81,
+                    "LineAmount": 50,
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "3cb68a98-a720-40a7-832d-0f4e7684737e"
+                  },
+                  {
+                    "ItemCode": "GB1-White",
+                    "Description": "Golf balls - white single",
+                    "UnitAmount": 4.2,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 32.01,
+                    "LineAmount": 420,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 100,
+                    "LineItemID": "2b6ec796-17e4-42b1-836d-fee2d9750b59"
+                  }
+                ],
+                "SubTotal": 434.18,
+                "TotalTax": 35.82,
+                "Total": 470,
+                "UpdatedDateUTC": "/Date(1385150064310+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "1b0e1ad4-a9ef-4e76-a51c-e85d5e08d15a",
+                "PurchaseOrderNumber": "PO-0001",
+                "DateString": "2026-03-25T00:00:00",
+                "Date": "/Date(1774396800000+0000)/",
+                "DeliveryDateString": "2026-03-26T00:00:00",
+                "DeliveryDate": "/Date(1774483200000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "FOH",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "Deliver to reception. As agreed, table needs to be assembled prior to delivery.",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "710",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "ABC Furniture",
+                  "FirstName": "Trish",
+                  "LastName": "Rawlings",
+                  "Addresses": [],
+                  "Phones": [
+                    {
+                      "PhoneType": "DEFAULT",
+                      "PhoneNumber": "124578",
+                      "PhoneAreaCode": "800",
+                      "PhoneCountryCode": "1"
+                    }
+                  ],
+                  "UpdatedDateUTC": "/Date(1776708221900+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "BILLED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "Description": "Coffee table for reception",
+                    "UnitAmount": 1000,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 76.21,
+                    "LineAmount": 1000,
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "00963f9b-25cc-4502-8c0a-453445818223"
+                  }
+                ],
+                "SubTotal": 923.79,
+                "TotalTax": 76.21,
+                "Total": 1000,
+                "UpdatedDateUTC": "/Date(1385150101173+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "39b11498-a833-4b4e-8f62-387e30a9c61c",
+                "PurchaseOrderNumber": "PO-0008",
+                "DateString": "2026-04-20T00:00:00",
+                "Date": "/Date(1776643200000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "Updated via Nango Action",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "1e519400-5654-4c85-a264-516255a9c1a8",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Abby & Wells",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776682522827+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Test Purchase Order Item",
+                    "UnitAmount": 50,
+                    "TaxAmount": 0,
+                    "LineAmount": 100,
+                    "Tracking": [],
+                    "Quantity": 2,
+                    "LineItemID": "dbc3662d-0b27-4351-ab0e-5005e7592d6b"
+                  }
+                ],
+                "SubTotal": 100,
+                "TotalTax": 0,
+                "Total": 100,
+                "UpdatedDateUTC": "/Date(1776704421677+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "4670c408-eb63-4f3c-a8c2-fb73774d232d",
+                "PurchaseOrderNumber": "PO-0009",
+                "DateString": "2025-01-15T00:00:00",
+                "Date": "/Date(1736899200000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "PO-001",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Test Contact",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776748024770+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Office Supplies",
+                    "UnitAmount": 25.5,
+                    "TaxType": "NONE",
+                    "TaxAmount": 0,
+                    "LineAmount": 127.5,
+                    "AccountCode": "200",
+                    "Tracking": [],
+                    "Quantity": 5,
+                    "LineItemID": "ca5ec437-52bc-44ad-9140-631180b2f82f"
+                  }
+                ],
+                "SubTotal": 127.5,
+                "TotalTax": 0,
+                "Total": 127.5,
+                "UpdatedDateUTC": "/Date(1776870129460+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "fe008eec-9201-4cb8-aa21-c3654336f1e6",
+                "PurchaseOrderNumber": "PO-0010",
+                "DateString": "2025-01-15T00:00:00",
+                "Date": "/Date(1736899200000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "PO-001",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Test Contact",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776748024770+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Office Supplies",
+                    "UnitAmount": 25.5,
+                    "TaxType": "NONE",
+                    "TaxAmount": 0,
+                    "LineAmount": 127.5,
+                    "AccountCode": "200",
+                    "Tracking": [],
+                    "Quantity": 5,
+                    "LineItemID": "f88d6c29-6bbc-4bc5-b767-b2b9695e552d"
+                  }
+                ],
+                "SubTotal": 127.5,
+                "TotalTax": 0,
+                "Total": 127.5,
+                "UpdatedDateUTC": "/Date(1776870138737+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "71a24d43-3a48-4a07-9b06-d5ba7616f666",
+                "PurchaseOrderNumber": "PO-0011",
+                "DateString": "2025-01-15T00:00:00",
+                "Date": "/Date(1736899200000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "Updated via API",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Test Contact",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776748024770+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Office Supplies",
+                    "UnitAmount": 25.5,
+                    "TaxType": "NONE",
+                    "TaxAmount": 0,
+                    "LineAmount": 127.5,
+                    "AccountCode": "200",
+                    "Tracking": [],
+                    "Quantity": 5,
+                    "LineItemID": "9c99c794-8347-4b3f-8e58-1302bc7eae92"
+                  }
+                ],
+                "SubTotal": 127.5,
+                "TotalTax": 0,
+                "Total": 127.5,
+                "UpdatedDateUTC": "/Date(1776870874630+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "d0c924d1-aa9d-4d79-9e52-ebd251916404",
+                "PurchaseOrderNumber": "PO-0012",
+                "DateString": "2026-04-24T00:00:00",
+                "Date": "/Date(1776988800000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "RITE Agency",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776682521490+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Test item",
+                    "UnitAmount": 100,
+                    "TaxAmount": 0,
+                    "LineAmount": 100,
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "eb902cac-f0f8-495f-9bfe-1c1caffc530b"
+                  }
+                ],
+                "SubTotal": 100,
+                "TotalTax": 0,
+                "Total": 100,
+                "UpdatedDateUTC": "/Date(1777031925433+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "201348a5-6570-44d0-923a-c0e05209d862",
+                "PurchaseOrderNumber": "PO-0013",
+                "DateString": "2026-04-24T00:00:00",
+                "Date": "/Date(1776988800000+0000)/",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "RITE Agency",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776682521490+0000)/",
+                  "ContactGroups": [],
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "Status": "DRAFT",
+                "LineAmountTypes": "Exclusive",
+                "LineItems": [
+                  {
+                    "Description": "Test item",
+                    "UnitAmount": 100,
+                    "TaxAmount": 0,
+                    "LineAmount": 100,
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "85576169-d2e5-4406-864f-75e1934a1a36"
+                  }
+                ],
+                "SubTotal": 100,
+                "TotalTax": 0,
+                "Total": 100,
+                "UpdatedDateUTC": "/Date(1777031944600+0000)/",
+                "HasAttachments": false
+              },
+              {
+                "PurchaseOrderID": "fa004ba7-d015-4603-99bf-777054aaa61b",
+                "PurchaseOrderNumber": "PO-0003",
+                "DateString": "2026-04-15T00:00:00",
+                "Date": "/Date(1776211200000+0000)/",
+                "DeliveryDateString": "2026-04-22T00:00:00",
+                "DeliveryDate": "/Date(1776816000000+0000)/",
+                "DeliveryAddress": "23 Main Street\r\nCentral City\r\nMarineville\r\n12345\r\n",
+                "AttentionTo": "Stores",
+                "Telephone": "800 1234 5678",
+                "DeliveryInstructions": "﻿﻿Regular order - deliver to Warehouse",
+                "HasErrors": false,
+                "IsDiscounted": false,
+                "Reference": "Updated via Nango test",
+                "Type": "PURCHASEORDER",
+                "CurrencyRate": 1,
+                "CurrencyCode": "USD",
+                "Contact": {
+                  "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
+                  "ContactStatus": "ACTIVE",
+                  "Name": "Dimples Warehouse",
+                  "Addresses": [],
+                  "Phones": [],
+                  "UpdatedDateUTC": "/Date(1776708221873+0000)/",
+                  "ContactGroups": [],
+                  "DefaultCurrency": "USD",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "GB3-White",
+                    "Description": "Golf balls - white - 3-pack",
+                    "UnitAmount": 12,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 9.15,
+                    "LineAmount": 120,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "369c110f-75eb-449d-9996-ab44365b281b"
+                  },
+                  {
+                    "ItemCode": "GB6-White",
+                    "Description": "Golf balls - white - 6-pack",
+                    "UnitAmount": 20,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 15.24,
+                    "LineAmount": 200,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "25be88b5-7b9e-42d7-8954-dd56d6efe12b"
+                  },
+                  {
+                    "ItemCode": "GB1-White",
+                    "Description": "Golf balls - white single",
+                    "UnitAmount": 4.2,
+                    "TaxType": "INPUT",
+                    "TaxAmount": 3.2,
+                    "LineAmount": 42,
+                    "AccountCode": "300",
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "296a5567-0694-42cd-a024-ddcfd6a232c5"
+                  }
+                ],
+                "SubTotal": 334.41,
+                "TotalTax": 27.59,
+                "Total": 362,
+                "UpdatedDateUTC": "/Date(1777033446057+0000)/",
+                "HasAttachments": false
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 24 Apr 2026 12:35:44 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "23812",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4995",
+            "x-ratelimit-reset": "1777034201",
+            "etag": "W/\"5d04-FPxXGnTCNwsCuTPANIHvclPsO3I\""
+          },
+          "hash": "828dea528ff455647cc6a7705bb584e9cb361667",
+          "request": {
+            "params": {
+              "page": "1"
+            },
+            "headers": {
+              "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            }
+          }
+        },
+        {
+          "response": {
+            "Id": "bd6954a5-0e62-4ef8-9c47-9341e08efd6d",
+            "Status": "OK",
+            "ProviderName": "NangoAPI",
+            "DateTimeUTC": "/Date(1777034144925)/",
+            "pagination": {
+              "page": 2,
+              "pageSize": 100,
+              "pageCount": 1,
+              "itemCount": 13
+            },
+            "PurchaseOrders": []
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 24 Apr 2026 12:35:44 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "277",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4994",
+            "x-ratelimit-reset": "1777034201",
+            "etag": "W/\"115-7boV8OgDradzfAR+/XLHLRR87ko\""
+          },
+          "hash": "eff03980865e8124c68eadc857b8185abe7e148e",
+          "request": {
+            "params": {
+              "page": "2"
+            },
+            "headers": {
+              "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

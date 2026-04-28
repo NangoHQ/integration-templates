@@ -1,0 +1,90 @@
+{
+  "input": {
+    "account_id": "64720585-52cf-479b-a211-2e99543e28e7",
+    "description": "Updated description for test account X999 via Nango"
+  },
+  "output": {
+    "account_id": "64720585-52cf-479b-a211-2e99543e28e7",
+    "code": "TEST999",
+    "name": "Test Account X999",
+    "type": "EXPENSE",
+    "status": "ACTIVE",
+    "description": "Updated description for test account X999 via Nango",
+    "tax_type": "INPUT",
+    "enable_payments_to_account": false,
+    "show_in_expense_claims": false,
+    "class": "EXPENSE",
+    "reporting_code": "EXP",
+    "reporting_code_name": "Expense"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/Accounts": {
+        "response": {
+          "Id": "a5498f45-6926-494f-a747-daccc817b481",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032373923)/",
+          "Accounts": [
+            {
+              "AccountID": "64720585-52cf-479b-a211-2e99543e28e7",
+              "Code": "TEST999",
+              "Name": "Test Account X999",
+              "Status": "ACTIVE",
+              "Type": "EXPENSE",
+              "TaxType": "INPUT",
+              "Description": "Updated description for test account X999 via Nango",
+              "Class": "EXPENSE",
+              "EnablePaymentsToAccount": false,
+              "ShowInExpenseClaims": false,
+              "ReportingCode": "EXP",
+              "ReportingCodeName": "Expense",
+              "UpdatedDateUTC": "/Date(1777032358823+0000)/",
+              "AddToWatchlist": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:06:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "726",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1777032397",
+          "etag": "W/\"2d6-/epaQN7CIPGuBnYEO/5MtkCBVzs\""
+        },
+        "hash": "7e4db6afc4394e1b9a689a3a878ab0884ba99ea5",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Accounts": [
+              {
+                "AccountID": "64720585-52cf-479b-a211-2e99543e28e7",
+                "Description": "Updated description for test account X999 via Nango"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
