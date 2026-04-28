@@ -507,6 +507,24 @@ export interface ActionOutput_asana_getsection {
   name: string;})[] | undefined;
 };
 
+export interface ActionInput_asana_updatesection {
+  /**
+   * The globally unique identifier for the section. Example: "1200000000000001"
+   */
+  section_gid: string;
+  /**
+   * The updated name for the section.
+   */
+  name: string;
+};
+
+export interface ActionOutput_asana_updatesection {
+  gid: string;
+  name?: string | undefined;
+  project?: {  gid: string;
+  name?: string | undefined;};
+};
+
 export interface ActionInput_asana_listsectionsforproject {
   /**
    * Globally unique identifier for the project. Example: "12345"

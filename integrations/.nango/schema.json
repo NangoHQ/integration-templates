@@ -2308,6 +2308,54 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"1200000000000001\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The updated name for the section."
+        }
+      },
+      "required": [
+        "section_gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "gid"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_asana_listsectionsforproject": {
       "type": "object",
       "properties": {
