@@ -139,21 +139,19 @@ const action = createAction({
             });
 
             const parsedResources = AccessibleResourcesSchema.safeParse(accessibleResourcesResponse.data);
-            if (!parsedResources.success) {
+            if (!parsedResources.success || parsedResources.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'Could not find a Confluence cloud instance for this connection.'
                 });
             }
-
-            const firstResource = parsedResources.data[0];
-            if (!firstResource) {
+            if (parsedResources.data.length > 1) {
                 throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'Could not find a Confluence cloud instance for this connection.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
-            cloudId = firstResource.id;
+            cloudId = parsedResources.data[0]!.id;
 
             // https://docs.nango.dev/reference/sdk/javascript#set-metadata
             await nango.updateMetadata({ cloudId });

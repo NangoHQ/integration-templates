@@ -40,7 +40,7 @@ describe('confluence blog-posts tests', () => {
       });
 
       // Normalize spy-captured args into plain JSON so they compare cleanly
-      // with fixture data loaded from `*.test.json`. 
+      // with fixture data loaded from `*.test.json`.
       // Removes things like prototypes, undefined values and other non-serializable data.
       const spied = JSON.parse(JSON.stringify(spiedData));
 
@@ -56,22 +56,20 @@ describe('confluence blog-posts tests', () => {
 
     for (const model of models) {
       const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-      if (batchDeleteData && batchDeleteData.length > 0) {
-        const spiedData = batchDeleteSpy.mock.calls.flatMap(call => {
-          if (call[1] === model) {
-            return call[0];
-          }
+      const spiedData = batchDeleteSpy.mock.calls.flatMap(call => {
+        if (call[1] === model) {
+          return call[0];
+        }
 
-          return [];
-        });
+        return [];
+      });
 
-        // Normalize spy-captured args into plain JSON so they compare cleanly
-        // with fixture data loaded from `*.test.json`.
-        // Removes things like prototypes, undefined values and other non-serializable data.
-        const spied = JSON.parse(JSON.stringify(spiedData));
+      // Normalize spy-captured args into plain JSON so they compare cleanly
+      // with fixture data loaded from `*.test.json`.
+      // Removes things like prototypes, undefined values and other non-serializable data.
+      const spied = JSON.parse(JSON.stringify(spiedData));
 
-        expect(spied).toStrictEqual(batchDeleteData);
-      }
+      expect(spied).toStrictEqual(batchDeleteData ?? []);
     }
   });
 });

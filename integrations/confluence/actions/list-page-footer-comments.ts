@@ -53,7 +53,8 @@ const PageLinksSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     results: z.array(CommentSchema),
-    links: PageLinksSchema.optional()
+    links: PageLinksSchema.optional(),
+    _links: PageLinksSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -103,29 +104,20 @@ const action = createAction({
             });
 
             const resources = z.array(z.object({ id: z.string() }).passthrough()).safeParse(accessibleResources.data);
-            if (!resources.success) {
+            if (!resources.success || resources.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'missing_cloud_id',
                     message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
                 });
             }
-
-            if (resources.data.length === 0) {
+            if (resources.data.length > 1) {
                 throw new nango.ActionError({
-                    type: 'missing_cloud_id',
-                    message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
 
-            const firstResource = resources.data[0];
-            if (!firstResource) {
-                throw new nango.ActionError({
-                    type: 'missing_cloud_id',
-                    message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
-                });
-            }
-
-            cloudId = firstResource.id;
+            cloudId = resources.data[0]!.id;
             await nango.updateMetadata({ cloudId });
         }
 
@@ -162,9 +154,22 @@ const action = createAction({
             });
         }
 
+        const rawNext = parsed.data.links?.next ?? parsed.data._links?.next;
         return {
             results: parsed.data.results,
-            ...(parsed.data.links?.next !== undefined && { nextCursor: parsed.data.links.next })
+            ...(rawNext
+                ? {
+                      nextCursor: (() => {
+                          // @allowTryCatch
+                          try {
+                              const u = new URL(rawNext, 'https://dummy');
+                              return u.searchParams.get('cursor') ?? rawNext;
+                          } catch {
+                              return rawNext;
+                          }
+                      })()
+                  }
+                : {})
         };
     }
 });

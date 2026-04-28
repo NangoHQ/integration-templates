@@ -86,20 +86,19 @@ const action = createAction({
             });
 
             const resources = z.array(AccessibleResourceSchema).parse(resourcesResponse.data);
-            const firstResource = resources.find(() => true);
-            if (!firstResource) {
+            if (resources.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_accessible_resources',
                     message: 'No accessible Confluence resources found for this connection.'
                 });
             }
-            if (!firstResource.id) {
+            if (resources.length > 1) {
                 throw new nango.ActionError({
-                    type: 'missing_resource_id',
-                    message: 'Accessible resource is missing an id.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
-            cloudId = firstResource.id;
+            cloudId = resources[0]!.id;
             // @ts-expect-error nango.updateMetadata is available at runtime but not in current type definitions.
             await nango.updateMetadata({ cloudId });
         }

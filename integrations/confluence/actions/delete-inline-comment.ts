@@ -32,7 +32,7 @@ const action = createAction({
         const connection = await nango.getConnection();
         const connectionConfig = connection.connection_config;
 
-        let cloudId: string;
+        let cloudId: string | undefined;
         if (
             typeof connectionConfig === 'object' &&
             connectionConfig !== null &&
@@ -40,7 +40,14 @@ const action = createAction({
             typeof connectionConfig['cloudId'] === 'string'
         ) {
             cloudId = connectionConfig['cloudId'];
-        } else {
+        }
+
+        if (!cloudId) {
+            const metadata = MetadataSchema.parse((await nango.getMetadata()) ?? {});
+            cloudId = metadata.cloudId;
+        }
+
+        if (!cloudId) {
             // https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/#3--access-granted
             const response = await nango.get({
                 endpoint: 'oauth/token/accessible-resources',
@@ -55,16 +62,14 @@ const action = createAction({
                     message: 'Could not resolve Confluence cloud ID from accessible resources.'
                 });
             }
-
-            const firstResource = resources.data[0];
-            if (!firstResource) {
+            if (resources.data.length > 1) {
                 throw new nango.ActionError({
-                    type: 'missing_cloud_id',
-                    message: 'Could not resolve Confluence cloud ID from accessible resources.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
 
-            cloudId = firstResource.id;
+            cloudId = resources.data[0]!.id;
             await nango.updateMetadata({ cloudId });
         }
 

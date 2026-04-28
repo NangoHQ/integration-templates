@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cql: z.string().describe('CQL query string. Example: "type=page AND space=DEV"'),
-    limit: z.number().optional().describe('Maximum number of results per page. Default: 25'),
+    limit: z.number().int().min(1).optional().describe('Maximum number of results per page. Default: 25'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     expand: z.array(z.string()).optional().describe('Fields to expand in the response. Example: ["content.space", "content.history"]')
 });
@@ -104,6 +104,12 @@ const action = createAction({
                 });
             }
 
+            if (parsedResources.data.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
             const firstResource = parsedResources.data[0];
             if (!firstResource || !firstResource.id) {
                 throw new nango.ActionError({

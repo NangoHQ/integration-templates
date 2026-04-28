@@ -121,6 +121,12 @@ const action = createAction({
                     message: 'Unable to resolve Confluence cloudId from connection config or accessible resources.'
                 });
             }
+            if (accessibleResourcesData.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
             const firstResource = accessibleResourcesData[0];
             if (!firstResource || typeof firstResource !== 'object' || !('id' in firstResource) || typeof firstResource.id !== 'string') {
@@ -177,9 +183,15 @@ const action = createAction({
             ...(item.version !== undefined && { version: item.version })
         }));
 
+        const rawNext = data._links?.next;
         return {
             items,
-            ...(data._links?.next !== undefined && { next_cursor: data._links.next })
+            ...(rawNext !== undefined && {
+                next_cursor: (() => {
+                    const u = new URL(rawNext, 'https://dummy');
+                    return u.searchParams.get('cursor') ?? rawNext;
+                })()
+            })
         };
     }
 });

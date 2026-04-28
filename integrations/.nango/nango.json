@@ -21636,7 +21636,8 @@
         "scopes": [
           "read:space:confluence",
           "read:comment:confluence",
-          "write:comment:confluence"
+          "write:comment:confluence",
+          "delete:comment:confluence"
         ],
         "usedModels": [
           "ActionInput_confluence_deletefootercomment",
@@ -21793,7 +21794,8 @@
           "ActionOutput_confluence_deletepage"
         ],
         "scopes": [
-          "write:page:confluence"
+          "write:page:confluence",
+          "delete:page:confluence"
         ],
         "usedModels": [
           "ActionInput_confluence_deletepage",
@@ -25843,7 +25845,9 @@
                 },
                 "limit": {
                   "description": "Maximum number of results per page. Default: 25",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 },
                 "cursor": {
                   "description": "Pagination cursor from the previous response. Omit for the first page.",

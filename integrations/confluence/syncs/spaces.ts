@@ -66,10 +66,13 @@ async function getCloudId(nango: NangoSyncLocal): Promise<string> {
     });
 
     const resources = AccessibleResourcesSchema.parse(response.data);
-    const cloudId = resources[0]?.id;
-    if (!cloudId) {
+    if (resources.length === 0) {
         throw new Error('No accessible Confluence resources found');
     }
+    if (resources.length > 1) {
+        throw new Error('Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata or connection_config.');
+    }
+    const cloudId = resources[0]!.id;
 
     await nango.updateMetadata({ cloudId });
 
@@ -94,56 +97,63 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint?.cursor;
 
+        let deleteTrackingStarted = false;
         if (!cursor) {
             await nango.trackDeletesStart('Space');
+            deleteTrackingStarted = true;
         }
 
         let hasMore = true;
 
-        while (hasMore) {
-            const response = await nango.get({
-                // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space/#api-spaces-get
-                endpoint: '/wiki/api/v2/spaces',
-                params: {
-                    limit: 250,
-                    ...(cursor && { cursor })
-                },
-                baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
-                retries: 3
-            });
+        try {
+            while (hasMore) {
+                const response = await nango.get({
+                    // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space/#api-spaces-get
+                    endpoint: '/wiki/api/v2/spaces',
+                    params: {
+                        limit: 250,
+                        ...(cursor && { cursor })
+                    },
+                    baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
+                    retries: 3
+                });
 
-            const data = SpaceListResponseSchema.parse(response.data);
+                const data = SpaceListResponseSchema.parse(response.data);
 
-            const spaces = data.results.map((space) => ({
-                id: space.id,
-                key: space.key,
-                name: space.name,
-                ...(space.type && { type: space.type }),
-                ...(space.status && { status: space.status }),
-                ...(space.authorId && { authorId: space.authorId }),
-                ...(space.createdAt && { createdAt: space.createdAt }),
-                ...(space.homepageId && { homepageId: space.homepageId }),
-                ...(space.currentActiveAlias && { currentActiveAlias: space.currentActiveAlias })
-            }));
+                const spaces = data.results.map((space) => ({
+                    id: space.id,
+                    key: space.key,
+                    name: space.name,
+                    ...(space.type && { type: space.type }),
+                    ...(space.status && { status: space.status }),
+                    ...(space.authorId && { authorId: space.authorId }),
+                    ...(space.createdAt && { createdAt: space.createdAt }),
+                    ...(space.homepageId && { homepageId: space.homepageId }),
+                    ...(space.currentActiveAlias && { currentActiveAlias: space.currentActiveAlias })
+                }));
 
-            if (spaces.length > 0) {
-                await nango.batchSave(spaces, 'Space');
-            }
-
-            const nextLink = data._links?.next;
-            if (nextLink) {
-                const nextCursor = parseCursorFromLink(nextLink);
-                if (nextCursor) {
-                    cursor = nextCursor;
-                    await nango.saveCheckpoint({ cursor });
-                    continue;
+                if (spaces.length > 0) {
+                    await nango.batchSave(spaces, 'Space');
                 }
-            }
 
-            hasMore = false;
+                const nextLink = data._links?.next;
+                if (nextLink) {
+                    const nextCursor = parseCursorFromLink(nextLink);
+                    if (nextCursor) {
+                        cursor = nextCursor;
+                        await nango.saveCheckpoint({ cursor });
+                        continue;
+                    }
+                }
+
+                hasMore = false;
+            }
+        } finally {
+            if (deleteTrackingStarted) {
+                await nango.trackDeletesEnd('Space');
+            }
         }
 
-        await nango.trackDeletesEnd('Space');
         await nango.clearCheckpoint();
     }
 });

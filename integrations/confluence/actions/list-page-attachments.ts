@@ -102,14 +102,19 @@ const action = createAction({
             );
 
             const resources = AccessibleResourcesSchema.parse(accessibleResourcesResponse.data);
-            cloudId = resources[0]?.id;
-
-            if (!cloudId) {
+            if (resources.length === 0 || !resources[0]?.id) {
                 throw new nango.ActionError({
                     type: 'missing_cloud_id',
                     message: 'Could not resolve Confluence cloud ID from connection config or accessible resources.'
                 });
             }
+            if (resources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
+            cloudId = resources[0]!.id;
 
             await nango.updateMetadata({ cloudId });
         }

@@ -140,19 +140,20 @@ const action = createAction({
                 retries: 3
             });
 
-            if (!resourcesResponse.data || !Array.isArray(resourcesResponse.data) || resourcesResponse.data.length === 0) {
+            const resourcesArray = z.array(z.object({ id: z.string() })).safeParse(resourcesResponse.data);
+            if (!resourcesArray.success || resourcesArray.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'missing_cloud_id',
                     message: 'Unable to resolve Confluence cloudId from accessible-resources endpoint.'
                 });
             }
-
-            const firstResource = z
-                .object({
-                    id: z.string()
-                })
-                .parse(resourcesResponse.data[0]);
-            cloudId = firstResource.id;
+            if (resourcesArray.data.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
+            cloudId = resourcesArray.data[0]!.id;
 
             await nango.updateMetadata({ cloudId: cloudId });
         }

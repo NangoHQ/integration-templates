@@ -131,12 +131,11 @@ const sync = createSync({
                 return;
             }
 
-            const firstResource = parsedResources.data[0];
-            if (!firstResource) {
-                await nango.log('Could not resolve Confluence cloudId from accessible-resources');
-                return;
+            if (parsedResources.data.length > 1) {
+                throw new Error('Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata or connection_config.');
             }
-            cloudId = firstResource.id;
+
+            cloudId = parsedResources.data[0]!.id;
             await nango.updateMetadata({ cloudId });
         }
 

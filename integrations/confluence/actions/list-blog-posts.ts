@@ -113,14 +113,19 @@ const action = createAction({
                     .passthrough()
             );
             const accessibleResources = accessibleResourcesSchema.parse(accessibleResourcesResponse.data);
-            const firstResource = accessibleResources[0];
-            if (!firstResource) {
+            if (accessibleResources.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_accessible_resources',
                     message: 'No accessible Confluence resources found for this connection.'
                 });
             }
-            cloudId = firstResource.id;
+            if (accessibleResources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
+            cloudId = accessibleResources[0]!.id;
 
             await nango.updateMetadata({ cloudId });
         }
@@ -149,11 +154,16 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         const nextLink = providerData._links?.next;
-        if (nextLink && URL.canParse(nextLink, baseUrl)) {
-            const nextUrl = new URL(nextLink, baseUrl);
-            const cursor = nextUrl.searchParams.get('cursor');
-            if (cursor) {
-                nextCursor = cursor;
+        if (nextLink) {
+            // @allowTryCatch
+            try {
+                const nextUrl = new URL(nextLink, baseUrl);
+                const cursor = nextUrl.searchParams.get('cursor');
+                if (cursor) {
+                    nextCursor = cursor;
+                }
+            } catch {
+                // ignore malformed URL
             }
         }
 
@@ -161,12 +171,17 @@ const action = createAction({
             const parts = response.headers['link'].split(',');
             for (const part of parts) {
                 const match = part.match(/<([^>]+)>;\s*rel="next"/);
-                if (match && match[1] && URL.canParse(match[1], baseUrl)) {
-                    const nextUrl = new URL(match[1], baseUrl);
-                    const cursor = nextUrl.searchParams.get('cursor');
-                    if (cursor) {
-                        nextCursor = cursor;
-                        break;
+                if (match && match[1]) {
+                    // @allowTryCatch
+                    try {
+                        const nextUrl = new URL(match[1], baseUrl);
+                        const cursor = nextUrl.searchParams.get('cursor');
+                        if (cursor) {
+                            nextCursor = cursor;
+                            break;
+                        }
+                    } catch {
+                        // ignore malformed URL
                     }
                 }
             }

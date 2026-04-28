@@ -134,8 +134,14 @@ const action = createAction({
                     message: 'Unable to determine Confluence cloud ID from connection config or accessible resources.'
                 });
             }
+            if (resources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
-            cloudId = resources[0].id;
+            cloudId = resources[0]!.id;
 
             await nango.updateMetadata({
                 cloudId

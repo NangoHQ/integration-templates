@@ -134,16 +134,14 @@ const action = createAction({
                     message: 'No accessible Confluence resources found for this connection.'
                 });
             }
-
-            const firstResource = resources.data[0];
-            if (!firstResource) {
+            if (resources.data.length > 1) {
                 throw new nango.ActionError({
-                    type: 'no_accessible_resources',
-                    message: 'No accessible Confluence resources found for this connection.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
 
-            cloudId = firstResource.id;
+            cloudId = resources.data[0]!.id;
 
             if (cloudId) {
                 await nango.updateMetadata({

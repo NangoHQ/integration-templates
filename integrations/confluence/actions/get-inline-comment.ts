@@ -149,15 +149,20 @@ const action = createAction({
             );
             const resources = resourcesSchema.parse(accessibleResourcesResponse.data);
 
-            const firstResource = resources[0];
-            if (!firstResource) {
+            if (resources.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_accessible_resources',
                     message: 'No accessible Confluence resources found for this connection.'
                 });
             }
+            if (resources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
-            cloudId = firstResource.id;
+            cloudId = resources[0]!.id;
 
             await nango.updateMetadata({
                 cloudId
@@ -188,24 +193,28 @@ const action = createAction({
             params['include-version'] = String(input.includeVersion);
         }
 
-        // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-comment/#api-inline-comments-commentid-get
-        const response = await nango.get({
-            endpoint: `/wiki/api/v2/inline-comments/${input.commentId}`,
-            baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
-            params,
-            retries: 3
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Inline comment with id ${input.commentId} was not found.`
+        // @allowTryCatch
+        try {
+            // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-comment/#api-inline-comments-commentid-get
+            const response = await nango.get({
+                endpoint: `/wiki/api/v2/inline-comments/${input.commentId}`,
+                baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
+                params,
+                retries: 3
             });
+            return InlineCommentSchema.parse(response.data);
+        } catch (error: unknown) {
+            if (error && typeof error === 'object' && 'response' in error) {
+                const response = error.response;
+                if (response && typeof response === 'object' && 'status' in response && response.status === 404) {
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: `Inline comment with id ${input.commentId} was not found.`
+                    });
+                }
+            }
+            throw error;
         }
-
-        const comment = InlineCommentSchema.parse(response.data);
-
-        return comment;
     }
 });
 

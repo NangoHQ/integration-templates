@@ -149,16 +149,21 @@ const action = createAction({
 
             const accessibleResourcesSchema = z.array(z.object({ id: z.string() }));
             const resources = accessibleResourcesSchema.parse(accessibleResourcesResponse.data);
-            const firstId = resources[0]?.id;
-            if (!firstId) {
+            if (resources.length === 0 || !resources[0]?.id) {
                 throw new nango.ActionError({
                     type: 'missing_cloud_id',
                     message: 'No cloudId found in connection config or accessible resources.'
                 });
             }
+            if (resources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
-            cloudId = firstId;
-            await nango.updateMetadata({ cloudId: firstId });
+            cloudId = resources[0]!.id;
+            await nango.updateMetadata({ cloudId });
         }
 
         if (!input.pageId && !input.blogPostId && !input.parentCommentId) {

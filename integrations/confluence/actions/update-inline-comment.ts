@@ -130,6 +130,12 @@ async function resolveCloudId(nango: NangoActionLocal): Promise<string> {
         });
     }
 
+    if (resources.length > 1) {
+        throw new nango.ActionError({
+            type: 'ambiguous_cloud_id',
+            message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+        });
+    }
     const firstResource = resources[0];
     if (!firstResource) {
         throw new nango.ActionError({

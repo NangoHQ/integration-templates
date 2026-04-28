@@ -23,9 +23,7 @@ const AccessibleResourceSchema = z.object({
     id: z.string()
 });
 
-const AccessibleResourcesResponseSchema = z.object({
-    data: z.array(AccessibleResourceSchema).optional()
-});
+const AccessibleResourcesSchema = z.array(AccessibleResourceSchema);
 
 const action = createAction({
     description: 'Delete a Confluence page by id.',
@@ -38,12 +36,17 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['write:page:confluence'],
+    scopes: ['write:page:confluence', 'delete:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         const configParse = ConnectionConfigSchema.safeParse(connection.connection_config);
         let cloudId = configParse.success ? configParse.data.cloudId : undefined;
+
+        if (!cloudId) {
+            const metadata = MetadataSchema.parse((await nango.getMetadata()) ?? {});
+            cloudId = metadata.cloudId;
+        }
 
         if (!cloudId) {
             const resourcesConfig: ProxyConfiguration = {
@@ -53,17 +56,21 @@ const action = createAction({
                 retries: 3
             };
             const response = await nango.get(resourcesConfig);
-            const parsed = AccessibleResourcesResponseSchema.parse(response);
-            const resources = parsed.data || [];
-            const firstResource = resources[0];
-            if (!firstResource) {
+            const resources = AccessibleResourcesSchema.parse(response.data);
+            if (resources.length === 0) {
                 throw new nango.ActionError({
                     type: 'no_accessible_resources',
                     message: 'No accessible Confluence resources found for this connection.'
                 });
             }
+            if (resources.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
-            cloudId = firstResource.id;
+            cloudId = resources[0]!.id;
             await nango.updateMetadata({ cloudId });
         }
 

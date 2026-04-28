@@ -176,14 +176,14 @@ const action = createAction({
                     message: 'Unable to resolve Confluence cloud ID from accessible resources.'
                 });
             }
-
-            const resolvedCloudId = resources[0]?.id;
-            if (!resolvedCloudId) {
+            if (resources.length > 1) {
                 throw new nango.ActionError({
-                    type: 'missing_cloud_id',
-                    message: 'Accessible resource did not contain a cloud ID.'
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
                 });
             }
+
+            const resolvedCloudId = resources[0]!.id;
 
             cloudId = resolvedCloudId;
             await nango.updateMetadata({ cloudId: resolvedCloudId });
@@ -200,7 +200,7 @@ const action = createAction({
             params['title'] = input.title;
         }
         if (input.subType !== undefined) {
-            params['sub-type'] = input.subType;
+            params['subtype'] = input.subType;
         }
         if (input.sort !== undefined) {
             params['sort'] = input.sort;

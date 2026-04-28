@@ -33,7 +33,7 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:space:confluence', 'read:comment:confluence', 'write:comment:confluence'],
+    scopes: ['read:space:confluence', 'read:comment:confluence', 'write:comment:confluence', 'delete:comment:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
@@ -54,14 +54,20 @@ const action = createAction({
             });
 
             const resources = z.array(AccessibleResourceSchema).safeParse(accessibleResourcesResponse.data);
-            if (!resources.success || !resources.data[0]?.id) {
+            if (!resources.success || resources.data.length === 0) {
                 throw new nango.ActionError({
                     type: 'cloud_id_not_found',
                     message: 'Could not resolve Confluence cloud ID from accessible resources.'
                 });
             }
+            if (resources.data.length > 1) {
+                throw new nango.ActionError({
+                    type: 'ambiguous_cloud_id',
+                    message: 'Multiple Confluence sites found. Please set an explicit cloudId in the connection metadata.'
+                });
+            }
 
-            cloudId = resources.data[0].id;
+            cloudId = resources.data[0]!.id;
 
             await nango.updateMetadata({ cloudId });
         }
