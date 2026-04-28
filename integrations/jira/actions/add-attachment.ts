@@ -130,7 +130,7 @@ const action = createAction({
         const postData = `\r\n--${boundary}--\r\n`;
 
         // Combine as a Buffer
-        const body = Buffer.concat([Buffer.from(preData, 'utf-8'), fileBuffer, Buffer.from(postData, 'utf-8')]);
+        const body = Buffer.concat([new Uint8Array(Buffer.from(preData, 'utf-8')), new Uint8Array(fileBuffer), new Uint8Array(Buffer.from(postData, 'utf-8'))]);
 
         // Get OAuth token for direct API call
         const token = await nango.getToken();
