@@ -1,0 +1,204 @@
+{
+  "input": {
+    "contact_id": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
+    "type": "ACCRECCREDIT",
+    "date": "2024-01-15",
+    "line_items": [
+      {
+        "description": "Test credit note line item",
+        "quantity": 1,
+        "unit_amount": 100,
+        "account_code": "200"
+      }
+    ]
+  },
+  "output": {
+    "credit_note": {
+      "CreditNoteID": "780de6af-8d83-4451-b8cc-a2408762a00a",
+      "CreditNoteNumber": "CN-0046",
+      "Type": "ACCRECCREDIT",
+      "Status": "DRAFT",
+      "Contact": {
+        "ContactID": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
+        "Name": "Test Contact from Nango",
+        "ContactStatus": "ACTIVE"
+      },
+      "Date": "/Date(1705276800000+0000)/",
+      "Reference": "",
+      "LineAmountTypes": "Exclusive",
+      "LineItems": [
+        {
+          "LineItemID": "dfcf62ab-6ed3-4fe2-85c5-a3f023b37448",
+          "Description": "Test credit note line item",
+          "Quantity": 1,
+          "UnitAmount": 100,
+          "AccountCode": "200",
+          "TaxType": "OUTPUT",
+          "LineAmount": 100
+        }
+      ],
+      "SubTotal": 100,
+      "TotalTax": 8.25,
+      "Total": 108.25,
+      "RemainingCredit": 108.25,
+      "UpdatedDateUTC": "/Date(1777032338170+0000)/",
+      "CurrencyCode": "USD",
+      "HasErrors": false
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/CreditNotes": {
+        "response": {
+          "Id": "96f9fa93-973d-4b9d-9ef5-0274973c54a0",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032338197)/",
+          "CreditNotes": [
+            {
+              "CreditNoteID": "780de6af-8d83-4451-b8cc-a2408762a00a",
+              "CreditNoteNumber": "CN-0046",
+              "Payments": [],
+              "ID": "780de6af-8d83-4451-b8cc-a2408762a00a",
+              "HasErrors": false,
+              "CurrencyRate": 1,
+              "Type": "ACCRECCREDIT",
+              "Reference": "",
+              "RemainingCredit": 108.25,
+              "Allocations": [],
+              "Contact": {
+                "ContactID": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
+                "ContactStatus": "ACTIVE",
+                "Name": "Test Contact from Nango",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  },
+                  {
+                    "AddressType": "POBOX",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  },
+                  {
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
+                  }
+                ],
+                "UpdatedDateUTC": "/Date(1776703842417+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "DateString": "2024-01-15T00:00:00",
+              "Date": "/Date(1705276800000+0000)/",
+              "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+              "Status": "DRAFT",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Test credit note line item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 8.25,
+                  "LineAmount": 100,
+                  "AccountCode": "200",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "dfcf62ab-6ed3-4fe2-85c5-a3f023b37448",
+                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "ValidationErrors": []
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 8.25,
+              "Total": 108.25,
+              "UpdatedDateUTC": "/Date(1777032338170+0000)/",
+              "CurrencyCode": "USD"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:05:38 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2884",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1777032397",
+          "etag": "W/\"b44-ynp1Hma+w3VQwgM37WNCt367bjw\""
+        },
+        "hash": "d677cb13ebf1dff38c7df8e52c68390446b0f5df",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "CreditNotes": [
+              {
+                "Type": "ACCRECCREDIT",
+                "Contact": {
+                  "ContactID": "4870d835-ccf8-4175-8cfb-fc5899b52cff"
+                },
+                "Date": "2024-01-15",
+                "LineItems": [
+                  {
+                    "Description": "Test credit note line item",
+                    "Quantity": 1,
+                    "UnitAmount": 100,
+                    "AccountCode": "200"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

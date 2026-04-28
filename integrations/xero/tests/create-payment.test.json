@@ -1,0 +1,174 @@
+{
+  "input": {
+    "invoice_id": "bd63b5f1-5503-4c62-9c4a-e4b9e4257dc9",
+    "account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+    "date": "2024-01-15",
+    "amount": 1
+  },
+  "output": {
+    "payment_id": "90d26877-7c41-4c0a-a3c6-cd63ba360387",
+    "amount": 1,
+    "bank_amount": 1,
+    "date": "/Date(1705276800000+0000)/",
+    "status": "AUTHORISED",
+    "payment_type": "ACCRECPAYMENT",
+    "is_reconciled": false,
+    "has_validation_errors": false,
+    "account": {
+      "account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
+      "code": "090",
+      "name": "Business Bank Account"
+    },
+    "invoice": {
+      "invoice_id": "bd63b5f1-5503-4c62-9c4a-e4b9e4257dc9",
+      "invoice_number": "INV-0006",
+      "type": "ACCREC"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+    }
+  },
+  "api": {
+    "put": {
+      "/api.xro/2.0/Payments": {
+        "response": {
+          "Id": "66325423-2b0f-4828-a555-48daa2269d2f",
+          "Status": "OK",
+          "ProviderName": "NangoAPI",
+          "DateTimeUTC": "/Date(1777032244759)/",
+          "Payments": [
+            {
+              "PaymentID": "90d26877-7c41-4c0a-a3c6-cd63ba360387",
+              "Date": "/Date(1705276800000+0000)/",
+              "BankAmount": 1,
+              "Amount": 1,
+              "CurrencyRate": 1,
+              "PaymentType": "ACCRECPAYMENT",
+              "Status": "AUTHORISED",
+              "UpdatedDateUTC": "/Date(1777032244663+0000)/",
+              "HasAccount": true,
+              "IsReconciled": false,
+              "Account": {
+                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "Code": "090",
+                "Name": "Business Bank Account"
+              },
+              "Invoice": {
+                "Type": "ACCREC",
+                "InvoiceID": "bd63b5f1-5503-4c62-9c4a-e4b9e4257dc9",
+                "InvoiceNumber": "INV-0006",
+                "Reference": "P/O 9711",
+                "Prepayments": [],
+                "Overpayments": [],
+                "AmountDue": 248,
+                "AmountPaid": 2,
+                "SentToContact": true,
+                "SentToEmailAddress": "",
+                "CurrencyRate": 1,
+                "IsDiscounted": false,
+                "HasErrors": false,
+                "InvoicePaymentServices": [],
+                "Contact": {
+                  "ContactID": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
+                  "Name": "City Limousines",
+                  "ContactPersons": [],
+                  "HasValidationErrors": false
+                },
+                "DateString": "2026-02-16T00:00:00",
+                "Date": "/Date(1771200000000+0000)/",
+                "DueDateString": "2026-02-26T00:00:00",
+                "DueDate": "/Date(1772064000000+0000)/",
+                "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
+                "Status": "AUTHORISED",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                  {
+                    "ItemCode": "PMBr",
+                    "Description": "Project management & implementation - branding workshop with your team",
+                    "UnitAmount": 250,
+                    "TaxType": "OUTPUT",
+                    "TaxAmount": 19.05,
+                    "LineAmount": 250,
+                    "AccountCode": "200",
+                    "Item": {
+                      "ItemID": "ec4362af-a038-4984-ab93-1bba3b6bd402",
+                      "Name": "Project management & implementation - branding",
+                      "Code": "PMBr"
+                    },
+                    "Tracking": [
+                      {
+                        "Name": "Region",
+                        "Option": "North",
+                        "TrackingCategoryID": "fa437cfd-f005-4538-ae84-943857da5c8c",
+                        "TrackingOptionID": "5e2974a2-097d-4f3b-bfd5-605d78c4a282"
+                      }
+                    ],
+                    "Quantity": 1,
+                    "LineItemID": "1450176f-ea6d-4d39-ac48-5836c9cb8d79",
+                    "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                    "DiscountEnteredAsPercent": true,
+                    "ValidationErrors": []
+                  }
+                ],
+                "SubTotal": 230.95,
+                "TotalTax": 19.05,
+                "Total": 250,
+                "UpdatedDateUTC": "/Date(1777032244663+0000)/",
+                "CurrencyCode": "USD"
+              },
+              "HasValidationErrors": false,
+              "Warnings": [
+                {
+                  "Message": "The payment date is prior to the invoice date."
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 12:04:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3240",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1777032275",
+          "etag": "W/\"ca8-o6Df1tMeJ9aZSMQZdVSxwP4IQXg\""
+        },
+        "hash": "b5a850ab3846cdfc523a3243a169d7f57c3bb00a",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+          },
+          "data": {
+            "Payments": [
+              {
+                "Account": {
+                  "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4"
+                },
+                "Date": "2024-01-15",
+                "Amount": 1,
+                "Invoice": {
+                  "InvoiceID": "bd63b5f1-5503-4c62-9c4a-e4b9e4257dc9"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

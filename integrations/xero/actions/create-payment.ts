@@ -1,148 +1,314 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getTenantId } from '../helpers/get-tenant-id.js';
-import { parseDate } from '../utils.js';
 
-import type { ProxyConfiguration } from 'nango';
+const InputSchema = z.object({
+    invoice_id: z.string().optional().describe('Xero Invoice ID to apply payment to.'),
+    credit_note_id: z.string().optional().describe('Xero Credit Note ID to apply payment to.'),
+    account_id: z.string().optional().describe('Xero Account ID to pay from.'),
+    account_code: z.string().optional().describe('Xero Account Code to pay from.'),
+    date: z.string().describe('Payment date in YYYY-MM-DD format.'),
+    amount: z.number().describe('Payment amount.'),
+    reference: z.string().optional().describe('Optional payment reference.'),
+    is_reconciled: z.boolean().optional().describe('Whether the payment should be created as reconciled.')
+});
 
-import type { CreatePayment, FailedPayment, Payment, ActionErrorResponse } from '../models.js';
-import { PaymentActionResponse, Anonymous_xero_action_createpayment_input } from '../models.js';
+const ConnectionSchema = z.object({
+    connection_config: z.record(z.string(), z.unknown()).optional(),
+    metadata: z.record(z.string(), z.unknown()).optional()
+});
+
+const ConnectionsResponseSchema = z.array(z.object({ tenantId: z.string() }));
+
+const AccountsResponseSchema = z.object({
+    Accounts: z
+        .array(
+            z.object({
+                AccountID: z.string(),
+                Code: z.string().optional()
+            })
+        )
+        .optional()
+});
+
+const ValidationErrorSchema = z.object({
+    Message: z.string()
+});
+
+const PaymentSchema = z.object({
+    PaymentID: z.string().optional(),
+    Amount: z.number().optional(),
+    BankAmount: z.number().optional(),
+    Date: z.string().optional(),
+    Reference: z.string().optional(),
+    Status: z.string().optional(),
+    PaymentType: z.string().optional(),
+    IsReconciled: z.boolean().optional(),
+    HasValidationErrors: z.boolean().optional(),
+    ValidationErrors: z.array(ValidationErrorSchema).optional(),
+    Account: z
+        .object({
+            AccountID: z.string().optional(),
+            Code: z.string().optional(),
+            Name: z.string().optional()
+        })
+        .optional(),
+    Invoice: z
+        .object({
+            InvoiceID: z.string().optional(),
+            InvoiceNumber: z.string().optional(),
+            Type: z.string().optional()
+        })
+        .optional(),
+    CreditNote: z
+        .object({
+            CreditNoteID: z.string().optional(),
+            CreditNoteNumber: z.string().optional(),
+            Type: z.string().optional()
+        })
+        .optional()
+});
+
+const PaymentsResponseSchema = z.object({
+    Payments: z.array(PaymentSchema).optional()
+});
+
+const OutputSchema = z.object({
+    payment_id: z.string().optional(),
+    amount: z.number().optional(),
+    bank_amount: z.number().optional(),
+    date: z.string().optional(),
+    reference: z.string().optional(),
+    status: z.string().optional(),
+    payment_type: z.string().optional(),
+    is_reconciled: z.boolean().optional(),
+    has_validation_errors: z.boolean().optional(),
+    validation_errors: z.array(z.string()).optional(),
+    account: z
+        .object({
+            account_id: z.string().optional(),
+            code: z.string().optional(),
+            name: z.string().optional()
+        })
+        .optional(),
+    invoice: z
+        .object({
+            invoice_id: z.string().optional(),
+            invoice_number: z.string().optional(),
+            type: z.string().optional()
+        })
+        .optional(),
+    credit_note: z
+        .object({
+            credit_note_id: z.string().optional(),
+            credit_note_number: z.string().optional(),
+            type: z.string().optional()
+        })
+        .optional()
+});
 
 const action = createAction({
-    description: 'Creates one or more payments in Xero.\nNote: Does NOT check if the payment already exists.',
-    version: '2.0.0',
-
+    description: 'Create a payment against an invoice or credit note.',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
-        path: '/payments',
+        path: '/actions/create-payment',
         group: 'Payments'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['accounting.payments'],
 
-    input: Anonymous_xero_action_createpayment_input,
-    output: PaymentActionResponse,
-    scopes: ['accounting.transactions'],
-
-    exec: async (nango, input): Promise<PaymentActionResponse> => {
-        const tenant_id = await getTenantId(nango);
-
-        // Validate the credit notes:
-
-        // Check if invoice_id or credit_note_id is present
-        let invalidPayments = input.filter((x: any) => (!x.invoice_id && !x.credit_note_id) || (x.invoice_id && x.credit_note_id));
-        if (invalidPayments.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `Payment needs to have exactly one of either invoice_id or credit_note_id set. You either specified none or both.\nInvalid payments:\n${JSON.stringify(
-                    invalidPayments,
-                    null,
-                    4
-                )}`
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const hasInvoice = input.invoice_id !== undefined && input.invoice_id.length > 0;
+        const hasCreditNote = input.credit_note_id !== undefined && input.credit_note_id.length > 0;
+        if ((hasInvoice && hasCreditNote) || (!hasInvoice && !hasCreditNote)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Exactly one of invoice_id or credit_note_id must be provided.'
             });
         }
 
-        // Check for required fields
-        invalidPayments = input.filter((x: any) => (!x.account_code && !x.account_id) || !x.date || !x.amount_cents);
-        if (invalidPayments.length > 0) {
-            throw new nango.ActionError<ActionErrorResponse>({
-                message: `Some payments are missing required fields.\nInvalid payments:\n${JSON.stringify(invalidPayments, null, 4)}`
+        const hasAccountId = input.account_id !== undefined && input.account_id.length > 0;
+        const hasAccountCode = input.account_code !== undefined && input.account_code.length > 0;
+        if ((hasAccountId && hasAccountCode) || (!hasAccountId && !hasAccountCode)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Exactly one of account_id or account_code must be provided.'
             });
         }
 
-        const config: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/payments/#put-payments
-            endpoint: 'api.xro/2.0/Payments',
-            headers: {
-                'xero-tenant-id': tenant_id
+        const connection = ConnectionSchema.parse(await nango.getConnection());
+        let tenantId: string | undefined;
+
+        if (connection.connection_config) {
+            const configRecord = z.record(z.string(), z.unknown()).parse(connection.connection_config);
+            const value = configRecord['tenant_id'];
+            if (typeof value === 'string' && value.length > 0) {
+                tenantId = value;
+            }
+        }
+
+        if (!tenantId && connection.metadata) {
+            const metaRecord = z.record(z.string(), z.unknown()).parse(connection.metadata);
+            const value = metaRecord['tenantId'];
+            if (typeof value === 'string' && value.length > 0) {
+                tenantId = value;
+            }
+        }
+
+        if (!tenantId) {
+            // https://developer.xero.com/documentation/api/connections/overview
+            const connectionsResponse = await nango.get({
+                endpoint: 'connections',
+                retries: 10
+            });
+            const parsed = ConnectionsResponseSchema.parse(connectionsResponse.data);
+            if (parsed.length === 0) {
+                throw new nango.ActionError({
+                    type: 'no_tenant',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
+            if (parsed.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_tenants',
+                    message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
+                });
+            }
+            const firstConnection = parsed[0];
+            if (!firstConnection) {
+                throw new nango.ActionError({
+                    type: 'no_tenant',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
+            tenantId = firstConnection.tenantId;
+        }
+
+        if (!tenantId) {
+            throw new nango.ActionError({
+                type: 'no_tenant',
+                message: 'Unable to resolve Xero tenant ID.'
+            });
+        }
+
+        let resolvedAccountId = input.account_id;
+        if (hasAccountCode) {
+            // https://developer.xero.com/documentation/api/accounting/accounts
+            const accountsResponse = await nango.get({
+                endpoint: 'api.xro/2.0/Accounts',
+                retries: 3,
+                headers: {
+                    'xero-tenant-id': tenantId
+                }
+            });
+            const parsed = AccountsResponseSchema.parse(accountsResponse.data);
+            const accounts = parsed.Accounts || [];
+            const match = accounts.find((a) => a.Code === input.account_code);
+            if (!match) {
+                throw new nango.ActionError({
+                    type: 'account_not_found',
+                    message: `No account found with code "${input.account_code}".`
+                });
+            }
+            resolvedAccountId = match.AccountID;
+        }
+
+        const paymentBody: { [key: string]: unknown } = {
+            Account: {
+                AccountID: resolvedAccountId
             },
-            params: {
-                summarizeErrors: 'false'
-            },
-            data: {
-                Payments: input.map(mapPaymentToXero)
-            },
-            retries: 3
+            Date: input.date,
+            Amount: input.amount
         };
-
-        const res = await nango.put(config);
-        const payments = res.data.Payments;
-
-        const failedPayments = payments.filter((x: any) => x.HasValidationErrors);
-        if (failedPayments.length > 0) {
-            await nango.log(
-                `Some payments could not be created in Xero due to validation errors. Note that the remaining payments (${
-                    input.length - failedPayments.length
-                }) were created successfully. Affected payments:\n${JSON.stringify(failedPayments, null, 4)}`,
-                { level: 'error' }
-            );
+        if (input.reference !== undefined) {
+            paymentBody['Reference'] = input.reference;
         }
-        const succeededPayments = payments.filter((x: any) => !x.HasValidationErrors);
+        if (input.is_reconciled !== undefined) {
+            paymentBody['IsReconciled'] = input.is_reconciled;
+        }
+        if (hasInvoice) {
+            paymentBody['Invoice'] = {
+                InvoiceID: input.invoice_id
+            };
+        } else if (hasCreditNote) {
+            paymentBody['CreditNote'] = {
+                CreditNoteID: input.credit_note_id
+            };
+        }
+
+        // https://developer.xero.com/documentation/api/accounting/payments
+        const response = await nango.put({
+            endpoint: 'api.xro/2.0/Payments',
+            data: {
+                Payments: [paymentBody]
+            },
+            retries: 1,
+            headers: {
+                'xero-tenant-id': tenantId
+            }
+        });
+
+        const parsedResponse = PaymentsResponseSchema.parse(response.data);
+        const payments = parsedResponse.Payments || [];
+        if (payments.length === 0) {
+            throw new nango.ActionError({
+                type: 'no_payment_created',
+                message: 'No payment was returned from Xero.'
+            });
+        }
+
+        const payment = payments[0];
+        if (!payment) {
+            throw new nango.ActionError({
+                type: 'no_payment_created',
+                message: 'No payment was returned from Xero.'
+            });
+        }
+
+        const validationErrors = payment.ValidationErrors || [];
+        if (payment.HasValidationErrors && validationErrors.length > 0) {
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: validationErrors.map((e) => e.Message).join('; ')
+            });
+        }
 
         return {
-            succeededPayment: succeededPayments.map(mapXeroPayment),
-            failedPayments: failedPayments.map(mapFailedXeroPayment)
+            payment_id: payment.PaymentID,
+            amount: payment.Amount,
+            bank_amount: payment.BankAmount,
+            date: payment.Date,
+            reference: payment.Reference,
+            status: payment.Status,
+            payment_type: payment.PaymentType,
+            is_reconciled: payment.IsReconciled,
+            has_validation_errors: payment.HasValidationErrors,
+            validation_errors: validationErrors.length > 0 ? validationErrors.map((e) => e.Message) : undefined,
+            account: payment.Account
+                ? {
+                      account_id: payment.Account.AccountID,
+                      code: payment.Account.Code,
+                      name: payment.Account.Name
+                  }
+                : undefined,
+            invoice: payment.Invoice
+                ? {
+                      invoice_id: payment.Invoice.InvoiceID,
+                      invoice_number: payment.Invoice.InvoiceNumber,
+                      type: payment.Invoice.Type
+                  }
+                : undefined,
+            credit_note: payment.CreditNote
+                ? {
+                      credit_note_id: payment.CreditNote.CreditNoteID,
+                      credit_note_number: payment.CreditNote.CreditNoteNumber,
+                      type: payment.CreditNote.Type
+                  }
+                : undefined
         };
     }
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-
-function mapPaymentToXero(payment: CreatePayment) {
-    const xeroPayment: Record<string, any> = {
-        Amount: payment.amount_cents / 100
-    };
-
-    if (payment.account_code) {
-        xeroPayment['Account'] = {
-            Code: payment.account_code
-        };
-    }
-
-    if (payment.account_id) {
-        xeroPayment['Account'] = {
-            ...xeroPayment['Account'],
-            AccountID: payment.account_id
-        };
-    }
-
-    if (payment.date) {
-        const date = new Date(payment.date);
-        xeroPayment['Date'] = date.toISOString().split('T')[0];
-    }
-
-    if (payment.invoice_id) {
-        xeroPayment['Invoice'] = {
-            InvoiceID: payment.invoice_id
-        };
-    }
-
-    if (payment.credit_note_id) {
-        xeroPayment['CreditNote'] = {
-            CreditNoteID: payment.credit_note_id
-        };
-    }
-
-    return xeroPayment;
-}
-
-function mapFailedXeroPayment(xeroPayment: any): FailedPayment {
-    return {
-        ...mapXeroPayment(xeroPayment),
-        validation_errors: xeroPayment.ValidationErrors
-    };
-}
-
-// NOTE: The structure returned by PUT /Payments is NOT the same
-// as returned by GET /Payments
-// This mapping function is correct, do not use the same one as for the sync
-function mapXeroPayment(xeroPayment: any): Payment {
-    const payment = {
-        id: xeroPayment.PaymentID,
-        status: xeroPayment.Status,
-        invoice_id: xeroPayment.Invoice ? xeroPayment.Invoice.InvoiceID : null,
-        credit_note_id: xeroPayment.CreditNote ? xeroPayment.CreditNote.CreditNoteID : null,
-        account_code: xeroPayment.Account.Code,
-        date: parseDate(xeroPayment.Date).toISOString(),
-        amount_cents: parseFloat(xeroPayment.Amount) * 100
-    };
-
-    return payment;
-}
