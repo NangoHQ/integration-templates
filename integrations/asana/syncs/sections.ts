@@ -80,7 +80,7 @@ const sync = createSync({
 
             const proxyConfig: ProxyConfiguration = {
                 // https://developers.asana.com/reference/getsectionsforproject
-                endpoint: `/projects/${encodeURIComponent(projectId)}/sections`,
+                endpoint: `/api/1.0/projects/${encodeURIComponent(projectId)}/sections`,
                 params: {
                     limit: 100,
                     opt_fields: 'gid,name,resource_type,created_at,project,project.name',

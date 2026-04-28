@@ -65,7 +65,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         // https://developers.asana.com/reference/getsectionsforproject
         const response = await nango.get({
-            endpoint: `/projects/${encodeURIComponent(input.project_id)}/sections`,
+            endpoint: `/api/1.0/projects/${encodeURIComponent(input.project_id)}/sections`,
             params: {
                 limit: '100',
                 opt_fields:
