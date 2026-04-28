@@ -38,9 +38,9 @@ import './asana/actions/delete-section.js';
 import './asana/actions/delete-story.js';
 import './asana/actions/delete-tag.js';
 import './asana/actions/get-section.js';
-import './asana/actions/update-section.js';
 import './asana/actions/list-sections-for-project.js';
 import './asana/actions/search-tasks-in-workspace.js';
+import './asana/actions/update-section.js';
 import './asana/actions/update-task.js';
 
 // -- Integration: ashby
