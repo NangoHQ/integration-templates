@@ -9,9 +9,10 @@ const MetadataSchema = z.object({
 const InputSchema = z.object({
     issueIdOrKey: z.string().describe('The ID or key of the issue to attach the file to. Example: "10001" or "PROJ-123"'),
     file: z.object({
-        content: z.string().describe('The file content as a base64-encoded string or raw string'),
+        content: z.string().describe('The file content as plain text or base64 encoded string'),
         filename: z.string().describe('The name of the file. Example: "document.pdf"'),
-        contentType: z.string().describe('The MIME type of the file. Example: "application/pdf"')
+        contentType: z.string().describe('The MIME type of the file. Example: "application/pdf"'),
+        isBase64: z.boolean().optional().describe('Whether the content is base64 encoded. Defaults to false')
     })
 });
 
@@ -25,7 +26,7 @@ const AttachmentSchema = z.object({
             accountId: z.string().optional(),
             displayName: z.string().optional()
         })
-        .passthrough()
+        .loose()
         .optional(),
     created: z.string().optional(),
     size: z.number().optional(),
@@ -117,7 +118,9 @@ const action = createAction({
 
         // For file uploads to Jira, we need to use the underlying proxy with proper form-data handling
         // Since Nango's proxy handles Buffer data specially, we'll construct the request carefully
-        const fileBuffer = Buffer.from(input.file.content, 'utf-8');
+        const fileBuffer = input.file.isBase64
+            ? Buffer.from(input.file.content, 'base64')
+            : Buffer.from(input.file.content, 'utf-8');
 
         // Build multipart form data using Blob-like approach with strings
         const boundary = '----FormBoundary' + Math.random().toString(36).substring(2);
