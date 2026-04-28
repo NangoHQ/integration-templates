@@ -1,0 +1,259 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    commentId: z.string().describe('The ID of the inline comment to update. Example: "123456"'),
+    body: z
+        .object({
+            representation: z.string().describe('Body representation. Example: "storage"'),
+            value: z.string().describe('Body value in the given representation.')
+        })
+        .optional(),
+    resolved: z.boolean().optional().describe('Set to true to resolve the comment, false to reopen it.'),
+    versionMessage: z.string().optional().describe('Message describing the update.')
+});
+
+const MetadataSchema = z.object({
+    cloudId: z.string().optional()
+});
+
+const AccessibleResourceSchema = z.object({
+    id: z.string(),
+    url: z.string().optional(),
+    name: z.string().optional(),
+    scopes: z.array(z.string()).optional(),
+    avatarUrl: z.string().optional()
+});
+
+const VersionSchema = z.object({
+    createdAt: z.string().optional(),
+    message: z.string().nullable().optional(),
+    number: z.number(),
+    minorEdit: z.boolean().optional(),
+    authorId: z.string().nullable().optional()
+});
+
+const BodyRepresentationSchema = z.object({
+    representation: z.string().optional(),
+    value: z.string().optional()
+});
+
+const InlineCommentSchema = z.object({
+    id: z.string(),
+    status: z.string().optional(),
+    title: z.string().nullable().optional(),
+    blogPostId: z.string().nullable().optional(),
+    pageId: z.string().nullable().optional(),
+    parentCommentId: z.string().nullable().optional(),
+    version: VersionSchema.optional(),
+    body: z
+        .object({
+            storage: BodyRepresentationSchema.optional(),
+            atlas_doc_format: BodyRepresentationSchema.optional(),
+            view: BodyRepresentationSchema.optional()
+        })
+        .optional(),
+    resolutionLastModifierId: z.string().nullable().optional(),
+    resolutionLastModifiedAt: z.string().nullable().optional(),
+    resolutionStatus: z.string().nullable().optional(),
+    properties: z
+        .object({
+            inlineMarkerRef: z.string().nullable().optional(),
+            inlineOriginalSelection: z.string().nullable().optional()
+        })
+        .optional(),
+    _links: z
+        .object({
+            webui: z.string().nullable().optional(),
+            base: z.string().nullable().optional()
+        })
+        .optional()
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    status: z.string().optional(),
+    title: z.string().optional(),
+    blogPostId: z.string().optional(),
+    pageId: z.string().optional(),
+    parentCommentId: z.string().optional(),
+    version: z
+        .object({
+            createdAt: z.string().optional(),
+            message: z.string().optional(),
+            number: z.number(),
+            minorEdit: z.boolean().optional(),
+            authorId: z.string().optional()
+        })
+        .optional(),
+    body: z
+        .object({
+            representation: z.string().optional(),
+            value: z.string().optional()
+        })
+        .optional(),
+    resolutionStatus: z.string().optional(),
+    resolutionLastModifierId: z.string().optional(),
+    resolutionLastModifiedAt: z.string().optional(),
+    webui: z.string().optional()
+});
+
+async function resolveCloudId(nango: NangoActionLocal): Promise<string> {
+    const connection = await nango.getConnection();
+    const connectionConfig = connection.connection_config;
+    if (connectionConfig && typeof connectionConfig === 'object' && connectionConfig !== null) {
+        const configCloudId = connectionConfig['cloudId'];
+        if (typeof configCloudId === 'string' && configCloudId) {
+            return configCloudId;
+        }
+    }
+
+    const metadata = await nango.getMetadata();
+    const metaCloudId = metadata.cloudId;
+    if (typeof metaCloudId === 'string' && metaCloudId) {
+        return metaCloudId;
+    }
+
+    // https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/#access-tokens
+    const response = await nango.get({
+        endpoint: 'oauth/token/accessible-resources',
+        baseUrlOverride: 'https://api.atlassian.com',
+        retries: 3
+    });
+
+    const parsed = z.array(AccessibleResourceSchema).safeParse(response.data);
+    const resources = parsed.success ? parsed.data : [];
+    if (resources.length === 0) {
+        throw new nango.ActionError({
+            type: 'cloud_id_not_found',
+            message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+        });
+    }
+
+    const firstResource = resources[0];
+    if (!firstResource) {
+        throw new nango.ActionError({
+            type: 'cloud_id_not_found',
+            message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+        });
+    }
+
+    const resolvedCloudId = firstResource.id;
+    await nango.updateMetadata({ cloudId: resolvedCloudId });
+    return resolvedCloudId;
+}
+
+const action = createAction({
+    description: 'Update the body or resolution state of a Confluence inline comment.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/update-inline-comment',
+        group: 'Comments'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['read:comment:confluence', 'write:comment:confluence'],
+    metadata: MetadataSchema,
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.body === undefined && input.resolved === undefined) {
+            throw new nango.ActionError({
+                type: 'missing_fields',
+                message: 'At least one of body or resolved must be provided to update the inline comment.'
+            });
+        }
+
+        const cloudId = await resolveCloudId(nango);
+        const baseUrl = `https://api.atlassian.com/ex/confluence/${cloudId}`;
+
+        // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-comment/#api-inline-comments-comment-id-get
+        const getResponse = await nango.get({
+            endpoint: `/wiki/api/v2/inline-comments/${input.commentId}`,
+            baseUrlOverride: baseUrl,
+            params: {
+                'body-format': 'storage'
+            },
+            retries: 3
+        });
+
+        const currentComment = InlineCommentSchema.safeParse(getResponse.data);
+        if (!currentComment.success) {
+            throw new nango.ActionError({
+                type: 'parse_error',
+                message: 'Failed to parse the current inline comment response.'
+            });
+        }
+
+        const currentVersion = currentComment.data.version?.number ?? 0;
+        const nextVersion = currentVersion + 1;
+
+        const putBody: Record<string, unknown> = {
+            version: {
+                number: nextVersion,
+                ...(input.versionMessage !== undefined && { message: input.versionMessage })
+            }
+        };
+
+        if (input.body !== undefined) {
+            putBody['body'] = {
+                representation: input.body.representation,
+                value: input.body.value
+            };
+        }
+
+        if (input.resolved !== undefined) {
+            putBody['resolved'] = input.resolved;
+        }
+
+        // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-comment/#api-inline-comments-comment-id-put
+        const updateResponse = await nango.put({
+            endpoint: `/wiki/api/v2/inline-comments/${input.commentId}`,
+            baseUrlOverride: baseUrl,
+            data: putBody,
+            retries: 1
+        });
+
+        const updatedComment = InlineCommentSchema.safeParse(updateResponse.data);
+        if (!updatedComment.success) {
+            throw new nango.ActionError({
+                type: 'parse_error',
+                message: 'Failed to parse the updated inline comment response.'
+            });
+        }
+
+        const data = updatedComment.data;
+        const storageBody = data.body?.storage;
+
+        return {
+            id: data.id,
+            ...(data.status !== undefined && { status: data.status }),
+            ...(data.title != null && { title: data.title }),
+            ...(data.blogPostId != null && { blogPostId: data.blogPostId }),
+            ...(data.pageId != null && { pageId: data.pageId }),
+            ...(data.parentCommentId != null && { parentCommentId: data.parentCommentId }),
+            ...(data.version !== undefined && {
+                version: {
+                    ...(data.version.createdAt !== undefined && { createdAt: data.version.createdAt }),
+                    ...(data.version.message != null && { message: data.version.message }),
+                    number: data.version.number,
+                    ...(data.version.minorEdit !== undefined && { minorEdit: data.version.minorEdit }),
+                    ...(data.version.authorId != null && { authorId: data.version.authorId })
+                }
+            }),
+            ...(storageBody !== undefined && {
+                body: {
+                    ...(storageBody.representation !== undefined && { representation: storageBody.representation }),
+                    ...(storageBody.value !== undefined && { value: storageBody.value })
+                }
+            }),
+            ...(data.resolutionStatus != null && { resolutionStatus: data.resolutionStatus }),
+            ...(data.resolutionLastModifierId != null && { resolutionLastModifierId: data.resolutionLastModifierId }),
+            ...(data.resolutionLastModifiedAt != null && { resolutionLastModifiedAt: data.resolutionLastModifiedAt }),
+            ...(data._links?.webui != null && { webui: data._links.webui })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,0 +1,173 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const MetadataSchema = z.object({
+    cloudId: z.string().optional()
+});
+
+const InputSchema = z.object({
+    pageId: z.number().describe('The ID of the page whose footer comments should be listed. Example: 123456'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    limit: z.number().optional().describe('Maximum number of results to return per page.'),
+    sort: z.string().optional().describe('Sort order for comments. Example: "created-date" or "-created-date".'),
+    status: z.array(z.string()).optional().describe('Filter comments by status. Example: ["current", "trashed"].'),
+    bodyFormat: z.string().optional().describe('The format of the comment body. Defaults to "storage".')
+});
+
+const VersionSchema = z.object({
+    createdAt: z.string().optional(),
+    message: z.string().optional(),
+    number: z.number().optional(),
+    minorEdit: z.boolean().optional(),
+    authorId: z.string().optional()
+});
+
+const BodySchema = z
+    .object({
+        storage: z.unknown().optional(),
+        atlasDocFormat: z.unknown().optional(),
+        view: z.unknown().optional()
+    })
+    .passthrough();
+
+const LinksSchema = z.object({
+    webui: z.string().optional()
+});
+
+const CommentSchema = z
+    .object({
+        id: z.string(),
+        status: z.string().optional(),
+        title: z.string().optional(),
+        pageId: z.string().optional(),
+        version: VersionSchema.optional(),
+        body: BodySchema.optional(),
+        links: LinksSchema.optional()
+    })
+    .passthrough();
+
+const PageLinksSchema = z.object({
+    next: z.string().optional(),
+    base: z.string().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    results: z.array(CommentSchema),
+    links: PageLinksSchema.optional()
+});
+
+const OutputSchema = z.object({
+    results: z.array(CommentSchema),
+    nextCursor: z.string().optional()
+});
+
+const action = createAction({
+    description: 'List footer comments for a Confluence page.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'GET',
+        path: '/actions/list-page-footer-comments',
+        group: 'Comments'
+    },
+    metadata: MetadataSchema,
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['read:comment:confluence'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+
+        const connectionConfig = z
+            .object({
+                cloudId: z.string().optional()
+            })
+            .passthrough()
+            .safeParse(connection.connection_config);
+
+        let cloudId = connectionConfig.success ? connectionConfig.data.cloudId : undefined;
+
+        if (!cloudId) {
+            const metadata = await nango.getMetadata();
+            const metadataParsed = MetadataSchema.safeParse(metadata);
+            if (metadataParsed.success && metadataParsed.data.cloudId) {
+                cloudId = metadataParsed.data.cloudId;
+            }
+        }
+
+        if (!cloudId) {
+            // https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/#3--construct-the-request-url
+            const accessibleResources = await nango.get({
+                endpoint: 'oauth/token/accessible-resources',
+                baseUrlOverride: 'https://api.atlassian.com',
+                retries: 3
+            });
+
+            const resources = z.array(z.object({ id: z.string() }).passthrough()).safeParse(accessibleResources.data);
+            if (!resources.success) {
+                throw new nango.ActionError({
+                    type: 'missing_cloud_id',
+                    message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+                });
+            }
+
+            if (resources.data.length === 0) {
+                throw new nango.ActionError({
+                    type: 'missing_cloud_id',
+                    message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+                });
+            }
+
+            const firstResource = resources.data[0];
+            if (!firstResource) {
+                throw new nango.ActionError({
+                    type: 'missing_cloud_id',
+                    message: 'Could not resolve Confluence cloudId from connection config or accessible resources.'
+                });
+            }
+
+            cloudId = firstResource.id;
+            await nango.updateMetadata({ cloudId });
+        }
+
+        const params: Record<string, string | number | string[]> = {
+            'body-format': input.bodyFormat ?? 'storage'
+        };
+        if (input.cursor !== undefined) {
+            params['cursor'] = input.cursor;
+        }
+        if (input.limit !== undefined) {
+            params['limit'] = input.limit;
+        }
+        if (input.sort !== undefined) {
+            params['sort'] = input.sort;
+        }
+        if (input.status !== undefined) {
+            params['status'] = input.status;
+        }
+
+        // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-comment/#api-pages-id-footer-comments-get
+        const response = await nango.get({
+            endpoint: `/wiki/api/v2/pages/${input.pageId}/footer-comments`,
+            params,
+            baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
+            retries: 3
+        });
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_provider_response',
+                message: 'Provider returned an unexpected response shape.',
+                errors: parsed.error.issues
+            });
+        }
+
+        return {
+            results: parsed.data.results,
+            ...(parsed.data.links?.next !== undefined && { nextCursor: parsed.data.links.next })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
