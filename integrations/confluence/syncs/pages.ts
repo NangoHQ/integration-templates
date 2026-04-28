@@ -160,7 +160,7 @@ async function syncAllPages(nango: NangoSyncLocal, cloudId: string, checkpoint: 
             baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
             params: {
                 'body-format': 'storage',
-                limit: 5,
+                limit: 100,
                 ...(cursor && { cursor })
             },
             retries: 3
