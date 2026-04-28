@@ -10927,26 +10927,79 @@ export interface ActionOutput_intercom_whoami {
   email: string;
 };
 
-export interface IssueType {
-  projectId: string;
+export interface Field {
   id: string;
   name: string;
-  description: string | null;
-  url: string;
+  custom: boolean;
+  key?: string | undefined;
+  clauseNames?: string[] | undefined;
+  orderable?: boolean | undefined;
+  navigable?: boolean | undefined;
+  searchable?: boolean | undefined;
+  schema?: {  type: string;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;};
+  description?: string | undefined;
+  untranslatedName?: string | undefined;
+};
+
+export interface IssueType {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;
+  entityId?: string | undefined;
+  scope?: {  type: string;
+  project: {  id: string;};} | undefined;
+  self?: string | undefined;
 };
 
 export interface SyncMetadata_jira_issuetypes {
-  projectIdsToSync: ({  id: string;})[];
   cloudId?: string | undefined;
   baseUrl?: string | undefined;
-  timeZone?: string | undefined;
 };
 
 export interface SyncMetadata_jira_issues {
-  projectIdsToSync: ({  id: string;})[];
+  jql?: string | undefined;
   cloudId?: string | undefined;
   baseUrl?: string | undefined;
-  timeZone?: string | undefined;
+};
+
+export interface ProjectComponent {
+  id: string;
+  projectId: string;
+  projectKey: string;
+  name: string;
+  description?: string | undefined;
+  assigneeType?: string | undefined;
+  realAssigneeType?: string | undefined;
+  isAssigneeTypeValid?: boolean | undefined;
+  leadAccountId?: string | undefined;
+  leadDisplayName?: string | undefined;
+};
+
+export interface ProjectVersion {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  projectId?: number | undefined;
+  projectKey?: string | undefined;
+  archived?: boolean | undefined;
+  released?: boolean | undefined;
+  releaseDate?: string | undefined;
+  startDate?: string | undefined;
+  self?: string | undefined;
+  overdue?: boolean | undefined;
+};
+
+export interface SyncMetadata_jira_projectversions {
+  cloudId?: string | undefined;
+  baseUrl?: string | undefined;
+  projectKeys?: string[] | undefined;
 };
 
 export interface Project {
@@ -10970,26 +11023,1126 @@ export interface Project {
   name?: string | undefined;})[];
 };
 
-export interface SyncMetadata_jira_projects {
-  projectIdsToSync: ({  id: string;})[];
-  cloudId?: string | undefined;
-  baseUrl?: string | undefined;
-  timeZone?: string | undefined;
+export interface ActionInput_jira_addattachment {
+  /**
+   * The ID or key of the issue to attach the file to. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  file: {  /**
+   * The file content as a base64-encoded string or raw string
+   */
+  content: string;
+  /**
+   * The name of the file. Example: "document.pdf"
+   */
+  filename: string;
+  /**
+   * The MIME type of the file. Example: "application/pdf"
+   */
+  contentType: string;};
+};
+
+export interface ActionOutput_jira_addattachment {
+  id: string;
+  filename: string;
+  size?: number | undefined;
+  mimeType?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_jira_addcomment {
+  /**
+   * The ID or key of the issue to add the comment to. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The plain text content of the comment to add.
+   */
+  body: string;
+};
+
+export interface ActionOutput_jira_addcomment {
+  /**
+   * The ID of the created comment.
+   */
+  id: string;
+  /**
+   * The REST API URL of the comment.
+   */
+  self: string;
+  author?: {  accountId: string;
+  displayName: string;
+  emailAddress?: string | undefined;};
+  /**
+   * When the comment was created.
+   */
+  created?: string | undefined;
+  /**
+   * When the comment was last updated.
+   */
+  updated?: string | undefined;
+};
+
+export interface ActionInput_jira_addwatcher {
+  /**
+   * The ID or key of the issue to add the watcher to. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The account ID of the user to add as a watcher. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_jira_addwatcher {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_jira_addworklog {
+  /**
+   * The ID or key of the issue. Example: "10002" or "PROJ-123"
+   */
+  issue_id_or_key: string;
+  /**
+   * The time spent working on the issue in seconds. Example: 12000 (for 3h 20m)
+   */
+  time_spent_seconds: number;
+  /**
+   * The date/time when the work was started. Format: ISO 8601. Example: "2021-01-17T12:34:00.000+0000"
+   */
+  started?: string | undefined;
+  /**
+   * A comment about the work done. This is a plain text that will be converted to Atlassian Document Format.
+   */
+  comment?: string | undefined;
+};
+
+export interface ActionOutput_jira_addworklog {
+  id: string;
+  issue_id: string;
+  time_spent_seconds?: number | undefined;
+  started?: string | undefined;
+  time_spent?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  active?: boolean | undefined;};
+  comment?: unknown | undefined;
+  visibility?: {  type: 'group' | 'role';
+  value: string;
+  identifier?: string | undefined;};
+};
+
+export interface ActionInput_jira_createissuelink {
+  /**
+   * The name of the issue link type. Example: "Blocks"
+   */
+  type: string;
+  /**
+   * The issue key for the inward side of the link (the issue that depends on or is affected by the other). Example: "PROJ-123"
+   */
+  inwardIssueKey: string;
+  /**
+   * The issue key for the outward side of the link (the issue that affects or blocks the other). Example: "PROJ-456"
+   */
+  outwardIssueKey: string;
+};
+
+export interface ActionOutput_jira_createissuelink {
+  success: boolean;
+  linkType: string;
+  inwardIssueKey: string;
+  outwardIssueKey: string;
 };
 
 export interface ActionInput_jira_createissue {
-  summary: string;
-  description?: string | undefined;
-  assignee?: string | undefined;
-  labels?: string[] | undefined;
-  project: string;
-  issueType: string;
+  fields: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: unknown | undefined;};
+  historyMetadata?: {  [key: string]: unknown | undefined;};
+  properties?: ({  [key: string]: unknown | undefined;})[];
+  transition?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionOutput_jira_createissue {
   id: string;
   key: string;
   self: string;
+  url: string;
+  transition?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_jira_deleteattachment {
+  /**
+   * The ID of the attachment to delete. Example: "10001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_jira_deleteattachment {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_jira_deletecomment {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the comment to delete. Example: "10000"
+   */
+  commentId: string;
+  /**
+   * Optional Jira cloud ID. If not provided, will be resolved from connection.
+   */
+  cloudId?: string | undefined;
+  /**
+   * Optional Jira base URL. If not provided, will be resolved from connection.
+   */
+  baseUrl?: string | undefined;
+};
+
+export interface ActionOutput_jira_deletecomment {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_jira_deleteissuelink {
+  /**
+   * The ID of the issue link to delete. Example: "10001"
+   */
+  linkId: string;
+};
+
+export interface ActionOutput_jira_deleteissuelink {
+  success: boolean;
+  linkId: string;
+};
+
+export interface ActionInput_jira_deleteissue {
+  /**
+   * The ID or key of the issue to delete. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * If true, subtasks are also deleted. Defaults to false.
+   */
+  deleteSubtasks?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_deleteissue {
+  success: boolean;
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_deleteworklog {
+  /**
+   * The ID or key of the issue. Example: "10032" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the worklog to delete. Example: "10011"
+   */
+  worklogId: string;
+};
+
+export interface ActionOutput_jira_deleteworklog {
+  success: boolean;
+  issueIdOrKey: string;
+  worklogId: string;
+};
+
+export interface ActionInput_jira_getcreateissuemetadata {
+  /**
+   * List of project IDs to filter by. Example: ["10000", "10001"]
+   */
+  projectIds?: string[] | undefined;
+  /**
+   * List of project keys to filter by. Example: ["PROJ", "TEST"]
+   */
+  projectKeys?: string[] | undefined;
+  /**
+   * List of issue type IDs to filter by. Example: ["10000", "10001"]
+   */
+  issuetypeIds?: string[] | undefined;
+  /**
+   * Use expand to include additional information about issue metadata in the response. Supported values: projects, projects.issuetypes, projects.issuetypes.fields
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_getcreateissuemetadata {
+  projects?: ({  id: string;
+  key: string;
+  name: string;
+  self?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;})[];
+};
+
+export interface ActionInput_jira_geteditissuemetadata {
+  /**
+   * The ID or key of the issue. Example: "10000" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionOutput_jira_geteditissuemetadata {
+  fields?: any | undefined;
+};
+
+export interface ActionInput_jira_getfield {
+  /**
+   * The ID of the field to retrieve. For example: "summary", "description", or "customfield_10101"
+   */
+  fieldId: string;
+};
+
+export interface ActionOutput_jira_getfield {
+  id: string;
+  name: string;
+  custom: boolean;
+  clauseNames: string[];
+  navigable: boolean;
+  orderable: boolean;
+  searchable: boolean;
+  key?: string | undefined;
+  schema?: {  type?: string | undefined;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;
+  items?: string | undefined;};
+};
+
+export interface ActionInput_jira_getissuechangelog {
+  issueIdOrKey: string;
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_getissuechangelog {
+  changelog: ({  id: string;
+  author?: {  self?: string | undefined;
+  accountId?: string | undefined;
+  accountType?: string | undefined;
+  displayName?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;};
+  created: string;
+  items: ({  field?: string | undefined;
+  fieldtype?: string | undefined;
+  fieldId?: string | undefined;
+  from?: string | undefined;
+  fromString?: string | undefined;
+  to?: string | undefined;
+  toString?: string | undefined;})[];
+  historyMetadata?: {  [key: string]: unknown | undefined;};})[];
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+  total?: number | undefined;
+  isLast?: boolean | undefined;
+};
+
+export interface ActionInput_jira_getissuetype {
+  /**
+   * The ID of the issue type to retrieve.
+   */
+  id: string;
+};
+
+export interface ActionOutput_jira_getissuetype {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  self: string;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;
+  entityId?: string | undefined;
+  scope?: {  type: string;
+  project?: {  id: string;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  projectTypeKey?: string | undefined;
+  simplified?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  projectCategory?: {  self: string;
+  id: string;
+  name: string;
+  description?: string | undefined;};};};
+};
+
+export interface ActionInput_jira_getissue {
+  /**
+   * The ID or key of the issue to retrieve. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * Comma-separated list of fields to return. Example: "summary,description,status"
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated list of fields to expand. Example: "renderedFields,names,schema"
+   */
+  expand?: string | undefined;
+  /**
+   * Comma-separated list of issue property keys to return. Example: "property1,property2"
+   */
+  properties?: string | undefined;
+};
+
+export interface ActionOutput_jira_getissue {
+  /**
+   * The unique identifier of the issue
+   */
+  id: string;
+  /**
+   * The issue key (e.g., "PROJ-123")
+   */
+  key: string;
+  /**
+   * The REST API URL of the issue
+   */
+  self: string;
+};
+
+export interface ActionInput_jira_getmyself {
+};
+
+export interface ActionOutput_jira_getmyself {
+  /**
+   * The account ID of the user. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  account_id: string;
+  /**
+   * The type of account. Example: "atlassian"
+   */
+  account_type?: string | undefined;
+  /**
+   * The display name of the user. Example: "John Doe"
+   */
+  display_name: string;
+  /**
+   * The email address of the user. Example: "john.doe@example.com"
+   */
+  email_address?: string | undefined;
+  avatar_urls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  /**
+   * The time zone of the user. Example: "Europe/Berlin"
+   */
+  time_zone?: string | undefined;
+  /**
+   * The locale of the user. Example: "en_US"
+   */
+  locale?: string | undefined;
+  /**
+   * Whether the user is active. Example: true
+   */
+  active?: boolean | undefined;
+};
+
+export interface ActionInput_jira_getpriority {
+  /**
+   * The priority ID. Example: "1"
+   */
+  priorityId: string;
+};
+
+export interface ActionOutput_jira_getpriority {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  statusColor?: string | undefined;
+  self?: string | undefined;
+};
+
+export interface ActionInput_jira_getproject {
+  /**
+   * The ID or key of the project to retrieve. Example: "10000" or "PROJ"
+   */
+  projectIdOrKey: string;
+};
+
+export interface ActionOutput_jira_getproject {
+  id: string;
+  key: string;
+  name: string;
+  description?: string | undefined;
+  /**
+   * Project type key from Jira
+   */
+  projectType: string;
+  /**
+   * URL to the project
+   */
+  url?: string | undefined;
+  /**
+   * Browser-facing URL to the project
+   */
+  browseUrl?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  lead?: {  accountId?: string | undefined;
+  displayName?: string | undefined;};
+  projectCategory?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_jira_getstatus {
+  /**
+   * Status ID or name. Example: "10001" or "To Do"
+   */
+  statusIdOrName: string;
+};
+
+export interface ActionOutput_jira_getstatus {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  statusCategory?: {  id: number;
+  key: string;
+  colorName: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_jira_getuser {
+  /**
+   * The account ID of the user to retrieve. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+  /**
+   * Additional user details to include in the response. Comma-separated list of: groups, applicationRoles. Example: "groups,applicationRoles"
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_getuser {
+  accountId: string;
+  accountType?: string | undefined;
+  emailAddress?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  timeZone?: string | undefined;
+  locale?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  groups?: ({  name: string;
+  self: string;})[] | undefined;
+  applicationRoles?: ({  key: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_jira_listfields {
+};
+
+export interface ActionOutput_jira_listfields {
+  fields: ({  id: string;
+  name: string;
+  custom?: boolean | undefined;
+  orderable?: boolean | undefined;
+  navigable?: boolean | undefined;
+  searchable?: boolean | undefined;
+  clauseNames?: string[] | undefined;
+  key?: string | undefined;
+  schema?: {  type?: string | undefined;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;};})[];
+};
+
+export interface ActionInput_jira_listissuecomments {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The index of the first item to return in a page of results. Example: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return per page. Example: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order comments by created or updated date. Use - prefix for descending order.
+   */
+  orderBy?: 'created' | '-created' | 'updated' | '-updated' | undefined;
+  /**
+   * A comma-separated list of fields to expand in the response. Example: "renderedBody"
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_listissuecomments {
+  comments: ({  id: string;
+  author?: {  accountId: string;
+  displayName: string;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  body?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  updateAuthor?: {  accountId: string;
+  displayName: string;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  self?: string | undefined;
+  visibility?: {  type: string;
+  value?: string | undefined;
+  identifier?: string | undefined;};})[];
+  maxResults: number;
+  startAt: number;
+  total: number;
+};
+
+export interface ActionInput_jira_listissuetypes {
+};
+
+export interface ActionOutput_jira_listissuetypes {
+  issueTypes: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;})[];
+};
+
+export interface ActionInput_jira_listpriorities {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_jira_listpriorities {
+  priorities: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  icon_url: string;
+  is_default: boolean;
+  self: string;
+  status_color: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_jira_listprojectcomponents {
+  /**
+   * The ID or key of the project to list components for. Example: "10000" or "PROJ"
+   */
+  projectIdOrKey: string;
+};
+
+export interface ActionOutput_jira_listprojectcomponents {
+  /**
+   * List of project components
+   */
+  components: ({  /**
+   * Component ID. Example: "10000"
+   */
+  id: string;
+  /**
+   * Component name. Example: "Component 1"
+   */
+  name: string;
+  /**
+   * Component description
+   */
+  description?: string | undefined;
+  /**
+   * Project key the component belongs to
+   */
+  project?: string | undefined;
+  /**
+   * Project ID the component belongs to
+   */
+  projectId?: number | undefined;
+  /**
+   * URL to the component resource
+   */
+  self?: string | undefined;
+  /**
+   * Type of assignee for this component
+   */
+  assigneeType?: string | undefined;
+  /**
+   * Account ID of the component lead
+   */
+  leadAccountId?: string | undefined;
+  /**
+   * Whether the assignee type is valid
+   */
+  isAssigneeTypeValid?: boolean | undefined;})[];
+  /**
+   * Number of components returned
+   */
+  count: number;
+};
+
+export interface ActionInput_jira_listprojectversions {
+  /**
+   * The ID or key of the project. Example: "PROJ" or "10000"
+   */
+  projectIdOrKey: string;
+  /**
+   * The index of the first item to return. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return. Default: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order the results by a field. Default: name
+   */
+  orderBy?: 'description' | 'description,ASC' | 'description,DESC' | 'name' | 'name,ASC' | 'name,DESC' | 'releaseDate' | 'releaseDate,ASC' | 'releaseDate,DESC' | 'sequence' | 'sequence,ASC' | 'sequence,DESC' | 'startDate' | 'startDate,ASC' | 'startDate,DESC' | undefined;
+  /**
+   * Filter the results using a literal string. Versions with matching names or descriptions are returned
+   */
+  query?: string | undefined;
+  /**
+   * Filter by version status
+   */
+  status?: 'released' | 'unreleased' | 'archived' | undefined;
+};
+
+export interface ActionOutput_jira_listprojectversions {
+  versions: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  archived?: boolean | undefined;
+  released?: boolean | undefined;
+  overdue?: boolean | undefined;
+  projectId?: number | undefined;
+  releaseDate?: string | undefined;
+  startDate?: string | undefined;
+  userReleaseDate?: string | undefined;
+  userStartDate?: string | undefined;
+  self?: string | undefined;
+  issuesStatusForFixVersion?: {  done?: number | undefined;
+  inProgress?: number | undefined;
+  toDo?: number | undefined;
+  unmapped?: number | undefined;};})[];
+  isLast?: boolean | undefined;
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_jira_listprojects {
+  /**
+   * Filter projects by name or key. Example: "PROJ"
+   */
+  query?: string | undefined;
+  /**
+   * Filter by project category ID. Example: 10000
+   */
+  categoryId?: number | undefined;
+  /**
+   * Maximum results per page. Default: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination offset. Default: 0
+   */
+  startAt?: number | undefined;
+};
+
+export interface ActionOutput_jira_listprojects {
+  projects: ({  id: string;
+  key: string;
+  name: string;
+  avatarUrls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  projectCategory?: {  id: string;
+  name: string;
+  description?: string | undefined;};
+  simplified?: boolean | undefined;
+  style?: string | undefined;
+  self: string;
+  insight?: {  totalIssueCount: number;
+  lastIssueUpdateTime?: string | undefined;};})[];
+  total: number;
+  isLast: boolean;
+  nextStartAt?: number | undefined;
+};
+
+export interface ActionInput_jira_liststatuses {
+  /**
+   * Project ID to filter statuses. Example: "10000"
+   */
+  projectId?: string | undefined;
+  /**
+   * Filter by status category
+   */
+  statusCategory?: 'TODO' | 'IN_PROGRESS' | 'DONE' | undefined;
+  /**
+   * Search string to filter statuses by name
+   */
+  searchString?: string | undefined;
+  /**
+   * Pagination offset. Starts at 0.
+   */
+  startAt?: number | undefined;
+  /**
+   * Maximum results per page. Max 100.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_liststatuses {
+  statuses: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  scope?: {  type: 'GLOBAL' | 'PROJECT';
+  project?: {  id: string;} | undefined;};
+  statusCategory: 'TODO' | 'IN_PROGRESS' | 'DONE';})[];
+  total: number;
+  startAt: number;
+  maxResults: number;
+  isLast: boolean;
+  nextPageStart?: number | undefined;
+};
+
+export interface ActionInput_jira_listtransitions {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * Additional fields to expand in the response
+   */
+  expand?: 'transitions.fields' | undefined;
+};
+
+export interface ActionOutput_jira_listtransitions {
+  /**
+   * Available workflow transitions for the issue
+   */
+  transitions: ({  /**
+   * Transition ID
+   */
+  id: string;
+  /**
+   * Transition name
+   */
+  name: string;
+  /**
+   * The status the transition moves the issue to
+   */
+  to: {  /**
+   * Status ID
+   */
+  id: string;
+  /**
+   * Status name
+   */
+  name: string;
+  statusCategory?: {  id: number;
+  key: string;
+  colorName: string;
+  name: string;} | undefined;};
+  /**
+   * Fields available during the transition
+   */
+  fields?: {  [key: string]: {  description?: string | undefined;
+  hasScreen?: boolean | undefined;
+  isConditional?: boolean | undefined;
+  isGlobal?: boolean | undefined;
+  isInitial?: boolean | undefined;};};
+  hasScreen?: boolean | undefined;
+  isConditional?: boolean | undefined;
+  isGlobal?: boolean | undefined;
+  isInitial?: boolean | undefined;})[];
+};
+
+export interface ActionInput_jira_listusers {
+  /**
+   * A query string used to search user attributes. Matches against users visible to the authenticated account.
+   */
+  query: string;
+  /**
+   * A users accountId to filter the search results. Example: "5b10a2844c20165700ede21g"
+   */
+  accountId?: string | undefined;
+  /**
+   * The index of the first item to return in the results. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return. Default: 50, Maximum: 1000
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_listusers {
+  users: ({  accountId: string;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  avatarUrls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  timeZone?: string | undefined;
+  self?: string | undefined;})[];
+  nextStartAt?: number | undefined;
+};
+
+export interface ActionInput_jira_listwatchers {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionOutput_jira_listwatchers {
+  isWatching: boolean;
+  watchCount: number;
+  watchers: ({  accountId: string;
+  accountType?: string | undefined;
+  active: boolean;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName: string;
+  emailAddress?: string | undefined;
+  self: string;})[];
+};
+
+export interface ActionInput_jira_listworklogs {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The index of the first item to return in a page of results. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return per page. Default: 50
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_listworklogs {
+  worklogs: ({  id: string;
+  issueId?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  timeZone?: string | undefined;};
+  updateAuthor?: {  accountId?: string | undefined;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  timeZone?: string | undefined;};
+  comment?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  started?: string | undefined;
+  timeSpent?: string | undefined;
+  timeSpentSeconds?: number | undefined;
+  visibility?: {  identifier?: string | undefined;
+  type?: string | undefined;
+  value?: string | undefined;};
+  self?: string | undefined;})[];
+  total?: number | undefined;
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+  isLast?: boolean | undefined;
+};
+
+export interface ActionInput_jira_removewatcher {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The accountId of the user to remove as a watcher. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_jira_removewatcher {
+  /**
+   * Whether the watcher was successfully removed
+   */
+  success: boolean;
+  /**
+   * The issue ID or key that was modified
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_searchissues {
+  /**
+   * JQL query string to search for issues. Example: "project = PROJ AND status = Open"
+   */
+  jql: string;
+  /**
+   * Array of fields to return for each issue. Defaults to a set of common fields.
+   */
+  fields?: string[] | undefined;
+  /**
+   * Array of fields to expand in the response. Example: ["changelog", "renderedFields"]
+   */
+  expand?: string[] | undefined;
+  /**
+   * Index of the first item to return. Used for offset pagination.
+   */
+  startAt?: number | undefined;
+  /**
+   * Maximum number of results to return per page. Default varies by server.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_searchissues {
+  issues: ({  id: string;
+  key: string;
+  self: string;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+  total: number;
+  maxResults: number;
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_jira_transitionissue {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the transition to perform. Example: "31"
+   */
+  transitionId: string;
+  fields?: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_jira_transitionissue {
+  success: boolean;
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_updatecomment {
+  /**
+   * Issue ID or key. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * Comment ID. Example: "10000"
+   */
+  commentId: string;
+  body: {};
+  /**
+   * Visibility of the comment
+   */
+  visibility?: {  type: 'role' | 'group';
+  value?: string | undefined;
+  identifier?: string | undefined;};
+  /**
+   * Notify users about the comment update
+   */
+  notifyUsers?: boolean | undefined;
+  /**
+   * Override the editable flag
+   */
+  overrideEditableFlag?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_updatecomment {
+  id: string;
+  self?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  body?: {} | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  updateAuthor?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  visibility?: {  type: 'role' | 'group';
+  value?: string | undefined;
+  identifier?: string | undefined;};
+};
+
+export interface ActionInput_jira_updateissue {
+  issue_id_or_key: string;
+  fields?: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: ({  [key: string]: unknown | undefined;})[];};
+  notify_users?: boolean | undefined;
+  return_issue?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_updateissue {
+  success: boolean;
+  issue?: {  id: string;
+  key: string;
+  self: string;} | undefined;
+};
+
+export interface ActionInput_jira_updateworklog {
+  /**
+   * The ID or key of the issue. Example: "10002" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the worklog to update. Example: "100028"
+   */
+  worklogId: string;
+  /**
+   * A string representing the time spent. Example: "3h 20m"
+   */
+  timeSpent?: string | undefined;
+  /**
+   * The time spent in seconds. Example: 12000
+   */
+  timeSpentSeconds?: number | undefined;
+  /**
+   * A comment about the worklog as a plain text string. This will be converted to Atlassian Document Format.
+   */
+  comment?: string | undefined;
+  /**
+   * The datetime when the work was started in ISO 8601 format. Example: "2021-01-17T12:34:00.000+0000"
+   */
+  started?: string | undefined;
+};
+
+export interface ActionOutput_jira_updateworklog {
+  id: string;
+  issueId?: string | undefined;
+  self?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;};
+  updateAuthor?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;};
+  created?: string | undefined;
+  updated?: string | undefined;
+  started?: string | undefined;
+  timeSpent?: string | undefined;
+  timeSpentSeconds?: number | undefined;
+  visibility?: {  type?: string | undefined;
+  value?: string | undefined;};
 };
 
 export interface SyncMetadata_jira_basic_users {
