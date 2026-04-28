@@ -59959,7 +59959,7 @@
                   "properties": {
                     "content": {
                       "type": "string",
-                      "description": "The file content as a base64-encoded string or raw string"
+                      "description": "The file content as plain text or base64 encoded string"
                     },
                     "filename": {
                       "type": "string",
@@ -59968,6 +59968,10 @@
                     "contentType": {
                       "type": "string",
                       "description": "The MIME type of the file. Example: \"application/pdf\""
+                    },
+                    "isBase64": {
+                      "description": "Whether the content is base64 encoded. Defaults to false",
+                      "type": "boolean"
                     }
                   },
                   "required": [

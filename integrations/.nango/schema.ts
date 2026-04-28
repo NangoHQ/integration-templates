@@ -11029,7 +11029,7 @@ export interface ActionInput_jira_addattachment {
    */
   issueIdOrKey: string;
   file: {  /**
-   * The file content as a base64-encoded string or raw string
+   * The file content as plain text or base64 encoded string
    */
   content: string;
   /**
@@ -11039,7 +11039,11 @@ export interface ActionInput_jira_addattachment {
   /**
    * The MIME type of the file. Example: "application/pdf"
    */
-  contentType: string;};
+  contentType: string;
+  /**
+   * Whether the content is base64 encoded. Defaults to false
+   */
+  isBase64?: boolean | undefined;};
 };
 
 export interface ActionOutput_jira_addattachment {

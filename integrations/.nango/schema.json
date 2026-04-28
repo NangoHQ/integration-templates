@@ -40218,6 +40218,10 @@
             "contentType": {
               "type": "string",
               "description": "The MIME type of the file. Example: \"application/pdf\""
+            },
+            "isBase64": {
+              "type": "boolean",
+              "description": "Whether the content is base64 encoded. Defaults to false"
             }
           },
           "required": [

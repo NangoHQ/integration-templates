@@ -118,9 +118,7 @@ const action = createAction({
 
         // For file uploads to Jira, we need to use the underlying proxy with proper form-data handling
         // Since Nango's proxy handles Buffer data specially, we'll construct the request carefully
-        const fileBuffer = input.file.isBase64
-            ? Buffer.from(input.file.content, 'base64')
-            : Buffer.from(input.file.content, 'utf-8');
+        const fileBuffer = input.file.isBase64 ? Buffer.from(input.file.content, 'base64') : Buffer.from(input.file.content, 'utf-8');
 
         // Build multipart form data using Blob-like approach with strings
         const boundary = '----FormBoundary' + Math.random().toString(36).substring(2);
