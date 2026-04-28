@@ -1,0 +1,153 @@
+{
+  "nango": {
+    "batchSave": {
+      "Base": [
+        {
+          "id": "appJxrbEgLaF00M2f",
+          "name": "Untitled Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appBeIpEI3hxUKRMo",
+          "name": "Project Management",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appB9sIxHQg6dsy8R",
+          "name": "Temp Delete Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "app4bAdqNcqsgQyte",
+          "name": "Test Create Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appvTzj1bv1URqwex",
+          "name": "Test Create Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appp2nEl8RUWbq4Df",
+          "name": "Test Create Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appw4PXN0lDoIp3t2",
+          "name": "Test Create Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "app1shqFopYvVLdac",
+          "name": "Test Collaborator Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appEpYoCIzuTH5vB7",
+          "name": "Curl Test Base",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appDcecTkwhaHkedK",
+          "name": "Test Base Simple 2026-04-24",
+          "permissionLevel": "create"
+        },
+        {
+          "id": "appRdFNneusfJBZ2a",
+          "name": "Test Base Simple 2026-04-24",
+          "permissionLevel": "create"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Base": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v0/meta/bases": {
+        "response": {
+          "bases": [
+            {
+              "id": "appJxrbEgLaF00M2f",
+              "name": "Untitled Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appBeIpEI3hxUKRMo",
+              "name": "Project Management",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appB9sIxHQg6dsy8R",
+              "name": "Temp Delete Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "app4bAdqNcqsgQyte",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appvTzj1bv1URqwex",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appp2nEl8RUWbq4Df",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appw4PXN0lDoIp3t2",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "app1shqFopYvVLdac",
+              "name": "Test Collaborator Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appEpYoCIzuTH5vB7",
+              "name": "Curl Test Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appDcecTkwhaHkedK",
+              "name": "Test Base Simple 2026-04-24",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appRdFNneusfJBZ2a",
+              "name": "Test Base Simple 2026-04-24",
+              "permissionLevel": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:54:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "916",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1777283742",
+          "etag": "W/\"394-4moosTcWmpd0BgawB955v5Sa31w\""
+        },
+        "hash": "4b54f4bdfc9e12af12afdc89614121b821f128be",
+        "request": {}
+      }
+    }
+  }
+}

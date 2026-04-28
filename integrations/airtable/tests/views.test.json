@@ -1,0 +1,1401 @@
+{
+  "nango": {
+    "batchSave": {
+      "View": [
+        {
+          "id": "viw0blRVotxirM8ac",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appJxrbEgLaF00M2f",
+          "table_id": "tblNPITrPesLLh2eA",
+          "table_name": "Table 1"
+        },
+        {
+          "id": "viw0hQvJ5vQgLp0O3",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appJxrbEgLaF00M2f",
+          "table_id": "tbldBkl22VIG2sT42",
+          "table_name": "Test Table Create"
+        },
+        {
+          "id": "viwVhhtN4O1TXu41n",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appJxrbEgLaF00M2f",
+          "table_id": "tblRgiSOLlimcvmOc",
+          "table_name": "Test Table Create Mock"
+        },
+        {
+          "id": "viwBUCjNOVnHluVcv",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appBeIpEI3hxUKRMo",
+          "table_id": "tblp2oGLI9ltVcknH",
+          "table_name": "Getting started"
+        },
+        {
+          "id": "viwK5voQ69CIiIpzV",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appBeIpEI3hxUKRMo",
+          "table_id": "tbl518pubSWkoEl3i",
+          "table_name": "People"
+        },
+        {
+          "id": "viwa6nxRBKEnm16GW",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appBeIpEI3hxUKRMo",
+          "table_id": "tblbTPBfdFw8FyVF6",
+          "table_name": "Projects"
+        },
+        {
+          "id": "viw78PPL1hFqgsk04",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appBeIpEI3hxUKRMo",
+          "table_id": "tblUjn1mvv35fQ0c3",
+          "table_name": "Tasks"
+        },
+        {
+          "id": "viwcHcz7qX6JgCwCw",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appB9sIxHQg6dsy8R",
+          "table_id": "tblgD61sNWm5tGEPt",
+          "table_name": "Table1"
+        },
+        {
+          "id": "viwtdbYo7qmc6WKLB",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "app4bAdqNcqsgQyte",
+          "table_id": "tblcMWHcNHYpQ8xZ2",
+          "table_name": "TestTable"
+        },
+        {
+          "id": "viwYSKmBERLxn2Exa",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appvTzj1bv1URqwex",
+          "table_id": "tblvjaRPAlMYA0G2i",
+          "table_name": "TestTable"
+        },
+        {
+          "id": "viw6s2DuQfyzTZuTQ",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appp2nEl8RUWbq4Df",
+          "table_id": "tblmIezx588GZkJ2k",
+          "table_name": "TestTable"
+        },
+        {
+          "id": "viwKGUeD8siGjpQwm",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appw4PXN0lDoIp3t2",
+          "table_id": "tblGwaZFKc2QSVNH7",
+          "table_name": "TestTable"
+        },
+        {
+          "id": "viwwLZ7cyWpLli3oz",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "app1shqFopYvVLdac",
+          "table_id": "tblOcJdczGKRcl2UK",
+          "table_name": "Table 1"
+        },
+        {
+          "id": "viwnzn0C54vKkuX8H",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appEpYoCIzuTH5vB7",
+          "table_id": "tblzVycPnPuoAgDkr",
+          "table_name": "Table 1"
+        },
+        {
+          "id": "viwIN8HIMvHBPhou1",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appDcecTkwhaHkedK",
+          "table_id": "tblecZVEp5VNEqRn0",
+          "table_name": "Table 1"
+        },
+        {
+          "id": "viwToeUnTYjfGfHNa",
+          "name": "Grid view",
+          "type": "grid",
+          "base_id": "appRdFNneusfJBZ2a",
+          "table_id": "tblUj966TnOtdxFRH",
+          "table_name": "Table 1"
+        }
+      ]
+    },
+    "batchDelete": {
+      "View": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v0/meta/bases": {
+        "response": {
+          "bases": [
+            {
+              "id": "appJxrbEgLaF00M2f",
+              "name": "Untitled Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appBeIpEI3hxUKRMo",
+              "name": "Project Management",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appB9sIxHQg6dsy8R",
+              "name": "Temp Delete Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "app4bAdqNcqsgQyte",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appvTzj1bv1URqwex",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appp2nEl8RUWbq4Df",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appw4PXN0lDoIp3t2",
+              "name": "Test Create Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "app1shqFopYvVLdac",
+              "name": "Test Collaborator Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appEpYoCIzuTH5vB7",
+              "name": "Curl Test Base",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appDcecTkwhaHkedK",
+              "name": "Test Base Simple 2026-04-24",
+              "permissionLevel": "create"
+            },
+            {
+              "id": "appRdFNneusfJBZ2a",
+              "name": "Test Base Simple 2026-04-24",
+              "permissionLevel": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "916",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"394-4moosTcWmpd0BgawB955v5Sa31w\""
+        },
+        "hash": "4b54f4bdfc9e12af12afdc89614121b821f128be",
+        "request": {}
+      },
+      "/v0/meta/bases/appJxrbEgLaF00M2f/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblNPITrPesLLh2eA",
+              "name": "Table 1",
+              "primaryFieldId": "fldagYnWofuTkZGQF",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldagYnWofuTkZGQF",
+                  "name": "Name"
+                },
+                {
+                  "type": "multilineText",
+                  "id": "fldtuoKH0f6DKYqwZ",
+                  "name": "Notes"
+                },
+                {
+                  "type": "singleCollaborator",
+                  "id": "fldRaxvlByBGSG2Vs",
+                  "name": "Assignee"
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selqEiuFiZaenwlE1",
+                        "name": "Todo",
+                        "color": "redLight2"
+                      },
+                      {
+                        "id": "sel7B1eOEdPSJt5gG",
+                        "name": "In progress",
+                        "color": "yellowLight2"
+                      },
+                      {
+                        "id": "selAdMNjMqnr8yoI8",
+                        "name": "Done",
+                        "color": "greenLight2"
+                      }
+                    ]
+                  },
+                  "id": "fldmIATZCbZ4IThgr",
+                  "name": "Status"
+                },
+                {
+                  "type": "multipleAttachments",
+                  "options": {
+                    "isReversed": false
+                  },
+                  "id": "fldY5j634hbfNCXCh",
+                  "name": "Attachments"
+                },
+                {
+                  "type": "aiText",
+                  "options": {
+                    "referencedFieldIds": [
+                      "fldY5j634hbfNCXCh"
+                    ],
+                    "prompt": [
+                      "You are a professional document analyst specializing in summarizing content from various file types. Your task is to extract key points and provide a concise summary of the content found in the attached files. Ensure that the summary captures the main ideas and any important details without including unnecessary information.\n\nAnalyze the content of the attached files to identify the main themes and significant details. Summarize these points clearly and concisely, ensuring that the summary is informative and relevant to the document's purpose.\n\nFormat your response as plain text, keeping it concise and to the point. If you cannot summarize the content, output \"Unable to summarize the content.\" Example: \"The document discusses the impact of climate change on polar bears, highlighting the loss of habitat and food sources.\" (Real examples should be longer and more detailed.)\n\nFiles:\n",
+                      {
+                        "field": {
+                          "fieldId": "fldY5j634hbfNCXCh"
+                        }
+                      }
+                    ]
+                  },
+                  "id": "fldV5CueFSrUBiex7",
+                  "name": "Attachment Summary",
+                  "description": "An AI generated summary of the Attachments field. Upload files to Attachments to generate a summary."
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw0blRVotxirM8ac",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tbldBkl22VIG2sT42",
+              "name": "Test Table Create",
+              "primaryFieldId": "flddd5ccAg7ArDIBB",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "flddd5ccAg7ArDIBB",
+                  "name": "Name"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fld3bvi22MLLiqDAU",
+                  "name": "Status"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw0hQvJ5vQgLp0O3",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tblRgiSOLlimcvmOc",
+              "name": "Test Table Create Mock",
+              "primaryFieldId": "fldlbCcxDUW8kWs3T",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldlbCcxDUW8kWs3T",
+                  "name": "Name"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fldVqQe22uwFNdPrn",
+                  "name": "Status"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwVhhtN4O1TXu41n",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2585",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"a19-sD2opJi+oT5C+LxCMwD/ecV8XBw\""
+        },
+        "hash": "3cd88f736182f9a7d055208f91d48d28d8cb464d",
+        "request": {}
+      },
+      "/v0/meta/bases/appBeIpEI3hxUKRMo/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblp2oGLI9ltVcknH",
+              "name": "Getting started",
+              "description": "Updated description via Nango",
+              "primaryFieldId": "fldwBd7025FCjSmEO",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldwBd7025FCjSmEO",
+                  "name": "Name"
+                },
+                {
+                  "type": "multilineText",
+                  "id": "fldcS7bK1LankIihL",
+                  "name": "Description"
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selS60paIzWBerSk8",
+                        "name": "Work",
+                        "color": "pinkLight2"
+                      },
+                      {
+                        "id": "sel8akLp76SGpnsFh",
+                        "name": "Management",
+                        "color": "purpleLight2"
+                      }
+                    ]
+                  },
+                  "id": "fldvZunE2zg0ZZScb",
+                  "name": "Section"
+                },
+                {
+                  "type": "multipleAttachments",
+                  "options": {
+                    "isReversed": false
+                  },
+                  "id": "fldfa0UV8LHUInJEe",
+                  "name": "Attachments"
+                },
+                {
+                  "type": "autoNumber",
+                  "id": "fldr1rqVxLPBKKGsq",
+                  "name": "ID"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwBUCjNOVnHluVcv",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tbl518pubSWkoEl3i",
+              "name": "People",
+              "primaryFieldId": "fldRMDPyE7QHmjWo9",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldRMDPyE7QHmjWo9",
+                  "name": "Name"
+                },
+                {
+                  "type": "percent",
+                  "options": {
+                    "precision": 0
+                  },
+                  "id": "fldOtzdpbPsu6nnjG",
+                  "name": "Availability",
+                  "description": "The percentage of time an employee is available to work where 100% is full time."
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selRmJfy9kSvcoCmC",
+                        "name": "Full time",
+                        "color": "tealLight2"
+                      },
+                      {
+                        "id": "selke9S1DoKsqHest",
+                        "name": "Contractor",
+                        "color": "cyanLight2"
+                      }
+                    ]
+                  },
+                  "id": "fld32WCSTpHiSAA2K",
+                  "name": "Type"
+                },
+                {
+                  "type": "multipleAttachments",
+                  "options": {
+                    "isReversed": false
+                  },
+                  "id": "fldl0YMgIT5cRFKH9",
+                  "name": "Photo"
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selVm6AxrNLl4R2d5",
+                        "name": "Engineering",
+                        "color": "greenLight2"
+                      },
+                      {
+                        "id": "sel8Nmtf3w52d3TIf",
+                        "name": "Design",
+                        "color": "orangeLight2"
+                      },
+                      {
+                        "id": "sel1BGQf1Ag28Kw2C",
+                        "name": "Product",
+                        "color": "pinkLight2"
+                      },
+                      {
+                        "id": "selenXm3MZgz4P7jQ",
+                        "name": "Research",
+                        "color": "purpleLight2"
+                      }
+                    ]
+                  },
+                  "id": "fldjX2huPVbZ2oRvI",
+                  "name": "Role"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tblUjn1mvv35fQ0c3",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": false,
+                    "inverseLinkFieldId": "fldKsTPn749Pqpvy1"
+                  },
+                  "id": "fldduvjgqoO8txYat",
+                  "name": "Tasks"
+                },
+                {
+                  "type": "multilineText",
+                  "id": "fldCCCpIQNzvgTzqt",
+                  "name": "Bio"
+                },
+                {
+                  "type": "url",
+                  "id": "fldTJU7bSJxQuVZAH",
+                  "name": "Slack DM URL",
+                  "description": "URL to send user a Slack DM"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwK5voQ69CIiIpzV",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tblbTPBfdFw8FyVF6",
+              "name": "Projects",
+              "primaryFieldId": "fldtsrT7FeM6JDVD6",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldtsrT7FeM6JDVD6",
+                  "name": "Project"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tblUjn1mvv35fQ0c3",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": false,
+                    "inverseLinkFieldId": "fld6oZLP4zZqKqYCy"
+                  },
+                  "id": "fldBEsJzfabqtow1e",
+                  "name": "Tasks"
+                },
+                {
+                  "type": "rollup",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldBEsJzfabqtow1e",
+                    "fieldIdInLinkedTable": "fld0BRFtICoat69wi",
+                    "referencedFieldIds": [],
+                    "result": {
+                      "type": "date",
+                      "options": {
+                        "dateFormat": {
+                          "name": "local",
+                          "format": "l"
+                        }
+                      }
+                    }
+                  },
+                  "id": "fldOOFrITGqtXsB5e",
+                  "name": "Start date"
+                },
+                {
+                  "type": "rollup",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldBEsJzfabqtow1e",
+                    "fieldIdInLinkedTable": "fldaHTHgPc9Kark7v",
+                    "referencedFieldIds": [],
+                    "result": {
+                      "type": "date",
+                      "options": {
+                        "dateFormat": {
+                          "name": "local",
+                          "format": "l"
+                        }
+                      }
+                    }
+                  },
+                  "id": "fldxrTG33c4rmR7IS",
+                  "name": "End date"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "DATETIME_DIFF({fldxrTG33c4rmR7IS},{fldOOFrITGqtXsB5e},'days')",
+                    "referencedFieldIds": [
+                      "fldxrTG33c4rmR7IS",
+                      "fldOOFrITGqtXsB5e"
+                    ],
+                    "result": {
+                      "type": "number",
+                      "options": {
+                        "precision": 0
+                      }
+                    }
+                  },
+                  "id": "fld2ybUB6Zysu3kdV",
+                  "name": "Duration (days)"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "DATETIME_DIFF({fldxrTG33c4rmR7IS},{fldOOFrITGqtXsB5e},'days')&'d'",
+                    "referencedFieldIds": [
+                      "fldxrTG33c4rmR7IS",
+                      "fldOOFrITGqtXsB5e"
+                    ],
+                    "result": {
+                      "type": "singleLineText"
+                    }
+                  },
+                  "id": "fldGcyUltRtE2wqmv",
+                  "name": "Duration (days with unit)"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "{fldACAiSfBpczLT3i}/{fldZi2ZLypfupIYnW}",
+                    "referencedFieldIds": [
+                      "fldACAiSfBpczLT3i",
+                      "fldZi2ZLypfupIYnW"
+                    ],
+                    "result": {
+                      "type": "percent",
+                      "options": {
+                        "precision": 0
+                      }
+                    }
+                  },
+                  "id": "flduEBsnwY9jhJRGI",
+                  "name": "% of tasks staffed"
+                },
+                {
+                  "type": "count",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldBEsJzfabqtow1e"
+                  },
+                  "id": "fldACAiSfBpczLT3i",
+                  "name": "No. assigned tasks"
+                },
+                {
+                  "type": "count",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldBEsJzfabqtow1e"
+                  },
+                  "id": "flduPP7KD2AYPkJo2",
+                  "name": "No. done tasks"
+                },
+                {
+                  "type": "count",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldBEsJzfabqtow1e"
+                  },
+                  "id": "fldZi2ZLypfupIYnW",
+                  "name": "Total tasks"
+                },
+                {
+                  "type": "multipleAttachments",
+                  "options": {
+                    "isReversed": false
+                  },
+                  "id": "fldiWhZyIfvkr3u8p",
+                  "name": "Image"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "{flduPP7KD2AYPkJo2}/{fldZi2ZLypfupIYnW}",
+                    "referencedFieldIds": [
+                      "flduPP7KD2AYPkJo2",
+                      "fldZi2ZLypfupIYnW"
+                    ],
+                    "result": {
+                      "type": "percent",
+                      "options": {
+                        "precision": 0
+                      }
+                    }
+                  },
+                  "id": "fld4l9mf4JWwMtgHy",
+                  "name": "% Done",
+                  "description": "The percentage of tasks done out of the total number of tasks."
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwa6nxRBKEnm16GW",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "id": "tblUjn1mvv35fQ0c3",
+              "name": "Tasks",
+              "primaryFieldId": "fldh3cGNg71yTcxmN",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldh3cGNg71yTcxmN",
+                  "name": "Task"
+                },
+                {
+                  "type": "singleSelect",
+                  "options": {
+                    "choices": [
+                      {
+                        "id": "selk4ZQB897HQPlKm",
+                        "name": "To do",
+                        "color": "grayLight2"
+                      },
+                      {
+                        "id": "selv0XQAtFlIYUWPt",
+                        "name": "In progress",
+                        "color": "cyanLight2"
+                      },
+                      {
+                        "id": "sel72muKpufFRsgm1",
+                        "name": "Done",
+                        "color": "greenLight2"
+                      }
+                    ]
+                  },
+                  "id": "fldXStJ3jC3AdhzLw",
+                  "name": "Status"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tbl518pubSWkoEl3i",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": false,
+                    "inverseLinkFieldId": "fldduvjgqoO8txYat"
+                  },
+                  "id": "fldKsTPn749Pqpvy1",
+                  "name": "Assignee"
+                },
+                {
+                  "type": "percent",
+                  "options": {
+                    "precision": 0
+                  },
+                  "id": "fld6lplXX6UVKSM6U",
+                  "name": "Daily time required"
+                },
+                {
+                  "type": "date",
+                  "options": {
+                    "dateFormat": {
+                      "name": "local",
+                      "format": "l"
+                    }
+                  },
+                  "id": "fld0BRFtICoat69wi",
+                  "name": "Start"
+                },
+                {
+                  "type": "date",
+                  "options": {
+                    "dateFormat": {
+                      "name": "local",
+                      "format": "l"
+                    }
+                  },
+                  "id": "fldaHTHgPc9Kark7v",
+                  "name": "Deadline"
+                },
+                {
+                  "type": "number",
+                  "options": {
+                    "precision": 0
+                  },
+                  "id": "fldt7PQS0jpegnZAL",
+                  "name": "Duration"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tblbTPBfdFw8FyVF6",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": true,
+                    "inverseLinkFieldId": "fldBEsJzfabqtow1e"
+                  },
+                  "id": "fld6oZLP4zZqKqYCy",
+                  "name": "Project"
+                },
+                {
+                  "type": "multipleLookupValues",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldKsTPn749Pqpvy1",
+                    "fieldIdInLinkedTable": "fldOtzdpbPsu6nnjG",
+                    "result": {
+                      "type": "percent",
+                      "options": {
+                        "precision": 0
+                      }
+                    }
+                  },
+                  "id": "fldIJ1lOoE8GywbEV",
+                  "name": "Availability"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tblUjn1mvv35fQ0c3",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": false,
+                    "inverseLinkFieldId": "fldbYbOfoLitnbFpQ"
+                  },
+                  "id": "fldE3FETRqOzjTMZv",
+                  "name": "Predecessors"
+                },
+                {
+                  "type": "multipleRecordLinks",
+                  "options": {
+                    "linkedTableId": "tblUjn1mvv35fQ0c3",
+                    "isReversed": false,
+                    "prefersSingleRecordLink": false,
+                    "inverseLinkFieldId": "fldE3FETRqOzjTMZv"
+                  },
+                  "id": "fldbYbOfoLitnbFpQ",
+                  "name": "Successors"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "DATETIME_FORMAT({fld0BRFtICoat69wi},'MM-DD') & ' → ' & DATETIME_FORMAT({fldaHTHgPc9Kark7v},'MM-DD')",
+                    "referencedFieldIds": [
+                      "fld0BRFtICoat69wi",
+                      "fldaHTHgPc9Kark7v"
+                    ],
+                    "result": {
+                      "type": "singleLineText"
+                    }
+                  },
+                  "id": "fldsvWBEosOwyZGiU",
+                  "name": "Range"
+                },
+                {
+                  "type": "multipleLookupValues",
+                  "options": {
+                    "isValid": true,
+                    "recordLinkFieldId": "fldKsTPn749Pqpvy1",
+                    "fieldIdInLinkedTable": "fldl0YMgIT5cRFKH9",
+                    "result": {
+                      "type": "multipleAttachments",
+                      "options": {
+                        "isReversed": false
+                      }
+                    }
+                  },
+                  "id": "fldkR78uwQ6VglXf4",
+                  "name": "Photo (from Assignee)"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "IF(AND({fldXStJ3jC3AdhzLw} != \"Done\", {fldaHTHgPc9Kark7v} < TODAY()), \"Yes\")",
+                    "referencedFieldIds": [
+                      "fldXStJ3jC3AdhzLw",
+                      "fldaHTHgPc9Kark7v"
+                    ],
+                    "result": {
+                      "type": "singleLineText"
+                    }
+                  },
+                  "id": "fldmOF6V8yaKXAYVL",
+                  "name": "Is Overdue"
+                },
+                {
+                  "type": "formula",
+                  "options": {
+                    "isValid": true,
+                    "formula": "IF(AND({fldXStJ3jC3AdhzLw} = 'Done', {fldaHTHgPc9Kark7v} < TODAY()), 'Yes')",
+                    "referencedFieldIds": [
+                      "fldXStJ3jC3AdhzLw",
+                      "fldaHTHgPc9Kark7v"
+                    ],
+                    "result": {
+                      "type": "singleLineText"
+                    }
+                  },
+                  "id": "fldguISOaheFxKpj3",
+                  "name": "Is Complete"
+                },
+                {
+                  "type": "richText",
+                  "id": "fldMrngNwmB4MavZ5",
+                  "name": "Description"
+                },
+                {
+                  "type": "manualSort",
+                  "id": "fldtCgzCvnY3pedr8",
+                  "name": "Order"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw78PPL1hFqgsk04",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "8173",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"1fed-e90ESllx969QWYad6DAAxqk858g\""
+        },
+        "hash": "7420476c2ab50ace98a6f1bb26209de9ee9c068e",
+        "request": {}
+      },
+      "/v0/meta/bases/appB9sIxHQg6dsy8R/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblgD61sNWm5tGEPt",
+              "name": "Table1",
+              "primaryFieldId": "fldfQFUmzhohG1OUH",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldfQFUmzhohG1OUH",
+                  "name": "Name",
+                  "description": "Updated via Nango action"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fldtAogGvZJd63P0F",
+                  "name": "TestField"
+                },
+                {
+                  "type": "singleLineText",
+                  "id": "fldisC6FifUuUb4DW",
+                  "name": "TestField9453"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwcHcz7qX6JgCwCw",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "423",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"1a7-kFyLHu5A5tq1If0ZdH6duI80cnE\""
+        },
+        "hash": "5f7bd5ffe7831bce46f59cf76c7b194104b3d9c6",
+        "request": {}
+      },
+      "/v0/meta/bases/app4bAdqNcqsgQyte/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblcMWHcNHYpQ8xZ2",
+              "name": "TestTable",
+              "primaryFieldId": "fldC9nMdUjL5RHRu7",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldC9nMdUjL5RHRu7",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwtdbYo7qmc6WKLB",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "241",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"f1-mmlrQkvdaDj+kY28TMh6IvrC8aU\""
+        },
+        "hash": "8265db603f39cd34eea2212a93a2a10b8899d200",
+        "request": {}
+      },
+      "/v0/meta/bases/appvTzj1bv1URqwex/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblvjaRPAlMYA0G2i",
+              "name": "TestTable",
+              "primaryFieldId": "fldnrNSizvIZwPWCg",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldnrNSizvIZwPWCg",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwYSKmBERLxn2Exa",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:55:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "241",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"f1-XUhp6jd7LAV0Vrwg9p6/uAqcHsE\""
+        },
+        "hash": "a9fdcacff1a7aae921b683e612e158f34342b1d5",
+        "request": {}
+      },
+      "/v0/meta/bases/appp2nEl8RUWbq4Df/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblmIezx588GZkJ2k",
+              "name": "TestTable",
+              "primaryFieldId": "fldNTiUdvHlTXST4v",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldNTiUdvHlTXST4v",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viw6s2DuQfyzTZuTQ",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "241",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"f1-iD3umLYRDIJXS6H63MS6QNp7zaw\""
+        },
+        "hash": "f79a032012b7b156bcf4e8c8205917fdebcd9206",
+        "request": {}
+      },
+      "/v0/meta/bases/appw4PXN0lDoIp3t2/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblGwaZFKc2QSVNH7",
+              "name": "TestTable",
+              "primaryFieldId": "fldWqzjHRfWkwDxGQ",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldWqzjHRfWkwDxGQ",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwKGUeD8siGjpQwm",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "241",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"f1-qAWjyjM2OzMYKlu6Dk8BYV6FvQk\""
+        },
+        "hash": "e05538650600174e4a48268a0e086f413b5fc024",
+        "request": {}
+      },
+      "/v0/meta/bases/app1shqFopYvVLdac/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblOcJdczGKRcl2UK",
+              "name": "Table 1",
+              "primaryFieldId": "fld3slNxaeW6JGaj0",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fld3slNxaeW6JGaj0",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwwLZ7cyWpLli3oz",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "239",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"ef-p3IWkJyjCuUUplrKFLNbiGEhHrw\""
+        },
+        "hash": "4e52d28f360a18e4fb8223816f4ea69ff4dfb6a7",
+        "request": {}
+      },
+      "/v0/meta/bases/appEpYoCIzuTH5vB7/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblzVycPnPuoAgDkr",
+              "name": "Table 1",
+              "primaryFieldId": "fldt2SBhqGrNaTwUk",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldt2SBhqGrNaTwUk",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwnzn0C54vKkuX8H",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "239",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"ef-p407PA3k7PsVxF2jrNPnj/kZP1A\""
+        },
+        "hash": "62ea9c78abf72f82c202bdcfc7cb6986330dab0c",
+        "request": {}
+      },
+      "/v0/meta/bases/appDcecTkwhaHkedK/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblecZVEp5VNEqRn0",
+              "name": "Table 1",
+              "primaryFieldId": "fldKv1xHIMIwKTNyM",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldKv1xHIMIwKTNyM",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwIN8HIMvHBPhou1",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "239",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"ef-mW+GJ4C2Z0BTgGi6Kpckp5t+EK0\""
+        },
+        "hash": "a5f86580afc58ceeb3e3c620133e500a364a2b40",
+        "request": {}
+      },
+      "/v0/meta/bases/appRdFNneusfJBZ2a/tables": {
+        "response": {
+          "tables": [
+            {
+              "id": "tblUj966TnOtdxFRH",
+              "name": "Table 1",
+              "primaryFieldId": "fldCXpmX8jQBMLp5Q",
+              "fields": [
+                {
+                  "type": "singleLineText",
+                  "id": "fldCXpmX8jQBMLp5Q",
+                  "name": "Name"
+                }
+              ],
+              "views": [
+                {
+                  "id": "viwToeUnTYjfGfHNa",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 09:56:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "239",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1777283805",
+          "etag": "W/\"ef-HCbJGIe9yqG1S5JCMbqRu1zcFkM\""
+        },
+        "hash": "b34758fc82551b311bb1e610ba5d1c5439825969",
+        "request": {}
+      }
+    }
+  }
+}

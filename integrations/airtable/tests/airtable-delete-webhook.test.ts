@@ -1,17 +1,17 @@
-import {  expect, it, describe } from 'vitest';
+import { vi, expect, it, describe } from 'vitest';
 
-import action from '../actions/delete-webhook.js';
+import createAction from '../actions/delete-webhook.js';
 
 describe('airtable delete-webhook tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'delete-webhook',
-        Model: 'SuccessResponse'
+        Model: 'ActionOutput_airtable_deletewebhook'
     });
 
     it('should output the action output that is expected', async () => {
         const input = await nangoMock.getInput();
-        const response = await action.exec(nangoMock, input);
+        const response = await createAction.exec(nangoMock, input);
         const output = await nangoMock.getOutput();
 
         expect(response).toEqual(output);
