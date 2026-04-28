@@ -94,7 +94,7 @@ const sync = createSync({
                     })
                     .safeParse(workspacesResponse.data);
                 if (workspacesData.success && workspacesData.data.data) {
-                    workspaceIds = workspacesData.data.data.filter((w) => w.name !== 'Personal Projects').map((w) => w.gid);
+                    workspaceIds = workspacesData.data.data.map((w) => w.gid);
                 }
             }
 
