@@ -1,0 +1,152 @@
+{
+  "input": {
+    "task_gid": "1211440849237760"
+  },
+  "output": {
+    "gid": "1211440849237760",
+    "name": "Draft project brief",
+    "resource_type": "task",
+    "assignee": {
+      "gid": "1211440844472372",
+      "name": "Nango API",
+      "resource_type": "user"
+    },
+    "assignee_status": "inbox",
+    "assignee_section": {
+      "gid": "1211440998967799",
+      "name": "Recently assigned",
+      "resource_type": "section"
+    },
+    "due_on": "2025-09-25",
+    "due_at": null,
+    "completed": false,
+    "completed_at": null,
+    "created_at": "2025-09-23T14:42:24.630Z",
+    "modified_at": "2025-09-24T21:01:28.889Z",
+    "notes": "",
+    "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237760",
+    "projects": [
+      {
+        "gid": "1211440849237745",
+        "name": "API Testing Sandbox",
+        "resource_type": "project"
+      }
+    ],
+    "workspace": {
+      "gid": "1202775892569436",
+      "name": "nango.dev",
+      "resource_type": "workspace"
+    },
+    "parent": null,
+    "tags": [],
+    "followers": [
+      {
+        "gid": "1211440844472372",
+        "name": "Nango API",
+        "resource_type": "user"
+      }
+    ],
+    "memberships": [
+      {}
+    ],
+    "likes": [],
+    "liked": false,
+    "start_on": "2025-09-23",
+    "actual_time_minutes": null,
+    "num_hearts": 0,
+    "num_likes": 0,
+    "hearted": false,
+    "hearts": [],
+    "start_at": null,
+    "resource_subtype": "default_task"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/tasks/1211440849237760": {
+        "response": {
+          "data": {
+            "gid": "1211440849237760",
+            "actual_time_minutes": null,
+            "assignee": {
+              "gid": "1211440844472372",
+              "name": "Nango API",
+              "resource_type": "user"
+            },
+            "assignee_status": "inbox",
+            "assignee_section": {
+              "gid": "1211440998967799",
+              "name": "Recently assigned",
+              "resource_type": "section"
+            },
+            "completed": false,
+            "completed_at": null,
+            "created_at": "2025-09-23T14:42:24.630Z",
+            "due_at": null,
+            "due_on": "2025-09-25",
+            "followers": [
+              {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              }
+            ],
+            "hearted": false,
+            "hearts": [],
+            "liked": false,
+            "likes": [],
+            "memberships": [
+              {}
+            ],
+            "modified_at": "2025-09-24T21:01:28.889Z",
+            "name": "Draft project brief",
+            "notes": "",
+            "num_hearts": 0,
+            "num_likes": 0,
+            "parent": null,
+            "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237760",
+            "projects": [
+              {
+                "gid": "1211440849237745",
+                "name": "API Testing Sandbox",
+                "resource_type": "project"
+              }
+            ],
+            "resource_type": "task",
+            "start_at": null,
+            "start_on": "2025-09-23",
+            "tags": [],
+            "resource_subtype": "default_task",
+            "workspace": {
+              "gid": "1202775892569436",
+              "name": "nango.dev",
+              "resource_type": "workspace"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:33:26 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "1054",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1777300449",
+          "etag": "W/\"41e-bnZVKdinM5epk3kLM3zznRf1bR8\""
+        },
+        "hash": "84cc5574eefebcd0ab1c0e0c362bd18508b35ba6",
+        "request": {}
+      }
+    }
+  }
+}
