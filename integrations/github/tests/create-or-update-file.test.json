@@ -1,0 +1,206 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "path": "test-nango-file.txt",
+    "message": "Create test file from Nango action",
+    "content": "Hello, World! This is a test file created by the Nango create-or-update-file action.",
+    "branch": "main"
+  },
+  "output": {
+    "content": {
+      "name": "test-nango-file.txt",
+      "path": "test-nango-file.txt",
+      "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+      "size": 84,
+      "url": "https://api.github.com/repos/viictoo/api-playground2/contents/test-nango-file.txt?ref=main",
+      "html_url": "https://github.com/viictoo/api-playground2/blob/main/test-nango-file.txt",
+      "git_url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+      "download_url": "https://raw.githubusercontent.com/viictoo/api-playground2/main/test-nango-file.txt",
+      "type": "file"
+    },
+    "commit": {
+      "sha": "3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+      "node_id": "C_kwDOSPtvHNoAKDNhMzFkMGNkMzA1MjczMGY1ZTUyNmU3ZTMxZTlhN2I2MWRhMjA2N2Y",
+      "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+      "html_url": "https://github.com/viictoo/api-playground2/commit/3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+      "message": "Create test file from Nango action",
+      "author": {
+        "date": "2026-04-29T10:18:02Z",
+        "name": "testnangoapi[bot]",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com"
+      },
+      "committer": {
+        "date": "2026-04-29T10:18:02Z",
+        "name": "GitHub",
+        "email": "noreply@github.com"
+      },
+      "tree": {
+        "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/9d0d53f5834f198a89d4e4219188e37237638d09",
+        "sha": "9d0d53f5834f198a89d4e4219188e37237638d09"
+      },
+      "parents": [
+        {
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/d957920f4eebc8f8fd81f28e2dfe30152965ff4b",
+          "html_url": "https://github.com/viictoo/api-playground2/commit/d957920f4eebc8f8fd81f28e2dfe30152965ff4b",
+          "sha": "d957920f4eebc8f8fd81f28e2dfe30152965ff4b"
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp8draCRC1aQ7uu5UhlAAAVS4QAFhGOlJGAF2bnHCWREbxXCLz\ngdu7sa/26b/ByaP39pkZhTih9iRmtAfxzdf5zJOp8WgxakVq4xlZQX7dSSMSvopg\nqEP+mPyESB/uBr2ieJOx+tn62PsG2+gUEpzt8q3gvrXg/JDPLMQqAyHDSq6TTJXW\njOzWFiGOcdEF3caHeLkAusjFFL2HEH+fdcL1kkFFXs+gjBvjPiSNphyPUKpFvUW/\nC+KCOI1be2guI3IZy5mmo6Svkt3cwjLPZ9X6cglme1UWrBgZicHEdmjdOPN6EWCk\nE24aSCTczQsuFUc5ubq2PpFk5HM3UEhxEdekh6TFNuPJrVftoN5IY+xmnnCQuwUM\nxwAwdpfqcivkzAo0BvhhPAZnHXoexXtb6OO0JGJt7A0LM0h1kddweZrrc4ALoTxF\nl5b0KYBEfkVE0aboNUcJLsijOGJ0cfT0Vp+yaM8SLPRcI3JF673LM3IEupBvq6pz\nd46g7bwbH2aZ5FjGcA7USPj1mgCR96O1GB/4QzorXPlpNgGIVFJgRJnDnRbMqV+8\nFmKRZv6j3tnb7eqe3lBLCEizq6TEgSSlTAz3uzVJbv8CoQ7XauZ3MP/aPwLuzNk1\n60XRQfHW1peG04TUml44OCIb/H4OUmWvNYjSQpFi/XPlGBlAZdru+uIDf3WHaEC9\nCocsJXNx5myG4wAHvLZM\n=Qeke\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 9d0d53f5834f198a89d4e4219188e37237638d09\nparent d957920f4eebc8f8fd81f28e2dfe30152965ff4b\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1777457882 +0000\ncommitter GitHub <noreply@github.com> 1777457882 +0000\n\nCreate test file from Nango action",
+        "verified_at": "2026-04-29T10:18:02Z"
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/contents/test-nango-file.txt": {
+        "response": {
+          "name": "test-nango-file.txt",
+          "path": "test-nango-file.txt",
+          "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+          "size": 84,
+          "url": "https://api.github.com/repos/viictoo/api-playground2/contents/test-nango-file.txt?ref=main",
+          "html_url": "https://github.com/viictoo/api-playground2/blob/main/test-nango-file.txt",
+          "git_url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+          "download_url": "https://raw.githubusercontent.com/viictoo/api-playground2/main/test-nango-file.txt",
+          "type": "file",
+          "content": "SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgdGVzdCBmaWxlIGNyZWF0ZWQgYnkg\ndGhlIE5hbmdvIGNyZWF0ZS1vci11cGRhdGUtZmlsZSBhY3Rpb24u\n",
+          "encoding": "base64",
+          "_links": {
+            "self": "https://api.github.com/repos/viictoo/api-playground2/contents/test-nango-file.txt?ref=main",
+            "git": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+            "html": "https://github.com/viictoo/api-playground2/blob/main/test-nango-file.txt"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:18:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "987",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1777457932",
+          "etag": "W/\"3db-X/mRGwFRhpViQ6pIM2UiwgUaDxI\""
+        },
+        "hash": "b867895f14f274fe359c094dd1d8514e2c481d2e",
+        "request": {
+          "params": {
+            "ref": "main"
+          }
+        }
+      }
+    },
+    "put": {
+      "/repos/viictoo/api-playground2/contents/test-nango-file.txt": {
+        "response": {
+          "content": {
+            "name": "test-nango-file.txt",
+            "path": "test-nango-file.txt",
+            "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+            "size": 84,
+            "url": "https://api.github.com/repos/viictoo/api-playground2/contents/test-nango-file.txt?ref=main",
+            "html_url": "https://github.com/viictoo/api-playground2/blob/main/test-nango-file.txt",
+            "git_url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+            "download_url": "https://raw.githubusercontent.com/viictoo/api-playground2/main/test-nango-file.txt",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/viictoo/api-playground2/contents/test-nango-file.txt?ref=main",
+              "git": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+              "html": "https://github.com/viictoo/api-playground2/blob/main/test-nango-file.txt"
+            }
+          },
+          "commit": {
+            "sha": "3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+            "node_id": "C_kwDOSPtvHNoAKDNhMzFkMGNkMzA1MjczMGY1ZTUyNmU3ZTMxZTlhN2I2MWRhMjA2N2Y",
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+            "html_url": "https://github.com/viictoo/api-playground2/commit/3a31d0cd3052730f5e526e7e31e9a7b61da2067f",
+            "author": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-04-29T10:18:02Z"
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "date": "2026-04-29T10:18:02Z"
+            },
+            "tree": {
+              "sha": "9d0d53f5834f198a89d4e4219188e37237638d09",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/9d0d53f5834f198a89d4e4219188e37237638d09"
+            },
+            "message": "Create test file from Nango action",
+            "parents": [
+              {
+                "sha": "d957920f4eebc8f8fd81f28e2dfe30152965ff4b",
+                "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/d957920f4eebc8f8fd81f28e2dfe30152965ff4b",
+                "html_url": "https://github.com/viictoo/api-playground2/commit/d957920f4eebc8f8fd81f28e2dfe30152965ff4b"
+              }
+            ],
+            "verification": {
+              "verified": true,
+              "reason": "valid",
+              "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp8draCRC1aQ7uu5UhlAAAVS4QAFhGOlJGAF2bnHCWREbxXCLz\ngdu7sa/26b/ByaP39pkZhTih9iRmtAfxzdf5zJOp8WgxakVq4xlZQX7dSSMSvopg\nqEP+mPyESB/uBr2ieJOx+tn62PsG2+gUEpzt8q3gvrXg/JDPLMQqAyHDSq6TTJXW\njOzWFiGOcdEF3caHeLkAusjFFL2HEH+fdcL1kkFFXs+gjBvjPiSNphyPUKpFvUW/\nC+KCOI1be2guI3IZy5mmo6Svkt3cwjLPZ9X6cglme1UWrBgZicHEdmjdOPN6EWCk\nE24aSCTczQsuFUc5ubq2PpFk5HM3UEhxEdekh6TFNuPJrVftoN5IY+xmnnCQuwUM\nxwAwdpfqcivkzAo0BvhhPAZnHXoexXtb6OO0JGJt7A0LM0h1kddweZrrc4ALoTxF\nl5b0KYBEfkVE0aboNUcJLsijOGJ0cfT0Vp+yaM8SLPRcI3JF673LM3IEupBvq6pz\nd46g7bwbH2aZ5FjGcA7USPj1mgCR96O1GB/4QzorXPlpNgGIVFJgRJnDnRbMqV+8\nFmKRZv6j3tnb7eqe3lBLCEizq6TEgSSlTAz3uzVJbv8CoQ7XauZ3MP/aPwLuzNk1\n60XRQfHW1peG04TUml44OCIb/H4OUmWvNYjSQpFi/XPlGBlAZdru+uIDf3WHaEC9\nCocsJXNx5myG4wAHvLZM\n=Qeke\n-----END PGP SIGNATURE-----\n",
+              "payload": "tree 9d0d53f5834f198a89d4e4219188e37237638d09\nparent d957920f4eebc8f8fd81f28e2dfe30152965ff4b\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1777457882 +0000\ncommitter GitHub <noreply@github.com> 1777457882 +0000\n\nCreate test file from Nango action",
+              "verified_at": "2026-04-29T10:18:02Z"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:18:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"bf6ace5aa1101ae03c9ff29ddae14b9fe76911d1e0d860a2fad40733196fe266\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=write; contents=write,workflows=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "44",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "D8F3:35326B:14E7A545:152CABDB:69F1DAD7"
+        },
+        "hash": "90507e8c8157bee6a8bf16c3fb5a3cf92fa9cd21",
+        "request": {
+          "data": {
+            "message": "Create test file from Nango action",
+            "content": "SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgdGVzdCBmaWxlIGNyZWF0ZWQgYnkgdGhlIE5hbmdvIGNyZWF0ZS1vci11cGRhdGUtZmlsZSBhY3Rpb24u",
+            "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+            "branch": "main"
+          }
+        }
+      }
+    }
+  }
+}

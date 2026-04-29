@@ -1,0 +1,72 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "path": "README.md"
+  },
+  "output": {
+    "type": "file",
+    "size": 659,
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "7ccf533c789a22f41ff602d951002e785584089f",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/contents/README.md?ref=main",
+    "git_url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/7ccf533c789a22f41ff602d951002e785584089f",
+    "html_url": "https://github.com/viictoo/api-playground2/blob/main/README.md",
+    "download_url": "https://raw.githubusercontent.com/viictoo/api-playground2/main/README.md",
+    "content": "IyBBUEkgUGxheWdyb3VuZAoKQSB0aHJvd2F3YXkgcmVwb3NpdG9yeSB1c2Vk\nIHRvIGV4ZXJjaXNlIEdpdEh1YiBSRVNUIEFQSSBlbmRwb2ludHMg4oCUIHN5\nbmMgZmxvd3MsIENSVUQgYWN0aW9ucywgd29ya2Zsb3cgcnVucywgYW5kIHJl\ndmlldyBzdGF0ZS4KCiMjIFdoYXQncyBoZXJlCgotIGBzcmMvYCDigJQgdG95\nIFB5dGhvbiBtb2R1bGUgc28gY29tbWl0cyBhbmQgZmlsZS10cmVlIGNhbGxz\nIGhhdmUgdmFyaWVkIHBhdGhzLgotIGB0ZXN0cy9gIOKAlCBhIHNpbmdsZSBw\nYXNzaW5nIHRlc3QgdGhhdCB0aGUgQ0kgd29ya2Zsb3cgcnVucy4KLSBgZG9j\ncy9gIOKAlCBsb25nLWZvcm0gbWFya2Rvd24gdG8gZ2l2ZSB0aGUgY29udGVu\ndHMgZW5kcG9pbnRzIHNvbWV0aGluZyB0byByZWFkLgotIGAuZ2l0aHViL3dv\ncmtmbG93cy9gIOKAlCB0aHJlZSB3b3JrZmxvd3M6IGEgcGFzc2luZyBDSSwg\nYSBmYWlsaW5nIHJlbGVhc2UgcGlwZWxpbmUsIGFuZCBhIG1hbnVhbCBkaXNw\nYXRjaC4KCiMjIFJ1bm5pbmcgbG9jYWxseQoKYGBgYmFzaApweXRob24gLW0g\ncHl0ZXN0CmBgYAoKVGhhdCdzIGl0LiBOb3RoaW5nIGluIGhlcmUgaXMgbWVh\nbnQgdG8gYmUgdXNlZnVsIOKAlCBvbmx5IG1lYW5pbmdmdWwgdG8gQVBJIHRl\nc3RzLgoKPCEtLSBzZWNvbmQgY29tbWl0IC0tPgo=\n",
+    "encoding": "base64",
+    "_links": {
+      "git": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/7ccf533c789a22f41ff602d951002e785584089f",
+      "html": "https://github.com/viictoo/api-playground2/blob/main/README.md",
+      "self": "https://api.github.com/repos/viictoo/api-playground2/contents/README.md?ref=main"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/contents/README.md": {
+        "response": {
+          "name": "README.md",
+          "path": "README.md",
+          "sha": "7ccf533c789a22f41ff602d951002e785584089f",
+          "size": 659,
+          "url": "https://api.github.com/repos/viictoo/api-playground2/contents/README.md?ref=main",
+          "html_url": "https://github.com/viictoo/api-playground2/blob/main/README.md",
+          "git_url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/7ccf533c789a22f41ff602d951002e785584089f",
+          "download_url": "https://raw.githubusercontent.com/viictoo/api-playground2/main/README.md",
+          "type": "file",
+          "content": "IyBBUEkgUGxheWdyb3VuZAoKQSB0aHJvd2F3YXkgcmVwb3NpdG9yeSB1c2Vk\nIHRvIGV4ZXJjaXNlIEdpdEh1YiBSRVNUIEFQSSBlbmRwb2ludHMg4oCUIHN5\nbmMgZmxvd3MsIENSVUQgYWN0aW9ucywgd29ya2Zsb3cgcnVucywgYW5kIHJl\ndmlldyBzdGF0ZS4KCiMjIFdoYXQncyBoZXJlCgotIGBzcmMvYCDigJQgdG95\nIFB5dGhvbiBtb2R1bGUgc28gY29tbWl0cyBhbmQgZmlsZS10cmVlIGNhbGxz\nIGhhdmUgdmFyaWVkIHBhdGhzLgotIGB0ZXN0cy9gIOKAlCBhIHNpbmdsZSBw\nYXNzaW5nIHRlc3QgdGhhdCB0aGUgQ0kgd29ya2Zsb3cgcnVucy4KLSBgZG9j\ncy9gIOKAlCBsb25nLWZvcm0gbWFya2Rvd24gdG8gZ2l2ZSB0aGUgY29udGVu\ndHMgZW5kcG9pbnRzIHNvbWV0aGluZyB0byByZWFkLgotIGAuZ2l0aHViL3dv\ncmtmbG93cy9gIOKAlCB0aHJlZSB3b3JrZmxvd3M6IGEgcGFzc2luZyBDSSwg\nYSBmYWlsaW5nIHJlbGVhc2UgcGlwZWxpbmUsIGFuZCBhIG1hbnVhbCBkaXNw\nYXRjaC4KCiMjIFJ1bm5pbmcgbG9jYWxseQoKYGBgYmFzaApweXRob24gLW0g\ncHl0ZXN0CmBgYAoKVGhhdCdzIGl0LiBOb3RoaW5nIGluIGhlcmUgaXMgbWVh\nbnQgdG8gYmUgdXNlZnVsIOKAlCBvbmx5IG1lYW5pbmdmdWwgdG8gQVBJIHRl\nc3RzLgoKPCEtLSBzZWNvbmQgY29tbWl0IC0tPgo=\n",
+          "encoding": "base64",
+          "_links": {
+            "self": "https://api.github.com/repos/viictoo/api-playground2/contents/README.md?ref=main",
+            "git": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/7ccf533c789a22f41ff602d951002e785584089f",
+            "html": "https://github.com/viictoo/api-playground2/blob/main/README.md"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:24:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1712",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1777458315",
+          "etag": "W/\"6b0-NLnSKC0F9eWarxaMuYJaMsAOCcA\""
+        },
+        "hash": "6cbdbbbb006b411df5cb70401295c46d8dc3a3d0",
+        "request": {}
+      }
+    }
+  }
+}
