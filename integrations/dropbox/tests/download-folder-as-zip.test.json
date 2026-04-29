@@ -4,14 +4,16 @@
   },
   "output": {
     "metadata": {
-      "id": "unknown",
-      "name": "test-zip-folder"
+      "id": "id:MzePHdV-D28AAAAAAAAAaQ",
+      "name": "test-zip-folder",
+      "path_lower": "/test-zip-folder",
+      "path_display": "/test-zip-folder"
     },
-    "zip_content": "PK\u0003\u0004\u0014\u0000\u0000\b\u0000\u0000\u0014:�\\\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\t\u0000test-zip-folder/UT\u0005\u0000\u0001Y��iPK\u0001\u0002\u0014\u0003\u0014\u0000\u0000\b\u0000\u0000\u0014:�\\\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000�\u0001\u0000\u0000\u0000\u0000test-zip-folder/UT\u0005\u0000\u0001Y��iPK\u0005\u0006\u0000\u0000\u0000\u0000\u0001\u0000\u0001\u0000G\u0000\u0000\u00007\u0000\u0000\u0000\u0000\u0000"
+    "zip_content": "UEsDBBQAAAgAABQ6/VwAAAAAAAAAAAAAAAAQAAkAdGVzdC16aXAtZm9sZGVyL1VUBQABWf39aVBLAQIUAxQAAAgAABQ6/VwAAAAAAAAAAAAAAAAQAAkAAAAAAAAAEAD9AQAAAAB0ZXN0LXppcC1mb2xkZXIvVVQFAAFZ/f1pUEsFBgAAAAABAAEARwAAADcAAAAAAA=="
   },
   "nango": {},
   "api": {
-    "get": {
+    "post": {
       "/2/files/download_zip": {
         "response": "PK\u0003\u0004\u0014\u0000\u0000\b\u0000\u0000\u0014:�\\\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\t\u0000test-zip-folder/UT\u0005\u0000\u0001Y��iPK\u0001\u0002\u0014\u0003\u0014\u0000\u0000\b\u0000\u0000\u0014:�\\\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000�\u0001\u0000\u0000\u0000\u0000test-zip-folder/UT\u0005\u0000\u0001Y��iPK\u0005\u0006\u0000\u0000\u0000\u0000\u0001\u0000\u0001\u0000G\u0000\u0000\u00007\u0000\u0000\u0000\u0000\u0000",
         "status": 200,
@@ -49,10 +51,11 @@
           "x-dropbox-request-id": "e674a9272fc04e6a8ebad7f069f1b0c4",
           "x-dropbox-trace-id": "69f1b0c4000000003fef365134e83b67"
         },
-        "hash": "f08dee994109981bd3f6f3e8fd430c6fed82f0e0",
+        "hash": "ee8fdcc66863b95a6c8b3fee42724e8bf75c2495",
         "request": {
-          "params": {
-            "arg": "{\"path\":\"/test-zip-folder\"}"
+          "headers": {
+            "Dropbox-API-Arg": "{\"path\":\"/test-zip-folder\"}",
+            "Content-Type": ""
           }
         }
       }

@@ -17839,7 +17839,7 @@
                 "public",
                 "team",
                 "no_one",
-                "password"
+                "members"
               ],
               "description": "The new audience who can benefit from the access level."
             },
@@ -17921,7 +17921,8 @@
               "enum": [
                 "public",
                 "team",
-                "no_one"
+                "no_one",
+                "members"
               ]
             },
             "link_access_level": {
@@ -18470,7 +18471,11 @@
             "overwrite",
             "update"
           ],
-          "description": "Selects what to do if the file already exists. \"add\" will add a new file, \"overwrite\" will overwrite, \"update\" will update only if the revision matches. Defaults to \"add\"."
+          "description": "Selects what to do if the file already exists. \"add\" will add a new file, \"overwrite\" will overwrite, \"update\" will update only if the revision matches (requires rev). Defaults to \"add\"."
+        },
+        "rev": {
+          "type": "string",
+          "description": "The revision of the file to update. Required when mode is \"update\"."
         },
         "autorename": {
           "type": "boolean",

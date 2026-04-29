@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 const FileSchema = z.object({
     id: z.string(),
+    dropbox_id: z.string(),
     name: z.string(),
     path_lower: z.string(),
     path_display: z.string(),
@@ -96,7 +97,8 @@ function mapEntries(entries: z.infer<typeof MetadataEntrySchema>[]): { files: Fi
 
             const fileEntry = fileResult.data;
             files.push({
-                id: fileEntry.id,
+                id: fileEntry.path_lower,
+                dropbox_id: fileEntry.id,
                 name: fileEntry.name,
                 path_lower: fileEntry.path_lower,
                 path_display: fileEntry.path_display,

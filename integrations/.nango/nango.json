@@ -22240,6 +22240,7 @@
               "type": "object",
               "properties": {
                 "entries": {
+                  "minItems": 1,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -24784,7 +24785,7 @@
                         "public",
                         "team",
                         "no_one",
-                        "password"
+                        "members"
                       ]
                     },
                     "access": {
@@ -24864,7 +24865,8 @@
                       "enum": [
                         "public",
                         "team",
-                        "no_one"
+                        "no_one",
+                        "members"
                       ]
                     },
                     "link_access_level": {
@@ -25562,13 +25564,17 @@
                   ]
                 },
                 "mode": {
-                  "description": "Selects what to do if the file already exists. \"add\" will add a new file, \"overwrite\" will overwrite, \"update\" will update only if the revision matches. Defaults to \"add\".",
+                  "description": "Selects what to do if the file already exists. \"add\" will add a new file, \"overwrite\" will overwrite, \"update\" will update only if the revision matches (requires rev). Defaults to \"add\".",
                   "type": "string",
                   "enum": [
                     "add",
                     "overwrite",
                     "update"
                   ]
+                },
+                "rev": {
+                  "description": "The revision of the file to update. Required when mode is \"update\".",
+                  "type": "string"
                 },
                 "autorename": {
                   "description": "If true and there's a conflict, Dropbox will try to autorename the file to avoid the conflict. Defaults to false.",
@@ -25671,6 +25677,9 @@
                 "id": {
                   "type": "string"
                 },
+                "dropbox_id": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -25704,6 +25713,7 @@
               },
               "required": [
                 "id",
+                "dropbox_id",
                 "name",
                 "path_lower",
                 "path_display",
@@ -25767,6 +25777,9 @@
                 "id": {
                   "type": "string"
                 },
+                "dropbox_id": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -25782,6 +25795,7 @@
               },
               "required": [
                 "id",
+                "dropbox_id",
                 "name",
                 "path_lower",
                 "path_display"

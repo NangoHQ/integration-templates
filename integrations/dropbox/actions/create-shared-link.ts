@@ -74,6 +74,13 @@ const action = createAction({
     scopes: ['sharing.write', 'files.content.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.settings?.requested_visibility === 'password' && !input.settings?.password) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'password is required when requested_visibility is "password"'
+            });
+        }
+
         const requestBody: Record<string, unknown> = {
             path: input.path
         };

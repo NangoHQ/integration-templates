@@ -7,7 +7,7 @@ const RelocationPathSchema = z.object({
 });
 
 const InputSchema = z.object({
-    entries: z.array(RelocationPathSchema).describe('List of source and destination path pairs to copy'),
+    entries: z.array(RelocationPathSchema).min(1).describe('List of source and destination path pairs to copy'),
     autorename: z.boolean().optional().describe('If true, auto-rename conflicting files')
 });
 

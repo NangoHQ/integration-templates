@@ -9,7 +9,7 @@ const InputSchema = z.object({
                 .enum(['public', 'team_only', 'password'])
                 .optional()
                 .describe('Use `audience` instead. The requested access for this shared link.'),
-            audience: z.enum(['public', 'team', 'no_one', 'password']).optional().describe('The new audience who can benefit from the access level.'),
+            audience: z.enum(['public', 'team', 'no_one', 'members']).optional().describe('The new audience who can benefit from the access level.'),
             access: z
                 .enum(['viewer', 'editor', 'max'])
                 .optional()
@@ -53,7 +53,7 @@ const OutputSchema = z.object({
             can_revoke: z.boolean().optional(),
             resolved_visibility: z.enum(['public', 'team_only', 'password', 'team_and_password', 'shared_folder_only', 'no_one']).optional(),
             requested_visibility: z.enum(['public', 'team_only', 'password']).optional(),
-            effective_audience: z.enum(['public', 'team', 'no_one']).optional(),
+            effective_audience: z.enum(['public', 'team', 'no_one', 'members']).optional(),
             link_access_level: z.enum(['viewer', 'editor', 'max']).optional(),
             can_set_expiration: z.boolean().optional(),
             can_set_password: z.boolean().optional(),
@@ -193,11 +193,12 @@ const action = createAction({
             return undefined;
         };
 
-        const toAudience = (val: string | undefined): 'public' | 'team' | 'no_one' | undefined => {
+        const toAudience = (val: string | undefined): 'public' | 'team' | 'no_one' | 'members' | undefined => {
             if (!val) return undefined;
             if (val === 'public') return 'public';
             if (val === 'team') return 'team';
             if (val === 'no_one') return 'no_one';
+            if (val === 'members') return 'members';
             return undefined;
         };
 

@@ -70,62 +70,71 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = z.object({ cursor: z.string().optional() }).parse((await nango.getCheckpoint()) ?? {});
-        let cursor: string | undefined = checkpoint?.cursor;
+
+        // Reset any stored cursor before a delete-tracked run to ensure all records are seen
+        if (checkpoint.cursor) {
+            await nango.clearCheckpoint();
+        }
+
+        let cursor: string | undefined = undefined;
         let hasMore = true;
 
         await nango.trackDeletesStart('SharedFolder');
 
-        while (hasMore) {
-            const response = cursor
-                ? await nango.post({
-                      // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders-continue
-                      endpoint: '/2/sharing/list_folders/continue',
-                      data: {
-                          cursor
-                      },
-                      retries: 3
-                  })
-                : await nango.post({
-                      // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders
-                      endpoint: '/2/sharing/list_folders',
-                      data: {
-                          limit: 1000
-                      },
-                      retries: 3
-                  });
+        try {
+            while (hasMore) {
+                const response = cursor
+                    ? await nango.post({
+                          // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders-continue
+                          endpoint: '/2/sharing/list_folders/continue',
+                          data: {
+                              cursor
+                          },
+                          retries: 3
+                      })
+                    : await nango.post({
+                          // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders
+                          endpoint: '/2/sharing/list_folders',
+                          data: {
+                              limit: 1000
+                          },
+                          retries: 3
+                      });
 
-            const parsed = ListFoldersResponseSchema.parse(response.data);
+                const parsed = ListFoldersResponseSchema.parse(response.data);
 
-            if (parsed.entries.length > 0) {
-                const folders = parsed.entries.map((folder) => ({
-                    id: folder.shared_folder_id,
-                    sharedFolderId: folder.shared_folder_id,
-                    ...(folder.shared_folder_name !== undefined && {
-                        sharedFolderName: folder.shared_folder_name
-                    }),
-                    isTeamFolder: folder.is_team_folder,
-                    parentSharedFolderId: folder.parent_shared_folder_id,
-                    sharedFolderPathLower: folder.shared_folder_path_lower,
-                    sharedFolderPreviewPath: folder.shared_folder_preview_path,
-                    accessType: folder.access_type?.['.tag'],
-                    isInsideTeamFolder: folder.is_inside_team_folder,
-                    isMountManaged: folder.is_mount_managed,
-                    aclUpdatePolicy: folder.acl_update_policy?.['.tag']
-                }));
+                if (parsed.entries.length > 0) {
+                    const folders = parsed.entries.map((folder) => ({
+                        id: folder.shared_folder_id,
+                        sharedFolderId: folder.shared_folder_id,
+                        ...(folder.shared_folder_name !== undefined && {
+                            sharedFolderName: folder.shared_folder_name
+                        }),
+                        isTeamFolder: folder.is_team_folder,
+                        parentSharedFolderId: folder.parent_shared_folder_id,
+                        sharedFolderPathLower: folder.shared_folder_path_lower,
+                        sharedFolderPreviewPath: folder.shared_folder_preview_path,
+                        accessType: folder.access_type?.['.tag'],
+                        isInsideTeamFolder: folder.is_inside_team_folder,
+                        isMountManaged: folder.is_mount_managed,
+                        aclUpdatePolicy: folder.acl_update_policy?.['.tag']
+                    }));
 
-                await nango.batchSave(folders, 'SharedFolder');
+                    await nango.batchSave(folders, 'SharedFolder');
+                }
+
+                cursor = parsed.cursor;
+                hasMore = (parsed.has_more ?? false) && cursor !== undefined;
+
+                if (cursor) {
+                    await nango.saveCheckpoint({ cursor });
+                }
             }
 
-            cursor = parsed.cursor;
-            hasMore = (parsed.has_more ?? false) && cursor !== undefined;
-
-            if (cursor) {
-                await nango.saveCheckpoint({ cursor });
-            }
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('SharedFolder');
         }
-
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('SharedFolder');
     }
 });
 

@@ -117,7 +117,7 @@ const action = createAction({
         }
 
         // Handle complete response (synchronous)
-        if (tagValue === 'complete' || typeof responseData['shared_folder_id'] === 'string') {
+        if (tagValue === 'complete') {
             const completeData = CompleteSchema.parse(responseData);
             return {
                 success: true,
@@ -129,6 +129,32 @@ const action = createAction({
                     access_type: completeData.access_type?.['.tag'],
                     is_team_folder: completeData.is_team_folder,
                     is_inside_team_folder: completeData.is_inside_team_folder
+                }
+            };
+        }
+
+        // Handle direct folder metadata response (no .tag field)
+        if (typeof responseData['shared_folder_id'] === 'string') {
+            const FolderMetadataSchema = z.object({
+                shared_folder_id: z.string(),
+                name: z.string(),
+                path_lower: z.string().optional(),
+                preview_url: z.string().optional(),
+                access_type: z.object({ '.tag': z.string() }).optional(),
+                is_team_folder: z.boolean().optional(),
+                is_inside_team_folder: z.boolean().optional()
+            });
+            const folderData = FolderMetadataSchema.parse(responseData);
+            return {
+                success: true,
+                shared_folder_metadata: {
+                    shared_folder_id: folderData.shared_folder_id,
+                    name: folderData.name,
+                    path_lower: folderData.path_lower,
+                    preview_url: folderData.preview_url,
+                    access_type: folderData.access_type?.['.tag'],
+                    is_team_folder: folderData.is_team_folder,
+                    is_inside_team_folder: folderData.is_inside_team_folder
                 }
             };
         }

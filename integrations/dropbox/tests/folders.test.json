@@ -4,253 +4,295 @@
     "batchSave": {
       "Folder": [
         {
-          "id": "id:MzePHdV-D28AAAAAAAAABQ",
+          "id": "/testfolder1",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAABQ",
           "name": "TestFolder1",
           "path_lower": "/testfolder1",
           "path_display": "/TestFolder1"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAABw",
+          "id": "/testfolder1/testfolder2 (1)",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAABw",
           "name": "TestFolder2 (1)",
           "path_lower": "/testfolder1/testfolder2 (1)",
           "path_display": "/TestFolder1/TestFolder2 (1)"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAACA",
+          "id": "/testfolder1/testfolder2 (1)/testfolder3",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAACA",
           "name": "TestFolder3",
           "path_lower": "/testfolder1/testfolder2 (1)/testfolder3",
           "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder3"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAACQ",
+          "id": "/testfolder1/testfolder2 (1)/testfolder4",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAACQ",
           "name": "TestFolder4",
           "path_lower": "/testfolder1/testfolder2 (1)/testfolder4",
           "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAACg",
+          "id": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAACg",
           "name": "TestFolder5",
           "path_lower": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5",
           "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4/TestFolder5"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAACw",
+          "id": "/testfolderb",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAACw",
           "name": "TestFolderB",
           "path_lower": "/testfolderb",
           "path_display": "/TestFolderB"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAABg",
+          "id": "/testfolder1/projects",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAABg",
           "name": "Projects",
           "path_lower": "/testfolder1/projects",
           "path_display": "/TestFolder1/Projects"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAADQ",
+          "id": "/test-folder-action",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAADQ",
           "name": "test-folder-action",
           "path_lower": "/test-folder-action",
           "path_display": "/test-folder-action"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAADg",
+          "id": "/test-folder-action-save",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAADg",
           "name": "test-folder-action-save",
           "path_lower": "/test-folder-action-save",
           "path_display": "/test-folder-action-save"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAEQ",
+          "id": "/test-folder-for-zip-download",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAEQ",
           "name": "test-folder-for-zip-download",
           "path_lower": "/test-folder-for-zip-download",
           "path_display": "/test-folder-for-zip-download"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAEw",
+          "id": "/test-shared-link-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAEw",
           "name": "test-shared-link-folder",
           "path_lower": "/test-shared-link-folder",
           "path_display": "/test-shared-link-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAHQ",
+          "id": "/test-unshare-folder-nango",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAHQ",
           "name": "test-unshare-folder-nango",
           "path_lower": "/test-unshare-folder-nango",
           "path_display": "/test-unshare-folder-nango"
         },
         {
-          "id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
+          "id": "/test-share-folder-12345",
+          "dropbox_id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
           "name": "test-share-folder-12345",
           "path_lower": "/test-share-folder-12345",
           "path_display": "/test-share-folder-12345"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAJw",
+          "id": "/test-shared-link-folder-2",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAJw",
           "name": "test-shared-link-folder-2",
           "path_lower": "/test-shared-link-folder-2",
           "path_display": "/test-shared-link-folder-2"
         },
         {
-          "id": "id:Bx8928lLdlEAAAAAAAAAAQ",
+          "id": "/test-share-folder-1777409462",
+          "dropbox_id": "id:Bx8928lLdlEAAAAAAAAAAQ",
           "name": "test-share-folder-1777409462",
           "path_lower": "/test-share-folder-1777409462",
           "path_display": "/test-share-folder-1777409462"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAPQ",
+          "id": "/test-unshare-folder-nango-2",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAPQ",
           "name": "test-unshare-folder-nango-2",
           "path_lower": "/test-unshare-folder-nango-2",
           "path_display": "/test-unshare-folder-nango-2"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAQA",
+          "id": "/test-batch-folder-",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAQA",
           "name": "test-batch-folder-",
           "path_lower": "/test-batch-folder-",
           "path_display": "/test-batch-folder-"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAASA",
+          "id": "/nango-test-folder-",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAASA",
           "name": "nango-test-folder-",
           "path_lower": "/nango-test-folder-",
           "path_display": "/nango-test-folder-"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAATA",
+          "id": "/test-unshare-folder-sync",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAATA",
           "name": "test-unshare-folder-sync",
           "path_lower": "/test-unshare-folder-sync",
           "path_display": "/test-unshare-folder-sync"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAATw",
+          "id": "/nango-debug-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAATw",
           "name": "nango-debug-folder",
           "path_lower": "/nango-debug-folder",
           "path_display": "/nango-debug-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAUA",
+          "id": "/nango-test-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAUA",
           "name": "nango-test-folder",
           "path_lower": "/nango-test-folder",
           "path_display": "/nango-test-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAUQ",
+          "id": "/nango-debug-folder-2",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAUQ",
           "name": "nango-debug-folder-2",
           "path_lower": "/nango-debug-folder-2",
           "path_display": "/nango-debug-folder-2"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAVA",
+          "id": "/nango-test-folder-4",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAVA",
           "name": "nango-test-folder-4",
           "path_lower": "/nango-test-folder-4",
           "path_display": "/nango-test-folder-4"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAVg",
+          "id": "/nango-test-folder-5",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAVg",
           "name": "nango-test-folder-5",
           "path_lower": "/nango-test-folder-5",
           "path_display": "/nango-test-folder-5"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAWQ",
+          "id": "/homework",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAWQ",
           "name": "Homework",
           "path_lower": "/homework",
           "path_display": "/Homework"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAWA",
+          "id": "/homework/math",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAWA",
           "name": "math",
           "path_lower": "/homework/math",
           "path_display": "/Homework/math"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAWg",
+          "id": "/homework/algebra",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAWg",
           "name": "algebra",
           "path_lower": "/homework/algebra",
           "path_display": "/Homework/algebra"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAXQ",
+          "id": "/test",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAXQ",
           "name": "Test",
           "path_lower": "/test",
           "path_display": "/Test"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAWw",
+          "id": "/test/batchfolder1",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAWw",
           "name": "BatchFolder1",
           "path_lower": "/test/batchfolder1",
           "path_display": "/Test/BatchFolder1"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAXA",
+          "id": "/test/batchfolder2",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAXA",
           "name": "BatchFolder2",
           "path_lower": "/test/batchfolder2",
           "path_display": "/Test/BatchFolder2"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAXg",
+          "id": "/nango-batch-test-2026",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAXg",
           "name": "nango-batch-test-2026",
           "path_lower": "/nango-batch-test-2026",
           "path_display": "/nango-batch-test-2026"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAXw",
+          "id": "/nango-batch-test-2026-sub",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAXw",
           "name": "nango-batch-test-2026-sub",
           "path_lower": "/nango-batch-test-2026-sub",
           "path_display": "/nango-batch-test-2026-sub"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAYA",
+          "id": "/nango-batch-save-test-1",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAYA",
           "name": "nango-batch-save-test-1",
           "path_lower": "/nango-batch-save-test-1",
           "path_display": "/nango-batch-save-test-1"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAYQ",
+          "id": "/nango-batch-save-test-2",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAYQ",
           "name": "nango-batch-save-test-2",
           "path_lower": "/nango-batch-save-test-2",
           "path_display": "/nango-batch-save-test-2"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAYg",
+          "id": "/test-source-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAYg",
           "name": "test-source-folder",
           "path_lower": "/test-source-folder",
           "path_display": "/test-source-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAYw",
+          "id": "/test-destination-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAYw",
           "name": "test-destination-folder",
           "path_lower": "/test-destination-folder",
           "path_display": "/test-destination-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAZA",
+          "id": "/test-copy-destination-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAZA",
           "name": "test-copy-destination-folder",
           "path_lower": "/test-copy-destination-folder",
           "path_display": "/test-copy-destination-folder"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAZQ",
+          "id": "/test-nango-metadata-action",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAZQ",
           "name": "test-nango-metadata-action",
           "path_lower": "/test-nango-metadata-action",
           "path_display": "/test-nango-metadata-action"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAZw",
+          "id": "/nango-test-dest",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAZw",
           "name": "nango-test-dest",
           "path_lower": "/nango-test-dest",
           "path_display": "/nango-test-dest"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAZg",
+          "id": "/nango-test-dest/nango-test-source",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAZg",
           "name": "nango-test-source",
           "path_lower": "/nango-test-dest/nango-test-source",
           "path_display": "/nango-test-dest/nango-test-source"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAaA",
+          "id": "/nango-move-test-moved",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAaA",
           "name": "nango-move-test-moved",
           "path_lower": "/nango-move-test-moved",
           "path_display": "/nango-move-test-moved"
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAaQ",
+          "id": "/test-zip-folder",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAaQ",
           "name": "test-zip-folder",
           "path_lower": "/test-zip-folder",
           "path_display": "/test-zip-folder"
@@ -258,7 +300,26 @@
       ]
     },
     "batchDelete": {
-      "Folder": []
+      "Folder": [
+        {
+          "id": "/testfolder1/testfolder2"
+        },
+        {
+          "id": "/test-delete-action-folder"
+        },
+        {
+          "id": "/test-move-file.txt"
+        },
+        {
+          "id": "/nango-test-source-file.txt"
+        },
+        {
+          "id": "/nango-test-source"
+        },
+        {
+          "id": "/nango-move-test"
+        }
+      ]
     }
   },
   "api": {
@@ -307,6 +368,42 @@
               "path_lower": "/testfolderb",
               "path_display": "/TestFolderB",
               "id": "id:MzePHdV-D28AAAAAAAAACw"
+            },
+            {
+              ".tag": "deleted",
+              "name": "TestFolder2",
+              "path_lower": "/testfolder1/testfolder2",
+              "path_display": "/TestFolder1/TestFolder2"
+            },
+            {
+              ".tag": "deleted",
+              "name": "test-delete-action-folder",
+              "path_lower": "/test-delete-action-folder",
+              "path_display": "/test-delete-action-folder"
+            },
+            {
+              ".tag": "deleted",
+              "name": "test-move-file.txt",
+              "path_lower": "/test-move-file.txt",
+              "path_display": "/test-move-file.txt"
+            },
+            {
+              ".tag": "deleted",
+              "name": "nango-test-source-file.txt",
+              "path_lower": "/nango-test-source-file.txt",
+              "path_display": "/nango-test-source-file.txt"
+            },
+            {
+              ".tag": "deleted",
+              "name": "nango-test-source",
+              "path_lower": "/nango-test-source",
+              "path_display": "/nango-test-source"
+            },
+            {
+              ".tag": "deleted",
+              "name": "nango-move-test",
+              "path_lower": "/nango-move-test",
+              "path_display": "/nango-move-test"
             },
             {
               ".tag": "folder",
@@ -760,12 +857,12 @@
           "x-dropbox-request-id": "7a996c8b501d483aa997957269f1c139",
           "x-dropbox-trace-id": "69f1c13800000000358d78146edb21b9"
         },
-        "hash": "3e70f9dde9fb36e3254aaf0d9c4c5c0f5857fba5",
+        "hash": "30c9e2527bc19f10260b8c81e498486a5aa43beb",
         "request": {
           "data": {
             "path": "",
             "recursive": true,
-            "include_deleted": false
+            "include_deleted": true
           }
         }
       },

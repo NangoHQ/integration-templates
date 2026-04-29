@@ -89,7 +89,10 @@ const action = createAction({
         } else if (response.data && typeof response.data === 'object' && Buffer.isBuffer(response.data)) {
             bytes = response.data.toString('base64');
         } else {
-            bytes = '';
+            throw new nango.ActionError({
+                type: 'download_failed',
+                message: 'Failed to download file: unexpected response data format'
+            });
         }
 
         return {

@@ -36,11 +36,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-download_zip
-        const response = await nango.get({
+        const response = await nango.post({
             endpoint: '/2/files/download_zip',
             baseUrlOverride: 'https://content.dropboxapi.com',
-            params: {
-                arg: JSON.stringify({ path: input.path })
+            headers: {
+                'Dropbox-API-Arg': JSON.stringify({ path: input.path }),
+                'Content-Type': ''
             },
             retries: 3
         });
@@ -53,28 +54,41 @@ const action = createAction({
             });
         }
 
-        // The zip content is returned as binary in the response body
-        // The metadata is returned in the Dropbox-API-Result header
-        const zipContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
+        // Encode binary zip content as base64
+        let zipContent: string;
+        if (Buffer.isBuffer(response.data)) {
+            zipContent = response.data.toString('base64');
+        } else if (typeof response.data === 'string') {
+            zipContent = Buffer.from(response.data, 'binary').toString('base64');
+        } else {
+            throw new nango.ActionError({
+                type: 'download_failed',
+                message: 'Unexpected response data format when downloading folder as zip'
+            });
+        }
 
-        // Parse metadata from the Dropbox-API-Result header if available
+        // Parse metadata from the Dropbox-API-Result header
+        // The header contains a DownloadZipResult envelope: { "metadata": { ... folder metadata ... } }
         let metadata: z.infer<typeof ProviderFolderMetadataSchema>;
         const metadataHeader = response.headers && (response.headers['dropbox-api-result'] || response.headers['Dropbox-API-Result']);
 
         if (metadataHeader && typeof metadataHeader === 'string') {
             // @allowTryCatch - Parsing JSON from header may fail if format is unexpected
             try {
-                const parsedMetadata = JSON.parse(metadataHeader);
-                metadata = ProviderFolderMetadataSchema.parse(parsedMetadata);
+                const parsedHeader = JSON.parse(metadataHeader);
+                const envelopeResult = z.object({ metadata: ProviderFolderMetadataSchema }).safeParse(parsedHeader);
+                if (envelopeResult.success) {
+                    metadata = envelopeResult.data.metadata;
+                } else {
+                    metadata = ProviderFolderMetadataSchema.parse(parsedHeader);
+                }
             } catch {
-                // If parsing fails, create minimal metadata
                 metadata = {
                     id: 'unknown',
                     name: input.path.split('/').pop() || 'folder'
                 };
             }
         } else {
-            // No metadata header available, create minimal metadata
             metadata = {
                 id: 'unknown',
                 name: input.path.split('/').pop() || 'folder'

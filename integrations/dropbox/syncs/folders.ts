@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 const FolderSchema = z.object({
     id: z.string(),
+    dropbox_id: z.string(),
     name: z.string(),
     path_lower: z.string(),
     path_display: z.string(),
@@ -39,6 +40,12 @@ const MetadataEntrySchema = z
     })
     .passthrough();
 
+const DeletedEntrySchema = z.object({ '.tag': z.literal('deleted'), path_lower: z.string().optional() }).passthrough();
+
+const CursorResetErrorSchema = z.object({
+    response: z.object({ data: z.object({ error: z.object({ '.tag': z.string() }) }) })
+});
+
 const ListFolderResponseSchema = z.object({
     entries: z.array(MetadataEntrySchema),
     cursor: z.string(),
@@ -49,10 +56,19 @@ function getRootPaths(metadata: z.infer<typeof MetadataSchema>): string[] {
     return metadata.root_paths && metadata.root_paths.length > 0 ? metadata.root_paths : ['/'];
 }
 
-function mapFolders(entries: z.infer<typeof MetadataEntrySchema>[]): Folder[] {
+function mapFolders(entries: z.infer<typeof MetadataEntrySchema>[]): { folders: Folder[]; deletedPaths: string[] } {
     const folders: Folder[] = [];
+    const deletedPaths: string[] = [];
 
     for (const entry of entries) {
+        if (entry['.tag'] === 'deleted') {
+            const deleted = DeletedEntrySchema.safeParse(entry);
+            if (deleted.success && deleted.data.path_lower) {
+                deletedPaths.push(deleted.data.path_lower);
+            }
+            continue;
+        }
+
         if (entry['.tag'] !== 'folder') {
             continue;
         }
@@ -67,7 +83,8 @@ function mapFolders(entries: z.infer<typeof MetadataEntrySchema>[]): Folder[] {
         const parentFolderId = folder.parent_shared_folder_id ?? folder.sharing_info?.parent_shared_folder_id;
 
         folders.push({
-            id: folder.id,
+            id: folder.path_lower,
+            dropbox_id: folder.id,
             name: folder.name,
             path_lower: folder.path_lower,
             path_display: folder.path_display,
@@ -75,7 +92,7 @@ function mapFolders(entries: z.infer<typeof MetadataEntrySchema>[]): Folder[] {
         });
     }
 
-    return folders;
+    return { folders, deletedPaths };
 }
 
 const sync = createSync({
@@ -100,33 +117,55 @@ const sync = createSync({
         const cursors: Record<string, string> = { ...(checkpoint.cursors ?? {}) };
 
         for (const rootPath of rootPaths) {
-            let cursor = cursors[rootPath];
+            let cursor: string | undefined = cursors[rootPath];
             let hasMore = true;
 
             while (hasMore) {
-                const response = cursor
-                    ? await nango.post({
-                          // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
-                          endpoint: '/2/files/list_folder/continue',
-                          data: { cursor },
-                          retries: 3
-                      })
-                    : await nango.post({
-                          // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
-                          endpoint: '/2/files/list_folder',
-                          data: {
-                              path: rootPath === '/' ? '' : rootPath,
-                              recursive: true,
-                              include_deleted: false
-                          },
-                          retries: 3
-                      });
+                let response;
+
+                if (cursor) {
+                    // @allowTryCatch - Handle Dropbox 409 cursor-reset errors
+                    try {
+                        // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
+                        response = await nango.post({
+                            endpoint: '/2/files/list_folder/continue',
+                            data: { cursor },
+                            retries: 3
+                        });
+                    } catch (err: unknown) {
+                        const parsed = CursorResetErrorSchema.safeParse(err);
+                        if (parsed.success && parsed.data.response.data.error['.tag'] === 'reset') {
+                            cursor = undefined;
+                            delete cursors[rootPath];
+                            continue;
+                        }
+                        throw err;
+                    }
+                } else {
+                    // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
+                    response = await nango.post({
+                        endpoint: '/2/files/list_folder',
+                        data: {
+                            path: rootPath === '/' ? '' : rootPath,
+                            recursive: true,
+                            include_deleted: true
+                        },
+                        retries: 3
+                    });
+                }
 
                 const result = ListFolderResponseSchema.parse(response.data);
-                const folders = mapFolders(result.entries);
+                const { folders, deletedPaths } = mapFolders(result.entries);
 
                 if (folders.length > 0) {
                     await nango.batchSave(folders, 'Folder');
+                }
+
+                if (deletedPaths.length > 0) {
+                    await nango.batchDelete(
+                        deletedPaths.map((path) => ({ id: path })),
+                        'Folder'
+                    );
                 }
 
                 cursor = result.cursor;

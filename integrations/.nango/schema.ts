@@ -4042,7 +4042,7 @@ export interface ActionInput_dropbox_modifysharedlinksettings {
   /**
    * The new audience who can benefit from the access level.
    */
-  audience?: 'public' | 'team' | 'no_one' | 'password' | undefined;
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
   /**
    * Requested access level. Note: modifying access level for an existing link is not supported.
    */
@@ -4075,7 +4075,7 @@ export interface ActionOutput_dropbox_modifysharedlinksettings {
   link_permissions?: {  can_revoke?: boolean | undefined;
   resolved_visibility?: 'public' | 'team_only' | 'password' | 'team_and_password' | 'shared_folder_only' | 'no_one' | undefined;
   requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
-  effective_audience?: 'public' | 'team' | 'no_one' | undefined;
+  effective_audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
   link_access_level?: 'viewer' | 'editor' | 'max' | undefined;
   can_set_expiration?: boolean | undefined;
   can_set_password?: boolean | undefined;
@@ -4299,9 +4299,13 @@ export interface ActionInput_dropbox_uploadfile {
    */
   encoding?: 'base64' | 'utf8' | undefined;
   /**
-   * Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches. Defaults to "add".
+   * Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches (requires rev). Defaults to "add".
    */
   mode?: 'add' | 'overwrite' | 'update' | undefined;
+  /**
+   * The revision of the file to update. Required when mode is "update".
+   */
+  rev?: string | undefined;
   /**
    * If true and there's a conflict, Dropbox will try to autorename the file to avoid the conflict. Defaults to false.
    */

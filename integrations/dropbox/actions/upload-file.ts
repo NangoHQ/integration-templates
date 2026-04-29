@@ -10,8 +10,9 @@ const InputSchema = z.object({
         .enum(['add', 'overwrite', 'update'])
         .optional()
         .describe(
-            'Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches. Defaults to "add".'
+            'Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches (requires rev). Defaults to "add".'
         ),
+    rev: z.string().optional().describe('The revision of the file to update. Required when mode is "update".'),
     autorename: z
         .boolean()
         .optional()
@@ -65,9 +66,16 @@ const action = createAction({
             fileContent = Buffer.from(input.content, 'utf8');
         }
 
+        if (input.mode === 'update' && !input.rev) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'rev is required when mode is "update"'
+            });
+        }
+
         const dropboxApiArg: Record<string, unknown> = {
             path: input.path,
-            mode: input.mode || 'add',
+            mode: input.mode === 'update' ? { '.tag': 'update', update: { rev: input.rev } } : input.mode || 'add',
             autorename: input.autorename || false,
             mute: input.mute || false
         };

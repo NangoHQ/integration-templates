@@ -24,7 +24,7 @@ const ListFolderOutputSchema = z.object({
 });
 
 const ListFolderResultSchema = z.object({
-    entries: z.array(z.any()),
+    entries: z.array(MetadataSchema),
     cursor: z.string(),
     has_more: z.boolean()
 });

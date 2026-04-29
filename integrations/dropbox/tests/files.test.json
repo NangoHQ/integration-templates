@@ -4,7 +4,8 @@
     "batchSave": {
       "File": [
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAEA",
+          "id": "/test-upload.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAEA",
           "name": "test-upload.txt",
           "path_lower": "/test-upload.txt",
           "path_display": "/test-upload.txt",
@@ -16,7 +17,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAIg",
+          "id": "/test-file-temporary-link.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAIg",
           "name": "test-file-temporary-link.txt",
           "path_lower": "/test-file-temporary-link.txt",
           "path_display": "/test-file-temporary-link.txt",
@@ -28,7 +30,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAHw",
+          "id": "/test-restore-file.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAHw",
           "name": "test-restore-file.txt",
           "path_lower": "/test-restore-file.txt",
           "path_display": "/test-restore-file.txt",
@@ -40,7 +43,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAPw",
+          "id": "/test-upload-session.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAPw",
           "name": "test-upload-session.txt",
           "path_lower": "/test-upload-session.txt",
           "path_display": "/test-upload-session.txt",
@@ -52,7 +56,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAATg",
+          "id": "/test-moved-file.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAATg",
           "name": "test-moved-file.txt",
           "path_lower": "/test-moved-file.txt",
           "path_display": "/test-moved-file.txt",
@@ -64,7 +69,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAUg",
+          "id": "/test-moved-file-2.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAUg",
           "name": "test-moved-file-2.txt",
           "path_lower": "/test-moved-file-2.txt",
           "path_display": "/test-moved-file-2.txt",
@@ -76,7 +82,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAVQ",
+          "id": "/nango-test-dest-file.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAVQ",
           "name": "nango-test-dest-file.txt",
           "path_lower": "/nango-test-dest-file.txt",
           "path_display": "/nango-test-dest-file.txt",
@@ -88,7 +95,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAVw",
+          "id": "/nango-test-dest-1777409884.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAVw",
           "name": "nango-test-dest-1777409884.txt",
           "path_lower": "/nango-test-dest-1777409884.txt",
           "path_display": "/nango-test-dest-1777409884.txt",
@@ -100,7 +108,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAag",
+          "id": "/test-revoke-shared-link.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAag",
           "name": "test-revoke-shared-link.txt",
           "path_lower": "/test-revoke-shared-link.txt",
           "path_display": "/test-revoke-shared-link.txt",
@@ -112,7 +121,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAaw",
+          "id": "/file.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAaw",
           "name": "file.txt",
           "path_lower": "/file.txt",
           "path_display": "/file.txt",
@@ -124,7 +134,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAbA",
+          "id": "/test-revoke-shared-link-2.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAbA",
           "name": "test-revoke-shared-link-2.txt",
           "path_lower": "/test-revoke-shared-link-2.txt",
           "path_display": "/test-revoke-shared-link-2.txt",
@@ -136,7 +147,8 @@
           "is_downloadable": true
         },
         {
-          "id": "id:MzePHdV-D28AAAAAAAAAbQ",
+          "id": "/testfolderb/file2.txt",
+          "dropbox_id": "id:MzePHdV-D28AAAAAAAAAbQ",
           "name": "file2.txt",
           "path_lower": "/testfolderb/file2.txt",
           "path_display": "/TestFolderB/file2.txt",
