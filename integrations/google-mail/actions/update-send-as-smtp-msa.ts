@@ -32,7 +32,7 @@ const SendAsOutputSchema = z.object({
     isDefault: z.boolean().optional(),
     treatAsAlias: z.boolean().optional(),
     smtpMsa: SmtpMsaOutputSchema.optional(),
-    verificationStatus: z.enum(['accept', 'pending', 'unverified']).optional()
+    verificationStatus: z.enum(['verificationStatusUnspecified', 'accepted', 'pending']).optional()
 });
 
 const OutputSchema = z.object({

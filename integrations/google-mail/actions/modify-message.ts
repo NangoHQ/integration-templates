@@ -14,7 +14,7 @@ const ProviderMessageSchema = z.object({
     snippet: z.string().optional(),
     historyId: z.string().optional(),
     internalDate: z.string().optional(),
-    payload: z.any().optional(),
+    payload: z.unknown().optional(),
     sizeEstimate: z.number().optional(),
     raw: z.string().optional()
 });
@@ -42,10 +42,10 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.addLabelIds && !input.removeLabelIds) {
+        if ((!input.addLabelIds || input.addLabelIds.length === 0) && (!input.removeLabelIds || input.removeLabelIds.length === 0)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'At least one of addLabelIds or removeLabelIds must be provided'
+                message: 'At least one of addLabelIds or removeLabelIds must be provided with at least one label ID'
             });
         }
 

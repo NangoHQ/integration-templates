@@ -29947,10 +29947,23 @@
           "type": "boolean"
         },
         "expungeBehavior": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "expungeBehaviorUnspecified",
+            "archive",
+            "trash",
+            "deleteForever"
+          ]
         },
         "maxFolderSize": {
-          "type": "number"
+          "type": "number",
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ]
         }
       },
       "additionalProperties": false
@@ -30968,122 +30981,17 @@
               "3": {
                 "type": "string",
                 "const": "labelRemoved"
-              },
-              "4": {
-                "type": "string",
-                "const": "systemLabelAdded"
-              },
-              "5": {
-                "type": "string",
-                "const": "systemLabelRemoved"
-              },
-              "6": {
-                "type": "string",
-                "const": "messageLabelAdded"
-              },
-              "7": {
-                "type": "string",
-                "const": "messageLabelRemoved"
-              },
-              "8": {
-                "type": "string",
-                "const": "messageStarAdded"
-              },
-              "9": {
-                "type": "string",
-                "const": "messageStarRemoved"
-              },
-              "10": {
-                "type": "string",
-                "const": "draftAdded"
-              },
-              "11": {
-                "type": "string",
-                "const": "draftDeleted"
-              },
-              "12": {
-                "type": "string",
-                "const": "domainSettingsUpdate"
-              },
-              "13": {
-                "type": "string",
-                "const": "filterAdded"
-              },
-              "14": {
-                "type": "string",
-                "const": "filterRemoved"
-              },
-              "15": {
-                "type": "string",
-                "const": "forwardingAddressAdded"
-              },
-              "16": {
-                "type": "string",
-                "const": "forwardingAddressRemoved"
-              },
-              "17": {
-                "type": "string",
-                "const": "sendAsAliasAdded"
-              },
-              "18": {
-                "type": "string",
-                "const": "sendAsAliasRemoved"
-              },
-              "19": {
-                "type": "string",
-                "const": "vacationSettingsUpdate"
-              },
-              "20": {
-                "type": "string",
-                "const": "autoForwardingSettingsUpdate"
-              },
-              "21": {
-                "type": "string",
-                "const": "imapSettingsUpdate"
-              },
-              "22": {
-                "type": "string",
-                "const": "popSettingsUpdate"
-              },
-              "23": {
-                "type": "string",
-                "const": "languageSettingsUpdate"
-              },
-              "24": {
-                "type": "string",
-                "const": "emailSettingsUpdate"
               }
             },
             "required": [
               "0",
               "1",
               "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16",
-              "17",
-              "18",
-              "19",
-              "20",
-              "21",
-              "22",
-              "23",
-              "24"
+              "3"
             ],
             "additionalProperties": false
           },
-          "description": "History types to return. If not specified, all history types are returned."
+          "description": "History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned."
         },
         "labelId": {
           "type": "string",
@@ -31860,14 +31768,21 @@
           "type": "string",
           "enum": [
             "archive",
-            "delete",
-            "trash"
+            "trash",
+            "deleteForever"
           ],
           "description": "Behavior for expunging messages."
         },
         "max_folder_size": {
           "type": "number",
-          "description": "Maximum folder size in MB. Range: 0 to 10000000."
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ],
+          "description": "Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000."
         }
       },
       "additionalProperties": false
@@ -31885,12 +31800,19 @@
           "type": "string",
           "enum": [
             "archive",
-            "delete",
-            "trash"
+            "trash",
+            "deleteForever"
           ]
         },
         "max_folder_size": {
-          "type": "number"
+          "type": "number",
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ]
         }
       },
       "additionalProperties": false
@@ -32231,9 +32153,9 @@
             "verificationStatus": {
               "type": "string",
               "enum": [
-                "accept",
-                "pending",
-                "unverified"
+                "verificationStatusUnspecified",
+                "accepted",
+                "pending"
               ]
             }
           },

@@ -75,8 +75,8 @@ const action = createAction({
         if (input.treatAsAlias !== undefined) {
             body['treatAsAlias'] = input.treatAsAlias;
         }
-        if (input.isDefault !== undefined) {
-            body['isDefault'] = input.isDefault;
+        if (input.isDefault === true) {
+            body['isDefault'] = true;
         }
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs/patch

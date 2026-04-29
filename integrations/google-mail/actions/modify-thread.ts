@@ -32,18 +32,18 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.addLabelIds && !input.removeLabelIds) {
+        if ((!input.addLabelIds || input.addLabelIds.length === 0) && (!input.removeLabelIds || input.removeLabelIds.length === 0)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'At least one of addLabelIds or removeLabelIds must be provided.'
+                message: 'At least one of addLabelIds or removeLabelIds must be provided with at least one label ID.'
             });
         }
 
         const requestBody: { addLabelIds?: string[]; removeLabelIds?: string[] } = {};
-        if (input.addLabelIds) {
+        if (input.addLabelIds && input.addLabelIds.length > 0) {
             requestBody.addLabelIds = input.addLabelIds;
         }
-        if (input.removeLabelIds) {
+        if (input.removeLabelIds && input.removeLabelIds.length > 0) {
             requestBody.removeLabelIds = input.removeLabelIds;
         }
 

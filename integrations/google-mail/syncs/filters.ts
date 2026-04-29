@@ -62,7 +62,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Full refresh: track deletions since API returns complete filter list
-        await nango.trackDeletesStart('Filter');
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/list
         const proxyConfig = {
@@ -109,11 +108,14 @@ const sync = createSync({
             })
             .filter((f): f is NonNullable<typeof f> => f !== null);
 
-        if (normalizedFilters.length > 0) {
-            await nango.batchSave(normalizedFilters, 'Filter');
+        await nango.trackDeletesStart('Filter');
+        try {
+            if (normalizedFilters.length > 0) {
+                await nango.batchSave(normalizedFilters, 'Filter');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Filter');
         }
-
-        await nango.trackDeletesEnd('Filter');
     }
 });
 

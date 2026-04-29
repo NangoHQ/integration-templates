@@ -26,7 +26,7 @@ const SendAsAliasSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    sendAs: z.array(z.unknown()).optional()
+    sendAs: z.array(z.unknown())
 });
 
 const SendAsItemSchema = z.object({
@@ -69,7 +69,6 @@ const sync = createSync({
         // incremental filtering (no updated_at, modified_since, or cursor parameters).
         // It returns the full list of send-as aliases for the user.
         // Therefore, we use full refresh with trackDeletesStart/trackDeletesEnd.
-        await nango.trackDeletesStart('SendAsAlias');
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs/list
         const response = await nango.get({
@@ -82,7 +81,7 @@ const sync = createSync({
             throw new Error(`Invalid response from Gmail API: ${parsed.error.message}`);
         }
 
-        const sendAsList = parsed.data.sendAs ?? [];
+        const sendAsList = parsed.data.sendAs;
         const aliases: z.infer<typeof SendAsAliasSchema>[] = [];
 
         for (const item of sendAsList) {
@@ -116,11 +115,14 @@ const sync = createSync({
             aliases.push(alias);
         }
 
-        if (aliases.length > 0) {
-            await nango.batchSave(aliases, 'SendAsAlias');
+        await nango.trackDeletesStart('SendAsAlias');
+        try {
+            if (aliases.length > 0) {
+                await nango.batchSave(aliases, 'SendAsAlias');
+            }
+        } finally {
+            await nango.trackDeletesEnd('SendAsAlias');
         }
-
-        await nango.trackDeletesEnd('SendAsAlias');
     }
 });
 

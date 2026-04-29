@@ -8,15 +8,15 @@ const InputSchema = z.object({
 const ProviderImapSettingsSchema = z.object({
     autoExpunge: z.boolean().optional(),
     enabled: z.boolean().optional(),
-    expungeBehavior: z.string().optional(),
-    maxFolderSize: z.number().optional()
+    expungeBehavior: z.enum(['expungeBehaviorUnspecified', 'archive', 'trash', 'deleteForever']).optional(),
+    maxFolderSize: z.union([z.literal(0), z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)]).optional()
 });
 
 const OutputSchema = z.object({
     autoExpunge: z.boolean().optional(),
     enabled: z.boolean().optional(),
-    expungeBehavior: z.string().optional(),
-    maxFolderSize: z.number().optional()
+    expungeBehavior: z.enum(['expungeBehaviorUnspecified', 'archive', 'trash', 'deleteForever']).optional(),
+    maxFolderSize: z.union([z.literal(0), z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)]).optional()
 });
 
 const action = createAction({

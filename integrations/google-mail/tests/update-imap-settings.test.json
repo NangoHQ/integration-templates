@@ -43,12 +43,12 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "3366a2819e55791d8033736f584c8ed6d3dc1bd6",
+        "hash": "caaadbd70d97ca585db51d8b266c26263d809362",
         "request": {
           "data": {
-            "imapEnabled": true,
+            "enabled": true,
             "autoExpunge": true,
-            "expungeBehavior": "ARCHIVE",
+            "expungeBehavior": "archive",
             "maxFolderSize": 1000
           }
         }

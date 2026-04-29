@@ -19,8 +19,6 @@ const MessagePartBodySchema = z.object({
     data: z.string().optional()
 });
 
-// Using z.any() for the recursive parts field to avoid TypeScript circular reference issues
-// Gmail message parts can be deeply nested (multipart messages)
 const MessagePartSchema = z.object({
     partId: z.string().optional(),
     mimeType: z.string().optional(),
@@ -34,8 +32,7 @@ const MessagePartSchema = z.object({
         )
         .optional(),
     body: MessagePartBodySchema.optional(),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    parts: z.array(z.any()).optional()
+    parts: z.array(z.unknown()).optional()
 });
 
 const ProviderMessageSchema = z.object({

@@ -4,23 +4,25 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     imap_enabled: z.boolean().optional().describe('Whether IMAP is enabled for the account.'),
     auto_expunge: z.boolean().optional().describe('Whether to automatically expunge messages when they are deleted.'),
-    expunge_behavior: z.enum(['archive', 'delete', 'trash']).optional().describe('Behavior for expunging messages.'),
-    max_folder_size: z.number().int().min(0).max(10000000).optional().describe('Maximum folder size in MB. Range: 0 to 10000000.')
+    expunge_behavior: z.enum(['archive', 'trash', 'deleteForever']).optional().describe('Behavior for expunging messages.'),
+    max_folder_size: z
+        .union([z.literal(0), z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)])
+        .optional()
+        .describe('Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000.')
 });
 
 const ProviderImapSettingsSchema = z.object({
     enabled: z.boolean().optional(),
-    imapEnabled: z.boolean().optional(),
     autoExpunge: z.boolean().optional(),
-    expungeBehavior: z.string().optional(),
-    maxFolderSize: z.number().int().optional()
+    expungeBehavior: z.enum(['expungeBehaviorUnspecified', 'archive', 'trash', 'deleteForever']).optional(),
+    maxFolderSize: z.union([z.literal(0), z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)]).optional()
 });
 
 const OutputSchema = z.object({
     imap_enabled: z.boolean().optional(),
     auto_expunge: z.boolean().optional(),
-    expunge_behavior: z.enum(['archive', 'delete', 'trash']).optional(),
-    max_folder_size: z.number().int().optional()
+    expunge_behavior: z.enum(['archive', 'trash', 'deleteForever']).optional(),
+    max_folder_size: z.union([z.literal(0), z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)]).optional()
 });
 
 type Output = z.infer<typeof OutputSchema>;
@@ -41,13 +43,13 @@ const action = createAction({
         const requestBody: Record<string, unknown> = {};
 
         if (input.imap_enabled !== undefined) {
-            requestBody['imapEnabled'] = input.imap_enabled;
+            requestBody['enabled'] = input.imap_enabled;
         }
         if (input.auto_expunge !== undefined) {
             requestBody['autoExpunge'] = input.auto_expunge;
         }
         if (input.expunge_behavior !== undefined) {
-            requestBody['expungeBehavior'] = input.expunge_behavior.toUpperCase();
+            requestBody['expungeBehavior'] = input.expunge_behavior;
         }
         if (input.max_folder_size !== undefined) {
             requestBody['maxFolderSize'] = input.max_folder_size;
@@ -64,16 +66,15 @@ const action = createAction({
 
         const output: Output = {};
 
-        const imapEnabledValue = providerSettings['imapEnabled'] ?? providerSettings['enabled'];
-        if (imapEnabledValue !== undefined) {
-            output.imap_enabled = imapEnabledValue;
+        if (providerSettings['enabled'] !== undefined) {
+            output.imap_enabled = providerSettings['enabled'];
         }
         if (providerSettings['autoExpunge'] !== undefined) {
             output.auto_expunge = providerSettings['autoExpunge'];
         }
         if (providerSettings['expungeBehavior'] !== undefined) {
-            const behavior = providerSettings['expungeBehavior'].toLowerCase();
-            if (behavior === 'archive' || behavior === 'delete' || behavior === 'trash') {
+            const behavior = providerSettings['expungeBehavior'];
+            if (behavior === 'archive' || behavior === 'trash' || behavior === 'deleteForever') {
                 output.expunge_behavior = behavior;
             }
         }

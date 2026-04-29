@@ -199,55 +199,63 @@ async function syncBackfill(nango: NangoSyncLocal, checkpoint: NormalizedCheckpo
     const pageToken = checkpoint.phase === 'backfill' ? checkpoint.page_token : undefined;
     let backfillHistoryId = checkpoint.phase === 'backfill' ? checkpoint.backfill_history_id : undefined;
 
+    if (!backfillHistoryId) {
+        backfillHistoryId = await getCurrentHistoryId(nango);
+    }
+
     if (!pageToken) {
         await nango.trackDeletesStart('Thread');
-        backfillHistoryId = await getCurrentHistoryId(nango);
-    } else if (!backfillHistoryId) {
-        backfillHistoryId = await getCurrentHistoryId(nango);
     }
 
-    // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/list
-    const listResponse = await nango.get({
-        endpoint: '/gmail/v1/users/me/threads',
-        params: {
-            maxResults: 50,
-            ...(pageToken && { pageToken })
-        },
-        retries: 3
-    });
-
-    const listData = ThreadListResponseSchema.parse(listResponse.data);
-    const threads: Array<z.infer<typeof ThreadSchema>> = [];
-
-    for (const threadSummary of listData.threads ?? []) {
-        const thread = await fetchThread(nango, threadSummary.id);
-        if (thread) {
-            threads.push(thread);
-        }
-    }
-
-    if (threads.length > 0) {
-        await nango.batchSave(threads, 'Thread');
-    }
-
-    if (listData.nextPageToken) {
-        await nango.saveCheckpoint({
-            phase: 'backfill',
-            history_id: '',
-            page_token: listData.nextPageToken,
-            backfill_history_id: backfillHistoryId ?? ''
+    try {
+        // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/list
+        const listResponse = await nango.get({
+            endpoint: '/gmail/v1/users/me/threads',
+            params: {
+                maxResults: 50,
+                ...(pageToken && { pageToken })
+            },
+            retries: 3
         });
-        return;
+
+        const listData = ThreadListResponseSchema.parse(listResponse.data);
+        const threads: Array<z.infer<typeof ThreadSchema>> = [];
+
+        for (const threadSummary of listData.threads ?? []) {
+            const thread = await fetchThread(nango, threadSummary.id);
+            if (thread) {
+                threads.push(thread);
+            }
+        }
+
+        if (threads.length > 0) {
+            await nango.batchSave(threads, 'Thread');
+        }
+
+        if (listData.nextPageToken) {
+            await nango.saveCheckpoint({
+                phase: 'backfill',
+                history_id: '',
+                page_token: listData.nextPageToken,
+                backfill_history_id: backfillHistoryId ?? ''
+            });
+            return;
+        }
+
+        await nango.trackDeletesEnd('Thread');
+
+        await nango.saveCheckpoint({
+            phase: 'history',
+            history_id: backfillHistoryId ?? (await getCurrentHistoryId(nango)),
+            page_token: '',
+            backfill_history_id: ''
+        });
+    } catch (error) {
+        if (!pageToken) {
+            await nango.trackDeletesEnd('Thread');
+        }
+        throw error;
     }
-
-    await nango.trackDeletesEnd('Thread');
-
-    await nango.saveCheckpoint({
-        phase: 'history',
-        history_id: backfillHistoryId ?? (await getCurrentHistoryId(nango)),
-        page_token: '',
-        backfill_history_id: ''
-    });
 }
 
 async function syncHistory(nango: NangoSyncLocal, checkpoint: NormalizedCheckpoint): Promise<void> {

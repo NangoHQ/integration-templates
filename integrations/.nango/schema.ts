@@ -8032,8 +8032,8 @@ export interface ActionInput_google_mail_getimapsettings {
 export interface ActionOutput_google_mail_getimapsettings {
   autoExpunge?: boolean | undefined;
   enabled?: boolean | undefined;
-  expungeBehavior?: string | undefined;
-  maxFolderSize?: number | undefined;
+  expungeBehavior?: 'expungeBehaviorUnspecified' | 'archive' | 'trash' | 'deleteForever' | undefined;
+  maxFolderSize?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
 };
 
 export interface ActionInput_google_mail_getlabel {
@@ -8102,7 +8102,7 @@ export interface ActionOutput_google_mail_getmessage {
   body?: {  attachmentId?: string | undefined;
   size?: number | undefined;
   data?: string | undefined;};
-  parts?: any[] | undefined;};
+  parts?: unknown[] | undefined;};
   sizeEstimate?: number | undefined;
   raw?: string | undefined;
 };
@@ -8391,33 +8391,12 @@ export interface ActionInput_google_mail_listwatchhistory {
    */
   startHistoryId: string;
   /**
-   * History types to return. If not specified, all history types are returned.
+   * History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned.
    */
   historyTypes?: ({  0: 'messageAdded';
   1: 'messageDeleted';
   2: 'labelAdded';
-  3: 'labelRemoved';
-  4: 'systemLabelAdded';
-  5: 'systemLabelRemoved';
-  6: 'messageLabelAdded';
-  7: 'messageLabelRemoved';
-  8: 'messageStarAdded';
-  9: 'messageStarRemoved';
-  10: 'draftAdded';
-  11: 'draftDeleted';
-  12: 'domainSettingsUpdate';
-  13: 'filterAdded';
-  14: 'filterRemoved';
-  15: 'forwardingAddressAdded';
-  16: 'forwardingAddressRemoved';
-  17: 'sendAsAliasAdded';
-  18: 'sendAsAliasRemoved';
-  19: 'vacationSettingsUpdate';
-  20: 'autoForwardingSettingsUpdate';
-  21: 'imapSettingsUpdate';
-  22: 'popSettingsUpdate';
-  23: 'languageSettingsUpdate';
-  24: 'emailSettingsUpdate';})[] | undefined;
+  3: 'labelRemoved';})[] | undefined;
   /**
    * Only return history for this label. Example: "Label_1"
    */
@@ -8706,18 +8685,18 @@ export interface ActionInput_google_mail_updateimapsettings {
   /**
    * Behavior for expunging messages.
    */
-  expunge_behavior?: 'archive' | 'delete' | 'trash' | undefined;
+  expunge_behavior?: 'archive' | 'trash' | 'deleteForever' | undefined;
   /**
-   * Maximum folder size in MB. Range: 0 to 10000000.
+   * Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000.
    */
-  max_folder_size?: number | undefined;
+  max_folder_size?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
 };
 
 export interface ActionOutput_google_mail_updateimapsettings {
   imap_enabled?: boolean | undefined;
   auto_expunge?: boolean | undefined;
-  expunge_behavior?: 'archive' | 'delete' | 'trash' | undefined;
-  max_folder_size?: number | undefined;
+  expunge_behavior?: 'archive' | 'trash' | 'deleteForever' | undefined;
+  max_folder_size?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
 };
 
 export interface ActionInput_google_mail_updatelabel {
@@ -8889,7 +8868,7 @@ export interface ActionOutput_google_mail_updatesendassmtpmsa {
   smtpMsa?: {  host: string;
   port: number;
   securityMode: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls';} | undefined;
-  verificationStatus?: 'accept' | 'pending' | 'unverified' | undefined;};
+  verificationStatus?: 'verificationStatusUnspecified' | 'accepted' | 'pending' | undefined;};
 };
 
 export interface ActionInput_google_mail_updatevacationsettings {

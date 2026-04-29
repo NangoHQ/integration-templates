@@ -4,37 +4,11 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     startHistoryId: z.string().describe('Start history ID to return history records after. Example: "1234567890"'),
     historyTypes: z
-        .array(
-            z.enum([
-                'messageAdded',
-                'messageDeleted',
-                'labelAdded',
-                'labelRemoved',
-                'systemLabelAdded',
-                'systemLabelRemoved',
-                'messageLabelAdded',
-                'messageLabelRemoved',
-                'messageStarAdded',
-                'messageStarRemoved',
-                'draftAdded',
-                'draftDeleted',
-                'domainSettingsUpdate',
-                'filterAdded',
-                'filterRemoved',
-                'forwardingAddressAdded',
-                'forwardingAddressRemoved',
-                'sendAsAliasAdded',
-                'sendAsAliasRemoved',
-                'vacationSettingsUpdate',
-                'autoForwardingSettingsUpdate',
-                'imapSettingsUpdate',
-                'popSettingsUpdate',
-                'languageSettingsUpdate',
-                'emailSettingsUpdate'
-            ])
-        )
+        .array(z.enum(['messageAdded', 'messageDeleted', 'labelAdded', 'labelRemoved']))
         .optional()
-        .describe('History types to return. If not specified, all history types are returned.'),
+        .describe(
+            'History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned.'
+        ),
     labelId: z.string().optional().describe('Only return history for this label. Example: "Label_1"'),
     maxResults: z.number().optional().describe('Maximum number of history records to return.'),
     pageToken: z.string().optional().describe('Page token to retrieve a specific page of results.')
@@ -202,18 +176,22 @@ const action = createAction({
         }
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history/list
-        const response = await nango.get({
-            endpoint: '/gmail/v1/users/me/history',
-            params,
-            retries: 3
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Invalid startHistoryId. The provided history ID was not found.',
-                startHistoryId: input.startHistoryId
+        let response;
+        try {
+            response = await nango.get({
+                endpoint: '/gmail/v1/users/me/history',
+                params,
+                retries: 3
             });
+        } catch (error) {
+            if (isHistoryNotFoundError(error)) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Invalid startHistoryId. The provided history ID was not found.',
+                    startHistoryId: input.startHistoryId
+                });
+            }
+            throw error;
         }
 
         const providerData = ProviderHistorySchema.parse(response.data);
@@ -225,6 +203,25 @@ const action = createAction({
         };
     }
 });
+
+function isHistoryNotFoundError(error: unknown): boolean {
+    if (!error || typeof error !== 'object') {
+        return false;
+    }
+    const status = 'status' in error ? error.status : undefined;
+    if (status === 404) {
+        return true;
+    }
+    const payload = 'payload' in error ? error.payload : undefined;
+    if (!payload || typeof payload !== 'object') {
+        return false;
+    }
+    const nestedError = 'error' in payload ? payload.error : undefined;
+    if (!nestedError || typeof nestedError !== 'object') {
+        return false;
+    }
+    return 'code' in nestedError && nestedError.code === 404;
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

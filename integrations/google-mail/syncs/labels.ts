@@ -45,7 +45,6 @@ const sync = createSync({
         // Blocker: The Gmail Labels API doesn't support incremental filtering.
         // The labels.list endpoint returns all labels without a modified_since
         // or updated_after parameter. Full refresh is required.
-        await nango.trackDeletesStart('Label');
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.labels/list
         const response = await nango.get({
@@ -77,11 +76,14 @@ const sync = createSync({
             ...(label.threadsUnread !== undefined && { threadsUnread: label.threadsUnread })
         }));
 
-        if (mappedLabels.length > 0) {
-            await nango.batchSave(mappedLabels, 'Label');
+        await nango.trackDeletesStart('Label');
+        try {
+            if (mappedLabels.length > 0) {
+                await nango.batchSave(mappedLabels, 'Label');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Label');
         }
-
-        await nango.trackDeletesEnd('Label');
     }
 });
 

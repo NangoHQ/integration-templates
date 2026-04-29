@@ -40757,7 +40757,7 @@
           "ActionOutput_google_mail_deletethread"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/gmail.modify"
+          "https://mail.google.com/"
         ],
         "usedModels": [
           "ActionInput_google_mail_deletethread",
@@ -41229,10 +41229,37 @@
                   "type": "boolean"
                 },
                 "expungeBehavior": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "expungeBehaviorUnspecified",
+                    "archive",
+                    "trash",
+                    "deleteForever"
+                  ]
                 },
                 "maxFolderSize": {
-                  "type": "number"
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "const": 0
+                    },
+                    {
+                      "type": "number",
+                      "const": 1000
+                    },
+                    {
+                      "type": "number",
+                      "const": 2000
+                    },
+                    {
+                      "type": "number",
+                      "const": 5000
+                    },
+                    {
+                      "type": "number",
+                      "const": 10000
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -42644,7 +42671,7 @@
                   "description": "Start history ID to return history records after. Example: \"1234567890\""
                 },
                 "historyTypes": {
-                  "description": "History types to return. If not specified, all history types are returned.",
+                  "description": "History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned.",
                   "type": "array",
                   "items": {
                     "type": "string",
@@ -42652,28 +42679,7 @@
                       "messageAdded",
                       "messageDeleted",
                       "labelAdded",
-                      "labelRemoved",
-                      "systemLabelAdded",
-                      "systemLabelRemoved",
-                      "messageLabelAdded",
-                      "messageLabelRemoved",
-                      "messageStarAdded",
-                      "messageStarRemoved",
-                      "draftAdded",
-                      "draftDeleted",
-                      "domainSettingsUpdate",
-                      "filterAdded",
-                      "filterRemoved",
-                      "forwardingAddressAdded",
-                      "forwardingAddressRemoved",
-                      "sendAsAliasAdded",
-                      "sendAsAliasRemoved",
-                      "vacationSettingsUpdate",
-                      "autoForwardingSettingsUpdate",
-                      "imapSettingsUpdate",
-                      "popSettingsUpdate",
-                      "languageSettingsUpdate",
-                      "emailSettingsUpdate"
+                      "labelRemoved"
                     ]
                   }
                 },
@@ -43751,15 +43757,34 @@
                   "type": "string",
                   "enum": [
                     "archive",
-                    "delete",
-                    "trash"
+                    "trash",
+                    "deleteForever"
                   ]
                 },
                 "max_folder_size": {
-                  "description": "Maximum folder size in MB. Range: 0 to 10000000.",
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 10000000
+                  "description": "Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000.",
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "const": 0
+                    },
+                    {
+                      "type": "number",
+                      "const": 1000
+                    },
+                    {
+                      "type": "number",
+                      "const": 2000
+                    },
+                    {
+                      "type": "number",
+                      "const": 5000
+                    },
+                    {
+                      "type": "number",
+                      "const": 10000
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -43777,14 +43802,33 @@
                   "type": "string",
                   "enum": [
                     "archive",
-                    "delete",
-                    "trash"
+                    "trash",
+                    "deleteForever"
                   ]
                 },
                 "max_folder_size": {
-                  "type": "integer",
-                  "minimum": -9007199254740991,
-                  "maximum": 9007199254740991
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "const": 0
+                    },
+                    {
+                      "type": "number",
+                      "const": 1000
+                    },
+                    {
+                      "type": "number",
+                      "const": 2000
+                    },
+                    {
+                      "type": "number",
+                      "const": 5000
+                    },
+                    {
+                      "type": "number",
+                      "const": 10000
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -44261,9 +44305,9 @@
                     "verificationStatus": {
                       "type": "string",
                       "enum": [
-                        "accept",
-                        "pending",
-                        "unverified"
+                        "verificationStatusUnspecified",
+                        "accepted",
+                        "pending"
                       ]
                     }
                   },

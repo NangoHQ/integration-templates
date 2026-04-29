@@ -19,7 +19,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/gmail.modify'],
+    scopes: ['https://mail.google.com/'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/delete
