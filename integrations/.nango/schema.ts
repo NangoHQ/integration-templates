@@ -3459,6 +3459,85 @@ export interface ActionOutput_dropbox_batchmovefilesorfolders {
   from_path?: string | undefined;};})[];
 };
 
+export interface ActionInput_dropbox_checkbatchcopyfilesorfolders {
+  /**
+   * The async job ID returned by batch-copy-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchcopyfilesorfolders {
+  ".tag": 'in_progress' | 'complete' | 'failed';
+  entries?: ({  ".tag": string;
+  metadata?: {  name: string;
+  path_lower: string;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};
+  failure?: {  ".tag": string;
+  description?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * The async job ID returned by batch-delete-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion check
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * Per-entry results when status is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id?: string | undefined;};
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_checkbatchmovefilesorfolders {
+  /**
+   * The async job ID returned by batch-move-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkunsharefolder {
+  /**
+   * The async job ID returned by unshare-folder. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkunsharefolder {
+  success: boolean;
+  status: 'complete' | 'in_progress' | 'failed';
+  message?: string | undefined;
+};
+
 export interface ActionInput_dropbox_copyfileorfolder {
   /**
    * The path of the file or folder to copy. Example: "/folder/myfile.txt"
@@ -3598,6 +3677,28 @@ export interface ActionOutput_dropbox_createsharedlink {
    * Whether the shared link is password protected.
    */
   password_protected?: boolean | undefined;
+};
+
+export interface ActionInput_dropbox_createuser {
+  /**
+   * Email address of the new user. Example: "john.doe@example.com"
+   */
+  email: string;
+  /**
+   * First name of the new user. Example: "John"
+   */
+  firstName: string;
+  /**
+   * Last name of the new user. Example: "Doe"
+   */
+  lastName: string;
+};
+
+export interface ActionOutput_dropbox_createuser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 };
 
 export interface ActionInput_dropbox_deletefileorfolder {

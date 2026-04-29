@@ -22788,6 +22788,428 @@
       },
       {
         "type": "action",
+        "description": "Check the status of a Dropbox batch copy job using its async job ID.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/check-batch-copy-files-or-folders",
+          "group": "Files"
+        },
+        "input": "ActionInput_dropbox_checkbatchcopyfilesorfolders",
+        "name": "check-batch-copy-files-or-folders",
+        "output": [
+          "ActionOutput_dropbox_checkbatchcopyfilesorfolders"
+        ],
+        "scopes": [
+          "files.content.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_checkbatchcopyfilesorfolders",
+          "ActionOutput_dropbox_checkbatchcopyfilesorfolders"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_checkbatchcopyfilesorfolders": {
+              "type": "object",
+              "properties": {
+                "async_job_id": {
+                  "type": "string",
+                  "description": "The async job ID returned by batch-copy-files-or-folders. Example: \"dbjid:AAAcrHLQ...\""
+                }
+              },
+              "required": [
+                "async_job_id"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_checkbatchcopyfilesorfolders": {
+              "type": "object",
+              "properties": {
+                ".tag": {
+                  "type": "string",
+                  "enum": [
+                    "in_progress",
+                    "complete",
+                    "failed"
+                  ]
+                },
+                "entries": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      ".tag": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "path_lower": {
+                            "type": "string"
+                          },
+                          "path_display": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "content_hash": {
+                            "type": "string"
+                          },
+                          "server_modified": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "path_lower",
+                          "id"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "failure": {
+                        "type": "object",
+                        "properties": {
+                          ".tag": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          ".tag"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      ".tag"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                ".tag"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Check the status of a Dropbox batch delete job using its async job ID.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/check-batch-delete-files-or-folders",
+          "group": "Files"
+        },
+        "input": "ActionInput_dropbox_checkbatchdeletefilesorfolders",
+        "name": "check-batch-delete-files-or-folders",
+        "output": [
+          "ActionOutput_dropbox_checkbatchdeletefilesorfolders"
+        ],
+        "scopes": [
+          "files.content.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_checkbatchdeletefilesorfolders",
+          "ActionOutput_dropbox_checkbatchdeletefilesorfolders"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_checkbatchdeletefilesorfolders": {
+              "type": "object",
+              "properties": {
+                "async_job_id": {
+                  "type": "string",
+                  "description": "The async job ID returned by batch-delete-files-or-folders. Example: \"dbjid:AAAcrHLQ...\""
+                }
+              },
+              "required": [
+                "async_job_id"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_checkbatchdeletefilesorfolders": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "complete",
+                    "in_progress",
+                    "failed"
+                  ],
+                  "description": "Status of the batch deletion check"
+                },
+                "entries": {
+                  "description": "Per-entry results when status is complete",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      ".tag": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {
+                          ".tag": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "path_lower": {
+                            "type": "string"
+                          },
+                          "path_display": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          ".tag"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "failure": {
+                        "type": "object",
+                        "properties": {},
+                        "additionalProperties": {}
+                      }
+                    },
+                    "required": [
+                      ".tag"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Check the status of a Dropbox batch move job using its async job ID.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/check-batch-move-files-or-folders",
+          "group": "Files"
+        },
+        "input": "ActionInput_dropbox_checkbatchmovefilesorfolders",
+        "name": "check-batch-move-files-or-folders",
+        "output": [
+          "ActionOutput_dropbox_checkbatchmovefilesorfolders"
+        ],
+        "scopes": [
+          "files.content.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_checkbatchmovefilesorfolders",
+          "ActionOutput_dropbox_checkbatchmovefilesorfolders"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_checkbatchmovefilesorfolders": {
+              "type": "object",
+              "properties": {
+                "async_job_id": {
+                  "type": "string",
+                  "description": "The async job ID returned by batch-move-files-or-folders. Example: \"dbjid:AAAcrHLQ...\""
+                }
+              },
+              "required": [
+                "async_job_id"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_checkbatchmovefilesorfolders": {
+              "type": "object",
+              "properties": {
+                "job_status": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "complete"
+                    },
+                    {
+                      "type": "string",
+                      "const": "in_progress"
+                    },
+                    {
+                      "type": "string",
+                      "const": "failed"
+                    }
+                  ]
+                },
+                "entries": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "const": "success"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "path_display": {
+                            "type": "string"
+                          },
+                          "path_lower": {
+                            "type": "string"
+                          },
+                          "tag": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "file"
+                              },
+                              {
+                                "type": "string",
+                                "const": "folder"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "id",
+                          "tag"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "const": "failure"
+                          },
+                          "error_tag": {
+                            "type": "string"
+                          },
+                          "error_message": {
+                            "type": "string"
+                          },
+                          "to_path": {
+                            "type": "string"
+                          },
+                          "from_path": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "error_tag",
+                          "error_message"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "job_status",
+                "entries"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Check the status of a Dropbox unshare folder job using its async job ID.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/check-unshare-folder",
+          "group": "Sharing"
+        },
+        "input": "ActionInput_dropbox_checkunsharefolder",
+        "name": "check-unshare-folder",
+        "output": [
+          "ActionOutput_dropbox_checkunsharefolder"
+        ],
+        "scopes": [
+          "sharing.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_checkunsharefolder",
+          "ActionOutput_dropbox_checkunsharefolder"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_checkunsharefolder": {
+              "type": "object",
+              "properties": {
+                "async_job_id": {
+                  "type": "string",
+                  "description": "The async job ID returned by unshare-folder. Example: \"dbjid:AAAcrHLQ...\""
+                }
+              },
+              "required": [
+                "async_job_id"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_checkunsharefolder": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "complete",
+                    "in_progress",
+                    "failed"
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "success",
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
         "description": "Copy a Dropbox file or folder to a different path.",
         "endpoint": {
           "method": "POST",
@@ -23075,6 +23497,80 @@
                 "url",
                 "name",
                 "path"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Creates a user in Dropbox. Requires Dropbox Business.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_dropbox_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_dropbox_createuser"
+        ],
+        "scopes": [
+          "members.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_createuser",
+          "ActionOutput_dropbox_createuser"
+        ],
+        "version": "2.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_createuser": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "Email address of the new user. Example: \"john.doe@example.com\""
+                },
+                "firstName": {
+                  "type": "string",
+                  "description": "First name of the new user. Example: \"John\""
+                },
+                "lastName": {
+                  "type": "string",
+                  "description": "Last name of the new user. Example: \"Doe\""
+                }
+              },
+              "required": [
+                "email",
+                "firstName",
+                "lastName"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_createuser": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "firstName",
+                "lastName",
+                "email"
               ],
               "additionalProperties": false
             }
