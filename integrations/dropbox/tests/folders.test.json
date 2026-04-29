@@ -1,0 +1,813 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Folder": [
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAABQ",
+          "name": "TestFolder1",
+          "path_lower": "/testfolder1",
+          "path_display": "/TestFolder1"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAABw",
+          "name": "TestFolder2 (1)",
+          "path_lower": "/testfolder1/testfolder2 (1)",
+          "path_display": "/TestFolder1/TestFolder2 (1)"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAACA",
+          "name": "TestFolder3",
+          "path_lower": "/testfolder1/testfolder2 (1)/testfolder3",
+          "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder3"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAACQ",
+          "name": "TestFolder4",
+          "path_lower": "/testfolder1/testfolder2 (1)/testfolder4",
+          "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAACg",
+          "name": "TestFolder5",
+          "path_lower": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5",
+          "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4/TestFolder5"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAACw",
+          "name": "TestFolderB",
+          "path_lower": "/testfolderb",
+          "path_display": "/TestFolderB"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAABg",
+          "name": "Projects",
+          "path_lower": "/testfolder1/projects",
+          "path_display": "/TestFolder1/Projects"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAADQ",
+          "name": "test-folder-action",
+          "path_lower": "/test-folder-action",
+          "path_display": "/test-folder-action"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAADg",
+          "name": "test-folder-action-save",
+          "path_lower": "/test-folder-action-save",
+          "path_display": "/test-folder-action-save"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAEQ",
+          "name": "test-folder-for-zip-download",
+          "path_lower": "/test-folder-for-zip-download",
+          "path_display": "/test-folder-for-zip-download"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAEw",
+          "name": "test-shared-link-folder",
+          "path_lower": "/test-shared-link-folder",
+          "path_display": "/test-shared-link-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAHQ",
+          "name": "test-unshare-folder-nango",
+          "path_lower": "/test-unshare-folder-nango",
+          "path_display": "/test-unshare-folder-nango"
+        },
+        {
+          "id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
+          "name": "test-share-folder-12345",
+          "path_lower": "/test-share-folder-12345",
+          "path_display": "/test-share-folder-12345"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAJw",
+          "name": "test-shared-link-folder-2",
+          "path_lower": "/test-shared-link-folder-2",
+          "path_display": "/test-shared-link-folder-2"
+        },
+        {
+          "id": "id:Bx8928lLdlEAAAAAAAAAAQ",
+          "name": "test-share-folder-1777409462",
+          "path_lower": "/test-share-folder-1777409462",
+          "path_display": "/test-share-folder-1777409462"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAPQ",
+          "name": "test-unshare-folder-nango-2",
+          "path_lower": "/test-unshare-folder-nango-2",
+          "path_display": "/test-unshare-folder-nango-2"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAQA",
+          "name": "test-batch-folder-",
+          "path_lower": "/test-batch-folder-",
+          "path_display": "/test-batch-folder-"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAASA",
+          "name": "nango-test-folder-",
+          "path_lower": "/nango-test-folder-",
+          "path_display": "/nango-test-folder-"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAATA",
+          "name": "test-unshare-folder-sync",
+          "path_lower": "/test-unshare-folder-sync",
+          "path_display": "/test-unshare-folder-sync"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAATw",
+          "name": "nango-debug-folder",
+          "path_lower": "/nango-debug-folder",
+          "path_display": "/nango-debug-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAUA",
+          "name": "nango-test-folder",
+          "path_lower": "/nango-test-folder",
+          "path_display": "/nango-test-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAUQ",
+          "name": "nango-debug-folder-2",
+          "path_lower": "/nango-debug-folder-2",
+          "path_display": "/nango-debug-folder-2"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAVA",
+          "name": "nango-test-folder-4",
+          "path_lower": "/nango-test-folder-4",
+          "path_display": "/nango-test-folder-4"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAVg",
+          "name": "nango-test-folder-5",
+          "path_lower": "/nango-test-folder-5",
+          "path_display": "/nango-test-folder-5"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAWQ",
+          "name": "Homework",
+          "path_lower": "/homework",
+          "path_display": "/Homework"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAWA",
+          "name": "math",
+          "path_lower": "/homework/math",
+          "path_display": "/Homework/math"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAWg",
+          "name": "algebra",
+          "path_lower": "/homework/algebra",
+          "path_display": "/Homework/algebra"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAXQ",
+          "name": "Test",
+          "path_lower": "/test",
+          "path_display": "/Test"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAWw",
+          "name": "BatchFolder1",
+          "path_lower": "/test/batchfolder1",
+          "path_display": "/Test/BatchFolder1"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAXA",
+          "name": "BatchFolder2",
+          "path_lower": "/test/batchfolder2",
+          "path_display": "/Test/BatchFolder2"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAXg",
+          "name": "nango-batch-test-2026",
+          "path_lower": "/nango-batch-test-2026",
+          "path_display": "/nango-batch-test-2026"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAXw",
+          "name": "nango-batch-test-2026-sub",
+          "path_lower": "/nango-batch-test-2026-sub",
+          "path_display": "/nango-batch-test-2026-sub"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAYA",
+          "name": "nango-batch-save-test-1",
+          "path_lower": "/nango-batch-save-test-1",
+          "path_display": "/nango-batch-save-test-1"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAYQ",
+          "name": "nango-batch-save-test-2",
+          "path_lower": "/nango-batch-save-test-2",
+          "path_display": "/nango-batch-save-test-2"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAYg",
+          "name": "test-source-folder",
+          "path_lower": "/test-source-folder",
+          "path_display": "/test-source-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAYw",
+          "name": "test-destination-folder",
+          "path_lower": "/test-destination-folder",
+          "path_display": "/test-destination-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAZA",
+          "name": "test-copy-destination-folder",
+          "path_lower": "/test-copy-destination-folder",
+          "path_display": "/test-copy-destination-folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAZQ",
+          "name": "test-nango-metadata-action",
+          "path_lower": "/test-nango-metadata-action",
+          "path_display": "/test-nango-metadata-action"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAZw",
+          "name": "nango-test-dest",
+          "path_lower": "/nango-test-dest",
+          "path_display": "/nango-test-dest"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAZg",
+          "name": "nango-test-source",
+          "path_lower": "/nango-test-dest/nango-test-source",
+          "path_display": "/nango-test-dest/nango-test-source"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAaA",
+          "name": "nango-move-test-moved",
+          "path_lower": "/nango-move-test-moved",
+          "path_display": "/nango-move-test-moved"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAaQ",
+          "name": "test-zip-folder",
+          "path_lower": "/test-zip-folder",
+          "path_display": "/test-zip-folder"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Folder": []
+    }
+  },
+  "api": {
+    "post": {
+      "/2/files/list_folder": {
+        "response": {
+          "entries": [
+            {
+              ".tag": "folder",
+              "name": "TestFolder1",
+              "path_lower": "/testfolder1",
+              "path_display": "/TestFolder1",
+              "id": "id:MzePHdV-D28AAAAAAAAABQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolder2 (1)",
+              "path_lower": "/testfolder1/testfolder2 (1)",
+              "path_display": "/TestFolder1/TestFolder2 (1)",
+              "id": "id:MzePHdV-D28AAAAAAAAABw"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolder3",
+              "path_lower": "/testfolder1/testfolder2 (1)/testfolder3",
+              "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder3",
+              "id": "id:MzePHdV-D28AAAAAAAAACA"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolder4",
+              "path_lower": "/testfolder1/testfolder2 (1)/testfolder4",
+              "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4",
+              "id": "id:MzePHdV-D28AAAAAAAAACQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolder5",
+              "path_lower": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5",
+              "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4/TestFolder5",
+              "id": "id:MzePHdV-D28AAAAAAAAACg"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolderB",
+              "path_lower": "/testfolderb",
+              "path_display": "/TestFolderB",
+              "id": "id:MzePHdV-D28AAAAAAAAACw"
+            },
+            {
+              ".tag": "folder",
+              "name": "Projects",
+              "path_lower": "/testfolder1/projects",
+              "path_display": "/TestFolder1/Projects",
+              "id": "id:MzePHdV-D28AAAAAAAAABg"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-action",
+              "path_lower": "/test-folder-action",
+              "path_display": "/test-folder-action",
+              "id": "id:MzePHdV-D28AAAAAAAAADQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-action-save",
+              "path_lower": "/test-folder-action-save",
+              "path_display": "/test-folder-action-save",
+              "id": "id:MzePHdV-D28AAAAAAAAADg"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-for-zip-download",
+              "path_lower": "/test-folder-for-zip-download",
+              "path_display": "/test-folder-for-zip-download",
+              "id": "id:MzePHdV-D28AAAAAAAAAEQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-shared-link-folder",
+              "path_lower": "/test-shared-link-folder",
+              "path_display": "/test-shared-link-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAEw"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-unshare-folder-nango",
+              "path_lower": "/test-unshare-folder-nango",
+              "path_display": "/test-unshare-folder-nango",
+              "id": "id:MzePHdV-D28AAAAAAAAAHQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-share-folder-12345",
+              "path_lower": "/test-share-folder-12345",
+              "path_display": "/test-share-folder-12345",
+              "id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
+              "shared_folder_id": "14215597891",
+              "sharing_info": {
+                "read_only": false,
+                "shared_folder_id": "14215597891",
+                "traverse_only": false,
+                "no_access": false
+              }
+            },
+            {
+              ".tag": "folder",
+              "name": "test-shared-link-folder-2",
+              "path_lower": "/test-shared-link-folder-2",
+              "path_display": "/test-shared-link-folder-2",
+              "id": "id:MzePHdV-D28AAAAAAAAAJw"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-share-folder-1777409462",
+              "path_lower": "/test-share-folder-1777409462",
+              "path_display": "/test-share-folder-1777409462",
+              "id": "id:Bx8928lLdlEAAAAAAAAAAQ",
+              "shared_folder_id": "14221215955",
+              "sharing_info": {
+                "read_only": false,
+                "shared_folder_id": "14221215955",
+                "traverse_only": false,
+                "no_access": false
+              }
+            },
+            {
+              ".tag": "folder",
+              "name": "test-unshare-folder-nango-2",
+              "path_lower": "/test-unshare-folder-nango-2",
+              "path_display": "/test-unshare-folder-nango-2",
+              "id": "id:MzePHdV-D28AAAAAAAAAPQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-batch-folder-",
+              "path_lower": "/test-batch-folder-",
+              "path_display": "/test-batch-folder-",
+              "id": "id:MzePHdV-D28AAAAAAAAAQA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-folder-",
+              "path_lower": "/nango-test-folder-",
+              "path_display": "/nango-test-folder-",
+              "id": "id:MzePHdV-D28AAAAAAAAASA"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-unshare-folder-sync",
+              "path_lower": "/test-unshare-folder-sync",
+              "path_display": "/test-unshare-folder-sync",
+              "id": "id:MzePHdV-D28AAAAAAAAATA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-debug-folder",
+              "path_lower": "/nango-debug-folder",
+              "path_display": "/nango-debug-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAATw"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-folder",
+              "path_lower": "/nango-test-folder",
+              "path_display": "/nango-test-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAUA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-debug-folder-2",
+              "path_lower": "/nango-debug-folder-2",
+              "path_display": "/nango-debug-folder-2",
+              "id": "id:MzePHdV-D28AAAAAAAAAUQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-folder-4",
+              "path_lower": "/nango-test-folder-4",
+              "path_display": "/nango-test-folder-4",
+              "id": "id:MzePHdV-D28AAAAAAAAAVA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-folder-5",
+              "path_lower": "/nango-test-folder-5",
+              "path_display": "/nango-test-folder-5",
+              "id": "id:MzePHdV-D28AAAAAAAAAVg"
+            },
+            {
+              ".tag": "folder",
+              "name": "Homework",
+              "path_lower": "/homework",
+              "path_display": "/Homework",
+              "id": "id:MzePHdV-D28AAAAAAAAAWQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "math",
+              "path_lower": "/homework/math",
+              "path_display": "/Homework/math",
+              "id": "id:MzePHdV-D28AAAAAAAAAWA"
+            },
+            {
+              ".tag": "folder",
+              "name": "algebra",
+              "path_lower": "/homework/algebra",
+              "path_display": "/Homework/algebra",
+              "id": "id:MzePHdV-D28AAAAAAAAAWg"
+            },
+            {
+              ".tag": "folder",
+              "name": "Test",
+              "path_lower": "/test",
+              "path_display": "/Test",
+              "id": "id:MzePHdV-D28AAAAAAAAAXQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "BatchFolder1",
+              "path_lower": "/test/batchfolder1",
+              "path_display": "/Test/BatchFolder1",
+              "id": "id:MzePHdV-D28AAAAAAAAAWw"
+            },
+            {
+              ".tag": "folder",
+              "name": "BatchFolder2",
+              "path_lower": "/test/batchfolder2",
+              "path_display": "/Test/BatchFolder2",
+              "id": "id:MzePHdV-D28AAAAAAAAAXA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-batch-test-2026",
+              "path_lower": "/nango-batch-test-2026",
+              "path_display": "/nango-batch-test-2026",
+              "id": "id:MzePHdV-D28AAAAAAAAAXg"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-batch-test-2026-sub",
+              "path_lower": "/nango-batch-test-2026-sub",
+              "path_display": "/nango-batch-test-2026-sub",
+              "id": "id:MzePHdV-D28AAAAAAAAAXw"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-batch-save-test-1",
+              "path_lower": "/nango-batch-save-test-1",
+              "path_display": "/nango-batch-save-test-1",
+              "id": "id:MzePHdV-D28AAAAAAAAAYA"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-batch-save-test-2",
+              "path_lower": "/nango-batch-save-test-2",
+              "path_display": "/nango-batch-save-test-2",
+              "id": "id:MzePHdV-D28AAAAAAAAAYQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-source-folder",
+              "path_lower": "/test-source-folder",
+              "path_display": "/test-source-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAYg"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-destination-folder",
+              "path_lower": "/test-destination-folder",
+              "path_display": "/test-destination-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAYw"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-copy-destination-folder",
+              "path_lower": "/test-copy-destination-folder",
+              "path_display": "/test-copy-destination-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAZA"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-nango-metadata-action",
+              "path_lower": "/test-nango-metadata-action",
+              "path_display": "/test-nango-metadata-action",
+              "id": "id:MzePHdV-D28AAAAAAAAAZQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-dest",
+              "path_lower": "/nango-test-dest",
+              "path_display": "/nango-test-dest",
+              "id": "id:MzePHdV-D28AAAAAAAAAZw"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-test-source",
+              "path_lower": "/nango-test-dest/nango-test-source",
+              "path_display": "/nango-test-dest/nango-test-source",
+              "id": "id:MzePHdV-D28AAAAAAAAAZg"
+            },
+            {
+              ".tag": "folder",
+              "name": "nango-move-test-moved",
+              "path_lower": "/nango-move-test-moved",
+              "path_display": "/nango-move-test-moved",
+              "id": "id:MzePHdV-D28AAAAAAAAAaA"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-zip-folder",
+              "path_lower": "/test-zip-folder",
+              "path_display": "/test-zip-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAaQ"
+            },
+            {
+              ".tag": "file",
+              "name": "test-upload.txt",
+              "path_lower": "/test-upload.txt",
+              "path_display": "/test-upload.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAEA",
+              "client_modified": "2026-04-28T20:47:46Z",
+              "server_modified": "2026-04-28T20:47:46Z",
+              "rev": "016508b57f2b6f1000000033c9fd2f3",
+              "size": 22,
+              "is_downloadable": true,
+              "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802"
+            },
+            {
+              ".tag": "file",
+              "name": "test-file-temporary-link.txt",
+              "path_lower": "/test-file-temporary-link.txt",
+              "path_display": "/test-file-temporary-link.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAIg",
+              "client_modified": "2026-04-28T20:50:48Z",
+              "server_modified": "2026-04-28T20:50:48Z",
+              "rev": "016508b62c92e1b000000033c9fd2f3",
+              "size": 53,
+              "is_downloadable": true,
+              "content_hash": "e602d667102bcba4c432e0ed678a00e054438df297b524bf186d50cfc5246b8a"
+            },
+            {
+              ".tag": "file",
+              "name": "test-restore-file.txt",
+              "path_lower": "/test-restore-file.txt",
+              "path_display": "/test-restore-file.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAHw",
+              "client_modified": "2026-04-28T20:49:40Z",
+              "server_modified": "2026-04-28T20:51:20Z",
+              "rev": "016508b64b1c18e000000033c9fd2f3",
+              "size": 17,
+              "is_downloadable": true,
+              "content_hash": "bc64ebc27097d6c41535c4dac6fd1c6964f162b0b1fc1e494db1eaf12ef4a74d"
+            },
+            {
+              ".tag": "file",
+              "name": "test-upload-session.txt",
+              "path_lower": "/test-upload-session.txt",
+              "path_display": "/test-upload-session.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAPw",
+              "client_modified": "2026-04-28T20:53:12Z",
+              "server_modified": "2026-04-28T20:53:13Z",
+              "rev": "016508b6b6bf744000000033c9fd2f3",
+              "size": 55,
+              "is_downloadable": true,
+              "content_hash": "238536802147f9ab2d8cfd7cc53a7c0b095df6f828ede52d2abead7954a8791b"
+            },
+            {
+              ".tag": "file",
+              "name": "test-moved-file.txt",
+              "path_lower": "/test-moved-file.txt",
+              "path_display": "/test-moved-file.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAATg",
+              "client_modified": "2026-04-28T20:55:14Z",
+              "server_modified": "2026-04-28T20:55:30Z",
+              "rev": "016508b739683a9000000033c9fd2f3",
+              "size": 16,
+              "is_downloadable": true,
+              "content_hash": "e79033a0908c6b3b11dc2f0065a73dee0ee824c976eb7262a848c74b8ce118a2"
+            },
+            {
+              ".tag": "file",
+              "name": "test-moved-file-2.txt",
+              "path_lower": "/test-moved-file-2.txt",
+              "path_display": "/test-moved-file-2.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAUg",
+              "client_modified": "2026-04-28T20:55:50Z",
+              "server_modified": "2026-04-28T20:56:12Z",
+              "rev": "016508b76233c2f000000033c9fd2f3",
+              "size": 16,
+              "is_downloadable": true,
+              "content_hash": "e79033a0908c6b3b11dc2f0065a73dee0ee824c976eb7262a848c74b8ce118a2"
+            },
+            {
+              ".tag": "file",
+              "name": "nango-test-dest-file.txt",
+              "path_lower": "/nango-test-dest-file.txt",
+              "path_display": "/nango-test-dest-file.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAVQ",
+              "client_modified": "2026-04-28T20:56:41Z",
+              "server_modified": "2026-04-28T20:56:51Z",
+              "rev": "016508b786b3b32000000033c9fd2f3",
+              "size": 39,
+              "is_downloadable": true,
+              "content_hash": "fc94052298387bf9559d4ea32a1659f5e6a17c8302874c8586dec93157837984"
+            },
+            {
+              ".tag": "file",
+              "name": "nango-test-dest-1777409884.txt",
+              "path_lower": "/nango-test-dest-1777409884.txt",
+              "path_display": "/nango-test-dest-1777409884.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAVw",
+              "client_modified": "2026-04-28T20:56:41Z",
+              "server_modified": "2026-04-28T20:58:10Z",
+              "rev": "016508b7d28a130000000033c9fd2f3",
+              "size": 39,
+              "is_downloadable": true,
+              "content_hash": "fc94052298387bf9559d4ea32a1659f5e6a17c8302874c8586dec93157837984"
+            },
+            {
+              ".tag": "file",
+              "name": "test-revoke-shared-link.txt",
+              "path_lower": "/test-revoke-shared-link.txt",
+              "path_display": "/test-revoke-shared-link.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAag",
+              "client_modified": "2026-04-29T07:19:03Z",
+              "server_modified": "2026-04-29T07:19:03Z",
+              "rev": "01650942998dd2b000000033c9fd2f3",
+              "size": 39,
+              "is_downloadable": true,
+              "content_hash": "b6277359bccb50004d62d909e69e6c81a63a6634b4c1a61a8f535472d99a3391"
+            },
+            {
+              ".tag": "file",
+              "name": "file.txt",
+              "path_lower": "/file.txt",
+              "path_display": "/file.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAaw",
+              "client_modified": "2026-04-29T07:19:14Z",
+              "server_modified": "2026-04-29T07:19:15Z",
+              "rev": "01650942a4ab1c7000000033c9fd2f3",
+              "size": 43,
+              "is_downloadable": true,
+              "content_hash": "ff4f2d8179b9bd8316c2e2b356cf20e38d477fc10e1c74e008e78e01b3437313"
+            },
+            {
+              ".tag": "file",
+              "name": "test-revoke-shared-link-2.txt",
+              "path_lower": "/test-revoke-shared-link-2.txt",
+              "path_display": "/test-revoke-shared-link-2.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAbA",
+              "client_modified": "2026-04-29T07:19:24Z",
+              "server_modified": "2026-04-29T07:19:24Z",
+              "rev": "01650942ade77b2000000033c9fd2f3",
+              "size": 53,
+              "is_downloadable": true,
+              "content_hash": "760f5bf2f4a046507456da3e2ea9137323f0e869b3b9857256baaa5a3a9b853d"
+            },
+            {
+              ".tag": "file",
+              "name": "file2.txt",
+              "path_lower": "/testfolderb/file2.txt",
+              "path_display": "/TestFolderB/file2.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAbQ",
+              "client_modified": "2026-04-29T07:28:51Z",
+              "server_modified": "2026-04-29T07:28:51Z",
+              "rev": "01650944ca71dd1000000033c9fd2f3",
+              "size": 43,
+              "is_downloadable": true,
+              "content_hash": "ff4f2d8179b9bd8316c2e2b356cf20e38d477fc10e1c74e008e78e01b3437313"
+            }
+          ],
+          "cursor": "AAXTHr4fpKksSutWYjPuNTTm1tOrgkBgRAep2Ree60X_F4iMNtaTUGRR3q-Gx73NCsgWpsR8haS_tAbRKbVPVTMUFgALDVjIITfDyzVb4eTn27jtpyiYdiSVprgqtBPO7mN09ocKhWCG9Mvd_v3QFOcM1-b1cvDC7abcGZA-1_jKZnTBMwiHBt-jxsX92VDogFR-lsVYE_d8NYTX2Ohp6QDABHhdyZc8vVQevNDcVht73i8zvESsf9uWbkRKTLsosrAHvK8qEcTNcXaP5M-A1uu2nw_fOaRUJ_j5rJiPb_fW1ZyqRCuKr1ag8euKxSIm9yg",
+          "has_more": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 08:28:41 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1777451349",
+          "cache-control": "no-cache",
+          "x-server-response-time": "115",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "7a996c8b501d483aa997957269f1c139",
+          "x-dropbox-trace-id": "69f1c13800000000358d78146edb21b9"
+        },
+        "hash": "3e70f9dde9fb36e3254aaf0d9c4c5c0f5857fba5",
+        "request": {
+          "data": {
+            "path": "",
+            "recursive": true,
+            "include_deleted": false
+          }
+        }
+      },
+      "/2/files/list_folder/continue": {
+        "response": {
+          "entries": [],
+          "cursor": "AAVhnuRXoQI2mPunlOQbanHDF5MPTB6g2qj1OtTIOMBaPnlp5OE9NS5lNz63LKw3PpFQwosoHuuM-jlPZSQX150VtkdQlDjUwgbB9pcdrcu9NMg8G8KKE8RiltRWuXaCJSzxU0cFlcaQhQ5AY529jK9R6SQWVrIgi71-PWDBGGdfHLSNTSdEUcCH75YFzGnbL4pNtzxeeodEQbozS6ekNKCZkaD_rl8wOOJw4kBEZx2iksSrGMshCxbZD0RXYf9YmsnKOfaJXZEeuHBvmL4D-KbhC8KpF2E5E9EYCfuTGircF1AtBfxEz6pMJ3wYyMX3ZRM",
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 08:28:42 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1777451349",
+          "cache-control": "no-cache",
+          "x-server-response-time": "72",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "eec322f0901a4734a29efe2969f1c139",
+          "x-dropbox-trace-id": "69f1c13900000000716b35fb0c759e58"
+        },
+        "hash": "8076ec101a189dd8270825f9669cc78a1462f89b",
+        "request": {
+          "data": {
+            "cursor": "AAXTHr4fpKksSutWYjPuNTTm1tOrgkBgRAep2Ree60X_F4iMNtaTUGRR3q-Gx73NCsgWpsR8haS_tAbRKbVPVTMUFgALDVjIITfDyzVb4eTn27jtpyiYdiSVprgqtBPO7mN09ocKhWCG9Mvd_v3QFOcM1-b1cvDC7abcGZA-1_jKZnTBMwiHBt-jxsX92VDogFR-lsVYE_d8NYTX2Ohp6QDABHhdyZc8vVQevNDcVht73i8zvESsf9uWbkRKTLsosrAHvK8qEcTNcXaP5M-A1uu2nw_fOaRUJ_j5rJiPb_fW1ZyqRCuKr1ag8euKxSIm9yg"
+          }
+        }
+      }
+    }
+  }
+}
