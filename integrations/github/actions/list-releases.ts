@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
     repo: z.string().describe('The name of the repository. Example: "Hello-World"'),
-    per_page: z.number().optional().describe('The number of results per page (max 100). Example: 30'),
-    page: z.number().optional().describe('Page number of the results to fetch. Example: 1')
+    per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100). Example: 30'),
+    page: z.number().int().min(1).optional().describe('Page number of the results to fetch. Example: 1')
 });
 
 const ReleaseSchema = z.object({
@@ -62,10 +62,11 @@ const action = createAction({
 
         const releases = z.array(ReleaseSchema).parse(response.data);
 
-        // Determine next page based on whether we got a full page of results
-        const perPage = input.per_page ?? 30;
+        const rawLink = response.headers?.['link'];
+        const linkHeader = typeof rawLink === 'string' ? rawLink : undefined;
+        const hasNextPage = linkHeader ? linkHeader.includes('rel="next"') : false;
         const currentPage = input.page ?? 1;
-        const nextPage = releases.length === perPage ? currentPage + 1 : undefined;
+        const nextPage = hasNextPage ? currentPage + 1 : undefined;
 
         return {
             releases,

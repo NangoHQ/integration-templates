@@ -157,13 +157,14 @@ const action = createAction({
         const { owner, repo, path, message, content, branch, sha, committer, author } = input;
 
         // Get the current SHA if updating an existing file and sha not provided
+        const encodedPath = path.split('/').map(encodeURIComponent).join('/');
         let fileSha = sha;
         if (!fileSha) {
             // @allowTryCatch: We need to handle the 404 case gracefully to determine if we're creating a new file or updating an existing one
             try {
                 // https://docs.github.com/en/rest/repos/contents#get-repository-content
                 const getResponse = await nango.get({
-                    endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodeURIComponent(path)}`,
+                    endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`,
                     params: branch ? { ref: branch } : {},
                     retries: 3
                 });
@@ -174,9 +175,19 @@ const action = createAction({
                         fileSha = data.sha;
                     }
                 }
-            } catch (_error) {
-                // File doesn't exist, which is fine for creating a new file
-                // We'll proceed without a SHA
+            } catch (error: unknown) {
+                const isNotFound =
+                    error !== null &&
+                    typeof error === 'object' &&
+                    'response' in error &&
+                    error.response !== null &&
+                    typeof error.response === 'object' &&
+                    'status' in error.response &&
+                    error.response.status === 404;
+                if (!isNotFound) {
+                    throw error;
+                }
+                // 404 means file doesn't exist; proceed without SHA to create it
             }
         }
 
@@ -207,7 +218,7 @@ const action = createAction({
 
         // https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents
         const response = await nango.put({
-            endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodeURIComponent(path)}`,
+            endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`,
             data: requestBody,
             retries: 1
         });

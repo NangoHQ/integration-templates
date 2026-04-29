@@ -1,15 +1,19 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InlineCommentSchema = z.object({
-    path: z.string().describe('The relative path to the file that necessitates a review comment.'),
-    position: z.number().optional().describe('The position in the diff where you want to add a review comment.'),
-    body: z.string().describe('Text of the review comment.'),
-    line: z.number().optional().describe('The line of the blob in the pull request diff.'),
-    side: z.enum(['LEFT', 'RIGHT']).optional().describe('The side of the diff.'),
-    start_line: z.number().optional().describe('The start line of the range for a multi-line comment.'),
-    start_side: z.enum(['LEFT', 'RIGHT']).optional().describe('The start side of the diff for a multi-line comment.')
-});
+const InlineCommentSchema = z
+    .object({
+        path: z.string().describe('The relative path to the file that necessitates a review comment.'),
+        position: z.number().optional().describe('The position in the diff where you want to add a review comment.'),
+        body: z.string().describe('Text of the review comment.'),
+        line: z.number().optional().describe('The line of the blob in the pull request diff.'),
+        side: z.enum(['LEFT', 'RIGHT']).optional().describe('The side of the diff.'),
+        start_line: z.number().optional().describe('The start line of the range for a multi-line comment.'),
+        start_side: z.enum(['LEFT', 'RIGHT']).optional().describe('The start side of the diff for a multi-line comment.')
+    })
+    .refine((data) => data.position !== undefined || data.line !== undefined, {
+        message: "Inline comment must specify either 'position' or 'line' to locate it in the diff."
+    });
 
 const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository. Example: "octocat"'),

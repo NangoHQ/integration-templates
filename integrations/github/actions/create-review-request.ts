@@ -1,13 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    owner: z.string().describe('Repository owner (username or organization). Example: "octocat"'),
-    repo: z.string().describe('Repository name. Example: "hello-world"'),
-    pull_number: z.number().describe('Pull request number. Example: 1'),
-    reviewers: z.array(z.string()).optional().describe('Usernames of users to request reviews from. Example: ["octocat"]'),
-    team_reviewers: z.array(z.string()).optional().describe('Slugs of teams to request reviews from. Example: ["justice-league"]')
-});
+const InputSchema = z
+    .object({
+        owner: z.string().describe('Repository owner (username or organization). Example: "octocat"'),
+        repo: z.string().describe('Repository name. Example: "hello-world"'),
+        pull_number: z.number().int().positive().describe('Pull request number. Example: 1'),
+        reviewers: z.array(z.string()).optional().describe('Usernames of users to request reviews from. Example: ["octocat"]'),
+        team_reviewers: z.array(z.string()).optional().describe('Slugs of teams to request reviews from. Example: ["justice-league"]')
+    })
+    .refine((data) => (data.reviewers && data.reviewers.length > 0) || (data.team_reviewers && data.team_reviewers.length > 0), {
+        message: 'At least one reviewer or team_reviewer must be specified'
+    });
 
 const SimpleUserSchema = z.object({
     login: z.string(),

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     owner: z.string().describe('Account owner of the repository. Example: "octocat"'),
     repo: z.string().describe('Name of the repository. Example: "hello-world"'),
-    pull_number: z.number().describe('Number identifying the pull request. Example: 42'),
+    pull_number: z.number().int().positive().describe('Number identifying the pull request. Example: 42'),
     commit_title: z.string().optional().describe('Title for the automatic commit message.'),
     commit_message: z.string().optional().describe('Extra detail to append to automatic commit message.'),
     sha: z.string().optional().describe('SHA that pull request head must match to allow merge.'),

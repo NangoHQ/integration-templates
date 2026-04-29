@@ -90,8 +90,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/repos/contents#delete-a-file
+        const encodedPath = input.path.split('/').map(encodeURIComponent).join('/');
         const response = await nango.delete({
-            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodeURIComponent(input.path)}`,
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodedPath}`,
             data: {
                 message: input.message,
                 sha: input.sha,

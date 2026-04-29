@@ -71,13 +71,15 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
 
+        const syncStartedAt = new Date().toISOString();
+
         if (!checkpoint) {
             await saveAllRepositoryFiles(nango, owner, repo, branch);
         } else {
             await saveFileUpdates(nango, owner, repo, new Date(checkpoint.synced_at));
         }
 
-        await nango.saveCheckpoint({ synced_at: new Date().toISOString() });
+        await nango.saveCheckpoint({ synced_at: syncStartedAt });
     }
 });
 
@@ -92,7 +94,8 @@ async function saveAllRepositoryFiles(nango: NangoSyncLocal, owner: string, repo
         // https://docs.github.com/en/rest/git/trees?apiVersion=2022-11-28
         endpoint,
         params: { recursive: '1' },
-        paginate: { response_path: 'tree', limit: LIMIT }
+        paginate: { response_path: 'tree', limit: LIMIT },
+        retries: 3
     };
 
     await nango.log(`Fetching files from endpoint ${endpoint}.`);
@@ -146,7 +149,8 @@ async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSumma
         paginate: {
             response_path: 'files',
             limit: LIMIT
-        }
+        },
+        retries: 3
     };
 
     await nango.log(`Fetching files from endpoint ${endpoint}.`);

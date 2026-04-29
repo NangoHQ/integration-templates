@@ -65,7 +65,9 @@ const action = createAction({
 
         const branches = z.array(BranchSchema).parse(response.data);
 
-        const nextPage = input.page !== undefined && branches.length === input.per_page ? input.page + 1 : undefined;
+        const effectivePerPage = input.per_page ?? 30;
+        const effectivePage = input.page ?? 1;
+        const nextPage = branches.length === effectivePerPage ? effectivePage + 1 : undefined;
 
         return {
             branches,

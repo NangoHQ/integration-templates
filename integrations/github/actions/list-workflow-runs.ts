@@ -9,9 +9,24 @@ const InputSchema = z.object({
         .optional()
         .describe('The ID of the workflow. Example: "161335" or "main.yml". If provided, only runs for this workflow are returned.'),
     status: z
-        .enum(['queued', 'in_progress', 'completed', 'waiting', 'requested', 'pending'])
+        .enum([
+            'queued',
+            'in_progress',
+            'completed',
+            'waiting',
+            'requested',
+            'pending',
+            'action_required',
+            'cancelled',
+            'failure',
+            'neutral',
+            'skipped',
+            'stale',
+            'success',
+            'timed_out'
+        ])
         .optional()
-        .describe('Returns workflow runs with the specified status.'),
+        .describe('Returns workflow runs with the specified status or conclusion.'),
     branch: z.string().optional().describe('Returns workflow runs triggered on the specified branch.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100). Default: 30.')
@@ -60,12 +75,21 @@ const action = createAction({
     scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Invalid cursor format. Cursor must be a valid page number.'
-            });
+        let page = 1;
+        if (input.cursor) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid cursor format. Cursor must be a positive integer page number.'
+                });
+            }
+            page = parseInt(input.cursor, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid cursor format. Cursor must be a positive integer page number.'
+                });
+            }
         }
 
         const perPage = input.per_page ?? 30;

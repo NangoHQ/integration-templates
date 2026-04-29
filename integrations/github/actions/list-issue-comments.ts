@@ -94,10 +94,11 @@ const action = createAction({
             ...(comment.issue_url !== undefined && { issue_url: comment.issue_url })
         }));
 
-        // Check if there might be more pages by checking if we got a full page
-        const currentPerPage = input['per_page'] ?? 30;
+        const rawLink = response.headers?.['link'];
+        const linkHeader = typeof rawLink === 'string' ? rawLink : undefined;
+        const hasNextPage = linkHeader ? linkHeader.includes('rel="next"') : false;
         const currentPage = input['page'] ?? 1;
-        const next_page = comments.length === currentPerPage ? currentPage + 1 : undefined;
+        const next_page = hasNextPage ? currentPage + 1 : undefined;
 
         return {
             comments: mappedComments,

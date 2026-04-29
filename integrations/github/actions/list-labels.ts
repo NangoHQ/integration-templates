@@ -14,8 +14,8 @@ const LabelSchema = z.object({
 const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository'),
     repo: z.string().describe('The name of the repository'),
-    per_page: z.number().optional().describe('The number of results per page (max 100)'),
-    page: z.number().optional().describe('The page number of the results to fetch')
+    per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100)'),
+    page: z.number().int().min(1).optional().describe('The page number of the results to fetch')
 });
 
 const OutputSchema = z.object({

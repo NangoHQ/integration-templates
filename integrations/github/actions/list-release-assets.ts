@@ -5,8 +5,8 @@ const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
     repo: z.string().describe('The name of the repository. Example: "Hello-World"'),
     release_id: z.number().describe('The unique identifier of the release. Example: 1'),
-    per_page: z.number().optional().describe('The number of results per page (max 100). Default: 30'),
-    page: z.number().optional().describe('The page number of the results to fetch. Default: 1')
+    per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100). Default: 30'),
+    page: z.number().int().min(1).optional().describe('The page number of the results to fetch. Default: 1')
 });
 
 const UploaderSchema = z.object({
@@ -123,12 +123,14 @@ const action = createAction({
             }
         }
 
+        const rawLink = response.headers?.['link'];
+        const linkHeader = typeof rawLink === 'string' ? rawLink : undefined;
+        const hasNextPage = linkHeader ? linkHeader.includes('rel="next"') : false;
         const currentPage = input.page ?? 1;
-        const hasMore = assets.length === (input.per_page ?? 30);
 
         return {
             assets,
-            ...(hasMore && { next_page: currentPage + 1 })
+            ...(hasNextPage && { next_page: currentPage + 1 })
         };
     }
 });

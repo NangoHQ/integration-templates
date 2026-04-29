@@ -87,8 +87,9 @@ const action = createAction({
         }
 
         // https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#get-repository-content
+        const encodedPath = input.path.split('/').map(encodeURIComponent).join('/');
         const response = await nango.get({
-            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodeURIComponent(input.path)}`,
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodedPath}`,
             params: params,
             retries: 3
         });

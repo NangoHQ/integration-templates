@@ -29620,7 +29620,9 @@
                   "description": "Repository name. Example: \"hello-world\""
                 },
                 "pull_number": {
-                  "type": "number",
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991,
                   "description": "Pull request number. Example: 1"
                 },
                 "reviewers": {
@@ -30961,14 +30963,68 @@
                   }
                 },
                 "assignee": {
-                  "type": "null"
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "number"
+                        },
+                        "avatar_url": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "login",
+                        "id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "assignees": {
                   "type": "array",
                   "items": {}
                 },
                 "milestone": {
-                  "type": "null"
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "number": {
+                          "type": "number"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "number",
+                        "title",
+                        "state"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "locked": {
                   "type": "boolean"
@@ -31077,7 +31133,9 @@
                   "description": "The name of the repository. Example: \"hello-world\""
                 },
                 "job_id": {
-                  "type": "number",
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991,
                   "description": "The unique identifier of the job. Example: 123456789"
                 }
               },
@@ -31225,7 +31283,9 @@
                   "description": "The name of the repository. Example: \"Hello-World\""
                 },
                 "pull_number": {
-                  "type": "number",
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991,
                   "description": "The number that identifies the pull request. Example: 1"
                 }
               },
@@ -32991,11 +33051,15 @@
                 },
                 "per_page": {
                   "description": "The number of results per page (max 100)",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "page": {
                   "description": "The page number of the results to fetch",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -33288,26 +33352,33 @@
                         "type": "string"
                       },
                       "user": {
-                        "type": "object",
-                        "properties": {
-                          "login": {
-                            "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "number"
+                              },
+                              "avatar_url": {
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "login",
+                              "id"
+                            ],
+                            "additionalProperties": false
                           },
-                          "id": {
-                            "type": "number"
-                          },
-                          "avatar_url": {
-                            "type": "string"
-                          },
-                          "html_url": {
-                            "type": "string"
+                          {
+                            "type": "null"
                           }
-                        },
-                        "required": [
-                          "login",
-                          "id"
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "body": {
                         "anyOf": [
@@ -33329,7 +33400,14 @@
                         "type": "string"
                       },
                       "commit_id": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
                       },
                       "submitted_at": {
                         "type": "string"
@@ -33869,11 +33947,15 @@
                 },
                 "per_page": {
                   "description": "The number of results per page (max 100). Default: 30",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "page": {
                   "description": "The page number of the results to fetch. Default: 1",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -33993,11 +34075,15 @@
                 },
                 "per_page": {
                   "description": "The number of results per page (max 100). Example: 30",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "page": {
                   "description": "Page number of the results to fetch. Example: 1",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -34181,11 +34267,15 @@
                 },
                 "per_page": {
                   "description": "The number of results per page (max 100). Default: 30",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "page": {
                   "description": "Page number of results to fetch. Default: 1",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -34467,7 +34557,7 @@
                   ]
                 },
                 "status": {
-                  "description": "Returns workflow runs with the specified status.",
+                  "description": "Returns workflow runs with the specified status or conclusion.",
                   "type": "string",
                   "enum": [
                     "queued",
@@ -34475,7 +34565,15 @@
                     "completed",
                     "waiting",
                     "requested",
-                    "pending"
+                    "pending",
+                    "action_required",
+                    "cancelled",
+                    "failure",
+                    "neutral",
+                    "skipped",
+                    "stale",
+                    "success",
+                    "timed_out"
                   ]
                 },
                 "branch": {
@@ -34622,11 +34720,15 @@
                 },
                 "per_page": {
                   "description": "Number of results per page (max 100).",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "page": {
                   "description": "Page number of the results to fetch.",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -34738,7 +34840,9 @@
                   "description": "Name of the repository. Example: \"hello-world\""
                 },
                 "pull_number": {
-                  "type": "number",
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991,
                   "description": "Number identifying the pull request. Example: 42"
                 },
                 "commit_title": {
@@ -35181,7 +35285,8 @@
                       "enum": [
                         "completed",
                         "not_planned",
-                        "reopened"
+                        "reopened",
+                        "duplicate"
                       ]
                     },
                     {
@@ -35536,7 +35641,9 @@
                   "description": "The name of the repository. Example: \"Hello-World\""
                 },
                 "pull_number": {
-                  "type": "number",
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991,
                   "description": "The number that identifies the pull request. Example: 42"
                 },
                 "title": {

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
     repo: z.string().describe('The name of the repository. Example: "Hello-World"'),
-    pull_number: z.number().describe('The number that identifies the pull request. Example: 1')
+    pull_number: z.number().int().positive().describe('The number that identifies the pull request. Example: 1')
 });
 
 const HeadSchema = z.object({

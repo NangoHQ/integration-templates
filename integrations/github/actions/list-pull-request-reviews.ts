@@ -19,12 +19,12 @@ const UserSchema = z.object({
 const ReviewSchema = z.object({
     id: z.number(),
     node_id: z.string(),
-    user: UserSchema.optional(),
+    user: UserSchema.nullable().optional(),
     body: z.string().nullable(),
     state: z.string(),
     html_url: z.string(),
     pull_request_url: z.string(),
-    commit_id: z.string(),
+    commit_id: z.string().nullable(),
     submitted_at: z.string().optional()
 });
 

@@ -6,8 +6,8 @@ const InputSchema = z.object({
     repo: z.string().describe('Repository name. Example: "api-playground2"'),
     run_id: z.number().describe('The ID of the workflow run. Example: 12345678'),
     filter: z.enum(['latest', 'all']).optional().describe('Filter to specify which jobs to include. Can be "latest" or "all". Default: "latest"'),
-    per_page: z.number().optional().describe('The number of results per page (max 100). Default: 30'),
-    page: z.number().optional().describe('Page number of results to fetch. Default: 1')
+    per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100). Default: 30'),
+    page: z.number().int().min(1).optional().describe('Page number of results to fetch. Default: 1')
 });
 
 const WorkflowJobStepSchema = z.object({

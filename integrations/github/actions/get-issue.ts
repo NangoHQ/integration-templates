@@ -46,9 +46,23 @@ const ProviderIssueSchema = z
                 })
                 .passthrough()
         ),
-        assignee: z.null(),
+        assignee: z
+            .object({
+                login: z.string(),
+                id: z.number(),
+                avatar_url: z.string().optional(),
+                html_url: z.string().optional()
+            })
+            .nullable(),
         assignees: z.array(z.unknown()),
-        milestone: z.null(),
+        milestone: z
+            .object({
+                id: z.number(),
+                number: z.number(),
+                title: z.string(),
+                state: z.string()
+            })
+            .nullable(),
         locked: z.boolean(),
         active_lock_reason: z.string().nullable(),
         comments: z.number(),
@@ -105,9 +119,23 @@ const OutputSchema = z.object({
             })
             .passthrough()
     ),
-    assignee: z.null(),
+    assignee: z
+        .object({
+            login: z.string(),
+            id: z.number(),
+            avatar_url: z.string().optional(),
+            html_url: z.string().optional()
+        })
+        .nullable(),
     assignees: z.array(z.unknown()),
-    milestone: z.null(),
+    milestone: z
+        .object({
+            id: z.number(),
+            number: z.number(),
+            title: z.string(),
+            state: z.string()
+        })
+        .nullable(),
     locked: z.boolean(),
     active_lock_reason: z.string().optional(),
     comments: z.number(),

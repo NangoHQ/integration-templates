@@ -267,7 +267,7 @@ const sync = createSync<
                         latestCommitTimestamp = getLaterTimestamp(latestCommitTimestamp, getCommitTimestamp(commit));
 
                         return {
-                            id: `${repo.owner}/${repo.name}/${commit.sha}`,
+                            id: `${repo.owner}/${repo.name}/${branch}/${commit.sha}`,
                             sha: commit.sha,
                             message: commit.commit.message,
                             author_name: commit.commit.author?.name ?? undefined,

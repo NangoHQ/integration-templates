@@ -113,7 +113,20 @@ const action = createAction({
             params['since'] = input.since;
         }
         if (input.cursor !== undefined) {
-            params['page'] = Number(input.cursor);
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Cursor must be a positive integer page number.'
+                });
+            }
+            const page = parseInt(input.cursor, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Cursor must be a positive integer page number.'
+                });
+            }
+            params['page'] = page;
         }
         if (input.per_page !== undefined) {
             params['per_page'] = input.per_page;

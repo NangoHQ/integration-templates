@@ -8,7 +8,7 @@ const InputSchema = z.object({
     title: z.string().optional().describe('The title of the issue.'),
     body: z.string().nullable().optional().describe('The contents of the issue.'),
     state: z.enum(['open', 'closed']).optional().describe('State of the issue.'),
-    state_reason: z.enum(['completed', 'not_planned', 'reopened']).nullable().optional().describe('The reason for the state change.'),
+    state_reason: z.enum(['completed', 'not_planned', 'reopened', 'duplicate']).nullable().optional().describe('The reason for the state change.'),
     labels: z.array(z.string()).optional().describe('Labels to associate with this issue. Example: ["bug", "ui"]'),
     assignees: z.array(z.string()).optional().describe('Logins for Users to assign to this issue. Example: ["octocat"]'),
     milestone: z.number().nullable().optional().describe('The number of the milestone to associate this issue with.')

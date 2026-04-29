@@ -76,8 +76,8 @@ const ProviderCommitSchema = z.object({
     html_url: z.string(),
     comments_url: z.string(),
     commit: CommitInfoSchema,
-    author: z.union([SimpleUserSchema, z.object({})]),
-    committer: z.union([SimpleUserSchema, z.object({})]),
+    author: z.union([SimpleUserSchema, z.object({})]).nullable(),
+    committer: z.union([SimpleUserSchema, z.object({})]).nullable(),
     parents: z.array(ParentSchema),
     stats: StatsSchema.optional(),
     files: z.array(FileSchema).optional()
@@ -201,7 +201,7 @@ const action = createAction({
 
         // Normalize author and committer
         const author =
-            'login' in providerCommit.author
+            providerCommit.author && 'login' in providerCommit.author
                 ? {
                       login: providerCommit.author.login,
                       id: providerCommit.author.id,
@@ -211,7 +211,7 @@ const action = createAction({
                 : undefined;
 
         const committer =
-            'login' in providerCommit.committer
+            providerCommit.committer && 'login' in providerCommit.committer
                 ? {
                       login: providerCommit.committer.login,
                       id: providerCommit.committer.id,

@@ -245,6 +245,11 @@ const sync = createSync({
             };
 
             for await (const page of nango.paginate<z.infer<typeof _GitHubIssueSchema>>(proxyConfig)) {
+                // Advance cursor from ALL items before filtering, so PR-only pages still progress the checkpoint
+                for (const item of page) {
+                    latestIssueUpdate = getLaterTimestamp(latestIssueUpdate, item.updated_at);
+                }
+
                 const issues = page
                     .filter((issue) => !('pull_request' in issue))
                     .map((issue) => {
@@ -310,10 +315,6 @@ const sync = createSync({
                 }
 
                 await nango.batchSave(issues, 'Issue');
-
-                for (const issue of issues) {
-                    latestIssueUpdate = getLaterTimestamp(latestIssueUpdate, issue.updated_at);
-                }
             }
         }
 

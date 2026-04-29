@@ -23205,14 +23205,54 @@
           }
         },
         "assignee": {
-          "type": "null"
+          "type": "object",
+          "properties": {
+            "login": {
+              "type": "string"
+            },
+            "id": {
+              "type": "number"
+            },
+            "avatar_url": {
+              "type": "string"
+            },
+            "html_url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "login",
+            "id"
+          ],
+          "additionalProperties": false
         },
         "assignees": {
           "type": "array",
           "items": {}
         },
         "milestone": {
-          "type": "null"
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "number": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "number",
+            "title",
+            "state"
+          ],
+          "additionalProperties": false
         },
         "locked": {
           "type": "boolean"
@@ -25768,9 +25808,17 @@
             "completed",
             "waiting",
             "requested",
-            "pending"
+            "pending",
+            "action_required",
+            "cancelled",
+            "failure",
+            "neutral",
+            "skipped",
+            "stale",
+            "success",
+            "timed_out"
           ],
-          "description": "Returns workflow runs with the specified status."
+          "description": "Returns workflow runs with the specified status or conclusion."
         },
         "branch": {
           "type": "string",
@@ -26293,7 +26341,8 @@
           "enum": [
             "completed",
             "not_planned",
-            "reopened"
+            "reopened",
+            "duplicate"
           ],
           "description": "The reason for the state change."
         },

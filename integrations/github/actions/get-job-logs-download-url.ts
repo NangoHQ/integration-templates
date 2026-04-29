@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
     repo: z.string().describe('The name of the repository. Example: "hello-world"'),
-    job_id: z.number().describe('The unique identifier of the job. Example: 123456789')
+    job_id: z.number().int().positive().describe('The unique identifier of the job. Example: 123456789')
 });
 
 const OutputSchema = z.object({

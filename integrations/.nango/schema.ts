@@ -5184,9 +5184,15 @@ export interface ActionOutput_github_getissue {
   description?: string | undefined;
   color: string;
   default: boolean;})[];
-  assignee: null;
+  assignee: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
   assignees: unknown[];
-  milestone: null;
+  milestone: {  id: number;
+  number: number;
+  title: string;
+  state: string;};
   locked: boolean;
   active_lock_reason?: string | undefined;
   comments: number;
@@ -6234,9 +6240,9 @@ export interface ActionInput_github_listworkflowruns {
    */
   workflow_id?: string | number | undefined;
   /**
-   * Returns workflow runs with the specified status.
+   * Returns workflow runs with the specified status or conclusion.
    */
-  status?: 'queued' | 'in_progress' | 'completed' | 'waiting' | 'requested' | 'pending' | undefined;
+  status?: 'queued' | 'in_progress' | 'completed' | 'waiting' | 'requested' | 'pending' | 'action_required' | 'cancelled' | 'failure' | 'neutral' | 'skipped' | 'stale' | 'success' | 'timed_out' | undefined;
   /**
    * Returns workflow runs triggered on the specified branch.
    */
@@ -6481,7 +6487,7 @@ export interface ActionInput_github_updateissue {
   /**
    * The reason for the state change.
    */
-  state_reason?: 'completed' | 'not_planned' | 'reopened' | undefined;
+  state_reason?: 'completed' | 'not_planned' | 'reopened' | 'duplicate' | undefined;
   /**
    * Labels to associate with this issue. Example: ["bug", "ui"]
    */
