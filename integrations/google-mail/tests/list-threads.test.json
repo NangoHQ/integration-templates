@@ -1,0 +1,846 @@
+{
+  "input": {},
+  "output": {
+    "threads": [
+      {
+        "id": "19dda5f15270e044",
+        "historyId": "86862"
+      },
+      {
+        "id": "19dda5f53af7ee19",
+        "historyId": "86566"
+      },
+      {
+        "id": "19dda5eba6976e6b",
+        "historyId": "86552"
+      },
+      {
+        "id": "19dda5d843e1fbb4",
+        "historyId": "86483"
+      },
+      {
+        "id": "19dda5cfee3671a4",
+        "historyId": "86433"
+      },
+      {
+        "id": "19dda5cb6f806160",
+        "historyId": "86431"
+      },
+      {
+        "id": "19dda58832469c79",
+        "historyId": "86278"
+      },
+      {
+        "id": "19dda583e3d15fea",
+        "historyId": "86015"
+      },
+      {
+        "id": "19dda3e4ef055644",
+        "historyId": "85707"
+      },
+      {
+        "id": "19dda3e3a25601ee",
+        "historyId": "85768"
+      },
+      {
+        "id": "19dd9f7ed3e8db8a",
+        "historyId": "85519"
+      },
+      {
+        "id": "19dd5aebaea9c358",
+        "historyId": "85255"
+      },
+      {
+        "id": "19dd55edccce9c8b",
+        "historyId": "85186"
+      },
+      {
+        "id": "19dd4d6b5dd6548c",
+        "historyId": "85102"
+      },
+      {
+        "id": "19dd4d1511b2a58f",
+        "historyId": "85100"
+      },
+      {
+        "id": "19dd4782e3c2a819",
+        "historyId": "84944"
+      },
+      {
+        "id": "19dd3cca447d522e",
+        "historyId": "84859"
+      },
+      {
+        "id": "19dd1d3cfcc13152",
+        "historyId": "84758"
+      },
+      {
+        "id": "19dd0f8f057c6831",
+        "historyId": "84676"
+      },
+      {
+        "id": "19dd063a8974323e",
+        "historyId": "84591"
+      },
+      {
+        "id": "19dd04d5b98a3bd1",
+        "historyId": "84508"
+      },
+      {
+        "id": "19dd037e7ef29953",
+        "historyId": "84429"
+      },
+      {
+        "id": "19dcfc91b2b97828",
+        "historyId": "84348"
+      },
+      {
+        "id": "19dcf35fff32b990",
+        "historyId": "84258"
+      },
+      {
+        "id": "19dce04c51ac509f",
+        "historyId": "84037"
+      },
+      {
+        "id": "19dcacf85667fbbc",
+        "historyId": "83926"
+      },
+      {
+        "id": "19dc8eb64985d9ad",
+        "historyId": "83842"
+      },
+      {
+        "id": "19dc459905e6e620",
+        "historyId": "83731"
+      },
+      {
+        "id": "19dc23f1a3480423",
+        "historyId": "83637"
+      },
+      {
+        "id": "19dc22f4ed308aa6",
+        "historyId": "83561"
+      },
+      {
+        "id": "19dc0d105a9246cb",
+        "historyId": "83471"
+      },
+      {
+        "id": "19dc0c4bf569ffd9",
+        "historyId": "83469"
+      },
+      {
+        "id": "19dbfde083ac29d8",
+        "historyId": "83318"
+      },
+      {
+        "id": "19dbfa9292be1e19",
+        "historyId": "83237"
+      },
+      {
+        "id": "19dbf0c852681e51",
+        "historyId": "83174"
+      },
+      {
+        "id": "19dbb2fa14d1340a",
+        "historyId": "83059"
+      },
+      {
+        "id": "19dba8076c26357a",
+        "historyId": "82975"
+      },
+      {
+        "id": "19db9e64c06efa1b",
+        "historyId": "82891"
+      },
+      {
+        "id": "19db813e5537c812",
+        "historyId": "82636"
+      },
+      {
+        "id": "19db6e50cae8e3aa",
+        "historyId": "82634"
+      },
+      {
+        "id": "19db67826998fe9a",
+        "historyId": "82632"
+      },
+      {
+        "id": "19db67824daa1555",
+        "historyId": "82629"
+      },
+      {
+        "id": "19db524674d4fe70",
+        "historyId": "82626"
+      },
+      {
+        "id": "19db20807f35b03d",
+        "historyId": "82245"
+      },
+      {
+        "id": "19db05a1370bcb1a",
+        "historyId": "82155"
+      },
+      {
+        "id": "19daf8f1bba3f856",
+        "historyId": "81913"
+      },
+      {
+        "id": "19daf502c8fa2a45",
+        "historyId": "81911"
+      },
+      {
+        "id": "19daf5d299ebbbf4",
+        "historyId": "81770"
+      },
+      {
+        "id": "19daf5c0ecc5a181",
+        "historyId": "81782"
+      },
+      {
+        "id": "19daf57beb677afb",
+        "historyId": "81568"
+      },
+      {
+        "id": "19dadc45bdb1e54f",
+        "historyId": "81402"
+      },
+      {
+        "id": "19dac5380d1eef0f",
+        "historyId": "81399"
+      },
+      {
+        "id": "19dac462f69fd468",
+        "historyId": "81396"
+      },
+      {
+        "id": "19dac2b5a752e708",
+        "historyId": "81393"
+      },
+      {
+        "id": "19dabbc887c66e7d",
+        "historyId": "81390"
+      },
+      {
+        "id": "19dab2847cbc66b4",
+        "historyId": "81000"
+      },
+      {
+        "id": "19daa878065c103e",
+        "historyId": "80832"
+      },
+      {
+        "id": "19daa83cb367f99c",
+        "historyId": "80795"
+      },
+      {
+        "id": "19daa720e1a8030e",
+        "historyId": "80699"
+      },
+      {
+        "id": "19daa035f63297f3",
+        "historyId": "80698"
+      },
+      {
+        "id": "19da9bda2643de89",
+        "historyId": "80697"
+      },
+      {
+        "id": "19da54c92d0e1bc9",
+        "historyId": "80696"
+      },
+      {
+        "id": "19da4def57452efd",
+        "historyId": "80695"
+      },
+      {
+        "id": "19da36258cfee5b2",
+        "historyId": "82781"
+      },
+      {
+        "id": "19da0c2fb064600d",
+        "historyId": "80693"
+      },
+      {
+        "id": "19d9cdbb16f56765",
+        "historyId": "80692"
+      },
+      {
+        "id": "19d9cc82c9543c8b",
+        "historyId": "80691"
+      },
+      {
+        "id": "19d989cd024e12c6",
+        "historyId": "80690"
+      },
+      {
+        "id": "19d9792317da83f5",
+        "historyId": "80689"
+      },
+      {
+        "id": "19d9779eda917ed3",
+        "historyId": "80688"
+      },
+      {
+        "id": "19d95d9c3880b415",
+        "historyId": "80687"
+      },
+      {
+        "id": "19d92db5d460aaf4",
+        "historyId": "80686"
+      },
+      {
+        "id": "19d926b654c20176",
+        "historyId": "80685"
+      },
+      {
+        "id": "19d91fcf93c468ec",
+        "historyId": "80684"
+      },
+      {
+        "id": "19d91c3cf88a321e",
+        "historyId": "80683"
+      },
+      {
+        "id": "19d9193c3bfa8f5c",
+        "historyId": "80682"
+      },
+      {
+        "id": "19d91860a24e1eff",
+        "historyId": "80681"
+      },
+      {
+        "id": "19d8d56b08254fd7",
+        "historyId": "80680"
+      },
+      {
+        "id": "19d8c520f2191700",
+        "historyId": "80679"
+      },
+      {
+        "id": "19d8c50b81e626cb",
+        "historyId": "80678"
+      },
+      {
+        "id": "19d89baf2ace8eef",
+        "historyId": "80677"
+      },
+      {
+        "id": "19d890a3043a9660",
+        "historyId": "80676"
+      },
+      {
+        "id": "19d881c591cb65f9",
+        "historyId": "80675"
+      },
+      {
+        "id": "19d88079c8c6f849",
+        "historyId": "80674"
+      },
+      {
+        "id": "19d80d25a994b8ed",
+        "historyId": "80673"
+      },
+      {
+        "id": "19d7ce172b96945f",
+        "historyId": "80672"
+      },
+      {
+        "id": "19d78c4ac179c931",
+        "historyId": "80671"
+      },
+      {
+        "id": "19d779c5296261bc",
+        "historyId": "80670"
+      },
+      {
+        "id": "19d7782519dc8e02",
+        "historyId": "80669"
+      },
+      {
+        "id": "19d76f356ec652db",
+        "historyId": "80668"
+      },
+      {
+        "id": "19d723e7bb2e4636",
+        "historyId": "80667"
+      },
+      {
+        "id": "19d6ffb5214cf3ed",
+        "historyId": "80666"
+      },
+      {
+        "id": "19d6ecc5b579f55c",
+        "historyId": "80665"
+      },
+      {
+        "id": "19d6e679f45b76eb",
+        "historyId": "80664"
+      },
+      {
+        "id": "19d6e60d38089476",
+        "historyId": "80663"
+      },
+      {
+        "id": "19d6df0d5c5510db",
+        "historyId": "80662"
+      },
+      {
+        "id": "19d69204ed4fe504",
+        "historyId": "80661"
+      },
+      {
+        "id": "19d68774bd1e2a95",
+        "historyId": "80660"
+      },
+      {
+        "id": "19d6843792b1ff67",
+        "historyId": "80659"
+      },
+      {
+        "id": "19d65ab6e658e55e",
+        "historyId": "80658"
+      }
+    ],
+    "nextPageToken": "00671988178311410340",
+    "resultSizeEstimate": 201
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/gmail/v1/users/me/threads": {
+        "response": {
+          "threads": [
+            {
+              "id": "19dda5f15270e044",
+              "historyId": "86862"
+            },
+            {
+              "id": "19dda5f53af7ee19",
+              "historyId": "86566"
+            },
+            {
+              "id": "19dda5eba6976e6b",
+              "historyId": "86552"
+            },
+            {
+              "id": "19dda5d843e1fbb4",
+              "historyId": "86483"
+            },
+            {
+              "id": "19dda5cfee3671a4",
+              "historyId": "86433"
+            },
+            {
+              "id": "19dda5cb6f806160",
+              "historyId": "86431"
+            },
+            {
+              "id": "19dda58832469c79",
+              "historyId": "86278"
+            },
+            {
+              "id": "19dda583e3d15fea",
+              "historyId": "86015"
+            },
+            {
+              "id": "19dda3e4ef055644",
+              "historyId": "85707"
+            },
+            {
+              "id": "19dda3e3a25601ee",
+              "historyId": "85768"
+            },
+            {
+              "id": "19dd9f7ed3e8db8a",
+              "historyId": "85519"
+            },
+            {
+              "id": "19dd5aebaea9c358",
+              "historyId": "85255"
+            },
+            {
+              "id": "19dd55edccce9c8b",
+              "historyId": "85186"
+            },
+            {
+              "id": "19dd4d6b5dd6548c",
+              "historyId": "85102"
+            },
+            {
+              "id": "19dd4d1511b2a58f",
+              "historyId": "85100"
+            },
+            {
+              "id": "19dd4782e3c2a819",
+              "historyId": "84944"
+            },
+            {
+              "id": "19dd3cca447d522e",
+              "historyId": "84859"
+            },
+            {
+              "id": "19dd1d3cfcc13152",
+              "historyId": "84758"
+            },
+            {
+              "id": "19dd0f8f057c6831",
+              "historyId": "84676"
+            },
+            {
+              "id": "19dd063a8974323e",
+              "historyId": "84591"
+            },
+            {
+              "id": "19dd04d5b98a3bd1",
+              "historyId": "84508"
+            },
+            {
+              "id": "19dd037e7ef29953",
+              "historyId": "84429"
+            },
+            {
+              "id": "19dcfc91b2b97828",
+              "historyId": "84348"
+            },
+            {
+              "id": "19dcf35fff32b990",
+              "historyId": "84258"
+            },
+            {
+              "id": "19dce04c51ac509f",
+              "historyId": "84037"
+            },
+            {
+              "id": "19dcacf85667fbbc",
+              "historyId": "83926"
+            },
+            {
+              "id": "19dc8eb64985d9ad",
+              "historyId": "83842"
+            },
+            {
+              "id": "19dc459905e6e620",
+              "historyId": "83731"
+            },
+            {
+              "id": "19dc23f1a3480423",
+              "historyId": "83637"
+            },
+            {
+              "id": "19dc22f4ed308aa6",
+              "historyId": "83561"
+            },
+            {
+              "id": "19dc0d105a9246cb",
+              "historyId": "83471"
+            },
+            {
+              "id": "19dc0c4bf569ffd9",
+              "historyId": "83469"
+            },
+            {
+              "id": "19dbfde083ac29d8",
+              "historyId": "83318"
+            },
+            {
+              "id": "19dbfa9292be1e19",
+              "historyId": "83237"
+            },
+            {
+              "id": "19dbf0c852681e51",
+              "historyId": "83174"
+            },
+            {
+              "id": "19dbb2fa14d1340a",
+              "historyId": "83059"
+            },
+            {
+              "id": "19dba8076c26357a",
+              "historyId": "82975"
+            },
+            {
+              "id": "19db9e64c06efa1b",
+              "historyId": "82891"
+            },
+            {
+              "id": "19db813e5537c812",
+              "historyId": "82636"
+            },
+            {
+              "id": "19db6e50cae8e3aa",
+              "historyId": "82634"
+            },
+            {
+              "id": "19db67826998fe9a",
+              "historyId": "82632"
+            },
+            {
+              "id": "19db67824daa1555",
+              "historyId": "82629"
+            },
+            {
+              "id": "19db524674d4fe70",
+              "historyId": "82626"
+            },
+            {
+              "id": "19db20807f35b03d",
+              "historyId": "82245"
+            },
+            {
+              "id": "19db05a1370bcb1a",
+              "historyId": "82155"
+            },
+            {
+              "id": "19daf8f1bba3f856",
+              "historyId": "81913"
+            },
+            {
+              "id": "19daf502c8fa2a45",
+              "historyId": "81911"
+            },
+            {
+              "id": "19daf5d299ebbbf4",
+              "historyId": "81770"
+            },
+            {
+              "id": "19daf5c0ecc5a181",
+              "historyId": "81782"
+            },
+            {
+              "id": "19daf57beb677afb",
+              "historyId": "81568"
+            },
+            {
+              "id": "19dadc45bdb1e54f",
+              "historyId": "81402"
+            },
+            {
+              "id": "19dac5380d1eef0f",
+              "historyId": "81399"
+            },
+            {
+              "id": "19dac462f69fd468",
+              "historyId": "81396"
+            },
+            {
+              "id": "19dac2b5a752e708",
+              "historyId": "81393"
+            },
+            {
+              "id": "19dabbc887c66e7d",
+              "historyId": "81390"
+            },
+            {
+              "id": "19dab2847cbc66b4",
+              "historyId": "81000"
+            },
+            {
+              "id": "19daa878065c103e",
+              "historyId": "80832"
+            },
+            {
+              "id": "19daa83cb367f99c",
+              "historyId": "80795"
+            },
+            {
+              "id": "19daa720e1a8030e",
+              "historyId": "80699"
+            },
+            {
+              "id": "19daa035f63297f3",
+              "historyId": "80698"
+            },
+            {
+              "id": "19da9bda2643de89",
+              "historyId": "80697"
+            },
+            {
+              "id": "19da54c92d0e1bc9",
+              "historyId": "80696"
+            },
+            {
+              "id": "19da4def57452efd",
+              "historyId": "80695"
+            },
+            {
+              "id": "19da36258cfee5b2",
+              "historyId": "82781"
+            },
+            {
+              "id": "19da0c2fb064600d",
+              "historyId": "80693"
+            },
+            {
+              "id": "19d9cdbb16f56765",
+              "historyId": "80692"
+            },
+            {
+              "id": "19d9cc82c9543c8b",
+              "historyId": "80691"
+            },
+            {
+              "id": "19d989cd024e12c6",
+              "historyId": "80690"
+            },
+            {
+              "id": "19d9792317da83f5",
+              "historyId": "80689"
+            },
+            {
+              "id": "19d9779eda917ed3",
+              "historyId": "80688"
+            },
+            {
+              "id": "19d95d9c3880b415",
+              "historyId": "80687"
+            },
+            {
+              "id": "19d92db5d460aaf4",
+              "historyId": "80686"
+            },
+            {
+              "id": "19d926b654c20176",
+              "historyId": "80685"
+            },
+            {
+              "id": "19d91fcf93c468ec",
+              "historyId": "80684"
+            },
+            {
+              "id": "19d91c3cf88a321e",
+              "historyId": "80683"
+            },
+            {
+              "id": "19d9193c3bfa8f5c",
+              "historyId": "80682"
+            },
+            {
+              "id": "19d91860a24e1eff",
+              "historyId": "80681"
+            },
+            {
+              "id": "19d8d56b08254fd7",
+              "historyId": "80680"
+            },
+            {
+              "id": "19d8c520f2191700",
+              "historyId": "80679"
+            },
+            {
+              "id": "19d8c50b81e626cb",
+              "historyId": "80678"
+            },
+            {
+              "id": "19d89baf2ace8eef",
+              "historyId": "80677"
+            },
+            {
+              "id": "19d890a3043a9660",
+              "historyId": "80676"
+            },
+            {
+              "id": "19d881c591cb65f9",
+              "historyId": "80675"
+            },
+            {
+              "id": "19d88079c8c6f849",
+              "historyId": "80674"
+            },
+            {
+              "id": "19d80d25a994b8ed",
+              "historyId": "80673"
+            },
+            {
+              "id": "19d7ce172b96945f",
+              "historyId": "80672"
+            },
+            {
+              "id": "19d78c4ac179c931",
+              "historyId": "80671"
+            },
+            {
+              "id": "19d779c5296261bc",
+              "historyId": "80670"
+            },
+            {
+              "id": "19d7782519dc8e02",
+              "historyId": "80669"
+            },
+            {
+              "id": "19d76f356ec652db",
+              "historyId": "80668"
+            },
+            {
+              "id": "19d723e7bb2e4636",
+              "historyId": "80667"
+            },
+            {
+              "id": "19d6ffb5214cf3ed",
+              "historyId": "80666"
+            },
+            {
+              "id": "19d6ecc5b579f55c",
+              "historyId": "80665"
+            },
+            {
+              "id": "19d6e679f45b76eb",
+              "historyId": "80664"
+            },
+            {
+              "id": "19d6e60d38089476",
+              "historyId": "80663"
+            },
+            {
+              "id": "19d6df0d5c5510db",
+              "historyId": "80662"
+            },
+            {
+              "id": "19d69204ed4fe504",
+              "historyId": "80661"
+            },
+            {
+              "id": "19d68774bd1e2a95",
+              "historyId": "80660"
+            },
+            {
+              "id": "19d6843792b1ff67",
+              "historyId": "80659"
+            },
+            {
+              "id": "19d65ab6e658e55e",
+              "historyId": "80658"
+            }
+          ],
+          "nextPageToken": "00671988178311410340",
+          "resultSizeEstimate": 201
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 18:04:48 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777485905",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "d0b2452bebf8c9671de6a707f4d51ffe0ab0d679",
+        "request": {}
+      }
+    }
+  }
+}

@@ -7529,59 +7529,1413 @@ export interface ActionOutput_google_drive_uploaddocument {
   webContentLink?: string | undefined;
 };
 
-export interface GmailEmail {
+export interface Filter {
   id: string;
-  sender: string;
-  recipients?: string | undefined;
-  date: string;
-  subject: string;
-  body?: string | undefined;
-  attachments: ({  filename: string;
-  mimeType: string;
-  size: number;
-  attachmentId: string;})[];
-  threadId: string;
+  from?: string | undefined;
+  to?: string | undefined;
+  subject?: string | undefined;
+  query?: string | undefined;
+  negatedQuery?: string | undefined;
+  hasAttachment?: boolean | undefined;
+  excludeChats?: boolean | undefined;
+  size?: number | undefined;
+  sizeComparison?: string | undefined;
+  addLabelIds?: string[] | undefined;
+  removeLabelIds?: string[] | undefined;
+  forward?: string | undefined;
 };
 
-export interface SyncMetadata_google_mail_emails {
-  backfillPeriodMs: number;
-};
-
-export interface GmailLabel {
+export interface Label {
   id: string;
   name: string;
-  messageListVisibility: string | null;
-  labelListVisibility: string | null;
-  type: string;
-  messagesTotal: number;
-  messagesUnread: number;
-  threadsTotal: number;
-  threadsUnread: number;
-  color: {  textColor: string;
-  backgroundColor: string;} | null;
+  messageListVisibility?: 'hide' | 'show' | undefined;
+  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
 };
 
-export interface SyncMetadata_google_mail_labels {
+export interface Message {
+  id: string;
+  channel_id: string;
+  channel_name: string;
+  user_id: string;
+  user_name?: string | undefined;
+  text: string;
+  timestamp: string;
+  thread_ts?: string | undefined;
+  parent_ts?: string | undefined;
+  is_thread_reply?: boolean | undefined;
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  created_at: string;
 };
 
-export interface ActionInput_google_mail_fetchattachment {
+export interface SendAsAlias {
+  id: string;
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  verificationStatus?: string | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host?: string | undefined;
+  port?: number | undefined;
+  username?: string | undefined;
+  password?: string | undefined;
+  securityMode?: string | undefined;};
+};
+
+export interface Thread {
+  id: string;
+  historyId: string;
+  messages?: ({  id: string;
   threadId: string;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: unknown[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_batchdeletemessages {
+  /**
+   * Array of Gmail message IDs to delete. Example: ["msg123", "msg456"]
+   */
+  ids: string[];
+};
+
+export type ActionOutput_google_mail_batchdeletemessages = null
+
+export interface ActionInput_google_mail_batchmodifymessages {
+  /**
+   * The IDs of the messages to modify. Maximum 1000.
+   */
+  ids: string[];
+  /**
+   * Label IDs to add to all messages.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * Label IDs to remove from all messages.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_batchmodifymessages {
+  /**
+   * Whether the batch modification was successful.
+   */
+  success: boolean;
+  /**
+   * Number of messages modified.
+   */
+  modifiedCount: number;
+};
+
+export interface ActionInput_google_mail_createdraft {
+  /**
+   * Base64url-encoded RFC 2822 MIME content of the draft message.
+   */
+  raw: string;
+  /**
+   * Optional thread ID to add the draft to an existing thread. Example: "18f3a2b4c5d6e7f8"
+   */
+  threadId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_createdraft {
+  /**
+   * The ID of the created draft.
+   */
+  id: string;
+  /**
+   * The ID of the message within the draft.
+   */
+  messageId?: string | undefined;
+  /**
+   * The thread ID associated with the draft message.
+   */
+  threadId?: string | undefined;
+  /**
+   * Label IDs applied to the draft message.
+   */
+  labelIds?: string[] | undefined;
+};
+
+export interface ActionInput_google_mail_createfilter {
+  criteria: {  /**
+   * The sender's display name or email address.
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields.
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject.
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box.
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query.
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment.
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats.
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes, including all headers and attachments.
+   */
+  size?: number | undefined;
+  /**
+   * How the message size in bytes should be in relation to the size field.
+   */
+  sizeComparison?: 'smaller' | 'larger' | 'unspecified' | undefined;};
+  action: {  /**
+   * List of labels to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to.
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionOutput_google_mail_createfilter {
+  id: string;
+  criteria?: {  /**
+   * The sender's display name or email address.
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields.
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject.
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box.
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query.
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment.
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats.
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes, including all headers and attachments.
+   */
+  size?: number | undefined;
+  /**
+   * How the message size in bytes should be in relation to the size field.
+   */
+  sizeComparison?: 'smaller' | 'larger' | 'unspecified' | undefined;};
+  action?: {  /**
+   * List of labels to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to.
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_createlabel {
+  /**
+   * The display name of the label. Example: "Work"
+   */
+  name: string;
+  /**
+   * The visibility of the label in the label list. Example: "labelShow"
+   */
+  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
+  /**
+   * The visibility of the label in the message list. Example: "show"
+   */
+  messageListVisibility?: 'hide' | 'show' | undefined;
+  /**
+   * The type of the label. Only "user" can be created. Defaults to "user".
+   */
+  type?: 'user' | undefined;
+};
+
+export interface ActionOutput_google_mail_createlabel {
+  /**
+   * The immutable ID of the label.
+   */
+  id: string;
+  /**
+   * The display name of the label.
+   */
+  name: string;
+  /**
+   * The visibility of the label in the label list.
+   */
+  labelListVisibility?: string | undefined;
+  /**
+   * The visibility of the label in the message list.
+   */
+  messageListVisibility?: string | undefined;
+  /**
+   * The type of the label.
+   */
+  type?: string | undefined;
+};
+
+export interface ActionInput_google_mail_deletedraft {
+  /**
+   * The ID of the draft to delete. Example: "r-1234567890abcdef"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletedraft {
+  /**
+   * Whether the draft was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_deletefilter {
+  /**
+   * The ID of the filter to delete. Example: "ABC123"
+   */
+  id: string;
+};
+
+export type ActionOutput_google_mail_deletefilter = null
+
+export interface ActionInput_google_mail_deletelabel {
+  /**
+   * The ID of the label to delete. Example: "Label_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletelabel {
+  /**
+   * Whether the label was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_deletemessage {
+  /**
+   * The ID of the message to delete. Example: "123abc456def"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletemessage {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted message
+   */
+  id: string;
+};
+
+export interface ActionInput_google_mail_deletethread {
+  /**
+   * The ID of the thread to delete. Example: "123abc456def789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletethread {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_google_mail_getattachment {
+  /**
+   * The ID of the message containing the attachment. Example: "1234567890abcdef"
+   */
+  messageId: string;
+  /**
+   * The ID of the attachment to retrieve. Example: "attachment_001"
+   */
   attachmentId: string;
+  /**
+   * The user's email address or "me". Defaults to "me".
+   */
+  userId?: string | undefined;
 };
 
-export type ActionOutput_google_mail_fetchattachment = string
-
-export interface ActionInput_google_mail_sendemail {
-  from: string;
-  to: string;
-  headers: {  [key: string]: string;};
-  subject: string;
-  body: string;
+export interface ActionOutput_google_mail_getattachment {
+  /**
+   * The size of the attachment in bytes
+   */
+  size: number;
+  /**
+   * The attachment data in base64url encoding
+   */
+  data: string;
 };
 
-export interface ActionOutput_google_mail_sendemail {
+export interface ActionInput_google_mail_getautoforwardingsettings {
+  /**
+   * User ID. Use "me" for the currently authenticated user. Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getautoforwardingsettings {
+  enabled?: boolean | undefined;
+  emailAddress?: string | undefined;
+  disposition?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getdraft {
+  /**
+   * The ID of the draft to retrieve. Example: "r-1234567890"
+   */
+  id: string;
+  /**
+   * The user's email address. Special value "me" can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getdraft {
+  id: string;
+  message?: {  id?: string | undefined;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: unknown[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getfilter {
+  /**
+   * The ID of the filter to retrieve. Example: "ANeLbv78uP8GVB5D7xQf1fIlIaHoeFC0fV6lCu1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_getfilter {
+  id: string;
+  criteria?: {  /**
+   * The sender's display name or email address
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes
+   */
+  size?: number | undefined;
+  /**
+   * How the message size should be in relation to the size field
+   */
+  sizeComparison?: 'unspecified' | 'smaller' | 'larger' | undefined;};
+  action?: {  /**
+   * List of labels to add to the message
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getimapsettings {
+  /**
+   * User ID. Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getimapsettings {
+  autoExpunge?: boolean | undefined;
+  enabled?: boolean | undefined;
+  expungeBehavior?: string | undefined;
+  maxFolderSize?: number | undefined;
+};
+
+export interface ActionInput_google_mail_getlabel {
+  /**
+   * Label ID. Example: "Label_123"
+   */
+  id: string;
+  /**
+   * User ID. The special value "me" can be used to indicate the authenticated user. Default: "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getlabel {
+  id: string;
+  name: string;
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
+  color?: {  textColor?: string | undefined;
+  backgroundColor?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getlanguagesettings {
+  /**
+   * User's email address. The special value "me" can be used to indicate the authenticated user.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getlanguagesettings {
+  displayLanguage?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getmessage {
+  /**
+   * The ID of the message to retrieve. Example: "12345abc"
+   */
+  id: string;
+  /**
+   * The format to return the message in. Values: full, metadata, minimal, raw. Example: "full"
+   */
+  format?: 'full' | 'metadata' | 'minimal' | 'raw' | undefined;
+  /**
+   * When format is metadata, only include headers specified in this array. Example: ["Subject", "From"]
+   */
+  metadataHeaders?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_getmessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: any[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getpopsettings {
+  /**
+   * User's email address. The special value 'me' can be used to indicate the authenticated user. Defaults to 'me'.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getpopsettings {
+  /**
+   * The range of messages which are accessible via POP.
+   */
+  accessWindow?: 'accessWindowUnspecified' | 'disabled' | 'fromNowOn' | 'allMail' | undefined;
+  /**
+   * The action that will be executed on a message after it has been fetched via POP.
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionInput_google_mail_getsendasalias {
+  /**
+   * The user's email address. Use "me" to indicate the authenticated user. Example: "me"
+   */
+  userId?: string | undefined;
+  /**
+   * The send-as alias to be retrieved. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+};
+
+export interface ActionOutput_google_mail_getsendasalias {
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host?: string | undefined;
+  port?: number | undefined;
+  username?: string | undefined;
+  password?: string | undefined;
+  securityMode?: 'none' | 'ssl' | 'starttls' | undefined;};
+  verificationStatus?: 'accepted' | 'pending' | undefined;
+};
+
+export interface ActionInput_google_mail_getthread {
+  /**
+   * The ID of the thread to retrieve. Example: "18e1a2b3c4d5e6f7"
+   */
+  id: string;
+  /**
+   * The format to return the messages in. "full" returns full email data, "metadata" returns only IDs, labels, and headers, "minimal" returns only IDs and labels.
+   */
+  format?: 'full' | 'metadata' | 'minimal' | undefined;
+  /**
+   * When given and format is METADATA, only include headers specified.
+   */
+  metadataHeaders?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_getthread {
+  id: string;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  data?: string | undefined;
+  size?: number | undefined;};
+  parts?: unknown | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+  snippet?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getvacationsettings {
+};
+
+export interface ActionOutput_google_mail_getvacationsettings {
+  enableAutoReply: boolean;
+  responseSubject?: string | undefined;
+  responseBodyPlainText?: string | undefined;
+  responseBodyHtml?: string | undefined;
+  restrictToContacts?: boolean | undefined;
+  restrictToDomain?: boolean | undefined;
+  startTime?: string | undefined;
+  endTime?: string | undefined;
+};
+
+export interface ActionInput_google_mail_listdrafts {
+  /**
+   * Maximum number of drafts to return. Default is 100. Maximum allowed is 500.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results in the list. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+  /**
+   * Query to filter drafts. Supports the same query format as the Gmail search box.
+   */
+  q?: string | undefined;
+  /**
+   * Include drafts from SPAM and TRASH in the results.
+   */
+  includeSpamTrash?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_listdrafts {
+  drafts: ({  id: string;
+  message?: {  id: string;
+  threadId: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listfilters {
+  /**
+   * User ID. Use "me" for the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listfilters {
+  filters: ({  id: string;
+  criteria?: {  from?: string | undefined;
+  to?: string | undefined;
+  subject?: string | undefined;
+  query?: string | undefined;
+  negatedQuery?: string | undefined;
+  hasAttachment?: boolean | undefined;
+  excludeChats?: boolean | undefined;
+  size?: number | undefined;
+  sizeComparison?: string | undefined;};
+  action?: {  addLabelIds?: string[] | undefined;
+  removeLabelIds?: string[] | undefined;
+  forward?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_google_mail_listforwardingaddresses {
+  /**
+   * The users email address. The special value me can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listforwardingaddresses {
+  forwardingAddresses: ({  forwardingEmail: string;
+  verificationStatus?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listlabels {
+};
+
+export interface ActionOutput_google_mail_listlabels {
+  labels: ({  /**
+   * The immutable ID of the label
+   */
+  id: string;
+  /**
+   * The display name of the label
+   */
+  name: string;
+  /**
+   * The owner type for the label: system or user
+   */
+  type: string;
+  /**
+   * The visibility of the label in the message list
+   */
+  messageListVisibility?: string | undefined;
+  /**
+   * The visibility of the label in the label list
+   */
+  labelListVisibility?: string | undefined;
+  /**
+   * The total number of messages with the label
+   */
+  messagesTotal?: number | undefined;
+  /**
+   * The number of unread messages with the label
+   */
+  messagesUnread?: number | undefined;
+  /**
+   * The total number of threads with the label
+   */
+  threadsTotal?: number | undefined;
+  /**
+   * The number of unread threads with the label
+   */
+  threadsUnread?: number | undefined;
+  /**
+   * The text color of the label
+   */
+  textColor?: string | undefined;
+  /**
+   * The background color of the label
+   */
+  backgroundColor?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listmessages {
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example: "from:someuser@example.com rfc822msgid: is:unread"
+   */
+  q?: string | undefined;
+  /**
+   * Only return messages with labels that match all of the specified label IDs.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * Include messages from SPAM and TRASH in the results.
+   */
+  includeSpamTrash?: boolean | undefined;
+  /**
+   * Maximum number of messages to return. Defaults to 100. The maximum allowed value is 500.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results in the list.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listmessages {
+  messages: ({  id: string;
+  threadId: string;})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listsendasaliases {
+};
+
+export interface ActionOutput_google_mail_listsendasaliases {
+  sendAsAliases: ({  displayName?: string | undefined;
+  isDefault?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  replyToAddress?: string | undefined;
+  sendAsEmail?: string | undefined;
+  signature?: string | undefined;
+  treatAsAlias?: boolean | undefined;
+  verificationStatus?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listthreads {
+  q?: string | undefined;
+  labelIds?: string[] | undefined;
+  includeSpamTrash?: boolean | undefined;
+  maxResults?: number | undefined;
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listthreads {
+  threads?: ({  id: string;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  sizeEstimate?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listwatchhistory {
+  /**
+   * Start history ID to return history records after. Example: "1234567890"
+   */
+  startHistoryId: string;
+  /**
+   * History types to return. If not specified, all history types are returned.
+   */
+  historyTypes?: ({  0: 'messageAdded';
+  1: 'messageDeleted';
+  2: 'labelAdded';
+  3: 'labelRemoved';
+  4: 'systemLabelAdded';
+  5: 'systemLabelRemoved';
+  6: 'messageLabelAdded';
+  7: 'messageLabelRemoved';
+  8: 'messageStarAdded';
+  9: 'messageStarRemoved';
+  10: 'draftAdded';
+  11: 'draftDeleted';
+  12: 'domainSettingsUpdate';
+  13: 'filterAdded';
+  14: 'filterRemoved';
+  15: 'forwardingAddressAdded';
+  16: 'forwardingAddressRemoved';
+  17: 'sendAsAliasAdded';
+  18: 'sendAsAliasRemoved';
+  19: 'vacationSettingsUpdate';
+  20: 'autoForwardingSettingsUpdate';
+  21: 'imapSettingsUpdate';
+  22: 'popSettingsUpdate';
+  23: 'languageSettingsUpdate';
+  24: 'emailSettingsUpdate';})[] | undefined;
+  /**
+   * Only return history for this label. Example: "Label_1"
+   */
+  labelId?: string | undefined;
+  /**
+   * Maximum number of history records to return.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listwatchhistory {
+  history: ({  id: string;
+  messages?: ({  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;})[];
+  messagesAdded?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;};})[];
+  messagesDeleted?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;};})[];
+  labelsAdded?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;};
+  labelIds: string[];})[];
+  labelsRemoved?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;};
+  labelIds: string[];})[];})[];
+  historyId?: string | undefined;
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_mail_modifymessage {
+  /**
+   * The ID of the message to modify. Example: "1234567890abcdef"
+   */
+  id: string;
+  /**
+   * A list of label IDs to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * A list of label IDs to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_modifymessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_modifythread {
+  /**
+   * The ID of the thread to modify. Example: "123abc456def"
+   */
+  threadId: string;
+  /**
+   * A list of label IDs to add to the thread.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * A list of label IDs to remove from the thread.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_modifythread {
+  /**
+   * The ID of the modified thread.
+   */
+  id: string;
+  /**
+   * The history ID of the thread.
+   */
+  historyId?: string | undefined;
+  messages?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_mail_senddraft {
+  /**
+   * The ID of the draft to send. Example: "r-1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_senddraft {
+  /**
+   * The ID of the sent message. Example: "1234567890abcdef"
+   */
+  id: string;
+  /**
+   * The ID of the thread the message belongs to. Example: "abcdef1234567890"
+   */
+  threadId?: string | undefined;
+  /**
+   * List of label IDs applied to the message.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * A short snippet of the message content.
+   */
+  snippet?: string | undefined;
+  /**
+   * The history ID of the message.
+   */
+  historyId?: string | undefined;
+  /**
+   * The internal date of the message in epoch milliseconds.
+   */
+  internalDate?: string | undefined;
+  /**
+   * Estimated size of the message in bytes.
+   */
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_sendmessage {
+  /**
+   * The base64url-encoded MIME content of the email message to send.
+   */
+  raw: string;
+  /**
+   * The ID of the thread to reply to. If omitted, a new thread is created.
+   */
+  threadId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_sendmessage {
+  /**
+   * The ID of the sent message.
+   */
+  id: string;
+  /**
+   * The ID of the thread the message belongs to.
+   */
+  threadId: string;
+  /**
+   * List of label IDs applied to the message.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * A short snippet of the message text.
+   */
+  snippet?: string | undefined;
+  /**
+   * The history ID of the message.
+   */
+  historyId?: string | undefined;
+  /**
+   * The internal date of the message in milliseconds since epoch.
+   */
+  internalDate?: string | undefined;
+};
+
+export interface ActionInput_google_mail_stopwatch {
+  /**
+   * The user's email address. Use "me" to indicate the authenticated user. Defaults to "me". Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_stopwatch {
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_trashmessage {
+  /**
+   * The ID of the message to trash. Example: "16e69b9f7e6e0f8b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_trashmessage {
   id: string;
   threadId: string;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_trashthread {
+  /**
+   * The ID of the thread to trash. Example: "18e0b4e6c8a0b9e2"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_google_mail_trashthread {
+  id: string;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  messages?: ({  id?: string | undefined;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {} | undefined;
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_untrashmessage {
+  /**
+   * The ID of the message to untrash. Example: "1234567890abcdef"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_untrashmessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_untrashthread {
+  /**
+   * The ID of the thread to restore from trash. Example: "18abc123def456"
+   */
+  threadId: string;
+};
+
+export interface ActionOutput_google_mail_untrashthread {
+  id: string;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_updatedraft {
+  /**
+   * The ID of the draft to update. Example: "r-1234567890"
+   */
+  id: string;
+  /**
+   * The raw RFC 2822 formatted MIME message as a base64url encoded string.
+   */
+  raw: string;
+};
+
+export interface ActionOutput_google_mail_updatedraft {
+  id: string;
+  message?: {  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_updateimapsettings {
+  /**
+   * Whether IMAP is enabled for the account.
+   */
+  imap_enabled?: boolean | undefined;
+  /**
+   * Whether to automatically expunge messages when they are deleted.
+   */
+  auto_expunge?: boolean | undefined;
+  /**
+   * Behavior for expunging messages.
+   */
+  expunge_behavior?: 'archive' | 'delete' | 'trash' | undefined;
+  /**
+   * Maximum folder size in MB. Range: 0 to 10000000.
+   */
+  max_folder_size?: number | undefined;
+};
+
+export interface ActionOutput_google_mail_updateimapsettings {
+  imap_enabled?: boolean | undefined;
+  auto_expunge?: boolean | undefined;
+  expunge_behavior?: 'archive' | 'delete' | 'trash' | undefined;
+  max_folder_size?: number | undefined;
+};
+
+export interface ActionInput_google_mail_updatelabel {
+  /**
+   * The ID of the label to update. Example: "Label_1"
+   */
+  labelId: string;
+  /**
+   * The new name of the label.
+   */
+  name?: string | undefined;
+  /**
+   * The visibility of the label in the message list.
+   */
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  /**
+   * The visibility of the label in the label list.
+   */
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+};
+
+export interface ActionOutput_google_mail_updatelabel {
+  id: string;
+  name: string;
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
+};
+
+export interface ActionInput_google_mail_updatelanguagesettings {
+  /**
+   * The language to display the Gmail UI in. Example: "en", "fr", "es", "de". Use "en" for English.
+   */
+  displayLanguage: string;
+};
+
+export interface ActionOutput_google_mail_updatelanguagesettings {
+  displayLanguage: string;
+};
+
+export interface ActionInput_google_mail_updatepopsettings {
+  /**
+   * The range of messages which are accessible via POP. Example: "allMail"
+   */
+  accessWindow?: 'accessWindowUnspecified' | 'allMail' | 'fromNowOn' | undefined;
+  /**
+   * The action that will be executed on a message after it has been fetched via POP. Example: "leaveInInbox"
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionOutput_google_mail_updatepopsettings {
+  accessWindow?: string | undefined;
+  disposition?: string | undefined;
+};
+
+export interface ActionInput_google_mail_updatesendasalias {
+  /**
+   * The email address that appears in the "From:" header for mail sent using this alias. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * The user ID. Use "me" for the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * A name that appears in the "From:" header instead of the actual email address. Example: "John Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional email address to use for replies. Example: "replies@example.com"
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * An optional HTML signature that is included in messages composed with this alias.
+   */
+  signature?: string | undefined;
+  /**
+   * Whether Gmail should treat this alias as an alias.
+   */
+  treatAsAlias?: boolean | undefined;
+  /**
+   * Whether this alias is the default alias.
+   */
+  isDefault?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_updatesendasalias {
+  /**
+   * The email address of the alias.
+   */
+  sendAsEmail: string;
+  /**
+   * The display name for this alias.
+   */
+  displayName?: string | undefined;
+  /**
+   * The reply-to address for this alias.
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * The HTML signature for this alias.
+   */
+  signature?: string | undefined;
+  /**
+   * Whether this is the primary alias.
+   */
+  isPrimary?: boolean | undefined;
+  /**
+   * Whether this is the default alias.
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether Gmail treats this as an alias.
+   */
+  treatAsAlias?: boolean | undefined;
+  /**
+   * The verification status of this alias.
+   */
+  verificationStatus?: string | undefined;
+};
+
+export interface ActionInput_google_mail_updatesendassmtpmsa {
+  /**
+   * The send-as alias email to be updated. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * User's email address. The special value "me" can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * The SMTP MSA settings for the send-as alias.
+   */
+  smtpMsa: {  /**
+   * The hostname of the SMTP service. Required.
+   */
+  host: string;
+  /**
+   * The port of the SMTP service. Required.
+   */
+  port: number;
+  /**
+   * The username for authentication with the SMTP service. This is a write-only field.
+   */
+  username?: string | undefined;
+  /**
+   * The password for authentication with the SMTP service. This is a write-only field.
+   */
+  password?: string | undefined;
+  /**
+   * The protocol used to secure communication with the SMTP service. Required.
+   */
+  securityMode: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls';};
+};
+
+export interface ActionOutput_google_mail_updatesendassmtpmsa {
+  sendAs: {  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host: string;
+  port: number;
+  securityMode: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls';} | undefined;
+  verificationStatus?: 'accept' | 'pending' | 'unverified' | undefined;};
+};
+
+export interface ActionInput_google_mail_updatevacationsettings {
+  /**
+   * Flag that controls whether Gmail automatically replies to messages.
+   */
+  enableAutoReply: boolean;
+  /**
+   * Optional text to prepend to the subject line in vacation responses. Either this or responseBody must be nonempty to enable auto-replies.
+   */
+  responseSubject?: string | undefined;
+  /**
+   * Response body in plain text format. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used.
+   */
+  responseBodyPlainText?: string | undefined;
+  /**
+   * Response body in HTML format. Gmail will sanitize the HTML before storing it. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used.
+   */
+  responseBodyHtml?: string | undefined;
+  /**
+   * Flag that determines whether responses are sent to recipients who are not in the user's list of contacts.
+   */
+  restrictToContacts?: boolean | undefined;
+  /**
+   * Flag that determines whether responses are sent to recipients who are outside of the user's domain. This feature is only available for Google Workspace users.
+   */
+  restrictToDomain?: boolean | undefined;
+  /**
+   * An optional start time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives after the start time.
+   */
+  startTime?: string | undefined;
+  /**
+   * An optional end time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives before the end time. If both startTime and endTime are specified, startTime must precede endTime.
+   */
+  endTime?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_updatevacationsettings {
+  enableAutoReply: boolean;
+  responseSubject?: string | undefined;
+  responseBodyPlainText?: string | undefined;
+  responseBodyHtml?: string | undefined;
+  restrictToContacts?: boolean | undefined;
+  restrictToDomain?: boolean | undefined;
+  startTime?: string | undefined;
+  endTime?: string | undefined;
 };
 
 export interface Row {
@@ -17579,25 +18933,6 @@ export interface SyncMetadata_slack_channels {
    * Whether to auto-join public channels
    */
   joinPublicChannels?: boolean | undefined;
-};
-
-export interface Message {
-  id: string;
-  channel_id: string;
-  channel_name: string;
-  user_id: string;
-  user_name?: string | undefined;
-  text: string;
-  timestamp: string;
-  thread_ts?: string | undefined;
-  parent_ts?: string | undefined;
-  is_thread_reply?: boolean | undefined;
-  reactions?: ({  name: string;
-  count: number;
-  users: string[];})[] | undefined;
-  reply_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  created_at: string;
 };
 
 export interface ActionInput_slack_addreaction {
