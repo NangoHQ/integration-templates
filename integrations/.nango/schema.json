@@ -18539,6 +18539,69 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_dropbox_uploadlargefile": {
+      "type": "object",
+      "properties": {
+        "file_content_base64": {
+          "type": "string",
+          "description": "The file content as a base64-encoded string"
+        },
+        "dropbox_path": {
+          "type": "string",
+          "description": "The destination path in Dropbox. Example: \"/folder/file.txt\""
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "add",
+            "overwrite"
+          ],
+          "description": "What to do if the file already exists. Default: \"add\""
+        },
+        "chunk_size": {
+          "type": "number",
+          "description": "Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB"
+        },
+        "autorename": {
+          "type": "boolean",
+          "description": "If true, rename the file if a conflict occurs. Default: false"
+        },
+        "mute": {
+          "type": "boolean",
+          "description": "If true, suppresses email notification. Default: false"
+        }
+      },
+      "required": [
+        "file_content_base64",
+        "dropbox_path"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_dropbox_uploadlargefile": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "path"
+      ],
+      "additionalProperties": false
+    },
     "EvaluAgentGroup": {
       "type": "object",
       "properties": {

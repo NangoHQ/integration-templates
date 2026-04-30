@@ -4351,6 +4351,41 @@ export interface ActionOutput_dropbox_uploadfile {
   size: number;
 };
 
+export interface ActionInput_dropbox_uploadlargefile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  file_content_base64: string;
+  /**
+   * The destination path in Dropbox. Example: "/folder/file.txt"
+   */
+  dropbox_path: string;
+  /**
+   * What to do if the file already exists. Default: "add"
+   */
+  mode?: 'add' | 'overwrite' | undefined;
+  /**
+   * Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB
+   */
+  chunk_size?: number | undefined;
+  /**
+   * If true, rename the file if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses email notification. Default: false
+   */
+  mute?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadlargefile {
+  success: boolean;
+  path: string;
+  file_id?: string | undefined;
+  content_hash?: string | undefined;
+  name?: string | undefined;
+};
+
 export interface EvaluAgentGroup {
   id: string;
   name: string;

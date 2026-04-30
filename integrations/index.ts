@@ -215,6 +215,7 @@ import './dropbox/actions/search-files-and-folders.js';
 import './dropbox/actions/share-folder.js';
 import './dropbox/actions/unshare-folder.js';
 import './dropbox/actions/upload-file.js';
+import './dropbox/actions/upload-large-file.js';
 
 // -- Integration: evaluagent
 import './evaluagent/syncs/groups.js';

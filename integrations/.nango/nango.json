@@ -25641,6 +25641,96 @@
           }
         },
         "features": []
+      },
+      {
+        "type": "action",
+        "description": "Upload a large file to Dropbox with an upload session",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/upload-large-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_dropbox_uploadlargefile",
+        "name": "upload-large-file",
+        "output": [
+          "ActionOutput_dropbox_uploadlargefile"
+        ],
+        "scopes": [
+          "files.content.write"
+        ],
+        "usedModels": [
+          "ActionInput_dropbox_uploadlargefile",
+          "ActionOutput_dropbox_uploadlargefile"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_dropbox_uploadlargefile": {
+              "type": "object",
+              "properties": {
+                "file_content_base64": {
+                  "type": "string",
+                  "description": "The file content as a base64-encoded string"
+                },
+                "dropbox_path": {
+                  "type": "string",
+                  "description": "The destination path in Dropbox. Example: \"/folder/file.txt\""
+                },
+                "mode": {
+                  "description": "What to do if the file already exists. Default: \"add\"",
+                  "type": "string",
+                  "enum": [
+                    "add",
+                    "overwrite"
+                  ]
+                },
+                "chunk_size": {
+                  "description": "Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB",
+                  "type": "number"
+                },
+                "autorename": {
+                  "description": "If true, rename the file if a conflict occurs. Default: false",
+                  "type": "boolean"
+                },
+                "mute": {
+                  "description": "If true, suppresses email notification. Default: false",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "file_content_base64",
+                "dropbox_path"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_dropbox_uploadlargefile": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "file_id": {
+                  "type": "string"
+                },
+                "content_hash": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "success",
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
       }
     ],
     "syncs": [
