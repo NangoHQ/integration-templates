@@ -175,55 +175,48 @@ async function syncBackfill(nango: NangoSyncLocal, checkpoint: NormalizedCheckpo
         await nango.trackDeletesStart('Message');
     }
 
-    try {
-        // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/list
-        const listResponse = await nango.get({
-            endpoint: '/gmail/v1/users/me/messages',
-            params: {
-                maxResults: 100,
-                ...(pageToken && { pageToken })
-            },
-            retries: 3
-        });
+    // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/list
+    const listResponse = await nango.get({
+        endpoint: '/gmail/v1/users/me/messages',
+        params: {
+            maxResults: 100,
+            ...(pageToken && { pageToken })
+        },
+        retries: 3
+    });
 
-        const listData = MessageListResponseSchema.parse(listResponse.data);
+    const listData = MessageListResponseSchema.parse(listResponse.data);
 
-        const messages: z.infer<typeof MessageSchema>[] = [];
-        for (const messageRef of listData.messages ?? []) {
-            const message = await fetchMessage(nango, messageRef.id);
-            if (message) {
-                messages.push(message);
-            }
+    const messages: z.infer<typeof MessageSchema>[] = [];
+    for (const messageRef of listData.messages ?? []) {
+        const message = await fetchMessage(nango, messageRef.id);
+        if (message) {
+            messages.push(message);
         }
-
-        if (messages.length > 0) {
-            await nango.batchSave(messages, 'Message');
-        }
-
-        if (listData.nextPageToken) {
-            await nango.saveCheckpoint({
-                phase: 'backfill',
-                history_id: '',
-                page_token: listData.nextPageToken,
-                backfill_history_id: backfillHistoryId ?? ''
-            });
-            return;
-        }
-
-        await nango.trackDeletesEnd('Message');
-
-        await nango.saveCheckpoint({
-            phase: 'history',
-            history_id: backfillHistoryId ?? (await getCurrentHistoryId(nango)),
-            page_token: '',
-            backfill_history_id: ''
-        });
-    } catch (error) {
-        if (!pageToken) {
-            await nango.trackDeletesEnd('Message');
-        }
-        throw error;
     }
+
+    if (messages.length > 0) {
+        await nango.batchSave(messages, 'Message');
+    }
+
+    if (listData.nextPageToken) {
+        await nango.saveCheckpoint({
+            phase: 'backfill',
+            history_id: '',
+            page_token: listData.nextPageToken,
+            backfill_history_id: backfillHistoryId ?? ''
+        });
+        return;
+    }
+
+    await nango.trackDeletesEnd('Message');
+
+    await nango.saveCheckpoint({
+        phase: 'history',
+        history_id: backfillHistoryId ?? (await getCurrentHistoryId(nango)),
+        page_token: '',
+        backfill_history_id: ''
+    });
 }
 
 async function syncIncremental(nango: NangoSyncLocal, checkpoint: NormalizedCheckpoint): Promise<void> {
