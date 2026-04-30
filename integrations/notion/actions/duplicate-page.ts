@@ -304,24 +304,79 @@ const action = createAction({
             properties = cleanProperties;
         }
 
+        // Helper: remove pre-fetched children so each block can be submitted independently
+        const stripChildren = (block: Record<string, unknown>): Record<string, unknown> => {
+            const { children: _stripped, ...rest } = block;
+            return rest;
+        };
+
+        // Helper: recursively append pre-fetched children to newly created blocks.
+        // Notion limits children to 100 per request and only processes 2 levels of nesting inline,
+        // so deeper children must be added via separate append calls after the blocks are created.
+        const appendNestedChildren = async (parentId: string, originalBlocks: Record<string, unknown>[]): Promise<void> => {
+            const hasAny = originalBlocks.some((b) => {
+                const c = b['children'];
+                return Array.isArray(c) && c.length > 0;
+            });
+            if (!hasAny) return;
+
+            // Fetch the IDs of the just-created blocks (positionally matched to originalBlocks)
+            const newBlocks: unknown[] = [];
+            let listCursor: string | undefined;
+            do {
+                const listResp = await nango.get({
+                    endpoint: `/v1/blocks/${encodeURIComponent(parentId)}/children`,
+                    params: { page_size: '100', ...(listCursor ? { start_cursor: listCursor } : {}) },
+                    retries: 3
+                });
+                if (!listResp.data) break;
+                const listData = BlockListSchema.parse(listResp.data);
+                newBlocks.push(...listData.results);
+                listCursor = listData.has_more ? (listData.next_cursor ?? undefined) : undefined;
+            } while (listCursor);
+
+            for (let i = 0; i < originalBlocks.length && i < newBlocks.length; i++) {
+                const origBlock = originalBlocks[i];
+                if (!isRecord(origBlock)) continue;
+                const childrenArr = origBlock['children'];
+                if (!Array.isArray(childrenArr) || childrenArr.length === 0) continue;
+
+                const newBlock = newBlocks[i];
+                if (!isRecord(newBlock) || typeof newBlock['id'] !== 'string') continue;
+                const newBlockId = newBlock['id'];
+
+                const childRecords = childrenArr.filter((c): c is Record<string, unknown> => isRecord(c));
+
+                // Append children in batches of 100, stripped of their own nested children
+                for (let j = 0; j < childRecords.length; j += 100) {
+                    const chunk = childRecords.slice(j, j + 100).map(stripChildren);
+                    await nango.patch({
+                        endpoint: `/v1/blocks/${encodeURIComponent(newBlockId)}/children`,
+                        data: { children: chunk },
+                        retries: 1
+                    });
+                }
+
+                // Recurse for deeper levels
+                await appendNestedChildren(newBlockId, childRecords);
+            }
+        };
+
         // Step 5: Create the new page with the duplicated content
         // https://developers.notion.com/reference/post-page
+        const cleanedBlocks = blocks
+            .map((block) => (isRecord(block) ? cleanBlock(block) : null))
+            .filter((block): block is Record<string, unknown> => block !== null);
+
         const createPagePayload: Record<string, unknown> = {
             parent,
             properties
         };
 
-        // Add blocks if we have them (clean them first to remove API-generated fields)
-        if (blocks.length > 0) {
-            const cleanedBlocks = blocks
-                .map((block) => {
-                    if (isRecord(block)) {
-                        return cleanBlock(block);
-                    }
-                    return null;
-                })
-                .filter((block): block is Record<string, unknown> => block !== null && isRecord(block));
-            createPagePayload['children'] = cleanedBlocks;
+        // Include first 100 top-level blocks without nested children.
+        // Notion caps children at 100 per request and only processes 2 nesting levels inline.
+        if (cleanedBlocks.length > 0) {
+            createPagePayload['children'] = cleanedBlocks.slice(0, 100).map(stripChildren);
         }
 
         // Add icon if the source page has one
@@ -348,6 +403,19 @@ const action = createAction({
         }
 
         const newPage = PageSchema.parse(createResponse.data);
+
+        // Append remaining top-level blocks in batches of 100
+        for (let i = 100; i < cleanedBlocks.length; i += 100) {
+            const chunk = cleanedBlocks.slice(i, i + 100).map(stripChildren);
+            await nango.patch({
+                endpoint: `/v1/blocks/${encodeURIComponent(newPage.id)}/children`,
+                data: { children: chunk },
+                retries: 1
+            });
+        }
+
+        // Recursively append all nested children via separate API calls
+        await appendNestedChildren(newPage.id, cleanedBlocks);
 
         // Extract title for output
         let outputTitle: string | undefined;
