@@ -40071,7 +40071,9 @@
         "output": [
           "ActionOutput_google_mail_batchdeletemessages"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://mail.google.com/"
+        ],
         "usedModels": [
           "ActionInput_google_mail_batchdeletemessages",
           "ActionOutput_google_mail_batchdeletemessages"
@@ -41710,6 +41712,7 @@
                     "securityMode": {
                       "type": "string",
                       "enum": [
+                        "securityModeUnspecified",
                         "none",
                         "ssl",
                         "starttls"
@@ -41721,6 +41724,7 @@
                 "verificationStatus": {
                   "type": "string",
                   "enum": [
+                    "verificationStatusUnspecified",
                     "accepted",
                     "pending"
                   ]
@@ -41912,7 +41916,7 @@
           "ActionOutput_google_mail_getvacationsettings"
         ],
         "scopes": [
-          "gmail.settings.basic"
+          "https://www.googleapis.com/auth/gmail.settings.basic"
         ],
         "usedModels": [
           "ActionInput_google_mail_getvacationsettings",
@@ -44031,6 +44035,7 @@
                   "type": "string",
                   "enum": [
                     "accessWindowUnspecified",
+                    "disabled",
                     "allMail",
                     "fromNowOn"
                   ]

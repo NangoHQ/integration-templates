@@ -35,7 +35,7 @@ const action = createAction({
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments/get
         const response = await nango.get({
-            endpoint: `gmail/v1/users/${encodeURIComponent(userId)}/messages/${encodeURIComponent(messageId)}/attachments/${encodeURIComponent(attachmentId)}`,
+            endpoint: `/gmail/v1/users/${encodeURIComponent(userId)}/messages/${encodeURIComponent(messageId)}/attachments/${encodeURIComponent(attachmentId)}`,
             retries: 3
         });
 

@@ -30281,6 +30281,7 @@
             "securityMode": {
               "type": "string",
               "enum": [
+                "securityModeUnspecified",
                 "none",
                 "ssl",
                 "starttls"
@@ -30292,6 +30293,7 @@
         "verificationStatus": {
           "type": "string",
           "enum": [
+            "verificationStatusUnspecified",
             "accepted",
             "pending"
           ]
@@ -31933,6 +31935,7 @@
           "type": "string",
           "enum": [
             "accessWindowUnspecified",
+            "disabled",
             "allMail",
             "fromNowOn"
           ],

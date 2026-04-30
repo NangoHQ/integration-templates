@@ -20,10 +20,10 @@ const ProviderSendAsSchema = z.object({
             port: z.number().optional(),
             username: z.string().optional(),
             password: z.string().optional(),
-            securityMode: z.enum(['none', 'ssl', 'starttls']).optional()
+            securityMode: z.enum(['securityModeUnspecified', 'none', 'ssl', 'starttls']).optional()
         })
         .optional(),
-    verificationStatus: z.enum(['accepted', 'pending']).optional()
+    verificationStatus: z.enum(['verificationStatusUnspecified', 'accepted', 'pending']).optional()
 });
 
 const OutputSchema = z.object({
@@ -40,10 +40,10 @@ const OutputSchema = z.object({
             port: z.number().optional(),
             username: z.string().optional(),
             password: z.string().optional(),
-            securityMode: z.enum(['none', 'ssl', 'starttls']).optional()
+            securityMode: z.enum(['securityModeUnspecified', 'none', 'ssl', 'starttls']).optional()
         })
         .optional(),
-    verificationStatus: z.enum(['accepted', 'pending']).optional()
+    verificationStatus: z.enum(['verificationStatusUnspecified', 'accepted', 'pending']).optional()
 });
 
 const action = createAction({

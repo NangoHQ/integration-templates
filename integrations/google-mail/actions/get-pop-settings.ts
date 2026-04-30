@@ -43,7 +43,7 @@ const action = createAction({
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getPop
         const response = await nango.get({
-            endpoint: `gmail/v1/users/${encodeURIComponent(userId)}/settings/pop`,
+            endpoint: `/gmail/v1/users/${encodeURIComponent(userId)}/settings/pop`,
             retries: 3
         });
 

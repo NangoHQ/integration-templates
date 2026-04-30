@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const AccessWindowSchema = z.enum(['accessWindowUnspecified', 'allMail', 'fromNowOn']);
+const AccessWindowSchema = z.enum(['accessWindowUnspecified', 'disabled', 'allMail', 'fromNowOn']);
 
 const DispositionSchema = z.enum(['dispositionUnspecified', 'leaveInInbox', 'archive', 'trash', 'markRead']);
 

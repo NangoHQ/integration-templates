@@ -69,7 +69,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/get
         const response = await nango.get({
-            endpoint: `gmail/v1/users/me/threads/${encodeURIComponent(input.id)}`,
+            endpoint: `/gmail/v1/users/me/threads/${encodeURIComponent(input.id)}`,
             params: {
                 ...(input.format !== undefined && { format: input.format }),
                 ...(input.metadataHeaders !== undefined &&

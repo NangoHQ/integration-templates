@@ -35,7 +35,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['gmail.settings.basic'],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getVacation

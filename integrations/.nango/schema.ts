@@ -8148,8 +8148,8 @@ export interface ActionOutput_google_mail_getsendasalias {
   port?: number | undefined;
   username?: string | undefined;
   password?: string | undefined;
-  securityMode?: 'none' | 'ssl' | 'starttls' | undefined;};
-  verificationStatus?: 'accepted' | 'pending' | undefined;
+  securityMode?: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls' | undefined;};
+  verificationStatus?: 'verificationStatusUnspecified' | 'accepted' | 'pending' | undefined;
 };
 
 export interface ActionInput_google_mail_getthread {
@@ -8745,7 +8745,7 @@ export interface ActionInput_google_mail_updatepopsettings {
   /**
    * The range of messages which are accessible via POP. Example: "allMail"
    */
-  accessWindow?: 'accessWindowUnspecified' | 'allMail' | 'fromNowOn' | undefined;
+  accessWindow?: 'accessWindowUnspecified' | 'disabled' | 'allMail' | 'fromNowOn' | undefined;
   /**
    * The action that will be executed on a message after it has been fetched via POP. Example: "leaveInInbox"
    */
