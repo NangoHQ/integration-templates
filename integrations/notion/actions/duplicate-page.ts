@@ -58,9 +58,7 @@ function cleanBlock(block: Record<string, unknown>): Record<string, unknown> | n
     // Preserve pre-fetched nested children
     const children = block['children'];
     if (Array.isArray(children)) {
-        const cleanedChildren = children
-            .map((child) => (isRecord(child) ? cleanBlock(child) : null))
-            .filter((c): c is Record<string, unknown> => c !== null);
+        const cleanedChildren = children.map((child) => (isRecord(child) ? cleanBlock(child) : null)).filter((c): c is Record<string, unknown> => c !== null);
         if (cleanedChildren.length > 0) {
             cleaned['children'] = cleanedChildren;
         }
