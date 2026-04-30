@@ -1,45 +1,49 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string().describe('The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"')
+    block_id: z.string().describe('The ID of the block to delete/archive. Example: "12345678-1234-1234-1234-123456789012"')
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    object: z.string(),
+    type: z.string(),
     archived: z.boolean()
 });
 
-const action = createAction({
-    description: 'Archives a block, moving it to trash.',
-    version: '1.0.0',
+const ProviderBlockSchema = z
+    .object({
+        id: z.string(),
+        type: z.string(),
+        archived: z.boolean()
+    })
+    .passthrough();
 
+const action = createAction({
+    description: 'Delete or archive a block by ID.',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/blocks/delete',
+        method: 'POST',
+        path: '/actions/delete-block',
         group: 'Blocks'
     },
-
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_content', 'write_content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/delete-a-block
-            endpoint: `v1/blocks/${input.block_id}`,
+        // https://developers.notion.com/reference/delete-a-block
+        const response = await nango.delete({
+            endpoint: `/v1/blocks/${encodeURIComponent(input.block_id)}`,
             retries: 3
-        };
+        });
 
-        const response = await nango.delete(config);
-        const data = response.data;
+        const providerBlock = ProviderBlockSchema.parse(response.data);
 
         return {
-            id: data.id,
-            object: data.object,
-            archived: data.archived
+            id: providerBlock.id,
+            type: providerBlock.type,
+            archived: providerBlock.archived
         };
     }
 });

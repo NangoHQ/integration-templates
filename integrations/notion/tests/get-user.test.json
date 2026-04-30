@@ -1,0 +1,62 @@
+{
+  "input": {
+    "userId": "328d872b-594c-8197-9cf9-000204973f06"
+  },
+  "output": {
+    "id": "328d872b-594c-8197-9cf9-000204973f06",
+    "type": "person",
+    "name": "Nango Developer",
+    "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s100",
+    "email": "api@nango.dev"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/users/328d872b-594c-8197-9cf9-000204973f06": {
+        "response": {
+          "object": "user",
+          "id": "328d872b-594c-8197-9cf9-000204973f06",
+          "name": "Nango Developer",
+          "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s100",
+          "type": "person",
+          "person": {
+            "email": "api@nango.dev"
+          },
+          "request_id": "a2c5b42a-7506-45f7-a9eb-b0495e1e58c2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 11:27:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1777548461",
+          "cf-ray": "9f463261faf976da-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"12c-SP0dU6nAyTw4La9NktGbAkFxxGs\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-notion-request-id": "a2c5b42a-7506-45f7-a9eb-b0495e1e58c2",
+          "x-permitted-cross-domain-policies": "none",
+          "set-cookie": "__cf_bm=2PzdMQRcFPGS8hSi.eArhM.oHiFsjpktuTEVkZlKS7g-1777548441.9140186-1.0.1.1-ZOXqY5rcgJ.nw2wjKX.wvL18iQaSJRfPP3G6eYvZygo3Lb35dBnqDehfnEl1Z03BZ.RbhnS04tuOT4AFFj6C16QBSOikp5OgDGbb7m1bSHkOjVQcJVpc5kDBNt6qb0TX; HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Thu, 30 Apr 2026 11:57:22 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "e75f0139f005d75e700770f7f1c6748e1d8980b0",
+        "request": {}
+      }
+    }
+  }
+}
