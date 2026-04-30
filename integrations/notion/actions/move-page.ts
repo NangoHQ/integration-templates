@@ -41,6 +41,7 @@ const ProviderPageSchema = z
             type: z.string(),
             page_id: z.string().optional(),
             database_id: z.string().optional(),
+            data_source_id: z.string().optional(),
             workspace: z.boolean().optional()
         }),
         archived: z.boolean().optional(),
@@ -59,6 +60,7 @@ const OutputSchema = z.object({
         type: z.string(),
         page_id: z.string().optional(),
         database_id: z.string().optional(),
+        data_source_id: z.string().optional(),
         workspace: z.boolean().optional()
     }),
     archived: z.boolean().optional(),

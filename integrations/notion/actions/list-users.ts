@@ -9,7 +9,7 @@ const InputSchema = z.object({
 const PersonUserSchema = z.object({
     type: z.literal('person'),
     person: z.object({
-        email: z.string()
+        email: z.string().optional()
     })
 });
 

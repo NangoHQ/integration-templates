@@ -222,9 +222,18 @@ const action = createAction({
         };
 
         // Build the result object with proper type checking
+        const rawId = getValue(rawData, 'id');
+        if (typeof rawId !== 'string') {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Data source response missing valid id field',
+                data_source_id: input.dataSourceId
+            });
+        }
+
         const result: Record<string, unknown> = {
             object: 'data_source',
-            id: String(getValue(rawData, 'id'))
+            id: rawId
         };
 
         const title = getValue(rawData, 'title');

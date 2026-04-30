@@ -37,7 +37,7 @@ const ProviderUserSchema = z.object({
     avatar_url: z.string().nullable(),
     type: z.enum(['person', 'bot']),
     person: ProviderPersonSchema.optional(),
-    bot: z.union([z.object({}), ProviderBotInfoSchema]).optional()
+    bot: z.union([ProviderBotInfoSchema, z.object({})]).optional()
 });
 
 const OutputSchema = z.object({

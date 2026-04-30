@@ -69,13 +69,28 @@ const action = createAction({
             type: input.type
         };
 
-        if (input.type === 'update_content' && input['update_content']) {
+        if (input.type === 'update_content') {
+            if (!input['update_content']) {
+                throw new nango.ActionError({ type: 'invalid_input', message: 'update_content payload is required when type is update_content.' });
+            }
             commandMap['update_content'] = input['update_content'];
-        } else if (input.type === 'replace_content' && input['replace_content']) {
+        } else if (input.type === 'replace_content') {
+            if (!input['replace_content']) {
+                throw new nango.ActionError({ type: 'invalid_input', message: 'replace_content payload is required when type is replace_content.' });
+            }
             commandMap['replace_content'] = input['replace_content'];
-        } else if (input.type === 'insert_content' && input['insert_content']) {
+        } else if (input.type === 'insert_content') {
+            if (!input['insert_content']) {
+                throw new nango.ActionError({ type: 'invalid_input', message: 'insert_content payload is required when type is insert_content.' });
+            }
             commandMap['insert_content'] = input['insert_content'];
-        } else if (input.type === 'replace_content_range' && input['replace_content_range']) {
+        } else if (input.type === 'replace_content_range') {
+            if (!input['replace_content_range']) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'replace_content_range payload is required when type is replace_content_range.'
+                });
+            }
             commandMap['replace_content_range'] = input['replace_content_range'];
         }
 

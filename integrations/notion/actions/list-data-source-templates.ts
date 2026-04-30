@@ -36,6 +36,9 @@ const action = createAction({
         const response = await nango.get({
             // https://developers.notion.com/reference/list-data-source-templates
             endpoint: `/v1/data_sources/${encodeURIComponent(input.dataSourceId)}/templates`,
+            headers: {
+                'Notion-Version': '2025-09-03'
+            },
             params: {
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.cursor !== undefined && { start_cursor: input.cursor }),
@@ -54,7 +57,7 @@ const action = createAction({
                     })
                 ),
                 has_more: z.boolean(),
-                next_cursor: z.union([z.string(), z.null()]).optional()
+                next_cursor: z.string().nullable().optional()
             })
             .parse(response.data);
 

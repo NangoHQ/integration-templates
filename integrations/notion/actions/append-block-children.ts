@@ -206,7 +206,7 @@ const action = createAction({
         const response = await nango.patch({
             endpoint: `/v1/blocks/${encodeURIComponent(input.block_id)}/children`,
             headers: {
-                'Notion-Version': '2022-06-28'
+                'Notion-Version': '2026-03-11'
             },
             data: requestBody,
             retries: 3

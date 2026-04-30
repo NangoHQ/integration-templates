@@ -14223,8 +14223,17 @@ export interface ActionInput_notion_createcomment {
   /**
    * An array of rich text objects representing the comment content
    */
-  rich_text: ({  type: 'text';
-  text: {  content: string;};})[];
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
   markdown?: never | undefined;};
   1: {  /**
    * The ID of the parent page to add a comment to. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
@@ -14242,8 +14251,17 @@ export interface ActionInput_notion_createcomment {
   /**
    * An array of rich text objects representing the comment content
    */
-  rich_text: ({  type: 'text';
-  text: {  content: string;};})[];
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
   markdown?: never | undefined;};
   3: {  /**
    * The ID of the parent block to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
@@ -14261,8 +14279,17 @@ export interface ActionInput_notion_createcomment {
   /**
    * An array of rich text objects representing the comment content
    */
-  rich_text: ({  type: 'text';
-  text: {  content: string;};})[];
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
   markdown?: never | undefined;};
   5: {  /**
    * The ID of the existing discussion thread to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
@@ -14740,6 +14767,7 @@ export interface ActionOutput_notion_movepage {
   parent: {  type: string;
   page_id?: string | undefined;
   database_id?: string | undefined;
+  data_source_id?: string | undefined;
   workspace?: boolean | undefined;};
   archived?: boolean | undefined;
   in_trash?: boolean | undefined;
@@ -15020,7 +15048,7 @@ export interface ActionInput_notion_search {
   query?: string | undefined;
   filter?: {  property: 'object';
   value: 'page' | 'data_source';} | undefined;
-  sort?: {  timestamp: 'last_edited_time';
+  sort?: {  timestamp: 'last_edited_time' | 'created_time';
   direction: 'ascending' | 'descending';} | undefined;
   /**
    * Pagination cursor for the next page of results.

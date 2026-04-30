@@ -29,7 +29,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_content', 'write_content'],
+    scopes: ['read_content', 'update_content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.notion.com/reference/delete-a-block

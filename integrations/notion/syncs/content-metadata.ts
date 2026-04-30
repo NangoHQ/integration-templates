@@ -230,6 +230,8 @@ const sync = createSync({
         // https://developers.notion.com/reference/post-search
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
 
+        await nango.trackDeletesStart('ContentMetadata');
+
         // Manual pagination loop to avoid test mock provider lookup issues
         do {
             const response = await nango.post({
@@ -300,6 +302,7 @@ const sync = createSync({
             cursor = nextCursor;
         } while (cursor);
 
+        await nango.trackDeletesEnd('ContentMetadata');
         await nango.clearCheckpoint();
     }
 });

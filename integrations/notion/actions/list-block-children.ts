@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     block_id: z.string().describe('Block ID or page ID to retrieve children for. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"'),
-    page_size: z.number().optional().describe('Number of results per page (max 100).'),
+    page_size: z.number().min(1).max(100).optional().describe('Number of results per page (max 100).'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 

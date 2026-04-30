@@ -78320,30 +78320,121 @@
                     "rich_text": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "text"
-                          },
-                          "text": {
+                        "anyOf": [
+                          {
                             "type": "object",
                             "properties": {
-                              "content": {
+                              "type": {
+                                "type": "string",
+                                "const": "text"
+                              },
+                              "text": {
+                                "type": "object",
+                                "properties": {
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "link": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "url": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "url"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "content"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "annotations": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              },
+                              "plain_text": {
                                 "type": "string"
+                              },
+                              "href": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
                               }
                             },
                             "required": [
-                              "content"
+                              "type",
+                              "text"
                             ],
                             "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "mention"
+                              },
+                              "mention": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "mention"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "equation"
+                              },
+                              "equation": {
+                                "type": "object",
+                                "properties": {
+                                  "expression": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "expression"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "equation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": {}
                           }
-                        },
-                        "required": [
-                          "type",
-                          "text"
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "description": "An array of rich text objects representing the comment content"
                     },
@@ -78388,30 +78479,121 @@
                     "rich_text": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "text"
-                          },
-                          "text": {
+                        "anyOf": [
+                          {
                             "type": "object",
                             "properties": {
-                              "content": {
+                              "type": {
+                                "type": "string",
+                                "const": "text"
+                              },
+                              "text": {
+                                "type": "object",
+                                "properties": {
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "link": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "url": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "url"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "content"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "annotations": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              },
+                              "plain_text": {
                                 "type": "string"
+                              },
+                              "href": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
                               }
                             },
                             "required": [
-                              "content"
+                              "type",
+                              "text"
                             ],
                             "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "mention"
+                              },
+                              "mention": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "mention"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "equation"
+                              },
+                              "equation": {
+                                "type": "object",
+                                "properties": {
+                                  "expression": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "expression"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "equation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": {}
                           }
-                        },
-                        "required": [
-                          "type",
-                          "text"
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "description": "An array of rich text objects representing the comment content"
                     },
@@ -78456,30 +78638,121 @@
                     "rich_text": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "text"
-                          },
-                          "text": {
+                        "anyOf": [
+                          {
                             "type": "object",
                             "properties": {
-                              "content": {
+                              "type": {
+                                "type": "string",
+                                "const": "text"
+                              },
+                              "text": {
+                                "type": "object",
+                                "properties": {
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "link": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "url": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "url"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "content"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "annotations": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              },
+                              "plain_text": {
                                 "type": "string"
+                              },
+                              "href": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
                               }
                             },
                             "required": [
-                              "content"
+                              "type",
+                              "text"
                             ],
                             "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "mention"
+                              },
+                              "mention": {
+                                "type": "object",
+                                "properties": {},
+                                "additionalProperties": {}
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "mention"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "const": "equation"
+                              },
+                              "equation": {
+                                "type": "object",
+                                "properties": {
+                                  "expression": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "expression"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "equation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": {}
                           }
-                        },
-                        "required": [
-                          "type",
-                          "text"
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "description": "An array of rich text objects representing the comment content"
                     },
@@ -78872,7 +79145,7 @@
         ],
         "scopes": [
           "read_content",
-          "write_content"
+          "update_content"
         ],
         "usedModels": [
           "ActionInput_notion_deleteblock",
@@ -79198,7 +79471,9 @@
                 },
                 "page_size": {
                   "description": "Number of results to return per page. Maximum is 100. Default: 100.",
-                  "type": "number"
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 100
                 }
               },
               "required": [
@@ -79401,7 +79676,9 @@
                 },
                 "page_size": {
                   "description": "Number of results per page (max 100).",
-                  "type": "number"
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 100
                 },
                 "cursor": {
                   "description": "Pagination cursor from the previous response. Omit for the first page.",
@@ -80252,6 +80529,9 @@
                       "type": "string"
                     },
                     "database_id": {
+                      "type": "string"
+                    },
+                    "data_source_id": {
                       "type": "string"
                     },
                     "workspace": {
@@ -81675,7 +81955,10 @@
                   "properties": {
                     "timestamp": {
                       "type": "string",
-                      "const": "last_edited_time"
+                      "enum": [
+                        "last_edited_time",
+                        "created_time"
+                      ]
                     },
                     "direction": {
                       "type": "string",

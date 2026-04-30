@@ -52549,26 +52549,108 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "text"
-                  },
-                  "text": {
+                  "0": {
                     "type": "object",
                     "properties": {
-                      "content": {
+                      "type": {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      "text": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "link": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "content"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "annotations": {
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "plain_text": {
+                        "type": "string"
+                      },
+                      "href": {
                         "type": "string"
                       }
                     },
                     "required": [
-                      "content"
+                      "type",
+                      "text"
                     ],
+                    "additionalProperties": false
+                  },
+                  "1": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "mention"
+                      },
+                      "mention": {
+                        "type": "object",
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "mention"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "2": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "equation"
+                      },
+                      "equation": {
+                        "type": "object",
+                        "properties": {
+                          "expression": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "expression"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "equation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "3": {
+                    "type": "object",
                     "additionalProperties": false
                   }
                 },
                 "required": [
-                  "type",
-                  "text"
+                  "0",
+                  "1",
+                  "2",
+                  "3"
                 ],
                 "additionalProperties": false
               },
@@ -52615,26 +52697,108 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "text"
-                  },
-                  "text": {
+                  "0": {
                     "type": "object",
                     "properties": {
-                      "content": {
+                      "type": {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      "text": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "link": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "content"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "annotations": {
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "plain_text": {
+                        "type": "string"
+                      },
+                      "href": {
                         "type": "string"
                       }
                     },
                     "required": [
-                      "content"
+                      "type",
+                      "text"
                     ],
+                    "additionalProperties": false
+                  },
+                  "1": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "mention"
+                      },
+                      "mention": {
+                        "type": "object",
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "mention"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "2": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "equation"
+                      },
+                      "equation": {
+                        "type": "object",
+                        "properties": {
+                          "expression": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "expression"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "equation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "3": {
+                    "type": "object",
                     "additionalProperties": false
                   }
                 },
                 "required": [
-                  "type",
-                  "text"
+                  "0",
+                  "1",
+                  "2",
+                  "3"
                 ],
                 "additionalProperties": false
               },
@@ -52681,26 +52845,108 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "text"
-                  },
-                  "text": {
+                  "0": {
                     "type": "object",
                     "properties": {
-                      "content": {
+                      "type": {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      "text": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "link": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "content"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "annotations": {
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "plain_text": {
+                        "type": "string"
+                      },
+                      "href": {
                         "type": "string"
                       }
                     },
                     "required": [
-                      "content"
+                      "type",
+                      "text"
                     ],
+                    "additionalProperties": false
+                  },
+                  "1": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "mention"
+                      },
+                      "mention": {
+                        "type": "object",
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "mention"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "2": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "equation"
+                      },
+                      "equation": {
+                        "type": "object",
+                        "properties": {
+                          "expression": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "expression"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "equation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "3": {
+                    "type": "object",
                     "additionalProperties": false
                   }
                 },
                 "required": [
-                  "type",
-                  "text"
+                  "0",
+                  "1",
+                  "2",
+                  "3"
                 ],
                 "additionalProperties": false
               },
@@ -54028,6 +54274,9 @@
             "database_id": {
               "type": "string"
             },
+            "data_source_id": {
+              "type": "string"
+            },
             "workspace": {
               "type": "boolean"
             }
@@ -55092,7 +55341,10 @@
           "properties": {
             "timestamp": {
               "type": "string",
-              "const": "last_edited_time"
+              "enum": [
+                "last_edited_time",
+                "created_time"
+              ]
             },
             "direction": {
               "type": "string",

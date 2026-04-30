@@ -1,12 +1,27 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const RichTextSchema = z.object({
-    type: z.literal('text'),
-    text: z.object({
-        content: z.string()
-    })
-});
+const RichTextSchema = z.union([
+    z.object({
+        type: z.literal('text'),
+        text: z.object({
+            content: z.string(),
+            link: z.object({ url: z.string() }).nullable().optional()
+        }),
+        annotations: z.looseObject({}).optional(),
+        plain_text: z.string().optional(),
+        href: z.string().nullable().optional()
+    }),
+    z.object({
+        type: z.literal('mention'),
+        mention: z.looseObject({})
+    }),
+    z.object({
+        type: z.literal('equation'),
+        equation: z.object({ expression: z.string() })
+    }),
+    z.looseObject({})
+]);
 
 const InputSchema = z.union([
     z.object({

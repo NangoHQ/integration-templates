@@ -13,7 +13,7 @@ const InputSchema = z.object({
         .string()
         .optional()
         .describe('Pagination cursor for properties with many values (title, rich_text, relation, people). Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results to return per page. Maximum is 100. Default: 100.')
+    page_size: z.number().min(1).max(100).optional().describe('Number of results to return per page. Maximum is 100. Default: 100.')
 });
 
 // Schema for property item object (simple property types)

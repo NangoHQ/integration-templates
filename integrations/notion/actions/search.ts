@@ -12,7 +12,7 @@ const InputSchema = z.object({
         .optional(),
     sort: z
         .object({
-            timestamp: z.literal('last_edited_time'),
+            timestamp: z.enum(['last_edited_time', 'created_time']),
             direction: z.enum(['ascending', 'descending'])
         })
         .describe('Sort order for results.')

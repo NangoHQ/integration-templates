@@ -33,20 +33,17 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const blockTypes = Object.keys(input.content);
-        if (blockTypes.length === 0) {
+        if (blockTypes.length !== 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'The content object must contain a block type key (e.g., "paragraph", "heading_1", "to_do").'
+                message:
+                    blockTypes.length === 0
+                        ? 'The content object must contain a block type key (e.g., "paragraph", "heading_1", "to_do").'
+                        : 'The content object must contain exactly one block type key.'
             });
         }
 
-        const blockType = blockTypes[0];
-        if (!blockType) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'Unable to determine block type from content object.'
-            });
-        }
+        const blockType = blockTypes[0]!;
 
         const blockContent = input.content[blockType];
 

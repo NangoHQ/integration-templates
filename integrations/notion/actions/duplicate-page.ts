@@ -39,13 +39,31 @@ function cleanBlock(block: Record<string, unknown>): Record<string, unknown> | n
             if (Array.isArray(value)) {
                 cleanedContent[key] = value;
             } else if (isRecord(value)) {
-                // Recursively clean nested objects
-                cleanedContent[key] = cleanBlock(value);
+                // Only apply block cleaning to actual block objects; pass everything else through
+                if (value['object'] === 'block') {
+                    const nestedBlock = cleanBlock(value);
+                    if (nestedBlock !== null) {
+                        cleanedContent[key] = nestedBlock;
+                    }
+                } else {
+                    cleanedContent[key] = value;
+                }
             } else {
                 cleanedContent[key] = value;
             }
         }
         cleaned[blockType] = cleanedContent;
+    }
+
+    // Preserve pre-fetched nested children
+    const children = block['children'];
+    if (Array.isArray(children)) {
+        const cleanedChildren = children
+            .map((child) => (isRecord(child) ? cleanBlock(child) : null))
+            .filter((c): c is Record<string, unknown> => c !== null);
+        if (cleanedChildren.length > 0) {
+            cleaned['children'] = cleanedChildren;
+        }
     }
 
     return cleaned;
@@ -145,20 +163,64 @@ const action = createAction({
 
         const sourcePage = PageSchema.parse(pageResponse.data);
 
-        // Step 2: Retrieve the page's block children (content)
+        // Step 2: Retrieve the page's block children (content) with pagination
         // https://developers.notion.com/reference/get-block-children
-        const blocksResponse = await nango.get({
-            endpoint: `/v1/blocks/${encodeURIComponent(input.page_id)}/children`,
-            params: {
-                page_size: '100'
-            },
-            retries: 3
-        });
+        const blocks: unknown[] = [];
+        let blockCursor: string | undefined;
 
-        let blocks: unknown[] = [];
-        if (blocksResponse.data) {
+        do {
+            const blocksResponse = await nango.get({
+                endpoint: `/v1/blocks/${encodeURIComponent(input.page_id)}/children`,
+                params: {
+                    page_size: '100',
+                    ...(blockCursor ? { start_cursor: blockCursor } : {})
+                },
+                retries: 3
+            });
+
+            if (!blocksResponse.data) {
+                break;
+            }
+
             const blockList = BlockListSchema.parse(blocksResponse.data);
-            blocks = blockList.results;
+            blocks.push(...blockList.results);
+            blockCursor = blockList.has_more ? (blockList.next_cursor ?? undefined) : undefined;
+        } while (blockCursor);
+
+        // Recursively fetch children for blocks with nested content (max depth 5)
+        const fetchChildBlocks = async (blockId: string, depth: number): Promise<unknown[]> => {
+            if (depth > 5) return [];
+            const childBlocks: unknown[] = [];
+            let childCursor: string | undefined;
+            do {
+                const resp = await nango.get({
+                    endpoint: `/v1/blocks/${encodeURIComponent(blockId)}/children`,
+                    params: { page_size: '100', ...(childCursor ? { start_cursor: childCursor } : {}) },
+                    retries: 3
+                });
+                if (!resp.data) break;
+                const list = BlockListSchema.parse(resp.data);
+                childBlocks.push(...list.results);
+                childCursor = list.has_more ? (list.next_cursor ?? undefined) : undefined;
+            } while (childCursor);
+            for (const block of childBlocks) {
+                if (isRecord(block) && block['has_children'] === true && typeof block['id'] === 'string') {
+                    const nested = await fetchChildBlocks(block['id'], depth + 1);
+                    if (nested.length > 0) {
+                        block['children'] = nested;
+                    }
+                }
+            }
+            return childBlocks;
+        };
+
+        for (const block of blocks) {
+            if (isRecord(block) && block['has_children'] === true && typeof block['id'] === 'string') {
+                const nestedChildren = await fetchChildBlocks(block['id'], 1);
+                if (nestedChildren.length > 0) {
+                    block['children'] = nestedChildren;
+                }
+            }
         }
 
         // Step 3: Prepare the parent for the new page
@@ -229,6 +291,15 @@ const action = createAction({
                     const propType = propValue['type'];
                     if (typeof propType === 'string' && propType in propValue) {
                         cleanProperties[key] = { [propType]: propValue[propType] };
+                    }
+                }
+            }
+            // Override the title property if input.title is provided
+            if (input.title) {
+                for (const [key, value] of Object.entries(sourcePage.properties)) {
+                    if (isRecord(value) && value['type'] === 'title') {
+                        cleanProperties[key] = { title: [{ text: { content: input.title } }] };
+                        break;
                     }
                 }
             }

@@ -208,11 +208,23 @@ const action = createAction({
 
         // Add markdown if provided
         if (input.markdown) {
+            if (input.children && input.children.length > 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'markdown cannot be provided together with children.'
+                });
+            }
             body['markdown'] = input.markdown;
         }
 
         // Add template if provided
         if (input.template) {
+            if (input.children && input.children.length > 0 && input.template.type !== 'none') {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'children cannot be provided when template.type is default or template_id.'
+                });
+            }
             body['template'] = input.template;
         }
 
