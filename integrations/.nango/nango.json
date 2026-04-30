@@ -40541,6 +40541,103 @@
       },
       {
         "type": "action",
+        "description": "Create a custom send-as alias for the mailbox",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/create-send-as-alias",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_mail_createsendasalias",
+        "name": "create-send-as-alias",
+        "output": [
+          "ActionOutput_google_mail_createsendasalias"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.basic"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_createsendasalias",
+          "ActionOutput_google_mail_createsendasalias"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_createsendasalias": {
+              "type": "object",
+              "properties": {
+                "sendAsEmail": {
+                  "type": "string",
+                  "format": "email",
+                  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+                  "description": "The email address to appear in the \"From:\" header for mail sent using this alias. Example: \"alias@example.com\""
+                },
+                "displayName": {
+                  "description": "A name that appears in the \"From:\" header for mail sent using this alias. Example: \"John Doe\"",
+                  "type": "string"
+                },
+                "replyToAddress": {
+                  "description": "An optional email address to use for the reply-to header. Example: \"replies@example.com\"",
+                  "type": "string",
+                  "format": "email",
+                  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                },
+                "signature": {
+                  "description": "An optional HTML signature for the alias",
+                  "type": "string"
+                },
+                "isDefault": {
+                  "description": "Whether this alias is the default for the user",
+                  "type": "boolean"
+                },
+                "treatAsAlias": {
+                  "description": "Whether Gmail should treat this address as an alias of the user's primary email address",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "sendAsEmail"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_createsendasalias": {
+              "type": "object",
+              "properties": {
+                "sendAsEmail": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "replyToAddress": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "isDefault": {
+                  "type": "boolean"
+                },
+                "isPrimary": {
+                  "type": "boolean"
+                },
+                "treatAsAlias": {
+                  "type": "boolean"
+                },
+                "verificationStatus": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sendAsEmail"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
         "description": "Delete an existing draft by draft ID",
         "endpoint": {
           "method": "POST",
@@ -40630,6 +40727,59 @@
             },
             "ActionOutput_google_mail_deletefilter": {
               "type": "null"
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Delete a forwarding address from Gmail settings.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/delete-forwarding-address",
+          "group": "Forwarding Addresses"
+        },
+        "input": "ActionInput_google_mail_deleteforwardingaddress",
+        "name": "delete-forwarding-address",
+        "output": [
+          "ActionOutput_google_mail_deleteforwardingaddress"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.basic"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_deleteforwardingaddress",
+          "ActionOutput_google_mail_deleteforwardingaddress"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_deleteforwardingaddress": {
+              "type": "object",
+              "properties": {
+                "forwardingEmail": {
+                  "type": "string",
+                  "description": "The forwarding email address to delete. Example: \"forward@example.com\""
+                }
+              },
+              "required": [
+                "forwardingEmail"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_deleteforwardingaddress": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "Whether the forwarding address was successfully deleted"
+                }
+              },
+              "required": [
+                "success"
+              ],
+              "additionalProperties": false
             }
           }
         },
@@ -40741,6 +40891,49 @@
                 "id"
               ],
               "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Delete a custom send-as alias from the mailbox.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/actions/delete-send-as-alias",
+          "group": "SendAs"
+        },
+        "input": "ActionInput_google_mail_deletesendasalias",
+        "name": "delete-send-as-alias",
+        "output": [
+          "ActionOutput_google_mail_deletesendasalias"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.basic"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_deletesendasalias",
+          "ActionOutput_google_mail_deletesendasalias"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_deletesendasalias": {
+              "type": "object",
+              "properties": {
+                "sendAsEmail": {
+                  "type": "string",
+                  "description": "The email address of the send-as alias to delete. Example: \"alias@example.com\""
+                }
+              },
+              "required": [
+                "sendAsEmail"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_deletesendasalias": {
+              "type": "null"
             }
           }
         },
@@ -41178,6 +41371,70 @@
               },
               "required": [
                 "id"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Retrieve a forwarding address configured for the mailbox.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/get-forwarding-address",
+          "group": "Forwarding Addresses"
+        },
+        "input": "ActionInput_google_mail_getforwardingaddress",
+        "name": "get-forwarding-address",
+        "output": [
+          "ActionOutput_google_mail_getforwardingaddress"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.basic"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_getforwardingaddress",
+          "ActionOutput_google_mail_getforwardingaddress"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_getforwardingaddress": {
+              "type": "object",
+              "properties": {
+                "forwardingEmail": {
+                  "type": "string",
+                  "description": "The forwarding email address to retrieve. Example: \"user@example.com\""
+                }
+              },
+              "required": [
+                "forwardingEmail"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_getforwardingaddress": {
+              "type": "object",
+              "properties": {
+                "forwardingEmail": {
+                  "type": "string"
+                },
+                "verificationStatus": {
+                  "type": "string",
+                  "enum": [
+                    "accepted",
+                    "pending",
+                    "confirmationCodeSent"
+                  ]
+                },
+                "verificationTime": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "forwardingEmail",
+                "verificationStatus"
               ],
               "additionalProperties": false
             }
@@ -43631,6 +43888,86 @@
       },
       {
         "type": "action",
+        "description": "Update Gmail auto-forwarding behavior and disposition",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/update-auto-forwarding-settings",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_mail_updateautoforwardingsettings",
+        "name": "update-auto-forwarding-settings",
+        "output": [
+          "ActionOutput_google_mail_updateautoforwardingsettings"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.sharing"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_updateautoforwardingsettings",
+          "ActionOutput_google_mail_updateautoforwardingsettings"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_updateautoforwardingsettings": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether all incoming mail is automatically forwarded to another address."
+                },
+                "email_address": {
+                  "description": "Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses.",
+                  "type": "string"
+                },
+                "disposition": {
+                  "description": "The state that a message should be left in after it has been forwarded.",
+                  "type": "string",
+                  "enum": [
+                    "dispositionUnspecified",
+                    "leaveInInbox",
+                    "archive",
+                    "trash",
+                    "markRead"
+                  ]
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_updateautoforwardingsettings": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "email_address": {
+                  "type": "string"
+                },
+                "disposition": {
+                  "type": "string",
+                  "enum": [
+                    "dispositionUnspecified",
+                    "leaveInInbox",
+                    "archive",
+                    "trash",
+                    "markRead"
+                  ]
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
         "description": "Replace an existing draft with new MIME content.",
         "endpoint": {
           "method": "POST",
@@ -44425,6 +44762,126 @@
               },
               "required": [
                 "enableAutoReply"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Trigger verification for a custom send-as alias",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/verify-send-as-alias",
+          "group": "Settings"
+        },
+        "input": "ActionInput_google_mail_verifysendasalias",
+        "name": "verify-send-as-alias",
+        "output": [
+          "ActionOutput_google_mail_verifysendasalias"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.settings.basic"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_verifysendasalias",
+          "ActionOutput_google_mail_verifysendasalias"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_verifysendasalias": {
+              "type": "object",
+              "properties": {
+                "sendAsEmail": {
+                  "type": "string",
+                  "description": "The send-as alias email address to verify. Example: \"api+test@nango.dev\""
+                },
+                "userId": {
+                  "description": "The user ID. Defaults to \"me\" for the authenticated user.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sendAsEmail"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_verifysendasalias": {
+              "type": "null"
+            }
+          }
+        },
+        "features": []
+      },
+      {
+        "type": "action",
+        "description": "Start Gmail push notifications for mailbox changes.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/actions/watch-mailbox",
+          "group": "Watch"
+        },
+        "input": "ActionInput_google_mail_watchmailbox",
+        "name": "watch-mailbox",
+        "output": [
+          "ActionOutput_google_mail_watchmailbox"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.modify"
+        ],
+        "usedModels": [
+          "ActionInput_google_mail_watchmailbox",
+          "ActionOutput_google_mail_watchmailbox"
+        ],
+        "version": "1.0.0",
+        "json_schema": {
+          "definitions": {
+            "ActionInput_google_mail_watchmailbox": {
+              "type": "object",
+              "properties": {
+                "topicName": {
+                  "type": "string",
+                  "description": "The name of the Cloud Pub/Sub topic to use for notifications. Format: projects/{project}/topics/{topic}"
+                },
+                "labelIds": {
+                  "description": "List of label IDs to filter on for push notifications. If specified, only changes to messages with these labels will trigger notifications.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "labelFilterBehavior": {
+                  "description": "How to treat the labelIds filter. \"include\" means only labels in labelIds will trigger notifications. \"exclude\" means all labels except those in labelIds will trigger notifications.",
+                  "type": "string",
+                  "enum": [
+                    "include",
+                    "exclude"
+                  ]
+                }
+              },
+              "required": [
+                "topicName"
+              ],
+              "additionalProperties": false
+            },
+            "ActionOutput_google_mail_watchmailbox": {
+              "type": "object",
+              "properties": {
+                "historyId": {
+                  "type": "string",
+                  "description": "The ID of the mailbox history record at which the watch was started."
+                },
+                "expiration": {
+                  "type": "string",
+                  "description": "The expiration time of the watch as a timestamp in milliseconds."
+                }
+              },
+              "required": [
+                "historyId",
+                "expiration"
               ],
               "additionalProperties": false
             }
