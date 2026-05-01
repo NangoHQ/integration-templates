@@ -13825,27 +13825,6 @@ export interface SyncMetadata_jira_projectversions {
   projectKeys?: string[] | undefined;
 };
 
-export interface Project {
-  id: string;
-  name: string;
-  state?: string | undefined;
-  status?: {  id: string;
-  name: string;
-  type: string;
-  color?: string | undefined;};
-  progress?: number | undefined;
-  startDate?: string | undefined;
-  targetDate?: string | undefined;
-  createdAt: string;
-  updatedAt: string;
-  lead?: {  id: string;
-  name?: string | undefined;
-  email?: string | undefined;};
-  teams?: ({  id: string;
-  key?: string | undefined;
-  name?: string | undefined;})[];
-};
-
 export interface ActionInput_jira_addattachment {
   /**
    * The ID or key of the issue to attach the file to. Example: "10001" or "PROJ-123"
