@@ -1,6 +1,6 @@
 {
   "nango": {
-    "getConnection": {},
+    "getMetadata": { "videoId": "cJK5VJubPNs" },
     "batchSave": {
       "CommentThread": [
         {

@@ -17,6 +17,28 @@
   },
   "nango": {},
   "api": {
+    "get": {
+      "/youtube/v3/videos": {
+        "response": {
+          "items": [
+            {
+              "id": "qzUjVCpSSsY",
+              "snippet": {
+                "title": "Original Video Title",
+                "categoryId": "22"
+              }
+            }
+          ]
+        },
+        "hash": "c9bd72ca038f365f694745360ad3eb510f31a5aa",
+        "request": {
+          "params": {
+            "part": "snippet",
+            "id": "qzUjVCpSSsY"
+          }
+        }
+      }
+    },
     "put": {
       "/youtube/v3/videos": {
         "response": {

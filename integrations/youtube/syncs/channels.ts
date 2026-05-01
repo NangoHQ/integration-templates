@@ -58,8 +58,11 @@ const ChannelStatisticsSchema = z.object({
 });
 
 const ChannelContentDetailsSchema = z.object({
-    privacyStatus: z.string().optional(),
-    isLinked: z.boolean().optional()
+    relatedPlaylists: z
+        .object({
+            uploads: z.string().optional()
+        })
+        .optional()
 });
 
 const ChannelStatusSchema = z.object({
@@ -126,98 +129,9 @@ const sync = createSync({
             return;
         }
 
-        await nango.trackDeletesStart('Channel');
-
-        const allChannels: Array<z.infer<typeof ChannelSchema>> = [];
-
-        // Fetch channels by ID
-        if (channelIds && channelIds.length > 0) {
-            // https://developers.google.com/youtube/v3/docs/channels/list
-            const idResponse = await nango.get({
-                endpoint: '/youtube/v3/channels',
-                params: {
-                    part: 'contentDetails,snippet,statistics,brandingSettings',
-                    id: channelIds.join(','),
-                    maxResults: '50'
-                },
-                retries: 3
-            });
-
-            const parsedIdResponse = ChannelsListResponseSchema.safeParse(idResponse.data);
-
-            if (!parsedIdResponse.success) {
-                await nango.log('Failed to parse channels response by ID', { level: 'error', error: parsedIdResponse.error.message });
-                throw new Error('Failed to parse channels response');
-            }
-
-            const idChannels = parsedIdResponse.data.items.map(mapChannelItem);
-            allChannels.push(...idChannels);
-        }
-
-        // Fetch channels by handle
-        if (handles && handles.length > 0) {
-            // YouTube handles are used with the forHandle parameter
-            for (const handle of handles) {
-                // https://developers.google.com/youtube/v3/docs/channels/list
-                const handleResponse = await nango.get({
-                    endpoint: '/youtube/v3/channels',
-                    params: {
-                        part: 'contentDetails,snippet,statistics,brandingSettings',
-                        forHandle: handle.startsWith('@') ? handle : `@${handle}`,
-                        maxResults: '5'
-                    },
-                    retries: 3
-                });
-
-                const parsedHandleResponse = ChannelsListResponseSchema.safeParse(handleResponse.data);
-
-                if (!parsedHandleResponse.success) {
-                    await nango.log('Failed to parse channels response by handle', { level: 'error', error: parsedHandleResponse.error.message });
-                    throw new Error('Failed to parse channels response');
-                }
-
-                const handleChannels = parsedHandleResponse.data.items.map(mapChannelItem);
-                allChannels.push(...handleChannels);
-            }
-        }
-
-        // Fetch the authenticated user's channel(s)
-        if (mine) {
-            // https://developers.google.com/youtube/v3/docs/channels/list
-            const mineResponse = await nango.get({
-                endpoint: '/youtube/v3/channels',
-                params: {
-                    part: 'contentDetails,snippet,statistics,brandingSettings',
-                    mine: 'true',
-                    maxResults: '5'
-                },
-                retries: 3
-            });
-
-            const parsedMineResponse = ChannelsListResponseSchema.safeParse(mineResponse.data);
-
-            if (!parsedMineResponse.success) {
-                await nango.log('Failed to parse channels response for mine=true', { level: 'error', error: parsedMineResponse.error.message });
-                throw new Error('Failed to parse channels response');
-            }
-
-            const mineChannels = parsedMineResponse.data.items.map(mapChannelItem);
-            allChannels.push(...mineChannels);
-        }
-
-        // Remove duplicates by ID
-        const uniqueChannels = Array.from(new Map(allChannels.map((c) => [c.id, c])).values());
-
-        if (uniqueChannels.length > 0) {
-            await nango.batchSave(uniqueChannels, 'Channel');
-        }
-
-        await nango.trackDeletesEnd('Channel');
-
         function mapChannelItem(item: ChannelItem): z.infer<typeof ChannelSchema> {
             const snippet = item.snippet;
             const statistics = item.statistics;
-            const contentDetails = item.contentDetails;
             const status = item.status;
 
             return {
@@ -234,11 +148,100 @@ const sync = createSync({
                 ...(statistics?.hiddenSubscriberCount != null && { hiddenSubscriberCount: statistics.hiddenSubscriberCount }),
                 ...(statistics?.videoCount != null && { videoCount: parseInt(statistics.videoCount, 10) }),
                 ...(snippet?.country != null && { country: snippet.country }),
-                ...(contentDetails?.privacyStatus != null && { privacyStatus: contentDetails.privacyStatus }),
-                ...(contentDetails?.isLinked != null && { isLinked: contentDetails.isLinked }),
+                ...(status?.privacyStatus != null && { privacyStatus: status.privacyStatus }),
+                ...(status?.isLinked != null && { isLinked: status.isLinked }),
                 ...(status?.madeForKids != null && { madeForKids: status.madeForKids }),
                 ...(status?.selfDeclaredMadeForKids != null && { selfDeclaredMadeForKids: status.selfDeclaredMadeForKids })
             };
+        }
+
+        await nango.trackDeletesStart('Channel');
+
+        const allChannels: Array<z.infer<typeof ChannelSchema>> = [];
+        try {
+            // Fetch channels by ID
+            if (channelIds && channelIds.length > 0) {
+                // https://developers.google.com/youtube/v3/docs/channels/list
+                const idResponse = await nango.get({
+                    endpoint: '/youtube/v3/channels',
+                    params: {
+                        part: 'snippet,statistics,status',
+                        id: channelIds.join(','),
+                        maxResults: '50'
+                    },
+                    retries: 3
+                });
+
+                const parsedIdResponse = ChannelsListResponseSchema.safeParse(idResponse.data);
+
+                if (!parsedIdResponse.success) {
+                    await nango.log('Failed to parse channels response by ID', { level: 'error', error: parsedIdResponse.error.message });
+                    throw new Error('Failed to parse channels response');
+                }
+
+                const idChannels = parsedIdResponse.data.items.map(mapChannelItem);
+                allChannels.push(...idChannels);
+            }
+
+            // Fetch channels by handle
+            if (handles && handles.length > 0) {
+                // YouTube handles are used with the forHandle parameter
+                for (const handle of handles) {
+                    // https://developers.google.com/youtube/v3/docs/channels/list
+                    const handleResponse = await nango.get({
+                        endpoint: '/youtube/v3/channels',
+                        params: {
+                            part: 'snippet,statistics,status',
+                            forHandle: handle.startsWith('@') ? handle : `@${handle}`,
+                            maxResults: '5'
+                        },
+                        retries: 3
+                    });
+
+                    const parsedHandleResponse = ChannelsListResponseSchema.safeParse(handleResponse.data);
+
+                    if (!parsedHandleResponse.success) {
+                        await nango.log('Failed to parse channels response by handle', { level: 'error', error: parsedHandleResponse.error.message });
+                        throw new Error('Failed to parse channels response');
+                    }
+
+                    const handleChannels = parsedHandleResponse.data.items.map(mapChannelItem);
+                    allChannels.push(...handleChannels);
+                }
+            }
+
+            // Fetch the authenticated user's channel(s)
+            if (mine) {
+                // https://developers.google.com/youtube/v3/docs/channels/list
+                const mineResponse = await nango.get({
+                    endpoint: '/youtube/v3/channels',
+                    params: {
+                        part: 'snippet,statistics,status',
+                        mine: 'true',
+                        maxResults: '5'
+                    },
+                    retries: 3
+                });
+
+                const parsedMineResponse = ChannelsListResponseSchema.safeParse(mineResponse.data);
+
+                if (!parsedMineResponse.success) {
+                    await nango.log('Failed to parse channels response for mine=true', { level: 'error', error: parsedMineResponse.error.message });
+                    throw new Error('Failed to parse channels response');
+                }
+
+                const mineChannels = parsedMineResponse.data.items.map(mapChannelItem);
+                allChannels.push(...mineChannels);
+            }
+
+            // Remove duplicates by ID
+            const uniqueChannels = Array.from(new Map(allChannels.map((c) => [c.id, c])).values());
+
+            if (uniqueChannels.length > 0) {
+                await nango.batchSave(uniqueChannels, 'Channel');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Channel');
         }
     }
 });

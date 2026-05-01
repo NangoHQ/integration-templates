@@ -168,7 +168,6 @@ const sync = createSync({
         // filtering by modification time or a changed-since parameter.
         // It only supports videoId, channelId, and pagination via pageToken.
         // Therefore, we must perform a full refresh with trackDeletesStart/trackDeletesEnd.
-        await nango.trackDeletesStart('CommentThread');
 
         // Determine which IDs to fetch comment threads for
         const idsToFetch: Array<{ type: 'video' | 'channel'; id: string }> = [];
@@ -182,7 +181,8 @@ const sync = createSync({
         } else if (channelId) {
             idsToFetch.push({ type: 'channel', id: channelId });
         } else {
-            idsToFetch.push({ type: 'video', id: 'cJK5VJubPNs' });
+            await nango.log('No videoId, channelId, or videoIds found in metadata. Configure sync scope in connection metadata.', { level: 'warn' });
+            return;
         }
 
         let startTargetIndex = 0;
@@ -197,82 +197,89 @@ const sync = createSync({
             }
         }
 
-        // Process each video/channel
-        for (let targetIndex = startTargetIndex; targetIndex < idsToFetch.length; targetIndex++) {
-            const target = idsToFetch[targetIndex];
-            if (!target) {
-                continue;
-            }
-            let currentPageToken = targetIndex === startTargetIndex ? startPageToken : undefined;
-
-            while (true) {
-                const params: Record<string, string | number> = {
-                    part: 'snippet,replies',
-                    maxResults: 100
-                };
-
-                if (target.type === 'video') {
-                    params['videoId'] = target.id;
-                } else if (target.id !== 'mine') {
-                    params['allThreadsRelatedToChannelId'] = target.id;
-                }
-
-                if (currentPageToken) {
-                    params['pageToken'] = currentPageToken;
-                }
-
-                const response = await nango.get({
-                    // https://developers.google.com/youtube/v3/docs/commentThreads/list
-                    endpoint: '/youtube/v3/commentThreads',
-                    params,
-                    retries: 3
-                });
-
-                const parsedResponse = z
-                    .object({
-                        items: z.array(ProviderCommentThreadSchema),
-                        nextPageToken: z.string().optional()
-                    })
-                    .safeParse(response.data);
-
-                if (!parsedResponse.success) {
-                    throw new Error('Invalid response from YouTube API: ' + parsedResponse.error.message);
-                }
-
-                const threads = parsedResponse.data.items.map(mapCommentThread);
-
-                if (threads.length > 0) {
-                    await nango.batchSave(threads, 'CommentThread');
-                }
-
-                const nextPageToken = parsedResponse.data.nextPageToken;
-                if (nextPageToken) {
-                    currentPageToken = nextPageToken;
-                    await nango.saveCheckpoint({
-                        target_type: target.type,
-                        target_id: target.id,
-                        target_index: targetIndex,
-                        page_token: nextPageToken
-                    });
+        await nango.trackDeletesStart('CommentThread');
+        let syncSuccessful = false;
+        try {
+            // Process each video/channel
+            for (let targetIndex = startTargetIndex; targetIndex < idsToFetch.length; targetIndex++) {
+                const target = idsToFetch[targetIndex];
+                if (!target) {
                     continue;
                 }
+                let currentPageToken = targetIndex === startTargetIndex ? startPageToken : undefined;
 
-                const nextTarget = idsToFetch[targetIndex + 1];
-                if (nextTarget) {
-                    await nango.saveCheckpoint({
-                        target_type: nextTarget.type,
-                        target_id: nextTarget.id,
-                        target_index: targetIndex + 1,
-                        page_token: ''
+                while (true) {
+                    const params: Record<string, string | number> = {
+                        part: 'snippet,replies',
+                        maxResults: 100
+                    };
+
+                    if (target.type === 'video') {
+                        params['videoId'] = target.id;
+                    } else {
+                        params['allThreadsRelatedToChannelId'] = target.id;
+                    }
+
+                    if (currentPageToken) {
+                        params['pageToken'] = currentPageToken;
+                    }
+
+                    const response = await nango.get({
+                        // https://developers.google.com/youtube/v3/docs/commentThreads/list
+                        endpoint: '/youtube/v3/commentThreads',
+                        params,
+                        retries: 3
                     });
+
+                    const parsedResponse = z
+                        .object({
+                            items: z.array(ProviderCommentThreadSchema),
+                            nextPageToken: z.string().optional()
+                        })
+                        .safeParse(response.data);
+
+                    if (!parsedResponse.success) {
+                        throw new Error('Invalid response from YouTube API: ' + parsedResponse.error.message);
+                    }
+
+                    const threads = parsedResponse.data.items.map(mapCommentThread);
+
+                    if (threads.length > 0) {
+                        await nango.batchSave(threads, 'CommentThread');
+                    }
+
+                    const nextPageToken = parsedResponse.data.nextPageToken;
+                    if (nextPageToken) {
+                        currentPageToken = nextPageToken;
+                        await nango.saveCheckpoint({
+                            target_type: target.type,
+                            target_id: target.id,
+                            target_index: targetIndex,
+                            page_token: nextPageToken
+                        });
+                        continue;
+                    }
+
+                    const nextTarget = idsToFetch[targetIndex + 1];
+                    if (nextTarget) {
+                        await nango.saveCheckpoint({
+                            target_type: nextTarget.type,
+                            target_id: nextTarget.id,
+                            target_index: targetIndex + 1,
+                            page_token: ''
+                        });
+                    }
+
+                    break;
                 }
-
-                break;
             }
+            syncSuccessful = true;
+        } finally {
+            if (syncSuccessful) {
+                await nango.clearCheckpoint();
+            }
+            await nango.trackDeletesEnd('CommentThread');
         }
-
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('CommentThread');
     }
 });
 

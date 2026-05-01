@@ -92683,9 +92683,7 @@
               }
             },
             "required": [
-              "url",
-              "width",
-              "height"
+              "url"
             ],
             "additionalProperties": false
           }
@@ -93204,6 +93202,10 @@
         "channel_id": {
           "type": "string",
           "description": "YouTube channel ID. If omitted, uses the authenticated user's channel (\"mine\"). Example: \"UC_x5XG1OV2P6uZZ5FSM9Ttw\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Page token from a previous response next_cursor to fetch the next page of results."
         }
       },
       "additionalProperties": false
@@ -93479,9 +93481,7 @@
         }
       },
       "required": [
-        "id",
-        "title",
-        "privacyStatus"
+        "id"
       ],
       "additionalProperties": false
     },

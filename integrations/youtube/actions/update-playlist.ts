@@ -10,36 +10,31 @@ const InputSchema = z.object({
 
 const ProviderPlaylistSchema = z.object({
     id: z.string(),
-    snippet: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishedAt: z.string().optional()
-    }),
-    status: z.object({
-        privacyStatus: z.enum(['public', 'unlisted', 'private'])
-    })
+    snippet: z
+        .object({
+            title: z.string(),
+            description: z.string().optional(),
+            publishedAt: z.string().optional()
+        })
+        .optional(),
+    status: z
+        .object({
+            privacyStatus: z.enum(['public', 'unlisted', 'private'])
+        })
+        .optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    title: z.string(),
+    title: z.string().optional(),
     description: z.string().optional(),
-    privacyStatus: z.enum(['public', 'unlisted', 'private'])
+    privacyStatus: z.enum(['public', 'unlisted', 'private']).optional()
 });
-
-type Snippet = {
-    title?: string;
-    description?: string;
-};
-
-type Status = {
-    privacyStatus?: 'public' | 'unlisted' | 'private';
-};
 
 type PlaylistUpdateBody = {
     id: string;
-    snippet: Snippet;
-    status: Status;
+    snippet?: { title: string; description?: string };
+    status?: { privacyStatus: 'public' | 'unlisted' | 'private' };
 };
 
 const action = createAction({
@@ -55,30 +50,39 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/youtube'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestBody: PlaylistUpdateBody = {
-            id: input.id,
-            snippet: {},
-            status: {}
-        };
+        const parts: string[] = ['id'];
+        const requestBody: PlaylistUpdateBody = { id: input.id };
 
-        if (input.title !== undefined) {
-            requestBody.snippet.title = input.title;
-        }
-
-        if (input.description !== undefined) {
-            requestBody.snippet.description = input.description;
+        if (input.title !== undefined || input.description !== undefined) {
+            parts.push('snippet');
+            let snippetTitle: string;
+            if (input.title !== undefined) {
+                snippetTitle = input.title;
+            } else {
+                // Fetch current title to avoid clearing it when only description is updated.
+                // YouTube requires snippet.title when snippet is included in the part.
+                const currentResponse = await nango.get({
+                    endpoint: '/youtube/v3/playlists',
+                    params: { part: 'snippet', id: input.id },
+                    retries: 3
+                });
+                snippetTitle = currentResponse.data?.items?.[0]?.snippet?.title ?? '';
+            }
+            requestBody.snippet = {
+                title: snippetTitle,
+                ...(input.description !== undefined && { description: input.description })
+            };
         }
 
         if (input.privacyStatus !== undefined) {
-            requestBody.status.privacyStatus = input.privacyStatus;
+            parts.push('status');
+            requestBody.status = { privacyStatus: input.privacyStatus };
         }
 
         // https://developers.google.com/youtube/v3/docs/playlists/update
         const response = await nango.put({
             endpoint: '/youtube/v3/playlists',
-            params: {
-                part: 'snippet,status'
-            },
+            params: { part: parts.join(',') },
             data: requestBody,
             retries: 3
         });
@@ -87,11 +91,9 @@ const action = createAction({
 
         return {
             id: providerPlaylist.id,
-            title: providerPlaylist.snippet.title,
-            ...(providerPlaylist.snippet.description !== undefined && {
-                description: providerPlaylist.snippet.description
-            }),
-            privacyStatus: providerPlaylist.status.privacyStatus
+            ...(providerPlaylist.snippet?.title !== undefined && { title: providerPlaylist.snippet.title }),
+            ...(providerPlaylist.snippet?.description !== undefined && { description: providerPlaylist.snippet.description }),
+            ...(providerPlaylist.status?.privacyStatus !== undefined && { privacyStatus: providerPlaylist.status.privacyStatus })
         };
     }
 });

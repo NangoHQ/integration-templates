@@ -18,8 +18,8 @@ const ProviderSnippetSchema = z.object({
             z.string(),
             z.object({
                 url: z.string(),
-                width: z.number(),
-                height: z.number()
+                width: z.number().optional(),
+                height: z.number().optional()
             })
         )
         .optional()
@@ -65,8 +65,8 @@ const OutputSchema = z.object({
             z.string(),
             z.object({
                 url: z.string(),
-                width: z.number(),
-                height: z.number()
+                width: z.number().optional(),
+                height: z.number().optional()
             })
         )
         .optional()

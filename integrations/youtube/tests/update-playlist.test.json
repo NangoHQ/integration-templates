@@ -73,7 +73,7 @@
           "server": "scaffolding on HTTPServer2",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "18f2fece6e35c4b376390010f1501a7845bd77d9",
+        "hash": "82cbcee134da9072d71dee8c65eee6c827403548",
         "request": {
           "params": {
             "part": "snippet,status"

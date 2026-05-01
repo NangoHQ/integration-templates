@@ -128,8 +128,28 @@ const action = createAction({
             id: input.id
         };
 
+        // YouTube videos.update replaces the entire part — not a patch.
+        // Fetch the current snippet first so required fields (title, categoryId)
+        // are preserved when the caller omits them.
         if (input.snippet) {
-            requestBody['snippet'] = input.snippet;
+            const currentResponse = await nango.get({
+                endpoint: '/youtube/v3/videos',
+                params: { part: 'snippet', id: input.id },
+                retries: 3
+            });
+            const cs = currentResponse.data?.items?.[0]?.snippet ?? {};
+            // Build merged snippet with stable key order: title, description, tags, categoryId, defaultLanguage
+            const mergedSnippet: Record<string, unknown> = {};
+            mergedSnippet['title'] = input.snippet.title ?? cs.title;
+            const description = input.snippet.description !== undefined ? input.snippet.description : cs.description;
+            if (description !== undefined) mergedSnippet['description'] = description;
+            const tags = input.snippet.tags !== undefined ? input.snippet.tags : cs.tags;
+            if (tags !== undefined) mergedSnippet['tags'] = tags;
+            const categoryId = input.snippet.categoryId !== undefined ? input.snippet.categoryId : cs.categoryId;
+            if (categoryId !== undefined) mergedSnippet['categoryId'] = categoryId;
+            const defaultLanguage = input.snippet.defaultLanguage !== undefined ? input.snippet.defaultLanguage : cs.defaultLanguage;
+            if (defaultLanguage !== undefined) mergedSnippet['defaultLanguage'] = defaultLanguage;
+            requestBody['snippet'] = mergedSnippet;
         }
         if (input.status) {
             requestBody['status'] = input.status;

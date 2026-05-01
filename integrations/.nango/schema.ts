@@ -27292,8 +27292,8 @@ export interface ActionOutput_youtube_getplaylist {
   itemCount?: number | undefined;
   privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
   thumbnails?: {  [key: string]: {  url: string;
-  width: number;
-  height: number;};} | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};};
 };
 
 export interface ActionInput_youtube_getvideo {
@@ -27530,6 +27530,10 @@ export interface ActionInput_youtube_listuploadedvideos {
    * YouTube channel ID. If omitted, uses the authenticated user's channel ("mine"). Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
    */
   channel_id?: string | undefined;
+  /**
+   * Page token from a previous response next_cursor to fetch the next page of results.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_youtube_listuploadedvideos {
@@ -27620,9 +27624,9 @@ export interface ActionInput_youtube_updateplaylist {
 
 export interface ActionOutput_youtube_updateplaylist {
   id: string;
-  title: string;
+  title?: string | undefined;
   description?: string | undefined;
-  privacyStatus: 'public' | 'unlisted' | 'private';
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
 };
 
 export interface ActionInput_youtube_updatevideo {

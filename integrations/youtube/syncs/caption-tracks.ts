@@ -82,7 +82,6 @@ const sync = createSync({
         // filtering by modification time or returning changed records only.
         // It returns all caption tracks for a given video ID.
         // We checkpoint by video index so interrupted full refreshes can resume.
-        await nango.trackDeletesStart('CaptionTrack');
 
         let metadata: unknown;
         // @allowTryCatch Metadata is optional and may be absent in local dryruns.
@@ -94,66 +93,76 @@ const sync = createSync({
         const parsedMetadata = MetadataSchema.safeParse(metadata);
         const metadataData = parsedMetadata.success ? parsedMetadata.data : {};
 
-        // Get video IDs from metadata or use a sample video for testing
-        // In production, this would come from an uploaded videos sync
-        const videoIds = metadataData.video_ids?.length ? metadataData.video_ids : ['cJK5VJubPNs']; // Sample video from integration details
-        const startingVideoIndex = checkpoint?.video_index ?? 0;
-
-        for (let videoIndex = startingVideoIndex; videoIndex < videoIds.length; videoIndex++) {
-            const videoId = videoIds[videoIndex];
-            if (!videoId) {
-                continue;
-            }
-
-            // https://developers.google.com/youtube/v3/docs/captions/list
-            const response = await nango.get({
-                endpoint: '/youtube/v3/captions',
-                params: {
-                    part: 'id,snippet',
-                    videoId: videoId
-                },
-                retries: 3
-            });
-
-            const items = Array.isArray(response.data?.items) ? response.data.items : [];
-            const captionTracks: z.infer<typeof CaptionTrackSchema>[] = [];
-
-            for (const item of items) {
-                const parseResult = ProviderCaptionSchema.safeParse(item);
-                if (!parseResult.success) {
-                    throw new Error(`Failed to parse caption track: ${parseResult.error.message}`);
-                }
-
-                const caption = parseResult.data;
-                captionTracks.push({
-                    id: caption.id,
-                    video_id: caption.snippet.videoId,
-                    last_updated: caption.snippet.lastUpdated,
-                    track_kind: caption.snippet.trackKind,
-                    language: caption.snippet.language,
-                    name: caption.snippet.name,
-                    audio_track_type: caption.snippet.audioTrackType,
-                    is_cc: caption.snippet.isCC,
-                    is_large: caption.snippet.isLarge,
-                    is_easy_reader: caption.snippet.isEasyReader,
-                    is_draft: caption.snippet.isDraft,
-                    is_auto_synced: caption.snippet.isAutoSynced,
-                    status: caption.snippet.status,
-                    failure_reason: caption.snippet.failureReason
-                });
-            }
-
-            if (captionTracks.length > 0) {
-                await nango.batchSave(captionTracks, 'CaptionTrack');
-            }
-
-            if (videoIndex < videoIds.length - 1) {
-                await nango.saveCheckpoint({ video_index: videoIndex + 1 });
-            }
+        const videoIds = metadataData.video_ids;
+        if (!videoIds || videoIds.length === 0) {
+            await nango.log('No video_ids found in metadata. Configure video_ids in connection metadata to sync caption tracks.', { level: 'warn' });
+            return;
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('CaptionTrack');
+        const startingVideoIndex = checkpoint?.video_index ?? 0;
+
+        await nango.trackDeletesStart('CaptionTrack');
+        let syncSuccessful = false;
+        try {
+            for (let videoIndex = startingVideoIndex; videoIndex < videoIds.length; videoIndex++) {
+                const videoId = videoIds[videoIndex];
+                if (!videoId) {
+                    continue;
+                }
+
+                // https://developers.google.com/youtube/v3/docs/captions/list
+                const response = await nango.get({
+                    endpoint: '/youtube/v3/captions',
+                    params: {
+                        part: 'id,snippet',
+                        videoId: videoId
+                    },
+                    retries: 3
+                });
+
+                const items = Array.isArray(response.data?.items) ? response.data.items : [];
+                const captionTracks: z.infer<typeof CaptionTrackSchema>[] = [];
+
+                for (const item of items) {
+                    const parseResult = ProviderCaptionSchema.safeParse(item);
+                    if (!parseResult.success) {
+                        throw new Error(`Failed to parse caption track: ${parseResult.error.message}`);
+                    }
+
+                    const caption = parseResult.data;
+                    captionTracks.push({
+                        id: caption.id,
+                        video_id: caption.snippet.videoId,
+                        last_updated: caption.snippet.lastUpdated,
+                        track_kind: caption.snippet.trackKind,
+                        language: caption.snippet.language,
+                        name: caption.snippet.name,
+                        audio_track_type: caption.snippet.audioTrackType,
+                        is_cc: caption.snippet.isCC,
+                        is_large: caption.snippet.isLarge,
+                        is_easy_reader: caption.snippet.isEasyReader,
+                        is_draft: caption.snippet.isDraft,
+                        is_auto_synced: caption.snippet.isAutoSynced,
+                        status: caption.snippet.status,
+                        failure_reason: caption.snippet.failureReason
+                    });
+                }
+
+                if (captionTracks.length > 0) {
+                    await nango.batchSave(captionTracks, 'CaptionTrack');
+                }
+
+                if (videoIndex < videoIds.length - 1) {
+                    await nango.saveCheckpoint({ video_index: videoIndex + 1 });
+                }
+            }
+            syncSuccessful = true;
+        } finally {
+            if (syncSuccessful) {
+                await nango.clearCheckpoint();
+            }
+            await nango.trackDeletesEnd('CaptionTrack');
+        }
     }
 });
 

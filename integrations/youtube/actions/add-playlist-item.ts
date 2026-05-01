@@ -4,7 +4,12 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     playlistId: z.string().describe('The ID of the playlist to add the video to. Example: "PLxxxxxxxxxxxxxxxxxxx"'),
     videoId: z.string().describe('The YouTube video ID to add to the playlist. Example: "dQw4w9WgXcQ"'),
-    position: z.number().optional().describe('The position to insert the video into the playlist (0-based). If not specified, the video is added to the end.')
+    position: z
+        .number()
+        .int()
+        .nonnegative()
+        .optional()
+        .describe('The position to insert the video into the playlist (0-based). If not specified, the video is added to the end.')
 });
 
 const ProviderSnippetSchema = z.object({

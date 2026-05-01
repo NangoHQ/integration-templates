@@ -5,7 +5,8 @@ const InputSchema = z.object({
     channel_id: z
         .string()
         .optional()
-        .describe('YouTube channel ID. If omitted, uses the authenticated user\'s channel ("mine"). Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"')
+        .describe('YouTube channel ID. If omitted, uses the authenticated user\'s channel ("mine"). Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"'),
+    cursor: z.string().optional().describe('Page token from a previous response next_cursor to fetch the next page of results.')
 });
 
 const VideoSchema = z.object({
@@ -72,7 +73,8 @@ const action = createAction({
             params: {
                 part: 'snippet,contentDetails',
                 playlistId: uploadsPlaylistId,
-                maxResults: '50'
+                maxResults: '50',
+                ...(input.cursor && { pageToken: input.cursor })
             },
             retries: 3
         });
