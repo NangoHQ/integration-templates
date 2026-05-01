@@ -1,0 +1,12 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "job_id": 73559482172
+  },
+  "output": {
+    "download_url": "https://api.github.com/repos/viictoo/api-playground2/actions/jobs/73559482172/logs"
+  },
+  "nango": {},
+  "api": {}
+}

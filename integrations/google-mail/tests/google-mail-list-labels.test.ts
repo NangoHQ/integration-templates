@@ -1,0 +1,19 @@
+import { vi, expect, it, describe } from 'vitest';
+
+import createAction from '../actions/list-labels.js';
+
+describe('google-mail list-labels tests', () => {
+    const nangoMock = new global.vitest.NangoActionMock({
+        dirname: __dirname,
+        name: 'list-labels',
+        Model: 'ActionOutput_google_mail_listlabels'
+    });
+
+    it('should output the action output that is expected', async () => {
+        const input = await nangoMock.getInput();
+        const response = await createAction.exec(nangoMock, input);
+        const output = await nangoMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
+});
