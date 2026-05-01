@@ -1,0 +1,134 @@
+{
+  "input": {
+    "user_gid": "me",
+    "organization": "1202775892569436"
+  },
+  "output": {
+    "items": [
+      {
+        "gid": "1211440849237740",
+        "name": "Nango's first team",
+        "description": "",
+        "permalink_url": "https://app.asana.com/0/1211440849237740",
+        "organization": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        }
+      },
+      {
+        "gid": "1214299875377451",
+        "name": "Marketing",
+        "description": "",
+        "permalink_url": "https://app.asana.com/0/1214299875377451",
+        "organization": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        }
+      },
+      {
+        "gid": "1214299875377454",
+        "name": "Engineering",
+        "description": "",
+        "permalink_url": "https://app.asana.com/0/1214299875377454",
+        "organization": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        }
+      },
+      {
+        "gid": "1214299875377457",
+        "name": "Operations",
+        "description": "",
+        "permalink_url": "https://app.asana.com/0/1214299875377457",
+        "organization": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/users/me/teams": {
+        "response": {
+          "data": [
+            {
+              "gid": "1211440849237740",
+              "description": "",
+              "name": "Nango's first team",
+              "organization": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              },
+              "permalink_url": "https://app.asana.com/0/1211440849237740"
+            },
+            {
+              "gid": "1214299875377451",
+              "description": "",
+              "name": "Marketing",
+              "organization": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              },
+              "permalink_url": "https://app.asana.com/0/1214299875377451"
+            },
+            {
+              "gid": "1214299875377454",
+              "description": "",
+              "name": "Engineering",
+              "organization": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              },
+              "permalink_url": "https://app.asana.com/0/1214299875377454"
+            },
+            {
+              "gid": "1214299875377457",
+              "description": "",
+              "name": "Operations",
+              "organization": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              },
+              "permalink_url": "https://app.asana.com/0/1214299875377457"
+            }
+          ],
+          "next_page": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:42:57 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "883",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1777301032",
+          "etag": "W/\"373-gUg6ANbaWoQtC1GE1J0RNOn+yW8\""
+        },
+        "hash": "822d5ea64dcc96813a33dceb723b18cf1d1b698d",
+        "request": {
+          "params": {
+            "limit": "100",
+            "opt_fields": "name,description,organization,permalink_url",
+            "organization": "1202775892569436"
+          }
+        }
+      }
+    }
+  }
+}

@@ -25,13 +25,45 @@ import './anrok/actions/void-transaction.js';
 
 // -- Integration: asana
 import './asana/syncs/projects.js';
+import './asana/syncs/subtasks.js';
+import './asana/syncs/tags.js';
 import './asana/syncs/tasks.js';
+import './asana/syncs/teams.js';
 import './asana/syncs/users.js';
 import './asana/syncs/workspaces.js';
+import './asana/actions/add-project-to-task.js';
+import './asana/actions/add-tag-to-task.js';
+import './asana/actions/create-project.js';
+import './asana/actions/create-story-on-task.js';
+import './asana/actions/create-subtask.js';
+import './asana/actions/create-tag.js';
 import './asana/actions/create-task.js';
+import './asana/actions/delete-attachment.js';
+import './asana/actions/delete-project.js';
 import './asana/actions/delete-task.js';
-import './asana/actions/fetch-projects.js';
-import './asana/actions/fetch-workspaces.js';
+import './asana/actions/get-project.js';
+import './asana/actions/get-tag.js';
+import './asana/actions/get-task.js';
+import './asana/actions/get-team.js';
+import './asana/actions/get-user.js';
+import './asana/actions/get-workspace.js';
+import './asana/actions/list-attachments-for-object.js';
+import './asana/actions/list-projects-for-team.js';
+import './asana/actions/list-projects-for-workspace.js';
+import './asana/actions/list-stories-for-task.js';
+import './asana/actions/list-subtasks-for-task.js';
+import './asana/actions/list-tags-for-workspace.js';
+import './asana/actions/list-tasks-for-project.js';
+import './asana/actions/list-tasks-for-section.js';
+import './asana/actions/list-teams-for-user.js';
+import './asana/actions/list-teams-for-workspace.js';
+import './asana/actions/list-users-for-team.js';
+import './asana/actions/list-users-for-workspace.js';
+import './asana/actions/list-workspaces.js';
+import './asana/actions/remove-project-from-task.js';
+import './asana/actions/remove-tag-from-task.js';
+import './asana/actions/update-project.js';
+import './asana/actions/update-tag.js';
 import './asana/actions/update-task.js';
 
 // -- Integration: ashby
