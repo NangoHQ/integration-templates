@@ -1,0 +1,110 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "run_id": 25103424715
+  },
+  "output": {
+    "total_count": 1,
+    "jobs": [
+      {
+        "id": 73558493408,
+        "run_id": 25103424715,
+        "workflow_name": "CI",
+        "head_branch": "main",
+        "run_url": "https://api.github.com/repos/viictoo/api-playground2/actions/runs/25103424715",
+        "run_attempt": 2,
+        "node_id": "CR_kwDOSPtvHM8AAAARIG2I4A",
+        "head_sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/jobs/73558493408",
+        "html_url": "https://github.com/viictoo/api-playground2/actions/runs/25103424715/job/73558493408",
+        "status": "queued",
+        "conclusion": null,
+        "started_at": "2026-04-29T10:21:11Z",
+        "completed_at": null,
+        "name": "test",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/viictoo/api-playground2/check-runs/73558493408",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": null,
+        "runner_name": null,
+        "runner_group_id": null,
+        "runner_group_name": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/actions/runs/25103424715/jobs": {
+        "response": {
+          "total_count": 1,
+          "jobs": [
+            {
+              "id": 73558493408,
+              "run_id": 25103424715,
+              "workflow_name": "CI",
+              "head_branch": "main",
+              "run_url": "https://api.github.com/repos/viictoo/api-playground2/actions/runs/25103424715",
+              "run_attempt": 2,
+              "node_id": "CR_kwDOSPtvHM8AAAARIG2I4A",
+              "head_sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/jobs/73558493408",
+              "html_url": "https://github.com/viictoo/api-playground2/actions/runs/25103424715/job/73558493408",
+              "status": "queued",
+              "conclusion": null,
+              "created_at": "2026-04-29T10:21:11Z",
+              "started_at": "2026-04-29T10:21:11Z",
+              "completed_at": null,
+              "name": "test",
+              "steps": [],
+              "check_run_url": "https://api.github.com/repos/viictoo/api-playground2/check-runs/73558493408",
+              "labels": [
+                "ubuntu-latest"
+              ],
+              "runner_id": null,
+              "runner_name": null,
+              "runner_group_id": null,
+              "runner_group_name": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:21:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4899",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"4d16730f24ac6e9ce609991bf812bcedbe14d7d20033a6db27760590c8d0c4a3\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "actions=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "101",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "9963:35326B:14EC58AA:15316FF0:69F1DB9B"
+        },
+        "hash": "2310b8e72d2ca9e467170fa0dee98a9745bb54c0",
+        "request": {}
+      }
+    }
+  }
+}

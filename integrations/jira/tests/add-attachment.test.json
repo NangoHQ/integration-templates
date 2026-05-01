@@ -1,0 +1,25 @@
+{
+  "input": {
+    "issueIdOrKey": "KAN-15",
+    "file": {
+      "content": "test attachment content",
+      "filename": "test.txt",
+      "contentType": "text/plain"
+    }
+  },
+  "output": {
+    "id": "10004",
+    "filename": "test.txt",
+    "size": 23,
+    "mimeType": "text/plain",
+    "url": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/attachment/content/10004"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {}
+}

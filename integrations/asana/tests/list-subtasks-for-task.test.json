@@ -1,0 +1,130 @@
+{
+  "input": {
+    "task_gid": "1214301141292050"
+  },
+  "output": {
+    "items": [
+      {
+        "gid": "1214301858798544",
+        "name": "Subtask 2",
+        "resource_type": "task",
+        "completed": false,
+        "notes": "",
+        "parent": {
+          "gid": "1214301141292050",
+          "name": "Test Task"
+        },
+        "permalink_url": "https://app.asana.com/1/1202775892569436/task/1214301858798544",
+        "created_at": "2026-04-27T14:26:52.927Z",
+        "modified_at": "2026-04-27T14:26:53.526Z",
+        "workspace": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        },
+        "projects": [],
+        "tags": []
+      },
+      {
+        "gid": "1214301996232552",
+        "name": "Subtask 1",
+        "resource_type": "task",
+        "completed": false,
+        "notes": "",
+        "parent": {
+          "gid": "1214301141292050",
+          "name": "Test Task"
+        },
+        "permalink_url": "https://app.asana.com/1/1202775892569436/task/1214301996232552",
+        "created_at": "2026-04-27T14:26:52.006Z",
+        "modified_at": "2026-04-27T14:26:52.641Z",
+        "workspace": {
+          "gid": "1202775892569436",
+          "name": "nango.dev"
+        },
+        "projects": [],
+        "tags": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/tasks/1214301141292050/subtasks": {
+        "response": {
+          "data": [
+            {
+              "gid": "1214301858798544",
+              "assignee": null,
+              "completed": false,
+              "created_at": "2026-04-27T14:26:52.927Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:26:53.526Z",
+              "name": "Subtask 2",
+              "notes": "",
+              "parent": {
+                "gid": "1214301141292050",
+                "name": "Test Task"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/task/1214301858798544",
+              "projects": [],
+              "resource_type": "task",
+              "tags": [],
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev"
+              }
+            },
+            {
+              "gid": "1214301996232552",
+              "assignee": null,
+              "completed": false,
+              "created_at": "2026-04-27T14:26:52.006Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:26:52.641Z",
+              "name": "Subtask 1",
+              "notes": "",
+              "parent": {
+                "gid": "1214301141292050",
+                "name": "Test Task"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/task/1214301996232552",
+              "projects": [],
+              "resource_type": "task",
+              "tags": [],
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:28:57 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "864",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1777300142",
+          "etag": "W/\"360-SIbA1EKTXtjnpPcyn3xLsvfT1tY\""
+        },
+        "hash": "3708de063904de5959a7e99c0cb81c01c4cd98ae",
+        "request": {
+          "params": {
+            "opt_fields": "gid,name,resource_type,assignee,assignee.name,completed,due_on,notes,parent,parent.gid,parent.name,permalink_url,created_at,modified_at,workspace,workspace.gid,workspace.name,projects,projects.gid,projects.name,tags,tags.gid,tags.name"
+          }
+        }
+      }
+    }
+  }
+}

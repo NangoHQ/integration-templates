@@ -1,0 +1,176 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2"
+  },
+  "output": {
+    "total_count": 5,
+    "workflows": [
+      {
+        "id": 268232428,
+        "node_id": "W_kwDOSPtvHM4P_Obs",
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "state": "active",
+        "created_at": "2026-04-29T09:27:53.000Z",
+        "updated_at": "2026-04-29T09:27:53.000Z",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232428",
+        "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/ci.yml",
+        "badge_url": "https://github.com/viictoo/api-playground2/workflows/CI/badge.svg"
+      },
+      {
+        "id": 268232429,
+        "node_id": "W_kwDOSPtvHM4P_Obt",
+        "name": "Manual",
+        "path": ".github/workflows/manual.yml",
+        "state": "active",
+        "created_at": "2026-04-29T09:27:53.000Z",
+        "updated_at": "2026-04-29T09:27:53.000Z",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232429",
+        "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/manual.yml",
+        "badge_url": "https://github.com/viictoo/api-playground2/workflows/Manual/badge.svg"
+      },
+      {
+        "id": 268232430,
+        "node_id": "W_kwDOSPtvHM4P_Obu",
+        "name": "Release",
+        "path": ".github/workflows/release.yml",
+        "state": "active",
+        "created_at": "2026-04-29T09:27:53.000Z",
+        "updated_at": "2026-04-29T09:27:53.000Z",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232430",
+        "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/release.yml",
+        "badge_url": "https://github.com/viictoo/api-playground2/workflows/Release/badge.svg"
+      },
+      {
+        "id": 268247862,
+        "node_id": "W_kwDOSPtvHM4P_SM2",
+        "name": "Simple Dispatch",
+        "path": ".github/workflows/simple-dispatch.yml",
+        "state": "active",
+        "created_at": "2026-04-29T10:00:43.000Z",
+        "updated_at": "2026-04-29T10:00:43.000Z",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268247862",
+        "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/simple-dispatch.yml",
+        "badge_url": "https://github.com/viictoo/api-playground2/workflows/Simple%20Dispatch/badge.svg"
+      },
+      {
+        "id": 268247429,
+        "node_id": "W_kwDOSPtvHM4P_SGF",
+        "name": ".github/workflows/test-dispatch.yml",
+        "path": ".github/workflows/test-dispatch.yml",
+        "state": "active",
+        "created_at": "2026-04-29T09:59:48.000Z",
+        "updated_at": "2026-04-29T09:59:48.000Z",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268247429",
+        "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/test-dispatch.yml",
+        "badge_url": "https://github.com/viictoo/api-playground2/workflows/.github/workflows/test-dispatch.yml/badge.svg"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/actions/workflows": {
+        "response": {
+          "total_count": 5,
+          "workflows": [
+            {
+              "id": 268232428,
+              "node_id": "W_kwDOSPtvHM4P_Obs",
+              "name": "CI",
+              "path": ".github/workflows/ci.yml",
+              "state": "active",
+              "created_at": "2026-04-29T09:27:53.000Z",
+              "updated_at": "2026-04-29T09:27:53.000Z",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232428",
+              "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/ci.yml",
+              "badge_url": "https://github.com/viictoo/api-playground2/workflows/CI/badge.svg"
+            },
+            {
+              "id": 268232429,
+              "node_id": "W_kwDOSPtvHM4P_Obt",
+              "name": "Manual",
+              "path": ".github/workflows/manual.yml",
+              "state": "active",
+              "created_at": "2026-04-29T09:27:53.000Z",
+              "updated_at": "2026-04-29T09:27:53.000Z",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232429",
+              "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/manual.yml",
+              "badge_url": "https://github.com/viictoo/api-playground2/workflows/Manual/badge.svg"
+            },
+            {
+              "id": 268232430,
+              "node_id": "W_kwDOSPtvHM4P_Obu",
+              "name": "Release",
+              "path": ".github/workflows/release.yml",
+              "state": "active",
+              "created_at": "2026-04-29T09:27:53.000Z",
+              "updated_at": "2026-04-29T09:27:53.000Z",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232430",
+              "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/release.yml",
+              "badge_url": "https://github.com/viictoo/api-playground2/workflows/Release/badge.svg"
+            },
+            {
+              "id": 268247862,
+              "node_id": "W_kwDOSPtvHM4P_SM2",
+              "name": "Simple Dispatch",
+              "path": ".github/workflows/simple-dispatch.yml",
+              "state": "active",
+              "created_at": "2026-04-29T10:00:43.000Z",
+              "updated_at": "2026-04-29T10:00:43.000Z",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268247862",
+              "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/simple-dispatch.yml",
+              "badge_url": "https://github.com/viictoo/api-playground2/workflows/Simple%20Dispatch/badge.svg"
+            },
+            {
+              "id": 268247429,
+              "node_id": "W_kwDOSPtvHM4P_SGF",
+              "name": ".github/workflows/test-dispatch.yml",
+              "path": ".github/workflows/test-dispatch.yml",
+              "state": "active",
+              "created_at": "2026-04-29T09:59:48.000Z",
+              "updated_at": "2026-04-29T09:59:48.000Z",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268247429",
+              "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/test-dispatch.yml",
+              "badge_url": "https://github.com/viictoo/api-playground2/workflows/.github/workflows/test-dispatch.yml/badge.svg"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:24:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4862",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"e9ef16b6edf82851b2b179cbf7ad41cbeb740390e219338c66ae3a47395285d4\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "actions=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "138",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "0A1C:12B69B:142505F3:146A5BBD:69F1DC58"
+        },
+        "hash": "c675a51f8ca3688b881467b95b11a3065c199f99",
+        "request": {}
+      }
+    }
+  }
+}

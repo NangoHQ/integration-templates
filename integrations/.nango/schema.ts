@@ -317,14 +317,53 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
-export interface AsanaProject {
-  gid: string;
-  resource_type: string;
-  name: string;
+export interface Project {
   id: string;
+  name: string;
+  state?: string | undefined;
+  status?: {  id: string;
+  name: string;
+  type: string;
+  color?: string | undefined;};
+  progress?: number | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  lead?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  teams?: ({  id: string;
+  key?: string | undefined;
+  name?: string | undefined;})[];
 };
 
 export interface SyncMetadata_asana_projects {
+  workspace_ids?: string[] | undefined;
+  team_ids?: string[] | undefined;
+};
+
+export interface Subtask {
+  id: string;
+  parent_task_id: string;
+  name?: string | undefined;
+  completed?: boolean | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface SyncMetadata_asana_subtasks {
+  task_ids?: string[] | undefined;
+};
+
+export interface Tag {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  workspace_gid: string;
+  permalink_url?: string | undefined;
 };
 
 export interface Task {
@@ -343,102 +382,1273 @@ export interface Task {
 };
 
 export interface SyncMetadata_asana_tasks {
+  workspace_id?: string | undefined;
+  project_id?: string | undefined;
+  section_id?: string | undefined;
 };
 
-export interface SyncMetadata_asana_users {
+export interface Team {
+  id: string;
+  name?: string | undefined;
+  key?: string | undefined;
+  description?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  private?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
 };
 
-export interface AsanaWorkspace {
+export interface Workspace {
+  id: string;
+  gid: string;
+  name?: string | undefined;
+  is_organization?: boolean | undefined;
+  email_domains?: string[] | undefined;
+  resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_addprojecttotask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * The project to add the task to. Example: "1200000000000002"
+   */
+  project: string;
+  /**
+   * The section to add the task to within the project. Example: "1200000000000003"
+   */
+  section?: string | undefined;
+  /**
+   * A task ID to position this task after within the project or section. Example: "1200000000000004"
+   */
+  insert_after?: string | undefined;
+  /**
+   * A task ID to position this task before within the project or section. Example: "1200000000000005"
+   */
+  insert_before?: string | undefined;
+};
+
+export interface ActionOutput_asana_addprojecttotask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_addtagtotask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * The tag to add to the task. Example: "1200000000000002"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_addtagtotask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_createproject {
+  /**
+   * Name of the project. Example: "Q1 Marketing Plan"
+   */
+  name: string;
+  /**
+   * The workspace or organization GID to create the project in. Example: "1202775892569436"
+   */
+  workspace_gid: string;
+  /**
+   * The team GID to share the project with. Required if the workspace is an organization. Example: "1214299875377454"
+   */
+  team_gid?: string | undefined;
+  /**
+   * The privacy setting of the project. Example: "public_to_workspace"
+   */
+  privacy_setting?: 'private' | 'public_to_workspace' | undefined;
+  /**
+   * Free-form textual information associated with the project (description).
+   */
+  notes?: string | undefined;
+  /**
+   * Color of the project. Example: "dark-blue"
+   */
+  color?: string | undefined;
+  /**
+   * The date at which the project is due. Format: YYYY-MM-DD.
+   */
+  due_date?: string | undefined;
+  /**
+   * The day on which the project starts. Format: YYYY-MM-DD.
+   */
+  start_on?: string | undefined;
+  /**
+   * The default view of the project. Example: "list"
+   */
+  default_view?: 'list' | 'board' | 'timeline' | 'calendar' | undefined;
+  /**
+   * The user GID of the project owner. Example: "12345"
+   */
+  owner?: string | undefined;
+};
+
+export interface ActionOutput_asana_createproject {
+  gid: string;
+  name: string;
+  workspace?: {  gid: string;
+  name?: string | undefined;};
+  team?: {  gid: string;
+  name?: string | undefined;};
+  privacy_setting?: string | undefined;
+  notes?: string | undefined;
+  color?: string | undefined;
+  due_date?: string | undefined;
+  start_on?: string | undefined;
+  default_view?: string | undefined;
+  owner?: string | undefined;
+};
+
+export interface ActionInput_asana_createstoryontask {
+  /**
+   * The task to operate on. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The plain text of the comment to add. Cannot be used with html_text.
+   */
+  text?: string | undefined;
+  /**
+   * HTML formatted text for a comment. Cannot be used with text.
+   */
+  html_text?: string | undefined;
+};
+
+export interface ActionOutput_asana_createstoryontask {
   gid: string;
   resource_type: string;
-  name: string;
-  id: string;
-  is_organization: boolean;
+  created_at?: string | undefined;
+  resource_subtype?: string | undefined;
+  text?: string | undefined;
+  html_text?: string | undefined;
+  is_pinned?: boolean | undefined;
+  type?: string | undefined;
 };
 
-export interface SyncMetadata_asana_workspaces {
+export interface ActionInput_asana_createsubtask {
+  /**
+   * The globally unique identifier of the parent task. Example: "12345"
+   */
+  parent_task_gid: string;
+  /**
+   * The name of the subtask. Example: "Review draft"
+   */
+  name: string;
+  /**
+   * The user gid to assign the subtask to. Example: "67890"
+   */
+  assignee?: string | undefined;
+  /**
+   * Localized due date in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  due_on?: string | undefined;
+  /**
+   * UTC due date-time in ISO 8601 format. Example: "2024-12-31T23:59:59.000Z"
+   */
+  due_at?: string | undefined;
+  /**
+   * Free-form description of the subtask.
+   */
+  notes?: string | undefined;
+  /**
+   * Array of project gids to associate with the subtask at creation time.
+   */
+  projects?: string[] | undefined;
+  /**
+   * The workspace gid for the subtask. Example: "54321"
+   */
+  workspace?: string | undefined;
+  /**
+   * Array of user gids to add as followers.
+   */
+  followers?: string[] | undefined;
+  /**
+   * Array of tag gids to attach to the subtask.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_on?: string | undefined;
+  /**
+   * The subtype of the task.
+   */
+  resource_subtype?: 'default_task' | 'milestone' | undefined;
+  /**
+   * Whether the subtask is marked completed.
+   */
+  completed?: boolean | undefined;
+  /**
+   * Whether the subtask is liked by the authorized user.
+   */
+  liked?: boolean | undefined;
+};
+
+export interface ActionOutput_asana_createsubtask {
+  gid: string;
+  name: string;
+  resource_type: string;
+  resource_subtype?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;};
+  due_on?: string | undefined;
+  due_at?: string | undefined;
+  notes?: string | undefined;
+  completed?: boolean | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;};
+  parent?: {  gid: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  name?: string | undefined;})[];
+  followers?: ({  gid: string;
+  name?: string | undefined;})[];
+  custom_fields?: unknown[] | undefined;
+};
+
+export interface ActionInput_asana_createtag {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_id: string;
+  /**
+   * Name of the tag. Example: "Stuff to buy"
+   */
+  name: string;
+  /**
+   * Color of the tag. Example: "light-green"
+   */
+  color?: 'dark-pink' | 'dark-green' | 'dark-blue' | 'dark-red' | 'dark-teal' | 'dark-brown' | 'dark-orange' | 'dark-purple' | 'dark-warm-gray' | 'light-pink' | 'light-green' | 'light-blue' | 'light-red' | 'light-teal' | 'light-brown' | 'light-orange' | 'light-purple' | 'light-warm-gray' | undefined;
+};
+
+export interface ActionOutput_asana_createtag {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  workspace?: {  id: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
 };
 
 export interface ActionInput_asana_createtask {
+  /**
+   * The name of the task.
+   */
   name: string;
-  workspace: string;
-  parent: string;
-  projects: string[];
+  /**
+   * The workspace GID where the task will be created. Required unless projects or parent is specified. Example: "1234567890"
+   */
+  workspace?: string | undefined;
+  /**
+   * Array of project GIDs to add the task to. Implies the workspace.
+   */
+  projects?: string[] | undefined;
+  /**
+   * The GID of a parent task. Implies the workspace.
+   */
+  parent?: string | undefined;
+  /**
+   * The user GID to assign the task to.
+   */
+  assignee?: string | undefined;
+  /**
+   * Free-form text description of the task.
+   */
+  notes?: string | undefined;
+  /**
+   * The due date in YYYY-MM-DD format.
+   */
+  due_on?: string | undefined;
+  /**
+   * The due date and time in ISO 8601 format.
+   */
+  due_at?: string | undefined;
+  /**
+   * Whether the task is completed.
+   */
+  completed?: boolean | undefined;
 };
 
 export interface ActionOutput_asana_createtask {
-  created_at: string | null;
-  modified_at: string | null;
+  /**
+   * The GID of the created task.
+   */
   id: string;
-  title: string;
-  url: string;
-  status: string;
-  description: string | null;
-  assignee: {  created_at: string | null;
-  modified_at: string | null;
-  id: string;
+  /**
+   * The name of the created task.
+   */
   name: string;
-  email: string | null;
-  avatar_url: string | null;} | null;
-  due_date: string | null;
+  /**
+   * The workspace GID of the task.
+   */
+  workspace_id?: string | undefined;
+  /**
+   * Array of project GIDs the task belongs to.
+   */
+  project_ids?: string[] | undefined;
+  /**
+   * The GID of the parent task, if any.
+   */
+  parent_id?: string | undefined;
+  /**
+   * The assignee user GID.
+   */
+  assignee_id?: string | undefined;
+  /**
+   * The task notes.
+   */
+  notes?: string | undefined;
+  /**
+   * The due date in YYYY-MM-DD format.
+   */
+  due_on?: string | undefined;
+  /**
+   * The due date and time in ISO 8601 format.
+   */
+  due_at?: string | undefined;
+  /**
+   * Whether the task is completed.
+   */
+  completed?: boolean | undefined;
+};
+
+export interface ActionInput_asana_deleteattachment {
+  /**
+   * Globally unique identifier for the attachment. Example: "1234567890"
+   */
+  attachment_gid: string;
+};
+
+export interface ActionOutput_asana_deleteattachment {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deleteproject {
+  /**
+   * Globally unique identifier for the project. Example: "1205341234567890"
+   */
+  project_gid: string;
+};
+
+export interface ActionOutput_asana_deleteproject {
+  success: boolean;
 };
 
 export interface ActionInput_asana_deletetask {
-  id: string;
+  /**
+   * The globally unique identifier for the task to delete. Example: "1209876543210987"
+   */
+  task_gid: string;
 };
 
-export type ActionOutput_asana_deletetask = boolean
-
-export interface ActionInput_asana_fetchprojects {
-  limit: number;
-  workspace: string;
+export interface ActionOutput_asana_deletetask {
+  /**
+   * The globally unique identifier of the deleted task.
+   */
+  task_gid: string;
+  /**
+   * Whether the deletion was successful.
+   */
+  success: boolean;
 };
 
-export interface ActionOutput_asana_fetchprojects {
-  0: {  gid: string;
+export interface ActionInput_asana_getproject {
+  /**
+   * The globally unique identifier of the project. Example: "1211440849237745"
+   */
+  project_gid: string;
+  /**
+   * Comma-separated list of optional fields to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_getproject {
+  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_gettag {
+  /**
+   * The globally unique identifier of the tag to fetch. Example: "12345"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_gettag {
+  gid: string;
   resource_type: string;
-  name: string;};
-};
-
-export interface ActionInput_asana_fetchworkspaces {
-  limit: number;
-};
-
-export interface ActionOutput_asana_fetchworkspaces {
-  0: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  followers?: ({  gid: string;
   resource_type: string;
-  name: string;};
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+};
+
+export interface ActionInput_asana_gettask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Optional fields to include in the response.
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_gettask {
+  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  assignee_status?: string | undefined;
+  assignee_section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  due_on?: string | undefined;
+  due_at?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  created_at?: string | undefined;
+  created_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  followers?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;})[];
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  type?: string | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;})[];
+  number_value?: number | undefined;
+  text_value?: string | undefined;
+  date_value?: {  date?: string | undefined;
+  date_time?: string | undefined;};
+  display_value?: string | undefined;})[];
+  memberships?: ({  project?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  likes?: ({  user?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};})[];
+  liked?: boolean | undefined;
+  approval_status?: string | undefined;
+  start_on?: string | undefined;
+  actual_time_minutes?: number | undefined;
+  num_subtasks?: number | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  dependencies?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  dependents?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+};
+
+export interface ActionInput_asana_getteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+};
+
+export interface ActionOutput_asana_getteam {
+  gid: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  html_description?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  visibility?: string | undefined;
+  edit_team_name_or_description_access_level?: string | undefined;
+  edit_team_visibility_or_trash_team_access_level?: string | undefined;
+  member_invite_management_access_level?: string | undefined;
+  guest_invite_management_access_level?: string | undefined;
+  join_request_management_access_level?: string | undefined;
+  team_member_removal_access_level?: string | undefined;
+  team_content_management_access_level?: string | undefined;
+  endorsed?: boolean | undefined;
+};
+
+export interface ActionInput_asana_getuser {
+  /**
+   * A string identifying a user. This can either be the string "me", an email, or the gid of a user. Example: "12345"
+   */
+  user_gid: string;
+};
+
+export interface ActionOutput_asana_getuser {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: {  image_21x21?: string | undefined;
+  image_27x27?: string | undefined;
+  image_36x36?: string | undefined;
+  image_60x60?: string | undefined;
+  image_128x128?: string | undefined;
+  image_1024x1024?: string | undefined;};
+};
+
+export interface ActionInput_asana_getworkspace {
+  /**
+   * Globally unique identifier for the workspace. Example: "123456789"
+   */
+  workspace_gid: string;
+};
+
+export interface ActionOutput_asana_getworkspace {
+  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;
+};
+
+export interface ActionInput_asana_listattachmentsforobject {
+  /**
+   * Globally unique identifier for the object to list attachments from. Must be a GID for a project, project_brief, or task.
+   */
+  parent: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listattachmentsforobject {
+  attachments: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Results per page. The number of objects to return per page. Value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Offset token for pagination. An offset to the next page returned by the API. Omit for the first page.
+   */
+  offset?: string | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforteam {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. The number of objects to return per page. The value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  owner?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  team?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_liststoriesfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (Asana offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_liststoriesfortask {
+  stories: ({  gid: string;
+  resource_type: string;
+  created_at?: string | undefined;
+  resource_subtype?: string | undefined;
+  text?: string | undefined;
+  html_text?: string | undefined;
+  type?: string | undefined;
+  is_editable?: boolean | undefined;
+  is_edited?: boolean | undefined;
+  is_pinned?: boolean | undefined;
+  sticker_name?: string | undefined;
+  created_by?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  likes?: unknown[] | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsubtasksfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page, between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listsubtasksfortask {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  permalink_url?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtagsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of objects to return per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listtagsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforproject {
+  /**
+   * Globally unique identifier for the project. Example: "1200000000000001"
+   */
+  project_gid: string;
+  /**
+   * Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword "now".
+   */
+  completed_since?: string | undefined;
+  /**
+   * Results per page. The value must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforproject {
+  tasks: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;})[];
+  /**
+   * Offset token for the next page of results. Omitted if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 20.
+   */
+  limit?: number | undefined;
+  /**
+   * Array of field names to include in the response. Example: ["name", "assignee", "due_on"]
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforsection {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;
+  approval_status?: string | undefined;
+  assignee?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  assignee_status?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  dependencies?: ({  gid: string;})[] | undefined;
+  dependents?: ({  gid: string;})[] | undefined;
+  due_at?: string | undefined;
+  due_on?: string | undefined;
+  start_at?: string | undefined;
+  start_on?: string | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  hearted?: boolean | undefined;
+  hearts?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  html_notes?: string | undefined;
+  is_rendered_as_separator?: boolean | undefined;
+  liked?: boolean | undefined;
+  likes?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  memberships?: ({  project?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  section?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  modified_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  notes?: string | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  num_subtasks?: number | undefined;
+  parent?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  text_value?: string | undefined;
+  number_value?: number | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  display_value?: string | undefined;})[];
+  actual_time_minutes?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforuser {
+  /**
+   * User GID, email, or "me". Example: "me"
+   */
+  user_gid: string;
+  /**
+   * Workspace or organization GID to filter teams. Example: "12345"
+   */
+  organization: string;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforuser {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  description?: string | undefined;
+  permalink_url?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforworkspace {
+  items: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the Asana offset token.
+   */
+  cursor?: string | undefined;
+  /**
+   * Comma-separated list of optional fields to include in the response. Example: "name,email,photo"
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listusersforteam {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforworkspace {
+  /**
+   * The workspace or organization GID. Example: "123456789"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of items per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listusersforworkspace {
+  users: ({  gid: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listworkspaces {
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listworkspaces {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_removeprojectfromtask {
+  /**
+   * The globally unique identifier for the task. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The globally unique identifier for the project to remove the task from. Example: "987654321"
+   */
+  project_gid: string;
+};
+
+export interface ActionOutput_asana_removeprojectfromtask {
+};
+
+export interface ActionInput_asana_removetagfromtask {
+  /**
+   * The task to remove the tag from. Example: "12345"
+   */
+  task_gid: string;
+  /**
+   * The tag to remove from the task. Example: "67890"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_removetagfromtask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_updateproject {
+  /**
+   * Globally unique identifier for the project. Example: "120987654321"
+   */
+  project_gid: string;
+  /**
+   * Name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * Free-form text notes for the project.
+   */
+  notes?: string | undefined;
+  /**
+   * HTML-formatted notes for the project.
+   */
+  html_notes?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project is due. Example: "2026-12-31".
+   */
+  due_on?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project starts. Example: "2026-01-01".
+   */
+  start_on?: string | undefined;
+  /**
+   * Color of the project. Example: "light-red".
+   */
+  color?: string | undefined;
+  /**
+   * Whether the project is archived.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Whether the project is public to its workspace members.
+   */
+  public?: boolean | undefined;
+  /**
+   * Whether the project is a template.
+   */
+  is_template?: boolean | undefined;
+  /**
+   * Default view for the project. Example: "list" or "board".
+   */
+  default_view?: string | undefined;
+};
+
+export interface ActionOutput_asana_updateproject {
+  gid: string;
+  name: string;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  due_on?: string | undefined;
+  start_on?: string | undefined;
+  public?: boolean | undefined;
+  is_template?: boolean | undefined;
+  default_view?: string | undefined;
+  workspace_gid?: string | undefined;
+  owner_gid?: string | undefined;
+};
+
+export interface ActionInput_asana_updatetag {
+  /**
+   * Globally unique identifier for the tag. Example: "12345"
+   */
+  tag_gid: string;
+  /**
+   * New name for the tag.
+   */
+  name?: string | undefined;
+  /**
+   * Color of the tag. Set to null to clear.
+   */
+  color?: 'dark-pink' | 'dark-green' | 'dark-blue' | 'dark-red' | 'dark-teal' | 'dark-brown' | 'dark-orange' | 'dark-purple' | 'dark-warm-gray' | 'light-pink' | 'light-green' | 'light-blue' | 'light-red' | 'light-teal' | 'light-brown' | 'light-orange' | 'light-purple' | 'light-warm-gray' | undefined;
+};
+
+export interface ActionOutput_asana_updatetag {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
 };
 
 export interface ActionInput_asana_updatetask {
-  id: string;
+  /**
+   * The globally unique identifier of the task to update. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The new name of the task.
+   */
+  name?: string | undefined;
+  /**
+   * Free-form textual information associated with the task (its description).
+   */
+  notes?: string | undefined;
+  /**
+   * The user gid to assign the task to, or null to remove the assignee.
+   */
+  assignee?: string | undefined;
+  /**
+   * Whether the task is marked complete.
+   */
+  completed?: boolean | undefined;
+  /**
+   * The UTC due date and time as an ISO 8601 string, or null to clear.
+   */
   due_at?: string | undefined;
+  /**
+   * The localized due date as YYYY-MM-DD, or null to clear.
+   */
   due_on?: string | undefined;
-  completed: boolean;
-  notes: string;
-  projects: string[];
-  assignee: string;
-  parent: string;
-  tags: string[];
-  workspace: string;
-  name: string;
+  /**
+   * The start date as YYYY-MM-DD, or null to clear.
+   */
+  start_on?: string | undefined;
+  /**
+   * Custom field values keyed by custom field gid, or null to clear all.
+   */
+  custom_fields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The parent task gid to make this a subtask, or null to remove parent.
+   */
+  parent?: string | undefined;
+  /**
+   * HTML-formatted notes for the task.
+   */
+  html_notes?: string | undefined;
+  /**
+   * Whether the task is liked by the authenticated user.
+   */
+  liked?: boolean | undefined;
+  /**
+   * The subtype of the task, e.g. "default_task".
+   */
+  resource_subtype?: string | undefined;
+  /**
+   * The approval status of the task, e.g. "pending", "approved", "rejected".
+   */
+  approval_status?: string | undefined;
 };
 
 export interface ActionOutput_asana_updatetask {
-  created_at: string | null;
-  modified_at: string | null;
-  id: string;
-  title: string;
-  url: string;
-  status: string;
-  description: string | null;
-  assignee: {  created_at: string | null;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  email: string | null;
-  avatar_url: string | null;} | null;
-  due_date: string | null;
+  gid: string;
+  resource_type: string;
+  name?: string | undefined;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  due_at?: string | undefined;
+  due_on?: string | undefined;
+  start_on?: string | undefined;
+  assignee?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  assignee_section?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  custom_fields?: ({  gid: string;
+  resource_type?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  enum_value?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;};
+  number_value?: number | undefined;
+  text_value?: string | undefined;
+  display_value?: string | undefined;})[];
+  parent?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  projects?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  followers?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  liked?: boolean | undefined;
+  resource_subtype?: string | undefined;
+  approval_status?: string | undefined;
+  external?: {  gid: string;
+  data: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  permalink_url?: string | undefined;
 };
 
 export interface AshbyCandidate {
@@ -2624,45 +3834,18 @@ export interface SyncMetadata_brightcrowd_booksbyid {
 
 export interface Page {
   id: string;
-  alias: string;
-  name: string;
-  status: 'draft' | 'published' | 'hidden';
-  content: {  firstName: string;
-  lastName: string;
-  previousName?: string | null | undefined;
-  suffix?: string | undefined;
-  partnerFirstName?: string | null | undefined;
-  partnerLastName?: string | null | undefined;
-  pronouns?: string | undefined;
-  pictureId?: string | null | undefined;
-  audioId?: string | null | undefined;};
-  pictures?: ({  type: 'profile' | 'content' | 'caption';
-  id: string;
-  caption?: string | null | undefined;})[] | null;
-  videos?: ({  url: string;
-  caption?: string | null | undefined;})[] | null;
-  tagUsers?: string[] | null | undefined;
-  homeTown?: string | null | undefined;
-  currentCity?: string | null | undefined;
-  campusResidence?: string | null | undefined;
-  affiliations?: ({  type: 'OtherAffiliation' | 'UniversityAffiliation' | 'CompanyAffiliation';
-  organization?: string | null | undefined;
-  major?: string | string[] | undefined;
-  degree?: string | string[] | undefined;
-  school?: string | string[] | undefined;
-  graduationYear?: number | null | undefined;
-  specialty?: string | string[] | undefined;
-  category?: string | string[] | undefined;
+  status?: string | undefined;
   title?: string | undefined;
-  startYear?: number | null | undefined;
-  endYear?: number | null | undefined;
-  office?: string | string[] | undefined;
-  group?: string | string[] | undefined;})[] | null;
-  plan?: 'school' | 'work' | 'other' | undefined;
-  created: string;
-  modifiedByUserAt?: string | null | undefined;
-  completedByUserAt?: string | null | undefined;
-  externalId?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  versionNumber?: number | undefined;
+  bodyStorage?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_brightcrowd_pages {
@@ -3062,41 +4245,1681 @@ export interface ActionOutput_clicksend_sendsms {
   updatedAt: string;
 };
 
-export interface ConfluencePage {
+export interface Attachment {
   id: string;
-  title: string;
-  status: string;
-  authorId: string;
-  createdAt: string;
-  spaceId: string;
-  parentId?: string | null | undefined;
-  parentType: string | null;
-  position: number;
-  version: {  createdAt: string;
-  message: string;
-  number: number;
-  minorEdit: boolean;
-  authorId: string;};
-  body: {  storage: {  value: string;
-  representation: 'storage';};};
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_attachments {
+  cloudId?: string | undefined;
+  mediaType?: string | undefined;
+  filename?: string | undefined;
+};
+
+export interface BlogPost {
+  /**
+   * The ID of the blog post
+   */
+  id: string;
+  /**
+   * The status of the blog post
+   */
+  status?: string | undefined;
+  /**
+   * The title of the blog post
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the space containing the blog post
+   */
+  spaceId?: string | undefined;
+  /**
+   * The ID of the author
+   */
+  authorId?: string | undefined;
+  /**
+   * The creation timestamp
+   */
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};
+};
+
+export interface SyncMetadata_confluence_blogposts {
+  cloudId?: string | undefined;
+  spaceIds?: string[] | undefined;
+};
+
+export interface FooterComment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface SyncMetadata_confluence_footercomments {
+  cloudId?: string | undefined;
+};
+
+export interface InlineComment {
+  id: string;
+  status?: string | undefined;
+  resolutionStatus?: string | undefined;
+  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  createdAt?: string | undefined;
+  authorId?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_inlinecomments {
+  cloudId?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_pages {
+  spaceIds?: string[] | undefined;
+  cloudId?: string | undefined;
 };
 
-export interface ConfluenceSpace {
+export interface Space {
   id: string;
+  key: string;
+  name: string;
+  type?: string | undefined;
+  status?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  currentActiveAlias?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_spaces {
+  cloudId?: string | undefined;
+};
+
+export interface ActionInput_confluence_createblogpost {
+  /**
+   * Space ID. Example: "123456"
+   */
+  spaceId: string;
+  /**
+   * Blog post title.
+   */
+  title: string;
+  /**
+   * Blog post status. Example: "current" or "draft".
+   */
+  status: string;
+  /**
+   * Blog post body in storage format.
+   */
+  body: string;
+};
+
+export interface ActionOutput_confluence_createblogpost {
+  id: string;
+  status: string;
+  title: string;
+  spaceId: string;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+};
+
+export interface ActionInput_confluence_createfootercomment {
+  /**
+   * Page ID to comment on. Example: "12345678"
+   */
+  pageId?: string | undefined;
+  /**
+   * Blog post ID to comment on. Example: "12345678"
+   */
+  blogPostId?: string | undefined;
+  /**
+   * Attachment ID to comment on. Example: "12345678"
+   */
+  attachmentId?: string | undefined;
+  /**
+   * Parent comment ID to reply to. Example: "12345678"
+   */
+  parentCommentId?: string | undefined;
+  /**
+   * Custom content ID to comment on. Example: "12345678"
+   */
+  customContentId?: string | undefined;
+  /**
+   * Comment body in Confluence storage format. Example: "<p>Hello world</p>"
+   */
+  bodyValue: string;
+};
+
+export interface ActionOutput_confluence_createfootercomment {
+  id: string;
+  status: string;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  customContentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  representation?: string | undefined;
+  value?: string | undefined;};};
+  links?: {  webui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createinlinecomment {
+  /**
+   * ID of the containing page, if creating a top-level inline comment on a page. Example: "98401"
+   */
+  pageId?: string | undefined;
+  /**
+   * ID of the containing blog post, if creating a top-level inline comment on a blog post. Example: "12345"
+   */
+  blogPostId?: string | undefined;
+  /**
+   * ID of the parent comment, if creating a reply. Example: "14221315"
+   */
+  parentCommentId?: string | undefined;
+  body: {  /**
+   * Content representation type. Example: "storage"
+   */
+  representation: 'storage' | 'atlas_doc_format' | 'wiki';
+  /**
+   * Comment body in the chosen representation. Example: "<p>Nice work!</p>"
+   */
+  value: string;};
+  inlineCommentProperties?: {  /**
+   * The text to highlight. Example: "Spaces are where teams organize ideas"
+   */
+  textSelection: string;
+  /**
+   * The number of matches for the selected text on the page. Example: 1
+   */
+  textSelectionMatchCount: number;
+  /**
+   * The zero-based match index to highlight. Example: 0
+   */
+  textSelectionMatchIndex: number;} | undefined;
+};
+
+export interface ActionOutput_confluence_createinlinecomment {
+  /**
+   * ID of the created inline comment. Example: "14221315"
+   */
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+  resolutionStatus?: string | undefined;
+  properties?: {  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  links?: {  webui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createpageproperty {
+  /**
+   * The ID of the Confluence page. Example: "123456789"
+   */
+  page_id: string;
+  /**
+   * The key of the content property. Example: "my-property"
+   */
+  key: string;
+  /**
+   * The JSON value to store.
+   */
+  value?: unknown | undefined;
+};
+
+export interface ActionOutput_confluence_createpageproperty {
+  id?: string | undefined;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createpage {
+  /**
+   * Space ID. Example: "123456"
+   */
+  spaceId: string;
+  /**
+   * Parent page ID. Example: "987654"
+   */
+  parentId?: string | undefined;
+  /**
+   * Page title. Example: "My New Page"
+   */
+  title: string;
+  /**
+   * Page status. Example: "current" or "draft".
+   */
+  status?: string | undefined;
+  /**
+   * Page body in storage format. Example: "<p>Hello world</p>"
+   */
+  body?: string | undefined;
+};
+
+export interface ActionOutput_confluence_createpage {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlasDocFormat?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_deleteattachment {
+  /**
+   * Attachment ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Permanently delete the attachment. Must be true to purge a trashed attachment.
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deleteattachment {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_confluence_deleteblogpost {
+  /**
+   * The ID of the blog post to delete. Example: "123456789"
+   */
+  id: string;
+  /**
+   * Whether to delete a draft blog post
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether to permanently delete a trashed blog post
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deleteblogpost {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_confluence_deletefootercomment {
+  /**
+   * The ID of the footer comment to delete. Example: "12345"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_confluence_deletefootercomment {
+  success: boolean;
+  comment_id: string;
+};
+
+export interface ActionInput_confluence_deleteinlinecomment {
+  /**
+   * The ID of the inline comment to delete. Example: "123456789"
+   */
+  commentId: string;
+};
+
+export type ActionOutput_confluence_deleteinlinecomment = null
+
+export interface ActionInput_confluence_deletepageproperty {
+  /**
+   * Page ID. Example: 123
+   */
+  pageId: number;
+  /**
+   * Property ID. Example: 456
+   */
+  propertyId: number;
+};
+
+export interface ActionOutput_confluence_deletepageproperty {
+  success: boolean;
+};
+
+export interface ActionInput_confluence_deletepage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Delete the draft if present.
+   */
+  draft?: boolean | undefined;
+  /**
+   * Permanently delete the page without moving it to trash.
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deletepage {
+  success: boolean;
+};
+
+export interface ActionInput_confluence_getattachment {
+  /**
+   * Attachment ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Include labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include content properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include versions in the response
+   */
+  includeVersions?: boolean | undefined;
+  /**
+   * Include collaborators in the response
+   */
+  includeCollaborators?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getattachment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  version?: unknown | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_confluence_getblogpost {
+  /**
+   * Blog post ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Include labels in the response.
+   */
+  include_labels?: boolean | undefined;
+  /**
+   * Include content properties in the response.
+   */
+  include_properties?: boolean | undefined;
+  /**
+   * Include operations in the response.
+   */
+  include_operations?: boolean | undefined;
+  /**
+   * Include likes in the response.
+   */
+  include_likes?: boolean | undefined;
+  /**
+   * Include version history in the response.
+   */
+  include_versions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getblogpost {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  blogPostId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;};
+  parent?: {  id: string;
+  status?: string | undefined;};
+  body?: {  storage?: {  value?: string | undefined;
+  representation?: string | undefined;};};
+  labels?: unknown[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  likes?: {  count?: number | undefined;};
+};
+
+export interface ActionInput_confluence_getfootercomment {
+  /**
+   * Comment ID. Example: "123"
+   */
+  commentId: string;
+  includeProperties?: boolean | undefined;
+  includeOperations?: boolean | undefined;
+  includeLikes?: boolean | undefined;
+  includeVersions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getfootercomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  properties?: {  results?: ({  id?: string | undefined;
+  key?: string | undefined;
+  version?: {  [key: string]: unknown | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  operations?: {  results?: ({  operation?: string | undefined;
+  targetType?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  likes?: {  results?: ({  accountId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  body?: {  storage?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};
+  view?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getinlinecomment {
+  /**
+   * The ID of the inline comment to retrieve. Example: "123456"
+   */
+  commentId: string;
+  /**
+   * The format of the comment body to return. Defaults to storage.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | undefined;
+  /**
+   * The version number of the comment to retrieve.
+   */
+  version?: number | undefined;
+  /**
+   * Whether to include content properties in the response.
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Whether to include operations in the response.
+   */
+  includeOperations?: boolean | undefined;
+  /**
+   * Whether to include likes in the response.
+   */
+  includeLikes?: boolean | undefined;
+  /**
+   * Whether to include versions in the response.
+   */
+  includeVersions?: boolean | undefined;
+  /**
+   * Whether to include version information in the response.
+   */
+  includeVersion?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getinlinecomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+  resolutionLastModifierId?: string | undefined;
+  resolutionLastModifiedAt?: string | undefined;
+  resolutionStatus?: string | undefined;
+  properties?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};
+  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  operations?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  likes?: {  results?: ({  accountId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  versions?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  _links?: {  base?: string | undefined;
+  webui?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getpageproperty {
+  /**
+   * Page ID. Example: "12345678"
+   */
+  pageId: string;
+  /**
+   * Property ID. Example: "123456"
+   */
+  propertyId: string;
+};
+
+export interface ActionOutput_confluence_getpageproperty {
+  id: string;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getpage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Body representation format. Defaults to storage.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | undefined;
+  /**
+   * Include labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include content properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include operations in the response
+   */
+  includeOperations?: boolean | undefined;
+  /**
+   * Include likes in the response
+   */
+  includeLikes?: boolean | undefined;
+  /**
+   * Include versions in the response
+   */
+  includeVersions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getpage {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  version?: {  [key: string]: unknown | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  likes?: {  results?: ({  accountId: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  isFavoritedByCurrentUser?: boolean | undefined;
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getspace {
+  /**
+   * Space ID. Example: 196613
+   */
+  id: number;
+  /**
+   * Include the space icon in the response
+   */
+  includeIcon?: boolean | undefined;
+  /**
+   * Include space labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include space properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include space permissions in the response
+   */
+  includePermissions?: boolean | undefined;
+  /**
+   * Include space operations in the response
+   */
+  includeOperations?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getspace {
+  id: string;
+  key: string;
+  name: string;
+  type?: string | undefined;
+  status?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  description?: {  plain?: unknown | undefined;
+  view?: unknown | undefined;};
+  icon?: {  path?: string | undefined;
+  apiDownloadLink?: string | undefined;};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  createdAt?: string | undefined;
+  createdBy?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  createdBy?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  permissions?: {  results?: ({  id: string;
+  principal?: {  type?: string | undefined;
+  id?: string | undefined;};
+  operation?: {  key?: string | undefined;
+  targetType?: string | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  _links?: {  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_listattachments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by attachment filename.
+   */
+  filename?: string | undefined;
+  /**
+   * Filter by media type (MIME type).
+   */
+  mediaType?: string | undefined;
+  /**
+   * Filter by attachment status (e.g., current, trashed).
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listattachments {
+  items: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listblogpostsforlabel {
+  /**
+   * Label ID. Example: "123456"
+   */
+  label_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Optional space IDs to filter results.
+   */
+  space_ids?: string[] | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format for content. Defaults to 'storage'.
+   */
+  body_format?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listblogpostsforlabel {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listblogposts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Space ID filter.
+   */
+  spaceId?: string | undefined;
+  /**
+   * Status filter, e.g. current.
+   */
+  status?: string | undefined;
+  /**
+   * Title filter.
+   */
+  title?: string | undefined;
+  /**
+   * Sort order, e.g. created-date desc.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format representation. Defaults to storage.
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listblogposts {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageattachments {
+  /**
+   * The ID of the Confluence page whose attachments should be listed. Example: "123456"
+   */
+  pageId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of attachments to return per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Filter attachments by filename. Example: "report.pdf"
+   */
+  filename?: string | undefined;
+  /**
+   * Filter attachments by media type. Example: "application/pdf"
+   */
+  mediaType?: string | undefined;
+  /**
+   * Filter attachments by status. Example: "current"
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpageattachments {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  mediaType?: string | undefined;
+  fileSize?: number | undefined;
+  comment?: string | undefined;
+  spaceId?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  parentVersionId?: string | undefined;
+  links?: {  download?: string | undefined;
+  thumbnail?: string | undefined;
+  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpagefootercomments {
+  /**
+   * The ID of the page whose footer comments should be listed. Example: 123456
+   */
+  pageId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order for comments. Example: "created-date" or "-created-date".
+   */
+  sort?: string | undefined;
+  /**
+   * Filter comments by status. Example: ["current", "trashed"].
+   */
+  status?: string[] | undefined;
+  /**
+   * The format of the comment body. Defaults to "storage".
+   */
+  bodyFormat?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpagefootercomments {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlasDocFormat?: unknown | undefined;
+  view?: unknown | undefined;};
+  links?: {  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageinlinecomments {
+  /**
+   * The ID of the Confluence page. Example: "123456"
+   */
+  pageId: string;
+  /**
+   * Filter by comment status. Example: ["current"]
+   */
+  status?: string[] | undefined;
+  /**
+   * Filter by resolution status. Example: ["open"]
+   */
+  resolutionStatus?: string[] | undefined;
+  /**
+   * Sort order. Example: "created-date"
+   */
+  sort?: string | undefined;
+  /**
+   * Body format representation. Defaults to "storage". Example: "storage"
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpageinlinecomments {
+  comments: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  resolutionStatus?: string | undefined;
+  properties?: {  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  _links?: {  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageproperties {
+  /**
+   * Confluence page ID. Example: "12345678"
+   */
+  pageId: string;
+  /**
+   * Filter by property key
+   */
+  key?: string | undefined;
+  /**
+   * Pagination cursor from the previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpageproperties {
+  properties: ({  id: string;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpagesforlabel {
+  /**
+   * Label ID. Example: "22"
+   */
+  label_id: string;
+  /**
+   * Optional space IDs to filter pages
+   */
+  space_ids?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default: 25
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpagesforlabel {
+  pages: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  subtype?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpages {
+  /**
+   * Space ID to filter pages. Example: "123456"
+   */
+  spaceId?: string | undefined;
+  /**
+   * Page status filter
+   */
+  status?: 'current' | 'archived' | 'trashed' | 'draft' | undefined;
+  /**
+   * Title filter (case-insensitive prefix match)
+   */
+  title?: string | undefined;
+  /**
+   * Content subtype filter
+   */
+  subType?: 'page' | 'blogpost' | undefined;
+  /**
+   * Sort order. Example: "title asc"
+   */
+  sort?: string | undefined;
+  /**
+   * Body representation format. Prefer "storage" for reliable parsing.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | 'export_view' | 'styled_view' | 'anonymous_export_view' | undefined;
+  /**
+   * Pagination cursor from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum items per page (1-250)
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpages {
+  pages: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  position?: number | undefined;
+  version?: {  number?: number | undefined;
+  message?: string | undefined;
+  createdAt?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;};};
+  body?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspaceblogposts {
+  /**
+   * The ID of the Confluence space. Example: "123"
+   */
+  spaceId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by status such as current, archived, draft, or trashed.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by blog post title.
+   */
+  title?: string | undefined;
+  /**
+   * Sort order such as created-date or -created-date.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format to include such as storage, atlas_doc_format, or view.
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listspaceblogposts {
+  blogPosts: ({  id: string;
+  status: string;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  [key: string]: unknown | undefined;};
+  links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspacepages {
+  /**
+   * The ID of the Confluence space. Example: "294916"
+   */
+  space_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Page tree depth filter. Example: "root" or "all"
+   */
+  depth?: 'root' | 'all' | undefined;
+  /**
+   * Filter by page status. Example: ["current"]
+   */
+  status?: string[] | undefined;
+  /**
+   * Filter by page title (partial match).
+   */
+  title?: string | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort?: 'id' | '-id' | 'createdAt' | '-createdAt' | 'position' | '-position' | 'title' | '-title' | undefined;
+  /**
+   * Body format for page content. Defaults to "storage".
+   */
+  body_format?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listspacepages {
+  pages: ({  id: string;
+  spaceId: string;
+  status: string;
+  title: string;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  authorId: string;
+  ownerId: string;
+  lastOwnerId?: string | undefined;
+  createdAt: string;
+  position?: number | undefined;
+  version?: {  number: number;
+  message: string;
+  minorEdit: boolean;
+  authorId: string;
+  createdAt: string;
+  ncsStepVersion?: number | string | null | undefined;};
+  body?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspaces {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by space key.
+   */
+  key?: string | undefined;
+  /**
+   * Filter by space type. Example: "global", "personal".
+   */
+  type?: string | undefined;
+  /**
+   * Filter by space status. Example: "current", "archived".
+   */
+  status?: string | undefined;
+  /**
+   * Filter by label name.
+   */
+  label?: string | undefined;
+  /**
+   * Include space icon in the response.
+   */
+  includeIcon?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_listspaces {
+  items: ({  id: string;
   key: string;
   name: string;
   type: string;
   status: string;
-  authorId: string;
-  createdAt: string;
-  homepageId: string;
-  description: string;
+  authorId?: string | undefined;
+  currentActiveAlias?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  description?: {  [key: string]: unknown | undefined;};
+  icon?: {  path?: string | undefined;
+  apiDownloadLink?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
 };
 
-export interface SyncMetadata_confluence_spaces {
+export interface ActionInput_confluence_searchcontent {
+  /**
+   * CQL query string. Example: "type=page AND space=DEV"
+   */
+  cql: string;
+  /**
+   * Maximum number of results per page. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Fields to expand in the response. Example: ["content.space", "content.history"]
+   */
+  expand?: string[] | undefined;
+};
+
+export interface ActionOutput_confluence_searchcontent {
+  results: ({  content?: {  id: string;
+  type: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  space?: {  id: string;
+  key: string;
+  name?: string | undefined;
+  type?: string | undefined;};};
+  url?: string | undefined;
+  title?: string | undefined;
+  excerpt?: string | undefined;
+  contentType?: string | undefined;
+  resultParentContainer?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+  totalSize?: number | undefined;
+  start?: number | undefined;
+  limit?: number | undefined;
+};
+
+export interface ActionInput_confluence_updateblogpost {
+  /**
+   * Blog post ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * New title for the blog post
+   */
+  title?: string | undefined;
+  /**
+   * New status for the blog post
+   */
+  status?: 'current' | 'draft' | undefined;
+  /**
+   * New body content in storage format
+   */
+  body?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updateblogpost {
+  id: string;
+  title?: string | undefined;
+  status?: string | undefined;
+  body?: string | undefined;
+  versionNumber?: number | undefined;
+  spaceId?: string | undefined;
+};
+
+export interface ActionInput_confluence_updatefootercomment {
+  /**
+   * The ID of the footer comment to update. Example: "123456"
+   */
+  comment_id: string;
+  /**
+   * The next version number for the comment. Example: 2
+   */
+  version_number: number;
+  /**
+   * The updated comment body in storage format. Example: "<p>Updated comment</p>"
+   */
+  body: string;
+  /**
+   * An optional message describing the update.
+   */
+  version_message?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatefootercomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  number?: number | undefined;
+  message?: string | undefined;
+  createdAt?: string | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+};
+
+export interface ActionInput_confluence_updateinlinecomment {
+  /**
+   * The ID of the inline comment to update. Example: "123456"
+   */
+  commentId: string;
+  body?: {  /**
+   * Body representation. Example: "storage"
+   */
+  representation: string;
+  /**
+   * Body value in the given representation.
+   */
+  value: string;} | undefined;
+  /**
+   * Set to true to resolve the comment, false to reopen it.
+   */
+  resolved?: boolean | undefined;
+  /**
+   * Message describing the update.
+   */
+  versionMessage?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updateinlinecomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+  resolutionStatus?: string | undefined;
+  resolutionLastModifierId?: string | undefined;
+  resolutionLastModifiedAt?: string | undefined;
+  webui?: string | undefined;
+};
+
+export interface ActionInput_confluence_updatepageproperty {
+  /**
+   * Page ID. Example: "123456789"
+   */
+  page_id: string;
+  /**
+   * Property ID. Example: "987654321"
+   */
+  property_id: string;
+  /**
+   * Property key. Example: "my-property"
+   */
+  key: string;
+  /**
+   * JSON value to store.
+   */
+  value?: unknown | undefined;
+  /**
+   * Next version number. Must be higher than the current version.
+   */
+  version_number: number;
+  /**
+   * Optional version message.
+   */
+  version_message?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatepageproperty {
+  id: string;
+  key: string;
+  version: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_updatepage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Page title
+   */
+  title: string;
+  /**
+   * Page status. Example: "current"
+   */
+  status: string;
+  /**
+   * Page body in storage format
+   */
+  body: string;
+  /**
+   * Version message
+   */
+  versionMessage?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatepage {
+  id: string;
+  status: string;
+  title: string;
+  spaceId?: string | undefined;
+  versionNumber?: number | undefined;
 };
 
 export type ActionInput_databricks_workspace_listwarehouses = void
@@ -3260,57 +6083,1130 @@ export interface ActionOutput_docusign_deleteuser {
   success: boolean;
 };
 
-export interface Document {
+export interface File {
   id: string;
-  path: string;
-  title: string;
-  modified_date: string;
+  name: string;
+  mimeType: string;
+  parents?: string[] | undefined;
+  driveId?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  size?: string | undefined;
+  webViewLink?: string | undefined;
+  trashed?: boolean | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
-  files: string[];
-  folders: string[];
+  rootPaths?: string[] | undefined;
 };
 
-export interface SyncMetadata_dropbox_users {
+export interface SyncMetadata_dropbox_folders {
+  root_paths?: string[] | undefined;
+};
+
+export interface SharedFolder {
+  id: string;
+  sharedFolderId: string;
+  sharedFolderName?: string | undefined;
+  isTeamFolder?: boolean | undefined;
+  parentSharedFolderId?: string | undefined;
+  sharedFolderPathLower?: string | undefined;
+  sharedFolderPreviewPath?: string | undefined;
+  accessType?: string | undefined;
+  isInsideTeamFolder?: boolean | undefined;
+  isMountManaged?: boolean | undefined;
+  aclUpdatePolicy?: string | undefined;
+};
+
+export interface SharedLink {
+  id: string;
+  url: string;
+  name: string;
+  path_lower?: string | undefined;
+  type?: 'file' | 'folder' | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  expires?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcopyfilesorfolders {
+  /**
+   * List of source and destination path pairs to copy
+   */
+  entries: ({  /**
+   * Source path in Dropbox. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path in Dropbox. Example: "/folder/destination.txt"
+   */
+  to_path: string;})[];
+  /**
+   * If true, auto-rename conflicting files
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcopyfilesorfolders {
+  async_job_id?: string | undefined;
+  entries?: ({  success?: {  metadata: {  name: string;
+  path_lower: string;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};};
+  failure?: {  failure_reason?: {  ".tag": string;
+  description?: string | undefined;};
+  ".tag"?: string | undefined;};
+  ".tag"?: string | undefined;})[];
+  is_complete?: boolean | undefined;
+  ".tag"?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcreatefolders {
+  /**
+   * List of paths to be created in the Dropbox. Max 10000 items. Example: ["/Projects/2024", "/Projects/2025"]
+   */
+  paths: string[];
+  /**
+   * If there is a conflict, have the Dropbox server try to autorename the folder to avoid the conflict. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * Whether to force the create to happen asynchronously. Default: false
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Polling interval in milliseconds when checking async job status. Default: 1000
+   */
+  poll_interval_ms?: number | undefined;
+  /**
+   * Maximum number of polling attempts for async job status. Default: 30
+   */
+  max_poll_attempts?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcreatefolders {
+  /**
+   * Whether the batch operation completed successfully
+   */
+  completed: boolean;
+  /**
+   * The async job ID if the operation is still in progress
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Array of results for each folder creation attempt
+   */
+  folders?: ({  path: string;
+  success: boolean;
+  id?: string | undefined;
+  name?: string | undefined;
+  error?: string | undefined;})[];
+  /**
+   * Total number of folders in the batch
+   */
+  total_count: number;
+  /**
+   * Number of folders successfully created
+   */
+  success_count: number;
+  /**
+   * Number of folders that failed to create
+   */
+  failure_count: number;
+};
+
+export interface ActionInput_dropbox_batchdeletefilesorfolders {
+  /**
+   * List of files/folders to delete. Each entry has a path field.
+   */
+  entries: ({  /**
+   * Path in the user's Dropbox to delete. Example: "/Homework/math/Prime_Numbers.txt"
+   */
+  path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion operation
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If status is in_progress, the job ID to poll for completion
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Results for each entry if the operation is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  parent_shared_folder_id?: string | undefined;
+  id?: string | undefined;};
+  success?: {} | undefined;
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_batchmovefilesorfolders {
+  /**
+   * List of up to 1000 entries to move, each with from_path and to_path.
+   */
+  entries: ({  /**
+   * Path of the file or folder to move. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path for the file or folder. Example: "/newfolder/file.txt"
+   */
+  to_path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If job is in progress, this ID can be used to check status later.
+   */
+  async_job_id?: string | undefined;
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchcopyfilesorfolders {
+  /**
+   * The async job ID returned by batch-copy-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchcopyfilesorfolders {
+  ".tag": 'in_progress' | 'complete' | 'failed';
+  entries?: ({  ".tag": string;
+  metadata?: {  name: string;
+  path_lower: string;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};
+  failure?: {  ".tag": string;
+  description?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * The async job ID returned by batch-delete-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion check
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * Per-entry results when status is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id?: string | undefined;};
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_checkbatchmovefilesorfolders {
+  /**
+   * The async job ID returned by batch-move-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkunsharefolder {
+  /**
+   * The async job ID returned by unshare-folder. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkunsharefolder {
+  success: boolean;
+  status: 'complete' | 'in_progress' | 'failed';
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_copyfileorfolder {
+  /**
+   * The path of the file or folder to copy. Example: "/folder/myfile.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path for the copy. Example: "/folder/myfile_copy.txt"
+   */
+  to_path: string;
+  /**
+   * If true, copy contents of shared folders.
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, auto-rename conflicting files.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, allow ownership transfer for files in shared folders.
+   */
+  allow_ownership_transfer?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_copyfileorfolder {
+  /**
+   * The unique ID of the copied file or folder
+   */
+  id: string;
+  /**
+   * The name of the copied file or folder
+   */
+  name: string;
+  /**
+   * The lowercased path of the copy
+   */
+  path_lower?: string | undefined;
+  /**
+   * The display path of the copy
+   */
+  path_display?: string | undefined;
+  /**
+   * Size in bytes
+   */
+  size?: number | undefined;
+  /**
+   * Client modified timestamp for files
+   */
+  client_modified?: string | undefined;
+  /**
+   * Server modified timestamp
+   */
+  server_modified?: string | undefined;
+  /**
+   * Revision identifier
+   */
+  rev?: string | undefined;
+  /**
+   * Content hash for files
+   */
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_createfolder {
+  /**
+   * The path in Dropbox where the folder should be created. Example: "/home/TestFolder"
+   */
+  path: string;
+  /**
+   * If true, the folder will be renamed to avoid conflicts if a folder already exists at the given path. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_createfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+};
+
+export interface ActionInput_dropbox_createsharedlink {
+  /**
+   * The path to the file or folder in the Dropbox account. Example: /folder/file.txt
+   */
+  path: string;
+  /**
+   * Optional settings for the shared link including visibility, audience, access level, password, and expiry.
+   */
+  settings?: {  /**
+   * The requested visibility for the shared link. Can be public, password (link is publicly visible, but only accessible with the password), or team_only (only members of the same team can access).
+   */
+  requested_visibility?: 'public' | 'password' | 'team_only' | undefined;
+  /**
+   * The audience of the shared link. Can be public (anyone with the link can access), team (only members of the same team can access), no_one (link is disabled), or members (only specific members can access).
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * The access level on the link. Can be viewer, viewer_no_comment (can view but not comment), editor, or owner.
+   */
+  access?: 'viewer' | 'viewer_no_comment' | 'editor' | 'owner' | undefined;
+  /**
+   * Whether to allow downloads via the shared link.
+   */
+  allow_download?: boolean | undefined;
+  /**
+   * The password for the shared link. Required if requested_visibility is set to password.
+   */
+  password?: string | undefined;
+  /**
+   * The expiration time for the shared link in ISO 8601 format (e.g., 2025-12-31T23:59:59Z).
+   */
+  expires?: string | undefined;};
+};
+
+export interface ActionOutput_dropbox_createsharedlink {
+  /**
+   * The shared link URL that can be used to access the file or folder.
+   */
+  url: string;
+  /**
+   * The name of the file or folder.
+   */
+  name: string;
+  /**
+   * The lowercased full path to the file or folder.
+   */
+  path: string;
+  /**
+   * The permissions associated with the shared link.
+   */
+  link_permissions?: {} | undefined;
+  /**
+   * The expiration time of the shared link if set.
+   */
+  expiry?: string | undefined;
+  /**
+   * Whether the shared link is password protected.
+   */
+  password_protected?: boolean | undefined;
 };
 
 export interface ActionInput_dropbox_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * Email address of the new user. Example: "john.doe@example.com"
+   */
   email: string;
+  /**
+   * First name of the new user. Example: "John"
+   */
+  firstName: string;
+  /**
+   * Last name of the new user. Example: "Doe"
+   */
+  lastName: string;
 };
 
 export interface ActionOutput_dropbox_createuser {
   id: string;
-  email: string;
   firstName: string;
   lastName: string;
+  email: string;
 };
 
-export interface ActionInput_dropbox_deleteuser {
+export interface ActionInput_dropbox_deletefileorfolder {
+  /**
+   * Path to the file or folder to delete. Example: "/path/to/file.txt" or "/path/to/folder"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_deletefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
   id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_deleteuser {
-  success: boolean;
+export interface ActionInput_dropbox_downloadfile {
+  /**
+   * The path of the file to download. Example: "/Homework/math/Prime_Numbers.txt" or "id:a4ayc_80_OEAAAAAAAAAYa"
+   */
+  path: string;
 };
 
-export interface ActionInput_dropbox_foldercontent {
+export interface ActionOutput_dropbox_downloadfile {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  content_hash?: string | undefined;
+  is_downloadable?: boolean | undefined;};
+  /**
+   * Base64-encoded file content
+   */
+  bytes: string;
+};
+
+export interface ActionInput_dropbox_downloadfolderaszip {
+  /**
+   * The path of the folder to download. Example: "/my-folder". Note: The root folder "/" is not supported.
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_downloadfolderaszip {
+  metadata: {  id: string;
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+  /**
+   * Base64-encoded zip file content
+   */
+  zip_content: string;
+};
+
+export interface ActionInput_dropbox_getcurrentaccount {
+};
+
+export interface ActionOutput_dropbox_getcurrentaccount {
+  account_id: string;
+  name: {  given_name: string;
+  surname: string;
+  familiar_name: string;
+  display_name: string;};
+  email: string;
+  account_type: string;
+  email_verified?: boolean | undefined;
+  disabled?: boolean | undefined;
+  locale?: string | undefined;
+  referral_link?: string | undefined;
+  is_paired?: boolean | undefined;
+  profile_photo_url?: string | undefined;
+  country?: string | undefined;
+  team?: {  name: string;
+  id: string;} | undefined;
+  team_member_id?: string | undefined;
+};
+
+export interface ActionInput_dropbox_getfileorfoldermetadata {
+  /**
+   * Path in the user's Dropbox to get metadata for. Example: "/folder/file.txt"
+   */
   path?: string | undefined;
+  /**
+   * Unique identifier for the file or folder. Can be used instead of path. Example: "id:a4ayc_80_OEAAAAAAAAAXw"
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_getfileorfoldermetadata {
+  0: {  type: 'file';
+  name: string;
+  id: string;
+  client_modified: string;
+  server_modified: string;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};
+  content_hash?: string | undefined;
+  has_explicit_shared_members?: boolean | undefined;
+  is_downloadable?: boolean | undefined;};
+  1: {  type: 'folder';
+  name: string;
+  id: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};};
+  2: {  type: 'deleted';
+  name: string;
+  id?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+};
+
+export interface ActionInput_dropbox_getfiletemporarylink {
+  /**
+   * The path to the file you want a temporary link to. Example: "/folder/file.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_getfiletemporarylink {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;};
+  /**
+   * Temporary link to stream content of the file. Expires after four hours.
+   */
+  link: string;
+};
+
+export interface ActionInput_dropbox_listfilerevisions {
+  /**
+   * The path to the file or a file ID. Example: "/folder/document.txt" or "id:a4aycG80J0UAAAAAAAAcZA"
+   */
+  path: string;
+  /**
+   * Specify how to interpret the path argument. "path" (default): revisions at the same file path are returned. "id": revisions for the file ID (survives moves and renames).
+   */
+  mode?: 'path' | 'id' | undefined;
+  /**
+   * Maximum number of revisions to return. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_listfilerevisions {
+  /**
+   * If true, this file was deleted.
+   */
+  is_deleted?: boolean | undefined;
+  /**
+   * The revisions for the file.
+   */
+  entries: ({  /**
+   * The last component of the path (including extension).
+   */
+  name: string;
+  /**
+   * The lowercased full path in the user's Dropbox.
+   */
+  path_lower?: string | undefined;
+  /**
+   * The cased path to be shown to the user.
+   */
+  path_display?: string | undefined;
+  /**
+   * A unique identifier for the file.
+   */
+  id: string;
+  /**
+   * For files, this is the modification time set by the client.
+   */
+  client_modified?: string | undefined;
+  /**
+   * The last modified time of the file.
+   */
+  server_modified: string;
+  /**
+   * A unique identifier for the current revision of a file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+  /**
+   * A hash of the file content.
+   */
+  content_hash?: string | undefined;
+  /**
+   * If true, file can be downloaded directly.
+   */
+  is_downloadable?: boolean | undefined;
+  /**
+   * Whether this file has any explicit shared members.
+   */
+  has_explicit_shared_members?: boolean | undefined;})[];
+  /**
+   * Pass the cursor into files/list_revisions/continue to paginate through the entries.
+   */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_foldercontent {
-  files: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
-  folders: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
+export interface ActionInput_dropbox_listfolder {
+  /**
+   * The path to the folder to list. Use "" (empty string) or omit for root folder. Example: "/Homework/math"
+   */
+  path?: string | undefined;
+  /**
+   * If true, list contents recursively for all subfolders. Default: false
+   */
+  recursive?: boolean | undefined;
+  /**
+   * If true, include entries for files and folders that were deleted. Default: false
+   */
+  include_deleted?: boolean | undefined;
+  /**
+   * Maximum number of entries to return per request (1-2000).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. If provided, continues listing from that point.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listfolder {
+  /**
+   * The files and folders in the directory.
+   */
+  entries: any[];
+  /**
+   * Cursor for retrieving more entries via list_folder/continue.
+   */
+  cursor?: string | undefined;
+  /**
+   * True if more entries are available.
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_dropbox_listsharedfolders {
+  /**
+   * The maximum number of results to return per request. Default is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedfolders {
+  folders: ({  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url: string;
+  access_type: string;
+  is_team_folder: boolean;
+  is_inside_team_folder: boolean;
+  time_invited: string;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_listsharedlinks {
+  /**
+   * Path to the file or folder to get shared links for. If not provided, returns all shared links for the current user.
+   */
+  path?: string | undefined;
+  /**
+   * Cursor returned from previous call to get the next page of results. Cursor is only returned when no path is provided.
+   */
+  cursor?: string | undefined;
+  /**
+   * If true, only return links directly to the given path. If false or omitted, also return links to parent folders.
+   */
+  direct_only?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedlinks {
+  links: ({  ".tag": 'file' | 'folder';
+  url: string;
+  id: string;
+  name: string;
+  path_lower: string;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: {  ".tag": string;} | undefined;
+  requested_visibility?: {  ".tag": string;} | undefined;
+  revoke_failure_reason?: {  ".tag": string;} | undefined;};
+  team_member_info?: {  team_info: {  id: string;
+  name: string;};
+  display_name: string;
+  member_id: string;
+  email?: string | undefined;};
+  expires?: string | undefined;
+  content_owner_team_info?: {  id: string;
+  name: string;} | undefined;})[];
+  has_more: boolean;
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_modifysharedlinksettings {
+  /**
+   * URL of the shared link to change its settings. Example: "https://www.dropbox.com/s/abc123/file.txt"
+   */
+  url: string;
+  /**
+   * Set of settings for the shared link.
+   */
+  settings?: {  /**
+   * Use `audience` instead. The requested access for this shared link.
+   */
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  /**
+   * The new audience who can benefit from the access level.
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * Requested access level. Note: modifying access level for an existing link is not supported.
+   */
+  access?: 'viewer' | 'editor' | 'max' | undefined;
+  /**
+   * Expiration time of the shared link in ISO 8601 format. By default the link won't expire.
+   */
+  expires?: string | undefined;
+  /**
+   * Boolean flag to enable or disable password protection.
+   */
+  require_password?: boolean | undefined;
+  /**
+   * If require_password is true, this specifies the password to access the link.
+   */
+  link_password?: string | undefined;
+  /**
+   * Boolean flag to allow or disallow download capabilities for shared links.
+   */
+  allow_download?: boolean | undefined;};
+  /**
+   * If set to true, removes the expiration of the shared link.
+   */
+  remove_expiration?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_modifysharedlinksettings {
+  url: string;
+  name?: string | undefined;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: 'public' | 'team_only' | 'password' | 'team_and_password' | 'shared_folder_only' | 'no_one' | undefined;
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  effective_audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  link_access_level?: 'viewer' | 'editor' | 'max' | undefined;
+  can_set_expiration?: boolean | undefined;
+  can_set_password?: boolean | undefined;
+  can_remove_password?: boolean | undefined;
+  allow_download?: boolean | undefined;
+  can_allow_download?: boolean | undefined;
+  require_password?: boolean | undefined;
+  can_request_password?: boolean | undefined;};
+  expires?: string | undefined;
+  path_lower?: string | undefined;
+  file_id?: string | undefined;
+  id?: string | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+};
+
+export interface ActionInput_dropbox_movefileorfolder {
+  /**
+   * The path to the file or folder to be moved. Example: "/Folder/File.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path, including the new name for the file or folder. Example: "/NewFolder/NewFile.txt"
+   */
+  to_path: string;
+  /**
+   * If true, move will take into account the shared folder permissions. Default: false
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, rename will be attempted if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_movefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  is_downloadable?: boolean | undefined;
+  tag?: 'file' | 'folder' | undefined;
+};
+
+export interface ActionInput_dropbox_restorefilerevision {
+  /**
+   * The path of the file to restore. Example: "/Documents/example.txt"
+   */
+  path: string;
+  /**
+   * The revision ID to restore to. Example: "015a01044acb99900000001aa8954d0"
+   */
+  rev: string;
+};
+
+export interface ActionOutput_dropbox_restorefilerevision {
+  name: string;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_revokesharedlink {
+  /**
+   * The URL of the shared link to revoke. Example: "https://www.dropbox.com/s/..."
+   */
+  url: string;
+};
+
+export interface ActionOutput_dropbox_revokesharedlink {
+  /**
+   * Whether the shared link was successfully revoked.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_dropbox_searchfilesandfolders {
+  /**
+   * The string to search for. May match across multiple fields based on the request arguments.
+   */
+  query: string;
+  /**
+   * A specific folder path to search in. If not specified, searches the entire Dropbox. Example: "/home/Documents"
+   */
+  path?: string | undefined;
+  /**
+   * Maximum number of results to return. Default: 100. Range: 1-1000.
+   */
+  max_results?: number | undefined;
+  /**
+   * Order of results. Default: relevance.
+   */
+  order_by?: 'relevance' | 'last_modified_time' | undefined;
+  /**
+   * Filter by file status. Default: active.
+   */
+  file_status?: 'active' | 'deleted' | undefined;
+  /**
+   * If true, restricts search to file names only. Default: false.
+   */
+  filename_only?: boolean | undefined;
+  /**
+   * Restrict search to specific file extensions. Only works for active files. Example: ["pdf", "txt"]
+   */
+  file_extensions?: string[] | undefined;
+  /**
+   * Restrict search to specific file categories. Only works for active files.
+   */
+  file_categories?: ({  0: 'image';
+  1: 'document';
+  2: 'pdf';
+  3: 'spreadsheet';
+  4: 'presentation';
+  5: 'audio';
+  6: 'video';
+  7: 'folder';
+  8: 'paper';
+  9: 'other';})[] | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_searchfilesandfolders {
+  /**
+   * List of search result matches
+   */
+  matches: ({  match_type?: {  ".tag": string;} | undefined;
+  metadata?: {  ".tag": 'metadata' | 'unmounted' | 'not_found';
+  metadata?: unknown | undefined;};})[];
+  /**
+   * If true, more results are available
+   */
+  has_more: boolean;
+  /**
+   * Cursor for fetching the next page of results
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_sharefolder {
+  /**
+   * Dropbox path to the folder to share. Example: "/my-folder"
+   */
+  path: string;
+  /**
+   * If true, force the share operation to run asynchronously
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Who can be a member of this shared folder
+   */
+  member_policy?: 'anyone' | 'team' | undefined;
+  /**
+   * Who can access shared links for the folder
+   */
+  shared_link_policy?: 'anyone' | 'members' | undefined;
+  /**
+   * Whether to enable viewer info for this folder
+   */
+  viewer_info_policy?: 'disabled' | 'enabled' | undefined;
+  /**
+   * How access levels are inherited
+   */
+  access_inheritance?: 'inherit' | 'no_inherit' | undefined;
+};
+
+export interface ActionOutput_dropbox_sharefolder {
+  success: boolean;
+  async_job_id?: string | undefined;
+  shared_folder_metadata?: {  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url?: string | undefined;
+  access_type?: string | undefined;
+  is_team_folder?: boolean | undefined;
+  is_inside_team_folder?: boolean | undefined;};
+};
+
+export interface ActionInput_dropbox_unsharefolder {
+  /**
+   * The ID for the shared folder. Example: "84528192421"
+   */
+  sharedFolderId: string;
+  /**
+   * If true, members of this shared folder will get a copy of this folder after it is unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
+   */
+  leaveACopy?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_unsharefolder {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_uploadfile {
+  /**
+   * Path in the user's Dropbox to save the file. Example: "/folder/document.txt"
+   */
+  path: string;
+  /**
+   * The file content as a base64-encoded string or raw string for text files.
+   */
+  content: string;
+  /**
+   * The encoding of the content. Defaults to "utf8".
+   */
+  encoding?: 'base64' | 'utf8' | undefined;
+  /**
+   * Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches (requires rev). Defaults to "add".
+   */
+  mode?: 'add' | 'overwrite' | 'update' | undefined;
+  /**
+   * The revision of the file to update. Required when mode is "update".
+   */
+  rev?: string | undefined;
+  /**
+   * If true and there's a conflict, Dropbox will try to autorename the file to avoid the conflict. Defaults to false.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses user notifications for this modification. Defaults to false.
+   */
+  mute?: boolean | undefined;
+  /**
+   * The value to store as the client_modified timestamp in ISO 8601 format. If not set, Dropbox uses the current time.
+   */
+  client_modified?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadfile {
+  /**
+   * The name of the file.
+   */
+  name: string;
+  /**
+   * The lowercase full path of the file.
+   */
+  path_lower: string;
+  /**
+   * The unique identifier of the file.
+   */
+  id: string;
+  /**
+   * The timestamp when the file was last modified by the client.
+   */
+  client_modified: string;
+  /**
+   * The timestamp when the file was last modified on the server.
+   */
+  server_modified: string;
+  /**
+   * The revision of the file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_dropbox_uploadlargefile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  file_content_base64: string;
+  /**
+   * The destination path in Dropbox. Example: "/folder/file.txt"
+   */
+  dropbox_path: string;
+  /**
+   * What to do if the file already exists. Default: "add"
+   */
+  mode?: 'add' | 'overwrite' | undefined;
+  /**
+   * Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB
+   */
+  chunk_size?: number | undefined;
+  /**
+   * If true, rename the file if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses email notification. Default: false
+   */
+  mute?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadlargefile {
+  success: boolean;
+  path: string;
+  file_id?: string | undefined;
+  content_hash?: string | undefined;
+  name?: string | undefined;
 };
 
 export interface EvaluAgentGroup {
@@ -4167,21 +8063,26 @@ export interface ActionOutput_gem_uploadresume {
   download_url: string;
 };
 
-export interface GithubIssue {
+export interface Commit {
   id: string;
-  owner: string;
-  repo: string;
-  issue_number: number;
-  title: string;
-  author: string;
-  author_id: string;
-  state: string;
-  date_created: Date;
-  date_last_modified: Date;
-  body: string;
-};
-
-export interface SyncMetadata_github_issues {
+  sha: string;
+  message: string;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  author_date?: string | undefined;
+  author_login?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committer_date?: string | undefined;
+  committer_login?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  repository_owner: string;
+  repository_name: string;
+  branch: string;
+  parent_shas?: string[] | undefined;
+  verified?: boolean | undefined;
+  verification_reason?: string | undefined;
 };
 
 export interface Issue {
@@ -4208,7 +8109,9 @@ export interface Issue {
   priority?: number | undefined;
 };
 
-export interface SyncMetadata_github_issueslite {
+export interface SyncMetadata_github_issues {
+  repositories?: ({  owner: string;
+  repo: string;})[] | undefined;
 };
 
 export interface GithubRepoFile {
@@ -4224,32 +8127,2581 @@ export interface SyncMetadata_github_listfiles {
   branch: string;
 };
 
-export type ActionInput_github_listrepos = void
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
 
-export interface ActionOutput_github_listrepos {
-  repos: ({  id: number;
-  owner: string;
+export interface SyncMetadata_github_pullrequests {
+  repos: string[];
+};
+
+export interface Release {
+  id: string;
+  repo_owner: string;
+  repo_name: string;
+  release_id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author_login: string;
+  author_id: number;
+};
+
+export interface SyncMetadata_github_releases {
+  repos?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface Repository {
+  id: string;
   name: string;
   full_name: string;
-  description: string;
-  url: string;
-  date_created: Date;
-  date_last_modified: Date;})[];
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
 };
 
-export interface ActionInput_github_writefile {
+export interface FileMetadata {
+  siteId: string;
+  id: string;
+  name: string;
+  etag: string;
+  cTag: string;
+  is_folder: boolean;
+  mime_type: string | null;
+  path: string;
+  raw_source?: any | undefined;
+  updated_at: string;
+  download_url: string | null;
+  created_at: string;
+  blob_size: number;
+};
+
+export interface SyncMetadata_github_repositoryfiles {
   owner: string;
   repo: string;
+  branch: string;
+};
+
+export interface WorkflowRun {
+  id: string;
+  name?: string | undefined;
+  head_branch?: string | undefined;
+  head_sha: string;
   path: string;
-  message: string;
-  content: string;
+  run_number: number;
+  event: string;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  run_attempt?: number | undefined;
+  repository_id: number;
+  repository_name: string;
+  repository_owner: string;
+};
+
+export interface SyncMetadata_github_workflowruns {
+  repositories?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_github_addissuecomment {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 42
+   */
+  issue_number: number;
+  /**
+   * The contents of the comment. Markdown is supported. Example: "This is a comment"
+   */
+  body: string;
+};
+
+export interface ActionOutput_github_addissuecomment {
+  /**
+   * The unique identifier of the comment
+   */
+  id: number;
+  /**
+   * The node ID of the comment
+   */
+  node_id: string;
+  /**
+   * The API URL of the comment
+   */
+  url: string;
+  /**
+   * The contents of the comment
+   */
+  body?: string | undefined;
+  /**
+   * The HTML URL of the comment
+   */
+  html_url: string;
+  /**
+   * The user who created the comment
+   */
+  user?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  /**
+   * The timestamp when the comment was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The timestamp when the comment was last updated
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL of the issue
+   */
+  issue_url?: string | undefined;
+};
+
+export interface ActionInput_github_createbranch {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Name of the new branch. Example: "feature-branch"
+   */
+  branch: string;
+  /**
+   * The SHA of the commit to create the branch from. Example: "abc123def..."
+   */
   sha: string;
 };
 
-export interface ActionOutput_github_writefile {
-  url: string;
-  status: string;
+export interface ActionOutput_github_createbranch {
+  /**
+   * The Git reference. Example: "refs/heads/feature-branch"
+   */
+  ref: string;
+  /**
+   * The SHA of the referenced object
+   */
   sha: string;
+  /**
+   * Type of the referenced object. Example: "commit"
+   */
+  type: string;
+};
+
+export interface ActionInput_github_createissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The title of the issue. Example: "Found a bug"
+   */
+  title: string;
+  /**
+   * The contents of the issue. Example: "I am having a problem with this."
+   */
+  body?: string | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with. Example: 1
+   */
+  milestone?: number | string | undefined;
+};
+
+export interface ActionOutput_github_createissue {
+  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user_login?: string | undefined;
+  labels: string[];
+  assignees: string[];
+  milestone_number?: number | undefined;
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_createlabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Label name. Example: "bug"
+   */
+  name: string;
+  /**
+   * Color of the label in hexadecimal format without leading hash. Example: "ff0000"
+   */
+  color: string;
+  /**
+   * Description of the label. Example: "Something is broken"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_createlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_createorupdatefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The file path in the repository. Example: "path/to/file.md"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "My commit message"
+   */
+  message: string;
+  /**
+   * The new file content. This will be Base64 encoded automatically.
+   */
+  content: string;
+  /**
+   * The branch name. Defaults to the repository's default branch if not provided.
+   */
+  branch?: string | undefined;
+  /**
+   * The blob SHA of the file being replaced. Required for updating an existing file. If not provided, the action will attempt to fetch the current SHA.
+   */
+  sha?: string | undefined;
+  /**
+   * The person that committed the file. Defaults to the authenticated user.
+   */
+  committer?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+  /**
+   * The author of the file. Default: the committer or the authenticated user if you omit committer.
+   */
+  author?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+};
+
+export interface ActionOutput_github_createorupdatefile {
+  content?: {  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url?: string | undefined;
+  git_url?: string | undefined;
+  download_url?: string | undefined;
+  type: string;};
+  commit: {  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  message: string;
+  author: {  date: string;
+  name: string;
+  email: string;};
+  committer: {  date: string;
+  name: string;
+  email: string;};
+  tree: {  url: string;
+  sha: string;};
+  parents: ({  url: string;
+  html_url: string;
+  sha: string;})[];
+  verification: {  verified: boolean;
+  reason: string;
+  signature?: string | undefined;
+  payload?: string | undefined;
+  verified_at?: string | undefined;};};
+};
+
+export interface ActionInput_github_createpullrequest {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The title of the pull request. Example: "Fix authentication bug"
+   */
+  title: string;
+  /**
+   * The name of the branch where your changes are implemented. Example: "feature-branch"
+   */
+  head: string;
+  /**
+   * The name of the branch you want the changes pulled into. Example: "main"
+   */
+  base: string;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the pull request should be created as a draft.
+   */
+  draft?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createpullrequest {
+  id: number;
+  nodeId: string;
+  url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  draft?: boolean | undefined;
+  headRef?: string | undefined;
+  headSha?: string | undefined;
+  baseRef?: string | undefined;
+  baseSha?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_github_createrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag_name: string;
+  /**
+   * The commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Defaults to the repository's default branch. Example: "main"
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Example: "v1.0.0 - First Release"
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Example: "Description of the release"
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft. Defaults to false.
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease. Defaults to false.
+   */
+  prerelease?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createrelease {
+  id: number;
+  tag_name: string;
+  target_commitish?: string | undefined;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  html_url: string;
+};
+
+export interface ActionInput_github_createreviewrequest {
+  /**
+   * Repository owner (username or organization). Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Pull request number. Example: 1
+   */
+  pull_number: number;
+  /**
+   * Usernames of users to request reviews from. Example: ["octocat"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Slugs of teams to request reviews from. Example: ["justice-league"]
+   */
+  team_reviewers?: string[] | undefined;
+};
+
+export interface ActionOutput_github_createreviewrequest {
+  /**
+   * Pull request ID
+   */
+  id: number;
+  /**
+   * Pull request number
+   */
+  number: number;
+  /**
+   * Pull request state
+   */
+  state: string;
+  /**
+   * Pull request title
+   */
+  title: string;
+  /**
+   * Users requested to review
+   */
+  requested_reviewers?: ({  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  gravatar_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  type?: string | undefined;})[];
+  /**
+   * Teams requested to review
+   */
+  requested_teams?: ({  id: number;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  name: string;
+  slug: string;
+  description?: string | undefined;
+  privacy?: string | undefined;
+  permission?: string | undefined;
+  members_url?: string | undefined;
+  repositories_url?: string | undefined;
+  parent?: unknown | undefined;})[];
+};
+
+export interface ActionInput_github_createtagobject {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag: string;
+  /**
+   * The tag message. Example: "Release v1.0.0"
+   */
+  message: string;
+  /**
+   * The SHA of the git object this tag points to. Example: "c3d0be41cbeaa591f95c7208cc9321296ff76a1c"
+   */
+  object: string;
+  /**
+   * The type of the object the tag points to.
+   */
+  type: 'commit' | 'tree' | 'blob';
+  /**
+   * The name of the person creating the tag. Example: "Monalisa Octocat"
+   */
+  tagger_name: string;
+  /**
+   * The email of the person creating the tag. Example: "octocat@github.com"
+   */
+  tagger_email: string;
+  /**
+   * The date the tag was created (ISO 8601 format). Defaults to current time if not provided. Example: "2024-01-01T00:00:00Z"
+   */
+  tagger_date?: string | undefined;
+};
+
+export interface ActionOutput_github_createtagobject {
+  sha: string;
+  url: string;
+  tagger_name: string;
+  tagger_email: string;
+  tagger_date: string;
+  object_sha: string;
+  object_type: string;
+  object_url: string;
+  tag: string;
+  message: string;
+};
+
+export interface ActionInput_github_deletefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file in the repository. Example: "path/to/file.txt"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "Delete file.txt"
+   */
+  message: string;
+  /**
+   * The blob SHA of the file being deleted. Example: "sha256hash"
+   */
+  sha: string;
+  /**
+   * The name of the branch to delete the file from. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_deletefile {
+  commit?: {  sha?: string | undefined;
+  message?: string | undefined;
+  html_url?: string | undefined;
+  author?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  committer?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  tree?: {  sha?: string | undefined;
+  url?: string | undefined;};
+  parents?: ({  sha?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;})[];};
+};
+
+export interface ActionInput_github_deletelabel {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Label name to delete. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_deletelabel {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_deleterelease {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Release ID to delete. Example: 12345678
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_deleterelease {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_github_getbranch {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Branch name. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_getbranch {
+  name: string;
+  commit_sha: string;
+  protected?: boolean | undefined;
+  protection?: unknown | undefined;
+};
+
+export interface ActionInput_github_getcommit {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME). Example: "main"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_getcommit {
+  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  comments_url: string;
+  commit: {  message: string;
+  author?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  committer?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  comment_count: number;
+  tree: {  sha: string;
+  url: string;};
+  verification?: {  verified: boolean;
+  reason: string;
+  payload?: string | undefined;
+  signature?: string | undefined;
+  verified_at?: string | undefined;};};
+  author?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  committer?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  parents: ({  sha: string;
+  url: string;
+  html_url?: string | undefined;})[];
+  stats?: {  additions: number;
+  deletions: number;
+  total: number;} | undefined;
+  files?: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getfilecontents {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file or directory. Example: "README.md" or "docs/"
+   */
+  path: string;
+  /**
+   * The name of the commit/branch/tag. Defaults to the repository's default branch.
+   */
+  ref?: string | undefined;
+};
+
+export interface ActionOutput_github_getfilecontents {
+  /**
+   * Type of content
+   */
+  type: 'file' | 'dir' | 'symlink' | 'submodule';
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  /**
+   * Base64 encoded content for files
+   */
+  content?: string | undefined;
+  /**
+   * Content encoding (e.g., base64)
+   */
+  encoding?: string | undefined;
+  /**
+   * Directory entries when type is dir
+   */
+  entries?: ({  /**
+   * Type of content: file, dir, symlink, or submodule
+   */
+  type: string;
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};})[];
+  /**
+   * Symlink target when type is symlink
+   */
+  target?: string | undefined;
+  /**
+   * Submodule URL when type is submodule
+   */
+  submodule_git_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_github_getissue {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Issue number. Example: 1
+   */
+  issue_number: number;
+};
+
+export interface ActionOutput_github_getissue {
+  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;})[];
+  assignee: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  assignees: unknown[];
+  milestone: {  id: number;
+  number: number;
+  title: string;
+  state: string;};
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  comments: number;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;
+  closed_at?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_by?: unknown | undefined;
+};
+
+export interface ActionInput_github_getjoblogsdownloadurl {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the job. Example: 123456789
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_github_getjoblogsdownloadurl {
+  /**
+   * The API endpoint URL for job logs. Note: Due to Nango proxy limitations with 302 redirects, this returns the API endpoint rather than the actual download URL. Users should make a direct request to this URL with their GitHub token to receive the 302 redirect and extract the Location header.
+   */
+  download_url: string;
+};
+
+export interface ActionInput_github_getlabel {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the label. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_getlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;
+};
+
+export interface ActionInput_github_getpullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+};
+
+export interface ActionOutput_github_getpullrequest {
+  /**
+   * The unique identifier of the pull request. Example: 1
+   */
+  id: number;
+  /**
+   * The number of the pull request in the repository. Example: 1347
+   */
+  number: number;
+  /**
+   * The title of the pull request.
+   */
+  title: string;
+  /**
+   * The state of the pull request. Example: "open"
+   */
+  state: string;
+  /**
+   * The body content of the pull request.
+   */
+  body: string;
+  head: {  /**
+   * The branch name of the head. Example: "new-topic"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the head.
+   */
+  sha: string;};
+  base: {  /**
+   * The branch name of the base. Example: "main"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the base.
+   */
+  sha: string;};
+  user: {  /**
+   * The username of the author.
+   */
+  login: string;
+  /**
+   * The user ID of the author.
+   */
+  id: number;};
+  /**
+   * The timestamp when the pull request was created.
+   */
+  created_at: string;
+  /**
+   * The timestamp when the pull request was last updated.
+   */
+  updated_at: string;
+  /**
+   * The timestamp when the pull request was closed.
+   */
+  closed_at: string;
+  /**
+   * The timestamp when the pull request was merged.
+   */
+  merged_at: string;
+};
+
+export interface ActionInput_github_getrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_getrelease {
+  /**
+   * The unique identifier of the release
+   */
+  id: number;
+  /**
+   * The node ID of the release
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the tag
+   */
+  tag_name?: string | undefined;
+  /**
+   * The name of the release
+   */
+  name?: string | undefined;
+  /**
+   * The body of the release notes
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * The date the release was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The date the release was published
+   */
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  /**
+   * The URL of the release in the browser
+   */
+  html_url?: string | undefined;
+  /**
+   * The URL to download the release as a tarball
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The URL to download the release as a zipball
+   */
+  zipball_url?: string | undefined;
+  assets?: ({  id: number;
+  node_id?: string | undefined;
+  name: string;
+  content_type?: string | undefined;
+  size?: number | undefined;
+  download_count?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  browser_download_url?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getrepository {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+};
+
+export interface ActionOutput_github_getrepository {
+  id: number;
+  name: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  private: boolean;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;
+  html_url?: string | undefined;
+  owner: {  login: string;
+  id: number;
+  type?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_github_getreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The unique identifier of the review. Example: 1
+   */
+  review_id: number;
+};
+
+export interface ActionOutput_github_getreview {
+  id: number;
+  user_login: string;
+  user_id: number;
+  body?: string | undefined;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;
+};
+
+export interface ActionInput_github_gettagref {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The Git reference to retrieve. Use "tags/<tag_name>" for tags or "heads/<branch_name>" for branches. Example: "tags/v1.0.0"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_gettagref {
+  ref: string;
+  node_id: string;
+  url: string;
+  object: {  type: string;
+  sha: string;
+  url: string;};
+};
+
+export interface ActionInput_github_getworkflowrun {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 123456789
+   */
+  run_id: number;
+  /**
+   * If true, pull requests are omitted from the response.
+   */
+  exclude_pull_requests?: boolean | undefined;
+};
+
+export interface ActionOutput_github_getworkflowrun {
+  id: number;
+  name: string;
+  node_id: string;
+  head_branch: string;
+  head_sha: string;
+  path: string;
+  run_number: number;
+  run_attempt?: number | undefined;
+  event: string;
+  status: string;
+  conclusion: string;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  jobs_url: string;
+  logs_url: string;
+  check_suite_url: string;
+  artifacts_url: string;
+  cancel_url: string;
+  rerun_url: string;
+  workflow_url: string;
+  display_title: string;
+};
+
+export interface ActionInput_github_getworkflow {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. You can also pass the workflow file name as a string. Example: 12345 or "main.yaml"
+   */
+  workflow_id: number | string;
+};
+
+export interface ActionOutput_github_getworkflow {
+  /**
+   * The ID of the workflow
+   */
+  id: number;
+  /**
+   * The node ID of the workflow
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the workflow
+   */
+  name: string;
+  /**
+   * The path to the workflow file
+   */
+  path: string;
+  /**
+   * The state of the workflow (e.g., "active")
+   */
+  state: string;
+  /**
+   * The creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * The last update timestamp
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the workflow
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the workflow
+   */
+  html_url?: string | undefined;
+  /**
+   * The badge URL for the workflow status
+   */
+  badge_url?: string | undefined;
+};
+
+export interface ActionInput_github_listbranches {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Setting to true returns only protected branches. Setting to false returns only unprotected branches. Omitting this parameter returns all branches.
+   */
+  protected?: boolean | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listbranches {
+  branches: ({  name: string;
+  commit: {  sha: string;
+  url: string;};
+  protected: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listcommits {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * SHA or branch to start listing commits from. Example: "main"
+   */
+  sha?: string | undefined;
+  /**
+   * Only commits containing this file path will be returned. Example: "docs/README.md"
+   */
+  path?: string | undefined;
+  /**
+   * GitHub login or email address by which to filter by commit author. Example: "octocat@example.com"
+   */
+  author?: string | undefined;
+  /**
+   * Only commits after this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-01-01T00:00:00Z"
+   */
+  since?: string | undefined;
+  /**
+   * Only commits before this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-12-31T23:59:59Z"
+   */
+  until?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listcommits {
+  commits: ({  /**
+   * The SHA of the commit
+   */
+  sha: string;
+  /**
+   * The commit message
+   */
+  message: string;
+  /**
+   * Name of the author
+   */
+  author_name?: string | undefined;
+  /**
+   * Email of the author
+   */
+  author_email?: string | undefined;
+  /**
+   * Date of the commit
+   */
+  author_date?: string | undefined;
+  /**
+   * Name of the committer
+   */
+  committer_name?: string | undefined;
+  /**
+   * Email of the committer
+   */
+  committer_email?: string | undefined;
+  /**
+   * Date the commit was committed
+   */
+  committer_date?: string | undefined;
+  /**
+   * URL to the commit on GitHub
+   */
+  html_url?: string | undefined;
+  /**
+   * SHAs of parent commits
+   */
+  parent_shas?: string[] | undefined;})[];
+  /**
+   * Total number of commits (if available)
+   */
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listissuecomments {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissuecomments {
+  /**
+   * Array of issue comments
+   */
+  comments: ({  /**
+   * The unique identifier of the comment. Example: 1
+   */
+  id: number;
+  /**
+   * The node ID of the comment. Example: "MDEyOklzc3VlQ29tbWVudDE="
+   */
+  node_id?: string | undefined;
+  /**
+   * The REST API URL for the issue comment. Example: "https://api.github.com/repos/octocat/hello-world/issues/comments/1"
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the issue comment. Example: "https://github.com/octocat/hello-world/issues/1#issuecomment-1"
+   */
+  html_url?: string | undefined;
+  /**
+   * The contents of the issue comment.
+   */
+  body?: string | undefined;
+  /**
+   * The login username of the comment author. Example: "octocat"
+   */
+  user_login?: string | undefined;
+  /**
+   * The unique identifier of the comment author. Example: 1
+   */
+  user_id?: number | undefined;
+  /**
+   * The time the comment was created in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * The time the comment was last updated in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  updated_at?: string | undefined;
+  /**
+   * The REST API URL for the issue. Example: "https://api.github.com/repos/octocat/hello-world/issues/1"
+   */
+  issue_url?: string | undefined;})[];
+  /**
+   * The next page number if more results are available
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listissues {
+  /**
+   * The account owner of the repository. The name is not case sensitive.
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. The name is not case sensitive.
+   */
+  repo: string;
+  /**
+   * Indicates the state of the issues to return.
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Can be the name of a user. Pass in none for issues with no assigned user, and * for issues assigned to any user.
+   */
+  assignee?: string | undefined;
+  /**
+   * A list of comma separated label names. Example: bug,ui,@high
+   */
+  labels?: string | undefined;
+  /**
+   * What to sort results by.
+   */
+  sort?: 'created' | 'updated' | 'comments' | undefined;
+  /**
+   * The direction to sort the results by.
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Only show results that were last updated after the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+   */
+  since?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissues {
+  issues: ({  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;})[];
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listlabels {
+  /**
+   * The account owner of the repository
+   */
+  owner: string;
+  /**
+   * The name of the repository
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100)
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listlabels {
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description: string;
+  color: string;
+  default: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequestfiles {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestfiles {
+  files: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listpullrequestreviews {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestreviews {
+  reviews: ({  id: number;
+  node_id: string;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  body: string;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequests {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Filter by state. Example: "open"
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Filter by head branch (format: user:branch). Example: "octocat:main"
+   */
+  head?: string | undefined;
+  /**
+   * Filter by base branch. Example: "main"
+   */
+  base?: string | undefined;
+  /**
+   * Sort by field. Example: "created"
+   */
+  sort?: 'created' | 'updated' | 'popularity' | 'long-running' | undefined;
+  /**
+   * Sort direction. Example: "desc"
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Items per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequests {
+  pull_requests: ({  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  diff_url?: string | undefined;
+  patch_url?: string | undefined;
+  issue_url?: string | undefined;
+  commits_url: string;
+  review_comments_url: string;
+  review_comment_url: string;
+  comments_url: string;
+  statuses_url: string;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  labels?: ({  id?: number | undefined;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  color?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;})[] | undefined;
+  milestone?: {  id: number;
+  number: number;
+  title: string;
+  state: string;} | undefined;
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  merge_commit_sha?: string | undefined;
+  head: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  base: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  draft: boolean;
+  author_association: string;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listreleaseassets {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleaseassets {
+  assets: ({  id: number;
+  node_id: string;
+  name: string;
+  label?: string | undefined;
+  state: string;
+  content_type: string;
+  size: number;
+  download_count: number;
+  browser_download_url: string;
+  url: string;
+  created_at: string;
+  updated_at: string;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listreleases {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleases {
+  releases: ({  id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;};})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listworkflowjobs {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow run. Example: 12345678
+   */
+  run_id: number;
+  /**
+   * Filter to specify which jobs to include. Can be "latest" or "all". Default: "latest"
+   */
+  filter?: 'latest' | 'all' | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowjobs {
+  total_count: number;
+  jobs: ({  id: number;
+  run_id: number;
+  workflow_name?: string | undefined;
+  head_branch?: string | undefined;
+  run_url: string;
+  run_attempt?: number | undefined;
+  node_id: string;
+  head_sha: string;
+  url: string;
+  html_url: string;
+  status: string;
+  conclusion?: string | undefined;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;
+  name: string;
+  steps?: ({  name: string;
+  status: string;
+  conclusion?: string | undefined;
+  number: number;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;})[];
+  check_run_url?: string | undefined;
+  labels?: string[] | undefined;
+  runner_id?: number | undefined;
+  runner_name?: string | undefined;
+  runner_group_id?: number | undefined;
+  runner_group_name?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listworkflowruns {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. Example: "161335" or "main.yml". If provided, only runs for this workflow are returned.
+   */
+  workflow_id?: string | number | undefined;
+  /**
+   * Returns workflow runs with the specified status or conclusion.
+   */
+  status?: 'queued' | 'in_progress' | 'completed' | 'waiting' | 'requested' | 'pending' | 'action_required' | 'cancelled' | 'failure' | 'neutral' | 'skipped' | 'stale' | 'success' | 'timed_out' | undefined;
+  /**
+   * Returns workflow runs triggered on the specified branch.
+   */
+  branch?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowruns {
+  runs: ({  id: number;
+  name?: string | undefined;
+  node_id: string;
+  head_branch?: string | undefined;
+  head_sha?: string | undefined;
+  path?: string | undefined;
+  run_number?: number | undefined;
+  event?: string | undefined;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id?: number | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  run_started_at?: string | undefined;})[];
+  total_count: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listworkflows {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflows {
+  total_count: number;
+  workflows: ({  id: number;
+  node_id: string;
+  name: string;
+  path: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  html_url: string;
+  badge_url: string;})[];
+};
+
+export interface ActionInput_github_mergepullrequest {
+  /**
+   * Account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number identifying the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * Title for the automatic commit message.
+   */
+  commit_title?: string | undefined;
+  /**
+   * Extra detail to append to automatic commit message.
+   */
+  commit_message?: string | undefined;
+  /**
+   * SHA that pull request head must match to allow merge.
+   */
+  sha?: string | undefined;
+  /**
+   * The merge method to use. Can be one of: merge, squash, rebase. Default: merge.
+   */
+  merge_method?: 'merge' | 'squash' | 'rebase' | undefined;
+};
+
+export interface ActionOutput_github_mergepullrequest {
+  sha: string;
+  merged: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_rerunworkflowrun {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 30433642
+   */
+  run_id: number;
+  /**
+   * Whether to enable debug logging for the re-run. Default: false
+   */
+  enable_debug_logging?: boolean | undefined;
+};
+
+export interface ActionOutput_github_rerunworkflowrun {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_submitpullrequestreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The review action to perform.
+   */
+  event: 'APPROVE' | 'REQUEST_CHANGES' | 'COMMENT';
+  /**
+   * The body text of the pull request review. Required for REQUEST_CHANGES or COMMENT.
+   */
+  body?: string | undefined;
+  /**
+   * The SHA of the commit that needs a review. Defaults to the most recent commit.
+   */
+  commit_id?: string | undefined;
+  /**
+   * Draft review comments to include in the review.
+   */
+  comments?: ({  /**
+   * The relative path to the file that necessitates a review comment.
+   */
+  path: string;
+  /**
+   * The position in the diff where you want to add a review comment.
+   */
+  position?: number | undefined;
+  /**
+   * Text of the review comment.
+   */
+  body: string;
+  /**
+   * The line of the blob in the pull request diff.
+   */
+  line?: number | undefined;
+  /**
+   * The side of the diff.
+   */
+  side?: 'LEFT' | 'RIGHT' | undefined;
+  /**
+   * The start line of the range for a multi-line comment.
+   */
+  start_line?: number | undefined;
+  /**
+   * The start side of the diff for a multi-line comment.
+   */
+  start_side?: 'LEFT' | 'RIGHT' | undefined;})[];
+};
+
+export interface ActionOutput_github_submitpullrequestreview {
+  id: number;
+  nodeId: string;
+  user?: {  login?: string | undefined;
+  id?: number | undefined;
+  htmlUrl?: string | undefined;};
+  body: string;
+  state: string;
+  htmlUrl: string;
+  pullRequestUrl: string;
+  submittedAt?: string | undefined;
+  commitId?: string | undefined;
+  authorAssociation: string;
+};
+
+export interface ActionInput_github_triggerworkflowdispatch {
+  owner: string;
+  repo: string;
+  workflow_id: string;
+  ref: string;
+  inputs?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_github_triggerworkflowdispatch {
+  workflow_run_id?: number | undefined;
+  run_url?: string | undefined;
+  html_url?: string | undefined;
+};
+
+export interface ActionInput_github_updateissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The title of the issue.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * State of the issue.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: 'completed' | 'not_planned' | 'reopened' | 'duplicate' | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with.
+   */
+  milestone?: number | undefined;
+};
+
+export interface ActionOutput_github_updateissue {
+  /**
+   * The ID of the issue.
+   */
+  id: number;
+  /**
+   * The node ID of the issue.
+   */
+  node_id: string;
+  /**
+   * The number of the issue.
+   */
+  number: number;
+  /**
+   * The title of the issue.
+   */
+  title: string;
+  /**
+   * The state of the issue.
+   */
+  state: string;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * The URL of the issue.
+   */
+  html_url: string;
+  /**
+   * The API URL of the issue.
+   */
+  url: string;
+  /**
+   * The repository API URL.
+   */
+  repository_url: string;
+  /**
+   * The labels associated with the issue.
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * The users assigned to the issue.
+   */
+  assignees: ({  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;})[];
+  /**
+   * The milestone associated with the issue.
+   */
+  milestone?: {  url: string;
+  html_url: string;
+  id: number;
+  number: number;
+  title: string;
+  description?: string | undefined;
+  state: string;};
+  /**
+   * Whether the issue is locked.
+   */
+  locked: boolean;
+  /**
+   * The number of comments.
+   */
+  comments: number;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The last update timestamp.
+   */
+  updated_at: string;
+  /**
+   * The closure timestamp.
+   */
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_updatelabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Current name of the label. Example: "bug"
+   */
+  name: string;
+  /**
+   * New name for the label. Example: "critical-bug"
+   */
+  new_name?: string | undefined;
+  /**
+   * Color for the label in hexadecimal format without the leading #. Example: "ff0000"
+   */
+  color?: string | undefined;
+  /**
+   * Short description of the label. Pass null to clear. Example: "Something is not working"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_updatelabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_updatepullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The title of the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * State of the pull request.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The name of the branch you want the changes pulled into.
+   */
+  base?: string | undefined;
+  /**
+   * Indicates whether maintainers can modify the pull request.
+   */
+  maintainer_can_modify?: boolean | undefined;
+};
+
+export interface ActionOutput_github_updatepullrequest {
+  id: number;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  html_url: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  head: {  ref: string;
+  sha: string;};
+  base: {  ref: string;
+  sha: string;};
+  draft: boolean;
+};
+
+export interface ActionInput_github_updaterelease {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 12345678
+   */
+  release_id: number;
+  /**
+   * The name of the tag.
+   */
+  tag_name?: string | undefined;
+  /**
+   * The commitish value that determines where the Git tag is created from.
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Pass null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Pass null to clear.
+   */
+  body?: string | undefined;
+  /**
+   * true makes the release a draft, false publishes the release.
+   */
+  draft?: boolean | undefined;
+  /**
+   * true to identify the release as a prerelease, false for a full release.
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * Whether this release should be set as the latest release.
+   */
+  make_latest?: 'true' | 'false' | 'legacy' | undefined;
+  /**
+   * A category for discussion linked to the release.
+   */
+  discussion_category_name?: string | undefined;
+};
+
+export interface ActionOutput_github_updaterelease {
+  /**
+   * The unique identifier of the release.
+   */
+  id: number;
+  /**
+   * The node ID of the release.
+   */
+  node_id: string;
+  /**
+   * The name of the tag.
+   */
+  tag_name: string;
+  /**
+   * The commitish value for the tag.
+   */
+  target_commitish: string;
+  /**
+   * The name of the release.
+   */
+  name?: string | undefined;
+  /**
+   * The body/description of the release.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft.
+   */
+  draft: boolean;
+  /**
+   * Whether the release is a prerelease.
+   */
+  prerelease: boolean;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The publication timestamp.
+   */
+  published_at?: string | undefined;
+  /**
+   * The last update timestamp.
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the release.
+   */
+  url: string;
+  /**
+   * The HTML URL for the release.
+   */
+  html_url: string;
+  /**
+   * The assets URL for the release.
+   */
+  assets_url: string;
+  /**
+   * The upload URL for the release.
+   */
+  upload_url: string;
+  /**
+   * The tarball URL.
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The zipball URL.
+   */
+  zipball_url?: string | undefined;
+  author: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;
+  type: string;};
+  assets: ({})[];
 };
 
 export interface GithubCommit {
@@ -6575,19 +13027,6 @@ export interface ActionOutput_google_calendar_whoami {
    * Google account email address
    */
   email: string;
-};
-
-export interface File {
-  id: string;
-  name: string;
-  mimeType: string;
-  parents?: string[] | undefined;
-  driveId?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  size?: string | undefined;
-  webViewLink?: string | undefined;
-  trashed?: boolean | undefined;
 };
 
 export interface SyncMetadata_google_drive_documents {
@@ -12260,69 +18699,1205 @@ export interface ActionOutput_intercom_whoami {
   email: string;
 };
 
-export interface IssueType {
-  projectId: string;
+export interface Field {
   id: string;
   name: string;
-  description: string | null;
-  url: string;
+  custom: boolean;
+  key?: string | undefined;
+  clauseNames?: string[] | undefined;
+  orderable?: boolean | undefined;
+  navigable?: boolean | undefined;
+  searchable?: boolean | undefined;
+  schema?: {  type: string;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;};
+  description?: string | undefined;
+  untranslatedName?: string | undefined;
+};
+
+export interface IssueType {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;
+  entityId?: string | undefined;
+  scope?: {  type: string;
+  project: {  id: string;};} | undefined;
+  self?: string | undefined;
 };
 
 export interface SyncMetadata_jira_issuetypes {
-  projectIdsToSync: ({  id: string;})[];
   cloudId?: string | undefined;
   baseUrl?: string | undefined;
-  timeZone?: string | undefined;
 };
 
 export interface SyncMetadata_jira_issues {
-  projectIdsToSync: ({  id: string;})[];
+  jql?: string | undefined;
   cloudId?: string | undefined;
   baseUrl?: string | undefined;
-  timeZone?: string | undefined;
 };
 
-export interface Project {
+export interface ProjectComponent {
+  id: string;
+  projectId: string;
+  projectKey: string;
+  name: string;
+  description?: string | undefined;
+  assigneeType?: string | undefined;
+  realAssigneeType?: string | undefined;
+  isAssigneeTypeValid?: boolean | undefined;
+  leadAccountId?: string | undefined;
+  leadDisplayName?: string | undefined;
+};
+
+export interface ProjectVersion {
   id: string;
   name: string;
-  state?: string | undefined;
-  status?: {  id: string;
-  name: string;
-  type: string;
-  color?: string | undefined;};
-  progress?: number | undefined;
+  description?: string | undefined;
+  projectId?: number | undefined;
+  projectKey?: string | undefined;
+  archived?: boolean | undefined;
+  released?: boolean | undefined;
+  releaseDate?: string | undefined;
   startDate?: string | undefined;
-  targetDate?: string | undefined;
-  createdAt: string;
-  updatedAt: string;
-  lead?: {  id: string;
-  name?: string | undefined;
-  email?: string | undefined;};
-  teams?: ({  id: string;
-  key?: string | undefined;
-  name?: string | undefined;})[];
+  self?: string | undefined;
+  overdue?: boolean | undefined;
 };
 
-export interface SyncMetadata_jira_projects {
-  projectIdsToSync: ({  id: string;})[];
+export interface SyncMetadata_jira_projectversions {
   cloudId?: string | undefined;
   baseUrl?: string | undefined;
-  timeZone?: string | undefined;
+  projectKeys?: string[] | undefined;
+};
+
+export interface ActionInput_jira_addattachment {
+  /**
+   * The ID or key of the issue to attach the file to. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  file: {  /**
+   * The file content as plain text or base64 encoded string
+   */
+  content: string;
+  /**
+   * The name of the file. Example: "document.pdf"
+   */
+  filename: string;
+  /**
+   * The MIME type of the file. Example: "application/pdf"
+   */
+  contentType: string;
+  /**
+   * Whether the content is base64 encoded. Defaults to false
+   */
+  isBase64?: boolean | undefined;};
+};
+
+export interface ActionOutput_jira_addattachment {
+  id: string;
+  filename: string;
+  size?: number | undefined;
+  mimeType?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_jira_addcomment {
+  /**
+   * The ID or key of the issue to add the comment to. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The plain text content of the comment to add.
+   */
+  body: string;
+};
+
+export interface ActionOutput_jira_addcomment {
+  /**
+   * The ID of the created comment.
+   */
+  id: string;
+  /**
+   * The REST API URL of the comment.
+   */
+  self: string;
+  author?: {  accountId: string;
+  displayName: string;
+  emailAddress?: string | undefined;};
+  /**
+   * When the comment was created.
+   */
+  created?: string | undefined;
+  /**
+   * When the comment was last updated.
+   */
+  updated?: string | undefined;
+};
+
+export interface ActionInput_jira_addwatcher {
+  /**
+   * The ID or key of the issue to add the watcher to. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The account ID of the user to add as a watcher. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_jira_addwatcher {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_jira_addworklog {
+  /**
+   * The ID or key of the issue. Example: "10002" or "PROJ-123"
+   */
+  issue_id_or_key: string;
+  /**
+   * The time spent working on the issue in seconds. Example: 12000 (for 3h 20m)
+   */
+  time_spent_seconds: number;
+  /**
+   * The date/time when the work was started. Format: ISO 8601. Example: "2021-01-17T12:34:00.000+0000"
+   */
+  started?: string | undefined;
+  /**
+   * A comment about the work done. This is a plain text that will be converted to Atlassian Document Format.
+   */
+  comment?: string | undefined;
+};
+
+export interface ActionOutput_jira_addworklog {
+  id: string;
+  issue_id: string;
+  time_spent_seconds?: number | undefined;
+  started?: string | undefined;
+  time_spent?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  active?: boolean | undefined;};
+  comment?: unknown | undefined;
+  visibility?: {  type: 'group' | 'role';
+  value: string;
+  identifier?: string | undefined;};
+};
+
+export interface ActionInput_jira_createissuelink {
+  /**
+   * The name of the issue link type. Example: "Blocks"
+   */
+  type: string;
+  /**
+   * The issue key for the inward side of the link (the issue that depends on or is affected by the other). Example: "PROJ-123"
+   */
+  inwardIssueKey: string;
+  /**
+   * The issue key for the outward side of the link (the issue that affects or blocks the other). Example: "PROJ-456"
+   */
+  outwardIssueKey: string;
+};
+
+export interface ActionOutput_jira_createissuelink {
+  success: boolean;
+  linkType: string;
+  inwardIssueKey: string;
+  outwardIssueKey: string;
 };
 
 export interface ActionInput_jira_createissue {
-  summary: string;
-  description?: string | undefined;
-  assignee?: string | undefined;
-  labels?: string[] | undefined;
-  project: string;
-  issueType: string;
+  fields: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: unknown | undefined;};
+  historyMetadata?: {  [key: string]: unknown | undefined;};
+  properties?: ({  [key: string]: unknown | undefined;})[];
+  transition?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionOutput_jira_createissue {
   id: string;
   key: string;
   self: string;
+  url: string;
+  transition?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_jira_deleteattachment {
+  /**
+   * The ID of the attachment to delete. Example: "10001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_jira_deleteattachment {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_jira_deletecomment {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the comment to delete. Example: "10000"
+   */
+  commentId: string;
+  /**
+   * Optional Jira cloud ID. If not provided, will be resolved from connection.
+   */
+  cloudId?: string | undefined;
+  /**
+   * Optional Jira base URL. If not provided, will be resolved from connection.
+   */
+  baseUrl?: string | undefined;
+};
+
+export interface ActionOutput_jira_deletecomment {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_jira_deleteissuelink {
+  /**
+   * The ID of the issue link to delete. Example: "10001"
+   */
+  linkId: string;
+};
+
+export interface ActionOutput_jira_deleteissuelink {
+  success: boolean;
+  linkId: string;
+};
+
+export interface ActionInput_jira_deleteissue {
+  /**
+   * The ID or key of the issue to delete. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * If true, subtasks are also deleted. Defaults to false.
+   */
+  deleteSubtasks?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_deleteissue {
+  success: boolean;
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_deleteworklog {
+  /**
+   * The ID or key of the issue. Example: "10032" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the worklog to delete. Example: "10011"
+   */
+  worklogId: string;
+};
+
+export interface ActionOutput_jira_deleteworklog {
+  success: boolean;
+  issueIdOrKey: string;
+  worklogId: string;
+};
+
+export interface ActionInput_jira_getcreateissuemetadata {
+  /**
+   * List of project IDs to filter by. Example: ["10000", "10001"]
+   */
+  projectIds?: string[] | undefined;
+  /**
+   * List of project keys to filter by. Example: ["PROJ", "TEST"]
+   */
+  projectKeys?: string[] | undefined;
+  /**
+   * List of issue type IDs to filter by. Example: ["10000", "10001"]
+   */
+  issuetypeIds?: string[] | undefined;
+  /**
+   * Use expand to include additional information about issue metadata in the response. Supported values: projects, projects.issuetypes, projects.issuetypes.fields
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_getcreateissuemetadata {
+  projects?: ({  id: string;
+  key: string;
+  name: string;
+  self?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;})[];
+};
+
+export interface ActionInput_jira_geteditissuemetadata {
+  /**
+   * The ID or key of the issue. Example: "10000" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionOutput_jira_geteditissuemetadata {
+  fields?: any | undefined;
+};
+
+export interface ActionInput_jira_getfield {
+  /**
+   * The ID of the field to retrieve. For example: "summary", "description", or "customfield_10101"
+   */
+  fieldId: string;
+};
+
+export interface ActionOutput_jira_getfield {
+  id: string;
+  name: string;
+  custom: boolean;
+  clauseNames: string[];
+  navigable: boolean;
+  orderable: boolean;
+  searchable: boolean;
+  key?: string | undefined;
+  schema?: {  type?: string | undefined;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;
+  items?: string | undefined;};
+};
+
+export interface ActionInput_jira_getissuechangelog {
+  issueIdOrKey: string;
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_getissuechangelog {
+  changelog: ({  id: string;
+  author?: {  self?: string | undefined;
+  accountId?: string | undefined;
+  accountType?: string | undefined;
+  displayName?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;};
+  created: string;
+  items: ({  field?: string | undefined;
+  fieldtype?: string | undefined;
+  fieldId?: string | undefined;
+  from?: string | undefined;
+  fromString?: string | undefined;
+  to?: string | undefined;
+  toString?: string | undefined;})[];
+  historyMetadata?: {  [key: string]: unknown | undefined;};})[];
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+  total?: number | undefined;
+  isLast?: boolean | undefined;
+};
+
+export interface ActionInput_jira_getissuetype {
+  /**
+   * The ID of the issue type to retrieve.
+   */
+  id: string;
+};
+
+export interface ActionOutput_jira_getissuetype {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  self: string;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;
+  entityId?: string | undefined;
+  scope?: {  type: string;
+  project?: {  id: string;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  projectTypeKey?: string | undefined;
+  simplified?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  projectCategory?: {  self: string;
+  id: string;
+  name: string;
+  description?: string | undefined;};};};
+};
+
+export interface ActionInput_jira_getissue {
+  /**
+   * The ID or key of the issue to retrieve. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * Comma-separated list of fields to return. Example: "summary,description,status"
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated list of fields to expand. Example: "renderedFields,names,schema"
+   */
+  expand?: string | undefined;
+  /**
+   * Comma-separated list of issue property keys to return. Example: "property1,property2"
+   */
+  properties?: string | undefined;
+};
+
+export interface ActionOutput_jira_getissue {
+  /**
+   * The unique identifier of the issue
+   */
+  id: string;
+  /**
+   * The issue key (e.g., "PROJ-123")
+   */
+  key: string;
+  /**
+   * The REST API URL of the issue
+   */
+  self: string;
+};
+
+export interface ActionInput_jira_getmyself {
+};
+
+export interface ActionOutput_jira_getmyself {
+  /**
+   * The account ID of the user. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  account_id: string;
+  /**
+   * The type of account. Example: "atlassian"
+   */
+  account_type?: string | undefined;
+  /**
+   * The display name of the user. Example: "John Doe"
+   */
+  display_name: string;
+  /**
+   * The email address of the user. Example: "john.doe@example.com"
+   */
+  email_address?: string | undefined;
+  avatar_urls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  /**
+   * The time zone of the user. Example: "Europe/Berlin"
+   */
+  time_zone?: string | undefined;
+  /**
+   * The locale of the user. Example: "en_US"
+   */
+  locale?: string | undefined;
+  /**
+   * Whether the user is active. Example: true
+   */
+  active?: boolean | undefined;
+};
+
+export interface ActionInput_jira_getpriority {
+  /**
+   * The priority ID. Example: "1"
+   */
+  priorityId: string;
+};
+
+export interface ActionOutput_jira_getpriority {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  statusColor?: string | undefined;
+  self?: string | undefined;
+};
+
+export interface ActionInput_jira_getproject {
+  /**
+   * The ID or key of the project to retrieve. Example: "10000" or "PROJ"
+   */
+  projectIdOrKey: string;
+};
+
+export interface ActionOutput_jira_getproject {
+  id: string;
+  key: string;
+  name: string;
+  description?: string | undefined;
+  /**
+   * Project type key from Jira
+   */
+  projectType: string;
+  /**
+   * URL to the project
+   */
+  url?: string | undefined;
+  /**
+   * Browser-facing URL to the project
+   */
+  browseUrl?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  lead?: {  accountId?: string | undefined;
+  displayName?: string | undefined;};
+  projectCategory?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_jira_getstatus {
+  /**
+   * Status ID or name. Example: "10001" or "To Do"
+   */
+  statusIdOrName: string;
+};
+
+export interface ActionOutput_jira_getstatus {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  statusCategory?: {  id: number;
+  key: string;
+  colorName: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_jira_getuser {
+  /**
+   * The account ID of the user to retrieve. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+  /**
+   * Additional user details to include in the response. Comma-separated list of: groups, applicationRoles. Example: "groups,applicationRoles"
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_getuser {
+  accountId: string;
+  accountType?: string | undefined;
+  emailAddress?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  timeZone?: string | undefined;
+  locale?: string | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  groups?: ({  name: string;
+  self: string;})[] | undefined;
+  applicationRoles?: ({  key: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_jira_listfields {
+};
+
+export interface ActionOutput_jira_listfields {
+  fields: ({  id: string;
+  name: string;
+  custom?: boolean | undefined;
+  orderable?: boolean | undefined;
+  navigable?: boolean | undefined;
+  searchable?: boolean | undefined;
+  clauseNames?: string[] | undefined;
+  key?: string | undefined;
+  schema?: {  type?: string | undefined;
+  system?: string | undefined;
+  custom?: string | undefined;
+  customId?: number | undefined;};})[];
+};
+
+export interface ActionInput_jira_listissuecomments {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The index of the first item to return in a page of results. Example: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return per page. Example: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order comments by created or updated date. Use - prefix for descending order.
+   */
+  orderBy?: 'created' | '-created' | 'updated' | '-updated' | undefined;
+  /**
+   * A comma-separated list of fields to expand in the response. Example: "renderedBody"
+   */
+  expand?: string | undefined;
+};
+
+export interface ActionOutput_jira_listissuecomments {
+  comments: ({  id: string;
+  author?: {  accountId: string;
+  displayName: string;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  body?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  updateAuthor?: {  accountId: string;
+  displayName: string;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  self?: string | undefined;
+  visibility?: {  type: string;
+  value?: string | undefined;
+  identifier?: string | undefined;};})[];
+  maxResults: number;
+  startAt: number;
+  total: number;
+};
+
+export interface ActionInput_jira_listissuetypes {
+};
+
+export interface ActionOutput_jira_listissuetypes {
+  issueTypes: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  iconUrl?: string | undefined;
+  avatarId?: number | undefined;
+  subtask?: boolean | undefined;
+  hierarchyLevel?: number | undefined;})[];
+};
+
+export interface ActionInput_jira_listpriorities {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_jira_listpriorities {
+  priorities: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  icon_url: string;
+  is_default: boolean;
+  self: string;
+  status_color: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_jira_listprojectcomponents {
+  /**
+   * The ID or key of the project to list components for. Example: "10000" or "PROJ"
+   */
+  projectIdOrKey: string;
+};
+
+export interface ActionOutput_jira_listprojectcomponents {
+  /**
+   * List of project components
+   */
+  components: ({  /**
+   * Component ID. Example: "10000"
+   */
+  id: string;
+  /**
+   * Component name. Example: "Component 1"
+   */
+  name: string;
+  /**
+   * Component description
+   */
+  description?: string | undefined;
+  /**
+   * Project key the component belongs to
+   */
+  project?: string | undefined;
+  /**
+   * Project ID the component belongs to
+   */
+  projectId?: number | undefined;
+  /**
+   * URL to the component resource
+   */
+  self?: string | undefined;
+  /**
+   * Type of assignee for this component
+   */
+  assigneeType?: string | undefined;
+  /**
+   * Account ID of the component lead
+   */
+  leadAccountId?: string | undefined;
+  /**
+   * Whether the assignee type is valid
+   */
+  isAssigneeTypeValid?: boolean | undefined;})[];
+  /**
+   * Number of components returned
+   */
+  count: number;
+};
+
+export interface ActionInput_jira_listprojectversions {
+  /**
+   * The ID or key of the project. Example: "PROJ" or "10000"
+   */
+  projectIdOrKey: string;
+  /**
+   * The index of the first item to return. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return. Default: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order the results by a field. Default: name
+   */
+  orderBy?: 'description' | 'description,ASC' | 'description,DESC' | 'name' | 'name,ASC' | 'name,DESC' | 'releaseDate' | 'releaseDate,ASC' | 'releaseDate,DESC' | 'sequence' | 'sequence,ASC' | 'sequence,DESC' | 'startDate' | 'startDate,ASC' | 'startDate,DESC' | undefined;
+  /**
+   * Filter the results using a literal string. Versions with matching names or descriptions are returned
+   */
+  query?: string | undefined;
+  /**
+   * Filter by version status
+   */
+  status?: 'released' | 'unreleased' | 'archived' | undefined;
+};
+
+export interface ActionOutput_jira_listprojectversions {
+  versions: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  archived?: boolean | undefined;
+  released?: boolean | undefined;
+  overdue?: boolean | undefined;
+  projectId?: number | undefined;
+  releaseDate?: string | undefined;
+  startDate?: string | undefined;
+  userReleaseDate?: string | undefined;
+  userStartDate?: string | undefined;
+  self?: string | undefined;
+  issuesStatusForFixVersion?: {  done?: number | undefined;
+  inProgress?: number | undefined;
+  toDo?: number | undefined;
+  unmapped?: number | undefined;};})[];
+  isLast?: boolean | undefined;
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_jira_listprojects {
+  /**
+   * Filter projects by name or key. Example: "PROJ"
+   */
+  query?: string | undefined;
+  /**
+   * Filter by project category ID. Example: 10000
+   */
+  categoryId?: number | undefined;
+  /**
+   * Maximum results per page. Default: 50
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination offset. Default: 0
+   */
+  startAt?: number | undefined;
+};
+
+export interface ActionOutput_jira_listprojects {
+  projects: ({  id: string;
+  key: string;
+  name: string;
+  avatarUrls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  projectCategory?: {  id: string;
+  name: string;
+  description?: string | undefined;};
+  simplified?: boolean | undefined;
+  style?: string | undefined;
+  self: string;
+  insight?: {  totalIssueCount: number;
+  lastIssueUpdateTime?: string | undefined;};})[];
+  total: number;
+  isLast: boolean;
+  nextStartAt?: number | undefined;
+};
+
+export interface ActionInput_jira_liststatuses {
+  /**
+   * Project ID to filter statuses. Example: "10000"
+   */
+  projectId?: string | undefined;
+  /**
+   * Filter by status category
+   */
+  statusCategory?: 'TODO' | 'IN_PROGRESS' | 'DONE' | undefined;
+  /**
+   * Search string to filter statuses by name
+   */
+  searchString?: string | undefined;
+  /**
+   * Pagination offset. Starts at 0.
+   */
+  startAt?: number | undefined;
+  /**
+   * Maximum results per page. Max 100.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_liststatuses {
+  statuses: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  scope?: {  type: 'GLOBAL' | 'PROJECT';
+  project?: {  id: string;} | undefined;};
+  statusCategory: 'TODO' | 'IN_PROGRESS' | 'DONE';})[];
+  total: number;
+  startAt: number;
+  maxResults: number;
+  isLast: boolean;
+  nextPageStart?: number | undefined;
+};
+
+export interface ActionInput_jira_listtransitions {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * Additional fields to expand in the response
+   */
+  expand?: 'transitions.fields' | undefined;
+};
+
+export interface ActionOutput_jira_listtransitions {
+  /**
+   * Available workflow transitions for the issue
+   */
+  transitions: ({  /**
+   * Transition ID
+   */
+  id: string;
+  /**
+   * Transition name
+   */
+  name: string;
+  /**
+   * The status the transition moves the issue to
+   */
+  to: {  /**
+   * Status ID
+   */
+  id: string;
+  /**
+   * Status name
+   */
+  name: string;
+  statusCategory?: {  id: number;
+  key: string;
+  colorName: string;
+  name: string;} | undefined;};
+  /**
+   * Fields available during the transition
+   */
+  fields?: {  [key: string]: {  description?: string | undefined;
+  hasScreen?: boolean | undefined;
+  isConditional?: boolean | undefined;
+  isGlobal?: boolean | undefined;
+  isInitial?: boolean | undefined;};};
+  hasScreen?: boolean | undefined;
+  isConditional?: boolean | undefined;
+  isGlobal?: boolean | undefined;
+  isInitial?: boolean | undefined;})[];
+};
+
+export interface ActionInput_jira_listusers {
+  /**
+   * A query string used to search user attributes. Matches against users visible to the authenticated account.
+   */
+  query: string;
+  /**
+   * A users accountId to filter the search results. Example: "5b10a2844c20165700ede21g"
+   */
+  accountId?: string | undefined;
+  /**
+   * The index of the first item to return in the results. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return. Default: 50, Maximum: 1000
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_listusers {
+  users: ({  accountId: string;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  avatarUrls?: {  16x16?: string | undefined;
+  24x24?: string | undefined;
+  32x32?: string | undefined;
+  48x48?: string | undefined;};
+  timeZone?: string | undefined;
+  self?: string | undefined;})[];
+  nextStartAt?: number | undefined;
+};
+
+export interface ActionInput_jira_listwatchers {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionOutput_jira_listwatchers {
+  isWatching: boolean;
+  watchCount: number;
+  watchers: ({  accountId: string;
+  accountType?: string | undefined;
+  active: boolean;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName: string;
+  emailAddress?: string | undefined;
+  self: string;})[];
+};
+
+export interface ActionInput_jira_listworklogs {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123" or "10001"
+   */
+  issueIdOrKey: string;
+  /**
+   * The index of the first item to return in a page of results. Default: 0
+   */
+  startAt?: number | undefined;
+  /**
+   * The maximum number of items to return per page. Default: 50
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_listworklogs {
+  worklogs: ({  id: string;
+  issueId?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  timeZone?: string | undefined;};
+  updateAuthor?: {  accountId?: string | undefined;
+  accountType?: string | undefined;
+  active?: boolean | undefined;
+  avatarUrls?: {  [key: string]: string;} | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  self?: string | undefined;
+  timeZone?: string | undefined;};
+  comment?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  started?: string | undefined;
+  timeSpent?: string | undefined;
+  timeSpentSeconds?: number | undefined;
+  visibility?: {  identifier?: string | undefined;
+  type?: string | undefined;
+  value?: string | undefined;};
+  self?: string | undefined;})[];
+  total?: number | undefined;
+  startAt?: number | undefined;
+  maxResults?: number | undefined;
+  isLast?: boolean | undefined;
+};
+
+export interface ActionInput_jira_removewatcher {
+  /**
+   * The ID or key of the issue. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The accountId of the user to remove as a watcher. Example: "5b10ac8d82e05b22cc7d4ef5"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_jira_removewatcher {
+  /**
+   * Whether the watcher was successfully removed
+   */
+  success: boolean;
+  /**
+   * The issue ID or key that was modified
+   */
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_searchissues {
+  /**
+   * JQL query string to search for issues. Example: "project = PROJ AND status = Open"
+   */
+  jql: string;
+  /**
+   * Array of fields to return for each issue. Defaults to a set of common fields.
+   */
+  fields?: string[] | undefined;
+  /**
+   * Array of fields to expand in the response. Example: ["changelog", "renderedFields"]
+   */
+  expand?: string[] | undefined;
+  /**
+   * Index of the first item to return. Used for offset pagination.
+   */
+  startAt?: number | undefined;
+  /**
+   * Maximum number of results to return per page. Default varies by server.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_jira_searchissues {
+  issues: ({  id: string;
+  key: string;
+  self: string;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+  total: number;
+  maxResults: number;
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_jira_transitionissue {
+  /**
+   * The ID or key of the issue. Example: "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the transition to perform. Example: "31"
+   */
+  transitionId: string;
+  fields?: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_jira_transitionissue {
+  success: boolean;
+  issueIdOrKey: string;
+};
+
+export interface ActionInput_jira_updatecomment {
+  /**
+   * Issue ID or key. Example: "10001" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * Comment ID. Example: "10000"
+   */
+  commentId: string;
+  body: {};
+  /**
+   * Visibility of the comment
+   */
+  visibility?: {  type: 'role' | 'group';
+  value?: string | undefined;
+  identifier?: string | undefined;};
+  /**
+   * Notify users about the comment update
+   */
+  notifyUsers?: boolean | undefined;
+  /**
+   * Override the editable flag
+   */
+  overrideEditableFlag?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_updatecomment {
+  id: string;
+  self?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  body?: {} | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  updateAuthor?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  self?: string | undefined;};
+  visibility?: {  type: 'role' | 'group';
+  value?: string | undefined;
+  identifier?: string | undefined;};
+};
+
+export interface ActionInput_jira_updateissue {
+  issue_id_or_key: string;
+  fields?: {  [key: string]: unknown | undefined;};
+  update?: {  [key: string]: ({  [key: string]: unknown | undefined;})[];};
+  notify_users?: boolean | undefined;
+  return_issue?: boolean | undefined;
+};
+
+export interface ActionOutput_jira_updateissue {
+  success: boolean;
+  issue?: {  id: string;
+  key: string;
+  self: string;} | undefined;
+};
+
+export interface ActionInput_jira_updateworklog {
+  /**
+   * The ID or key of the issue. Example: "10002" or "PROJ-123"
+   */
+  issueIdOrKey: string;
+  /**
+   * The ID of the worklog to update. Example: "100028"
+   */
+  worklogId: string;
+  /**
+   * A string representing the time spent. Example: "3h 20m"
+   */
+  timeSpent?: string | undefined;
+  /**
+   * The time spent in seconds. Example: 12000
+   */
+  timeSpentSeconds?: number | undefined;
+  /**
+   * A comment about the worklog as a plain text string. This will be converted to Atlassian Document Format.
+   */
+  comment?: string | undefined;
+  /**
+   * The datetime when the work was started in ISO 8601 format. Example: "2021-01-17T12:34:00.000+0000"
+   */
+  started?: string | undefined;
+};
+
+export interface ActionOutput_jira_updateworklog {
+  id: string;
+  issueId?: string | undefined;
+  self?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;};
+  updateAuthor?: {  accountId?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;};
+  created?: string | undefined;
+  updated?: string | undefined;
+  started?: string | undefined;
+  timeSpent?: string | undefined;
+  timeSpentSeconds?: number | undefined;
+  visibility?: {  type?: string | undefined;
+  value?: string | undefined;};
 };
 
 export interface SyncMetadata_jira_basic_users {
@@ -13294,19 +20869,6 @@ export interface Roadmap {
   ownerId?: string | undefined;
   projectIds: string[];
   teamIds: string[];
-};
-
-export interface Team {
-  id: string;
-  name?: string | undefined;
-  key?: string | undefined;
-  description?: string | undefined;
-  color?: string | undefined;
-  icon?: string | undefined;
-  private?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  archivedAt?: string | undefined;
 };
 
 export interface WorkflowState {
@@ -18784,22 +26346,6 @@ export interface SyncMetadata_sap_success_factors_locations {
 };
 
 export interface SyncMetadata_sap_success_factors_unifiedemployees {
-};
-
-export interface FileMetadata {
-  siteId: string;
-  id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source?: any | undefined;
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
 };
 
 export interface SyncMetadata_sharepoint_online_sharedsitesselection {
