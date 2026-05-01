@@ -1,0 +1,12 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Subtask": []
+    },
+    "batchDelete": {
+      "Subtask": []
+    }
+  },
+  "api": {}
+}

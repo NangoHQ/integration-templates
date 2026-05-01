@@ -1,0 +1,170 @@
+{
+  "input": {
+    "task_gid": "1211440849237760"
+  },
+  "output": {
+    "stories": [
+      {
+        "gid": "1211441112130015",
+        "resource_type": "story",
+        "created_at": "2025-09-23T14:42:24.796Z",
+        "resource_subtype": "added_to_project",
+        "text": "Nango API added this task to API Testing Sandbox",
+        "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> added this task to <a href=\"https://app.asana.com/1/1202775892569436/project/1211440849237745\">API Testing Sandbox</a>",
+        "type": "system",
+        "is_editable": false,
+        "created_by": {
+          "gid": "1211440844472372",
+          "resource_type": "user",
+          "name": "Nango API"
+        }
+      },
+      {
+        "gid": "1211441110392187",
+        "resource_type": "story",
+        "created_at": "2025-09-23T14:42:26.851Z",
+        "resource_subtype": "due_date_changed",
+        "text": "Nango API changed the due date to Sep 25, 2025",
+        "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> changed the due date to Sep 25, 2025",
+        "type": "system",
+        "is_editable": false,
+        "created_by": {
+          "gid": "1211440844472372",
+          "resource_type": "user",
+          "name": "Nango API"
+        }
+      },
+      {
+        "gid": "1211458702512710",
+        "resource_type": "story",
+        "created_at": "2025-09-24T21:01:28.849Z",
+        "resource_subtype": "due_today",
+        "text": "Nango API have a task due Sep 25, 2025",
+        "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> have a task due Sep 25, 2025",
+        "type": "system",
+        "is_editable": false,
+        "created_by": {
+          "gid": "1211440844472372",
+          "resource_type": "user",
+          "name": "Nango API"
+        }
+      },
+      {
+        "gid": "1214302242668505",
+        "resource_type": "story",
+        "created_at": "2026-04-27T14:33:28.246Z",
+        "resource_subtype": "comment_added",
+        "text": "Test story for Nango delete action",
+        "html_text": "<body>Test story for Nango delete action</body>",
+        "type": "comment",
+        "is_editable": true,
+        "is_edited": false,
+        "is_pinned": false,
+        "created_by": {
+          "gid": "1211440844472372",
+          "resource_type": "user",
+          "name": "Nango API"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/tasks/1211440849237760/stories": {
+        "response": {
+          "data": [
+            {
+              "gid": "1211441112130015",
+              "created_at": "2025-09-23T14:42:24.796Z",
+              "created_by": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> added this task to <a href=\"https://app.asana.com/1/1202775892569436/project/1211440849237745\">API Testing Sandbox</a>",
+              "is_editable": false,
+              "resource_type": "story",
+              "text": "Nango API added this task to API Testing Sandbox",
+              "type": "system",
+              "resource_subtype": "added_to_project"
+            },
+            {
+              "gid": "1211441110392187",
+              "created_at": "2025-09-23T14:42:26.851Z",
+              "created_by": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> changed the due date to Sep 25, 2025",
+              "is_editable": false,
+              "resource_type": "story",
+              "text": "Nango API changed the due date to Sep 25, 2025",
+              "type": "system",
+              "resource_subtype": "due_date_changed"
+            },
+            {
+              "gid": "1211458702512710",
+              "created_at": "2025-09-24T21:01:28.849Z",
+              "created_by": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "html_text": "<b><a href=\"https://app.asana.com/0/profile/1211440998967749\">Nango API</a></b> have a task due Sep 25, 2025",
+              "is_editable": false,
+              "resource_type": "story",
+              "text": "Nango API have a task due Sep 25, 2025",
+              "type": "system",
+              "resource_subtype": "due_today"
+            },
+            {
+              "gid": "1214302242668505",
+              "created_at": "2026-04-27T14:33:28.246Z",
+              "created_by": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "html_text": "<body>Test story for Nango delete action</body>",
+              "is_editable": true,
+              "is_edited": false,
+              "is_pinned": false,
+              "resource_type": "story",
+              "text": "Test story for Nango delete action",
+              "type": "comment",
+              "resource_subtype": "comment_added"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:45:57 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "1767",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1777301212",
+          "etag": "W/\"6e7-2c86/FR8/RYQrwbQogIkRSQEMdk\""
+        },
+        "hash": "86c9b9393e074d6cbbeea4360eda9fbb86de0667",
+        "request": {
+          "params": {
+            "opt_fields": "gid,resource_type,created_at,resource_subtype,text,html_text,type,is_editable,is_edited,is_pinned,sticker_name,created_by.gid,created_by.resource_type,created_by.name"
+          }
+        }
+      }
+    }
+  }
+}

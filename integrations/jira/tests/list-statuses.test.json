@@ -1,0 +1,201 @@
+{
+  "input": {},
+  "output": {
+    "statuses": [
+      {
+        "id": "401",
+        "name": "Build Broken",
+        "statusCategory": "IN_PROGRESS",
+        "description": "The source code committed for this issue has possibly broken the build.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "400",
+        "name": "Building",
+        "statusCategory": "IN_PROGRESS",
+        "description": "Source code has been committed, and JIRA is waiting for the code to be built before moving to the next status.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "6",
+        "name": "Closed",
+        "statusCategory": "DONE",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "3",
+        "name": "In Progress",
+        "statusCategory": "IN_PROGRESS",
+        "description": "This issue is being actively worked on at the moment by the assignee.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "1",
+        "name": "Open",
+        "statusCategory": "TODO",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "4",
+        "name": "Reopened",
+        "statusCategory": "TODO",
+        "description": "This issue was once resolved, but the resolution was deemed incorrect. From here issues are either marked assigned or resolved.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      },
+      {
+        "id": "5",
+        "name": "Resolved",
+        "statusCategory": "DONE",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "scope": {
+          "type": "GLOBAL"
+        }
+      }
+    ],
+    "total": 7,
+    "startAt": 0,
+    "maxResults": 200,
+    "isLast": true
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuses/search": {
+        "response": {
+          "startAt": 0,
+          "total": 7,
+          "isLast": true,
+          "maxResults": 200,
+          "values": [
+            {
+              "id": "401",
+              "name": "Build Broken",
+              "statusCategory": "IN_PROGRESS",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "The source code committed for this issue has possibly broken the build."
+            },
+            {
+              "id": "400",
+              "name": "Building",
+              "statusCategory": "IN_PROGRESS",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "Source code has been committed, and JIRA is waiting for the code to be built before moving to the next status."
+            },
+            {
+              "id": "6",
+              "name": "Closed",
+              "statusCategory": "DONE",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened."
+            },
+            {
+              "id": "3",
+              "name": "In Progress",
+              "statusCategory": "IN_PROGRESS",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "This issue is being actively worked on at the moment by the assignee."
+            },
+            {
+              "id": "1",
+              "name": "Open",
+              "statusCategory": "TODO",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "The issue is open and ready for the assignee to start work on it."
+            },
+            {
+              "id": "4",
+              "name": "Reopened",
+              "statusCategory": "TODO",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "This issue was once resolved, but the resolution was deemed incorrect. From here issues are either marked assigned or resolved."
+            },
+            {
+              "id": "5",
+              "name": "Resolved",
+              "statusCategory": "DONE",
+              "scope": {
+                "type": "GLOBAL"
+              },
+              "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed."
+            }
+          ],
+          "self": "https://nango-team-test.atlassian.net/rest/api/3/statuses/search"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 12:45:12 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "350",
+          "x-ratelimit-remaining": "349",
+          "x-ratelimit-reset": "1777380337",
+          "server": "AtlassianEdge",
+          "timing-allow-origin": "*",
+          "x-arequestid": "df322458d9dad7c3a0a555f46569622d",
+          "set-cookie": "atlassian.xsrf.token=70febc6ab36434a2cfc3d892699caeb874d7a5c8_lin; Path=/; SameSite=None; Secure",
+          "x-aaccountid": "712020%3A7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "cache-control": "no-cache, no-store, no-transform",
+          "vary": "Accept-Encoding",
+          "x-trace-id": "ae686010ebe94741b0e49e94007c7889",
+          "atl-traceid": "ae686010ebe94741b0e49e94007c7889",
+          "atl-request-id": "ae686010-ebe9-4741-b0e4-9e94007c7889",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 1dec60e7743931415d677a5c5573774e.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P3",
+          "x-amz-cf-id": "ooCEuX9XUj0S4o7Y1UsmFnD96GkNUjChzAqWwFjQfgaEROu6R_-oIg==",
+          "server-timing": "cdn-cache-miss,cdn-pop;desc=\"HIO52-P3\",cdn-rid;desc=\"ooCEuX9XUj0S4o7Y1UsmFnD96GkNUjChzAqWwFjQfgaEROu6R_-oIg==\",cdn-downstream-fbl;dur=428,cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=425,atl-edge;dur=417,atl-edge-internal;dur=2,atl-edge-upstream;dur=416,atl-edge-pop;desc=\"aws-us-west-2\""
+        },
+        "hash": "5842e6cdbdee4c21fab1c028b98ca6d8fc61918a",
+        "request": {
+          "headers": {
+            "X-Atlassian-Token": "no-check"
+          }
+        }
+      }
+    }
+  }
+}

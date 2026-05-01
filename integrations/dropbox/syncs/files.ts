@@ -1,146 +1,202 @@
 import { createSync } from 'nango';
-import type { DropboxFile, DropboxFileList } from '../types.js';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { Document, DocumentMetadata } from '../models.js';
+const FileSchema = z.object({
+    id: z.string(),
+    dropbox_id: z.string(),
+    name: z.string(),
+    path_lower: z.string(),
+    path_display: z.string(),
+    server_modified: z.string(),
+    client_modified: z.string(),
+    rev: z.string(),
+    size: z.number(),
+    content_hash: z.string().optional(),
+    is_downloadable: z.boolean().optional(),
+    has_explicit_shared_members: z.boolean().optional()
+});
 
-const batchSize = 100;
+const FileMetadataSchema = z.object({
+    '.tag': z.literal('file'),
+    id: z.string(),
+    name: z.string(),
+    path_lower: z.string(),
+    path_display: z.string(),
+    server_modified: z.string(),
+    client_modified: z.string(),
+    rev: z.string(),
+    size: z.number(),
+    content_hash: z.string().optional(),
+    is_downloadable: z.boolean().optional(),
+    has_explicit_shared_members: z.boolean().optional()
+});
+
+const DeletedMetadataSchema = z.object({
+    '.tag': z.literal('deleted'),
+    name: z.string(),
+    path_lower: z.string(),
+    path_display: z.string().optional()
+});
+
+const MetadataEntrySchema = z.union([
+    z.object({
+        '.tag': z.literal('file'),
+        id: z.string(),
+        name: z.string(),
+        path_lower: z.string(),
+        path_display: z.string(),
+        server_modified: z.string(),
+        client_modified: z.string(),
+        rev: z.string(),
+        size: z.number(),
+        content_hash: z.string().optional(),
+        is_downloadable: z.boolean().optional(),
+        has_explicit_shared_members: z.boolean().optional()
+    }),
+    z.object({
+        '.tag': z.literal('folder'),
+        id: z.string(),
+        name: z.string(),
+        path_lower: z.string(),
+        path_display: z.string()
+    }),
+    DeletedMetadataSchema
+]);
+
+const ListFolderResponseSchema = z.object({
+    entries: z.array(MetadataEntrySchema),
+    cursor: z.string(),
+    has_more: z.boolean()
+});
+
+const CheckpointSchema = z.object({
+    cursors: z.record(z.string(), z.string()).optional()
+});
+
+const MetadataSchema = z.object({
+    rootPaths: z.array(z.string()).optional()
+});
+
+type FileRecord = z.infer<typeof FileSchema>;
+
+function getRootPaths(metadata: z.infer<typeof MetadataSchema>): string[] {
+    return metadata.rootPaths && metadata.rootPaths.length > 0 ? metadata.rootPaths : ['/'];
+}
+
+function mapEntries(entries: z.infer<typeof MetadataEntrySchema>[]): { files: FileRecord[]; deletedIds: string[] } {
+    const files: FileRecord[] = [];
+    const deletedIds: string[] = [];
+
+    for (const entry of entries) {
+        if (entry['.tag'] === 'file') {
+            const fileResult = FileMetadataSchema.safeParse(entry);
+
+            if (!fileResult.success) {
+                continue;
+            }
+
+            const fileEntry = fileResult.data;
+            files.push({
+                id: fileEntry.path_lower,
+                dropbox_id: fileEntry.id,
+                name: fileEntry.name,
+                path_lower: fileEntry.path_lower,
+                path_display: fileEntry.path_display,
+                server_modified: fileEntry.server_modified,
+                client_modified: fileEntry.client_modified,
+                rev: fileEntry.rev,
+                size: fileEntry.size,
+                content_hash: fileEntry.content_hash,
+                is_downloadable: fileEntry.is_downloadable,
+                has_explicit_shared_members: fileEntry.has_explicit_shared_members
+            });
+            continue;
+        }
+
+        if (entry['.tag'] === 'deleted') {
+            const deletedResult = DeletedMetadataSchema.safeParse(entry);
+
+            if (deletedResult.success) {
+                deletedIds.push(deletedResult.data.path_lower);
+            }
+        }
+    }
+
+    return { files, deletedIds };
+}
 
 const sync = createSync({
-    description: 'Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.',
-    version: '2.0.0',
-    frequency: 'every day',
-    autoStart: false,
-    syncType: 'full',
-
+    description: 'Sync Dropbox file metadata from configured root paths using list folder cursors.',
+    version: '3.0.0',
+    frequency: 'every 30 minutes',
+    autoStart: true,
+    metadata: MetadataSchema,
+    models: {
+        File: FileSchema
+    },
     endpoints: [
         {
             method: 'GET',
-            path: '/files'
+            path: '/syncs/files'
         }
     ],
 
-    scopes: ['files.metadata.read'],
-
-    models: {
-        Document: Document
-    },
-
-    metadata: DocumentMetadata,
-
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
+        const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? {});
+        const rawConnection = z
+            .object({ metadata: z.unknown().optional(), data: z.object({ metadata: z.unknown().optional() }).optional() })
+            .parse(await nango.getConnection());
+        const metadata = MetadataSchema.parse(rawConnection.metadata ?? rawConnection.data?.metadata ?? {});
 
-        if (!metadata || (!metadata.files && !metadata.folders)) {
-            throw new Error('Metadata for files or folders is required.');
-        }
+        const rootPaths = getRootPaths(metadata);
+        const cursors: Record<string, string> = { ...(checkpoint.cursors ?? {}) };
 
-        const folders = metadata?.folders ? [...metadata.folders] : [];
-        const files = metadata?.files ? [...metadata.files] : [];
+        for (const rootPath of rootPaths) {
+            let cursor = cursors[rootPath];
+            let hasMore = true;
 
-        for (const folder of folders) {
-            await fetchFolder(nango, folder);
-        }
+            while (hasMore) {
+                const response = cursor
+                    ? await nango.post({
+                          // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
+                          endpoint: '/2/files/list_folder/continue',
+                          data: { cursor },
+                          retries: 3
+                      })
+                    : await nango.post({
+                          // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
+                          endpoint: '/2/files/list_folder',
+                          data: {
+                              path: rootPath === '/' ? '' : rootPath,
+                              recursive: true,
+                              include_deleted: true
+                          },
+                          retries: 3
+                      });
 
-        const batch: Document[] = [];
-        for (const file of files) {
-            const metadata = await fetchFile(nango, file);
-            batch.push(metadata);
+                const result = ListFolderResponseSchema.parse(response.data);
+                const { files, deletedIds } = mapEntries(result.entries);
 
-            if (batch.length >= batchSize) {
-                await nango.batchSave(batch, 'Document');
-                batch.length = 0;
+                if (files.length > 0) {
+                    await nango.batchSave(files, 'File');
+                }
+
+                if (deletedIds.length > 0) {
+                    await nango.batchDelete(
+                        deletedIds.map((path) => ({ id: path })),
+                        'File'
+                    );
+                }
+
+                cursor = result.cursor;
+                cursors[rootPath] = cursor;
+                // @ts-expect-error - nango.saveCheckpoint has incorrect type inference in SDK
+                await nango.saveCheckpoint({ cursors });
+                hasMore = result.has_more;
             }
         }
-
-        if (batch.length) {
-            await nango.batchSave(batch, 'Document');
-        }
-
-        await nango.deleteRecordsFromPreviousExecutions('Document');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function fetchFolder(nango: NangoSyncLocal, path: string): Promise<void> {
-    const config: ProxyConfiguration = {
-        // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
-        endpoint: `/2/files/list_folder`,
-        retries: 10,
-        data: {
-            path,
-            limit: 100,
-            recursive: true,
-            include_mounted_folders: true,
-            include_non_downloadable_files: false
-        }
-    };
-
-    let hasMore = true;
-    let cursor: string | undefined;
-    let batch: Document[] = [];
-
-    do {
-        // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-        const response = await nango.post<DropboxFileList>(
-            cursor
-                ? {
-                      // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
-                      endpoint: `/2/files/list_folder/continue`,
-                      retries: 10,
-                      data: { cursor }
-                  }
-                : config
-        );
-
-        const { entries, has_more, cursor: newCursor } = response.data;
-        cursor = newCursor;
-        hasMore = has_more;
-
-        const files = entries.filter((entry: DropboxFile) => entry['.tag'] === 'file');
-        const fileMetadata = files.map((file: DropboxFile) => {
-            return {
-                id: file.id || file.path_lower,
-                title: file.name,
-                path: file.path_lower,
-                modified_date: file.client_modified ?? ''
-            };
-        });
-
-        batch = batch.concat(fileMetadata);
-
-        if (batch.length >= batchSize) {
-            await nango.batchSave(batch, 'Document');
-            batch = [];
-        }
-    } while (hasMore);
-
-    if (batch.length) {
-        await nango.batchSave(batch, 'Document');
-    }
-}
-
-async function fetchFile(nango: NangoSyncLocal, path: string): Promise<Document> {
-    const config: ProxyConfiguration = {
-        // https://www.dropbox.com/developers/documentation/http/documentation#files-get_metadata
-        endpoint: '/2/files/get_metadata',
-        retries: 10,
-        data: {
-            path
-        }
-    };
-
-    const response = await nango.post<DropboxFile>(config);
-
-    const { data } = response;
-    const fileMetadata: Document = {
-        id: data.id || data.path_lower,
-        title: data.name,
-        path: data.path_lower,
-        modified_date: data.client_modified ?? ''
-    };
-
-    return fileMetadata;
-}

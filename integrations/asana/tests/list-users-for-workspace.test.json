@@ -1,0 +1,119 @@
+{
+  "input": {
+    "workspace_gid": "1202775892569436"
+  },
+  "output": {
+    "users": [
+      {
+        "gid": "1204323569089194",
+        "name": "Bastien Beurier",
+        "email": "bastien@nango.dev",
+        "resource_type": "user"
+      },
+      {
+        "gid": "1207625256913473",
+        "name": "Kelvin Wari",
+        "email": "kelvin@nango.dev",
+        "resource_type": "user"
+      },
+      {
+        "gid": "1207572488441584",
+        "name": "khaliq@nango.dev",
+        "email": "khaliq@nango.dev",
+        "resource_type": "user"
+      },
+      {
+        "gid": "1211440844472372",
+        "name": "Nango API",
+        "email": "api@nango.dev",
+        "resource_type": "user"
+      },
+      {
+        "gid": "1204334810072006",
+        "name": "Nango Developer",
+        "email": "dev@nango.dev",
+        "resource_type": "user"
+      },
+      {
+        "gid": "1202775927779024",
+        "name": "Robin Guldener",
+        "email": "robin@nango.dev",
+        "resource_type": "user"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/workspaces/1202775892569436/users": {
+        "response": {
+          "data": [
+            {
+              "gid": "1204323569089194",
+              "email": "bastien@nango.dev",
+              "name": "Bastien Beurier",
+              "resource_type": "user"
+            },
+            {
+              "gid": "1207625256913473",
+              "email": "kelvin@nango.dev",
+              "name": "Kelvin Wari",
+              "resource_type": "user"
+            },
+            {
+              "gid": "1207572488441584",
+              "email": "khaliq@nango.dev",
+              "name": "khaliq@nango.dev",
+              "resource_type": "user"
+            },
+            {
+              "gid": "1211440844472372",
+              "email": "api@nango.dev",
+              "name": "Nango API",
+              "resource_type": "user"
+            },
+            {
+              "gid": "1204334810072006",
+              "email": "dev@nango.dev",
+              "name": "Nango Developer",
+              "resource_type": "user"
+            },
+            {
+              "gid": "1202775927779024",
+              "email": "robin@nango.dev",
+              "name": "Robin Guldener",
+              "resource_type": "user"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:37:45 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "606",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1777300693",
+          "etag": "W/\"25e-18Wystugs9ihQfX8H1VukjYgYiI\""
+        },
+        "hash": "0b37840ac71be0f4e24f13a7995b11581ee9d223",
+        "request": {
+          "params": {
+            "limit": "100",
+            "opt_fields": "gid,name,email,resource_type"
+          }
+        }
+      }
+    }
+  }
+}
