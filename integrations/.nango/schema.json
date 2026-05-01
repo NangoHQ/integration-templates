@@ -86782,108 +86782,57 @@
         "id": {
           "type": "string"
         },
-        "name": {
+        "title": {
           "type": "string"
         },
-        "name_normalized": {
+        "description": {
           "type": "string"
         },
-        "created": {
+        "customUrl": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "thumbnailDefaultUrl": {
+          "type": "string"
+        },
+        "thumbnailMediumUrl": {
+          "type": "string"
+        },
+        "thumbnailHighUrl": {
+          "type": "string"
+        },
+        "viewCount": {
           "type": "number"
         },
-        "creator": {
-          "type": "string"
-        },
-        "is_archived": {
-          "type": "boolean"
-        },
-        "is_general": {
-          "type": "boolean"
-        },
-        "is_private": {
-          "type": "boolean"
-        },
-        "is_channel": {
-          "type": "boolean"
-        },
-        "is_group": {
-          "type": "boolean"
-        },
-        "is_im": {
-          "type": "boolean"
-        },
-        "is_mpim": {
-          "type": "boolean"
-        },
-        "is_shared": {
-          "type": "boolean"
-        },
-        "is_org_shared": {
-          "type": "boolean"
-        },
-        "is_ext_shared": {
-          "type": "boolean"
-        },
-        "is_pending_ext_shared": {
-          "type": "boolean"
-        },
-        "is_member": {
-          "type": "boolean"
-        },
-        "num_members": {
+        "subscriberCount": {
           "type": "number"
         },
-        "topic": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string"
-            },
-            "creator": {
-              "type": "string"
-            },
-            "last_set": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "value",
-            "last_set"
-          ],
-          "additionalProperties": false
+        "hiddenSubscriberCount": {
+          "type": "boolean"
         },
-        "purpose": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string"
-            },
-            "creator": {
-              "type": "string"
-            },
-            "last_set": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "value",
-            "last_set"
-          ],
-          "additionalProperties": false
+        "videoCount": {
+          "type": "number"
+        },
+        "country": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string"
+        },
+        "isLinked": {
+          "type": "boolean"
+        },
+        "madeForKids": {
+          "type": "boolean"
+        },
+        "selfDeclaredMadeForKids": {
+          "type": "boolean"
         }
       },
       "required": [
-        "id",
-        "created",
-        "is_archived",
-        "is_general",
-        "is_private",
-        "is_channel",
-        "is_group",
-        "is_im",
-        "is_mpim",
-        "topic",
-        "purpose"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -98542,6 +98491,2127 @@
               ]
             }
           }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CaptionTrack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID that YouTube uses to uniquely identify the caption track"
+        },
+        "video_id": {
+          "type": "string",
+          "description": "The ID of the video associated with the caption track"
+        },
+        "last_updated": {
+          "type": "string",
+          "description": "The date and time when the caption track was last updated in ISO 8601 format"
+        },
+        "track_kind": {
+          "type": "string",
+          "description": "The caption track type: ASR, forced, or standard"
+        },
+        "language": {
+          "type": "string",
+          "description": "The language of the caption track as a BCP-47 language tag"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the caption track visible to users during playback"
+        },
+        "audio_track_type": {
+          "type": "string",
+          "description": "The type of audio track: commentary, descriptive, primary, or unknown"
+        },
+        "is_cc": {
+          "type": "boolean",
+          "description": "Whether the track contains closed captions for the deaf and hard of hearing"
+        },
+        "is_large": {
+          "type": "boolean",
+          "description": "Whether the caption track uses large text for the vision-impaired"
+        },
+        "is_easy_reader": {
+          "type": "boolean",
+          "description": "Whether the caption track is formatted for easy reader at third-grade level"
+        },
+        "is_draft": {
+          "type": "boolean",
+          "description": "Whether the caption track is a draft and not publicly visible"
+        },
+        "is_auto_synced": {
+          "type": "boolean",
+          "description": "Whether YouTube synchronized the caption track to the audio track"
+        },
+        "status": {
+          "type": "string",
+          "description": "The caption track status: failed, serving, or syncing"
+        },
+        "failure_reason": {
+          "type": "string",
+          "description": "The reason YouTube failed to process the caption track"
+        }
+      },
+      "required": [
+        "id",
+        "video_id",
+        "last_updated"
+      ],
+      "additionalProperties": false
+    },
+    "ChannelPlaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID that YouTube uses to uniquely identify the playlist"
+        },
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel that owns the playlist"
+        },
+        "channelTitle": {
+          "type": "string",
+          "description": "The channel title of the channel that owns the playlist"
+        },
+        "title": {
+          "type": "string",
+          "description": "The playlist title"
+        },
+        "description": {
+          "type": "string",
+          "description": "The playlist description"
+        },
+        "privacyStatus": {
+          "type": "string",
+          "description": "The playlist privacy status: private, public, or unlisted"
+        },
+        "itemCount": {
+          "type": "number",
+          "description": "The number of videos in the playlist"
+        },
+        "publishedAt": {
+          "type": "string",
+          "description": "The date and time that the playlist was created"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "description": "URL of the default thumbnail for the playlist"
+        }
+      },
+      "required": [
+        "id",
+        "channelId",
+        "title",
+        "publishedAt"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_youtube_channelplaylists": {
+      "type": "object",
+      "properties": {
+        "channelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "CommentThread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "topLevelComment": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "author": {
+              "type": "object",
+              "properties": {
+                "channelId": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "profileImageUrl": {
+                  "type": "string"
+                },
+                "channelUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "displayName"
+              ],
+              "additionalProperties": false
+            },
+            "textOriginal": {
+              "type": "string"
+            },
+            "textDisplay": {
+              "type": "string"
+            },
+            "likeCount": {
+              "type": "number"
+            },
+            "publishedAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            },
+            "parentId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "author",
+            "textOriginal",
+            "textDisplay",
+            "likeCount",
+            "publishedAt",
+            "updatedAt"
+          ],
+          "additionalProperties": false
+        },
+        "replies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "author": {
+                "type": "object",
+                "properties": {
+                  "channelId": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "profileImageUrl": {
+                    "type": "string"
+                  },
+                  "channelUrl": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "displayName"
+                ],
+                "additionalProperties": false
+              },
+              "textOriginal": {
+                "type": "string"
+              },
+              "textDisplay": {
+                "type": "string"
+              },
+              "likeCount": {
+                "type": "number"
+              },
+              "publishedAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "parentId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "author",
+              "textOriginal",
+              "textDisplay",
+              "likeCount",
+              "publishedAt",
+              "updatedAt"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "totalReplyCount": {
+          "type": "number"
+        },
+        "canReply": {
+          "type": "boolean"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "etag": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "videoId",
+        "topLevelComment",
+        "replies",
+        "totalReplyCount",
+        "etag"
+      ],
+      "additionalProperties": false
+    },
+    "PlaylistItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "playlist_id": {
+          "type": "string"
+        },
+        "video_id": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "published_at": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "channel_title": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "privacy_status": {
+          "type": "string"
+        },
+        "video_owner_channel_id": {
+          "type": "string"
+        },
+        "video_owner_channel_title": {
+          "type": "string"
+        },
+        "video_published_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "playlist_id",
+        "video_id",
+        "position",
+        "published_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_youtube_playlistitems": {
+      "type": "object",
+      "properties": {
+        "playlist_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UploadedVideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "channelTitle": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "playlistItemId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "thumbnails": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "statistics": {
+          "type": "object",
+          "properties": {
+            "viewCount": {
+              "type": "string"
+            },
+            "likeCount": {
+              "type": "string"
+            },
+            "commentCount": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "privacyStatus": {
+              "type": "string"
+            },
+            "uploadStatus": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "embeddable": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "channelId",
+        "publishedAt",
+        "playlistItemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_addplaylistitem": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The ID of the playlist to add the video to. Example: \"PLxxxxxxxxxxxxxxxxxxx\""
+        },
+        "videoId": {
+          "type": "string",
+          "description": "The YouTube video ID to add to the playlist. Example: \"dQw4w9WgXcQ\""
+        },
+        "position": {
+          "type": "number",
+          "description": "The position to insert the video into the playlist (0-based). If not specified, the video is added to the end."
+        }
+      },
+      "required": [
+        "playlistId",
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_addplaylistitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "playlistId": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "playlistId",
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_createcommentreply": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "string",
+          "description": "The ID of the parent comment to reply to. Example: \"UgyYYtDkvwfR2g4Y8HZ4AaABAg\""
+        },
+        "textOriginal": {
+          "type": "string",
+          "description": "The original text of the reply. Example: \"Thanks for watching!\""
+        }
+      },
+      "required": [
+        "parentId",
+        "textOriginal"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_createcommentreply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "textOriginal": {
+          "type": "string"
+        },
+        "authorDisplayName": {
+          "type": "string"
+        },
+        "authorProfileImageUrl": {
+          "type": "string"
+        },
+        "authorChannelUrl": {
+          "type": "string"
+        },
+        "authorChannelId": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "likeCount": {
+          "type": "number"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_createcomment": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "description": "The ID of the video to comment on. Example: \"dQw4w9WgXcQ\""
+        },
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel that owns the video. Example: \"UC_x5XG1OV2P6uZZ5FSM9Ttw\""
+        },
+        "text": {
+          "type": "string",
+          "description": "The text content of the comment. Example: \"Great video!\""
+        }
+      },
+      "required": [
+        "videoId",
+        "channelId",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_createcomment": {
+      "type": "object",
+      "properties": {
+        "commentThreadId": {
+          "type": "string"
+        },
+        "commentId": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "textDisplay": {
+          "type": "string"
+        },
+        "textOriginal": {
+          "type": "string"
+        },
+        "authorDisplayName": {
+          "type": "string"
+        },
+        "authorChannelId": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "likeCount": {
+          "type": "number"
+        },
+        "canReply": {
+          "type": "boolean"
+        },
+        "totalReplyCount": {
+          "type": "number"
+        },
+        "isPublic": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "commentThreadId",
+        "commentId",
+        "channelId",
+        "videoId",
+        "textDisplay",
+        "textOriginal",
+        "authorDisplayName",
+        "publishedAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_createplaylist": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the playlist."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the playlist."
+        },
+        "privacyStatus": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ],
+          "description": "The privacy status of the playlist."
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_createplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_deletecomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to delete. Example: \"UgyR8T-2e8gRcv1o0zN4AaABAg\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_deleteplaylistitem": {
+      "type": "object",
+      "properties": {
+        "playlistItemId": {
+          "type": "string",
+          "description": "The ID of the playlist item to delete. Example: \"PL1234567890abcdefABCDEF1234567890abcdefAB\""
+        }
+      },
+      "required": [
+        "playlistItemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_deleteplaylistitem": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playlist item was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_deleteplaylist": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The YouTube playlist ID to delete. Example: \"PLxxxxxxxxxxxxxxxxxxxxxxxxxxx\""
+        }
+      },
+      "required": [
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_deleteplaylist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "playlistId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_deletevideo": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "description": "The ID of the video to delete. Example: \"dQw4w9WgXcQ\""
+        }
+      },
+      "required": [
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_deletevideo": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_getchannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "forHandle": {
+          "type": "string"
+        },
+        "forUsername": {
+          "type": "string"
+        },
+        "mine": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_getchannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "customUrl": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "thumbnails": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "width": {
+                "type": "number"
+              },
+              "height": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "country": {
+          "type": "string"
+        },
+        "viewCount": {
+          "type": "string"
+        },
+        "subscriberCount": {
+          "type": "string"
+        },
+        "hiddenSubscriberCount": {
+          "type": "boolean"
+        },
+        "videoCount": {
+          "type": "string"
+        },
+        "relatedPlaylists": {
+          "type": "object",
+          "properties": {
+            "likes": {
+              "type": "string"
+            },
+            "favorites": {
+              "type": "string"
+            },
+            "uploads": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "brandingSettings": {
+          "type": "object",
+          "properties": {
+            "channel": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "keywords": {
+                  "type": "string"
+                },
+                "defaultTab": {
+                  "type": "string"
+                },
+                "trackingAnalyticsAccountId": {
+                  "type": "string"
+                },
+                "moderateComments": {
+                  "type": "boolean"
+                },
+                "showRelatedChannels": {
+                  "type": "boolean"
+                },
+                "showBrowseView": {
+                  "type": "boolean"
+                },
+                "featuredChannelsTitle": {
+                  "type": "string"
+                },
+                "featuredChannelsUrls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "unsubscribedTrailer": {
+                  "type": "string"
+                },
+                "profileColor": {
+                  "type": "string"
+                },
+                "defaultLanguage": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "bannerImageUrl": {
+                  "type": "string"
+                },
+                "bannerMobileImageUrl": {
+                  "type": "string"
+                },
+                "bannerTabletLowImageUrl": {
+                  "type": "string"
+                },
+                "bannerTabletImageUrl": {
+                  "type": "string"
+                },
+                "bannerTabletHdImageUrl": {
+                  "type": "string"
+                },
+                "bannerTabletExtraHdImageUrl": {
+                  "type": "string"
+                },
+                "bannerMobileLowImageUrl": {
+                  "type": "string"
+                },
+                "bannerMobileMediumHdImageUrl": {
+                  "type": "string"
+                },
+                "bannerMobileHdImageUrl": {
+                  "type": "string"
+                },
+                "bannerMobileExtraHdImageUrl": {
+                  "type": "string"
+                },
+                "bannerTvImageUrl": {
+                  "type": "string"
+                },
+                "bannerTvLowImageUrl": {
+                  "type": "string"
+                },
+                "bannerTvMediumImageUrl": {
+                  "type": "string"
+                },
+                "bannerTvHighImageUrl": {
+                  "type": "string"
+                },
+                "bannerExternalUrl": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "watch": {
+              "type": "object",
+              "properties": {
+                "textColor": {
+                  "type": "string"
+                },
+                "backgroundColor": {
+                  "type": "string"
+                },
+                "featuredPlaylistId": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_getcomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to retrieve. Example: \"UgxT9K7pHq8QfC2z3t4\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_getcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "authorDisplayName": {
+          "type": "string"
+        },
+        "authorProfileImageUrl": {
+          "type": "string"
+        },
+        "authorChannelUrl": {
+          "type": "string"
+        },
+        "authorChannelId": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "textDisplay": {
+          "type": "string"
+        },
+        "textOriginal": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "canRate": {
+          "type": "boolean"
+        },
+        "viewerRating": {
+          "type": "string"
+        },
+        "likeCount": {
+          "type": "number"
+        },
+        "moderationStatus": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_getplaylist": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The ID of the YouTube playlist to retrieve. Example: \"PLxxxxxxxxxxxxxxxxxxx\""
+        }
+      },
+      "required": [
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_getplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "channelTitle": {
+          "type": "string"
+        },
+        "itemCount": {
+          "type": "number"
+        },
+        "privacyStatus": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        },
+        "thumbnails": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "width": {
+                "type": "number"
+              },
+              "height": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_getvideo": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "description": "YouTube video ID. Example: \"dQw4w9WgXcQ\""
+        }
+      },
+      "required": [
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_getvideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "channelTitle": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "viewCount": {
+          "type": "string"
+        },
+        "likeCount": {
+          "type": "string"
+        },
+        "commentCount": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string"
+        },
+        "thumbnails": {},
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "embeddable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_listcaptions": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "description": "The YouTube video ID of the video for which to return caption tracks. Example: \"dQw4w9WgXcQ\""
+        }
+      },
+      "required": [
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_listcaptions": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "videoId": {
+                "type": "string"
+              },
+              "lastUpdated": {
+                "type": "string"
+              },
+              "trackKind": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "audioTrackType": {
+                "type": "string"
+              },
+              "isCC": {
+                "type": "boolean"
+              },
+              "isLarge": {
+                "type": "boolean"
+              },
+              "isEasyReader": {
+                "type": "boolean"
+              },
+              "isDraft": {
+                "type": "boolean"
+              },
+              "isAutoSynced": {
+                "type": "boolean"
+              },
+              "status": {
+                "type": "string"
+              },
+              "failureReason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "The token for the next page of results."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_listchannelplaylists": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The YouTube channel ID. Example: \"UC_x5XG1OV2P6uZZ5FSM9Ttw\""
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of playlists to return (1-50). Default: 5"
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "Pagination token for the next page of results"
+        }
+      },
+      "required": [
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_listchannelplaylists": {
+      "type": "object",
+      "properties": {
+        "playlists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "channelId": {
+                "type": "string"
+              },
+              "channelTitle": {
+                "type": "string"
+              },
+              "publishedAt": {
+                "type": "string"
+              },
+              "privacyStatus": {
+                "type": "string"
+              },
+              "itemCount": {
+                "type": "number"
+              },
+              "thumbnails": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "width": {
+                      "type": "number"
+                    },
+                    "height": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "prevPageToken": {
+          "type": "string"
+        },
+        "totalResults": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "playlists",
+        "totalResults"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_listcommentthreads": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string",
+          "description": "The video ID to retrieve comment threads for. Example: \"dQw4w9WgXcQ\""
+        },
+        "allThreadsRelatedToChannelId": {
+          "type": "string",
+          "description": "The channel ID to retrieve all comment threads for."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "The token for the next page of results."
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of results to return (1-100). Default: 20."
+        },
+        "order": {
+          "type": "string",
+          "enum": [
+            "time",
+            "relevance"
+          ],
+          "description": "Order of comment threads. time (default) or relevance."
+        },
+        "searchTerms": {
+          "type": "string",
+          "description": "Search terms to filter comments."
+        },
+        "textFormat": {
+          "type": "string",
+          "enum": [
+            "html",
+            "plainText"
+          ],
+          "description": "Format of comments. html (default) or plainText."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_listcommentthreads": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "videoId": {
+                "type": "string"
+              },
+              "channelId": {
+                "type": "string"
+              },
+              "topLevelCommentId": {
+                "type": "string"
+              },
+              "topLevelCommentAuthor": {
+                "type": "string"
+              },
+              "topLevelCommentText": {
+                "type": "string"
+              },
+              "topLevelCommentPublishedAt": {
+                "type": "string"
+              },
+              "topLevelCommentLikeCount": {
+                "type": "number"
+              },
+              "totalReplyCount": {
+                "type": "number"
+              },
+              "canReply": {
+                "type": "boolean"
+              },
+              "isPublic": {
+                "type": "boolean"
+              },
+              "replies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "publishedAt": {
+                      "type": "string"
+                    },
+                    "likeCount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_listplaylistitems": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The ID of the YouTube playlist to list items from. Example: \"PLBCF2DAC6FFB574DE\""
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "The maximum number of items to return (1-50, default 50)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination token from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_listplaylistitems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "playlistId": {
+                "type": "string",
+                "description": "The ID of the playlist this item belongs to."
+              },
+              "videoId": {
+                "type": "string",
+                "description": "The ID of the video in this playlist item."
+              },
+              "position": {
+                "type": "number",
+                "description": "The position of the item in the playlist (0-indexed)."
+              },
+              "title": {
+                "type": "string",
+                "description": "The title of the video."
+              },
+              "description": {
+                "type": "string",
+                "description": "The description of the video."
+              },
+              "publishedAt": {
+                "type": "string",
+                "description": "The date and time the item was added to the playlist."
+              },
+              "channelId": {
+                "type": "string",
+                "description": "The ID of the channel that owns the playlist."
+              },
+              "channelTitle": {
+                "type": "string",
+                "description": "The title of the channel that owns the playlist."
+              },
+              "videoOwnerChannelId": {
+                "type": "string",
+                "description": "The ID of the channel that uploaded the video."
+              },
+              "videoOwnerChannelTitle": {
+                "type": "string",
+                "description": "The title of the channel that uploaded the video."
+              },
+              "privacyStatus": {
+                "type": "string",
+                "description": "The privacy status of the video (public, unlisted, private)."
+              },
+              "videoPublishedAt": {
+                "type": "string",
+                "description": "The date and time the video was published."
+              },
+              "thumbnails": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "width": {
+                      "type": "number"
+                    },
+                    "height": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "description": "Thumbnail images for the video."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The playlist items returned."
+        },
+        "nextCursor": {
+          "type": "string",
+          "description": "Token for the next page of results. Omit if no more results."
+        },
+        "totalResults": {
+          "type": "number",
+          "description": "Total number of results available."
+        },
+        "resultsPerPage": {
+          "type": "number",
+          "description": "Number of results returned per page."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_listuploadedvideos": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "YouTube channel ID. If omitted, uses the authenticated user's channel (\"mine\"). Example: \"UC_x5XG1OV2P6uZZ5FSM9Ttw\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Page token from a previous response next_cursor to fetch the next page of results."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_listuploadedvideos": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "channel_id": {
+                "type": "string"
+              },
+              "channel_title": {
+                "type": "string"
+              },
+              "video_id": {
+                "type": "string"
+              },
+              "thumbnail_url": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "published_at",
+              "channel_id",
+              "video_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_updatecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the comment to update. Example: \"UgzDE2pQ6kCHY1EaXcJ4AaABAg\""
+        },
+        "textOriginal": {
+          "type": "string",
+          "description": "The new text content for the comment."
+        }
+      },
+      "required": [
+        "id",
+        "textOriginal"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_updatecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "authorDisplayName": {
+          "type": "string"
+        },
+        "authorChannelId": {
+          "type": "string"
+        },
+        "textDisplay": {
+          "type": "string"
+        },
+        "textOriginal": {
+          "type": "string"
+        },
+        "likeCount": {
+          "type": "number"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "authorDisplayName",
+        "textDisplay",
+        "textOriginal",
+        "publishedAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_updateplaylistitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "playlistId": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "videoId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "videoId"
+          ],
+          "additionalProperties": false
+        },
+        "position": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        },
+        "startAt": {
+          "type": "string"
+        },
+        "endAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "playlistId",
+        "resourceId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_updateplaylistitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "playlistId": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "channelTitle": {
+          "type": "string"
+        },
+        "thumbnails": {},
+        "note": {
+          "type": "string"
+        },
+        "startAt": {
+          "type": "string"
+        },
+        "endAt": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string"
+        },
+        "videoPublishedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "playlistId",
+        "videoId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_updateplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the playlist to update. Example: \"PLBCF2DAC6FFB6DE8\""
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the playlist."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the playlist."
+        },
+        "privacyStatus": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ],
+          "description": "The privacy status of the playlist."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_updateplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string",
+          "enum": [
+            "public",
+            "unlisted",
+            "private"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_youtube_updatevideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the video to update. Example: \"dQw4w9WgXcQ\""
+        },
+        "snippet": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string",
+              "description": "The description of the video."
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Tags associated with the video."
+            },
+            "categoryId": {
+              "type": "string",
+              "description": "The category ID for the video."
+            },
+            "defaultLanguage": {
+              "type": "string",
+              "description": "The default language of the video."
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "privacyStatus": {
+              "type": "string",
+              "enum": [
+                "public",
+                "unlisted",
+                "private"
+              ]
+            },
+            "license": {
+              "type": "string",
+              "enum": [
+                "youtube",
+                "creativeCommon"
+              ],
+              "description": "The license of the video."
+            },
+            "embeddable": {
+              "type": "boolean",
+              "description": "Whether the video can be embedded."
+            },
+            "publicStatsViewable": {
+              "type": "boolean",
+              "description": "Whether the public can view video statistics."
+            },
+            "publishAt": {
+              "type": "string",
+              "description": "Scheduled publish time (ISO 8601). Requires privacyStatus to be private."
+            },
+            "selfDeclaredMadeForKids": {
+              "type": "boolean",
+              "description": "Whether the video is self-declared as made for kids."
+            },
+            "containsSyntheticMedia": {
+              "type": "boolean",
+              "description": "Whether the video contains synthetic media."
+            }
+          },
+          "additionalProperties": false
+        },
+        "localizations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Localized titles and descriptions by language code."
+        },
+        "recordingDetails": {
+          "type": "object",
+          "properties": {
+            "recordingDate": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_youtube_updatevideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "snippet": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "categoryId": {
+              "type": "string"
+            },
+            "defaultLanguage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "privacyStatus": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "embeddable": {
+              "type": "boolean"
+            },
+            "publicStatsViewable": {
+              "type": "boolean"
+            },
+            "publishAt": {
+              "type": "string"
+            },
+            "selfDeclaredMadeForKids": {
+              "type": "boolean"
+            },
+            "containsSyntheticMedia": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "localizations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "recordingDetails": {
+          "type": "object",
+          "properties": {
+            "recordingDate": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [

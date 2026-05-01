@@ -1,0 +1,79 @@
+{
+  "input": {
+    "id": "Ugz0uzXJx0mP9Nv6EP54AaABAg",
+    "textOriginal": "Updated comment text - modified via API"
+  },
+  "output": {
+    "id": "Ugz0uzXJx0mP9Nv6EP54AaABAg",
+    "authorDisplayName": "@NangoDeveloper",
+    "authorChannelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+    "textDisplay": "Updated comment text - modified via API",
+    "textOriginal": "Updated comment text - modified via API",
+    "likeCount": 0,
+    "publishedAt": "2026-05-01T12:12:07Z",
+    "updatedAt": "2026-05-01T12:12:21Z",
+    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/youtube/v3/comments": {
+        "response": {
+          "kind": "youtube#comment",
+          "etag": "UfTTpmj5CCKNwOC2T9xfDaRf9Ho",
+          "id": "Ugz0uzXJx0mP9Nv6EP54AaABAg",
+          "snippet": {
+            "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+            "textDisplay": "Updated comment text - modified via API",
+            "textOriginal": "Updated comment text - modified via API",
+            "authorDisplayName": "@NangoDeveloper",
+            "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+            "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+            "authorChannelId": {
+              "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+            },
+            "canRate": true,
+            "viewerRating": "none",
+            "likeCount": 0,
+            "publishedAt": "2026-05-01T12:12:07Z",
+            "updatedAt": "2026-05-01T12:12:21Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 12:12:36 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1777637607",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "2241483a2610cba056396b6eaa1bef32f517c91a",
+        "request": {
+          "params": {
+            "part": "snippet"
+          },
+          "data": {
+            "id": "Ugz0uzXJx0mP9Nv6EP54AaABAg",
+            "snippet": {
+              "textOriginal": "Updated comment text - modified via API"
+            }
+          }
+        }
+      }
+    }
+  }
+}

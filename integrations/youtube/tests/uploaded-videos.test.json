@@ -1,0 +1,627 @@
+{
+  "nango": {
+    "batchSave": {
+      "UploadedVideo": [
+        {
+          "id": "zDfKnm5NN-E",
+          "title": "sample video",
+          "description": "video Description",
+          "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+          "channelTitle": "Nango Developer",
+          "publishedAt": "2026-05-01T11:49:56Z",
+          "playlistItemId": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLnpEZktubTVOTi1F",
+          "position": 0,
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "categoryId": "22",
+          "statistics": {
+            "viewCount": "4",
+            "likeCount": "0",
+            "commentCount": "2"
+          },
+          "status": {
+            "privacyStatus": "public",
+            "uploadStatus": "processed",
+            "license": "youtube",
+            "embeddable": true
+          }
+        },
+        {
+          "id": "qzUjVCpSSsY",
+          "title": "Updated Sample Video Title 2",
+          "description": "This is an updated description",
+          "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+          "channelTitle": "Nango Developer",
+          "publishedAt": "2026-05-01T11:39:17Z",
+          "playlistItemId": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLnF6VWpWQ3BTU3NZ",
+          "position": 1,
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "categoryId": "22",
+          "statistics": {
+            "viewCount": "0",
+            "likeCount": "0",
+            "commentCount": "0"
+          },
+          "status": {
+            "privacyStatus": "public",
+            "uploadStatus": "processed",
+            "license": "youtube",
+            "embeddable": true
+          }
+        },
+        {
+          "id": "cJK5VJubPNs",
+          "title": "sample test video trees",
+          "description": "Video description",
+          "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+          "channelTitle": "Nango Developer",
+          "publishedAt": "2026-05-01T11:35:30Z",
+          "playlistItemId": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLmNKSzVWSnViUE5z",
+          "position": 2,
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/cJK5VJubPNs/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/cJK5VJubPNs/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/cJK5VJubPNs/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/cJK5VJubPNs/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/cJK5VJubPNs/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "categoryId": "22",
+          "statistics": {
+            "viewCount": "4",
+            "likeCount": "0",
+            "commentCount": "28"
+          },
+          "status": {
+            "privacyStatus": "public",
+            "uploadStatus": "processed",
+            "license": "youtube",
+            "embeddable": true
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "UploadedVideo": []
+    }
+  },
+  "api": {
+    "get": {
+      "/youtube/v3/channels": {
+        "response": {
+          "kind": "youtube#channelListResponse",
+          "etag": "vxTZ0_MYIgLb04W_UXnOWlBFHpw",
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 5
+          },
+          "items": [
+            {
+              "kind": "youtube#channel",
+              "etag": "g6iIfB307nedVd71aTTDuCJxuH0",
+              "id": "UCZXMDk2QjU7dBanCVrMj4CA",
+              "contentDetails": {
+                "relatedPlaylists": {
+                  "likes": "LL",
+                  "uploads": "UUZXMDk2QjU7dBanCVrMj4CA"
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 13:00:30 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1777640442",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "87f10d57d0f2d1be80ada2241a3b4131bb13713c",
+        "request": {
+          "params": {
+            "mine": "true",
+            "part": "contentDetails"
+          }
+        }
+      },
+      "/youtube/v3/playlistItems": {
+        "response": {
+          "kind": "youtube#playlistItemListResponse",
+          "etag": "BrLFP30own0bAOwXYObrkybh_cc",
+          "items": [
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "qCRJxgLrcDrluJv-P_IZm9PuEpA",
+              "id": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLnpEZktubTVOTi1F",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:49:56Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "sample video",
+                "description": "video Description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "playlistId": "UUZXMDk2QjU7dBanCVrMj4CA",
+                "position": 0,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "zDfKnm5NN-E"
+                },
+                "videoOwnerChannelTitle": "Nango Developer",
+                "videoOwnerChannelId": "UCZXMDk2QjU7dBanCVrMj4CA"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "T1H1ncJKgtTpi4cUkU2Bbv2Z6ec",
+              "id": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLnF6VWpWQ3BTU3NZ",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:39:17Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "Updated Sample Video Title 2",
+                "description": "This is an updated description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "playlistId": "UUZXMDk2QjU7dBanCVrMj4CA",
+                "position": 1,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "qzUjVCpSSsY"
+                },
+                "videoOwnerChannelTitle": "Nango Developer",
+                "videoOwnerChannelId": "UCZXMDk2QjU7dBanCVrMj4CA"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "dgpz6zgMvxJ-yrUKov4RrQ80ENs",
+              "id": "VVVaWE1EazJRalU3ZEJhbkNWck1qNENBLmNKSzVWSnViUE5z",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:35:30Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "sample test video trees",
+                "description": "Video description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "playlistId": "UUZXMDk2QjU7dBanCVrMj4CA",
+                "position": 2,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "cJK5VJubPNs"
+                },
+                "videoOwnerChannelTitle": "Nango Developer",
+                "videoOwnerChannelId": "UCZXMDk2QjU7dBanCVrMj4CA"
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 3,
+            "resultsPerPage": 50
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 13:00:31 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1777640442",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "9645e13dcaefab217792dd8f6163221f96a6af19",
+        "request": {
+          "params": {
+            "maxResults": "50",
+            "part": "snippet",
+            "playlistId": "UUZXMDk2QjU7dBanCVrMj4CA"
+          }
+        }
+      },
+      "/youtube/v3/videos": {
+        "response": {
+          "kind": "youtube#videoListResponse",
+          "etag": "t3FJVUZ1S3NqvqlL_uC91BVCf-U",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "Y-R87_7O8Dq2e_Pf7bBs7l65Uro",
+              "id": "zDfKnm5NN-E",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:49:56Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "sample video",
+                "description": "video Description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/zDfKnm5NN-E/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "sample video",
+                  "description": "video Description"
+                },
+                "defaultAudioLanguage": "en"
+              },
+              "status": {
+                "uploadStatus": "processed",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              },
+              "statistics": {
+                "viewCount": "4",
+                "likeCount": "0",
+                "dislikeCount": "0",
+                "favoriteCount": "0",
+                "commentCount": "2"
+              }
+            },
+            {
+              "kind": "youtube#video",
+              "etag": "1_rte7Qg1z_JQ6hKtioAUA3BZr8",
+              "id": "qzUjVCpSSsY",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:39:17Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "Updated Sample Video Title 2",
+                "description": "This is an updated description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/qzUjVCpSSsY/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "Updated Sample Video Title 2",
+                  "description": "This is an updated description"
+                },
+                "defaultAudioLanguage": "en-US"
+              },
+              "status": {
+                "uploadStatus": "processed",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": true,
+                "selfDeclaredMadeForKids": true
+              },
+              "statistics": {
+                "viewCount": "0",
+                "likeCount": "0",
+                "dislikeCount": "0",
+                "favoriteCount": "0",
+                "commentCount": "0"
+              }
+            },
+            {
+              "kind": "youtube#video",
+              "etag": "bvD2UnjWaOGDNtZYXDRdkd3RiVc",
+              "id": "cJK5VJubPNs",
+              "snippet": {
+                "publishedAt": "2026-05-01T11:35:30Z",
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "title": "sample test video trees",
+                "description": "Video description",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/cJK5VJubPNs/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Nango Developer",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "sample test video trees",
+                  "description": "Video description"
+                },
+                "defaultAudioLanguage": "da"
+              },
+              "status": {
+                "uploadStatus": "processed",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              },
+              "statistics": {
+                "viewCount": "4",
+                "likeCount": "0",
+                "dislikeCount": "0",
+                "favoriteCount": "0",
+                "commentCount": "28"
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 3,
+            "resultsPerPage": 3
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 13:00:32 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1777640442",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "935a1baec5b0ba4e97f65922144fe3e0355091e1",
+        "request": {
+          "params": {
+            "id": "zDfKnm5NN-E,qzUjVCpSSsY,cJK5VJubPNs",
+            "part": "snippet,statistics,status"
+          }
+        }
+      }
+    }
+  }
+}

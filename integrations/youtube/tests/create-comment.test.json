@@ -1,0 +1,103 @@
+{
+  "input": {
+    "videoId": "cJK5VJubPNs",
+    "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    "text": "Test comment from Nango action validation run"
+  },
+  "output": {
+    "commentThreadId": "Ugw4AT6I3bRiLLAdnWV4AaABAg",
+    "commentId": "Ugw4AT6I3bRiLLAdnWV4AaABAg",
+    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+    "videoId": "cJK5VJubPNs",
+    "textDisplay": "Test comment from Nango action validation run",
+    "textOriginal": "Test comment from Nango action validation run",
+    "authorDisplayName": "@NangoDeveloper",
+    "authorChannelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+    "publishedAt": "2026-05-01T12:05:02Z",
+    "updatedAt": "2026-05-01T12:05:02Z",
+    "likeCount": 0,
+    "canReply": true,
+    "totalReplyCount": 0,
+    "isPublic": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/youtube/v3/commentThreads": {
+        "response": {
+          "kind": "youtube#commentThread",
+          "etag": "OWVpuSmjKQSriEMN0mwGz5jxLYU",
+          "id": "Ugw4AT6I3bRiLLAdnWV4AaABAg",
+          "snippet": {
+            "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+            "videoId": "cJK5VJubPNs",
+            "topLevelComment": {
+              "kind": "youtube#comment",
+              "etag": "KfOnaLWh42_i58wgb2hIMSV7VUY",
+              "id": "Ugw4AT6I3bRiLLAdnWV4AaABAg",
+              "snippet": {
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "videoId": "cJK5VJubPNs",
+                "textDisplay": "Test comment from Nango action validation run",
+                "textOriginal": "Test comment from Nango action validation run",
+                "authorDisplayName": "@NangoDeveloper",
+                "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                "authorChannelId": {
+                  "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                },
+                "canRate": true,
+                "viewerRating": "none",
+                "likeCount": 0,
+                "publishedAt": "2026-05-01T12:05:02Z",
+                "updatedAt": "2026-05-01T12:05:02Z"
+              }
+            },
+            "canReply": true,
+            "totalReplyCount": 0,
+            "isPublic": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 12:05:02 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1777637161",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "e1400a7480d553b2548209fc0118053e1daee880",
+        "request": {
+          "params": {
+            "part": "snippet"
+          },
+          "data": {
+            "snippet": {
+              "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+              "videoId": "cJK5VJubPNs",
+              "topLevelComment": {
+                "snippet": {
+                  "textOriginal": "Test comment from Nango action validation run"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

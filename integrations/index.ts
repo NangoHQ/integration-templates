@@ -1227,6 +1227,35 @@ import './xero/actions/update-invoice.js';
 import './xero/actions/update-item.js';
 import './xero/actions/update-purchase-order.js';
 
+// -- Integration: youtube
+import './youtube/syncs/caption-tracks.js';
+import './youtube/syncs/channel-playlists.js';
+import './youtube/syncs/channels.js';
+import './youtube/syncs/comment-threads.js';
+import './youtube/syncs/playlist-items.js';
+import './youtube/syncs/uploaded-videos.js';
+import './youtube/actions/add-playlist-item.js';
+import './youtube/actions/create-comment-reply.js';
+import './youtube/actions/create-comment.js';
+import './youtube/actions/create-playlist.js';
+import './youtube/actions/delete-comment.js';
+import './youtube/actions/delete-playlist-item.js';
+import './youtube/actions/delete-playlist.js';
+import './youtube/actions/delete-video.js';
+import './youtube/actions/get-channel.js';
+import './youtube/actions/get-comment.js';
+import './youtube/actions/get-playlist.js';
+import './youtube/actions/get-video.js';
+import './youtube/actions/list-captions.js';
+import './youtube/actions/list-channel-playlists.js';
+import './youtube/actions/list-comment-threads.js';
+import './youtube/actions/list-playlist-items.js';
+import './youtube/actions/list-uploaded-videos.js';
+import './youtube/actions/update-comment.js';
+import './youtube/actions/update-playlist-item.js';
+import './youtube/actions/update-playlist.js';
+import './youtube/actions/update-video.js';
+
 // -- Integration: zendesk
 import './zendesk/syncs/articles.js';
 import './zendesk/syncs/categories.js';
