@@ -1,0 +1,92 @@
+{
+  "input": {
+    "statusIdOrName": "10000"
+  },
+  "output": {
+    "id": "10000",
+    "name": "To Do",
+    "description": "",
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10000": {
+        "response": {
+          "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10000",
+          "description": "",
+          "iconUrl": "https://nango-team-test.atlassian.net/images/icons/statuses/generic.png",
+          "name": "To Do",
+          "untranslatedName": "To Do",
+          "id": "10000",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          },
+          "scope": {
+            "type": "PROJECT",
+            "project": {
+              "id": "10000"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 11:55:14 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "350",
+          "x-ratelimit-remaining": "349",
+          "x-ratelimit-reset": "1777377342",
+          "server": "AtlassianEdge",
+          "timing-allow-origin": "*",
+          "x-arequestid": "300183f1de7a4d2ce957b6519a219fe7",
+          "set-cookie": "atlassian.xsrf.token=f1c6a2d3621c965b6d116ced3e839b21b8bd4d31_lin; Path=/; SameSite=None; Secure",
+          "x-aaccountid": "712020%3A7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "cache-control": "no-cache, no-store, no-transform",
+          "vary": "Accept-Encoding",
+          "x-trace-id": "4a3c875007cd45ea9f4484323944f923",
+          "atl-traceid": "4a3c875007cd45ea9f4484323944f923",
+          "atl-request-id": "4a3c8750-07cd-45ea-9f44-84323944f923",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 8731d2a1a7d15f67b588bf58f652f9f0.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P1",
+          "x-amz-cf-id": "YUNL-7t74Y39iV2sM8RUmWAqw1gHXOw0MTphuL8JDv7SvK7RkkFO_g==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=342,atl-edge;dur=336,atl-edge-internal;dur=3,atl-edge-upstream;dur=333,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P1\",cdn-rid;desc=\"YUNL-7t74Y39iV2sM8RUmWAqw1gHXOw0MTphuL8JDv7SvK7RkkFO_g==\",cdn-downstream-fbl;dur=347"
+        },
+        "hash": "05fbf54fb50fb2b56735fa2997b8ddfdd99186f6",
+        "request": {
+          "headers": {
+            "X-Atlassian-Token": "no-check"
+          }
+        }
+      }
+    }
+  }
+}
