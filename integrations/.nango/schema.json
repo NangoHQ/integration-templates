@@ -1780,6 +1780,49 @@
       },
       "additionalProperties": false
     },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "category_id",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_asana_sections": {
+      "type": "object",
+      "properties": {
+        "project_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "project_ids"
+      ],
+      "additionalProperties": false
+    },
     "Subtask": {
       "type": "object",
       "properties": {
@@ -2189,6 +2232,96 @@
       },
       "required": [
         "gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_createsection": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The text to be displayed as the section name. This cannot be an empty string. Example: \"Next Actions\""
+        },
+        "insert_before": {
+          "type": "string",
+          "description": "An existing section within this project before which the added section should be inserted. Cannot be provided together with insert_after."
+        },
+        "insert_after": {
+          "type": "string",
+          "description": "An existing section within this project after which the added section should be inserted. Cannot be provided together with insert_before."
+        }
+      },
+      "required": [
+        "project_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_createsection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
         "name"
       ],
       "additionalProperties": false
@@ -2704,6 +2837,81 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_asana_deletesection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"1234567890\""
+        }
+      },
+      "required": [
+        "section_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletesection": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_deletestory": {
+      "type": "object",
+      "properties": {
+        "story_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the story. Example: \"12345\""
+        }
+      },
+      "required": [
+        "story_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletestory": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_deletetag": {
+      "type": "object",
+      "properties": {
+        "tag_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the tag. Example: \"11235\""
+        }
+      },
+      "required": [
+        "tag_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletetag": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_asana_deletetask": {
       "type": "object",
       "properties": {
@@ -2767,6 +2975,85 @@
       },
       "required": [
         "gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getsection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"12345\""
+        }
+      },
+      "required": [
+        "section_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getsection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
+        "name"
       ],
       "additionalProperties": false
     },
@@ -3778,6 +4065,104 @@
           }
         },
         "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listsectionsforproject": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "project_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listsectionsforproject": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "project": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid",
+                  "resource_type",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid",
+                    "resource_type",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_page_offset": {
           "type": "string"
         }
       },
@@ -5065,6 +5450,152 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_asana_searchtasksinworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace or organization. Example: \"1202775892569436\""
+        },
+        "assignee": {
+          "type": "string",
+          "description": "Comma-separated list of user identifiers, or \"me\". Example: \"me\""
+        },
+        "project": {
+          "type": "string",
+          "description": "Comma-separated list of project IDs. Example: \"1211440849237745\""
+        },
+        "section": {
+          "type": "string",
+          "description": "Comma-separated list of section or column IDs. Example: \"12345\""
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "Filter to completed tasks."
+        },
+        "modified_since": {
+          "type": "string",
+          "description": "Only return tasks modified since the given ISO 8601 datetime. Example: \"2024-01-01T00:00:00.000Z\""
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "due_date",
+            "created_at",
+            "completed_at",
+            "likes",
+            "modified_at"
+          ],
+          "description": "Sort field. Defaults to modified_at."
+        },
+        "sort_ascending": {
+          "type": "boolean",
+          "description": "Sort ascending. Defaults to false."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of tasks to return (max 100)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_searchtasksinworkspace": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "due_on": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tasks"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_asana_updateproject": {
       "type": "object",
       "properties": {
@@ -5164,6 +5695,54 @@
       "required": [
         "gid",
         "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"1200000000000001\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The updated name for the section."
+        }
+      },
+      "required": [
+        "section_gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "gid"
       ],
       "additionalProperties": false
     },
@@ -103137,34 +103716,6 @@
     },
     "SyncMetadata_zendesk_categories": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Section": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "category_id": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "url",
-        "category_id",
-        "name",
-        "description"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_zendesk_sections": {

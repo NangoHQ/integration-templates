@@ -343,6 +343,18 @@ export interface SyncMetadata_asana_projects {
   team_ids?: string[] | undefined;
 };
 
+export interface Section {
+  id: string;
+  url: string;
+  category_id: number;
+  name: string;
+  description: string;
+};
+
+export interface SyncMetadata_asana_sections {
+  project_ids: string[];
+};
+
 export interface Subtask {
   id: string;
   parent_task_id: string;
@@ -508,6 +520,38 @@ export interface ActionOutput_asana_createproject {
   start_on?: string | undefined;
   default_view?: string | undefined;
   owner?: string | undefined;
+};
+
+export interface ActionInput_asana_createsection {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * The text to be displayed as the section name. This cannot be an empty string. Example: "Next Actions"
+   */
+  name: string;
+  /**
+   * An existing section within this project before which the added section should be inserted. Cannot be provided together with insert_after.
+   */
+  insert_before?: string | undefined;
+  /**
+   * An existing section within this project after which the added section should be inserted. Cannot be provided together with insert_before.
+   */
+  insert_after?: string | undefined;
+};
+
+export interface ActionOutput_asana_createsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  projects?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
 };
 
 export interface ActionInput_asana_createstoryontask {
@@ -750,6 +794,39 @@ export interface ActionOutput_asana_deleteproject {
   success: boolean;
 };
 
+export interface ActionInput_asana_deletesection {
+  /**
+   * The globally unique identifier for the section. Example: "1234567890"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_deletesection {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletestory {
+  /**
+   * Globally unique identifier for the story. Example: "12345"
+   */
+  story_gid: string;
+};
+
+export interface ActionOutput_asana_deletestory {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletetag {
+  /**
+   * The globally unique identifier for the tag. Example: "11235"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_deletetag {
+  success: boolean;
+};
+
 export interface ActionInput_asana_deletetask {
   /**
    * The globally unique identifier for the task to delete. Example: "1209876543210987"
@@ -783,6 +860,26 @@ export interface ActionOutput_asana_getproject {
   gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_getsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_getsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;
 };
 
 export interface ActionInput_asana_gettag {
@@ -1061,6 +1158,31 @@ export interface ActionOutput_asana_listprojectsforworkspace {
   name?: string | undefined;};
   permalink_url?: string | undefined;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsectionsforproject {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listsectionsforproject {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;})[];
+  next_page_offset?: string | undefined;
 };
 
 export interface ActionInput_asana_liststoriesfortask {
@@ -1450,6 +1572,67 @@ export interface ActionOutput_asana_removetagfromtask {
   success: boolean;
 };
 
+export interface ActionInput_asana_searchtasksinworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "1202775892569436"
+   */
+  workspace_gid: string;
+  /**
+   * Comma-separated list of user identifiers, or "me". Example: "me"
+   */
+  assignee?: string | undefined;
+  /**
+   * Comma-separated list of project IDs. Example: "1211440849237745"
+   */
+  project?: string | undefined;
+  /**
+   * Comma-separated list of section or column IDs. Example: "12345"
+   */
+  section?: string | undefined;
+  /**
+   * Filter to completed tasks.
+   */
+  completed?: boolean | undefined;
+  /**
+   * Only return tasks modified since the given ISO 8601 datetime. Example: "2024-01-01T00:00:00.000Z"
+   */
+  modified_since?: string | undefined;
+  /**
+   * Sort field. Defaults to modified_at.
+   */
+  sort_by?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at' | undefined;
+  /**
+   * Sort ascending. Defaults to false.
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Maximum number of tasks to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_searchtasksinworkspace {
+  tasks: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  completed?: boolean | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;};
+  projects?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  sections?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  modified_at?: string | undefined;
+  created_at?: string | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
 export interface ActionInput_asana_updateproject {
   /**
    * Globally unique identifier for the project. Example: "120987654321"
@@ -1511,6 +1694,24 @@ export interface ActionOutput_asana_updateproject {
   default_view?: string | undefined;
   workspace_gid?: string | undefined;
   owner_gid?: string | undefined;
+};
+
+export interface ActionInput_asana_updatesection {
+  /**
+   * The globally unique identifier for the section. Example: "1200000000000001"
+   */
+  section_gid: string;
+  /**
+   * The updated name for the section.
+   */
+  name: string;
+};
+
+export interface ActionOutput_asana_updatesection {
+  gid: string;
+  name?: string | undefined;
+  project?: {  gid: string;
+  name?: string | undefined;};
 };
 
 export interface ActionInput_asana_updatetag {
@@ -31704,14 +31905,6 @@ export interface SyncMetadata_zendesk_articles {
 };
 
 export interface SyncMetadata_zendesk_categories {
-};
-
-export interface Section {
-  id: string;
-  url: string;
-  category_id: number;
-  name: string;
-  description: string;
 };
 
 export interface SyncMetadata_zendesk_sections {
