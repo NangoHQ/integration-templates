@@ -1,0 +1,12 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "ChannelPlaylist": []
+    },
+    "batchDelete": {
+      "ChannelPlaylist": []
+    }
+  },
+  "api": {}
+}
