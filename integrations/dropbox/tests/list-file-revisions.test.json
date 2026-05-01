@@ -1,0 +1,82 @@
+{
+  "input": {
+    "path": "/test-upload.txt",
+    "limit": 5
+  },
+  "output": {
+    "entries": [
+      {
+        "name": "test-upload.txt",
+        "path_lower": "/test-upload.txt",
+        "path_display": "/test-upload.txt",
+        "id": "id:MzePHdV-D28AAAAAAAAAEA",
+        "client_modified": "2026-04-28T20:47:46Z",
+        "server_modified": "2026-04-28T20:47:46Z",
+        "rev": "016508b57f2b6f1000000033c9fd2f3",
+        "size": 22,
+        "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802",
+        "is_downloadable": true
+      }
+    ],
+    "is_deleted": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/list_revisions": {
+        "response": {
+          "is_deleted": false,
+          "entries": [
+            {
+              "name": "test-upload.txt",
+              "path_lower": "/test-upload.txt",
+              "path_display": "/test-upload.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAEA",
+              "client_modified": "2026-04-28T20:47:46Z",
+              "server_modified": "2026-04-28T20:47:46Z",
+              "rev": "016508b57f2b6f1000000033c9fd2f3",
+              "size": 22,
+              "is_downloadable": true,
+              "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802"
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:56:18 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4961",
+          "x-ratelimit-reset": "1777409806",
+          "cache-control": "no-cache",
+          "x-server-response-time": "110",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "a650789f28394fc1afef98a269f11ef2",
+          "x-dropbox-trace-id": "69f11ef2000000002aca2a6bb456c4ea"
+        },
+        "hash": "1177533bf766309385400db8eb23c3ca9f5f8cbf",
+        "request": {
+          "data": {
+            "path": "/test-upload.txt",
+            "mode": "path",
+            "limit": 5
+          }
+        }
+      }
+    }
+  }
+}

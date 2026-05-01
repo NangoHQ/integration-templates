@@ -1,0 +1,30 @@
+{
+  "input": {
+    "async_job_id": "dbjid:AAD7wJkkhPlSS56ULb9IcQ1h90VOD-EdEOOva2NbkyyW3Yp-D66Hy1GoGvXQ20pzBbhS0jz-kTdj8ALzGTW0Agta"
+  },
+  "output": {
+    "success": true,
+    "status": "complete",
+    "message": "Folder unshared successfully"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/sharing/check_job_status": {
+        "response": {
+          ".tag": "complete"
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "4834998ee2a70a8eda42b9a1b570eb15194d431d",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AAD7wJkkhPlSS56ULb9IcQ1h90VOD-EdEOOva2NbkyyW3Yp-D66Hy1GoGvXQ20pzBbhS0jz-kTdj8ALzGTW0Agta"
+          }
+        }
+      }
+    }
+  }
+}

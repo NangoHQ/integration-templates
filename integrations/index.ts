@@ -254,10 +254,40 @@ import './docusign/actions/delete-user.js';
 
 // -- Integration: dropbox
 import './dropbox/syncs/files.js';
-import './dropbox/syncs/users.js';
+import './dropbox/syncs/folders.js';
+import './dropbox/syncs/shared-folders.js';
+import './dropbox/syncs/shared-links.js';
+import './dropbox/actions/batch-copy-files-or-folders.js';
+import './dropbox/actions/batch-create-folders.js';
+import './dropbox/actions/batch-delete-files-or-folders.js';
+import './dropbox/actions/batch-move-files-or-folders.js';
+import './dropbox/actions/check-batch-copy-files-or-folders.js';
+import './dropbox/actions/check-batch-delete-files-or-folders.js';
+import './dropbox/actions/check-batch-move-files-or-folders.js';
+import './dropbox/actions/check-unshare-folder.js';
+import './dropbox/actions/copy-file-or-folder.js';
+import './dropbox/actions/create-folder.js';
+import './dropbox/actions/create-shared-link.js';
 import './dropbox/actions/create-user.js';
-import './dropbox/actions/delete-user.js';
-import './dropbox/actions/folder-content.js';
+import './dropbox/actions/delete-file-or-folder.js';
+import './dropbox/actions/download-file.js';
+import './dropbox/actions/download-folder-as-zip.js';
+import './dropbox/actions/get-current-account.js';
+import './dropbox/actions/get-file-or-folder-metadata.js';
+import './dropbox/actions/get-file-temporary-link.js';
+import './dropbox/actions/list-file-revisions.js';
+import './dropbox/actions/list-folder.js';
+import './dropbox/actions/list-shared-folders.js';
+import './dropbox/actions/list-shared-links.js';
+import './dropbox/actions/modify-shared-link-settings.js';
+import './dropbox/actions/move-file-or-folder.js';
+import './dropbox/actions/restore-file-revision.js';
+import './dropbox/actions/revoke-shared-link.js';
+import './dropbox/actions/search-files-and-folders.js';
+import './dropbox/actions/share-folder.js';
+import './dropbox/actions/unshare-folder.js';
+import './dropbox/actions/upload-file.js';
+import './dropbox/actions/upload-large-file.js';
 
 // -- Integration: evaluagent
 import './evaluagent/syncs/groups.js';

@@ -6083,57 +6083,1130 @@ export interface ActionOutput_docusign_deleteuser {
   success: boolean;
 };
 
-export interface Document {
+export interface File {
   id: string;
-  path: string;
-  title: string;
-  modified_date: string;
+  name: string;
+  mimeType: string;
+  parents?: string[] | undefined;
+  driveId?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  size?: string | undefined;
+  webViewLink?: string | undefined;
+  trashed?: boolean | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
-  files: string[];
-  folders: string[];
+  rootPaths?: string[] | undefined;
 };
 
-export interface SyncMetadata_dropbox_users {
+export interface SyncMetadata_dropbox_folders {
+  root_paths?: string[] | undefined;
+};
+
+export interface SharedFolder {
+  id: string;
+  sharedFolderId: string;
+  sharedFolderName?: string | undefined;
+  isTeamFolder?: boolean | undefined;
+  parentSharedFolderId?: string | undefined;
+  sharedFolderPathLower?: string | undefined;
+  sharedFolderPreviewPath?: string | undefined;
+  accessType?: string | undefined;
+  isInsideTeamFolder?: boolean | undefined;
+  isMountManaged?: boolean | undefined;
+  aclUpdatePolicy?: string | undefined;
+};
+
+export interface SharedLink {
+  id: string;
+  url: string;
+  name: string;
+  path_lower?: string | undefined;
+  type?: 'file' | 'folder' | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  expires?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcopyfilesorfolders {
+  /**
+   * List of source and destination path pairs to copy
+   */
+  entries: ({  /**
+   * Source path in Dropbox. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path in Dropbox. Example: "/folder/destination.txt"
+   */
+  to_path: string;})[];
+  /**
+   * If true, auto-rename conflicting files
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcopyfilesorfolders {
+  async_job_id?: string | undefined;
+  entries?: ({  success?: {  metadata: {  name: string;
+  path_lower: string;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};};
+  failure?: {  failure_reason?: {  ".tag": string;
+  description?: string | undefined;};
+  ".tag"?: string | undefined;};
+  ".tag"?: string | undefined;})[];
+  is_complete?: boolean | undefined;
+  ".tag"?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcreatefolders {
+  /**
+   * List of paths to be created in the Dropbox. Max 10000 items. Example: ["/Projects/2024", "/Projects/2025"]
+   */
+  paths: string[];
+  /**
+   * If there is a conflict, have the Dropbox server try to autorename the folder to avoid the conflict. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * Whether to force the create to happen asynchronously. Default: false
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Polling interval in milliseconds when checking async job status. Default: 1000
+   */
+  poll_interval_ms?: number | undefined;
+  /**
+   * Maximum number of polling attempts for async job status. Default: 30
+   */
+  max_poll_attempts?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcreatefolders {
+  /**
+   * Whether the batch operation completed successfully
+   */
+  completed: boolean;
+  /**
+   * The async job ID if the operation is still in progress
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Array of results for each folder creation attempt
+   */
+  folders?: ({  path: string;
+  success: boolean;
+  id?: string | undefined;
+  name?: string | undefined;
+  error?: string | undefined;})[];
+  /**
+   * Total number of folders in the batch
+   */
+  total_count: number;
+  /**
+   * Number of folders successfully created
+   */
+  success_count: number;
+  /**
+   * Number of folders that failed to create
+   */
+  failure_count: number;
+};
+
+export interface ActionInput_dropbox_batchdeletefilesorfolders {
+  /**
+   * List of files/folders to delete. Each entry has a path field.
+   */
+  entries: ({  /**
+   * Path in the user's Dropbox to delete. Example: "/Homework/math/Prime_Numbers.txt"
+   */
+  path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion operation
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If status is in_progress, the job ID to poll for completion
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Results for each entry if the operation is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  parent_shared_folder_id?: string | undefined;
+  id?: string | undefined;};
+  success?: {} | undefined;
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_batchmovefilesorfolders {
+  /**
+   * List of up to 1000 entries to move, each with from_path and to_path.
+   */
+  entries: ({  /**
+   * Path of the file or folder to move. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path for the file or folder. Example: "/newfolder/file.txt"
+   */
+  to_path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If job is in progress, this ID can be used to check status later.
+   */
+  async_job_id?: string | undefined;
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchcopyfilesorfolders {
+  /**
+   * The async job ID returned by batch-copy-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchcopyfilesorfolders {
+  ".tag": 'in_progress' | 'complete' | 'failed';
+  entries?: ({  ".tag": string;
+  metadata?: {  name: string;
+  path_lower: string;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};
+  failure?: {  ".tag": string;
+  description?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * The async job ID returned by batch-delete-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion check
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * Per-entry results when status is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id?: string | undefined;};
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_checkbatchmovefilesorfolders {
+  /**
+   * The async job ID returned by batch-move-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkunsharefolder {
+  /**
+   * The async job ID returned by unshare-folder. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkunsharefolder {
+  success: boolean;
+  status: 'complete' | 'in_progress' | 'failed';
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_copyfileorfolder {
+  /**
+   * The path of the file or folder to copy. Example: "/folder/myfile.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path for the copy. Example: "/folder/myfile_copy.txt"
+   */
+  to_path: string;
+  /**
+   * If true, copy contents of shared folders.
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, auto-rename conflicting files.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, allow ownership transfer for files in shared folders.
+   */
+  allow_ownership_transfer?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_copyfileorfolder {
+  /**
+   * The unique ID of the copied file or folder
+   */
+  id: string;
+  /**
+   * The name of the copied file or folder
+   */
+  name: string;
+  /**
+   * The lowercased path of the copy
+   */
+  path_lower?: string | undefined;
+  /**
+   * The display path of the copy
+   */
+  path_display?: string | undefined;
+  /**
+   * Size in bytes
+   */
+  size?: number | undefined;
+  /**
+   * Client modified timestamp for files
+   */
+  client_modified?: string | undefined;
+  /**
+   * Server modified timestamp
+   */
+  server_modified?: string | undefined;
+  /**
+   * Revision identifier
+   */
+  rev?: string | undefined;
+  /**
+   * Content hash for files
+   */
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_createfolder {
+  /**
+   * The path in Dropbox where the folder should be created. Example: "/home/TestFolder"
+   */
+  path: string;
+  /**
+   * If true, the folder will be renamed to avoid conflicts if a folder already exists at the given path. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_createfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+};
+
+export interface ActionInput_dropbox_createsharedlink {
+  /**
+   * The path to the file or folder in the Dropbox account. Example: /folder/file.txt
+   */
+  path: string;
+  /**
+   * Optional settings for the shared link including visibility, audience, access level, password, and expiry.
+   */
+  settings?: {  /**
+   * The requested visibility for the shared link. Can be public, password (link is publicly visible, but only accessible with the password), or team_only (only members of the same team can access).
+   */
+  requested_visibility?: 'public' | 'password' | 'team_only' | undefined;
+  /**
+   * The audience of the shared link. Can be public (anyone with the link can access), team (only members of the same team can access), no_one (link is disabled), or members (only specific members can access).
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * The access level on the link. Can be viewer, viewer_no_comment (can view but not comment), editor, or owner.
+   */
+  access?: 'viewer' | 'viewer_no_comment' | 'editor' | 'owner' | undefined;
+  /**
+   * Whether to allow downloads via the shared link.
+   */
+  allow_download?: boolean | undefined;
+  /**
+   * The password for the shared link. Required if requested_visibility is set to password.
+   */
+  password?: string | undefined;
+  /**
+   * The expiration time for the shared link in ISO 8601 format (e.g., 2025-12-31T23:59:59Z).
+   */
+  expires?: string | undefined;};
+};
+
+export interface ActionOutput_dropbox_createsharedlink {
+  /**
+   * The shared link URL that can be used to access the file or folder.
+   */
+  url: string;
+  /**
+   * The name of the file or folder.
+   */
+  name: string;
+  /**
+   * The lowercased full path to the file or folder.
+   */
+  path: string;
+  /**
+   * The permissions associated with the shared link.
+   */
+  link_permissions?: {} | undefined;
+  /**
+   * The expiration time of the shared link if set.
+   */
+  expiry?: string | undefined;
+  /**
+   * Whether the shared link is password protected.
+   */
+  password_protected?: boolean | undefined;
 };
 
 export interface ActionInput_dropbox_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * Email address of the new user. Example: "john.doe@example.com"
+   */
   email: string;
+  /**
+   * First name of the new user. Example: "John"
+   */
+  firstName: string;
+  /**
+   * Last name of the new user. Example: "Doe"
+   */
+  lastName: string;
 };
 
 export interface ActionOutput_dropbox_createuser {
   id: string;
-  email: string;
   firstName: string;
   lastName: string;
+  email: string;
 };
 
-export interface ActionInput_dropbox_deleteuser {
+export interface ActionInput_dropbox_deletefileorfolder {
+  /**
+   * Path to the file or folder to delete. Example: "/path/to/file.txt" or "/path/to/folder"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_deletefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
   id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_deleteuser {
-  success: boolean;
+export interface ActionInput_dropbox_downloadfile {
+  /**
+   * The path of the file to download. Example: "/Homework/math/Prime_Numbers.txt" or "id:a4ayc_80_OEAAAAAAAAAYa"
+   */
+  path: string;
 };
 
-export interface ActionInput_dropbox_foldercontent {
+export interface ActionOutput_dropbox_downloadfile {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  content_hash?: string | undefined;
+  is_downloadable?: boolean | undefined;};
+  /**
+   * Base64-encoded file content
+   */
+  bytes: string;
+};
+
+export interface ActionInput_dropbox_downloadfolderaszip {
+  /**
+   * The path of the folder to download. Example: "/my-folder". Note: The root folder "/" is not supported.
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_downloadfolderaszip {
+  metadata: {  id: string;
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+  /**
+   * Base64-encoded zip file content
+   */
+  zip_content: string;
+};
+
+export interface ActionInput_dropbox_getcurrentaccount {
+};
+
+export interface ActionOutput_dropbox_getcurrentaccount {
+  account_id: string;
+  name: {  given_name: string;
+  surname: string;
+  familiar_name: string;
+  display_name: string;};
+  email: string;
+  account_type: string;
+  email_verified?: boolean | undefined;
+  disabled?: boolean | undefined;
+  locale?: string | undefined;
+  referral_link?: string | undefined;
+  is_paired?: boolean | undefined;
+  profile_photo_url?: string | undefined;
+  country?: string | undefined;
+  team?: {  name: string;
+  id: string;} | undefined;
+  team_member_id?: string | undefined;
+};
+
+export interface ActionInput_dropbox_getfileorfoldermetadata {
+  /**
+   * Path in the user's Dropbox to get metadata for. Example: "/folder/file.txt"
+   */
   path?: string | undefined;
+  /**
+   * Unique identifier for the file or folder. Can be used instead of path. Example: "id:a4ayc_80_OEAAAAAAAAAXw"
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_getfileorfoldermetadata {
+  0: {  type: 'file';
+  name: string;
+  id: string;
+  client_modified: string;
+  server_modified: string;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};
+  content_hash?: string | undefined;
+  has_explicit_shared_members?: boolean | undefined;
+  is_downloadable?: boolean | undefined;};
+  1: {  type: 'folder';
+  name: string;
+  id: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};};
+  2: {  type: 'deleted';
+  name: string;
+  id?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+};
+
+export interface ActionInput_dropbox_getfiletemporarylink {
+  /**
+   * The path to the file you want a temporary link to. Example: "/folder/file.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_getfiletemporarylink {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;};
+  /**
+   * Temporary link to stream content of the file. Expires after four hours.
+   */
+  link: string;
+};
+
+export interface ActionInput_dropbox_listfilerevisions {
+  /**
+   * The path to the file or a file ID. Example: "/folder/document.txt" or "id:a4aycG80J0UAAAAAAAAcZA"
+   */
+  path: string;
+  /**
+   * Specify how to interpret the path argument. "path" (default): revisions at the same file path are returned. "id": revisions for the file ID (survives moves and renames).
+   */
+  mode?: 'path' | 'id' | undefined;
+  /**
+   * Maximum number of revisions to return. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_listfilerevisions {
+  /**
+   * If true, this file was deleted.
+   */
+  is_deleted?: boolean | undefined;
+  /**
+   * The revisions for the file.
+   */
+  entries: ({  /**
+   * The last component of the path (including extension).
+   */
+  name: string;
+  /**
+   * The lowercased full path in the user's Dropbox.
+   */
+  path_lower?: string | undefined;
+  /**
+   * The cased path to be shown to the user.
+   */
+  path_display?: string | undefined;
+  /**
+   * A unique identifier for the file.
+   */
+  id: string;
+  /**
+   * For files, this is the modification time set by the client.
+   */
+  client_modified?: string | undefined;
+  /**
+   * The last modified time of the file.
+   */
+  server_modified: string;
+  /**
+   * A unique identifier for the current revision of a file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+  /**
+   * A hash of the file content.
+   */
+  content_hash?: string | undefined;
+  /**
+   * If true, file can be downloaded directly.
+   */
+  is_downloadable?: boolean | undefined;
+  /**
+   * Whether this file has any explicit shared members.
+   */
+  has_explicit_shared_members?: boolean | undefined;})[];
+  /**
+   * Pass the cursor into files/list_revisions/continue to paginate through the entries.
+   */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_foldercontent {
-  files: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
-  folders: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
+export interface ActionInput_dropbox_listfolder {
+  /**
+   * The path to the folder to list. Use "" (empty string) or omit for root folder. Example: "/Homework/math"
+   */
+  path?: string | undefined;
+  /**
+   * If true, list contents recursively for all subfolders. Default: false
+   */
+  recursive?: boolean | undefined;
+  /**
+   * If true, include entries for files and folders that were deleted. Default: false
+   */
+  include_deleted?: boolean | undefined;
+  /**
+   * Maximum number of entries to return per request (1-2000).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. If provided, continues listing from that point.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listfolder {
+  /**
+   * The files and folders in the directory.
+   */
+  entries: any[];
+  /**
+   * Cursor for retrieving more entries via list_folder/continue.
+   */
+  cursor?: string | undefined;
+  /**
+   * True if more entries are available.
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_dropbox_listsharedfolders {
+  /**
+   * The maximum number of results to return per request. Default is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedfolders {
+  folders: ({  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url: string;
+  access_type: string;
+  is_team_folder: boolean;
+  is_inside_team_folder: boolean;
+  time_invited: string;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_listsharedlinks {
+  /**
+   * Path to the file or folder to get shared links for. If not provided, returns all shared links for the current user.
+   */
+  path?: string | undefined;
+  /**
+   * Cursor returned from previous call to get the next page of results. Cursor is only returned when no path is provided.
+   */
+  cursor?: string | undefined;
+  /**
+   * If true, only return links directly to the given path. If false or omitted, also return links to parent folders.
+   */
+  direct_only?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedlinks {
+  links: ({  ".tag": 'file' | 'folder';
+  url: string;
+  id: string;
+  name: string;
+  path_lower: string;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: {  ".tag": string;} | undefined;
+  requested_visibility?: {  ".tag": string;} | undefined;
+  revoke_failure_reason?: {  ".tag": string;} | undefined;};
+  team_member_info?: {  team_info: {  id: string;
+  name: string;};
+  display_name: string;
+  member_id: string;
+  email?: string | undefined;};
+  expires?: string | undefined;
+  content_owner_team_info?: {  id: string;
+  name: string;} | undefined;})[];
+  has_more: boolean;
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_modifysharedlinksettings {
+  /**
+   * URL of the shared link to change its settings. Example: "https://www.dropbox.com/s/abc123/file.txt"
+   */
+  url: string;
+  /**
+   * Set of settings for the shared link.
+   */
+  settings?: {  /**
+   * Use `audience` instead. The requested access for this shared link.
+   */
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  /**
+   * The new audience who can benefit from the access level.
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * Requested access level. Note: modifying access level for an existing link is not supported.
+   */
+  access?: 'viewer' | 'editor' | 'max' | undefined;
+  /**
+   * Expiration time of the shared link in ISO 8601 format. By default the link won't expire.
+   */
+  expires?: string | undefined;
+  /**
+   * Boolean flag to enable or disable password protection.
+   */
+  require_password?: boolean | undefined;
+  /**
+   * If require_password is true, this specifies the password to access the link.
+   */
+  link_password?: string | undefined;
+  /**
+   * Boolean flag to allow or disallow download capabilities for shared links.
+   */
+  allow_download?: boolean | undefined;};
+  /**
+   * If set to true, removes the expiration of the shared link.
+   */
+  remove_expiration?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_modifysharedlinksettings {
+  url: string;
+  name?: string | undefined;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: 'public' | 'team_only' | 'password' | 'team_and_password' | 'shared_folder_only' | 'no_one' | undefined;
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  effective_audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  link_access_level?: 'viewer' | 'editor' | 'max' | undefined;
+  can_set_expiration?: boolean | undefined;
+  can_set_password?: boolean | undefined;
+  can_remove_password?: boolean | undefined;
+  allow_download?: boolean | undefined;
+  can_allow_download?: boolean | undefined;
+  require_password?: boolean | undefined;
+  can_request_password?: boolean | undefined;};
+  expires?: string | undefined;
+  path_lower?: string | undefined;
+  file_id?: string | undefined;
+  id?: string | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+};
+
+export interface ActionInput_dropbox_movefileorfolder {
+  /**
+   * The path to the file or folder to be moved. Example: "/Folder/File.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path, including the new name for the file or folder. Example: "/NewFolder/NewFile.txt"
+   */
+  to_path: string;
+  /**
+   * If true, move will take into account the shared folder permissions. Default: false
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, rename will be attempted if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_movefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  is_downloadable?: boolean | undefined;
+  tag?: 'file' | 'folder' | undefined;
+};
+
+export interface ActionInput_dropbox_restorefilerevision {
+  /**
+   * The path of the file to restore. Example: "/Documents/example.txt"
+   */
+  path: string;
+  /**
+   * The revision ID to restore to. Example: "015a01044acb99900000001aa8954d0"
+   */
+  rev: string;
+};
+
+export interface ActionOutput_dropbox_restorefilerevision {
+  name: string;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_revokesharedlink {
+  /**
+   * The URL of the shared link to revoke. Example: "https://www.dropbox.com/s/..."
+   */
+  url: string;
+};
+
+export interface ActionOutput_dropbox_revokesharedlink {
+  /**
+   * Whether the shared link was successfully revoked.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_dropbox_searchfilesandfolders {
+  /**
+   * The string to search for. May match across multiple fields based on the request arguments.
+   */
+  query: string;
+  /**
+   * A specific folder path to search in. If not specified, searches the entire Dropbox. Example: "/home/Documents"
+   */
+  path?: string | undefined;
+  /**
+   * Maximum number of results to return. Default: 100. Range: 1-1000.
+   */
+  max_results?: number | undefined;
+  /**
+   * Order of results. Default: relevance.
+   */
+  order_by?: 'relevance' | 'last_modified_time' | undefined;
+  /**
+   * Filter by file status. Default: active.
+   */
+  file_status?: 'active' | 'deleted' | undefined;
+  /**
+   * If true, restricts search to file names only. Default: false.
+   */
+  filename_only?: boolean | undefined;
+  /**
+   * Restrict search to specific file extensions. Only works for active files. Example: ["pdf", "txt"]
+   */
+  file_extensions?: string[] | undefined;
+  /**
+   * Restrict search to specific file categories. Only works for active files.
+   */
+  file_categories?: ({  0: 'image';
+  1: 'document';
+  2: 'pdf';
+  3: 'spreadsheet';
+  4: 'presentation';
+  5: 'audio';
+  6: 'video';
+  7: 'folder';
+  8: 'paper';
+  9: 'other';})[] | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_searchfilesandfolders {
+  /**
+   * List of search result matches
+   */
+  matches: ({  match_type?: {  ".tag": string;} | undefined;
+  metadata?: {  ".tag": 'metadata' | 'unmounted' | 'not_found';
+  metadata?: unknown | undefined;};})[];
+  /**
+   * If true, more results are available
+   */
+  has_more: boolean;
+  /**
+   * Cursor for fetching the next page of results
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_sharefolder {
+  /**
+   * Dropbox path to the folder to share. Example: "/my-folder"
+   */
+  path: string;
+  /**
+   * If true, force the share operation to run asynchronously
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Who can be a member of this shared folder
+   */
+  member_policy?: 'anyone' | 'team' | undefined;
+  /**
+   * Who can access shared links for the folder
+   */
+  shared_link_policy?: 'anyone' | 'members' | undefined;
+  /**
+   * Whether to enable viewer info for this folder
+   */
+  viewer_info_policy?: 'disabled' | 'enabled' | undefined;
+  /**
+   * How access levels are inherited
+   */
+  access_inheritance?: 'inherit' | 'no_inherit' | undefined;
+};
+
+export interface ActionOutput_dropbox_sharefolder {
+  success: boolean;
+  async_job_id?: string | undefined;
+  shared_folder_metadata?: {  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url?: string | undefined;
+  access_type?: string | undefined;
+  is_team_folder?: boolean | undefined;
+  is_inside_team_folder?: boolean | undefined;};
+};
+
+export interface ActionInput_dropbox_unsharefolder {
+  /**
+   * The ID for the shared folder. Example: "84528192421"
+   */
+  sharedFolderId: string;
+  /**
+   * If true, members of this shared folder will get a copy of this folder after it is unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
+   */
+  leaveACopy?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_unsharefolder {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_uploadfile {
+  /**
+   * Path in the user's Dropbox to save the file. Example: "/folder/document.txt"
+   */
+  path: string;
+  /**
+   * The file content as a base64-encoded string or raw string for text files.
+   */
+  content: string;
+  /**
+   * The encoding of the content. Defaults to "utf8".
+   */
+  encoding?: 'base64' | 'utf8' | undefined;
+  /**
+   * Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches (requires rev). Defaults to "add".
+   */
+  mode?: 'add' | 'overwrite' | 'update' | undefined;
+  /**
+   * The revision of the file to update. Required when mode is "update".
+   */
+  rev?: string | undefined;
+  /**
+   * If true and there's a conflict, Dropbox will try to autorename the file to avoid the conflict. Defaults to false.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses user notifications for this modification. Defaults to false.
+   */
+  mute?: boolean | undefined;
+  /**
+   * The value to store as the client_modified timestamp in ISO 8601 format. If not set, Dropbox uses the current time.
+   */
+  client_modified?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadfile {
+  /**
+   * The name of the file.
+   */
+  name: string;
+  /**
+   * The lowercase full path of the file.
+   */
+  path_lower: string;
+  /**
+   * The unique identifier of the file.
+   */
+  id: string;
+  /**
+   * The timestamp when the file was last modified by the client.
+   */
+  client_modified: string;
+  /**
+   * The timestamp when the file was last modified on the server.
+   */
+  server_modified: string;
+  /**
+   * The revision of the file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_dropbox_uploadlargefile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  file_content_base64: string;
+  /**
+   * The destination path in Dropbox. Example: "/folder/file.txt"
+   */
+  dropbox_path: string;
+  /**
+   * What to do if the file already exists. Default: "add"
+   */
+  mode?: 'add' | 'overwrite' | undefined;
+  /**
+   * Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB
+   */
+  chunk_size?: number | undefined;
+  /**
+   * If true, rename the file if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses email notification. Default: false
+   */
+  mute?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadlargefile {
+  success: boolean;
+  path: string;
+  file_id?: string | undefined;
+  content_hash?: string | undefined;
+  name?: string | undefined;
 };
 
 export interface EvaluAgentGroup {
@@ -9398,19 +10471,6 @@ export interface ActionOutput_google_calendar_whoami {
    * Google account email address
    */
   email: string;
-};
-
-export interface File {
-  id: string;
-  name: string;
-  mimeType: string;
-  parents?: string[] | undefined;
-  driveId?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  size?: string | undefined;
-  webViewLink?: string | undefined;
-  trashed?: boolean | undefined;
 };
 
 export interface SyncMetadata_google_drive_documents {
