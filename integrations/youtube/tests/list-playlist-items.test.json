@@ -1,0 +1,395 @@
+{
+  "input": {
+    "playlistId": "PLBCF2DAC6FFB574DE",
+    "maxResults": 5
+  },
+  "output": {
+    "items": [
+      {
+        "id": "UExCQ0YyREFDNkZGQjU3NERFLkE2OTA3QzIwNEI3RjYxMDE",
+        "playlistId": "PLBCF2DAC6FFB574DE",
+        "position": 0,
+        "title": "Andrew Willis, Skatepark Engineer",
+        "description": "Andrew Willis built a skatepark in East London using reclaimed materials left over from the Olympic Games, creating a lasting legacy for the local community of Hackney Wick.",
+        "publishedAt": "2013-10-18T14:55:24Z",
+        "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "channelTitle": "Google Search Stories",
+        "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "videoOwnerChannelTitle": "Google Search Stories",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "videoId": "GvgqDSnpRQM",
+        "videoPublishedAt": "2013-10-18T07:03:29Z",
+        "privacyStatus": "public"
+      },
+      {
+        "id": "UExCQ0YyREFDNkZGQjU3NERFLjU5NzE2QkNERURDRTE5NDc",
+        "playlistId": "PLBCF2DAC6FFB574DE",
+        "position": 1,
+        "title": "Private video",
+        "description": "This video is private.",
+        "publishedAt": "2011-09-23T04:52:44Z",
+        "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "channelTitle": "Google Search Stories",
+        "thumbnails": {},
+        "videoId": "fIc_VEQ7Vo0",
+        "privacyStatus": "private"
+      },
+      {
+        "id": "UExCQ0YyREFDNkZGQjU3NERFLkZGQjNGMEFDQ0U0MzBCMzc",
+        "playlistId": "PLBCF2DAC6FFB574DE",
+        "position": 2,
+        "title": "Mark Lesek: A New/Old Prosthetic",
+        "description": "Follow Mark on Google+: https://plus.google.com/u/0/114778778979884307299/about\r\n\r\nMark lost his arm several years ago. Now his search for a better prosthetic could improve the lives of amputees everywhere.",
+        "publishedAt": "2011-11-22T15:29:40Z",
+        "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "channelTitle": "Google Search Stories",
+        "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "videoOwnerChannelTitle": "Google Search Stories",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/V4DDt30Aat4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/V4DDt30Aat4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/V4DDt30Aat4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/V4DDt30Aat4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "videoId": "V4DDt30Aat4",
+        "videoPublishedAt": "2011-11-21T19:11:41Z",
+        "privacyStatus": "public"
+      },
+      {
+        "id": "UExCQ0YyREFDNkZGQjU3NERFLkFBRDU2ODRCNTgwMzA2RTQ",
+        "playlistId": "PLBCF2DAC6FFB574DE",
+        "position": 3,
+        "title": "Private video",
+        "description": "This video is private.",
+        "publishedAt": "2011-10-20T01:02:11Z",
+        "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "channelTitle": "Google Search Stories",
+        "thumbnails": {},
+        "videoId": "07718Vcwcyc",
+        "privacyStatus": "private"
+      },
+      {
+        "id": "UExCQ0YyREFDNkZGQjU3NERFLkMyQjUzQkM1OTFFRTNFMEQ",
+        "playlistId": "PLBCF2DAC6FFB574DE",
+        "position": 4,
+        "title": "Mark Kempton: Neighbors In Need",
+        "description": "Follow Mark on Google+: https://profiles.google.com/u/0/105705606437451864842\r\n\r\nWhen floodwaters hit northeast Australia, Mark's innovative search became the difference between life and death for many of his neighbors.",
+        "publishedAt": "2011-11-22T15:29:40Z",
+        "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "channelTitle": "Google Search Stories",
+        "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+        "videoOwnerChannelTitle": "Google Search Stories",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XDgC4FMftpg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XDgC4FMftpg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XDgC4FMftpg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XDgC4FMftpg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "videoId": "XDgC4FMftpg",
+        "videoPublishedAt": "2011-11-21T20:36:57Z",
+        "privacyStatus": "public"
+      }
+    ],
+    "nextCursor": "EAAaHlBUOkNBVWlFRGsxTWtORE9FUkVRVGt3UmpjNU9FWQ",
+    "totalResults": 13,
+    "resultsPerPage": 5
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/youtube/v3/playlistItems": {
+        "response": {
+          "kind": "youtube#playlistItemListResponse",
+          "etag": "uzUAnbR62aB6_y6N1yrZJi3Rk-Q",
+          "nextPageToken": "EAAaHlBUOkNBVWlFRGsxTWtORE9FUkVRVGt3UmpjNU9FWQ",
+          "items": [
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "-0yYZ6lbIjqKok0Nq5MB-s3BFS4",
+              "id": "UExCQ0YyREFDNkZGQjU3NERFLkE2OTA3QzIwNEI3RjYxMDE",
+              "snippet": {
+                "publishedAt": "2013-10-18T14:55:24Z",
+                "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+                "title": "Andrew Willis, Skatepark Engineer",
+                "description": "Andrew Willis built a skatepark in East London using reclaimed materials left over from the Olympic Games, creating a lasting legacy for the local community of Hackney Wick.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/GvgqDSnpRQM/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  }
+                },
+                "channelTitle": "Google Search Stories",
+                "playlistId": "PLBCF2DAC6FFB574DE",
+                "position": 0,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "GvgqDSnpRQM"
+                },
+                "videoOwnerChannelTitle": "Google Search Stories",
+                "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w"
+              },
+              "contentDetails": {
+                "videoId": "GvgqDSnpRQM",
+                "videoPublishedAt": "2013-10-18T07:03:29Z"
+              },
+              "status": {
+                "privacyStatus": "public"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "LQfyfBfkkWBpZx41nmCWLj6pyvw",
+              "id": "UExCQ0YyREFDNkZGQjU3NERFLjU5NzE2QkNERURDRTE5NDc",
+              "snippet": {
+                "publishedAt": "2011-09-23T04:52:44Z",
+                "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+                "title": "Private video",
+                "description": "This video is private.",
+                "thumbnails": {},
+                "channelTitle": "Google Search Stories",
+                "playlistId": "PLBCF2DAC6FFB574DE",
+                "position": 1,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "fIc_VEQ7Vo0"
+                }
+              },
+              "contentDetails": {
+                "videoId": "fIc_VEQ7Vo0"
+              },
+              "status": {
+                "privacyStatus": "private"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "-asIb8uUmazwy21yLWDs24npIfA",
+              "id": "UExCQ0YyREFDNkZGQjU3NERFLkZGQjNGMEFDQ0U0MzBCMzc",
+              "snippet": {
+                "publishedAt": "2011-11-22T15:29:40Z",
+                "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+                "title": "Mark Lesek: A New/Old Prosthetic",
+                "description": "Follow Mark on Google+: https://plus.google.com/u/0/114778778979884307299/about\r\n\r\nMark lost his arm several years ago. Now his search for a better prosthetic could improve the lives of amputees everywhere.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/V4DDt30Aat4/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/V4DDt30Aat4/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/V4DDt30Aat4/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/V4DDt30Aat4/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  }
+                },
+                "channelTitle": "Google Search Stories",
+                "playlistId": "PLBCF2DAC6FFB574DE",
+                "position": 2,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "V4DDt30Aat4"
+                },
+                "videoOwnerChannelTitle": "Google Search Stories",
+                "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w"
+              },
+              "contentDetails": {
+                "videoId": "V4DDt30Aat4",
+                "videoPublishedAt": "2011-11-21T19:11:41Z"
+              },
+              "status": {
+                "privacyStatus": "public"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "Xx7Ir2g2cYUVnFLvhlzya-jmbys",
+              "id": "UExCQ0YyREFDNkZGQjU3NERFLkFBRDU2ODRCNTgwMzA2RTQ",
+              "snippet": {
+                "publishedAt": "2011-10-20T01:02:11Z",
+                "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+                "title": "Private video",
+                "description": "This video is private.",
+                "thumbnails": {},
+                "channelTitle": "Google Search Stories",
+                "playlistId": "PLBCF2DAC6FFB574DE",
+                "position": 3,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "07718Vcwcyc"
+                }
+              },
+              "contentDetails": {
+                "videoId": "07718Vcwcyc"
+              },
+              "status": {
+                "privacyStatus": "private"
+              }
+            },
+            {
+              "kind": "youtube#playlistItem",
+              "etag": "Ssp2S33rwiyGtJSGSduDeQax4Ec",
+              "id": "UExCQ0YyREFDNkZGQjU3NERFLkMyQjUzQkM1OTFFRTNFMEQ",
+              "snippet": {
+                "publishedAt": "2011-11-22T15:29:40Z",
+                "channelId": "UCvceBgMIpKb4zK1ss-Sh90w",
+                "title": "Mark Kempton: Neighbors In Need",
+                "description": "Follow Mark on Google+: https://profiles.google.com/u/0/105705606437451864842\r\n\r\nWhen floodwaters hit northeast Australia, Mark's innovative search became the difference between life and death for many of his neighbors.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/XDgC4FMftpg/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/XDgC4FMftpg/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/XDgC4FMftpg/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/XDgC4FMftpg/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  }
+                },
+                "channelTitle": "Google Search Stories",
+                "playlistId": "PLBCF2DAC6FFB574DE",
+                "position": 4,
+                "resourceId": {
+                  "kind": "youtube#video",
+                  "videoId": "XDgC4FMftpg"
+                },
+                "videoOwnerChannelTitle": "Google Search Stories",
+                "videoOwnerChannelId": "UCvceBgMIpKb4zK1ss-Sh90w"
+              },
+              "contentDetails": {
+                "videoId": "XDgC4FMftpg",
+                "videoPublishedAt": "2011-11-21T20:36:57Z"
+              },
+              "status": {
+                "privacyStatus": "public"
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 13,
+            "resultsPerPage": 5
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 17:41:07 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1777570901",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "0a0d087220bfe897ada9359e55d873edd9b5da32",
+        "request": {
+          "params": {
+            "maxResults": "5",
+            "part": "snippet,contentDetails,status",
+            "playlistId": "PLBCF2DAC6FFB574DE"
+          }
+        }
+      }
+    }
+  }
+}

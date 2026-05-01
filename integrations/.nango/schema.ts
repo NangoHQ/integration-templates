@@ -22555,29 +22555,22 @@ export interface SyncMetadata_shopify_orders {
 
 export interface Channel {
   id: string;
-  name?: string | undefined;
-  name_normalized?: string | undefined;
-  created: number;
-  creator?: string | undefined;
-  is_archived: boolean;
-  is_general: boolean;
-  is_private: boolean;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_shared?: boolean | undefined;
-  is_org_shared?: boolean | undefined;
-  is_ext_shared?: boolean | undefined;
-  is_pending_ext_shared?: boolean | undefined;
-  is_member?: boolean | undefined;
-  num_members?: number | undefined;
-  topic: {  value: string;
-  creator?: string | undefined;
-  last_set: number;};
-  purpose: {  value: string;
-  creator?: string | undefined;
-  last_set: number;};
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
 };
 
 export interface SyncMetadata_slack_channels {
@@ -26871,6 +26864,848 @@ export interface ActionOutput_xero_updatepurchaseorder {
   status_attribute_string?: string | undefined;
   validation_errors?: ({  [key: string]: unknown | undefined;})[];
   warnings?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface CaptionTrack {
+  /**
+   * The ID that YouTube uses to uniquely identify the caption track
+   */
+  id: string;
+  /**
+   * The ID of the video associated with the caption track
+   */
+  video_id: string;
+  /**
+   * The date and time when the caption track was last updated in ISO 8601 format
+   */
+  last_updated: string;
+  /**
+   * The caption track type: ASR, forced, or standard
+   */
+  track_kind?: string | undefined;
+  /**
+   * The language of the caption track as a BCP-47 language tag
+   */
+  language?: string | undefined;
+  /**
+   * The name of the caption track visible to users during playback
+   */
+  name?: string | undefined;
+  /**
+   * The type of audio track: commentary, descriptive, primary, or unknown
+   */
+  audio_track_type?: string | undefined;
+  /**
+   * Whether the track contains closed captions for the deaf and hard of hearing
+   */
+  is_cc?: boolean | undefined;
+  /**
+   * Whether the caption track uses large text for the vision-impaired
+   */
+  is_large?: boolean | undefined;
+  /**
+   * Whether the caption track is formatted for easy reader at third-grade level
+   */
+  is_easy_reader?: boolean | undefined;
+  /**
+   * Whether the caption track is a draft and not publicly visible
+   */
+  is_draft?: boolean | undefined;
+  /**
+   * Whether YouTube synchronized the caption track to the audio track
+   */
+  is_auto_synced?: boolean | undefined;
+  /**
+   * The caption track status: failed, serving, or syncing
+   */
+  status?: string | undefined;
+  /**
+   * The reason YouTube failed to process the caption track
+   */
+  failure_reason?: string | undefined;
+};
+
+export interface ChannelPlaylist {
+  /**
+   * The ID that YouTube uses to uniquely identify the playlist
+   */
+  id: string;
+  /**
+   * The ID of the channel that owns the playlist
+   */
+  channelId: string;
+  /**
+   * The channel title of the channel that owns the playlist
+   */
+  channelTitle?: string | undefined;
+  /**
+   * The playlist title
+   */
+  title: string;
+  /**
+   * The playlist description
+   */
+  description?: string | undefined;
+  /**
+   * The playlist privacy status: private, public, or unlisted
+   */
+  privacyStatus?: string | undefined;
+  /**
+   * The number of videos in the playlist
+   */
+  itemCount?: number | undefined;
+  /**
+   * The date and time that the playlist was created
+   */
+  publishedAt: string;
+  /**
+   * URL of the default thumbnail for the playlist
+   */
+  thumbnailUrl?: string | undefined;
+};
+
+export interface SyncMetadata_youtube_channelplaylists {
+  channelIds?: string[] | undefined;
+};
+
+export interface CommentThread {
+  id: string;
+  videoId: string;
+  channelId?: string | undefined;
+  topLevelComment: {  id: string;
+  author: {  channelId?: string | undefined;
+  displayName: string;
+  profileImageUrl?: string | undefined;
+  channelUrl?: string | undefined;};
+  textOriginal: string;
+  textDisplay: string;
+  likeCount: number;
+  publishedAt: string;
+  updatedAt: string;
+  parentId?: string | undefined;};
+  replies: ({  id: string;
+  author: {  channelId?: string | undefined;
+  displayName: string;
+  profileImageUrl?: string | undefined;
+  channelUrl?: string | undefined;};
+  textOriginal: string;
+  textDisplay: string;
+  likeCount: number;
+  publishedAt: string;
+  updatedAt: string;
+  parentId?: string | undefined;})[];
+  totalReplyCount: number;
+  canReply?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  etag: string;
+};
+
+export interface PlaylistItem {
+  id: string;
+  playlist_id: string;
+  video_id: string;
+  position: number;
+  published_at: string;
+  channel_id?: string | undefined;
+  channel_title?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  privacy_status?: string | undefined;
+  video_owner_channel_id?: string | undefined;
+  video_owner_channel_title?: string | undefined;
+  video_published_at?: string | undefined;
+};
+
+export interface SyncMetadata_youtube_playlistitems {
+  playlist_ids?: string[] | undefined;
+};
+
+export interface UploadedVideo {
+  id: string;
+  title: string;
+  description: string;
+  channelId: string;
+  channelTitle?: string | undefined;
+  publishedAt: string;
+  playlistItemId: string;
+  position?: number | undefined;
+  thumbnails?: {  [key: string]: any | undefined;};
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  statistics?: {  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  commentCount?: string | undefined;};
+  status?: {  privacyStatus?: string | undefined;
+  uploadStatus?: string | undefined;
+  license?: string | undefined;
+  embeddable?: boolean | undefined;};
+};
+
+export interface ActionInput_youtube_addplaylistitem {
+  /**
+   * The ID of the playlist to add the video to. Example: "PLxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+  /**
+   * The YouTube video ID to add to the playlist. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+  /**
+   * The position to insert the video into the playlist (0-based). If not specified, the video is added to the end.
+   */
+  position?: number | undefined;
+};
+
+export interface ActionOutput_youtube_addplaylistitem {
+  id: string;
+  playlistId: string;
+  videoId: string;
+  position?: number | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionInput_youtube_createcommentreply {
+  /**
+   * The ID of the parent comment to reply to. Example: "UgyYYtDkvwfR2g4Y8HZ4AaABAg"
+   */
+  parentId: string;
+  /**
+   * The original text of the reply. Example: "Thanks for watching!"
+   */
+  textOriginal: string;
+};
+
+export interface ActionOutput_youtube_createcommentreply {
+  id: string;
+  parentId?: string | undefined;
+  textOriginal?: string | undefined;
+  authorDisplayName?: string | undefined;
+  authorProfileImageUrl?: string | undefined;
+  authorChannelUrl?: string | undefined;
+  authorChannelId?: string | undefined;
+  videoId?: string | undefined;
+  likeCount?: number | undefined;
+  publishedAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_createcomment {
+  /**
+   * The ID of the video to comment on. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+  /**
+   * The ID of the channel that owns the video. Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channelId: string;
+  /**
+   * The text content of the comment. Example: "Great video!"
+   */
+  text: string;
+};
+
+export interface ActionOutput_youtube_createcomment {
+  commentThreadId: string;
+  commentId: string;
+  channelId: string;
+  videoId: string;
+  textDisplay: string;
+  textOriginal: string;
+  authorDisplayName: string;
+  authorChannelId?: string | undefined;
+  publishedAt: string;
+  updatedAt: string;
+  likeCount?: number | undefined;
+  canReply?: boolean | undefined;
+  totalReplyCount?: number | undefined;
+  isPublic?: boolean | undefined;
+};
+
+export interface ActionInput_youtube_createplaylist {
+  /**
+   * The title of the playlist.
+   */
+  title: string;
+  /**
+   * The description of the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * The privacy status of the playlist.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+};
+
+export interface ActionOutput_youtube_createplaylist {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  privacyStatus?: string | undefined;
+};
+
+export interface ActionInput_youtube_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "UgyR8T-2e8gRcv1o0zN4AaABAg"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_youtube_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_youtube_deleteplaylistitem {
+  /**
+   * The ID of the playlist item to delete. Example: "PL1234567890abcdefABCDEF1234567890abcdefAB"
+   */
+  playlistItemId: string;
+};
+
+export interface ActionOutput_youtube_deleteplaylistitem {
+  /**
+   * Whether the playlist item was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_youtube_deleteplaylist {
+  /**
+   * The YouTube playlist ID to delete. Example: "PLxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+};
+
+export interface ActionOutput_youtube_deleteplaylist {
+  success: boolean;
+  playlistId: string;
+};
+
+export interface ActionInput_youtube_deletevideo {
+  /**
+   * The ID of the video to delete. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_deletevideo {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_youtube_getchannel {
+  id?: string | undefined;
+  forHandle?: string | undefined;
+  forUsername?: string | undefined;
+  mine?: boolean | undefined;
+};
+
+export interface ActionOutput_youtube_getchannel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnails?: {  [key: string]: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};};
+  country?: string | undefined;
+  viewCount?: string | undefined;
+  subscriberCount?: string | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: string | undefined;
+  relatedPlaylists?: {  likes?: string | undefined;
+  favorites?: string | undefined;
+  uploads?: string | undefined;};
+  brandingSettings?: {  channel?: {  title?: string | undefined;
+  description?: string | undefined;
+  keywords?: string | undefined;
+  defaultTab?: string | undefined;
+  trackingAnalyticsAccountId?: string | undefined;
+  moderateComments?: boolean | undefined;
+  showRelatedChannels?: boolean | undefined;
+  showBrowseView?: boolean | undefined;
+  featuredChannelsTitle?: string | undefined;
+  featuredChannelsUrls?: string[] | undefined;
+  unsubscribedTrailer?: string | undefined;
+  profileColor?: string | undefined;
+  defaultLanguage?: string | undefined;
+  country?: string | undefined;};
+  image?: {  bannerImageUrl?: string | undefined;
+  bannerMobileImageUrl?: string | undefined;
+  bannerTabletLowImageUrl?: string | undefined;
+  bannerTabletImageUrl?: string | undefined;
+  bannerTabletHdImageUrl?: string | undefined;
+  bannerTabletExtraHdImageUrl?: string | undefined;
+  bannerMobileLowImageUrl?: string | undefined;
+  bannerMobileMediumHdImageUrl?: string | undefined;
+  bannerMobileHdImageUrl?: string | undefined;
+  bannerMobileExtraHdImageUrl?: string | undefined;
+  bannerTvImageUrl?: string | undefined;
+  bannerTvLowImageUrl?: string | undefined;
+  bannerTvMediumImageUrl?: string | undefined;
+  bannerTvHighImageUrl?: string | undefined;
+  bannerExternalUrl?: string | undefined;};
+  watch?: {  textColor?: string | undefined;
+  backgroundColor?: string | undefined;
+  featuredPlaylistId?: string | undefined;};};
+};
+
+export interface ActionInput_youtube_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "UgxT9K7pHq8QfC2z3t4"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_youtube_getcomment {
+  id: string;
+  authorDisplayName?: string | undefined;
+  authorProfileImageUrl?: string | undefined;
+  authorChannelUrl?: string | undefined;
+  authorChannelId?: string | undefined;
+  channelId?: string | undefined;
+  textDisplay?: string | undefined;
+  textOriginal?: string | undefined;
+  parentId?: string | undefined;
+  canRate?: boolean | undefined;
+  viewerRating?: string | undefined;
+  likeCount?: number | undefined;
+  moderationStatus?: string | undefined;
+  publishedAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_getplaylist {
+  /**
+   * The ID of the YouTube playlist to retrieve. Example: "PLxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+};
+
+export interface ActionOutput_youtube_getplaylist {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  itemCount?: number | undefined;
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+  thumbnails?: {  [key: string]: {  url: string;
+  width: number;
+  height: number;};} | undefined;
+};
+
+export interface ActionInput_youtube_getvideo {
+  /**
+   * YouTube video ID. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_getvideo {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  duration?: string | undefined;
+  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  commentCount?: string | undefined;
+  privacyStatus?: string | undefined;
+  thumbnails?: any | undefined;
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  definition?: string | undefined;
+  caption?: string | undefined;
+  embeddable?: boolean | undefined;
+};
+
+export interface ActionInput_youtube_listcaptions {
+  /**
+   * The YouTube video ID of the video for which to return caption tracks. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_listcaptions {
+  items: ({  id: string;
+  videoId?: string | undefined;
+  lastUpdated?: string | undefined;
+  trackKind?: string | undefined;
+  language?: string | undefined;
+  name?: string | undefined;
+  audioTrackType?: string | undefined;
+  isCC?: boolean | undefined;
+  isLarge?: boolean | undefined;
+  isEasyReader?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  isAutoSynced?: boolean | undefined;
+  status?: string | undefined;
+  failureReason?: string | undefined;})[];
+  /**
+   * The token for the next page of results.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_youtube_listchannelplaylists {
+  /**
+   * The YouTube channel ID. Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channelId: string;
+  /**
+   * Maximum number of playlists to return (1-50). Default: 5
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token for the next page of results
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listchannelplaylists {
+  playlists: ({  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  publishedAt?: string | undefined;
+  privacyStatus?: string | undefined;
+  itemCount?: number | undefined;
+  thumbnails?: {  [key: string]: {  url: string;
+  width?: number | undefined;
+  height?: number | undefined;};};})[];
+  nextPageToken?: string | undefined;
+  prevPageToken?: string | undefined;
+  totalResults: number;
+};
+
+export interface ActionInput_youtube_listcommentthreads {
+  /**
+   * The video ID to retrieve comment threads for. Example: "dQw4w9WgXcQ"
+   */
+  videoId?: string | undefined;
+  /**
+   * The channel ID to retrieve all comment threads for.
+   */
+  allThreadsRelatedToChannelId?: string | undefined;
+  /**
+   * The token for the next page of results.
+   */
+  pageToken?: string | undefined;
+  /**
+   * Maximum number of results to return (1-100). Default: 20.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order of comment threads. time (default) or relevance.
+   */
+  order?: 'time' | 'relevance' | undefined;
+  /**
+   * Search terms to filter comments.
+   */
+  searchTerms?: string | undefined;
+  /**
+   * Format of comments. html (default) or plainText.
+   */
+  textFormat?: 'html' | 'plainText' | undefined;
+};
+
+export interface ActionOutput_youtube_listcommentthreads {
+  items: ({  id: string;
+  videoId?: string | undefined;
+  channelId?: string | undefined;
+  topLevelCommentId?: string | undefined;
+  topLevelCommentAuthor?: string | undefined;
+  topLevelCommentText?: string | undefined;
+  topLevelCommentPublishedAt?: string | undefined;
+  topLevelCommentLikeCount?: number | undefined;
+  totalReplyCount?: number | undefined;
+  canReply?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  replies?: ({  id: string;
+  author?: string | undefined;
+  text?: string | undefined;
+  publishedAt?: string | undefined;
+  likeCount?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_youtube_listplaylistitems {
+  /**
+   * The ID of the YouTube playlist to list items from. Example: "PLBCF2DAC6FFB574DE"
+   */
+  playlistId: string;
+  /**
+   * The maximum number of items to return (1-50, default 50).
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listplaylistitems {
+  /**
+   * The playlist items returned.
+   */
+  items: ({  /**
+   * The unique ID of the playlist item.
+   */
+  id: string;
+  /**
+   * The ID of the playlist this item belongs to.
+   */
+  playlistId?: string | undefined;
+  /**
+   * The ID of the video in this playlist item.
+   */
+  videoId?: string | undefined;
+  /**
+   * The position of the item in the playlist (0-indexed).
+   */
+  position?: number | undefined;
+  /**
+   * The title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the video.
+   */
+  description?: string | undefined;
+  /**
+   * The date and time the item was added to the playlist.
+   */
+  publishedAt?: string | undefined;
+  /**
+   * The ID of the channel that owns the playlist.
+   */
+  channelId?: string | undefined;
+  /**
+   * The title of the channel that owns the playlist.
+   */
+  channelTitle?: string | undefined;
+  /**
+   * The ID of the channel that uploaded the video.
+   */
+  videoOwnerChannelId?: string | undefined;
+  /**
+   * The title of the channel that uploaded the video.
+   */
+  videoOwnerChannelTitle?: string | undefined;
+  /**
+   * The privacy status of the video (public, unlisted, private).
+   */
+  privacyStatus?: string | undefined;
+  /**
+   * The date and time the video was published.
+   */
+  videoPublishedAt?: string | undefined;
+  /**
+   * Thumbnail images for the video.
+   */
+  thumbnails?: {  [key: string]: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};};})[];
+  /**
+   * Token for the next page of results. Omit if no more results.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of results available.
+   */
+  totalResults?: number | undefined;
+  /**
+   * Number of results returned per page.
+   */
+  resultsPerPage?: number | undefined;
+};
+
+export interface ActionInput_youtube_listuploadedvideos {
+  /**
+   * YouTube channel ID. If omitted, uses the authenticated user's channel ("mine"). Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listuploadedvideos {
+  items: ({  id: string;
+  title: string;
+  description?: string | undefined;
+  published_at: string;
+  channel_id: string;
+  channel_title?: string | undefined;
+  video_id: string;
+  thumbnail_url?: string | undefined;
+  position?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_youtube_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "UgzDE2pQ6kCHY1EaXcJ4AaABAg"
+   */
+  id: string;
+  /**
+   * The new text content for the comment.
+   */
+  textOriginal: string;
+};
+
+export interface ActionOutput_youtube_updatecomment {
+  id: string;
+  authorDisplayName: string;
+  authorChannelId?: string | undefined;
+  textDisplay: string;
+  textOriginal: string;
+  likeCount?: number | undefined;
+  publishedAt: string;
+  updatedAt: string;
+  videoId?: string | undefined;
+  parentId?: string | undefined;
+  channelId?: string | undefined;
+};
+
+export interface ActionInput_youtube_updateplaylistitem {
+  id: string;
+  playlistId: string;
+  resourceId: {  kind: string;
+  videoId: string;};
+  position?: number | undefined;
+  note?: string | undefined;
+  startAt?: string | undefined;
+  endAt?: string | undefined;
+};
+
+export interface ActionOutput_youtube_updateplaylistitem {
+  id: string;
+  playlistId: string;
+  videoId: string;
+  position?: number | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  thumbnails?: any | undefined;
+  note?: string | undefined;
+  startAt?: string | undefined;
+  endAt?: string | undefined;
+  privacyStatus?: string | undefined;
+  videoPublishedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_updateplaylist {
+  /**
+   * The ID of the playlist to update. Example: "PLBCF2DAC6FFB6DE8"
+   */
+  id: string;
+  /**
+   * The title of the playlist.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * The privacy status of the playlist.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+};
+
+export interface ActionOutput_youtube_updateplaylist {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  privacyStatus: 'public' | 'unlisted' | 'private';
+};
+
+export interface ActionInput_youtube_updatevideo {
+  /**
+   * The ID of the video to update. Example: "dQw4w9WgXcQ"
+   */
+  id: string;
+  snippet?: {  /**
+   * The title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the video.
+   */
+  description?: string | undefined;
+  /**
+   * Tags associated with the video.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The category ID for the video.
+   */
+  categoryId?: string | undefined;
+  /**
+   * The default language of the video.
+   */
+  defaultLanguage?: string | undefined;};
+  status?: {  /**
+   * The privacy status of the video.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+  /**
+   * The license of the video.
+   */
+  license?: 'youtube' | 'creativeCommon' | undefined;
+  /**
+   * Whether the video can be embedded.
+   */
+  embeddable?: boolean | undefined;
+  /**
+   * Whether the public can view video statistics.
+   */
+  publicStatsViewable?: boolean | undefined;
+  /**
+   * Scheduled publish time (ISO 8601). Requires privacyStatus to be private.
+   */
+  publishAt?: string | undefined;
+  /**
+   * Whether the video is self-declared as made for kids.
+   */
+  selfDeclaredMadeForKids?: boolean | undefined;
+  /**
+   * Whether the video contains synthetic media.
+   */
+  containsSyntheticMedia?: boolean | undefined;};
+  /**
+   * Localized titles and descriptions by language code.
+   */
+  localizations?: {  [key: string]: {  title?: string | undefined;
+  description?: string | undefined;};};
+  recordingDetails?: {  /**
+   * The date the video was recorded (ISO 8601).
+   */
+  recordingDate?: string | undefined;};
+};
+
+export interface ActionOutput_youtube_updatevideo {
+  id: string;
+  snippet?: {  title: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  defaultLanguage?: string | undefined;};
+  status?: {  privacyStatus?: string | undefined;
+  license?: string | undefined;
+  embeddable?: boolean | undefined;
+  publicStatsViewable?: boolean | undefined;
+  publishAt?: string | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+  containsSyntheticMedia?: boolean | undefined;};
+  localizations?: {  [key: string]: {  title?: string | undefined;
+  description?: string | undefined;};};
+  recordingDetails?: {  recordingDate?: string | undefined;};
 };
 
 export interface SyncMetadata_zendesk_articles {
