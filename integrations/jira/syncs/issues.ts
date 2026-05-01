@@ -1,112 +1,235 @@
 import { createSync } from 'nango';
-import type { JiraIssueResponse } from '../types.js';
-import { toIssues } from '../mappers/toIssues.js';
-import { getCloudData } from '../helpers/get-cloud-data.js';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { Issue, JiraIssueMetadata } from '../models.js';
+const IssueSchema = z.object({
+    id: z.string(),
+    key: z.string(),
+    self: z.string(),
+    web_url: z.string().optional(),
+    summary: z.string().optional(),
+    description: z.unknown().optional(),
+    status: z.string().optional(),
+    issue_type: z.string().optional(),
+    priority: z.string().optional(),
+    project_id: z.string().optional(),
+    project_key: z.string().optional(),
+    reporter_id: z.string().optional(),
+    assignee_id: z.string().optional(),
+    creator_id: z.string().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional(),
+    labels: z.array(z.string()).optional()
+});
 
-/**
- * Fetches and processes Jira issues data.
- * The function constructs a JQL query based on the last sync date and specified projects,
- * and uses pagination to fetch data in batches.
- *
- * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
- */
+const CheckpointSchema = z.object({
+    updated_after: z.string(),
+    next_page_token: z.string(),
+    jql: z.string()
+});
+
+const StoredCheckpointSchema = z.object({
+    updated_after: z.string().optional(),
+    next_page_token: z.string().optional(),
+    jql: z.string().optional()
+});
+
+const MetadataSchema = z.object({
+    jql: z.string().optional(),
+    cloudId: z.string().optional(),
+    baseUrl: z.string().optional()
+});
+
+type AccessibleResource = {
+    id: string;
+    url: string;
+};
+
+type JiraIssue = {
+    id: string;
+    key: string;
+    self: string;
+    fields?: {
+        summary?: string;
+        description?: unknown;
+        status?: { name?: string };
+        issuetype?: { name?: string };
+        priority?: { name?: string };
+        project?: { id?: string; key?: string };
+        reporter?: { accountId?: string };
+        assignee?: { accountId?: string } | null;
+        creator?: { accountId?: string };
+        created?: string;
+        updated?: string;
+        labels?: string[];
+    };
+};
+
+type IssueRecord = {
+    id: string;
+    key: string;
+    self: string;
+    web_url?: string;
+    summary?: string;
+    description?: unknown;
+    status?: string;
+    issue_type?: string;
+    priority?: string;
+    project_id?: string;
+    project_key?: string;
+    reporter_id?: string;
+    assignee_id?: string;
+    creator_id?: string;
+    created_at?: string;
+    updated_at?: string;
+    labels?: string[];
+};
+
+function normalizeJql(jql: string | undefined): string {
+    return (jql ?? '').replace(/\s+ORDER\s+BY[\s\S]*$/i, '').trim();
+}
+
 const sync = createSync({
-    description: 'Fetches a list of issues from Jira',
-    version: '2.0.1',
-    frequency: 'every 5mins',
-    autoStart: false,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/issues',
-            group: 'Issues'
-        }
-    ],
-
-    scopes: ['read:jira-work'],
-
+    description: 'Sync Jira issues using JQL-backed search with incremental updates',
+    version: '3.0.0',
+    frequency: 'every 5 minutes',
+    autoStart: true,
+    endpoints: [{ method: 'GET', path: '/syncs/issues' }],
+    checkpoint: CheckpointSchema,
+    metadata: MetadataSchema,
     models: {
-        Issue: Issue
+        Issue: IssueSchema
     },
 
-    metadata: JiraIssueMetadata,
-
     exec: async (nango) => {
-        const metadata = await nango.getMetadata<JiraIssueMetadata>();
-        let jql = '';
-        if (nango.lastSyncDate) {
-            if (metadata?.timeZone) {
-                // @allowTryCatch
-                try {
-                    // Validate timezone
-                    Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
+        const parsedCheckpoint = StoredCheckpointSchema.safeParse(await nango.getCheckpoint());
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
 
-                    // Format date in the specified timezone
-                    const formatter = new Intl.DateTimeFormat('sv-SE', {
-                        timeZone: metadata.timeZone,
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    });
-                    const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
-                    jql = `updated >= "${formattedDate}"`;
-                } catch {
-                    await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
-                    jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
-                }
-            } else {
-                jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
-            }
+        const parsedMetadata = MetadataSchema.safeParse(await nango.getMetadata());
+        const metadata = parsedMetadata.success ? parsedMetadata.data : undefined;
+
+        let cloudId = metadata?.cloudId;
+        let baseUrl = metadata?.baseUrl;
+
+        if (!cloudId || !baseUrl) {
+            const connection = await nango.getConnection();
+            cloudId = connection.connection_config?.['cloudId'];
+            baseUrl = connection.connection_config?.['baseUrl'];
         }
 
-        const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
-        const cloud = await getCloudData(nango);
+        if (!cloudId || !baseUrl) {
+            // https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#2-get-the-cloudid-for-your-site
+            const response = await nango.get<AccessibleResource[]>({
+                endpoint: 'oauth/token/accessible-resources',
+                retries: 3
+            });
 
-        let projectJql = '';
-        if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
-            const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
-            projectJql = `project in (${projectIdsString})`;
-        } else {
-            if (!metadata) {
-                throw new Error('Required metadata not found for issues sync');
-            } else if (!metadata.projectIdsToSync || metadata.projectIdsToSync.length === 0) {
-                throw new Error('No projects configured for issues sync');
+            const resources = Array.isArray(response.data) ? response.data : [];
+            const site = resources[0];
+            if (!site) {
+                throw new Error('No accessible Jira site found');
             }
+
+            cloudId = site.id;
+            baseUrl = site.url;
+
+            await nango.updateMetadata({
+                jql: metadata?.jql,
+                cloudId,
+                baseUrl
+            });
         }
 
-        const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
-        const config: ProxyConfiguration = {
+        const configuredJql = normalizeJql(metadata?.jql);
+        const checkpointMatchesConfiguredJql = !checkpoint || (checkpoint.jql ?? '') === configuredJql;
+        const updatedAfter = checkpointMatchesConfiguredJql ? checkpoint?.updated_after : undefined;
+        let nextPageToken = checkpointMatchesConfiguredJql ? checkpoint?.next_page_token : undefined;
+
+        const initialBackfillFilter = !updatedAfter && !configuredJql ? 'updated >= "1970-01-01"' : '';
+        const jqlClauses = [configuredJql ? `(${configuredJql})` : '', updatedAfter ? `updated >= "${updatedAfter}"` : initialBackfillFilter].filter(Boolean);
+        const finalJql = jqlClauses.length > 0 ? `${jqlClauses.join(' AND ')} ORDER BY updated ASC` : 'ORDER BY updated ASC';
+
+        const params: Record<string, string | number> = {
+            jql: finalJql,
+            fields: 'summary,description,status,issuetype,priority,project,reporter,assignee,creator,created,updated,labels'
+        };
+
+        if (nextPageToken) {
+            params['nextPageToken'] = nextPageToken;
+        }
+
+        const proxyConfig = {
             // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-get
-            endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search/jql`,
-            params: {
-                jql: finalJql,
-                fields: fields
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'nextPageToken',
-                cursor_name_in_request: 'nextPageToken',
-                response_path: 'issues',
-                limit_name_in_request: 'maxResults',
-                limit: 50
-            },
+            endpoint: `/ex/jira/${cloudId}/rest/api/3/search/jql`,
+            params,
             headers: {
                 'X-Atlassian-Token': 'no-check'
             },
-            retries: 10
-        };
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'nextPageToken',
+                cursor_path_in_response: 'nextPageToken',
+                response_path: 'issues',
+                limit_name_in_request: 'maxResults',
+                limit: 50,
+                on_page: async (paginationState: { nextPageParam?: string | number | undefined; response: unknown }) => {
+                    const nextPageParam = paginationState.nextPageParam;
+                    nextPageToken = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        } satisfies import('nango').ProxyConfiguration;
 
-        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-get
-        for await (const issues of nango.paginate<JiraIssueResponse>(config)) {
-            const issuesToSave = toIssues(issues, cloud.baseUrl);
-            await nango.batchSave(issuesToSave, 'Issue');
+        for await (const page of nango.paginate<JiraIssue>(proxyConfig)) {
+            const issues: IssueRecord[] = page.map((issue) => {
+                const fields = issue.fields || {};
+                return {
+                    id: issue.id,
+                    key: issue.key,
+                    self: issue.self,
+                    web_url: `${baseUrl}/browse/${issue.key}`,
+                    ...(fields.summary ? { summary: fields.summary } : {}),
+                    ...(fields.description ? { description: fields.description } : {}),
+                    ...(fields.status?.name ? { status: fields.status.name } : {}),
+                    ...(fields.issuetype?.name ? { issue_type: fields.issuetype.name } : {}),
+                    ...(fields.priority?.name ? { priority: fields.priority.name } : {}),
+                    ...(fields.project?.id ? { project_id: fields.project.id } : {}),
+                    ...(fields.project?.key ? { project_key: fields.project.key } : {}),
+                    ...(fields.reporter?.accountId ? { reporter_id: fields.reporter.accountId } : {}),
+                    ...(fields.assignee?.accountId ? { assignee_id: fields.assignee.accountId } : {}),
+                    ...(fields.creator?.accountId ? { creator_id: fields.creator.accountId } : {}),
+                    ...(fields.created ? { created_at: fields.created } : {}),
+                    ...(fields.updated ? { updated_at: fields.updated } : {}),
+                    ...(fields.labels ? { labels: fields.labels } : {})
+                };
+            });
+
+            if (issues.length === 0) {
+                continue;
+            }
+
+            await nango.batchSave(issues, 'Issue');
+
+            const lastIssue = issues[issues.length - 1];
+
+            if (!lastIssue) {
+                continue;
+            }
+
+            const lastUpdated = lastIssue.updated_at || '';
+
+            if (nextPageToken) {
+                await nango.saveCheckpoint({
+                    jql: configuredJql,
+                    updated_after: updatedAfter || '',
+                    next_page_token: nextPageToken
+                });
+            } else if (lastUpdated) {
+                await nango.saveCheckpoint({
+                    jql: configuredJql,
+                    updated_after: lastUpdated,
+                    next_page_token: ''
+                });
+            }
         }
     }
 });

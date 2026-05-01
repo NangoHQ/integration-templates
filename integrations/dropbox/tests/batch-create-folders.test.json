@@ -1,0 +1,95 @@
+{
+  "input": {
+    "paths": [
+      "/nango-batch-save-test-1",
+      "/nango-batch-save-test-2"
+    ]
+  },
+  "output": {
+    "completed": true,
+    "folders": [
+      {
+        "path": "/nango-batch-save-test-1",
+        "success": true,
+        "id": "id:MzePHdV-D28AAAAAAAAAYA",
+        "name": "nango-batch-save-test-1"
+      },
+      {
+        "path": "/nango-batch-save-test-2",
+        "success": true,
+        "id": "id:MzePHdV-D28AAAAAAAAAYQ",
+        "name": "nango-batch-save-test-2"
+      }
+    ],
+    "total_count": 2,
+    "success_count": 2,
+    "failure_count": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/create_folder_batch": {
+        "response": {
+          ".tag": "complete",
+          "entries": [
+            {
+              ".tag": "success",
+              "metadata": {
+                "name": "nango-batch-save-test-1",
+                "path_lower": "/nango-batch-save-test-1",
+                "path_display": "/nango-batch-save-test-1",
+                "id": "id:MzePHdV-D28AAAAAAAAAYA"
+              }
+            },
+            {
+              ".tag": "success",
+              "metadata": {
+                "name": "nango-batch-save-test-2",
+                "path_lower": "/nango-batch-save-test-2",
+                "path_display": "/nango-batch-save-test-2",
+                "id": "id:MzePHdV-D28AAAAAAAAAYQ"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 05:44:11 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1777441506",
+          "cache-control": "no-cache",
+          "x-server-response-time": "370",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "2705da929a0b4034b7ffba8369f19aab",
+          "x-dropbox-trace-id": "69f19aab0000000067d80b3e84fce21f"
+        },
+        "hash": "2115d3d157218ed924b45a6d7b80d35208c3bbe7",
+        "request": {
+          "data": {
+            "paths": [
+              "/nango-batch-save-test-1",
+              "/nango-batch-save-test-2"
+            ],
+            "autorename": false,
+            "force_async": false
+          }
+        }
+      }
+    }
+  }
+}

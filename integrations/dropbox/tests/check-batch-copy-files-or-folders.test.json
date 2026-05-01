@@ -1,0 +1,52 @@
+{
+  "input": {
+    "async_job_id": "dbjid:AACanjm8PLMcmBuolD80yQV5grTQvs0CSy0hQBzzIj6ByuuqvP0ThZBelDaSFOS5MlZoM1y6SEB_oRzbjOOvUML7"
+  },
+  "output": {
+    ".tag": "complete",
+    "entries": [
+      {
+        ".tag": "success",
+        "metadata": {
+          "name": "test-destination-file.txt",
+          "path_lower": "/test-destination-file.txt",
+          "path_display": "/test-destination-file.txt",
+          "id": "id:mockfileidcopied001",
+          "server_modified": "2026-04-29T07:00:00Z"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/copy_batch/check_v2": {
+        "response": {
+          ".tag": "complete",
+          "entries": [
+            {
+              ".tag": "success",
+              "metadata": {
+                "name": "test-destination-file.txt",
+                "path_lower": "/test-destination-file.txt",
+                "path_display": "/test-destination-file.txt",
+                "id": "id:mockfileidcopied001",
+                "server_modified": "2026-04-29T07:00:00Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "25cee2cc5a836ca6104aedd41db8b980851d6be3",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AACanjm8PLMcmBuolD80yQV5grTQvs0CSy0hQBzzIj6ByuuqvP0ThZBelDaSFOS5MlZoM1y6SEB_oRzbjOOvUML7"
+          }
+        }
+      }
+    }
+  }
+}

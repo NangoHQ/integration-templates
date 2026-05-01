@@ -1,61 +1,138 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { toJiraIssue } from '../mappers/toJiraIssue.js';
-import { getCloudData } from '../helpers/get-cloud-data.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from '../models.js';
+const InputSchema = z.object({
+    fields: z.record(z.string(), z.unknown()),
+    update: z.record(z.string(), z.unknown()).optional(),
+    historyMetadata: z.record(z.string(), z.unknown()).optional(),
+    properties: z.array(z.record(z.string(), z.unknown())).optional(),
+    transition: z.record(z.string(), z.unknown()).optional()
+});
 
-/**
- * This function handles the creation of an issue in Jira via the Nango action.
- * It validates the input issue data, maps it to the appropriate Jira issue structure,
- * and sends a request to create the issue in the Jira API.
- * For detailed endpoint documentation, refer to:
- *
- * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {CreateIssueInput} input - The issue data input that will be sent to Jira.
- * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<CreateIssueOutput>} - Returns the created issue object from Jira.
- */
+const ProviderCreatedIssueSchema = z.object({
+    id: z.string(),
+    key: z.string(),
+    self: z.string(),
+    transition: z.record(z.string(), z.unknown()).optional()
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    key: z.string(),
+    self: z.string(),
+    url: z.string(),
+    transition: z.record(z.string(), z.unknown()).optional()
+});
+
 const action = createAction({
-    description: 'An action that creates an Issue on Jira',
-    version: '2.0.0',
-
+    description: 'Create a Jira issue in a project.',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
-        path: '/issues',
+        path: '/actions/create-issue',
         group: 'Issues'
     },
-
-    input: CreateIssueInput,
-    output: CreateIssueOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['write:jira-work'],
-    metadata: JiraIssueMetadata,
 
-    exec: async (nango, input): Promise<CreateIssueOutput> => {
-        // Validate input fields: summary, issueType, and project are required
-        if (!input || !input.summary || !input.issueType || !input.project) {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+
+        let cloudId = connection.connection_config?.['cloudId'];
+        let baseUrl = connection.connection_config?.['baseUrl'];
+
+        if (!cloudId || !baseUrl) {
+            const metadata = await nango.getMetadata();
+            cloudId = cloudId || metadata?.['cloudId'];
+            baseUrl = baseUrl || metadata?.['baseUrl'];
+        }
+
+        if (!cloudId || !baseUrl) {
+            // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-oauth-2-3lo-apps/#api-rest-oauth-token-accessible-resources-get
+            const response = await nango.get({
+                endpoint: 'oauth/token/accessible-resources',
+                retries: 3
+            });
+
+            const resources = z.array(z.record(z.string(), z.unknown())).parse(response.data);
+            if (resources.length === 0) {
+                throw new nango.ActionError({
+                    type: 'no_accessible_resources',
+                    message: 'No accessible Jira resources found for this connection.'
+                });
+            }
+
+            const firstResource = resources[0];
+            if (!firstResource) {
+                throw new nango.ActionError({
+                    type: 'no_accessible_resources',
+                    message: 'No accessible Jira resources found for this connection.'
+                });
+            }
+
+            const cloudIdValue = firstResource['id'];
+            const baseUrlValue = firstResource['url'];
+
+            if (typeof cloudIdValue !== 'string' || typeof baseUrlValue !== 'string') {
+                throw new nango.ActionError({
+                    type: 'invalid_resource',
+                    message: 'Invalid resource format from accessible resources endpoint.'
+                });
+            }
+
+            cloudId = cloudIdValue;
+            baseUrl = baseUrlValue;
+        }
+
+        if (!cloudId || !baseUrl) {
             throw new nango.ActionError({
-                message: `Required fields (summary, issueType, project) are missing. Received: ${JSON.stringify(input)}`
+                type: 'missing_cloud_id',
+                message: 'Unable to resolve cloudId and baseUrl for Jira instance.'
             });
         }
 
-        const cloud = await getCloudData(nango);
+        const requestBody: Record<string, unknown> = {
+            fields: input.fields
+        };
 
-        const jiraIssue = toJiraIssue(input);
+        if (input['update'] !== undefined) {
+            requestBody['update'] = input['update'];
+        }
 
-        const config: ProxyConfiguration = {
-            //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
-            endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/issue`,
+        if (input['historyMetadata'] !== undefined) {
+            requestBody['historyMetadata'] = input['historyMetadata'];
+        }
+
+        if (input['properties'] !== undefined) {
+            requestBody['properties'] = input['properties'];
+        }
+
+        if (input['transition'] !== undefined) {
+            requestBody['transition'] = input['transition'];
+        }
+
+        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
+        const response = await nango.post({
+            endpoint: `/ex/jira/${cloudId}/rest/api/3/issue`,
+            data: requestBody,
             headers: {
                 'X-Atlassian-Token': 'no-check'
             },
-            data: jiraIssue,
-            retries: 3
+            retries: 10
+        });
+
+        const createdIssue = ProviderCreatedIssueSchema.parse(response.data);
+
+        const url = `${baseUrl}/browse/${createdIssue.key}`;
+
+        return {
+            id: createdIssue.id,
+            key: createdIssue.key,
+            self: createdIssue.self,
+            url: url,
+            ...(createdIssue.transition !== undefined && { transition: createdIssue.transition })
         };
-
-        const response = await nango.post(config);
-
-        return response.data;
     }
 });
 

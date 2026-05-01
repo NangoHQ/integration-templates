@@ -1,0 +1,232 @@
+{
+  "input": {},
+  "output": {
+    "labels": [
+      {
+        "id": "CHAT",
+        "name": "CHAT",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "SENT",
+        "name": "SENT",
+        "type": "system"
+      },
+      {
+        "id": "INBOX",
+        "name": "INBOX",
+        "type": "system"
+      },
+      {
+        "id": "IMPORTANT",
+        "name": "IMPORTANT",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "TRASH",
+        "name": "TRASH",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "DRAFT",
+        "name": "DRAFT",
+        "type": "system"
+      },
+      {
+        "id": "SPAM",
+        "name": "SPAM",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "CATEGORY_FORUMS",
+        "name": "CATEGORY_FORUMS",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "CATEGORY_UPDATES",
+        "name": "CATEGORY_UPDATES",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "CATEGORY_PERSONAL",
+        "name": "CATEGORY_PERSONAL",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "CATEGORY_PROMOTIONS",
+        "name": "CATEGORY_PROMOTIONS",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "CATEGORY_SOCIAL",
+        "name": "CATEGORY_SOCIAL",
+        "type": "system",
+        "messageListVisibility": "hide",
+        "labelListVisibility": "labelHide"
+      },
+      {
+        "id": "STARRED",
+        "name": "STARRED",
+        "type": "system"
+      },
+      {
+        "id": "UNREAD",
+        "name": "UNREAD",
+        "type": "system"
+      },
+      {
+        "id": "Label_1",
+        "name": "nango-test",
+        "type": "user",
+        "messageListVisibility": "show",
+        "labelListVisibility": "labelShow"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/gmail/v1/users/me/labels": {
+        "response": {
+          "labels": [
+            {
+              "id": "CHAT",
+              "name": "CHAT",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "SENT",
+              "name": "SENT",
+              "type": "system"
+            },
+            {
+              "id": "INBOX",
+              "name": "INBOX",
+              "type": "system"
+            },
+            {
+              "id": "IMPORTANT",
+              "name": "IMPORTANT",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "TRASH",
+              "name": "TRASH",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "DRAFT",
+              "name": "DRAFT",
+              "type": "system"
+            },
+            {
+              "id": "SPAM",
+              "name": "SPAM",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "CATEGORY_FORUMS",
+              "name": "CATEGORY_FORUMS",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "CATEGORY_UPDATES",
+              "name": "CATEGORY_UPDATES",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "CATEGORY_PERSONAL",
+              "name": "CATEGORY_PERSONAL",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "CATEGORY_PROMOTIONS",
+              "name": "CATEGORY_PROMOTIONS",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "CATEGORY_SOCIAL",
+              "name": "CATEGORY_SOCIAL",
+              "messageListVisibility": "hide",
+              "labelListVisibility": "labelHide",
+              "type": "system"
+            },
+            {
+              "id": "STARRED",
+              "name": "STARRED",
+              "type": "system"
+            },
+            {
+              "id": "UNREAD",
+              "name": "UNREAD",
+              "type": "system"
+            },
+            {
+              "id": "Label_1",
+              "name": "nango-test",
+              "messageListVisibility": "show",
+              "labelListVisibility": "labelShow",
+              "type": "user"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 17:44:25 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4961",
+          "x-ratelimit-reset": "1777484694",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "5c64622e6c45f753b3244d320662ddedcd01e3c0",
+        "request": {}
+      }
+    }
+  }
+}

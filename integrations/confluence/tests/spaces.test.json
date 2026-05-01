@@ -1,0 +1,152 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    },
+    "batchSave": {
+      "Space": [
+        {
+          "id": "98308",
+          "key": "~7120207bf4575869864e0eaefca3000196d8d2",
+          "name": "Nango Developer",
+          "type": "personal",
+          "status": "current",
+          "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "createdAt": "2026-03-19T14:23:47.384Z",
+          "homepageId": "98400",
+          "currentActiveAlias": "~7120207bf4575869864e0eaefca3000196d8d2"
+        },
+        {
+          "id": "294916",
+          "key": "MFS",
+          "name": "My first space",
+          "type": "global",
+          "status": "current",
+          "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "createdAt": "2026-03-19T14:26:44.186Z",
+          "homepageId": "295028",
+          "currentActiveAlias": "MFS"
+        },
+        {
+          "id": "4096002",
+          "key": "~712020fc90aabb8e8c49e89a13c4527edae496",
+          "name": "Ryan (Nango)",
+          "type": "personal",
+          "status": "archived",
+          "authorId": "712020:fc90aabb-8e8c-49e8-9a13-c4527edae496",
+          "createdAt": "2026-03-30T16:06:27.801Z",
+          "homepageId": "4096098",
+          "currentActiveAlias": "~712020fc90aabb8e8c49e89a13c4527edae496"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Space": []
+    }
+  },
+  "api": {
+    "get": {
+      "/wiki/api/v2/spaces": {
+        "response": {
+          "results": [
+            {
+              "spaceOwnerId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+              "createdAt": "2026-03-19T14:23:47.384Z",
+              "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+              "homepageId": "98400",
+              "icon": null,
+              "description": null,
+              "status": "current",
+              "name": "Nango Developer",
+              "key": "~7120207bf4575869864e0eaefca3000196d8d2",
+              "id": "98308",
+              "type": "personal",
+              "_links": {
+                "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+              },
+              "currentActiveAlias": "~7120207bf4575869864e0eaefca3000196d8d2"
+            },
+            {
+              "spaceOwnerId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+              "createdAt": "2026-03-19T14:26:44.186Z",
+              "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+              "homepageId": "295028",
+              "icon": null,
+              "description": null,
+              "status": "current",
+              "name": "My first space",
+              "key": "MFS",
+              "id": "294916",
+              "type": "global",
+              "_links": {
+                "webui": "/spaces/MFS"
+              },
+              "currentActiveAlias": "MFS"
+            },
+            {
+              "spaceOwnerId": "712020:fc90aabb-8e8c-49e8-9a13-c4527edae496",
+              "createdAt": "2026-03-30T16:06:27.801Z",
+              "authorId": "712020:fc90aabb-8e8c-49e8-9a13-c4527edae496",
+              "homepageId": "4096098",
+              "icon": null,
+              "description": null,
+              "status": "archived",
+              "name": "Ryan (Nango)",
+              "key": "~712020fc90aabb8e8c49e89a13c4527edae496",
+              "id": "4096002",
+              "type": "personal",
+              "_links": {
+                "webui": "/spaces/~712020fc90aabb8e8c49e89a13c4527edae496"
+              },
+              "currentActiveAlias": "~712020fc90aabb8e8c49e89a13c4527edae496"
+            }
+          ],
+          "_links": {
+            "base": "https://nango-team-test.atlassian.net/wiki"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 07:48:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1777362517",
+          "server": "AtlassianEdge",
+          "vary": "Accept-Encoding",
+          "x-confluence-request-time": "1777362496482",
+          "link": "<https://nango-team-test.atlassian.net/wiki>; rel=\"base\"",
+          "content-language": "en-US",
+          "x-trace-id": "37b73d18c2f04c53b7f5ff06611a766d",
+          "atl-traceid": "37b73d18c2f04c53b7f5ff06611a766d",
+          "atl-request-id": "37b73d18-c2f0-4c53-b7f5-ff06611a766d",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 bc4e0a32a1893d7693b91555def3133e.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "CkyKDUDbz1xHent26Xdrd-Fuh15EQMq0RjTO5ywAm8WLhdDe0m4DfA==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=252,atl-edge;dur=245,atl-edge-internal;dur=2,atl-edge-upstream;dur=243,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P4\",cdn-rid;desc=\"CkyKDUDbz1xHent26Xdrd-Fuh15EQMq0RjTO5ywAm8WLhdDe0m4DfA==\",cdn-downstream-fbl;dur=258"
+        },
+        "hash": "7121640a2193e68140d9b306b7e4f877d854e8ff",
+        "request": {
+          "params": {
+            "limit": "250"
+          }
+        }
+      }
+    }
+  }
+}

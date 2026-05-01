@@ -1,19 +1,50 @@
 import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
-import { GithubRepoFile, GithubIssueRepoInput } from '../models.js';
-
-enum Models {
-    GithubRepoFile = 'GithubRepoFile'
-}
+import { z } from 'zod';
 
 const LIMIT = 100;
 
+const MetadataSchema = z.object({
+    owner: z.string(),
+    repo: z.string(),
+    branch: z.string()
+});
+
+const GithubRepoFileSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    url: z.string(),
+    last_modified_date: z.date()
+});
+
+const CheckpointSchema = z.object({
+    synced_at: z.string()
+});
+
+const TreeItemSchema = z.object({
+    path: z.string(),
+    type: z.string(),
+    sha: z.string(),
+    url: z.string()
+});
+
+const CommitSummarySchema = z.object({
+    sha: z.string()
+});
+
+const CommitFileSchema = z.object({
+    filename: z.string(),
+    status: z.string(),
+    sha: z.string(),
+    blob_url: z.string(),
+    committer: z.object({ date: z.string() }).optional()
+});
+
 const sync = createSync({
     description: 'Lists all the files of a Github repo given a specific branch',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: false,
-    syncType: 'incremental',
 
     endpoints: [
         {
@@ -25,27 +56,30 @@ const sync = createSync({
 
     scopes: ['repo'],
 
+    checkpoint: CheckpointSchema,
+    metadata: MetadataSchema,
+
     models: {
-        GithubRepoFile: GithubRepoFile
+        GithubRepoFile: GithubRepoFileSchema
     },
 
-    metadata: GithubIssueRepoInput,
-
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-
-        if (!metadata?.owner || !metadata?.repo || !metadata?.branch) {
-            throw Error('Missing required metadata: either owner, repo, or branch might be missing');
-        }
-
+        const rawMetadata = await nango.getMetadata();
+        const metadata = MetadataSchema.parse(rawMetadata);
         const { owner, repo, branch } = metadata;
 
-        // On the first run, fetch all files. On subsequent runs, fetch only updated files.
-        if (!nango.lastSyncDate) {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
+        const syncStartedAt = new Date().toISOString();
+
+        if (!checkpoint) {
             await saveAllRepositoryFiles(nango, owner, repo, branch);
         } else {
-            await saveFileUpdates(nango, owner, repo, nango.lastSyncDate);
+            await saveFileUpdates(nango, owner, repo, new Date(checkpoint.synced_at));
         }
+
+        await nango.saveCheckpoint({ synced_at: syncStartedAt });
     }
 });
 
@@ -60,21 +94,22 @@ async function saveAllRepositoryFiles(nango: NangoSyncLocal, owner: string, repo
         // https://docs.github.com/en/rest/git/trees?apiVersion=2022-11-28
         endpoint,
         params: { recursive: '1' },
-        paginate: { response_path: 'tree', limit: LIMIT }
+        paginate: { response_path: 'tree', limit: LIMIT },
+        retries: 3
     };
 
     await nango.log(`Fetching files from endpoint ${endpoint}.`);
 
-    for await (const fileBatch of nango.paginate(proxyConfig)) {
-        const blobFiles = fileBatch.filter((item: any) => item.type === 'blob');
+    for await (const fileBatch of nango.paginate<z.infer<typeof TreeItemSchema>>(proxyConfig)) {
+        const blobFiles = fileBatch.filter((item) => item.type === 'blob');
         count += blobFiles.length;
-        await nango.batchSave(blobFiles.map(mapToFile), Models.GithubRepoFile);
+        await nango.batchSave(blobFiles.map(mapToFile), 'GithubRepoFile');
     }
     await nango.log(`Got ${count} file(s).`);
 }
 
 async function saveFileUpdates(nango: NangoSyncLocal, owner: string, repo: string, since: Date) {
-    const commitsSinceLastSync: any[] = await getCommitsSinceLastSync(owner, repo, since, nango);
+    const commitsSinceLastSync = await getCommitsSinceLastSync(owner, repo, since, nango);
 
     for (const commitSummary of commitsSinceLastSync) {
         await saveFilesUpdatedByCommit(owner, repo, commitSummary, nango);
@@ -96,8 +131,8 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
 
     await nango.log(`Fetching commits from endpoint ${endpoint}.`);
 
-    const commitsSinceLastSync: any[] = [];
-    for await (const commitBatch of nango.paginate(proxyConfig)) {
+    const commitsSinceLastSync: z.infer<typeof CommitSummarySchema>[] = [];
+    for await (const commitBatch of nango.paginate<z.infer<typeof CommitSummarySchema>>(proxyConfig)) {
         count += commitBatch.length;
         commitsSinceLastSync.push(...commitBatch);
     }
@@ -105,7 +140,7 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
     return commitsSinceLastSync;
 }
 
-async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSummary: any, nango: NangoSyncLocal) {
+async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSummary: z.infer<typeof CommitSummarySchema>, nango: NangoSyncLocal) {
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits/${commitSummary.sha}`;
     const proxyConfig: ProxyConfiguration = {
@@ -114,24 +149,25 @@ async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSumma
         paginate: {
             response_path: 'files',
             limit: LIMIT
-        }
+        },
+        retries: 3
     };
 
     await nango.log(`Fetching files from endpoint ${endpoint}.`);
 
-    for await (const fileBatch of nango.paginate(proxyConfig)) {
+    for await (const fileBatch of nango.paginate<z.infer<typeof CommitFileSchema>>(proxyConfig)) {
         count += fileBatch.length;
-        await nango.batchSave(fileBatch.filter((file: any) => file.status !== 'removed').map(mapToFile), Models.GithubRepoFile);
-        await nango.batchDelete(fileBatch.filter((file: any) => file.status === 'removed').map(mapToFile), Models.GithubRepoFile);
+        await nango.batchSave(fileBatch.filter((file) => file.status !== 'removed').map(mapToFile), 'GithubRepoFile');
+        await nango.batchDelete(fileBatch.filter((file) => file.status === 'removed').map(mapToFile), 'GithubRepoFile');
     }
     await nango.log(`Got ${count} file(s).`);
 }
 
-function mapToFile(file: any): GithubRepoFile {
+function mapToFile(file: z.infer<typeof TreeItemSchema> | z.infer<typeof CommitFileSchema>): z.infer<typeof GithubRepoFileSchema> {
     return {
         id: file.sha,
-        name: file.path || file.filename,
-        url: file.url || file.blob_url,
-        last_modified_date: file.committer?.date ? new Date(file.committer?.date) : new Date() // Use commit date or current date
+        name: 'path' in file ? file.path : file.filename,
+        url: 'url' in file ? file.url : file.blob_url,
+        last_modified_date: 'committer' in file && file.committer?.date ? new Date(file.committer.date) : new Date()
     };
 }

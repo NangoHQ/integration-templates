@@ -1,0 +1,90 @@
+{
+  "input": {
+    "threadId": "19dda58832469c79"
+  },
+  "output": {
+    "id": "19dda58832469c79",
+    "historyId": "86278",
+    "messages": [
+      {
+        "id": "19dda58832469c79",
+        "threadId": "19dda58832469c79",
+        "labelIds": [
+          "SENT"
+        ],
+        "snippet": "This is a test email body.",
+        "historyId": "86278",
+        "internalDate": "1777484727000"
+      },
+      {
+        "id": "19dda5888dc95981",
+        "threadId": "19dda58832469c79",
+        "labelIds": [
+          "CATEGORY_UPDATES"
+        ],
+        "snippet": "Address not found Your message wasn&#39;t delivered to test@example.com because the domain example.com couldn&#39;t be found. Check for typos or unnecessary spaces and try again. LEARN MORE This link",
+        "historyId": "86278",
+        "internalDate": "1777484728000"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/gmail/v1/users/me/threads/19dda58832469c79/untrash": {
+        "response": {
+          "id": "19dda58832469c79",
+          "historyId": "86278",
+          "messages": [
+            {
+              "id": "19dda58832469c79",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "SENT"
+              ],
+              "snippet": "This is a test email body.",
+              "sizeEstimate": 455,
+              "historyId": "86278",
+              "internalDate": "1777484727000"
+            },
+            {
+              "id": "19dda5888dc95981",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "CATEGORY_UPDATES"
+              ],
+              "snippet": "Address not found Your message wasn&#39;t delivered to test@example.com because the domain example.com couldn&#39;t be found. Check for typos or unnecessary spaces and try again. LEARN MORE This link",
+              "sizeEstimate": 16285,
+              "historyId": "86278",
+              "internalDate": "1777484728000"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 17:50:20 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4906",
+          "x-ratelimit-reset": "1777485039",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "5ac2ac7a0537305f8ae16de0264b157f6ce66384",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "path": "test-delete-mock.txt",
+    "message": "Delete test file for mock data",
+    "sha": "b4e416919f8816127ecbfc9578e252377a0a2cca",
+    "branch": "main"
+  },
+  "output": {
+    "commit": {
+      "sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+      "message": "Delete test file for mock data",
+      "html_url": "https://github.com/viictoo/api-playground2/commit/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+      "author": {
+        "date": "2026-04-29T10:20:17Z",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "name": "testnangoapi[bot]"
+      },
+      "committer": {
+        "date": "2026-04-29T10:20:17Z",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "name": "testnangoapi[bot]"
+      },
+      "tree": {
+        "sha": "249ba685ada4a6d115e7c98ce1a25a2809bdffd2",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/249ba685ada4a6d115e7c98ce1a25a2809bdffd2"
+      },
+      "parents": [
+        {
+          "sha": "cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+          "html_url": "https://github.com/viictoo/api-playground2/commit/cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/cee77c4ec5b1ba6172e313c0f4184aef91570c96"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/repos/viictoo/api-playground2/contents/test-delete-mock.txt": {
+        "response": {
+          "content": null,
+          "commit": {
+            "sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "node_id": "C_kwDOSPtvHNoAKDBlMWMxMjkyZjI2ZThhZDgyYzdiODQ5ZjMzNWE3OGU5ZWVmNzAwNDk",
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "html_url": "https://github.com/viictoo/api-playground2/commit/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "author": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-04-29T10:20:17Z"
+            },
+            "committer": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-04-29T10:20:17Z"
+            },
+            "tree": {
+              "sha": "249ba685ada4a6d115e7c98ce1a25a2809bdffd2",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/249ba685ada4a6d115e7c98ce1a25a2809bdffd2"
+            },
+            "message": "Delete test file for mock data",
+            "parents": [
+              {
+                "sha": "cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+                "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+                "html_url": "https://github.com/viictoo/api-playground2/commit/cee77c4ec5b1ba6172e313c0f4184aef91570c96"
+              }
+            ],
+            "verification": {
+              "verified": false,
+              "reason": "unsigned",
+              "signature": null,
+              "payload": null,
+              "verified_at": null
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:20:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4919",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"72d2b8c0778bfbf081e445304381fa95ffffe6c24f27771cd96907a50eb742db\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=write; contents=write,workflows=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "81",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "F871:1F7322:14157176:145ADD6B:69F1DB57"
+        },
+        "hash": "8a51e2d3546961a5e5d8ee04d0886eb13194db52",
+        "request": {
+          "data": {
+            "message": "Delete test file for mock data",
+            "sha": "b4e416919f8816127ecbfc9578e252377a0a2cca",
+            "branch": "main"
+          }
+        }
+      }
+    }
+  }
+}
