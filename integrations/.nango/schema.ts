@@ -8063,21 +8063,26 @@ export interface ActionOutput_gem_uploadresume {
   download_url: string;
 };
 
-export interface GithubIssue {
+export interface Commit {
   id: string;
-  owner: string;
-  repo: string;
-  issue_number: number;
-  title: string;
-  author: string;
-  author_id: string;
-  state: string;
-  date_created: Date;
-  date_last_modified: Date;
-  body: string;
-};
-
-export interface SyncMetadata_github_issues {
+  sha: string;
+  message: string;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  author_date?: string | undefined;
+  author_login?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committer_date?: string | undefined;
+  committer_login?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  repository_owner: string;
+  repository_name: string;
+  branch: string;
+  parent_shas?: string[] | undefined;
+  verified?: boolean | undefined;
+  verification_reason?: string | undefined;
 };
 
 export interface Issue {
@@ -8104,7 +8109,9 @@ export interface Issue {
   priority?: number | undefined;
 };
 
-export interface SyncMetadata_github_issueslite {
+export interface SyncMetadata_github_issues {
+  repositories?: ({  owner: string;
+  repo: string;})[] | undefined;
 };
 
 export interface GithubRepoFile {
@@ -8120,32 +8127,2581 @@ export interface SyncMetadata_github_listfiles {
   branch: string;
 };
 
-export type ActionInput_github_listrepos = void
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
 
-export interface ActionOutput_github_listrepos {
-  repos: ({  id: number;
-  owner: string;
+export interface SyncMetadata_github_pullrequests {
+  repos: string[];
+};
+
+export interface Release {
+  id: string;
+  repo_owner: string;
+  repo_name: string;
+  release_id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author_login: string;
+  author_id: number;
+};
+
+export interface SyncMetadata_github_releases {
+  repos?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface Repository {
+  id: string;
   name: string;
   full_name: string;
-  description: string;
-  url: string;
-  date_created: Date;
-  date_last_modified: Date;})[];
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
 };
 
-export interface ActionInput_github_writefile {
+export interface FileMetadata {
+  siteId: string;
+  id: string;
+  name: string;
+  etag: string;
+  cTag: string;
+  is_folder: boolean;
+  mime_type: string | null;
+  path: string;
+  raw_source?: any | undefined;
+  updated_at: string;
+  download_url: string | null;
+  created_at: string;
+  blob_size: number;
+};
+
+export interface SyncMetadata_github_repositoryfiles {
   owner: string;
   repo: string;
+  branch: string;
+};
+
+export interface WorkflowRun {
+  id: string;
+  name?: string | undefined;
+  head_branch?: string | undefined;
+  head_sha: string;
   path: string;
-  message: string;
-  content: string;
+  run_number: number;
+  event: string;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  run_attempt?: number | undefined;
+  repository_id: number;
+  repository_name: string;
+  repository_owner: string;
+};
+
+export interface SyncMetadata_github_workflowruns {
+  repositories?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_github_addissuecomment {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 42
+   */
+  issue_number: number;
+  /**
+   * The contents of the comment. Markdown is supported. Example: "This is a comment"
+   */
+  body: string;
+};
+
+export interface ActionOutput_github_addissuecomment {
+  /**
+   * The unique identifier of the comment
+   */
+  id: number;
+  /**
+   * The node ID of the comment
+   */
+  node_id: string;
+  /**
+   * The API URL of the comment
+   */
+  url: string;
+  /**
+   * The contents of the comment
+   */
+  body?: string | undefined;
+  /**
+   * The HTML URL of the comment
+   */
+  html_url: string;
+  /**
+   * The user who created the comment
+   */
+  user?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  /**
+   * The timestamp when the comment was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The timestamp when the comment was last updated
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL of the issue
+   */
+  issue_url?: string | undefined;
+};
+
+export interface ActionInput_github_createbranch {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Name of the new branch. Example: "feature-branch"
+   */
+  branch: string;
+  /**
+   * The SHA of the commit to create the branch from. Example: "abc123def..."
+   */
   sha: string;
 };
 
-export interface ActionOutput_github_writefile {
-  url: string;
-  status: string;
+export interface ActionOutput_github_createbranch {
+  /**
+   * The Git reference. Example: "refs/heads/feature-branch"
+   */
+  ref: string;
+  /**
+   * The SHA of the referenced object
+   */
   sha: string;
+  /**
+   * Type of the referenced object. Example: "commit"
+   */
+  type: string;
+};
+
+export interface ActionInput_github_createissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The title of the issue. Example: "Found a bug"
+   */
+  title: string;
+  /**
+   * The contents of the issue. Example: "I am having a problem with this."
+   */
+  body?: string | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with. Example: 1
+   */
+  milestone?: number | string | undefined;
+};
+
+export interface ActionOutput_github_createissue {
+  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user_login?: string | undefined;
+  labels: string[];
+  assignees: string[];
+  milestone_number?: number | undefined;
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_createlabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Label name. Example: "bug"
+   */
+  name: string;
+  /**
+   * Color of the label in hexadecimal format without leading hash. Example: "ff0000"
+   */
+  color: string;
+  /**
+   * Description of the label. Example: "Something is broken"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_createlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_createorupdatefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The file path in the repository. Example: "path/to/file.md"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "My commit message"
+   */
+  message: string;
+  /**
+   * The new file content. This will be Base64 encoded automatically.
+   */
+  content: string;
+  /**
+   * The branch name. Defaults to the repository's default branch if not provided.
+   */
+  branch?: string | undefined;
+  /**
+   * The blob SHA of the file being replaced. Required for updating an existing file. If not provided, the action will attempt to fetch the current SHA.
+   */
+  sha?: string | undefined;
+  /**
+   * The person that committed the file. Defaults to the authenticated user.
+   */
+  committer?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+  /**
+   * The author of the file. Default: the committer or the authenticated user if you omit committer.
+   */
+  author?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+};
+
+export interface ActionOutput_github_createorupdatefile {
+  content?: {  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url?: string | undefined;
+  git_url?: string | undefined;
+  download_url?: string | undefined;
+  type: string;};
+  commit: {  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  message: string;
+  author: {  date: string;
+  name: string;
+  email: string;};
+  committer: {  date: string;
+  name: string;
+  email: string;};
+  tree: {  url: string;
+  sha: string;};
+  parents: ({  url: string;
+  html_url: string;
+  sha: string;})[];
+  verification: {  verified: boolean;
+  reason: string;
+  signature?: string | undefined;
+  payload?: string | undefined;
+  verified_at?: string | undefined;};};
+};
+
+export interface ActionInput_github_createpullrequest {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The title of the pull request. Example: "Fix authentication bug"
+   */
+  title: string;
+  /**
+   * The name of the branch where your changes are implemented. Example: "feature-branch"
+   */
+  head: string;
+  /**
+   * The name of the branch you want the changes pulled into. Example: "main"
+   */
+  base: string;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the pull request should be created as a draft.
+   */
+  draft?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createpullrequest {
+  id: number;
+  nodeId: string;
+  url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  draft?: boolean | undefined;
+  headRef?: string | undefined;
+  headSha?: string | undefined;
+  baseRef?: string | undefined;
+  baseSha?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_github_createrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag_name: string;
+  /**
+   * The commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Defaults to the repository's default branch. Example: "main"
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Example: "v1.0.0 - First Release"
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Example: "Description of the release"
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft. Defaults to false.
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease. Defaults to false.
+   */
+  prerelease?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createrelease {
+  id: number;
+  tag_name: string;
+  target_commitish?: string | undefined;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  html_url: string;
+};
+
+export interface ActionInput_github_createreviewrequest {
+  /**
+   * Repository owner (username or organization). Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Pull request number. Example: 1
+   */
+  pull_number: number;
+  /**
+   * Usernames of users to request reviews from. Example: ["octocat"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Slugs of teams to request reviews from. Example: ["justice-league"]
+   */
+  team_reviewers?: string[] | undefined;
+};
+
+export interface ActionOutput_github_createreviewrequest {
+  /**
+   * Pull request ID
+   */
+  id: number;
+  /**
+   * Pull request number
+   */
+  number: number;
+  /**
+   * Pull request state
+   */
+  state: string;
+  /**
+   * Pull request title
+   */
+  title: string;
+  /**
+   * Users requested to review
+   */
+  requested_reviewers?: ({  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  gravatar_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  type?: string | undefined;})[];
+  /**
+   * Teams requested to review
+   */
+  requested_teams?: ({  id: number;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  name: string;
+  slug: string;
+  description?: string | undefined;
+  privacy?: string | undefined;
+  permission?: string | undefined;
+  members_url?: string | undefined;
+  repositories_url?: string | undefined;
+  parent?: unknown | undefined;})[];
+};
+
+export interface ActionInput_github_createtagobject {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag: string;
+  /**
+   * The tag message. Example: "Release v1.0.0"
+   */
+  message: string;
+  /**
+   * The SHA of the git object this tag points to. Example: "c3d0be41cbeaa591f95c7208cc9321296ff76a1c"
+   */
+  object: string;
+  /**
+   * The type of the object the tag points to.
+   */
+  type: 'commit' | 'tree' | 'blob';
+  /**
+   * The name of the person creating the tag. Example: "Monalisa Octocat"
+   */
+  tagger_name: string;
+  /**
+   * The email of the person creating the tag. Example: "octocat@github.com"
+   */
+  tagger_email: string;
+  /**
+   * The date the tag was created (ISO 8601 format). Defaults to current time if not provided. Example: "2024-01-01T00:00:00Z"
+   */
+  tagger_date?: string | undefined;
+};
+
+export interface ActionOutput_github_createtagobject {
+  sha: string;
+  url: string;
+  tagger_name: string;
+  tagger_email: string;
+  tagger_date: string;
+  object_sha: string;
+  object_type: string;
+  object_url: string;
+  tag: string;
+  message: string;
+};
+
+export interface ActionInput_github_deletefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file in the repository. Example: "path/to/file.txt"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "Delete file.txt"
+   */
+  message: string;
+  /**
+   * The blob SHA of the file being deleted. Example: "sha256hash"
+   */
+  sha: string;
+  /**
+   * The name of the branch to delete the file from. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_deletefile {
+  commit?: {  sha?: string | undefined;
+  message?: string | undefined;
+  html_url?: string | undefined;
+  author?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  committer?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  tree?: {  sha?: string | undefined;
+  url?: string | undefined;};
+  parents?: ({  sha?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;})[];};
+};
+
+export interface ActionInput_github_deletelabel {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Label name to delete. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_deletelabel {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_deleterelease {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Release ID to delete. Example: 12345678
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_deleterelease {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_github_getbranch {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Branch name. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_getbranch {
+  name: string;
+  commit_sha: string;
+  protected?: boolean | undefined;
+  protection?: unknown | undefined;
+};
+
+export interface ActionInput_github_getcommit {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME). Example: "main"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_getcommit {
+  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  comments_url: string;
+  commit: {  message: string;
+  author?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  committer?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  comment_count: number;
+  tree: {  sha: string;
+  url: string;};
+  verification?: {  verified: boolean;
+  reason: string;
+  payload?: string | undefined;
+  signature?: string | undefined;
+  verified_at?: string | undefined;};};
+  author?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  committer?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  parents: ({  sha: string;
+  url: string;
+  html_url?: string | undefined;})[];
+  stats?: {  additions: number;
+  deletions: number;
+  total: number;} | undefined;
+  files?: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getfilecontents {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file or directory. Example: "README.md" or "docs/"
+   */
+  path: string;
+  /**
+   * The name of the commit/branch/tag. Defaults to the repository's default branch.
+   */
+  ref?: string | undefined;
+};
+
+export interface ActionOutput_github_getfilecontents {
+  /**
+   * Type of content
+   */
+  type: 'file' | 'dir' | 'symlink' | 'submodule';
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  /**
+   * Base64 encoded content for files
+   */
+  content?: string | undefined;
+  /**
+   * Content encoding (e.g., base64)
+   */
+  encoding?: string | undefined;
+  /**
+   * Directory entries when type is dir
+   */
+  entries?: ({  /**
+   * Type of content: file, dir, symlink, or submodule
+   */
+  type: string;
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};})[];
+  /**
+   * Symlink target when type is symlink
+   */
+  target?: string | undefined;
+  /**
+   * Submodule URL when type is submodule
+   */
+  submodule_git_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_github_getissue {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Issue number. Example: 1
+   */
+  issue_number: number;
+};
+
+export interface ActionOutput_github_getissue {
+  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;})[];
+  assignee: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  assignees: unknown[];
+  milestone: {  id: number;
+  number: number;
+  title: string;
+  state: string;};
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  comments: number;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;
+  closed_at?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_by?: unknown | undefined;
+};
+
+export interface ActionInput_github_getjoblogsdownloadurl {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the job. Example: 123456789
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_github_getjoblogsdownloadurl {
+  /**
+   * The API endpoint URL for job logs. Note: Due to Nango proxy limitations with 302 redirects, this returns the API endpoint rather than the actual download URL. Users should make a direct request to this URL with their GitHub token to receive the 302 redirect and extract the Location header.
+   */
+  download_url: string;
+};
+
+export interface ActionInput_github_getlabel {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the label. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_getlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;
+};
+
+export interface ActionInput_github_getpullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+};
+
+export interface ActionOutput_github_getpullrequest {
+  /**
+   * The unique identifier of the pull request. Example: 1
+   */
+  id: number;
+  /**
+   * The number of the pull request in the repository. Example: 1347
+   */
+  number: number;
+  /**
+   * The title of the pull request.
+   */
+  title: string;
+  /**
+   * The state of the pull request. Example: "open"
+   */
+  state: string;
+  /**
+   * The body content of the pull request.
+   */
+  body: string;
+  head: {  /**
+   * The branch name of the head. Example: "new-topic"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the head.
+   */
+  sha: string;};
+  base: {  /**
+   * The branch name of the base. Example: "main"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the base.
+   */
+  sha: string;};
+  user: {  /**
+   * The username of the author.
+   */
+  login: string;
+  /**
+   * The user ID of the author.
+   */
+  id: number;};
+  /**
+   * The timestamp when the pull request was created.
+   */
+  created_at: string;
+  /**
+   * The timestamp when the pull request was last updated.
+   */
+  updated_at: string;
+  /**
+   * The timestamp when the pull request was closed.
+   */
+  closed_at: string;
+  /**
+   * The timestamp when the pull request was merged.
+   */
+  merged_at: string;
+};
+
+export interface ActionInput_github_getrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_getrelease {
+  /**
+   * The unique identifier of the release
+   */
+  id: number;
+  /**
+   * The node ID of the release
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the tag
+   */
+  tag_name?: string | undefined;
+  /**
+   * The name of the release
+   */
+  name?: string | undefined;
+  /**
+   * The body of the release notes
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * The date the release was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The date the release was published
+   */
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  /**
+   * The URL of the release in the browser
+   */
+  html_url?: string | undefined;
+  /**
+   * The URL to download the release as a tarball
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The URL to download the release as a zipball
+   */
+  zipball_url?: string | undefined;
+  assets?: ({  id: number;
+  node_id?: string | undefined;
+  name: string;
+  content_type?: string | undefined;
+  size?: number | undefined;
+  download_count?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  browser_download_url?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getrepository {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+};
+
+export interface ActionOutput_github_getrepository {
+  id: number;
+  name: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  private: boolean;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;
+  html_url?: string | undefined;
+  owner: {  login: string;
+  id: number;
+  type?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_github_getreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The unique identifier of the review. Example: 1
+   */
+  review_id: number;
+};
+
+export interface ActionOutput_github_getreview {
+  id: number;
+  user_login: string;
+  user_id: number;
+  body?: string | undefined;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;
+};
+
+export interface ActionInput_github_gettagref {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The Git reference to retrieve. Use "tags/<tag_name>" for tags or "heads/<branch_name>" for branches. Example: "tags/v1.0.0"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_gettagref {
+  ref: string;
+  node_id: string;
+  url: string;
+  object: {  type: string;
+  sha: string;
+  url: string;};
+};
+
+export interface ActionInput_github_getworkflowrun {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 123456789
+   */
+  run_id: number;
+  /**
+   * If true, pull requests are omitted from the response.
+   */
+  exclude_pull_requests?: boolean | undefined;
+};
+
+export interface ActionOutput_github_getworkflowrun {
+  id: number;
+  name: string;
+  node_id: string;
+  head_branch: string;
+  head_sha: string;
+  path: string;
+  run_number: number;
+  run_attempt?: number | undefined;
+  event: string;
+  status: string;
+  conclusion: string;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  jobs_url: string;
+  logs_url: string;
+  check_suite_url: string;
+  artifacts_url: string;
+  cancel_url: string;
+  rerun_url: string;
+  workflow_url: string;
+  display_title: string;
+};
+
+export interface ActionInput_github_getworkflow {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. You can also pass the workflow file name as a string. Example: 12345 or "main.yaml"
+   */
+  workflow_id: number | string;
+};
+
+export interface ActionOutput_github_getworkflow {
+  /**
+   * The ID of the workflow
+   */
+  id: number;
+  /**
+   * The node ID of the workflow
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the workflow
+   */
+  name: string;
+  /**
+   * The path to the workflow file
+   */
+  path: string;
+  /**
+   * The state of the workflow (e.g., "active")
+   */
+  state: string;
+  /**
+   * The creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * The last update timestamp
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the workflow
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the workflow
+   */
+  html_url?: string | undefined;
+  /**
+   * The badge URL for the workflow status
+   */
+  badge_url?: string | undefined;
+};
+
+export interface ActionInput_github_listbranches {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Setting to true returns only protected branches. Setting to false returns only unprotected branches. Omitting this parameter returns all branches.
+   */
+  protected?: boolean | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listbranches {
+  branches: ({  name: string;
+  commit: {  sha: string;
+  url: string;};
+  protected: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listcommits {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * SHA or branch to start listing commits from. Example: "main"
+   */
+  sha?: string | undefined;
+  /**
+   * Only commits containing this file path will be returned. Example: "docs/README.md"
+   */
+  path?: string | undefined;
+  /**
+   * GitHub login or email address by which to filter by commit author. Example: "octocat@example.com"
+   */
+  author?: string | undefined;
+  /**
+   * Only commits after this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-01-01T00:00:00Z"
+   */
+  since?: string | undefined;
+  /**
+   * Only commits before this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-12-31T23:59:59Z"
+   */
+  until?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listcommits {
+  commits: ({  /**
+   * The SHA of the commit
+   */
+  sha: string;
+  /**
+   * The commit message
+   */
+  message: string;
+  /**
+   * Name of the author
+   */
+  author_name?: string | undefined;
+  /**
+   * Email of the author
+   */
+  author_email?: string | undefined;
+  /**
+   * Date of the commit
+   */
+  author_date?: string | undefined;
+  /**
+   * Name of the committer
+   */
+  committer_name?: string | undefined;
+  /**
+   * Email of the committer
+   */
+  committer_email?: string | undefined;
+  /**
+   * Date the commit was committed
+   */
+  committer_date?: string | undefined;
+  /**
+   * URL to the commit on GitHub
+   */
+  html_url?: string | undefined;
+  /**
+   * SHAs of parent commits
+   */
+  parent_shas?: string[] | undefined;})[];
+  /**
+   * Total number of commits (if available)
+   */
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listissuecomments {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissuecomments {
+  /**
+   * Array of issue comments
+   */
+  comments: ({  /**
+   * The unique identifier of the comment. Example: 1
+   */
+  id: number;
+  /**
+   * The node ID of the comment. Example: "MDEyOklzc3VlQ29tbWVudDE="
+   */
+  node_id?: string | undefined;
+  /**
+   * The REST API URL for the issue comment. Example: "https://api.github.com/repos/octocat/hello-world/issues/comments/1"
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the issue comment. Example: "https://github.com/octocat/hello-world/issues/1#issuecomment-1"
+   */
+  html_url?: string | undefined;
+  /**
+   * The contents of the issue comment.
+   */
+  body?: string | undefined;
+  /**
+   * The login username of the comment author. Example: "octocat"
+   */
+  user_login?: string | undefined;
+  /**
+   * The unique identifier of the comment author. Example: 1
+   */
+  user_id?: number | undefined;
+  /**
+   * The time the comment was created in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * The time the comment was last updated in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  updated_at?: string | undefined;
+  /**
+   * The REST API URL for the issue. Example: "https://api.github.com/repos/octocat/hello-world/issues/1"
+   */
+  issue_url?: string | undefined;})[];
+  /**
+   * The next page number if more results are available
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listissues {
+  /**
+   * The account owner of the repository. The name is not case sensitive.
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. The name is not case sensitive.
+   */
+  repo: string;
+  /**
+   * Indicates the state of the issues to return.
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Can be the name of a user. Pass in none for issues with no assigned user, and * for issues assigned to any user.
+   */
+  assignee?: string | undefined;
+  /**
+   * A list of comma separated label names. Example: bug,ui,@high
+   */
+  labels?: string | undefined;
+  /**
+   * What to sort results by.
+   */
+  sort?: 'created' | 'updated' | 'comments' | undefined;
+  /**
+   * The direction to sort the results by.
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Only show results that were last updated after the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+   */
+  since?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissues {
+  issues: ({  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;})[];
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listlabels {
+  /**
+   * The account owner of the repository
+   */
+  owner: string;
+  /**
+   * The name of the repository
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100)
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listlabels {
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description: string;
+  color: string;
+  default: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequestfiles {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestfiles {
+  files: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listpullrequestreviews {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestreviews {
+  reviews: ({  id: number;
+  node_id: string;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  body: string;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequests {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Filter by state. Example: "open"
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Filter by head branch (format: user:branch). Example: "octocat:main"
+   */
+  head?: string | undefined;
+  /**
+   * Filter by base branch. Example: "main"
+   */
+  base?: string | undefined;
+  /**
+   * Sort by field. Example: "created"
+   */
+  sort?: 'created' | 'updated' | 'popularity' | 'long-running' | undefined;
+  /**
+   * Sort direction. Example: "desc"
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Items per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequests {
+  pull_requests: ({  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  diff_url?: string | undefined;
+  patch_url?: string | undefined;
+  issue_url?: string | undefined;
+  commits_url: string;
+  review_comments_url: string;
+  review_comment_url: string;
+  comments_url: string;
+  statuses_url: string;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  labels?: ({  id?: number | undefined;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  color?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;})[] | undefined;
+  milestone?: {  id: number;
+  number: number;
+  title: string;
+  state: string;} | undefined;
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  merge_commit_sha?: string | undefined;
+  head: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  base: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  draft: boolean;
+  author_association: string;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listreleaseassets {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleaseassets {
+  assets: ({  id: number;
+  node_id: string;
+  name: string;
+  label?: string | undefined;
+  state: string;
+  content_type: string;
+  size: number;
+  download_count: number;
+  browser_download_url: string;
+  url: string;
+  created_at: string;
+  updated_at: string;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listreleases {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleases {
+  releases: ({  id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;};})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listworkflowjobs {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow run. Example: 12345678
+   */
+  run_id: number;
+  /**
+   * Filter to specify which jobs to include. Can be "latest" or "all". Default: "latest"
+   */
+  filter?: 'latest' | 'all' | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowjobs {
+  total_count: number;
+  jobs: ({  id: number;
+  run_id: number;
+  workflow_name?: string | undefined;
+  head_branch?: string | undefined;
+  run_url: string;
+  run_attempt?: number | undefined;
+  node_id: string;
+  head_sha: string;
+  url: string;
+  html_url: string;
+  status: string;
+  conclusion?: string | undefined;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;
+  name: string;
+  steps?: ({  name: string;
+  status: string;
+  conclusion?: string | undefined;
+  number: number;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;})[];
+  check_run_url?: string | undefined;
+  labels?: string[] | undefined;
+  runner_id?: number | undefined;
+  runner_name?: string | undefined;
+  runner_group_id?: number | undefined;
+  runner_group_name?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listworkflowruns {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. Example: "161335" or "main.yml". If provided, only runs for this workflow are returned.
+   */
+  workflow_id?: string | number | undefined;
+  /**
+   * Returns workflow runs with the specified status or conclusion.
+   */
+  status?: 'queued' | 'in_progress' | 'completed' | 'waiting' | 'requested' | 'pending' | 'action_required' | 'cancelled' | 'failure' | 'neutral' | 'skipped' | 'stale' | 'success' | 'timed_out' | undefined;
+  /**
+   * Returns workflow runs triggered on the specified branch.
+   */
+  branch?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowruns {
+  runs: ({  id: number;
+  name?: string | undefined;
+  node_id: string;
+  head_branch?: string | undefined;
+  head_sha?: string | undefined;
+  path?: string | undefined;
+  run_number?: number | undefined;
+  event?: string | undefined;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id?: number | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  run_started_at?: string | undefined;})[];
+  total_count: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listworkflows {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflows {
+  total_count: number;
+  workflows: ({  id: number;
+  node_id: string;
+  name: string;
+  path: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  html_url: string;
+  badge_url: string;})[];
+};
+
+export interface ActionInput_github_mergepullrequest {
+  /**
+   * Account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number identifying the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * Title for the automatic commit message.
+   */
+  commit_title?: string | undefined;
+  /**
+   * Extra detail to append to automatic commit message.
+   */
+  commit_message?: string | undefined;
+  /**
+   * SHA that pull request head must match to allow merge.
+   */
+  sha?: string | undefined;
+  /**
+   * The merge method to use. Can be one of: merge, squash, rebase. Default: merge.
+   */
+  merge_method?: 'merge' | 'squash' | 'rebase' | undefined;
+};
+
+export interface ActionOutput_github_mergepullrequest {
+  sha: string;
+  merged: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_rerunworkflowrun {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 30433642
+   */
+  run_id: number;
+  /**
+   * Whether to enable debug logging for the re-run. Default: false
+   */
+  enable_debug_logging?: boolean | undefined;
+};
+
+export interface ActionOutput_github_rerunworkflowrun {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_submitpullrequestreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The review action to perform.
+   */
+  event: 'APPROVE' | 'REQUEST_CHANGES' | 'COMMENT';
+  /**
+   * The body text of the pull request review. Required for REQUEST_CHANGES or COMMENT.
+   */
+  body?: string | undefined;
+  /**
+   * The SHA of the commit that needs a review. Defaults to the most recent commit.
+   */
+  commit_id?: string | undefined;
+  /**
+   * Draft review comments to include in the review.
+   */
+  comments?: ({  /**
+   * The relative path to the file that necessitates a review comment.
+   */
+  path: string;
+  /**
+   * The position in the diff where you want to add a review comment.
+   */
+  position?: number | undefined;
+  /**
+   * Text of the review comment.
+   */
+  body: string;
+  /**
+   * The line of the blob in the pull request diff.
+   */
+  line?: number | undefined;
+  /**
+   * The side of the diff.
+   */
+  side?: 'LEFT' | 'RIGHT' | undefined;
+  /**
+   * The start line of the range for a multi-line comment.
+   */
+  start_line?: number | undefined;
+  /**
+   * The start side of the diff for a multi-line comment.
+   */
+  start_side?: 'LEFT' | 'RIGHT' | undefined;})[];
+};
+
+export interface ActionOutput_github_submitpullrequestreview {
+  id: number;
+  nodeId: string;
+  user?: {  login?: string | undefined;
+  id?: number | undefined;
+  htmlUrl?: string | undefined;};
+  body: string;
+  state: string;
+  htmlUrl: string;
+  pullRequestUrl: string;
+  submittedAt?: string | undefined;
+  commitId?: string | undefined;
+  authorAssociation: string;
+};
+
+export interface ActionInput_github_triggerworkflowdispatch {
+  owner: string;
+  repo: string;
+  workflow_id: string;
+  ref: string;
+  inputs?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_github_triggerworkflowdispatch {
+  workflow_run_id?: number | undefined;
+  run_url?: string | undefined;
+  html_url?: string | undefined;
+};
+
+export interface ActionInput_github_updateissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The title of the issue.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * State of the issue.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: 'completed' | 'not_planned' | 'reopened' | 'duplicate' | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with.
+   */
+  milestone?: number | undefined;
+};
+
+export interface ActionOutput_github_updateissue {
+  /**
+   * The ID of the issue.
+   */
+  id: number;
+  /**
+   * The node ID of the issue.
+   */
+  node_id: string;
+  /**
+   * The number of the issue.
+   */
+  number: number;
+  /**
+   * The title of the issue.
+   */
+  title: string;
+  /**
+   * The state of the issue.
+   */
+  state: string;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * The URL of the issue.
+   */
+  html_url: string;
+  /**
+   * The API URL of the issue.
+   */
+  url: string;
+  /**
+   * The repository API URL.
+   */
+  repository_url: string;
+  /**
+   * The labels associated with the issue.
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * The users assigned to the issue.
+   */
+  assignees: ({  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;})[];
+  /**
+   * The milestone associated with the issue.
+   */
+  milestone?: {  url: string;
+  html_url: string;
+  id: number;
+  number: number;
+  title: string;
+  description?: string | undefined;
+  state: string;};
+  /**
+   * Whether the issue is locked.
+   */
+  locked: boolean;
+  /**
+   * The number of comments.
+   */
+  comments: number;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The last update timestamp.
+   */
+  updated_at: string;
+  /**
+   * The closure timestamp.
+   */
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_updatelabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Current name of the label. Example: "bug"
+   */
+  name: string;
+  /**
+   * New name for the label. Example: "critical-bug"
+   */
+  new_name?: string | undefined;
+  /**
+   * Color for the label in hexadecimal format without the leading #. Example: "ff0000"
+   */
+  color?: string | undefined;
+  /**
+   * Short description of the label. Pass null to clear. Example: "Something is not working"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_updatelabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_updatepullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The title of the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * State of the pull request.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The name of the branch you want the changes pulled into.
+   */
+  base?: string | undefined;
+  /**
+   * Indicates whether maintainers can modify the pull request.
+   */
+  maintainer_can_modify?: boolean | undefined;
+};
+
+export interface ActionOutput_github_updatepullrequest {
+  id: number;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  html_url: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  head: {  ref: string;
+  sha: string;};
+  base: {  ref: string;
+  sha: string;};
+  draft: boolean;
+};
+
+export interface ActionInput_github_updaterelease {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 12345678
+   */
+  release_id: number;
+  /**
+   * The name of the tag.
+   */
+  tag_name?: string | undefined;
+  /**
+   * The commitish value that determines where the Git tag is created from.
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Pass null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Pass null to clear.
+   */
+  body?: string | undefined;
+  /**
+   * true makes the release a draft, false publishes the release.
+   */
+  draft?: boolean | undefined;
+  /**
+   * true to identify the release as a prerelease, false for a full release.
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * Whether this release should be set as the latest release.
+   */
+  make_latest?: 'true' | 'false' | 'legacy' | undefined;
+  /**
+   * A category for discussion linked to the release.
+   */
+  discussion_category_name?: string | undefined;
+};
+
+export interface ActionOutput_github_updaterelease {
+  /**
+   * The unique identifier of the release.
+   */
+  id: number;
+  /**
+   * The node ID of the release.
+   */
+  node_id: string;
+  /**
+   * The name of the tag.
+   */
+  tag_name: string;
+  /**
+   * The commitish value for the tag.
+   */
+  target_commitish: string;
+  /**
+   * The name of the release.
+   */
+  name?: string | undefined;
+  /**
+   * The body/description of the release.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft.
+   */
+  draft: boolean;
+  /**
+   * Whether the release is a prerelease.
+   */
+  prerelease: boolean;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The publication timestamp.
+   */
+  published_at?: string | undefined;
+  /**
+   * The last update timestamp.
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the release.
+   */
+  url: string;
+  /**
+   * The HTML URL for the release.
+   */
+  html_url: string;
+  /**
+   * The assets URL for the release.
+   */
+  assets_url: string;
+  /**
+   * The upload URL for the release.
+   */
+  upload_url: string;
+  /**
+   * The tarball URL.
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The zipball URL.
+   */
+  zipball_url?: string | undefined;
+  author: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;
+  type: string;};
+  assets: ({})[];
 };
 
 export interface GithubCommit {
@@ -22457,22 +25013,6 @@ export interface SyncMetadata_sap_success_factors_locations {
 };
 
 export interface SyncMetadata_sap_success_factors_unifiedemployees {
-};
-
-export interface FileMetadata {
-  siteId: string;
-  id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source?: any | undefined;
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
 };
 
 export interface SyncMetadata_sharepoint_online_sharedsitesselection {
