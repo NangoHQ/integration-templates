@@ -1,0 +1,181 @@
+{
+  "nango": {
+    "batchSave": {
+      "Filter": [
+        {
+          "id": "ANe1BmhoB7dZJOlmbE6z_IB4y6wH2ysFv2N2pA",
+          "from": "no-reply+nango-seed-1777483001922@example.com",
+          "addLabelIds": [
+            "Label_1"
+          ]
+        },
+        {
+          "id": "ANe1BmiyqtoyJ9DoSatOuLSjrPEcxpWz3XjtEg",
+          "from": "test@example.com",
+          "subject": "Test Filter",
+          "addLabelIds": [
+            "IMPORTANT"
+          ],
+          "removeLabelIds": [
+            "INBOX"
+          ]
+        },
+        {
+          "id": "ANe1Bmg1MJEHGxnVx6k3ECzuNjI72W4rfPW0Rw",
+          "from": "unique-filter-$(date +%s)@example.com",
+          "subject": "Unique Test",
+          "addLabelIds": [
+            "IMPORTANT"
+          ]
+        },
+        {
+          "id": "ANe1Bmg3GNMlVJ9xBOn5TfGbEj_Ss1yewSUolQ",
+          "from": "unique-sender-$(date +%s)@example.com",
+          "subject": "Unique Subject $(date +%s)",
+          "addLabelIds": [
+            "IMPORTANT"
+          ],
+          "removeLabelIds": [
+            "INBOX"
+          ]
+        },
+        {
+          "id": "ANe1BmjJCDut4Amz3dRY2Gh4KHW-VXNpkL36qA",
+          "from": "unique-sender-1745948400@example.com",
+          "subject": "Unique Subject 1745948400",
+          "addLabelIds": [
+            "IMPORTANT"
+          ],
+          "removeLabelIds": [
+            "INBOX"
+          ]
+        },
+        {
+          "id": "ANe1BmjlhP2IOaQ9PkRDQF_CQWJc8-KOWb9auA",
+          "from": "test@example.com",
+          "subject": "Test Filter",
+          "addLabelIds": [
+            "IMPORTANT"
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Filter": []
+    }
+  },
+  "api": {
+    "get": {
+      "/gmail/v1/users/me/settings/filters": {
+        "response": {
+          "filter": [
+            {
+              "id": "ANe1BmhoB7dZJOlmbE6z_IB4y6wH2ysFv2N2pA",
+              "criteria": {
+                "from": "no-reply+nango-seed-1777483001922@example.com"
+              },
+              "action": {
+                "addLabelIds": [
+                  "Label_1"
+                ]
+              }
+            },
+            {
+              "id": "ANe1BmiyqtoyJ9DoSatOuLSjrPEcxpWz3XjtEg",
+              "criteria": {
+                "from": "test@example.com",
+                "subject": "Test Filter"
+              },
+              "action": {
+                "addLabelIds": [
+                  "IMPORTANT"
+                ],
+                "removeLabelIds": [
+                  "INBOX"
+                ]
+              }
+            },
+            {
+              "id": "ANe1Bmg1MJEHGxnVx6k3ECzuNjI72W4rfPW0Rw",
+              "criteria": {
+                "from": "unique-filter-$(date +%s)@example.com",
+                "subject": "Unique Test"
+              },
+              "action": {
+                "addLabelIds": [
+                  "IMPORTANT"
+                ]
+              }
+            },
+            {
+              "id": "ANe1Bmg3GNMlVJ9xBOn5TfGbEj_Ss1yewSUolQ",
+              "criteria": {
+                "from": "unique-sender-$(date +%s)@example.com",
+                "subject": "Unique Subject $(date +%s)"
+              },
+              "action": {
+                "addLabelIds": [
+                  "IMPORTANT"
+                ],
+                "removeLabelIds": [
+                  "INBOX"
+                ]
+              }
+            },
+            {
+              "id": "ANe1BmjJCDut4Amz3dRY2Gh4KHW-VXNpkL36qA",
+              "criteria": {
+                "from": "unique-sender-1745948400@example.com",
+                "subject": "Unique Subject 1745948400"
+              },
+              "action": {
+                "addLabelIds": [
+                  "IMPORTANT"
+                ],
+                "removeLabelIds": [
+                  "INBOX"
+                ]
+              }
+            },
+            {
+              "id": "ANe1BmjlhP2IOaQ9PkRDQF_CQWJc8-KOWb9auA",
+              "criteria": {
+                "from": "test@example.com",
+                "subject": "Test Filter"
+              },
+              "action": {
+                "addLabelIds": [
+                  "IMPORTANT"
+                ]
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 17:55:24 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1777485349",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "4b390c50fb1e6a0d9c0badfcce07edd818cad2ea",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "input": {
+    "id": "r-6471792939619012916"
+  },
+  "output": {
+    "id": "r-6471792939619012916",
+    "message": {
+      "id": "19dda5f53af7ee19",
+      "threadId": "19dda5f53af7ee19",
+      "labelIds": [
+        "DRAFT"
+      ],
+      "snippet": "This is a test draft for validation.",
+      "historyId": "86566",
+      "internalDate": "1777485173000",
+      "payload": {
+        "partId": "",
+        "mimeType": "text/plain",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Received",
+            "value": "from 336695337968 named unknown by gmailapi.google.com with HTTPREST; Wed, 29 Apr 2026 10:52:53 -0700"
+          },
+          {
+            "name": "From",
+            "value": "api@nango.dev"
+          },
+          {
+            "name": "To",
+            "value": "recipient@example.com"
+          },
+          {
+            "name": "Subject",
+            "value": "Test Draft"
+          },
+          {
+            "name": "Date",
+            "value": "Wed, 29 Apr 2026 10:52:53 -0700"
+          },
+          {
+            "name": "Message-Id",
+            "value": "<CAPvkvP79auwY9ipOVrL3OQTPcaZJAEL+O7LQCtNE_xB3pBxyyg@mail.gmail.com>"
+          }
+        ],
+        "body": {
+          "size": 36,
+          "data": "VGhpcyBpcyBhIHRlc3QgZHJhZnQgZm9yIHZhbGlkYXRpb24u"
+        }
+      },
+      "sizeEstimate": 349
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/gmail/v1/users/me/drafts/r-6471792939619012916": {
+        "response": {
+          "id": "r-6471792939619012916",
+          "message": {
+            "id": "19dda5f53af7ee19",
+            "threadId": "19dda5f53af7ee19",
+            "labelIds": [
+              "DRAFT"
+            ],
+            "snippet": "This is a test draft for validation.",
+            "payload": {
+              "partId": "",
+              "mimeType": "text/plain",
+              "filename": "",
+              "headers": [
+                {
+                  "name": "Received",
+                  "value": "from 336695337968 named unknown by gmailapi.google.com with HTTPREST; Wed, 29 Apr 2026 10:52:53 -0700"
+                },
+                {
+                  "name": "From",
+                  "value": "api@nango.dev"
+                },
+                {
+                  "name": "To",
+                  "value": "recipient@example.com"
+                },
+                {
+                  "name": "Subject",
+                  "value": "Test Draft"
+                },
+                {
+                  "name": "Date",
+                  "value": "Wed, 29 Apr 2026 10:52:53 -0700"
+                },
+                {
+                  "name": "Message-Id",
+                  "value": "<CAPvkvP79auwY9ipOVrL3OQTPcaZJAEL+O7LQCtNE_xB3pBxyyg@mail.gmail.com>"
+                }
+              ],
+              "body": {
+                "size": 36,
+                "data": "VGhpcyBpcyBhIHRlc3QgZHJhZnQgZm9yIHZhbGlkYXRpb24u"
+              }
+            },
+            "sizeEstimate": 349,
+            "historyId": "86566",
+            "internalDate": "1777485173000"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 17:54:30 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1777485286",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "d3c3bfb7fab6f4a879897ebad3ba02c60527224d",
+        "request": {}
+      }
+    }
+  }
+}

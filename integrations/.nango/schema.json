@@ -45579,81 +45579,61 @@
       ],
       "additionalProperties": false
     },
-    "GmailEmail": {
+    "Filter": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "sender": {
+        "from": {
           "type": "string"
         },
-        "recipients": {
-          "type": "string"
-        },
-        "date": {
+        "to": {
           "type": "string"
         },
         "subject": {
           "type": "string"
         },
-        "body": {
+        "query": {
           "type": "string"
         },
-        "attachments": {
+        "negatedQuery": {
+          "type": "string"
+        },
+        "hasAttachment": {
+          "type": "boolean"
+        },
+        "excludeChats": {
+          "type": "boolean"
+        },
+        "size": {
+          "type": "number"
+        },
+        "sizeComparison": {
+          "type": "string"
+        },
+        "addLabelIds": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "mimeType": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "attachmentId": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "filename",
-              "mimeType",
-              "size",
-              "attachmentId"
-            ],
-            "additionalProperties": false
+            "type": "string"
           }
         },
-        "threadId": {
+        "removeLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forward": {
           "type": "string"
         }
       },
       "required": [
-        "id",
-        "sender",
-        "date",
-        "subject",
-        "attachments",
-        "threadId"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_mail_emails": {
-      "type": "object",
-      "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
-      "additionalProperties": false
-    },
-    "GmailLabel": {
+    "Label": {
       "type": "object",
       "properties": {
         "id": {
@@ -45663,19 +45643,1123 @@
           "type": "string"
         },
         "messageListVisibility": {
-          "type": [
-            "string",
-            "null"
+          "type": "string",
+          "enum": [
+            "hide",
+            "show"
           ]
         },
         "labelListVisibility": {
-          "type": [
-            "string",
-            "null"
+          "type": "string",
+          "enum": [
+            "labelHide",
+            "labelShow",
+            "labelShowIfUnread"
           ]
         },
         "type": {
+          "type": "string",
+          "enum": [
+            "system",
+            "user"
+          ]
+        },
+        "messagesTotal": {
+          "type": "number"
+        },
+        "messagesUnread": {
+          "type": "number"
+        },
+        "threadsTotal": {
+          "type": "number"
+        },
+        "threadsUnread": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "id": {
           "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "channel_name": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "thread_ts": {
+          "type": "string"
+        },
+        "parent_ts": {
+          "type": "string"
+        },
+        "is_thread_reply": {
+          "type": "boolean"
+        },
+        "reactions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "count",
+              "users"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reply_count": {
+          "type": "number"
+        },
+        "reply_users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "channel_id",
+        "channel_name",
+        "user_id",
+        "text",
+        "timestamp",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "SendAsAlias": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sendAsEmail": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "replyToAddress": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "isPrimary": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "verificationStatus": {
+          "type": "string"
+        },
+        "treatAsAlias": {
+          "type": "boolean"
+        },
+        "smtpMsa": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "securityMode": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "Thread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              },
+              "labelIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "internalDate": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "partId": {
+                    "type": "string"
+                  },
+                  "mimeType": {
+                    "type": "string"
+                  },
+                  "filename": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "attachmentId": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number"
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parts": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "additionalProperties": false
+              },
+              "sizeEstimate": {
+                "type": "number"
+              },
+              "raw": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "threadId"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "historyId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_batchdeletemessages": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of Gmail message IDs to delete. Example: [\"msg123\", \"msg456\"]"
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_batchdeletemessages": {
+      "type": "null"
+    },
+    "ActionInput_google_mail_batchmodifymessages": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IDs of the messages to modify. Maximum 1000."
+        },
+        "addLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Label IDs to add to all messages."
+        },
+        "removeLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Label IDs to remove from all messages."
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_batchmodifymessages": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the batch modification was successful."
+        },
+        "modifiedCount": {
+          "type": "number",
+          "description": "Number of messages modified."
+        }
+      },
+      "required": [
+        "success",
+        "modifiedCount"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_createdraft": {
+      "type": "object",
+      "properties": {
+        "raw": {
+          "type": "string",
+          "description": "Base64url-encoded RFC 2822 MIME content of the draft message."
+        },
+        "threadId": {
+          "type": "string",
+          "description": "Optional thread ID to add the draft to an existing thread. Example: \"18f3a2b4c5d6e7f8\""
+        }
+      },
+      "required": [
+        "raw"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_createdraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the created draft."
+        },
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message within the draft."
+        },
+        "threadId": {
+          "type": "string",
+          "description": "The thread ID associated with the draft message."
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Label IDs applied to the draft message."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_createfilter": {
+      "type": "object",
+      "properties": {
+        "criteria": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string",
+              "description": "The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields."
+            },
+            "subject": {
+              "type": "string",
+              "description": "Case-insensitive phrase found in the message's subject."
+            },
+            "query": {
+              "type": "string",
+              "description": "Only return messages matching the specified query. Supports the same query format as the Gmail search box."
+            },
+            "negatedQuery": {
+              "type": "string",
+              "description": "Only return messages not matching the specified query."
+            },
+            "hasAttachment": {
+              "type": "boolean",
+              "description": "Whether the message has any attachment."
+            },
+            "excludeChats": {
+              "type": "boolean",
+              "description": "Whether the response should exclude chats."
+            },
+            "size": {
+              "type": "number",
+              "description": "The size of the entire RFC822 message in bytes, including all headers and attachments."
+            },
+            "sizeComparison": {
+              "type": "string",
+              "enum": [
+                "smaller",
+                "larger",
+                "unspecified"
+              ],
+              "description": "How the message size in bytes should be in relation to the size field."
+            }
+          },
+          "additionalProperties": false
+        },
+        "action": {
+          "type": "object",
+          "properties": {
+            "addLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "removeLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of labels to remove from the message."
+            },
+            "forward": {
+              "type": "string",
+              "description": "Email address that the message should be forwarded to."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "criteria",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_createfilter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "criteria": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string",
+              "description": "The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields."
+            },
+            "subject": {
+              "type": "string",
+              "description": "Case-insensitive phrase found in the message's subject."
+            },
+            "query": {
+              "type": "string",
+              "description": "Only return messages matching the specified query. Supports the same query format as the Gmail search box."
+            },
+            "negatedQuery": {
+              "type": "string",
+              "description": "Only return messages not matching the specified query."
+            },
+            "hasAttachment": {
+              "type": "boolean",
+              "description": "Whether the message has any attachment."
+            },
+            "excludeChats": {
+              "type": "boolean",
+              "description": "Whether the response should exclude chats."
+            },
+            "size": {
+              "type": "number",
+              "description": "The size of the entire RFC822 message in bytes, including all headers and attachments."
+            },
+            "sizeComparison": {
+              "type": "string",
+              "enum": [
+                "smaller",
+                "larger",
+                "unspecified"
+              ],
+              "description": "How the message size in bytes should be in relation to the size field."
+            }
+          },
+          "additionalProperties": false
+        },
+        "action": {
+          "type": "object",
+          "properties": {
+            "addLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "removeLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of labels to remove from the message."
+            },
+            "forward": {
+              "type": "string",
+              "description": "Email address that the message should be forwarded to."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_createlabel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The display name of the label. Example: \"Work\""
+        },
+        "labelListVisibility": {
+          "type": "string",
+          "enum": [
+            "labelHide",
+            "labelShow",
+            "labelShowIfUnread"
+          ],
+          "description": "The visibility of the label in the label list. Example: \"labelShow\""
+        },
+        "messageListVisibility": {
+          "type": "string",
+          "enum": [
+            "hide",
+            "show"
+          ],
+          "description": "The visibility of the label in the message list. Example: \"show\""
+        },
+        "type": {
+          "type": "string",
+          "const": "user",
+          "description": "The type of the label. Only \"user\" can be created. Defaults to \"user\"."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_createlabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The immutable ID of the label."
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the label."
+        },
+        "labelListVisibility": {
+          "type": "string",
+          "description": "The visibility of the label in the label list."
+        },
+        "messageListVisibility": {
+          "type": "string",
+          "description": "The visibility of the label in the message list."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the label."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_deletedraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the draft to delete. Example: \"r-1234567890abcdef\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletedraft": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the draft was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_deletefilter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the filter to delete. Example: \"ABC123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletefilter": {
+      "type": "null"
+    },
+    "ActionInput_google_mail_deletelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the label to delete. Example: \"Label_1\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletelabel": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the label was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_deletemessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the message to delete. Example: \"123abc456def\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletemessage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        },
+        "id": {
+          "type": "string",
+          "description": "The ID of the deleted message"
+        }
+      },
+      "required": [
+        "success",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_deletethread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the thread to delete. Example: \"123abc456def789\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletethread": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getattachment": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message containing the attachment. Example: \"1234567890abcdef\""
+        },
+        "attachmentId": {
+          "type": "string",
+          "description": "The ID of the attachment to retrieve. Example: \"attachment_001\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "The user's email address or \"me\". Defaults to \"me\"."
+        }
+      },
+      "required": [
+        "messageId",
+        "attachmentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getattachment": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "number",
+          "description": "The size of the attachment in bytes"
+        },
+        "data": {
+          "type": "string",
+          "description": "The attachment data in base64url encoding"
+        }
+      },
+      "required": [
+        "size",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getautoforwardingsettings": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID. Use \"me\" for the currently authenticated user. Example: \"me\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getautoforwardingsettings": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getdraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the draft to retrieve. Example: \"r-1234567890\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "The user's email address. Special value \"me\" can be used to indicate the authenticated user. Defaults to \"me\"."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getdraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "threadId": {
+              "type": "string"
+            },
+            "labelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "snippet": {
+              "type": "string"
+            },
+            "historyId": {
+              "type": "string"
+            },
+            "internalDate": {
+              "type": "string"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "partId": {
+                  "type": "string"
+                },
+                "mimeType": {
+                  "type": "string"
+                },
+                "filename": {
+                  "type": "string"
+                },
+                "headers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "attachmentId": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "parts": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "additionalProperties": false
+            },
+            "sizeEstimate": {
+              "type": "number"
+            },
+            "raw": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getfilter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the filter to retrieve. Example: \"ANeLbv78uP8GVB5D7xQf1fIlIaHoeFC0fV6lCu1\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getfilter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "criteria": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string",
+              "description": "The recipient's display name or email address"
+            },
+            "subject": {
+              "type": "string",
+              "description": "Case-insensitive phrase found in the message's subject"
+            },
+            "query": {
+              "type": "string",
+              "description": "Only return messages matching the specified query"
+            },
+            "negatedQuery": {
+              "type": "string",
+              "description": "Only return messages not matching the specified query"
+            },
+            "hasAttachment": {
+              "type": "boolean",
+              "description": "Whether the message has any attachment"
+            },
+            "excludeChats": {
+              "type": "boolean",
+              "description": "Whether the response should exclude chats"
+            },
+            "size": {
+              "type": "number",
+              "description": "The size of the entire RFC822 message in bytes"
+            },
+            "sizeComparison": {
+              "type": "string",
+              "enum": [
+                "unspecified",
+                "smaller",
+                "larger"
+              ],
+              "description": "How the message size should be in relation to the size field"
+            }
+          },
+          "additionalProperties": false
+        },
+        "action": {
+          "type": "object",
+          "properties": {
+            "addLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "removeLabelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of labels to remove from the message"
+            },
+            "forward": {
+              "type": "string",
+              "description": "Email address that the message should be forwarded to"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getimapsettings": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID. Example: \"me\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getimapsettings": {
+      "type": "object",
+      "properties": {
+        "autoExpunge": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "expungeBehavior": {
+          "type": "string",
+          "enum": [
+            "expungeBehaviorUnspecified",
+            "archive",
+            "trash",
+            "deleteForever"
+          ]
+        },
+        "maxFolderSize": {
+          "type": "number",
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getlabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Label ID. Example: \"Label_123\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "User ID. The special value \"me\" can be used to indicate the authenticated user. Default: \"me\"."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getlabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "messageListVisibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ]
+        },
+        "labelListVisibility": {
+          "type": "string",
+          "enum": [
+            "labelShow",
+            "labelShowIfUnread",
+            "labelHide"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "system",
+            "user"
+          ]
         },
         "messagesTotal": {
           "type": "number"
@@ -45690,98 +46774,74 @@
           "type": "number"
         },
         "color": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "textColor": {
-                  "type": "string"
-                },
-                "backgroundColor": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "textColor",
-                "backgroundColor"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "textColor": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "backgroundColor": {
+              "type": "string"
             }
-          ]
+          },
+          "additionalProperties": false
         }
       },
       "required": [
         "id",
-        "name",
-        "messageListVisibility",
-        "labelListVisibility",
-        "type",
-        "messagesTotal",
-        "messagesUnread",
-        "threadsTotal",
-        "threadsUnread",
-        "color"
+        "name"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_google_mail_labels": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_google_mail_fetchattachment": {
+    "ActionInput_google_mail_getlanguagesettings": {
       "type": "object",
       "properties": {
-        "threadId": {
-          "type": "string"
-        },
-        "attachmentId": {
+        "userId": {
+          "type": "string",
+          "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getlanguagesettings": {
+      "type": "object",
+      "properties": {
+        "displayLanguage": {
           "type": "string"
         }
       },
-      "required": [
-        "threadId",
-        "attachmentId"
-      ],
       "additionalProperties": false
     },
-    "ActionOutput_google_mail_fetchattachment": {
-      "type": "string"
-    },
-    "ActionInput_google_mail_sendemail": {
+    "ActionInput_google_mail_getmessage": {
       "type": "object",
       "properties": {
-        "from": {
-          "type": "string"
+        "id": {
+          "type": "string",
+          "description": "The ID of the message to retrieve. Example: \"12345abc\""
         },
-        "to": {
-          "type": "string"
+        "format": {
+          "type": "string",
+          "enum": [
+            "full",
+            "metadata",
+            "minimal",
+            "raw"
+          ],
+          "description": "The format to return the message in. Values: full, metadata, minimal, raw. Example: \"full\""
         },
-        "headers": {
-          "type": "object",
-          "additionalProperties": {
+        "metadataHeaders": {
+          "type": "array",
+          "items": {
             "type": "string"
-          }
-        },
-        "subject": {
-          "type": "string"
-        },
-        "body": {
-          "type": "string"
+          },
+          "description": "When format is metadata, only include headers specified in this array. Example: [\"Subject\", \"From\"]"
         }
       },
       "required": [
-        "from",
-        "to",
-        "headers",
-        "subject",
-        "body"
+        "id"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_google_mail_sendemail": {
+    "ActionOutput_google_mail_getmessage": {
       "type": "object",
       "properties": {
         "id": {
@@ -45789,11 +46849,2146 @@
         },
         "threadId": {
           "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "internalDate": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "partId": {
+              "type": "string"
+            },
+            "mimeType": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "attachmentId": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "data": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "parts": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": false
+        },
+        "sizeEstimate": {
+          "type": "number"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getpopsettings": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User's email address. The special value 'me' can be used to indicate the authenticated user. Defaults to 'me'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getpopsettings": {
+      "type": "object",
+      "properties": {
+        "accessWindow": {
+          "type": "string",
+          "enum": [
+            "accessWindowUnspecified",
+            "disabled",
+            "fromNowOn",
+            "allMail"
+          ],
+          "description": "The range of messages which are accessible via POP."
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "dispositionUnspecified",
+            "leaveInInbox",
+            "archive",
+            "trash",
+            "markRead"
+          ],
+          "description": "The action that will be executed on a message after it has been fetched via POP."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getsendasalias": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The user's email address. Use \"me\" to indicate the authenticated user. Example: \"me\""
+        },
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The send-as alias to be retrieved. Example: \"alias@example.com\""
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getsendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "replyToAddress": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "isPrimary": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "treatAsAlias": {
+          "type": "boolean"
+        },
+        "smtpMsa": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "securityMode": {
+              "type": "string",
+              "enum": [
+                "securityModeUnspecified",
+                "none",
+                "ssl",
+                "starttls"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "verificationStatusUnspecified",
+            "accepted",
+            "pending"
+          ]
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getthread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the thread to retrieve. Example: \"18e1a2b3c4d5e6f7\""
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "full",
+            "metadata",
+            "minimal"
+          ],
+          "description": "The format to return the messages in. \"full\" returns full email data, \"metadata\" returns only IDs, labels, and headers, \"minimal\" returns only IDs and labels."
+        },
+        "metadataHeaders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "When given and format is METADATA, only include headers specified."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getthread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              },
+              "labelIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "internalDate": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "partId": {
+                    "type": "string"
+                  },
+                  "mimeType": {
+                    "type": "string"
+                  },
+                  "filename": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "attachmentId": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "parts": {}
+                },
+                "additionalProperties": false
+              },
+              "sizeEstimate": {
+                "type": "number"
+              },
+              "raw": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "snippet": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getvacationsettings": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getvacationsettings": {
+      "type": "object",
+      "properties": {
+        "enableAutoReply": {
+          "type": "boolean"
+        },
+        "responseSubject": {
+          "type": "string"
+        },
+        "responseBodyPlainText": {
+          "type": "string"
+        },
+        "responseBodyHtml": {
+          "type": "string"
+        },
+        "restrictToContacts": {
+          "type": "boolean"
+        },
+        "restrictToDomain": {
+          "type": "boolean"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "enableAutoReply"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listdrafts": {
+      "type": "object",
+      "properties": {
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of drafts to return. Default is 100. Maximum allowed is 500."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "Page token to retrieve a specific page of results in the list. Omit for the first page."
+        },
+        "q": {
+          "type": "string",
+          "description": "Query to filter drafts. Supports the same query format as the Gmail search box."
+        },
+        "includeSpamTrash": {
+          "type": "boolean",
+          "description": "Include drafts from SPAM and TRASH in the results."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listdrafts": {
+      "type": "object",
+      "properties": {
+        "drafts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "threadId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "threadId"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "resultSizeEstimate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "drafts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listfilters": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID. Use \"me\" for the authenticated user. Defaults to \"me\"."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listfilters": {
+      "type": "object",
+      "properties": {
+        "filters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "criteria": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "query": {
+                    "type": "string"
+                  },
+                  "negatedQuery": {
+                    "type": "string"
+                  },
+                  "hasAttachment": {
+                    "type": "boolean"
+                  },
+                  "excludeChats": {
+                    "type": "boolean"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "sizeComparison": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "action": {
+                "type": "object",
+                "properties": {
+                  "addLabelIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "removeLabelIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "forward": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listforwardingaddresses": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The users email address. The special value me can be used to indicate the authenticated user. Defaults to \"me\"."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listforwardingaddresses": {
+      "type": "object",
+      "properties": {
+        "forwardingAddresses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "forwardingEmail": {
+                "type": "string"
+              },
+              "verificationStatus": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "forwardingEmail"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "forwardingAddresses"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listlabels": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listlabels": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "The display name of the label"
+              },
+              "type": {
+                "type": "string",
+                "description": "The owner type for the label: system or user"
+              },
+              "messageListVisibility": {
+                "type": "string",
+                "description": "The visibility of the label in the message list"
+              },
+              "labelListVisibility": {
+                "type": "string",
+                "description": "The visibility of the label in the label list"
+              },
+              "messagesTotal": {
+                "type": "number",
+                "description": "The total number of messages with the label"
+              },
+              "messagesUnread": {
+                "type": "number",
+                "description": "The number of unread messages with the label"
+              },
+              "threadsTotal": {
+                "type": "number",
+                "description": "The total number of threads with the label"
+              },
+              "threadsUnread": {
+                "type": "number",
+                "description": "The number of unread threads with the label"
+              },
+              "textColor": {
+                "type": "string",
+                "description": "The text color of the label"
+              },
+              "backgroundColor": {
+                "type": "string",
+                "description": "The background color of the label"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "labels"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listmessages": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "description": "Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example: \"from:someuser@example.com rfc822msgid: is:unread\""
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Only return messages with labels that match all of the specified label IDs."
+        },
+        "includeSpamTrash": {
+          "type": "boolean",
+          "description": "Include messages from SPAM and TRASH in the results."
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of messages to return. Defaults to 100. The maximum allowed value is 500."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "Page token to retrieve a specific page of results in the list."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listmessages": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "threadId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "resultSizeEstimate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "messages"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listsendasaliases": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listsendasaliases": {
+      "type": "object",
+      "properties": {
+        "sendAsAliases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string"
+              },
+              "isDefault": {
+                "type": "boolean"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "replyToAddress": {
+                "type": "string"
+              },
+              "sendAsEmail": {
+                "type": "string"
+              },
+              "signature": {
+                "type": "string"
+              },
+              "treatAsAlias": {
+                "type": "boolean"
+              },
+              "verificationStatus": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "sendAsAliases"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listthreads": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "includeSpamTrash": {
+          "type": "boolean"
+        },
+        "maxResults": {
+          "type": "number"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listthreads": {
+      "type": "object",
+      "properties": {
+        "threads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "messages": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "threadId": {
+                      "type": "string"
+                    },
+                    "labelIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "snippet": {
+                      "type": "string"
+                    },
+                    "historyId": {
+                      "type": "string"
+                    },
+                    "internalDate": {
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "anyOf": [
+                          {},
+                          {
+                            "not": {}
+                          }
+                        ]
+                      }
+                    },
+                    "sizeEstimate": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "resultSizeEstimate": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_listwatchhistory": {
+      "type": "object",
+      "properties": {
+        "startHistoryId": {
+          "type": "string",
+          "description": "Start history ID to return history records after. Example: \"1234567890\""
+        },
+        "historyTypes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "messageAdded"
+              },
+              "1": {
+                "type": "string",
+                "const": "messageDeleted"
+              },
+              "2": {
+                "type": "string",
+                "const": "labelAdded"
+              },
+              "3": {
+                "type": "string",
+                "const": "labelRemoved"
+              }
+            },
+            "required": [
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "additionalProperties": false
+          },
+          "description": "History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned."
+        },
+        "labelId": {
+          "type": "string",
+          "description": "Only return history for this label. Example: \"Label_1\""
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of history records to return."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "Page token to retrieve a specific page of results."
+        }
+      },
+      "required": [
+        "startHistoryId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_listwatchhistory": {
+      "type": "object",
+      "properties": {
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "messages": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "threadId": {
+                      "type": "string"
+                    },
+                    "labelIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "historyId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "threadId"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "messagesAdded": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "threadId": {
+                          "type": "string"
+                        },
+                        "labelIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "historyId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "threadId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "messagesDeleted": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "threadId": {
+                          "type": "string"
+                        },
+                        "labelIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "historyId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "threadId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "labelsAdded": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "threadId": {
+                          "type": "string"
+                        },
+                        "labelIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "threadId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "labelIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "labelIds"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "labelsRemoved": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "threadId": {
+                          "type": "string"
+                        },
+                        "labelIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "threadId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "labelIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "labelIds"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "history"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_modifymessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the message to modify. Example: \"1234567890abcdef\""
+        },
+        "addLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of label IDs to add to the message."
+        },
+        "removeLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of label IDs to remove from the message."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_modifymessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "internalDate": {
+          "type": "string"
+        },
+        "sizeEstimate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_modifythread": {
+      "type": "object",
+      "properties": {
+        "threadId": {
+          "type": "string",
+          "description": "The ID of the thread to modify. Example: \"123abc456def\""
+        },
+        "addLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of label IDs to add to the thread."
+        },
+        "removeLabelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of label IDs to remove from the thread."
+        }
+      },
+      "required": [
+        "threadId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_modifythread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the modified thread."
+        },
+        "historyId": {
+          "type": "string",
+          "description": "The history ID of the thread."
+        },
+        "messages": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_senddraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the draft to send. Example: \"r-1234567890\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_senddraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the sent message. Example: \"1234567890abcdef\""
+        },
+        "threadId": {
+          "type": "string",
+          "description": "The ID of the thread the message belongs to. Example: \"abcdef1234567890\""
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of label IDs applied to the message."
+        },
+        "snippet": {
+          "type": "string",
+          "description": "A short snippet of the message content."
+        },
+        "historyId": {
+          "type": "string",
+          "description": "The history ID of the message."
+        },
+        "internalDate": {
+          "type": "string",
+          "description": "The internal date of the message in epoch milliseconds."
+        },
+        "sizeEstimate": {
+          "type": "number",
+          "description": "Estimated size of the message in bytes."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_sendmessage": {
+      "type": "object",
+      "properties": {
+        "raw": {
+          "type": "string",
+          "description": "The base64url-encoded MIME content of the email message to send."
+        },
+        "threadId": {
+          "type": "string",
+          "description": "The ID of the thread to reply to. If omitted, a new thread is created."
+        }
+      },
+      "required": [
+        "raw"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_sendmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the sent message."
+        },
+        "threadId": {
+          "type": "string",
+          "description": "The ID of the thread the message belongs to."
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of label IDs applied to the message."
+        },
+        "snippet": {
+          "type": "string",
+          "description": "A short snippet of the message text."
+        },
+        "historyId": {
+          "type": "string",
+          "description": "The history ID of the message."
+        },
+        "internalDate": {
+          "type": "string",
+          "description": "The internal date of the message in milliseconds since epoch."
         }
       },
       "required": [
         "id",
         "threadId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_stopwatch": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The user's email address. Use \"me\" to indicate the authenticated user. Defaults to \"me\". Example: \"me\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_stopwatch": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_trashmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the message to trash. Example: \"16e69b9f7e6e0f8b\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_trashmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "internalDate": {
+          "type": "string"
+        },
+        "sizeEstimate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "threadId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_trashthread": {
+      "type": "object",
+      "properties": {
+        "thread_id": {
+          "type": "string",
+          "description": "The ID of the thread to trash. Example: \"18e0b4e6c8a0b9e2\""
+        }
+      },
+      "required": [
+        "thread_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_trashthread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              },
+              "labelIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "internalDate": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "additionalProperties": false
+              },
+              "sizeEstimate": {
+                "type": "number"
+              },
+              "raw": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_untrashmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the message to untrash. Example: \"1234567890abcdef\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_untrashmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "internalDate": {
+          "type": "string"
+        },
+        "sizeEstimate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_untrashthread": {
+      "type": "object",
+      "properties": {
+        "threadId": {
+          "type": "string",
+          "description": "The ID of the thread to restore from trash. Example: \"18abc123def456\""
+        }
+      },
+      "required": [
+        "threadId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_untrashthread": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              },
+              "labelIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "internalDate": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatedraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the draft to update. Example: \"r-1234567890\""
+        },
+        "raw": {
+          "type": "string",
+          "description": "The raw RFC 2822 formatted MIME message as a base64url encoded string."
+        }
+      },
+      "required": [
+        "id",
+        "raw"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatedraft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "threadId": {
+              "type": "string"
+            },
+            "labelIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "snippet": {
+              "type": "string"
+            },
+            "historyId": {
+              "type": "string"
+            },
+            "internalDate": {
+              "type": "string"
+            },
+            "sizeEstimate": {
+              "type": "number"
+            },
+            "raw": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updateimapsettings": {
+      "type": "object",
+      "properties": {
+        "imap_enabled": {
+          "type": "boolean",
+          "description": "Whether IMAP is enabled for the account."
+        },
+        "auto_expunge": {
+          "type": "boolean",
+          "description": "Whether to automatically expunge messages when they are deleted."
+        },
+        "expunge_behavior": {
+          "type": "string",
+          "enum": [
+            "archive",
+            "trash",
+            "deleteForever"
+          ],
+          "description": "Behavior for expunging messages."
+        },
+        "max_folder_size": {
+          "type": "number",
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ],
+          "description": "Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updateimapsettings": {
+      "type": "object",
+      "properties": {
+        "imap_enabled": {
+          "type": "boolean"
+        },
+        "auto_expunge": {
+          "type": "boolean"
+        },
+        "expunge_behavior": {
+          "type": "string",
+          "enum": [
+            "archive",
+            "trash",
+            "deleteForever"
+          ]
+        },
+        "max_folder_size": {
+          "type": "number",
+          "enum": [
+            0,
+            1000,
+            2000,
+            5000,
+            10000
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatelabel": {
+      "type": "object",
+      "properties": {
+        "labelId": {
+          "type": "string",
+          "description": "The ID of the label to update. Example: \"Label_1\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name of the label."
+        },
+        "messageListVisibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ],
+          "description": "The visibility of the label in the message list."
+        },
+        "labelListVisibility": {
+          "type": "string",
+          "enum": [
+            "labelShow",
+            "labelShowIfUnread",
+            "labelHide"
+          ],
+          "description": "The visibility of the label in the label list."
+        }
+      },
+      "required": [
+        "labelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatelabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "messageListVisibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ]
+        },
+        "labelListVisibility": {
+          "type": "string",
+          "enum": [
+            "labelShow",
+            "labelShowIfUnread",
+            "labelHide"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "system",
+            "user"
+          ]
+        },
+        "messagesTotal": {
+          "type": "number"
+        },
+        "messagesUnread": {
+          "type": "number"
+        },
+        "threadsTotal": {
+          "type": "number"
+        },
+        "threadsUnread": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatelanguagesettings": {
+      "type": "object",
+      "properties": {
+        "displayLanguage": {
+          "type": "string",
+          "description": "The language to display the Gmail UI in. Example: \"en\", \"fr\", \"es\", \"de\". Use \"en\" for English."
+        }
+      },
+      "required": [
+        "displayLanguage"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatelanguagesettings": {
+      "type": "object",
+      "properties": {
+        "displayLanguage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "displayLanguage"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatepopsettings": {
+      "type": "object",
+      "properties": {
+        "accessWindow": {
+          "type": "string",
+          "enum": [
+            "accessWindowUnspecified",
+            "disabled",
+            "allMail",
+            "fromNowOn"
+          ],
+          "description": "The range of messages which are accessible via POP. Example: \"allMail\""
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "dispositionUnspecified",
+            "leaveInInbox",
+            "archive",
+            "trash",
+            "markRead"
+          ],
+          "description": "The action that will be executed on a message after it has been fetched via POP. Example: \"leaveInInbox\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatepopsettings": {
+      "type": "object",
+      "properties": {
+        "accessWindow": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatesendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The email address that appears in the \"From:\" header for mail sent using this alias. Example: \"alias@example.com\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "The user ID. Use \"me\" for the authenticated user. Defaults to \"me\"."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "A name that appears in the \"From:\" header instead of the actual email address. Example: \"John Doe\""
+        },
+        "replyToAddress": {
+          "type": "string",
+          "description": "An optional email address to use for replies. Example: \"replies@example.com\""
+        },
+        "signature": {
+          "type": "string",
+          "description": "An optional HTML signature that is included in messages composed with this alias."
+        },
+        "treatAsAlias": {
+          "type": "boolean",
+          "description": "Whether Gmail should treat this alias as an alias."
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Whether this alias is the default alias."
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatesendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The email address of the alias."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for this alias."
+        },
+        "replyToAddress": {
+          "type": "string",
+          "description": "The reply-to address for this alias."
+        },
+        "signature": {
+          "type": "string",
+          "description": "The HTML signature for this alias."
+        },
+        "isPrimary": {
+          "type": "boolean",
+          "description": "Whether this is the primary alias."
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Whether this is the default alias."
+        },
+        "treatAsAlias": {
+          "type": "boolean",
+          "description": "Whether Gmail treats this as an alias."
+        },
+        "verificationStatus": {
+          "type": "string",
+          "description": "The verification status of this alias."
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatesendassmtpmsa": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The send-as alias email to be updated. Example: \"alias@example.com\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user. Defaults to \"me\"."
+        },
+        "smtpMsa": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number",
+              "description": "The port of the SMTP service. Required."
+            },
+            "username": {
+              "type": "string",
+              "description": "The username for authentication with the SMTP service. This is a write-only field."
+            },
+            "password": {
+              "type": "string",
+              "description": "The password for authentication with the SMTP service. This is a write-only field."
+            },
+            "securityMode": {
+              "type": "string",
+              "enum": [
+                "securityModeUnspecified",
+                "none",
+                "ssl",
+                "starttls"
+              ],
+              "description": "The protocol used to secure communication with the SMTP service. Required."
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "securityMode"
+          ],
+          "additionalProperties": false,
+          "description": "The SMTP MSA settings for the send-as alias."
+        }
+      },
+      "required": [
+        "sendAsEmail",
+        "smtpMsa"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatesendassmtpmsa": {
+      "type": "object",
+      "properties": {
+        "sendAs": {
+          "type": "object",
+          "properties": {
+            "sendAsEmail": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "replyToAddress": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            },
+            "isPrimary": {
+              "type": "boolean"
+            },
+            "isDefault": {
+              "type": "boolean"
+            },
+            "treatAsAlias": {
+              "type": "boolean"
+            },
+            "smtpMsa": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "number"
+                },
+                "securityMode": {
+                  "type": "string",
+                  "enum": [
+                    "securityModeUnspecified",
+                    "none",
+                    "ssl",
+                    "starttls"
+                  ]
+                }
+              },
+              "required": [
+                "host",
+                "port",
+                "securityMode"
+              ],
+              "additionalProperties": false
+            },
+            "verificationStatus": {
+              "type": "string",
+              "enum": [
+                "verificationStatusUnspecified",
+                "accepted",
+                "pending"
+              ]
+            }
+          },
+          "required": [
+            "sendAsEmail"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "sendAs"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_updatevacationsettings": {
+      "type": "object",
+      "properties": {
+        "enableAutoReply": {
+          "type": "boolean",
+          "description": "Flag that controls whether Gmail automatically replies to messages."
+        },
+        "responseSubject": {
+          "type": "string",
+          "description": "Optional text to prepend to the subject line in vacation responses. Either this or responseBody must be nonempty to enable auto-replies."
+        },
+        "responseBodyPlainText": {
+          "type": "string",
+          "description": "Response body in plain text format. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used."
+        },
+        "responseBodyHtml": {
+          "type": "string",
+          "description": "Response body in HTML format. Gmail will sanitize the HTML before storing it. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used."
+        },
+        "restrictToContacts": {
+          "type": "boolean",
+          "description": "Flag that determines whether responses are sent to recipients who are not in the user's list of contacts."
+        },
+        "restrictToDomain": {
+          "type": "boolean",
+          "description": "Flag that determines whether responses are sent to recipients who are outside of the user's domain. This feature is only available for Google Workspace users."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "An optional start time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives after the start time."
+        },
+        "endTime": {
+          "type": "string",
+          "description": "An optional end time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives before the end time. If both startTime and endTime are specified, startTime must precede endTime."
+        }
+      },
+      "required": [
+        "enableAutoReply"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updatevacationsettings": {
+      "type": "object",
+      "properties": {
+        "enableAutoReply": {
+          "type": "boolean"
+        },
+        "responseSubject": {
+          "type": "string"
+        },
+        "responseBodyPlainText": {
+          "type": "string"
+        },
+        "responseBodyHtml": {
+          "type": "string"
+        },
+        "restrictToContacts": {
+          "type": "boolean"
+        },
+        "restrictToDomain": {
+          "type": "boolean"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "enableAutoReply"
       ],
       "additionalProperties": false
     },
@@ -85948,89 +89143,6 @@
           "description": "Whether to auto-join public channels"
         }
       },
-      "additionalProperties": false
-    },
-    "Message": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "channel_id": {
-          "type": "string"
-        },
-        "channel_name": {
-          "type": "string"
-        },
-        "user_id": {
-          "type": "string"
-        },
-        "user_name": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "string"
-        },
-        "thread_ts": {
-          "type": "string"
-        },
-        "parent_ts": {
-          "type": "string"
-        },
-        "is_thread_reply": {
-          "type": "boolean"
-        },
-        "reactions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "count": {
-                "type": "number"
-              },
-              "users": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "name",
-              "count",
-              "users"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "reply_count": {
-          "type": "number"
-        },
-        "reply_users": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "created_at": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "channel_id",
-        "channel_name",
-        "user_id",
-        "text",
-        "timestamp",
-        "created_at"
-      ],
       "additionalProperties": false
     },
     "ActionInput_slack_addreaction": {

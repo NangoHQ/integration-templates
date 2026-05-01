@@ -1,0 +1,416 @@
+{
+  "input": {
+    "startHistoryId": "86170"
+  },
+  "output": {
+    "history": [
+      {
+        "id": "86179",
+        "messages": [
+          {
+            "id": "19dda58832469c79",
+            "threadId": "19dda58832469c79"
+          },
+          {
+            "id": "19dda5888dc95981",
+            "threadId": "19dda58832469c79"
+          }
+        ],
+        "labelsAdded": [
+          {
+            "message": {
+              "id": "19dda58832469c79",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "TRASH",
+                "SENT"
+              ]
+            },
+            "labelIds": [
+              "TRASH"
+            ]
+          },
+          {
+            "message": {
+              "id": "19dda5888dc95981",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "CATEGORY_UPDATES",
+                "TRASH",
+                "INBOX"
+              ]
+            },
+            "labelIds": [
+              "TRASH"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "86180",
+        "messages": [
+          {
+            "id": "19dda5888dc95981",
+            "threadId": "19dda58832469c79"
+          }
+        ],
+        "labelsRemoved": [
+          {
+            "message": {
+              "id": "19dda5888dc95981",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "TRASH",
+                "CATEGORY_UPDATES"
+              ]
+            },
+            "labelIds": [
+              "INBOX"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "86201",
+        "messages": [
+          {
+            "id": "19dda5cb6f806160",
+            "threadId": "19dda5cb6f806160"
+          }
+        ],
+        "messagesAdded": [
+          {
+            "message": {
+              "id": "19dda5cb6f806160",
+              "threadId": "19dda5cb6f806160",
+              "labelIds": [
+                "SENT"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "86220",
+        "messages": [
+          {
+            "id": "19dda5cb6f806160",
+            "threadId": "19dda5cb6f806160"
+          }
+        ]
+      },
+      {
+        "id": "86221",
+        "messages": [
+          {
+            "id": "19dda5cb6f806160",
+            "threadId": "19dda5cb6f806160"
+          }
+        ]
+      },
+      {
+        "id": "86222",
+        "messages": [
+          {
+            "id": "19dda5cb6f806160",
+            "threadId": "19dda5cb6f806160"
+          }
+        ]
+      },
+      {
+        "id": "86226",
+        "messages": [
+          {
+            "id": "19dda5cb6f806160",
+            "threadId": "19dda5cb6f806160"
+          }
+        ]
+      },
+      {
+        "id": "86230",
+        "messages": [
+          {
+            "id": "19dda5cc10eb51bb",
+            "threadId": "19dda5cb6f806160"
+          }
+        ],
+        "messagesAdded": [
+          {
+            "message": {
+              "id": "19dda5cc10eb51bb",
+              "threadId": "19dda5cb6f806160",
+              "labelIds": [
+                "UNREAD",
+                "CATEGORY_UPDATES",
+                "INBOX"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "86277",
+        "messages": [
+          {
+            "id": "19dda58832469c79",
+            "threadId": "19dda58832469c79"
+          },
+          {
+            "id": "19dda5888dc95981",
+            "threadId": "19dda58832469c79"
+          }
+        ],
+        "labelsRemoved": [
+          {
+            "message": {
+              "id": "19dda58832469c79",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "SENT"
+              ]
+            },
+            "labelIds": [
+              "TRASH"
+            ]
+          },
+          {
+            "message": {
+              "id": "19dda5888dc95981",
+              "threadId": "19dda58832469c79",
+              "labelIds": [
+                "CATEGORY_UPDATES"
+              ]
+            },
+            "labelIds": [
+              "TRASH"
+            ]
+          }
+        ]
+      }
+    ],
+    "historyId": "86290"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/gmail/v1/users/me/history": {
+        "response": {
+          "history": [
+            {
+              "id": "86179",
+              "messages": [
+                {
+                  "id": "19dda58832469c79",
+                  "threadId": "19dda58832469c79"
+                },
+                {
+                  "id": "19dda5888dc95981",
+                  "threadId": "19dda58832469c79"
+                }
+              ],
+              "labelsAdded": [
+                {
+                  "message": {
+                    "id": "19dda58832469c79",
+                    "threadId": "19dda58832469c79",
+                    "labelIds": [
+                      "TRASH",
+                      "SENT"
+                    ]
+                  },
+                  "labelIds": [
+                    "TRASH"
+                  ]
+                },
+                {
+                  "message": {
+                    "id": "19dda5888dc95981",
+                    "threadId": "19dda58832469c79",
+                    "labelIds": [
+                      "CATEGORY_UPDATES",
+                      "TRASH",
+                      "INBOX"
+                    ]
+                  },
+                  "labelIds": [
+                    "TRASH"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "86180",
+              "messages": [
+                {
+                  "id": "19dda5888dc95981",
+                  "threadId": "19dda58832469c79"
+                }
+              ],
+              "labelsRemoved": [
+                {
+                  "message": {
+                    "id": "19dda5888dc95981",
+                    "threadId": "19dda58832469c79",
+                    "labelIds": [
+                      "TRASH",
+                      "CATEGORY_UPDATES"
+                    ]
+                  },
+                  "labelIds": [
+                    "INBOX"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "86201",
+              "messages": [
+                {
+                  "id": "19dda5cb6f806160",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ],
+              "messagesAdded": [
+                {
+                  "message": {
+                    "id": "19dda5cb6f806160",
+                    "threadId": "19dda5cb6f806160",
+                    "labelIds": [
+                      "SENT"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "86220",
+              "messages": [
+                {
+                  "id": "19dda5cb6f806160",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ]
+            },
+            {
+              "id": "86221",
+              "messages": [
+                {
+                  "id": "19dda5cb6f806160",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ]
+            },
+            {
+              "id": "86222",
+              "messages": [
+                {
+                  "id": "19dda5cb6f806160",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ]
+            },
+            {
+              "id": "86226",
+              "messages": [
+                {
+                  "id": "19dda5cb6f806160",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ]
+            },
+            {
+              "id": "86230",
+              "messages": [
+                {
+                  "id": "19dda5cc10eb51bb",
+                  "threadId": "19dda5cb6f806160"
+                }
+              ],
+              "messagesAdded": [
+                {
+                  "message": {
+                    "id": "19dda5cc10eb51bb",
+                    "threadId": "19dda5cb6f806160",
+                    "labelIds": [
+                      "UNREAD",
+                      "CATEGORY_UPDATES",
+                      "INBOX"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "86277",
+              "messages": [
+                {
+                  "id": "19dda58832469c79",
+                  "threadId": "19dda58832469c79"
+                },
+                {
+                  "id": "19dda5888dc95981",
+                  "threadId": "19dda58832469c79"
+                }
+              ],
+              "labelsRemoved": [
+                {
+                  "message": {
+                    "id": "19dda58832469c79",
+                    "threadId": "19dda58832469c79",
+                    "labelIds": [
+                      "SENT"
+                    ]
+                  },
+                  "labelIds": [
+                    "TRASH"
+                  ]
+                },
+                {
+                  "message": {
+                    "id": "19dda5888dc95981",
+                    "threadId": "19dda58832469c79",
+                    "labelIds": [
+                      "CATEGORY_UPDATES"
+                    ]
+                  },
+                  "labelIds": [
+                    "TRASH"
+                  ]
+                }
+              ]
+            }
+          ],
+          "historyId": "86290"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 17:50:10 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4946",
+          "x-ratelimit-reset": "1777485039",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "46e082d0acb9507bc8b11d68138bc3177e7c1c37",
+        "request": {
+          "params": {
+            "startHistoryId": "86170"
+          }
+        }
+      }
+    }
+  }
+}
