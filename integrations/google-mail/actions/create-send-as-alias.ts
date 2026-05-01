@@ -42,7 +42,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const userId = 'me';

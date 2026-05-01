@@ -40553,7 +40553,7 @@
           "ActionOutput_google_mail_createsendasalias"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/gmail.settings.basic"
+          "https://www.googleapis.com/auth/gmail.settings.sharing"
         ],
         "usedModels": [
           "ActionInput_google_mail_createsendasalias",
@@ -40910,7 +40910,7 @@
           "ActionOutput_google_mail_deletesendasalias"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/gmail.settings.basic"
+          "https://www.googleapis.com/auth/gmail.settings.sharing"
         ],
         "usedModels": [
           "ActionInput_google_mail_deletesendasalias",
@@ -44783,7 +44783,7 @@
           "ActionOutput_google_mail_verifysendasalias"
         ],
         "scopes": [
-          "https://www.googleapis.com/auth/gmail.settings.basic"
+          "https://www.googleapis.com/auth/gmail.settings.sharing"
         ],
         "usedModels": [
           "ActionInput_google_mail_verifysendasalias",

@@ -15,7 +15,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: z.void(),
-    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],
 
     exec: async (nango, input): Promise<void> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs/delete

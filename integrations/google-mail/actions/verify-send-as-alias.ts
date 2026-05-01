@@ -16,7 +16,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: z.void(),
-    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],
 
     exec: async (nango, input): Promise<void> => {
         const userId = input.userId ?? 'me';
