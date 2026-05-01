@@ -1,0 +1,137 @@
+{
+  "input": {
+    "project_gid": "1211440849237745",
+    "limit": 5
+  },
+  "output": {
+    "tasks": [
+      {
+        "gid": "1211440849237760",
+        "name": "Draft project brief",
+        "resource_type": "task",
+        "assignee": {
+          "gid": "1211440844472372",
+          "name": "Nango API",
+          "resource_type": "user"
+        },
+        "completed": false,
+        "due_on": "2025-09-25",
+        "created_at": "2025-09-23T14:42:24.630Z",
+        "modified_at": "2026-04-27T14:33:28.267Z",
+        "notes": "",
+        "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237760"
+      },
+      {
+        "gid": "1211440849237762",
+        "name": "Schedule kickoff meeting",
+        "resource_type": "task",
+        "assignee": {
+          "gid": "1211440844472372",
+          "name": "Nango API",
+          "resource_type": "user"
+        },
+        "completed": false,
+        "due_on": "2025-09-26",
+        "created_at": "2025-09-23T14:42:24.897Z",
+        "modified_at": "2025-09-25T21:01:38.104Z",
+        "notes": "",
+        "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237762"
+      },
+      {
+        "gid": "1211440850780099",
+        "name": "Share timeline with teammates",
+        "resource_type": "task",
+        "assignee": null,
+        "completed": false,
+        "due_on": "2025-09-29",
+        "created_at": "2025-09-23T14:42:25.069Z",
+        "modified_at": "2025-09-23T14:42:27.668Z",
+        "notes": "",
+        "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440850780099"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/projects/1211440849237745/tasks": {
+        "response": {
+          "data": [
+            {
+              "gid": "1211440849237760",
+              "assignee": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "completed": false,
+              "created_at": "2025-09-23T14:42:24.630Z",
+              "due_on": "2025-09-25",
+              "modified_at": "2026-04-27T14:33:28.267Z",
+              "name": "Draft project brief",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237760",
+              "resource_type": "task"
+            },
+            {
+              "gid": "1211440849237762",
+              "assignee": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "completed": false,
+              "created_at": "2025-09-23T14:42:24.897Z",
+              "due_on": "2025-09-26",
+              "modified_at": "2025-09-25T21:01:38.104Z",
+              "name": "Schedule kickoff meeting",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440849237762",
+              "resource_type": "task"
+            },
+            {
+              "gid": "1211440850780099",
+              "assignee": null,
+              "completed": false,
+              "created_at": "2025-09-23T14:42:25.069Z",
+              "due_on": "2025-09-29",
+              "modified_at": "2025-09-23T14:42:27.668Z",
+              "name": "Share timeline with teammates",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745/task/1211440850780099",
+              "resource_type": "task"
+            }
+          ],
+          "next_page": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:41:18 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "1169",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1777300908",
+          "etag": "W/\"491-1dSVQImSCVd3QyravDZH+5rd+X4\""
+        },
+        "hash": "53a08865afe17902a289564516cff398e4968473",
+        "request": {
+          "params": {
+            "limit": "5",
+            "opt_fields": "gid,name,resource_type,assignee,completed,due_on,created_at,modified_at,notes,permalink_url"
+          }
+        }
+      }
+    }
+  }
+}

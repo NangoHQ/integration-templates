@@ -1,0 +1,216 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "ref": "main"
+  },
+  "output": {
+    "sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "node_id": "C_kwDOSPtvHNoAKDBlMWMxMjkyZjI2ZThhZDgyYzdiODQ5ZjMzNWE3OGU5ZWVmNzAwNDk",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "html_url": "https://github.com/viictoo/api-playground2/commit/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "comments_url": "https://api.github.com/repos/viictoo/api-playground2/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049/comments",
+    "commit": {
+      "message": "Delete test file for mock data",
+      "comment_count": 0,
+      "tree": {
+        "sha": "249ba685ada4a6d115e7c98ce1a25a2809bdffd2",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/249ba685ada4a6d115e7c98ce1a25a2809bdffd2"
+      },
+      "author": {
+        "name": "testnangoapi[bot]",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "date": "2026-04-29T10:20:17Z"
+      },
+      "committer": {
+        "name": "testnangoapi[bot]",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "date": "2026-04-29T10:20:17Z"
+      },
+      "verification": {
+        "verified": false,
+        "reason": "unsigned"
+      }
+    },
+    "author": {
+      "login": "testnangoapi[bot]",
+      "id": 280313874,
+      "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+      "html_url": "https://github.com/apps/testnangoapi"
+    },
+    "committer": {
+      "login": "testnangoapi[bot]",
+      "id": 280313874,
+      "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+      "html_url": "https://github.com/apps/testnangoapi"
+    },
+    "parents": [
+      {
+        "sha": "cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/commits/cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+        "html_url": "https://github.com/viictoo/api-playground2/commit/cee77c4ec5b1ba6172e313c0f4184aef91570c96"
+      }
+    ],
+    "stats": {
+      "additions": 0,
+      "deletions": 1,
+      "total": 1
+    },
+    "files": [
+      {
+        "filename": "test-delete-mock.txt",
+        "status": "removed",
+        "additions": 0,
+        "deletions": 1,
+        "changes": 1,
+        "blob_url": "https://github.com/viictoo/api-playground2/blob/cee77c4ec5b1ba6172e313c0f4184aef91570c96/test-delete-mock.txt",
+        "raw_url": "https://github.com/viictoo/api-playground2/raw/cee77c4ec5b1ba6172e313c0f4184aef91570c96/test-delete-mock.txt",
+        "contents_url": "https://api.github.com/repos/viictoo/api-playground2/contents/test-delete-mock.txt?ref=cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+        "sha": "b4e416919f8816127ecbfc9578e252377a0a2cca",
+        "patch": "@@ -1 +0,0 @@\n-mock test data\n\\ No newline at end of file"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/commits/main": {
+        "response": {
+          "sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+          "node_id": "C_kwDOSPtvHNoAKDBlMWMxMjkyZjI2ZThhZDgyYzdiODQ5ZjMzNWE3OGU5ZWVmNzAwNDk",
+          "commit": {
+            "author": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-04-29T10:20:17Z"
+            },
+            "committer": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-04-29T10:20:17Z"
+            },
+            "message": "Delete test file for mock data",
+            "tree": {
+              "sha": "249ba685ada4a6d115e7c98ce1a25a2809bdffd2",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/249ba685ada4a6d115e7c98ce1a25a2809bdffd2"
+            },
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "comment_count": 0,
+            "verification": {
+              "verified": false,
+              "reason": "unsigned",
+              "signature": null,
+              "payload": null,
+              "verified_at": null
+            }
+          },
+          "url": "https://api.github.com/repos/viictoo/api-playground2/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+          "html_url": "https://github.com/viictoo/api-playground2/commit/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+          "comments_url": "https://api.github.com/repos/viictoo/api-playground2/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049/comments",
+          "author": {
+            "login": "testnangoapi[bot]",
+            "id": 280313874,
+            "node_id": "BOT_kgDOELVAEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "committer": {
+            "login": "testnangoapi[bot]",
+            "id": 280313874,
+            "node_id": "BOT_kgDOELVAEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "parents": [
+            {
+              "sha": "cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/commits/cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+              "html_url": "https://github.com/viictoo/api-playground2/commit/cee77c4ec5b1ba6172e313c0f4184aef91570c96"
+            }
+          ],
+          "stats": {
+            "total": 1,
+            "additions": 0,
+            "deletions": 1
+          },
+          "files": [
+            {
+              "sha": "b4e416919f8816127ecbfc9578e252377a0a2cca",
+              "filename": "test-delete-mock.txt",
+              "status": "removed",
+              "additions": 0,
+              "deletions": 1,
+              "changes": 1,
+              "blob_url": "https://github.com/viictoo/api-playground2/blob/cee77c4ec5b1ba6172e313c0f4184aef91570c96/test-delete-mock.txt",
+              "raw_url": "https://github.com/viictoo/api-playground2/raw/cee77c4ec5b1ba6172e313c0f4184aef91570c96/test-delete-mock.txt",
+              "contents_url": "https://api.github.com/repos/viictoo/api-playground2/contents/test-delete-mock.txt?ref=cee77c4ec5b1ba6172e313c0f4184aef91570c96",
+              "patch": "@@ -1 +0,0 @@\n-mock test data\n\\ No newline at end of file"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:22:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4879",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"8fe0207294722b046183f2a000452d826307454a042fe19950fcb4e4f5e75230\"",
+          "last-modified": "Wed, 29 Apr 2026 10:20:17 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "121",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "D239:11CB85:3528F18F:35E71B74:69F1DBE7"
+        },
+        "hash": "ea03db77299013a1c31158d5c4702d3ad8146931",
+        "request": {}
+      }
+    }
+  }
+}

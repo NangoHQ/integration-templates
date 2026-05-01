@@ -1,0 +1,199 @@
+{
+  "input": {
+    "path": "",
+    "limit": 10
+  },
+  "output": {
+    "entries": [
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAABQ",
+        "name": "TestFolder1",
+        "path_lower": "/testfolder1",
+        "path_display": "/TestFolder1"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAACw",
+        "name": "TestFolderB",
+        "path_lower": "/testfolderb",
+        "path_display": "/TestFolderB"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAADQ",
+        "name": "test-folder-action",
+        "path_lower": "/test-folder-action",
+        "path_display": "/test-folder-action"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAADg",
+        "name": "test-folder-action-save",
+        "path_lower": "/test-folder-action-save",
+        "path_display": "/test-folder-action-save"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAAEQ",
+        "name": "test-folder-for-zip-download",
+        "path_lower": "/test-folder-for-zip-download",
+        "path_display": "/test-folder-for-zip-download"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAAEw",
+        "name": "test-shared-link-folder",
+        "path_lower": "/test-shared-link-folder",
+        "path_display": "/test-shared-link-folder"
+      },
+      {
+        ".tag": "folder",
+        "id": "id:MzePHdV-D28AAAAAAAAAHQ",
+        "name": "test-unshare-folder-nango",
+        "path_lower": "/test-unshare-folder-nango",
+        "path_display": "/test-unshare-folder-nango"
+      },
+      {
+        ".tag": "file",
+        "id": "id:MzePHdV-D28AAAAAAAAAEA",
+        "name": "test-upload.txt",
+        "path_lower": "/test-upload.txt",
+        "path_display": "/test-upload.txt"
+      },
+      {
+        ".tag": "file",
+        "id": "id:MzePHdV-D28AAAAAAAAAHw",
+        "name": "test-restore-file.txt",
+        "path_lower": "/test-restore-file.txt",
+        "path_display": "/test-restore-file.txt"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/list_folder": {
+        "response": {
+          "entries": [
+            {
+              ".tag": "folder",
+              "name": "TestFolder1",
+              "path_lower": "/testfolder1",
+              "path_display": "/TestFolder1",
+              "id": "id:MzePHdV-D28AAAAAAAAABQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "TestFolderB",
+              "path_lower": "/testfolderb",
+              "path_display": "/TestFolderB",
+              "id": "id:MzePHdV-D28AAAAAAAAACw"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-action",
+              "path_lower": "/test-folder-action",
+              "path_display": "/test-folder-action",
+              "id": "id:MzePHdV-D28AAAAAAAAADQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-action-save",
+              "path_lower": "/test-folder-action-save",
+              "path_display": "/test-folder-action-save",
+              "id": "id:MzePHdV-D28AAAAAAAAADg"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-folder-for-zip-download",
+              "path_lower": "/test-folder-for-zip-download",
+              "path_display": "/test-folder-for-zip-download",
+              "id": "id:MzePHdV-D28AAAAAAAAAEQ"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-shared-link-folder",
+              "path_lower": "/test-shared-link-folder",
+              "path_display": "/test-shared-link-folder",
+              "id": "id:MzePHdV-D28AAAAAAAAAEw"
+            },
+            {
+              ".tag": "folder",
+              "name": "test-unshare-folder-nango",
+              "path_lower": "/test-unshare-folder-nango",
+              "path_display": "/test-unshare-folder-nango",
+              "id": "id:MzePHdV-D28AAAAAAAAAHQ"
+            },
+            {
+              ".tag": "file",
+              "name": "test-upload.txt",
+              "path_lower": "/test-upload.txt",
+              "path_display": "/test-upload.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAEA",
+              "client_modified": "2026-04-28T20:47:46Z",
+              "server_modified": "2026-04-28T20:47:46Z",
+              "rev": "016508b57f2b6f1000000033c9fd2f3",
+              "size": 22,
+              "is_downloadable": true,
+              "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802"
+            },
+            {
+              ".tag": "file",
+              "name": "test-restore-file.txt",
+              "path_lower": "/test-restore-file.txt",
+              "path_display": "/test-restore-file.txt",
+              "id": "id:MzePHdV-D28AAAAAAAAAHw",
+              "client_modified": "2026-04-28T20:49:40Z",
+              "server_modified": "2026-04-28T20:49:40Z",
+              "rev": "016508b5ebb1726000000033c9fd2f3",
+              "size": 17,
+              "is_downloadable": true,
+              "content_hash": "bc64ebc27097d6c41535c4dac6fd1c6964f162b0b1fc1e494db1eaf12ef4a74d"
+            }
+          ],
+          "cursor": "AAWIe29zAauTFvynPrfTWtxbPacvLbIuG24fkI92Qn59K6im3LeLH0Dqwa-3GBSj1yY7Vfg2BaUHJdLWUAlMQRF3qzQo5owwvL3yuJbilnbVPG03WPkdDknMd2Jo5eSRz9dIfm5NBXj_FfDcDSfhVrMYmvd3-Zr7ZN0zos3kiWbN74Q7Y5v3HhWSslhbPNUNxUs",
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:49:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1777409426",
+          "cache-control": "no-cache",
+          "x-server-response-time": "74",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "66bf832640604a3785661fb169f11d67",
+          "x-dropbox-trace-id": "69f11d67000000005fe49388700e58c4"
+        },
+        "hash": "d329cff918394af71f47ab76a51ba57fdec81ec7",
+        "request": {
+          "data": {
+            "path": "",
+            "recursive": false,
+            "include_deleted": false,
+            "include_mounted_folders": true,
+            "include_non_downloadable_files": true,
+            "limit": 10
+          }
+        }
+      }
+    }
+  }
+}

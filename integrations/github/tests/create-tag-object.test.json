@@ -1,0 +1,88 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "tag": "test-tag-v1.0.0",
+    "message": "Test tag for validation",
+    "object": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "type": "commit",
+    "tagger_name": "Test User",
+    "tagger_email": "test@example.com"
+  },
+  "output": {
+    "sha": "376acbc6878593a531af5d20a3f3028728a9e7b0",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/git/tags/376acbc6878593a531af5d20a3f3028728a9e7b0",
+    "tagger_name": "Test User",
+    "tagger_email": "test@example.com",
+    "tagger_date": "2026-04-29T10:22:13Z",
+    "object_sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "object_type": "commit",
+    "object_url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+    "tag": "test-tag-v1.0.0",
+    "message": "Test tag for validation"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/viictoo/api-playground2/git/tags": {
+        "response": {
+          "node_id": "TA_kwDOSPtvHNoAKDM3NmFjYmM2ODc4NTkzYTUzMWFmNWQyMGEzZjMwMjg3MjhhOWU3YjA",
+          "sha": "376acbc6878593a531af5d20a3f3028728a9e7b0",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/tags/376acbc6878593a531af5d20a3f3028728a9e7b0",
+          "tagger": {
+            "name": "Test User",
+            "email": "test@example.com",
+            "date": "2026-04-29T10:22:13Z"
+          },
+          "object": {
+            "sha": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "type": "commit",
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/0e1c1292f26e8ad82c7b849f335a78e9eef70049"
+          },
+          "tag": "test-tag-v1.0.0",
+          "message": "Test tag for validation",
+          "verification": {
+            "verified": false,
+            "reason": "unsigned",
+            "signature": null,
+            "payload": null,
+            "verified_at": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:22:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "686",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1777458181",
+          "etag": "W/\"2ae-RqPzSYkhASMHoxmVFtwYZ+C3qvM\""
+        },
+        "hash": "46a5a1cdd61df9ec6e33671e9d957a435fa5fa04",
+        "request": {
+          "data": {
+            "tag": "test-tag-v1.0.0",
+            "message": "Test tag for validation",
+            "object": "0e1c1292f26e8ad82c7b849f335a78e9eef70049",
+            "type": "commit",
+            "tagger": {
+              "name": "Test User",
+              "email": "test@example.com"
+            }
+          }
+        }
+      }
+    }
+  }
+}

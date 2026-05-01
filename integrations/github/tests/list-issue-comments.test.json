@@ -1,0 +1,176 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "issue_number": 1,
+    "per_page": 2
+  },
+  "output": {
+    "comments": [
+      {
+        "id": 4342416826,
+        "node_id": "IC_kwDOSPtvHM8AAAABAtQFug",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342416826",
+        "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342416826",
+        "body": "Reproduced locally on Python 3.11.",
+        "user_login": "viictoo",
+        "user_id": 125632594,
+        "created_at": "2026-04-29T09:28:35Z",
+        "updated_at": "2026-04-29T09:28:35Z",
+        "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1"
+      },
+      {
+        "id": 4342417055,
+        "node_id": "IC_kwDOSPtvHM8AAAABAtQGnw",
+        "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342417055",
+        "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342417055",
+        "body": "Adding a test in the next PR.",
+        "user_login": "viictoo",
+        "user_id": 125632594,
+        "created_at": "2026-04-29T09:28:37Z",
+        "updated_at": "2026-04-29T09:28:37Z",
+        "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1"
+      }
+    ],
+    "next_page": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/issues/1/comments": {
+        "response": [
+          {
+            "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342416826",
+            "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342416826",
+            "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1",
+            "id": 4342416826,
+            "node_id": "IC_kwDOSPtvHM8AAAABAtQFug",
+            "user": {
+              "login": "viictoo",
+              "id": 125632594,
+              "node_id": "U_kgDOB30AUg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/viictoo",
+              "html_url": "https://github.com/viictoo",
+              "followers_url": "https://api.github.com/users/viictoo/followers",
+              "following_url": "https://api.github.com/users/viictoo/following{/other_user}",
+              "gists_url": "https://api.github.com/users/viictoo/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/viictoo/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/viictoo/subscriptions",
+              "organizations_url": "https://api.github.com/users/viictoo/orgs",
+              "repos_url": "https://api.github.com/users/viictoo/repos",
+              "events_url": "https://api.github.com/users/viictoo/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/viictoo/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "created_at": "2026-04-29T09:28:35Z",
+            "updated_at": "2026-04-29T09:28:35Z",
+            "body": "Reproduced locally on Python 3.11.",
+            "author_association": "OWNER",
+            "pin": null,
+            "reactions": {
+              "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342416826/reactions",
+              "total_count": 0,
+              "+1": 0,
+              "-1": 0,
+              "laugh": 0,
+              "hooray": 0,
+              "confused": 0,
+              "heart": 0,
+              "rocket": 0,
+              "eyes": 0
+            },
+            "performed_via_github_app": null
+          },
+          {
+            "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342417055",
+            "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342417055",
+            "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1",
+            "id": 4342417055,
+            "node_id": "IC_kwDOSPtvHM8AAAABAtQGnw",
+            "user": {
+              "login": "viictoo",
+              "id": 125632594,
+              "node_id": "U_kgDOB30AUg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/viictoo",
+              "html_url": "https://github.com/viictoo",
+              "followers_url": "https://api.github.com/users/viictoo/followers",
+              "following_url": "https://api.github.com/users/viictoo/following{/other_user}",
+              "gists_url": "https://api.github.com/users/viictoo/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/viictoo/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/viictoo/subscriptions",
+              "organizations_url": "https://api.github.com/users/viictoo/orgs",
+              "repos_url": "https://api.github.com/users/viictoo/repos",
+              "events_url": "https://api.github.com/users/viictoo/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/viictoo/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "created_at": "2026-04-29T09:28:37Z",
+            "updated_at": "2026-04-29T09:28:37Z",
+            "body": "Adding a test in the next PR.",
+            "author_association": "OWNER",
+            "pin": null,
+            "reactions": {
+              "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342417055/reactions",
+              "total_count": 0,
+              "+1": 0,
+              "-1": 0,
+              "laugh": 0,
+              "hooray": 0,
+              "confused": 0,
+              "heart": 0,
+              "rocket": 0,
+              "eyes": 0
+            },
+            "performed_via_github_app": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:24:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4868",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"ab66834c3108621e69cd492e95b21924f70a75a2ae78f693fd116cd60bae8b08\"",
+          "x-github-media-type": "github.v3",
+          "link": "<https://api.github.com/repositories/1224437532/issues/1/comments?per_page=2&page=2>; rel=\"next\", <https://api.github.com/repositories/1224437532/issues/1/comments?per_page=2&page=3>; rel=\"last\"",
+          "x-accepted-github-permissions": "issues=read; pull_requests=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "132",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "76D1:1F7322:141AD721:14605836:69F1DC4B"
+        },
+        "hash": "de9d8675fce2f5c5d0495464d8a4642d2d8673b3",
+        "request": {
+          "params": {
+            "per_page": "2"
+          }
+        }
+      }
+    }
+  }
+}
