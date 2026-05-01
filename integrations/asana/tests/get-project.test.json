@@ -1,0 +1,144 @@
+{
+  "input": {
+    "project_gid": "1211440849237745"
+  },
+  "output": {
+    "gid": "1211440849237745",
+    "name": "API Testing Sandbox",
+    "resource_type": "project",
+    "archived": false,
+    "color": "aqua",
+    "completed": false,
+    "completed_at": null,
+    "created_at": "2025-09-23T14:42:22.670Z",
+    "current_status": null,
+    "current_status_update": null,
+    "custom_fields": [],
+    "default_access_level": "editor",
+    "default_view": "list",
+    "due_on": null,
+    "due_date": null,
+    "followers": [
+      {
+        "gid": "1211440844472372",
+        "name": "Nango API",
+        "resource_type": "user"
+      }
+    ],
+    "members": [
+      {
+        "gid": "1211440844472372",
+        "name": "Nango API",
+        "resource_type": "user"
+      }
+    ],
+    "minimum_access_level_for_customization": "editor",
+    "minimum_access_level_for_sharing": "editor",
+    "modified_at": "2026-04-27T13:48:41.071Z",
+    "notes": "",
+    "owner": {
+      "gid": "1211440844472372",
+      "name": "Nango API",
+      "resource_type": "user"
+    },
+    "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745",
+    "privacy_setting": "private",
+    "public": false,
+    "start_on": null,
+    "team": {
+      "gid": "1211440849237740",
+      "name": "Nango's first team",
+      "resource_type": "team"
+    },
+    "workspace": {
+      "gid": "1202775892569436",
+      "name": "nango.dev",
+      "resource_type": "workspace"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/1.0/projects/1211440849237745": {
+        "response": {
+          "data": {
+            "gid": "1211440849237745",
+            "archived": false,
+            "color": "aqua",
+            "completed": false,
+            "completed_at": null,
+            "created_at": "2025-09-23T14:42:22.670Z",
+            "current_status": null,
+            "current_status_update": null,
+            "custom_fields": [],
+            "default_access_level": "editor",
+            "default_view": "list",
+            "due_on": null,
+            "due_date": null,
+            "followers": [
+              {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              }
+            ],
+            "members": [
+              {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              }
+            ],
+            "minimum_access_level_for_customization": "editor",
+            "minimum_access_level_for_sharing": "editor",
+            "modified_at": "2026-04-27T13:48:41.071Z",
+            "name": "API Testing Sandbox",
+            "notes": "",
+            "owner": {
+              "gid": "1211440844472372",
+              "name": "Nango API",
+              "resource_type": "user"
+            },
+            "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745",
+            "privacy_setting": "private",
+            "public": false,
+            "resource_type": "project",
+            "start_on": null,
+            "team": {
+              "gid": "1211440849237740",
+              "name": "Nango's first team",
+              "resource_type": "team"
+            },
+            "workspace": {
+              "gid": "1202775892569436",
+              "name": "nango.dev",
+              "resource_type": "workspace"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 14:22:49 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "1055",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1777299771",
+          "etag": "W/\"41f-bQ5Z+bZ758AQMJ5z4sYny0FN9dE\""
+        },
+        "hash": "5eda232d0532358013866f616038b7d5450b8213",
+        "request": {}
+      }
+    }
+  }
+}

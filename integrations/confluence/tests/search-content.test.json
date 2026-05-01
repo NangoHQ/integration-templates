@@ -1,0 +1,504 @@
+{
+  "input": {
+    "cql": "type=page",
+    "limit": 5
+  },
+  "output": {
+    "results": [
+      {
+        "content": {
+          "id": "98432",
+          "type": "page",
+          "status": "current",
+          "title": "Explore Confluence Features",
+          "childTypes": {},
+          "macroRenderedOutput": {},
+          "restrictions": {},
+          "_expandable": {
+            "container": "",
+            "metadata": "",
+            "extensions": "",
+            "operations": "",
+            "children": "",
+            "history": "/rest/api/content/98432/history",
+            "ancestors": "",
+            "body": "",
+            "version": "",
+            "descendants": "",
+            "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+          },
+          "_links": {
+            "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98432/Explore+Confluence+Features",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98432",
+            "tinyui": "/x/gIAB"
+          }
+        },
+        "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98432/Explore+Confluence+Features",
+        "title": "Explore Confluence Features",
+        "excerpt": "Welcome to your trial, Nango Developer ! You have until 2026-04-18  to try all advanced features. With these features, you can bring clarity and control to your work.\nGet started with the top 3 most popular features ��\nMission control premium\nAccess workspace insights and controls all in one place.\nTry it now!--https://nango-",
+        "resultGlobalContainer": {
+          "title": "Nango Developer",
+          "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+        },
+        "breadcrumbs": [],
+        "entityType": "content",
+        "iconCssClass": "aui-icon content-type-page",
+        "lastModified": "2026-03-19T14:23:48.000Z",
+        "friendlyLastModified": "Mar 19, 2026",
+        "score": 0
+      },
+      {
+        "content": {
+          "id": "98401",
+          "type": "page",
+          "status": "current",
+          "title": "Getting started in Confluence",
+          "childTypes": {},
+          "macroRenderedOutput": {},
+          "restrictions": {},
+          "_expandable": {
+            "container": "",
+            "metadata": "",
+            "extensions": "",
+            "operations": "",
+            "children": "",
+            "history": "/rest/api/content/98401/history",
+            "ancestors": "",
+            "body": "",
+            "version": "",
+            "descendants": "",
+            "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+          },
+          "_links": {
+            "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98401/Getting+started+in+Confluence",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98401",
+            "tinyui": "/x/YYAB"
+          }
+        },
+        "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98401/Getting+started+in+Confluence",
+        "title": "Getting started in Confluence",
+        "excerpt": "Welcome to Confluence!\nYou can use Confluence to create a rich knowledge base or to collaborate with others using words, videos, images, graphics, charts, and graphs.\nThis page walks you through some Confluence basics like spaces, pages, and elements that allow you to create and manage impactful content for your teams.\nConfluence 101\n��️ Spaces\nSpaces are wh",
+        "resultGlobalContainer": {
+          "title": "Nango Developer",
+          "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+        },
+        "breadcrumbs": [],
+        "entityType": "content",
+        "iconCssClass": "aui-icon content-type-page",
+        "lastModified": "2026-03-19T14:23:48.000Z",
+        "friendlyLastModified": "Mar 19, 2026",
+        "score": 0
+      },
+      {
+        "content": {
+          "id": "98400",
+          "type": "page",
+          "status": "current",
+          "title": "Overview",
+          "childTypes": {},
+          "macroRenderedOutput": {},
+          "restrictions": {},
+          "_expandable": {
+            "container": "",
+            "metadata": "",
+            "extensions": "",
+            "operations": "",
+            "children": "",
+            "history": "/rest/api/content/98400/history",
+            "ancestors": "",
+            "body": "",
+            "version": "",
+            "descendants": "",
+            "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+          },
+          "_links": {
+            "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98400",
+            "tinyui": "/x/YIAB"
+          }
+        },
+        "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+        "title": "Overview",
+        "excerpt": "Say hello to your colleagues who want to know your name, pronouns, role, team and location (or if you&#39;re remote).\n�� Recent content that I&#39;ve worked on\n�� Get in touch\n✉️\n��\n��\n��\nEnd with a bang! Some options are: &quot;I am so grateful to be here at &lt;Insert company name&gt; and very excited to get started!&quot; or &quot;Looking forward to meeting all of you!&quot; or &quot;Can&#39;t wai",
+        "resultGlobalContainer": {
+          "title": "Nango Developer",
+          "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+        },
+        "breadcrumbs": [],
+        "entityType": "content",
+        "iconCssClass": "aui-icon content-type-page",
+        "lastModified": "2026-03-19T14:23:47.000Z",
+        "friendlyLastModified": "Mar 19, 2026",
+        "score": 0
+      },
+      {
+        "content": {
+          "id": "295107",
+          "type": "page",
+          "status": "current",
+          "title": "Template - Weekly status report",
+          "childTypes": {},
+          "macroRenderedOutput": {},
+          "restrictions": {},
+          "_expandable": {
+            "container": "",
+            "metadata": "",
+            "extensions": "",
+            "operations": "",
+            "children": "",
+            "history": "/rest/api/content/295107/history",
+            "ancestors": "",
+            "body": "",
+            "version": "",
+            "descendants": "",
+            "space": "/rest/api/space/MFS"
+          },
+          "_links": {
+            "webui": "/spaces/MFS/pages/295107/Template+-+Weekly+status+report",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/295107",
+            "tinyui": "/x/w4AE"
+          }
+        },
+        "url": "/spaces/MFS/pages/295107/Template+-+Weekly+status+report",
+        "title": "Template - Weekly status report",
+        "excerpt": "Copy and paste this section for each week.\nWin\nNeeds input\nFocus\nNotes\nImportant Links",
+        "resultGlobalContainer": {
+          "title": "My first space",
+          "displayUrl": "/spaces/MFS"
+        },
+        "breadcrumbs": [],
+        "entityType": "content",
+        "iconCssClass": "aui-icon content-type-page",
+        "lastModified": "2026-03-19T14:26:50.000Z",
+        "friendlyLastModified": "Mar 19, 2026",
+        "score": 0
+      },
+      {
+        "content": {
+          "id": "295095",
+          "type": "page",
+          "status": "current",
+          "title": "Template - Meeting notes",
+          "childTypes": {},
+          "macroRenderedOutput": {},
+          "restrictions": {},
+          "_expandable": {
+            "container": "",
+            "metadata": "",
+            "extensions": "",
+            "operations": "",
+            "children": "",
+            "history": "/rest/api/content/295095/history",
+            "ancestors": "",
+            "body": "",
+            "version": "",
+            "descendants": "",
+            "space": "/rest/api/space/MFS"
+          },
+          "_links": {
+            "webui": "/spaces/MFS/pages/295095/Template+-+Meeting+notes",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/295095",
+            "tinyui": "/x/t4AE"
+          }
+        },
+        "url": "/spaces/MFS/pages/295095/Template+-+Meeting+notes",
+        "title": "Template - Meeting notes",
+        "excerpt": "\\uD83D\\uDDD3\n Date\n\\uD83D\\uDC65\n Participants\n\\uD83E\\uDD45\n Goals\n\n\\uD83C\\uDFA8\n Brainstorm\n\n\n\\uD83D\\uDDE3\n Discussion topics\nTime\nTopic\nPresenter\nNotes\n\n\n\n\n✅\n Action items\n⤴\n Decisions\n\n��️\n Related info",
+        "resultGlobalContainer": {
+          "title": "My first space",
+          "displayUrl": "/spaces/MFS"
+        },
+        "breadcrumbs": [],
+        "entityType": "content",
+        "iconCssClass": "aui-icon content-type-page",
+        "lastModified": "2026-03-19T14:26:50.000Z",
+        "friendlyLastModified": "Mar 19, 2026",
+        "score": 0
+      }
+    ],
+    "next_cursor": "_t_WyJcdDI5NTA5NSAjQnVTPGs9N2ptWFZfUkg7UTUkQyBjcCJd_h_W10=",
+    "totalSize": 23,
+    "start": 0,
+    "limit": 5
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/wiki/rest/api/search": {
+        "response": {
+          "results": [
+            {
+              "content": {
+                "id": "98432",
+                "type": "page",
+                "status": "current",
+                "title": "Explore Confluence Features",
+                "childTypes": {},
+                "macroRenderedOutput": {},
+                "restrictions": {},
+                "_expandable": {
+                  "container": "",
+                  "metadata": "",
+                  "extensions": "",
+                  "operations": "",
+                  "children": "",
+                  "history": "/rest/api/content/98432/history",
+                  "ancestors": "",
+                  "body": "",
+                  "version": "",
+                  "descendants": "",
+                  "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+                },
+                "_links": {
+                  "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98432/Explore+Confluence+Features",
+                  "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98432",
+                  "tinyui": "/x/gIAB"
+                }
+              },
+              "title": "Explore Confluence Features",
+              "excerpt": "Welcome to your trial, Nango Developer ! You have until 2026-04-18  to try all advanced features. With these features, you can bring clarity and control to your work.\nGet started with the top 3 most popular features ��\nMission control premium\nAccess workspace insights and controls all in one place.\nTry it now!--https://nango-",
+              "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98432/Explore+Confluence+Features",
+              "resultGlobalContainer": {
+                "title": "Nango Developer",
+                "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+              },
+              "breadcrumbs": [],
+              "entityType": "content",
+              "iconCssClass": "aui-icon content-type-page",
+              "lastModified": "2026-03-19T14:23:48.000Z",
+              "friendlyLastModified": "Mar 19, 2026",
+              "score": 0
+            },
+            {
+              "content": {
+                "id": "98401",
+                "type": "page",
+                "status": "current",
+                "title": "Getting started in Confluence",
+                "childTypes": {},
+                "macroRenderedOutput": {},
+                "restrictions": {},
+                "_expandable": {
+                  "container": "",
+                  "metadata": "",
+                  "extensions": "",
+                  "operations": "",
+                  "children": "",
+                  "history": "/rest/api/content/98401/history",
+                  "ancestors": "",
+                  "body": "",
+                  "version": "",
+                  "descendants": "",
+                  "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+                },
+                "_links": {
+                  "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98401/Getting+started+in+Confluence",
+                  "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98401",
+                  "tinyui": "/x/YYAB"
+                }
+              },
+              "title": "Getting started in Confluence",
+              "excerpt": "Welcome to Confluence!\nYou can use Confluence to create a rich knowledge base or to collaborate with others using words, videos, images, graphics, charts, and graphs.\nThis page walks you through some Confluence basics like spaces, pages, and elements that allow you to create and manage impactful content for your teams.\nConfluence 101\n��️ Spaces\nSpaces are wh",
+              "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/98401/Getting+started+in+Confluence",
+              "resultGlobalContainer": {
+                "title": "Nango Developer",
+                "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+              },
+              "breadcrumbs": [],
+              "entityType": "content",
+              "iconCssClass": "aui-icon content-type-page",
+              "lastModified": "2026-03-19T14:23:48.000Z",
+              "friendlyLastModified": "Mar 19, 2026",
+              "score": 0
+            },
+            {
+              "content": {
+                "id": "98400",
+                "type": "page",
+                "status": "current",
+                "title": "Overview",
+                "childTypes": {},
+                "macroRenderedOutput": {},
+                "restrictions": {},
+                "_expandable": {
+                  "container": "",
+                  "metadata": "",
+                  "extensions": "",
+                  "operations": "",
+                  "children": "",
+                  "history": "/rest/api/content/98400/history",
+                  "ancestors": "",
+                  "body": "",
+                  "version": "",
+                  "descendants": "",
+                  "space": "/rest/api/space/~7120207bf4575869864e0eaefca3000196d8d2"
+                },
+                "_links": {
+                  "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+                  "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/98400",
+                  "tinyui": "/x/YIAB"
+                }
+              },
+              "title": "Overview",
+              "excerpt": "Say hello to your colleagues who want to know your name, pronouns, role, team and location (or if you&#39;re remote).\n�� Recent content that I&#39;ve worked on\n�� Get in touch\n✉️\n��\n��\n��\nEnd with a bang! Some options are: &quot;I am so grateful to be here at &lt;Insert company name&gt; and very excited to get started!&quot; or &quot;Looking forward to meeting all of you!&quot; or &quot;Can&#39;t wai",
+              "url": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+              "resultGlobalContainer": {
+                "title": "Nango Developer",
+                "displayUrl": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2"
+              },
+              "breadcrumbs": [],
+              "entityType": "content",
+              "iconCssClass": "aui-icon content-type-page",
+              "lastModified": "2026-03-19T14:23:47.000Z",
+              "friendlyLastModified": "Mar 19, 2026",
+              "score": 0
+            },
+            {
+              "content": {
+                "id": "295107",
+                "type": "page",
+                "status": "current",
+                "title": "Template - Weekly status report",
+                "childTypes": {},
+                "macroRenderedOutput": {},
+                "restrictions": {},
+                "_expandable": {
+                  "container": "",
+                  "metadata": "",
+                  "extensions": "",
+                  "operations": "",
+                  "children": "",
+                  "history": "/rest/api/content/295107/history",
+                  "ancestors": "",
+                  "body": "",
+                  "version": "",
+                  "descendants": "",
+                  "space": "/rest/api/space/MFS"
+                },
+                "_links": {
+                  "webui": "/spaces/MFS/pages/295107/Template+-+Weekly+status+report",
+                  "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/295107",
+                  "tinyui": "/x/w4AE"
+                }
+              },
+              "title": "Template - Weekly status report",
+              "excerpt": "Copy and paste this section for each week.\nWin\nNeeds input\nFocus\nNotes\nImportant Links",
+              "url": "/spaces/MFS/pages/295107/Template+-+Weekly+status+report",
+              "resultGlobalContainer": {
+                "title": "My first space",
+                "displayUrl": "/spaces/MFS"
+              },
+              "breadcrumbs": [],
+              "entityType": "content",
+              "iconCssClass": "aui-icon content-type-page",
+              "lastModified": "2026-03-19T14:26:50.000Z",
+              "friendlyLastModified": "Mar 19, 2026",
+              "score": 0
+            },
+            {
+              "content": {
+                "id": "295095",
+                "type": "page",
+                "status": "current",
+                "title": "Template - Meeting notes",
+                "childTypes": {},
+                "macroRenderedOutput": {},
+                "restrictions": {},
+                "_expandable": {
+                  "container": "",
+                  "metadata": "",
+                  "extensions": "",
+                  "operations": "",
+                  "children": "",
+                  "history": "/rest/api/content/295095/history",
+                  "ancestors": "",
+                  "body": "",
+                  "version": "",
+                  "descendants": "",
+                  "space": "/rest/api/space/MFS"
+                },
+                "_links": {
+                  "webui": "/spaces/MFS/pages/295095/Template+-+Meeting+notes",
+                  "self": "https://nango-team-test.atlassian.net/wiki/rest/api/content/295095",
+                  "tinyui": "/x/t4AE"
+                }
+              },
+              "title": "Template - Meeting notes",
+              "excerpt": "\\uD83D\\uDDD3\n Date\n\\uD83D\\uDC65\n Participants\n\\uD83E\\uDD45\n Goals\n\n\\uD83C\\uDFA8\n Brainstorm\n\n\n\\uD83D\\uDDE3\n Discussion topics\nTime\nTopic\nPresenter\nNotes\n\n\n\n\n✅\n Action items\n⤴\n Decisions\n\n��️\n Related info",
+              "url": "/spaces/MFS/pages/295095/Template+-+Meeting+notes",
+              "resultGlobalContainer": {
+                "title": "My first space",
+                "displayUrl": "/spaces/MFS"
+              },
+              "breadcrumbs": [],
+              "entityType": "content",
+              "iconCssClass": "aui-icon content-type-page",
+              "lastModified": "2026-03-19T14:26:50.000Z",
+              "friendlyLastModified": "Mar 19, 2026",
+              "score": 0
+            }
+          ],
+          "start": 0,
+          "limit": 5,
+          "size": 5,
+          "totalSize": 23,
+          "cqlQuery": "type = page",
+          "searchDuration": 294,
+          "archivedResultCount": 0,
+          "_links": {
+            "base": "https://nango-team-test.atlassian.net/wiki",
+            "context": "/wiki",
+            "next": "/rest/api/search?next=true&cursor=_t_WyJcdDI5NTA5NSAjQnVTPGs9N2ptWFZfUkg7UTUkQyBjcCJd_h_W10%3D&limit=5&start=5&cql=type%3Dpage",
+            "self": "https://nango-team-test.atlassian.net/wiki/rest/api/search?cql=type%3Dpage"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 08:45:33 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1777365977",
+          "server": "AtlassianEdge",
+          "vary": "Accept-Encoding",
+          "x-confluence-request-time": "1777365933446",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-trace-id": "857d6321d63e406db279d0fb84a736f3",
+          "atl-traceid": "857d6321d63e406db279d0fb84a736f3",
+          "atl-request-id": "857d6321-d63e-406d-b279-d0fb84a736f3",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 773bf3616e85ce2b187fa78710a6beb2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P1",
+          "x-amz-cf-id": "L94DSZiHmFL4Us7iI6grdcEwAuI4yi7U32bg6KVTqUIV5OR46nXcjg==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=966,atl-edge;dur=961,atl-edge-internal;dur=2,atl-edge-upstream;dur=959,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P1\",cdn-rid;desc=\"L94DSZiHmFL4Us7iI6grdcEwAuI4yi7U32bg6KVTqUIV5OR46nXcjg==\",cdn-downstream-fbl;dur=971"
+        },
+        "hash": "18c798ddebd4774fbef5709b5ae1d8762e48824e",
+        "request": {
+          "params": {
+            "cql": "type=page",
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}

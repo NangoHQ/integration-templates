@@ -1,0 +1,424 @@
+{
+  "input": {
+    "id": "98400",
+    "includeLabels": true,
+    "includeProperties": true,
+    "includeOperations": true,
+    "includeLikes": true,
+    "includeVersions": true
+  },
+  "output": {
+    "id": "98400",
+    "status": "current",
+    "title": "Overview",
+    "spaceId": "98308",
+    "position": 993,
+    "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+    "ownerId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+    "createdAt": "2026-03-19T14:23:47.640Z",
+    "version": {
+      "createdAt": "2026-03-19T14:23:47.640Z",
+      "message": "",
+      "number": 1,
+      "minorEdit": false,
+      "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2"
+    },
+    "body": {
+      "storage": {
+        "representation": "storage",
+        "value": "<ac:layout><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">Say hello to your colleagues who want to know your name, pronouns, role, team and location (or if you're remote).</span></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p />\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>📄 Recent content that I've worked on</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"recently-updated\" ac:schema-version=\"1\" ac:macro-id=\"f9d6b4ce776b6df2ba84df23c64944e6\"><ac:parameter ac:name=\"max\">5</ac:parameter></ac:structured-macro>\n        </ac:layout-cell><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"blog-posts\" ac:schema-version=\"1\" ac:macro-id=\"45110fb0-b1a0-433b-a707-39944dddecb0\"><ac:parameter ac:name=\"max\">5</ac:parameter><ac:parameter ac:name=\"content\">titles</ac:parameter></ac:structured-macro>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>🖐 Get in touch</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p>✉️ <ac:placeholder>Insert your email here</ac:placeholder></p>\n            <p>💼 <ac:placeholder>Insert your LinkedIn URL here</ac:placeholder></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p>🔗 <ac:placeholder>Insert your Twitter handle here</ac:placeholder></p>\n            <p>👤 <ac:placeholder>Insert your Medium profile here</ac:placeholder></p>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">End with a bang! Some options are: </span>&quot;I am so grateful to be here at <span style=\"color: rgb(0,184,217);\">&lt;Insert company name&gt;</span> and very excited to get started!&quot; or &quot;Looking forward to meeting all of you!&quot; or &quot;Can't wait to get to know all of you!&quot;</p>\n        </ac:layout-cell></ac:layout-section></ac:layout>"
+      }
+    },
+    "labels": {
+      "results": [],
+      "meta": {
+        "hasMore": false
+      },
+      "_links": {
+        "self": "/api/v2/pages/98400/labels"
+      }
+    },
+    "properties": {
+      "results": [
+        {
+          "id": "13893654",
+          "key": "nango-test-property-2026-04-28-v4",
+          "version": {
+            "number": 1,
+            "message": "",
+            "minorEdit": false,
+            "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "createdAt": "2026-04-28T07:56:20.006Z"
+          }
+        },
+        {
+          "id": "14221313",
+          "key": "nango-test-property-2026-04-28-v3",
+          "version": {
+            "number": 3,
+            "message": "",
+            "minorEdit": false,
+            "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "createdAt": "2026-04-28T07:53:53.472Z"
+          }
+        }
+      ],
+      "meta": {
+        "hasMore": false
+      },
+      "_links": {
+        "self": "/api/v2/pages/98400/properties"
+      }
+    },
+    "operations": {
+      "results": [
+        {
+          "operation": "read",
+          "targetType": "page"
+        },
+        {
+          "operation": "update",
+          "targetType": "page"
+        },
+        {
+          "operation": "delete",
+          "targetType": "page"
+        },
+        {
+          "operation": "restrict_content",
+          "targetType": "page"
+        },
+        {
+          "operation": "clear_permissions",
+          "targetType": "page"
+        },
+        {
+          "operation": "archive",
+          "targetType": "page"
+        },
+        {
+          "operation": "view_analytics",
+          "targetType": "page"
+        },
+        {
+          "operation": "create",
+          "targetType": "database"
+        },
+        {
+          "operation": "create",
+          "targetType": "folder"
+        },
+        {
+          "operation": "create",
+          "targetType": "attachment"
+        },
+        {
+          "operation": "create",
+          "targetType": "slide"
+        },
+        {
+          "operation": "create",
+          "targetType": "comment"
+        },
+        {
+          "operation": "create",
+          "targetType": "page"
+        },
+        {
+          "operation": "create",
+          "targetType": "embed"
+        },
+        {
+          "operation": "create",
+          "targetType": "whiteboard"
+        }
+      ],
+      "meta": {
+        "hasMore": false
+      },
+      "_links": {
+        "self": "/api/v2/pages/98400/operations"
+      }
+    },
+    "likes": {
+      "results": [],
+      "meta": {
+        "hasMore": false
+      },
+      "_links": {
+        "self": "/api/v2/pages/98400/likes/users"
+      }
+    },
+    "versions": {
+      "results": [
+        {
+          "createdAt": "2026-03-19T14:23:47.640Z",
+          "message": "",
+          "number": 1,
+          "minorEdit": false,
+          "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2"
+        }
+      ],
+      "meta": {
+        "hasMore": false
+      },
+      "_links": {
+        "self": "/api/v2/pages/98400/versions"
+      }
+    },
+    "_links": {
+      "base": "https://nango-team-test.atlassian.net/wiki",
+      "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+      "editui": "/pages/resumedraft.action?draftId=98400",
+      "tinyui": "/x/YIAB"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/wiki/api/v2/pages/98400": {
+        "response": {
+          "parentType": null,
+          "parentId": null,
+          "createdAt": "2026-03-19T14:23:47.640Z",
+          "ownerId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "lastOwnerId": null,
+          "likes": {
+            "results": [],
+            "meta": {
+              "hasMore": false,
+              "count": 0
+            },
+            "_links": {
+              "self": "/api/v2/pages/98400/likes/users"
+            }
+          },
+          "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "version": {
+            "number": 1,
+            "message": "",
+            "minorEdit": false,
+            "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "createdAt": "2026-03-19T14:23:47.640Z",
+            "ncsStepVersion": null
+          },
+          "labels": {
+            "results": [],
+            "meta": {
+              "hasMore": false
+            },
+            "_links": {
+              "self": "/api/v2/pages/98400/labels"
+            }
+          },
+          "position": 993,
+          "operations": {
+            "results": [
+              {
+                "operation": "read",
+                "targetType": "page"
+              },
+              {
+                "operation": "update",
+                "targetType": "page"
+              },
+              {
+                "operation": "delete",
+                "targetType": "page"
+              },
+              {
+                "operation": "restrict_content",
+                "targetType": "page"
+              },
+              {
+                "operation": "clear_permissions",
+                "targetType": "page"
+              },
+              {
+                "operation": "archive",
+                "targetType": "page"
+              },
+              {
+                "operation": "view_analytics",
+                "targetType": "page"
+              },
+              {
+                "operation": "create",
+                "targetType": "database"
+              },
+              {
+                "operation": "create",
+                "targetType": "folder"
+              },
+              {
+                "operation": "create",
+                "targetType": "attachment"
+              },
+              {
+                "operation": "create",
+                "targetType": "slide"
+              },
+              {
+                "operation": "create",
+                "targetType": "comment"
+              },
+              {
+                "operation": "create",
+                "targetType": "page"
+              },
+              {
+                "operation": "create",
+                "targetType": "embed"
+              },
+              {
+                "operation": "create",
+                "targetType": "whiteboard"
+              }
+            ],
+            "meta": {
+              "hasMore": false
+            },
+            "_links": {
+              "self": "/api/v2/pages/98400/operations"
+            }
+          },
+          "spaceId": "98308",
+          "status": "current",
+          "body": {
+            "storage": {
+              "representation": "storage",
+              "value": "<ac:layout><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">Say hello to your colleagues who want to know your name, pronouns, role, team and location (or if you're remote).</span></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p />\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>📄 Recent content that I've worked on</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"recently-updated\" ac:schema-version=\"1\" ac:macro-id=\"f9d6b4ce776b6df2ba84df23c64944e6\"><ac:parameter ac:name=\"max\">5</ac:parameter></ac:structured-macro>\n        </ac:layout-cell><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"blog-posts\" ac:schema-version=\"1\" ac:macro-id=\"45110fb0-b1a0-433b-a707-39944dddecb0\"><ac:parameter ac:name=\"max\">5</ac:parameter><ac:parameter ac:name=\"content\">titles</ac:parameter></ac:structured-macro>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>🖐 Get in touch</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p>✉️ <ac:placeholder>Insert your email here</ac:placeholder></p>\n            <p>💼 <ac:placeholder>Insert your LinkedIn URL here</ac:placeholder></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p>🔗 <ac:placeholder>Insert your Twitter handle here</ac:placeholder></p>\n            <p>👤 <ac:placeholder>Insert your Medium profile here</ac:placeholder></p>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">End with a bang! Some options are: </span>&quot;I am so grateful to be here at <span style=\"color: rgb(0,184,217);\">&lt;Insert company name&gt;</span> and very excited to get started!&quot; or &quot;Looking forward to meeting all of you!&quot; or &quot;Can't wait to get to know all of you!&quot;</p>\n        </ac:layout-cell></ac:layout-section></ac:layout>"
+            }
+          },
+          "versions": {
+            "results": [
+              {
+                "number": 1,
+                "message": "",
+                "minorEdit": false,
+                "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+                "createdAt": "2026-03-19T14:23:47.640Z",
+                "page": {
+                  "body": {
+                    "storage": {
+                      "representation": "storage",
+                      "value": "<ac:layout><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">Say hello to your colleagues who want to know your name, pronouns, role, team and location (or if you're remote).</span></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p />\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>📄 Recent content that I've worked on</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"recently-updated\" ac:schema-version=\"1\" ac:macro-id=\"f9d6b4ce776b6df2ba84df23c64944e6\"><ac:parameter ac:name=\"max\">5</ac:parameter></ac:structured-macro>\n        </ac:layout-cell><ac:layout-cell>\n\n            <ac:structured-macro ac:name=\"blog-posts\" ac:schema-version=\"1\" ac:macro-id=\"45110fb0-b1a0-433b-a707-39944dddecb0\"><ac:parameter ac:name=\"max\">5</ac:parameter><ac:parameter ac:name=\"content\">titles</ac:parameter></ac:structured-macro>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <h2>🖐 Get in touch</h2>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"two_equal\"><ac:layout-cell>\n\n            <p>✉️ <ac:placeholder>Insert your email here</ac:placeholder></p>\n            <p>💼 <ac:placeholder>Insert your LinkedIn URL here</ac:placeholder></p>\n        </ac:layout-cell><ac:layout-cell>\n\n            <p>🔗 <ac:placeholder>Insert your Twitter handle here</ac:placeholder></p>\n            <p>👤 <ac:placeholder>Insert your Medium profile here</ac:placeholder></p>\n        </ac:layout-cell></ac:layout-section><ac:layout-section ac:type=\"fixed-width\"><ac:layout-cell>\n\n            <p><span style=\"color: rgb(151,160,175);\">End with a bang! Some options are: </span>&quot;I am so grateful to be here at <span style=\"color: rgb(0,184,217);\">&lt;Insert company name&gt;</span> and very excited to get started!&quot; or &quot;Looking forward to meeting all of you!&quot; or &quot;Can't wait to get to know all of you!&quot;</p>\n        </ac:layout-cell></ac:layout-section></ac:layout>"
+                    }
+                  },
+                  "title": "Overview",
+                  "id": "98400"
+                }
+              }
+            ],
+            "meta": {
+              "hasMore": false
+            },
+            "_links": {
+              "self": "/api/v2/pages/98400/versions"
+            }
+          },
+          "title": "Overview",
+          "properties": {
+            "results": [
+              {
+                "version": {
+                  "number": 1,
+                  "message": "",
+                  "minorEdit": false,
+                  "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+                  "createdAt": "2026-04-28T07:56:20.006Z"
+                },
+                "value": {
+                  "test": true,
+                  "timestamp": "2026-04-28"
+                },
+                "key": "nango-test-property-2026-04-28-v4",
+                "id": "13893654"
+              },
+              {
+                "version": {
+                  "number": 3,
+                  "message": "",
+                  "minorEdit": false,
+                  "authorId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+                  "createdAt": "2026-04-28T07:53:53.472Z"
+                },
+                "value": {
+                  "test": true,
+                  "timestamp": "2026-04-28",
+                  "updated": true
+                },
+                "key": "nango-test-property-2026-04-28-v3",
+                "id": "14221313"
+              }
+            ],
+            "meta": {
+              "hasMore": false
+            },
+            "_links": {
+              "self": "/api/v2/pages/98400/properties"
+            }
+          },
+          "id": "98400",
+          "_links": {
+            "editui": "/pages/resumedraft.action?draftId=98400",
+            "webui": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/overview",
+            "edituiv2": "/spaces/~7120207bf4575869864e0eaefca3000196d8d2/pages/edit-v2/98400",
+            "tinyui": "/x/YIAB",
+            "base": "https://nango-team-test.atlassian.net/wiki"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 07:59:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1777363210",
+          "server": "AtlassianEdge",
+          "vary": "Accept-Encoding",
+          "x-confluence-request-time": "1777363192266",
+          "link": "<https://nango-team-test.atlassian.net/wiki>; rel=\"base\"",
+          "content-language": "en-US",
+          "x-trace-id": "6085ebdfd8af4413b641a155fa22ba95",
+          "atl-traceid": "6085ebdfd8af4413b641a155fa22ba95",
+          "atl-request-id": "6085ebdf-d8af-4413-b641-a155fa22ba95",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 93b50b5ce635a36621d7bd38d3b0d6da.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "rtwbs-3SqlEcYJLUGxO2N-TcqtOHIWzIN_RCvo3AXBVUOSQ2yFRlxA==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=750,atl-edge;dur=743,atl-edge-internal;dur=3,atl-edge-upstream;dur=741,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P4\",cdn-rid;desc=\"rtwbs-3SqlEcYJLUGxO2N-TcqtOHIWzIN_RCvo3AXBVUOSQ2yFRlxA==\",cdn-downstream-fbl;dur=756"
+        },
+        "hash": "924923358204ff0677c763e775f7b95741aa710c",
+        "request": {
+          "params": {
+            "body-format": "storage",
+            "include-labels": "true",
+            "include-likes": "true",
+            "include-operations": "true",
+            "include-properties": "true",
+            "include-versions": "true"
+          }
+        }
+      }
+    }
+  }
+}

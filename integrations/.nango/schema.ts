@@ -317,14 +317,53 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
-export interface AsanaProject {
-  gid: string;
-  resource_type: string;
-  name: string;
+export interface Project {
   id: string;
+  name: string;
+  state?: string | undefined;
+  status?: {  id: string;
+  name: string;
+  type: string;
+  color?: string | undefined;};
+  progress?: number | undefined;
+  startDate?: string | undefined;
+  targetDate?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  lead?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;};
+  teams?: ({  id: string;
+  key?: string | undefined;
+  name?: string | undefined;})[];
 };
 
 export interface SyncMetadata_asana_projects {
+  workspace_ids?: string[] | undefined;
+  team_ids?: string[] | undefined;
+};
+
+export interface Subtask {
+  id: string;
+  parent_task_id: string;
+  name?: string | undefined;
+  completed?: boolean | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface SyncMetadata_asana_subtasks {
+  task_ids?: string[] | undefined;
+};
+
+export interface Tag {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  workspace_gid: string;
+  permalink_url?: string | undefined;
 };
 
 export interface Task {
@@ -343,102 +382,1273 @@ export interface Task {
 };
 
 export interface SyncMetadata_asana_tasks {
+  workspace_id?: string | undefined;
+  project_id?: string | undefined;
+  section_id?: string | undefined;
 };
 
-export interface SyncMetadata_asana_users {
+export interface Team {
+  id: string;
+  name?: string | undefined;
+  key?: string | undefined;
+  description?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  private?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
 };
 
-export interface AsanaWorkspace {
+export interface Workspace {
+  id: string;
+  gid: string;
+  name?: string | undefined;
+  is_organization?: boolean | undefined;
+  email_domains?: string[] | undefined;
+  resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_addprojecttotask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * The project to add the task to. Example: "1200000000000002"
+   */
+  project: string;
+  /**
+   * The section to add the task to within the project. Example: "1200000000000003"
+   */
+  section?: string | undefined;
+  /**
+   * A task ID to position this task after within the project or section. Example: "1200000000000004"
+   */
+  insert_after?: string | undefined;
+  /**
+   * A task ID to position this task before within the project or section. Example: "1200000000000005"
+   */
+  insert_before?: string | undefined;
+};
+
+export interface ActionOutput_asana_addprojecttotask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_addtagtotask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * The tag to add to the task. Example: "1200000000000002"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_addtagtotask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_createproject {
+  /**
+   * Name of the project. Example: "Q1 Marketing Plan"
+   */
+  name: string;
+  /**
+   * The workspace or organization GID to create the project in. Example: "1202775892569436"
+   */
+  workspace_gid: string;
+  /**
+   * The team GID to share the project with. Required if the workspace is an organization. Example: "1214299875377454"
+   */
+  team_gid?: string | undefined;
+  /**
+   * The privacy setting of the project. Example: "public_to_workspace"
+   */
+  privacy_setting?: 'private' | 'public_to_workspace' | undefined;
+  /**
+   * Free-form textual information associated with the project (description).
+   */
+  notes?: string | undefined;
+  /**
+   * Color of the project. Example: "dark-blue"
+   */
+  color?: string | undefined;
+  /**
+   * The date at which the project is due. Format: YYYY-MM-DD.
+   */
+  due_date?: string | undefined;
+  /**
+   * The day on which the project starts. Format: YYYY-MM-DD.
+   */
+  start_on?: string | undefined;
+  /**
+   * The default view of the project. Example: "list"
+   */
+  default_view?: 'list' | 'board' | 'timeline' | 'calendar' | undefined;
+  /**
+   * The user GID of the project owner. Example: "12345"
+   */
+  owner?: string | undefined;
+};
+
+export interface ActionOutput_asana_createproject {
+  gid: string;
+  name: string;
+  workspace?: {  gid: string;
+  name?: string | undefined;};
+  team?: {  gid: string;
+  name?: string | undefined;};
+  privacy_setting?: string | undefined;
+  notes?: string | undefined;
+  color?: string | undefined;
+  due_date?: string | undefined;
+  start_on?: string | undefined;
+  default_view?: string | undefined;
+  owner?: string | undefined;
+};
+
+export interface ActionInput_asana_createstoryontask {
+  /**
+   * The task to operate on. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The plain text of the comment to add. Cannot be used with html_text.
+   */
+  text?: string | undefined;
+  /**
+   * HTML formatted text for a comment. Cannot be used with text.
+   */
+  html_text?: string | undefined;
+};
+
+export interface ActionOutput_asana_createstoryontask {
   gid: string;
   resource_type: string;
-  name: string;
-  id: string;
-  is_organization: boolean;
+  created_at?: string | undefined;
+  resource_subtype?: string | undefined;
+  text?: string | undefined;
+  html_text?: string | undefined;
+  is_pinned?: boolean | undefined;
+  type?: string | undefined;
 };
 
-export interface SyncMetadata_asana_workspaces {
+export interface ActionInput_asana_createsubtask {
+  /**
+   * The globally unique identifier of the parent task. Example: "12345"
+   */
+  parent_task_gid: string;
+  /**
+   * The name of the subtask. Example: "Review draft"
+   */
+  name: string;
+  /**
+   * The user gid to assign the subtask to. Example: "67890"
+   */
+  assignee?: string | undefined;
+  /**
+   * Localized due date in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  due_on?: string | undefined;
+  /**
+   * UTC due date-time in ISO 8601 format. Example: "2024-12-31T23:59:59.000Z"
+   */
+  due_at?: string | undefined;
+  /**
+   * Free-form description of the subtask.
+   */
+  notes?: string | undefined;
+  /**
+   * Array of project gids to associate with the subtask at creation time.
+   */
+  projects?: string[] | undefined;
+  /**
+   * The workspace gid for the subtask. Example: "54321"
+   */
+  workspace?: string | undefined;
+  /**
+   * Array of user gids to add as followers.
+   */
+  followers?: string[] | undefined;
+  /**
+   * Array of tag gids to attach to the subtask.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_on?: string | undefined;
+  /**
+   * The subtype of the task.
+   */
+  resource_subtype?: 'default_task' | 'milestone' | undefined;
+  /**
+   * Whether the subtask is marked completed.
+   */
+  completed?: boolean | undefined;
+  /**
+   * Whether the subtask is liked by the authorized user.
+   */
+  liked?: boolean | undefined;
+};
+
+export interface ActionOutput_asana_createsubtask {
+  gid: string;
+  name: string;
+  resource_type: string;
+  resource_subtype?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;};
+  due_on?: string | undefined;
+  due_at?: string | undefined;
+  notes?: string | undefined;
+  completed?: boolean | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;};
+  parent?: {  gid: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  name?: string | undefined;})[];
+  followers?: ({  gid: string;
+  name?: string | undefined;})[];
+  custom_fields?: unknown[] | undefined;
+};
+
+export interface ActionInput_asana_createtag {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_id: string;
+  /**
+   * Name of the tag. Example: "Stuff to buy"
+   */
+  name: string;
+  /**
+   * Color of the tag. Example: "light-green"
+   */
+  color?: 'dark-pink' | 'dark-green' | 'dark-blue' | 'dark-red' | 'dark-teal' | 'dark-brown' | 'dark-orange' | 'dark-purple' | 'dark-warm-gray' | 'light-pink' | 'light-green' | 'light-blue' | 'light-red' | 'light-teal' | 'light-brown' | 'light-orange' | 'light-purple' | 'light-warm-gray' | undefined;
+};
+
+export interface ActionOutput_asana_createtag {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  workspace?: {  id: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
 };
 
 export interface ActionInput_asana_createtask {
+  /**
+   * The name of the task.
+   */
   name: string;
-  workspace: string;
-  parent: string;
-  projects: string[];
+  /**
+   * The workspace GID where the task will be created. Required unless projects or parent is specified. Example: "1234567890"
+   */
+  workspace?: string | undefined;
+  /**
+   * Array of project GIDs to add the task to. Implies the workspace.
+   */
+  projects?: string[] | undefined;
+  /**
+   * The GID of a parent task. Implies the workspace.
+   */
+  parent?: string | undefined;
+  /**
+   * The user GID to assign the task to.
+   */
+  assignee?: string | undefined;
+  /**
+   * Free-form text description of the task.
+   */
+  notes?: string | undefined;
+  /**
+   * The due date in YYYY-MM-DD format.
+   */
+  due_on?: string | undefined;
+  /**
+   * The due date and time in ISO 8601 format.
+   */
+  due_at?: string | undefined;
+  /**
+   * Whether the task is completed.
+   */
+  completed?: boolean | undefined;
 };
 
 export interface ActionOutput_asana_createtask {
-  created_at: string | null;
-  modified_at: string | null;
+  /**
+   * The GID of the created task.
+   */
   id: string;
-  title: string;
-  url: string;
-  status: string;
-  description: string | null;
-  assignee: {  created_at: string | null;
-  modified_at: string | null;
-  id: string;
+  /**
+   * The name of the created task.
+   */
   name: string;
-  email: string | null;
-  avatar_url: string | null;} | null;
-  due_date: string | null;
+  /**
+   * The workspace GID of the task.
+   */
+  workspace_id?: string | undefined;
+  /**
+   * Array of project GIDs the task belongs to.
+   */
+  project_ids?: string[] | undefined;
+  /**
+   * The GID of the parent task, if any.
+   */
+  parent_id?: string | undefined;
+  /**
+   * The assignee user GID.
+   */
+  assignee_id?: string | undefined;
+  /**
+   * The task notes.
+   */
+  notes?: string | undefined;
+  /**
+   * The due date in YYYY-MM-DD format.
+   */
+  due_on?: string | undefined;
+  /**
+   * The due date and time in ISO 8601 format.
+   */
+  due_at?: string | undefined;
+  /**
+   * Whether the task is completed.
+   */
+  completed?: boolean | undefined;
+};
+
+export interface ActionInput_asana_deleteattachment {
+  /**
+   * Globally unique identifier for the attachment. Example: "1234567890"
+   */
+  attachment_gid: string;
+};
+
+export interface ActionOutput_asana_deleteattachment {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deleteproject {
+  /**
+   * Globally unique identifier for the project. Example: "1205341234567890"
+   */
+  project_gid: string;
+};
+
+export interface ActionOutput_asana_deleteproject {
+  success: boolean;
 };
 
 export interface ActionInput_asana_deletetask {
-  id: string;
+  /**
+   * The globally unique identifier for the task to delete. Example: "1209876543210987"
+   */
+  task_gid: string;
 };
 
-export type ActionOutput_asana_deletetask = boolean
-
-export interface ActionInput_asana_fetchprojects {
-  limit: number;
-  workspace: string;
+export interface ActionOutput_asana_deletetask {
+  /**
+   * The globally unique identifier of the deleted task.
+   */
+  task_gid: string;
+  /**
+   * Whether the deletion was successful.
+   */
+  success: boolean;
 };
 
-export interface ActionOutput_asana_fetchprojects {
-  0: {  gid: string;
+export interface ActionInput_asana_getproject {
+  /**
+   * The globally unique identifier of the project. Example: "1211440849237745"
+   */
+  project_gid: string;
+  /**
+   * Comma-separated list of optional fields to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_getproject {
+  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_gettag {
+  /**
+   * The globally unique identifier of the tag to fetch. Example: "12345"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_gettag {
+  gid: string;
   resource_type: string;
-  name: string;};
-};
-
-export interface ActionInput_asana_fetchworkspaces {
-  limit: number;
-};
-
-export interface ActionOutput_asana_fetchworkspaces {
-  0: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  followers?: ({  gid: string;
   resource_type: string;
-  name: string;};
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+};
+
+export interface ActionInput_asana_gettask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Optional fields to include in the response.
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_gettask {
+  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  assignee_status?: string | undefined;
+  assignee_section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  due_on?: string | undefined;
+  due_at?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  created_at?: string | undefined;
+  created_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  followers?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;})[];
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  type?: string | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;})[];
+  number_value?: number | undefined;
+  text_value?: string | undefined;
+  date_value?: {  date?: string | undefined;
+  date_time?: string | undefined;};
+  display_value?: string | undefined;})[];
+  memberships?: ({  project?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  likes?: ({  user?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};})[];
+  liked?: boolean | undefined;
+  approval_status?: string | undefined;
+  start_on?: string | undefined;
+  actual_time_minutes?: number | undefined;
+  num_subtasks?: number | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  dependencies?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  dependents?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+};
+
+export interface ActionInput_asana_getteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+};
+
+export interface ActionOutput_asana_getteam {
+  gid: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  html_description?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  visibility?: string | undefined;
+  edit_team_name_or_description_access_level?: string | undefined;
+  edit_team_visibility_or_trash_team_access_level?: string | undefined;
+  member_invite_management_access_level?: string | undefined;
+  guest_invite_management_access_level?: string | undefined;
+  join_request_management_access_level?: string | undefined;
+  team_member_removal_access_level?: string | undefined;
+  team_content_management_access_level?: string | undefined;
+  endorsed?: boolean | undefined;
+};
+
+export interface ActionInput_asana_getuser {
+  /**
+   * A string identifying a user. This can either be the string "me", an email, or the gid of a user. Example: "12345"
+   */
+  user_gid: string;
+};
+
+export interface ActionOutput_asana_getuser {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: {  image_21x21?: string | undefined;
+  image_27x27?: string | undefined;
+  image_36x36?: string | undefined;
+  image_60x60?: string | undefined;
+  image_128x128?: string | undefined;
+  image_1024x1024?: string | undefined;};
+};
+
+export interface ActionInput_asana_getworkspace {
+  /**
+   * Globally unique identifier for the workspace. Example: "123456789"
+   */
+  workspace_gid: string;
+};
+
+export interface ActionOutput_asana_getworkspace {
+  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;
+};
+
+export interface ActionInput_asana_listattachmentsforobject {
+  /**
+   * Globally unique identifier for the object to list attachments from. Must be a GID for a project, project_brief, or task.
+   */
+  parent: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listattachmentsforobject {
+  attachments: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Results per page. The number of objects to return per page. Value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Offset token for pagination. An offset to the next page returned by the API. Omit for the first page.
+   */
+  offset?: string | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforteam {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. The number of objects to return per page. The value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  owner?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  team?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_liststoriesfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (Asana offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_liststoriesfortask {
+  stories: ({  gid: string;
+  resource_type: string;
+  created_at?: string | undefined;
+  resource_subtype?: string | undefined;
+  text?: string | undefined;
+  html_text?: string | undefined;
+  type?: string | undefined;
+  is_editable?: boolean | undefined;
+  is_edited?: boolean | undefined;
+  is_pinned?: boolean | undefined;
+  sticker_name?: string | undefined;
+  created_by?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  likes?: unknown[] | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsubtasksfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page, between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listsubtasksfortask {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  permalink_url?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtagsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of objects to return per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listtagsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforproject {
+  /**
+   * Globally unique identifier for the project. Example: "1200000000000001"
+   */
+  project_gid: string;
+  /**
+   * Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword "now".
+   */
+  completed_since?: string | undefined;
+  /**
+   * Results per page. The value must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforproject {
+  tasks: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;})[];
+  /**
+   * Offset token for the next page of results. Omitted if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 20.
+   */
+  limit?: number | undefined;
+  /**
+   * Array of field names to include in the response. Example: ["name", "assignee", "due_on"]
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforsection {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;
+  approval_status?: string | undefined;
+  assignee?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  assignee_status?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  dependencies?: ({  gid: string;})[] | undefined;
+  dependents?: ({  gid: string;})[] | undefined;
+  due_at?: string | undefined;
+  due_on?: string | undefined;
+  start_at?: string | undefined;
+  start_on?: string | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  hearted?: boolean | undefined;
+  hearts?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  html_notes?: string | undefined;
+  is_rendered_as_separator?: boolean | undefined;
+  liked?: boolean | undefined;
+  likes?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  memberships?: ({  project?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  section?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  modified_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  notes?: string | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  num_subtasks?: number | undefined;
+  parent?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  text_value?: string | undefined;
+  number_value?: number | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  display_value?: string | undefined;})[];
+  actual_time_minutes?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforuser {
+  /**
+   * User GID, email, or "me". Example: "me"
+   */
+  user_gid: string;
+  /**
+   * Workspace or organization GID to filter teams. Example: "12345"
+   */
+  organization: string;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforuser {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  description?: string | undefined;
+  permalink_url?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforworkspace {
+  items: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the Asana offset token.
+   */
+  cursor?: string | undefined;
+  /**
+   * Comma-separated list of optional fields to include in the response. Example: "name,email,photo"
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listusersforteam {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforworkspace {
+  /**
+   * The workspace or organization GID. Example: "123456789"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of items per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listusersforworkspace {
+  users: ({  gid: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listworkspaces {
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listworkspaces {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_removeprojectfromtask {
+  /**
+   * The globally unique identifier for the task. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The globally unique identifier for the project to remove the task from. Example: "987654321"
+   */
+  project_gid: string;
+};
+
+export interface ActionOutput_asana_removeprojectfromtask {
+};
+
+export interface ActionInput_asana_removetagfromtask {
+  /**
+   * The task to remove the tag from. Example: "12345"
+   */
+  task_gid: string;
+  /**
+   * The tag to remove from the task. Example: "67890"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_removetagfromtask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_updateproject {
+  /**
+   * Globally unique identifier for the project. Example: "120987654321"
+   */
+  project_gid: string;
+  /**
+   * Name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * Free-form text notes for the project.
+   */
+  notes?: string | undefined;
+  /**
+   * HTML-formatted notes for the project.
+   */
+  html_notes?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project is due. Example: "2026-12-31".
+   */
+  due_on?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project starts. Example: "2026-01-01".
+   */
+  start_on?: string | undefined;
+  /**
+   * Color of the project. Example: "light-red".
+   */
+  color?: string | undefined;
+  /**
+   * Whether the project is archived.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Whether the project is public to its workspace members.
+   */
+  public?: boolean | undefined;
+  /**
+   * Whether the project is a template.
+   */
+  is_template?: boolean | undefined;
+  /**
+   * Default view for the project. Example: "list" or "board".
+   */
+  default_view?: string | undefined;
+};
+
+export interface ActionOutput_asana_updateproject {
+  gid: string;
+  name: string;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  due_on?: string | undefined;
+  start_on?: string | undefined;
+  public?: boolean | undefined;
+  is_template?: boolean | undefined;
+  default_view?: string | undefined;
+  workspace_gid?: string | undefined;
+  owner_gid?: string | undefined;
+};
+
+export interface ActionInput_asana_updatetag {
+  /**
+   * Globally unique identifier for the tag. Example: "12345"
+   */
+  tag_gid: string;
+  /**
+   * New name for the tag.
+   */
+  name?: string | undefined;
+  /**
+   * Color of the tag. Set to null to clear.
+   */
+  color?: 'dark-pink' | 'dark-green' | 'dark-blue' | 'dark-red' | 'dark-teal' | 'dark-brown' | 'dark-orange' | 'dark-purple' | 'dark-warm-gray' | 'light-pink' | 'light-green' | 'light-blue' | 'light-red' | 'light-teal' | 'light-brown' | 'light-orange' | 'light-purple' | 'light-warm-gray' | undefined;
+};
+
+export interface ActionOutput_asana_updatetag {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
 };
 
 export interface ActionInput_asana_updatetask {
-  id: string;
+  /**
+   * The globally unique identifier of the task to update. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The new name of the task.
+   */
+  name?: string | undefined;
+  /**
+   * Free-form textual information associated with the task (its description).
+   */
+  notes?: string | undefined;
+  /**
+   * The user gid to assign the task to, or null to remove the assignee.
+   */
+  assignee?: string | undefined;
+  /**
+   * Whether the task is marked complete.
+   */
+  completed?: boolean | undefined;
+  /**
+   * The UTC due date and time as an ISO 8601 string, or null to clear.
+   */
   due_at?: string | undefined;
+  /**
+   * The localized due date as YYYY-MM-DD, or null to clear.
+   */
   due_on?: string | undefined;
-  completed: boolean;
-  notes: string;
-  projects: string[];
-  assignee: string;
-  parent: string;
-  tags: string[];
-  workspace: string;
-  name: string;
+  /**
+   * The start date as YYYY-MM-DD, or null to clear.
+   */
+  start_on?: string | undefined;
+  /**
+   * Custom field values keyed by custom field gid, or null to clear all.
+   */
+  custom_fields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The parent task gid to make this a subtask, or null to remove parent.
+   */
+  parent?: string | undefined;
+  /**
+   * HTML-formatted notes for the task.
+   */
+  html_notes?: string | undefined;
+  /**
+   * Whether the task is liked by the authenticated user.
+   */
+  liked?: boolean | undefined;
+  /**
+   * The subtype of the task, e.g. "default_task".
+   */
+  resource_subtype?: string | undefined;
+  /**
+   * The approval status of the task, e.g. "pending", "approved", "rejected".
+   */
+  approval_status?: string | undefined;
 };
 
 export interface ActionOutput_asana_updatetask {
-  created_at: string | null;
-  modified_at: string | null;
-  id: string;
-  title: string;
-  url: string;
-  status: string;
-  description: string | null;
-  assignee: {  created_at: string | null;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  email: string | null;
-  avatar_url: string | null;} | null;
-  due_date: string | null;
+  gid: string;
+  resource_type: string;
+  name?: string | undefined;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  due_at?: string | undefined;
+  due_on?: string | undefined;
+  start_on?: string | undefined;
+  assignee?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  assignee_section?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  custom_fields?: ({  gid: string;
+  resource_type?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  enum_value?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;};
+  number_value?: number | undefined;
+  text_value?: string | undefined;
+  display_value?: string | undefined;})[];
+  parent?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  projects?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  followers?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  liked?: boolean | undefined;
+  resource_subtype?: string | undefined;
+  approval_status?: string | undefined;
+  external?: {  gid: string;
+  data: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  permalink_url?: string | undefined;
 };
 
 export interface AshbyCandidate {
@@ -2624,45 +3834,18 @@ export interface SyncMetadata_brightcrowd_booksbyid {
 
 export interface Page {
   id: string;
-  alias: string;
-  name: string;
-  status: 'draft' | 'published' | 'hidden';
-  content: {  firstName: string;
-  lastName: string;
-  previousName?: string | null | undefined;
-  suffix?: string | undefined;
-  partnerFirstName?: string | null | undefined;
-  partnerLastName?: string | null | undefined;
-  pronouns?: string | undefined;
-  pictureId?: string | null | undefined;
-  audioId?: string | null | undefined;};
-  pictures?: ({  type: 'profile' | 'content' | 'caption';
-  id: string;
-  caption?: string | null | undefined;})[] | null;
-  videos?: ({  url: string;
-  caption?: string | null | undefined;})[] | null;
-  tagUsers?: string[] | null | undefined;
-  homeTown?: string | null | undefined;
-  currentCity?: string | null | undefined;
-  campusResidence?: string | null | undefined;
-  affiliations?: ({  type: 'OtherAffiliation' | 'UniversityAffiliation' | 'CompanyAffiliation';
-  organization?: string | null | undefined;
-  major?: string | string[] | undefined;
-  degree?: string | string[] | undefined;
-  school?: string | string[] | undefined;
-  graduationYear?: number | null | undefined;
-  specialty?: string | string[] | undefined;
-  category?: string | string[] | undefined;
+  status?: string | undefined;
   title?: string | undefined;
-  startYear?: number | null | undefined;
-  endYear?: number | null | undefined;
-  office?: string | string[] | undefined;
-  group?: string | string[] | undefined;})[] | null;
-  plan?: 'school' | 'work' | 'other' | undefined;
-  created: string;
-  modifiedByUserAt?: string | null | undefined;
-  completedByUserAt?: string | null | undefined;
-  externalId?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  versionNumber?: number | undefined;
+  bodyStorage?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_brightcrowd_pages {
@@ -3062,41 +4245,1681 @@ export interface ActionOutput_clicksend_sendsms {
   updatedAt: string;
 };
 
-export interface ConfluencePage {
+export interface Attachment {
   id: string;
-  title: string;
-  status: string;
-  authorId: string;
-  createdAt: string;
-  spaceId: string;
-  parentId?: string | null | undefined;
-  parentType: string | null;
-  position: number;
-  version: {  createdAt: string;
-  message: string;
-  number: number;
-  minorEdit: boolean;
-  authorId: string;};
-  body: {  storage: {  value: string;
-  representation: 'storage';};};
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_attachments {
+  cloudId?: string | undefined;
+  mediaType?: string | undefined;
+  filename?: string | undefined;
+};
+
+export interface BlogPost {
+  /**
+   * The ID of the blog post
+   */
+  id: string;
+  /**
+   * The status of the blog post
+   */
+  status?: string | undefined;
+  /**
+   * The title of the blog post
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the space containing the blog post
+   */
+  spaceId?: string | undefined;
+  /**
+   * The ID of the author
+   */
+  authorId?: string | undefined;
+  /**
+   * The creation timestamp
+   */
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};
+};
+
+export interface SyncMetadata_confluence_blogposts {
+  cloudId?: string | undefined;
+  spaceIds?: string[] | undefined;
+};
+
+export interface FooterComment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface SyncMetadata_confluence_footercomments {
+  cloudId?: string | undefined;
+};
+
+export interface InlineComment {
+  id: string;
+  status?: string | undefined;
+  resolutionStatus?: string | undefined;
+  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  createdAt?: string | undefined;
+  authorId?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_inlinecomments {
+  cloudId?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_pages {
+  spaceIds?: string[] | undefined;
+  cloudId?: string | undefined;
 };
 
-export interface ConfluenceSpace {
+export interface Space {
   id: string;
+  key: string;
+  name: string;
+  type?: string | undefined;
+  status?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  currentActiveAlias?: string | undefined;
+};
+
+export interface SyncMetadata_confluence_spaces {
+  cloudId?: string | undefined;
+};
+
+export interface ActionInput_confluence_createblogpost {
+  /**
+   * Space ID. Example: "123456"
+   */
+  spaceId: string;
+  /**
+   * Blog post title.
+   */
+  title: string;
+  /**
+   * Blog post status. Example: "current" or "draft".
+   */
+  status: string;
+  /**
+   * Blog post body in storage format.
+   */
+  body: string;
+};
+
+export interface ActionOutput_confluence_createblogpost {
+  id: string;
+  status: string;
+  title: string;
+  spaceId: string;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+};
+
+export interface ActionInput_confluence_createfootercomment {
+  /**
+   * Page ID to comment on. Example: "12345678"
+   */
+  pageId?: string | undefined;
+  /**
+   * Blog post ID to comment on. Example: "12345678"
+   */
+  blogPostId?: string | undefined;
+  /**
+   * Attachment ID to comment on. Example: "12345678"
+   */
+  attachmentId?: string | undefined;
+  /**
+   * Parent comment ID to reply to. Example: "12345678"
+   */
+  parentCommentId?: string | undefined;
+  /**
+   * Custom content ID to comment on. Example: "12345678"
+   */
+  customContentId?: string | undefined;
+  /**
+   * Comment body in Confluence storage format. Example: "<p>Hello world</p>"
+   */
+  bodyValue: string;
+};
+
+export interface ActionOutput_confluence_createfootercomment {
+  id: string;
+  status: string;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  customContentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  representation?: string | undefined;
+  value?: string | undefined;};};
+  links?: {  webui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createinlinecomment {
+  /**
+   * ID of the containing page, if creating a top-level inline comment on a page. Example: "98401"
+   */
+  pageId?: string | undefined;
+  /**
+   * ID of the containing blog post, if creating a top-level inline comment on a blog post. Example: "12345"
+   */
+  blogPostId?: string | undefined;
+  /**
+   * ID of the parent comment, if creating a reply. Example: "14221315"
+   */
+  parentCommentId?: string | undefined;
+  body: {  /**
+   * Content representation type. Example: "storage"
+   */
+  representation: 'storage' | 'atlas_doc_format' | 'wiki';
+  /**
+   * Comment body in the chosen representation. Example: "<p>Nice work!</p>"
+   */
+  value: string;};
+  inlineCommentProperties?: {  /**
+   * The text to highlight. Example: "Spaces are where teams organize ideas"
+   */
+  textSelection: string;
+  /**
+   * The number of matches for the selected text on the page. Example: 1
+   */
+  textSelectionMatchCount: number;
+  /**
+   * The zero-based match index to highlight. Example: 0
+   */
+  textSelectionMatchIndex: number;} | undefined;
+};
+
+export interface ActionOutput_confluence_createinlinecomment {
+  /**
+   * ID of the created inline comment. Example: "14221315"
+   */
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+  resolutionStatus?: string | undefined;
+  properties?: {  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  links?: {  webui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createpageproperty {
+  /**
+   * The ID of the Confluence page. Example: "123456789"
+   */
+  page_id: string;
+  /**
+   * The key of the content property. Example: "my-property"
+   */
+  key: string;
+  /**
+   * The JSON value to store.
+   */
+  value?: unknown | undefined;
+};
+
+export interface ActionOutput_confluence_createpageproperty {
+  id?: string | undefined;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_createpage {
+  /**
+   * Space ID. Example: "123456"
+   */
+  spaceId: string;
+  /**
+   * Parent page ID. Example: "987654"
+   */
+  parentId?: string | undefined;
+  /**
+   * Page title. Example: "My New Page"
+   */
+  title: string;
+  /**
+   * Page status. Example: "current" or "draft".
+   */
+  status?: string | undefined;
+  /**
+   * Page body in storage format. Example: "<p>Hello world</p>"
+   */
+  body?: string | undefined;
+};
+
+export interface ActionOutput_confluence_createpage {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlasDocFormat?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_deleteattachment {
+  /**
+   * Attachment ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Permanently delete the attachment. Must be true to purge a trashed attachment.
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deleteattachment {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_confluence_deleteblogpost {
+  /**
+   * The ID of the blog post to delete. Example: "123456789"
+   */
+  id: string;
+  /**
+   * Whether to delete a draft blog post
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether to permanently delete a trashed blog post
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deleteblogpost {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_confluence_deletefootercomment {
+  /**
+   * The ID of the footer comment to delete. Example: "12345"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_confluence_deletefootercomment {
+  success: boolean;
+  comment_id: string;
+};
+
+export interface ActionInput_confluence_deleteinlinecomment {
+  /**
+   * The ID of the inline comment to delete. Example: "123456789"
+   */
+  commentId: string;
+};
+
+export type ActionOutput_confluence_deleteinlinecomment = null
+
+export interface ActionInput_confluence_deletepageproperty {
+  /**
+   * Page ID. Example: 123
+   */
+  pageId: number;
+  /**
+   * Property ID. Example: 456
+   */
+  propertyId: number;
+};
+
+export interface ActionOutput_confluence_deletepageproperty {
+  success: boolean;
+};
+
+export interface ActionInput_confluence_deletepage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Delete the draft if present.
+   */
+  draft?: boolean | undefined;
+  /**
+   * Permanently delete the page without moving it to trash.
+   */
+  purge?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_deletepage {
+  success: boolean;
+};
+
+export interface ActionInput_confluence_getattachment {
+  /**
+   * Attachment ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Include labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include content properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include versions in the response
+   */
+  includeVersions?: boolean | undefined;
+  /**
+   * Include collaborators in the response
+   */
+  includeCollaborators?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getattachment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  version?: unknown | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};};
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_confluence_getblogpost {
+  /**
+   * Blog post ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Include labels in the response.
+   */
+  include_labels?: boolean | undefined;
+  /**
+   * Include content properties in the response.
+   */
+  include_properties?: boolean | undefined;
+  /**
+   * Include operations in the response.
+   */
+  include_operations?: boolean | undefined;
+  /**
+   * Include likes in the response.
+   */
+  include_likes?: boolean | undefined;
+  /**
+   * Include version history in the response.
+   */
+  include_versions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getblogpost {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  blogPostId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;};
+  parent?: {  id: string;
+  status?: string | undefined;};
+  body?: {  storage?: {  value?: string | undefined;
+  representation?: string | undefined;};};
+  labels?: unknown[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  likes?: {  count?: number | undefined;};
+};
+
+export interface ActionInput_confluence_getfootercomment {
+  /**
+   * Comment ID. Example: "123"
+   */
+  commentId: string;
+  includeProperties?: boolean | undefined;
+  includeOperations?: boolean | undefined;
+  includeLikes?: boolean | undefined;
+  includeVersions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getfootercomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  properties?: {  results?: ({  id?: string | undefined;
+  key?: string | undefined;
+  version?: {  [key: string]: unknown | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  operations?: {  results?: ({  operation?: string | undefined;
+  targetType?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  likes?: {  results?: ({  accountId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};};
+  body?: {  storage?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};
+  view?: {  representation?: string | undefined;
+  value?: string | undefined;} | {  [key: string]: unknown | undefined;};};
+  _links?: {  webui?: string | undefined;
+  base?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getinlinecomment {
+  /**
+   * The ID of the inline comment to retrieve. Example: "123456"
+   */
+  commentId: string;
+  /**
+   * The format of the comment body to return. Defaults to storage.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | undefined;
+  /**
+   * The version number of the comment to retrieve.
+   */
+  version?: number | undefined;
+  /**
+   * Whether to include content properties in the response.
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Whether to include operations in the response.
+   */
+  includeOperations?: boolean | undefined;
+  /**
+   * Whether to include likes in the response.
+   */
+  includeLikes?: boolean | undefined;
+  /**
+   * Whether to include versions in the response.
+   */
+  includeVersions?: boolean | undefined;
+  /**
+   * Whether to include version information in the response.
+   */
+  includeVersion?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getinlinecomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+  resolutionLastModifierId?: string | undefined;
+  resolutionLastModifiedAt?: string | undefined;
+  resolutionStatus?: string | undefined;
+  properties?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};
+  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  operations?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  likes?: {  results?: ({  accountId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  versions?: {  results?: unknown[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  _links?: {  base?: string | undefined;
+  webui?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getpageproperty {
+  /**
+   * Page ID. Example: "12345678"
+   */
+  pageId: string;
+  /**
+   * Property ID. Example: "123456"
+   */
+  propertyId: string;
+};
+
+export interface ActionOutput_confluence_getpageproperty {
+  id: string;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getpage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Body representation format. Defaults to storage.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | undefined;
+  /**
+   * Include labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include content properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include operations in the response
+   */
+  includeOperations?: boolean | undefined;
+  /**
+   * Include likes in the response
+   */
+  includeLikes?: boolean | undefined;
+  /**
+   * Include versions in the response
+   */
+  includeVersions?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getpage {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  version?: {  [key: string]: unknown | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  likes?: {  results?: ({  accountId: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  versions?: {  results?: ({  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};};
+  isFavoritedByCurrentUser?: boolean | undefined;
+  _links?: {  self?: string | undefined;
+  base?: string | undefined;
+  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;
+  next?: string | undefined;};
+};
+
+export interface ActionInput_confluence_getspace {
+  /**
+   * Space ID. Example: 196613
+   */
+  id: number;
+  /**
+   * Include the space icon in the response
+   */
+  includeIcon?: boolean | undefined;
+  /**
+   * Include space labels in the response
+   */
+  includeLabels?: boolean | undefined;
+  /**
+   * Include space properties in the response
+   */
+  includeProperties?: boolean | undefined;
+  /**
+   * Include space permissions in the response
+   */
+  includePermissions?: boolean | undefined;
+  /**
+   * Include space operations in the response
+   */
+  includeOperations?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_getspace {
+  id: string;
+  key: string;
+  name: string;
+  type?: string | undefined;
+  status?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  description?: {  plain?: unknown | undefined;
+  view?: unknown | undefined;};
+  icon?: {  path?: string | undefined;
+  apiDownloadLink?: string | undefined;};
+  labels?: {  results?: ({  id: string;
+  name: string;
+  prefix?: string | undefined;})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  properties?: {  results?: ({  id: string;
+  key: string;
+  createdAt?: string | undefined;
+  createdBy?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  createdBy?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  operations?: {  results?: ({  operation: string;
+  targetType: string;})[] | undefined;
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  permissions?: {  results?: ({  id: string;
+  principal?: {  type?: string | undefined;
+  id?: string | undefined;};
+  operation?: {  key?: string | undefined;
+  targetType?: string | undefined;};})[];
+  meta?: {  hasMore?: boolean | undefined;
+  cursor?: string | undefined;};
+  _links?: {  self?: string | undefined;};};
+  _links?: {  base?: string | undefined;};
+};
+
+export interface ActionInput_confluence_listattachments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by attachment filename.
+   */
+  filename?: string | undefined;
+  /**
+   * Filter by media type (MIME type).
+   */
+  mediaType?: string | undefined;
+  /**
+   * Filter by attachment status (e.g., current, trashed).
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listattachments {
+  items: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  createdAt?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  mediaType?: string | undefined;
+  mediaTypeDescription?: string | undefined;
+  comment?: string | undefined;
+  fileId?: string | undefined;
+  fileSize?: number | undefined;
+  webuiLink?: string | undefined;
+  downloadLink?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listblogpostsforlabel {
+  /**
+   * Label ID. Example: "123456"
+   */
+  label_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Optional space IDs to filter results.
+   */
+  space_ids?: string[] | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format for content. Defaults to 'storage'.
+   */
+  body_format?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listblogpostsforlabel {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listblogposts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Space ID filter.
+   */
+  spaceId?: string | undefined;
+  /**
+   * Status filter, e.g. current.
+   */
+  status?: string | undefined;
+  /**
+   * Title filter.
+   */
+  title?: string | undefined;
+  /**
+   * Sort order, e.g. created-date desc.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format representation. Defaults to storage.
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listblogposts {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;
+  view?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageattachments {
+  /**
+   * The ID of the Confluence page whose attachments should be listed. Example: "123456"
+   */
+  pageId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of attachments to return per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Filter attachments by filename. Example: "report.pdf"
+   */
+  filename?: string | undefined;
+  /**
+   * Filter attachments by media type. Example: "application/pdf"
+   */
+  mediaType?: string | undefined;
+  /**
+   * Filter attachments by status. Example: "current"
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpageattachments {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  mediaType?: string | undefined;
+  fileSize?: number | undefined;
+  comment?: string | undefined;
+  spaceId?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  customContentId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  parentVersionId?: string | undefined;
+  links?: {  download?: string | undefined;
+  thumbnail?: string | undefined;
+  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpagefootercomments {
+  /**
+   * The ID of the page whose footer comments should be listed. Example: 123456
+   */
+  pageId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order for comments. Example: "created-date" or "-created-date".
+   */
+  sort?: string | undefined;
+  /**
+   * Filter comments by status. Example: ["current", "trashed"].
+   */
+  status?: string[] | undefined;
+  /**
+   * The format of the comment body. Defaults to "storage".
+   */
+  bodyFormat?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpagefootercomments {
+  results: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlasDocFormat?: unknown | undefined;
+  view?: unknown | undefined;};
+  links?: {  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageinlinecomments {
+  /**
+   * The ID of the Confluence page. Example: "123456"
+   */
+  pageId: string;
+  /**
+   * Filter by comment status. Example: ["current"]
+   */
+  status?: string[] | undefined;
+  /**
+   * Filter by resolution status. Example: ["open"]
+   */
+  resolutionStatus?: string[] | undefined;
+  /**
+   * Sort order. Example: "created-date"
+   */
+  sort?: string | undefined;
+  /**
+   * Body format representation. Defaults to "storage". Example: "storage"
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listpageinlinecomments {
+  comments: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: {  [key: string]: unknown | undefined;};
+  atlas_doc_format?: {  [key: string]: unknown | undefined;};
+  view?: {  [key: string]: unknown | undefined;};};
+  resolutionStatus?: string | undefined;
+  properties?: {  inlineMarkerRef?: string | undefined;
+  inlineOriginalSelection?: string | undefined;};
+  _links?: {  webui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpageproperties {
+  /**
+   * Confluence page ID. Example: "12345678"
+   */
+  pageId: string;
+  /**
+   * Filter by property key
+   */
+  key?: string | undefined;
+  /**
+   * Pagination cursor from the previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpageproperties {
+  properties: ({  id: string;
+  key: string;
+  value?: unknown | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpagesforlabel {
+  /**
+   * Label ID. Example: "22"
+   */
+  label_id: string;
+  /**
+   * Optional space IDs to filter pages
+   */
+  space_ids?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default: 25
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpagesforlabel {
+  pages: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  position?: number | undefined;
+  authorId?: string | undefined;
+  ownerId?: string | undefined;
+  lastOwnerId?: string | undefined;
+  subtype?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  storage?: unknown | undefined;
+  atlas_doc_format?: unknown | undefined;};
+  _links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listpages {
+  /**
+   * Space ID to filter pages. Example: "123456"
+   */
+  spaceId?: string | undefined;
+  /**
+   * Page status filter
+   */
+  status?: 'current' | 'archived' | 'trashed' | 'draft' | undefined;
+  /**
+   * Title filter (case-insensitive prefix match)
+   */
+  title?: string | undefined;
+  /**
+   * Content subtype filter
+   */
+  subType?: 'page' | 'blogpost' | undefined;
+  /**
+   * Sort order. Example: "title asc"
+   */
+  sort?: string | undefined;
+  /**
+   * Body representation format. Prefer "storage" for reliable parsing.
+   */
+  bodyFormat?: 'storage' | 'atlas_doc_format' | 'view' | 'export_view' | 'styled_view' | 'anonymous_export_view' | undefined;
+  /**
+   * Pagination cursor from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum items per page (1-250)
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listpages {
+  pages: ({  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  parentId?: string | undefined;
+  position?: number | undefined;
+  version?: {  number?: number | undefined;
+  message?: string | undefined;
+  createdAt?: string | undefined;
+  author?: {  accountId?: string | undefined;
+  displayName?: string | undefined;};};
+  body?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspaceblogposts {
+  /**
+   * The ID of the Confluence space. Example: "123"
+   */
+  spaceId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by status such as current, archived, draft, or trashed.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by blog post title.
+   */
+  title?: string | undefined;
+  /**
+   * Sort order such as created-date or -created-date.
+   */
+  sort?: string | undefined;
+  /**
+   * Body format to include such as storage, atlas_doc_format, or view.
+   */
+  bodyFormat?: string | undefined;
+  /**
+   * Maximum number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_confluence_listspaceblogposts {
+  blogPosts: ({  id: string;
+  status: string;
+  title?: string | undefined;
+  spaceId?: string | undefined;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number?: number | undefined;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  [key: string]: unknown | undefined;};
+  links?: {  webui?: string | undefined;
+  editui?: string | undefined;
+  tinyui?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspacepages {
+  /**
+   * The ID of the Confluence space. Example: "294916"
+   */
+  space_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Page tree depth filter. Example: "root" or "all"
+   */
+  depth?: 'root' | 'all' | undefined;
+  /**
+   * Filter by page status. Example: ["current"]
+   */
+  status?: string[] | undefined;
+  /**
+   * Filter by page title (partial match).
+   */
+  title?: string | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort?: 'id' | '-id' | 'createdAt' | '-createdAt' | 'position' | '-position' | 'title' | '-title' | undefined;
+  /**
+   * Body format for page content. Defaults to "storage".
+   */
+  body_format?: string | undefined;
+};
+
+export interface ActionOutput_confluence_listspacepages {
+  pages: ({  id: string;
+  spaceId: string;
+  status: string;
+  title: string;
+  parentId?: string | undefined;
+  parentType?: string | undefined;
+  authorId: string;
+  ownerId: string;
+  lastOwnerId?: string | undefined;
+  createdAt: string;
+  position?: number | undefined;
+  version?: {  number: number;
+  message: string;
+  minorEdit: boolean;
+  authorId: string;
+  createdAt: string;
+  ncsStepVersion?: number | string | null | undefined;};
+  body?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_confluence_listspaces {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by space key.
+   */
+  key?: string | undefined;
+  /**
+   * Filter by space type. Example: "global", "personal".
+   */
+  type?: string | undefined;
+  /**
+   * Filter by space status. Example: "current", "archived".
+   */
+  status?: string | undefined;
+  /**
+   * Filter by label name.
+   */
+  label?: string | undefined;
+  /**
+   * Include space icon in the response.
+   */
+  includeIcon?: boolean | undefined;
+};
+
+export interface ActionOutput_confluence_listspaces {
+  items: ({  id: string;
   key: string;
   name: string;
   type: string;
   status: string;
-  authorId: string;
-  createdAt: string;
-  homepageId: string;
-  description: string;
+  authorId?: string | undefined;
+  currentActiveAlias?: string | undefined;
+  createdAt?: string | undefined;
+  homepageId?: string | undefined;
+  description?: {  [key: string]: unknown | undefined;};
+  icon?: {  path?: string | undefined;
+  apiDownloadLink?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
 };
 
-export interface SyncMetadata_confluence_spaces {
+export interface ActionInput_confluence_searchcontent {
+  /**
+   * CQL query string. Example: "type=page AND space=DEV"
+   */
+  cql: string;
+  /**
+   * Maximum number of results per page. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Fields to expand in the response. Example: ["content.space", "content.history"]
+   */
+  expand?: string[] | undefined;
+};
+
+export interface ActionOutput_confluence_searchcontent {
+  results: ({  content?: {  id: string;
+  type: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  space?: {  id: string;
+  key: string;
+  name?: string | undefined;
+  type?: string | undefined;};};
+  url?: string | undefined;
+  title?: string | undefined;
+  excerpt?: string | undefined;
+  contentType?: string | undefined;
+  resultParentContainer?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+  totalSize?: number | undefined;
+  start?: number | undefined;
+  limit?: number | undefined;
+};
+
+export interface ActionInput_confluence_updateblogpost {
+  /**
+   * Blog post ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * New title for the blog post
+   */
+  title?: string | undefined;
+  /**
+   * New status for the blog post
+   */
+  status?: 'current' | 'draft' | undefined;
+  /**
+   * New body content in storage format
+   */
+  body?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updateblogpost {
+  id: string;
+  title?: string | undefined;
+  status?: string | undefined;
+  body?: string | undefined;
+  versionNumber?: number | undefined;
+  spaceId?: string | undefined;
+};
+
+export interface ActionInput_confluence_updatefootercomment {
+  /**
+   * The ID of the footer comment to update. Example: "123456"
+   */
+  comment_id: string;
+  /**
+   * The next version number for the comment. Example: 2
+   */
+  version_number: number;
+  /**
+   * The updated comment body in storage format. Example: "<p>Updated comment</p>"
+   */
+  body: string;
+  /**
+   * An optional message describing the update.
+   */
+  version_message?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatefootercomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  pageId?: string | undefined;
+  blogPostId?: string | undefined;
+  attachmentId?: string | undefined;
+  customContentId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  number?: number | undefined;
+  message?: string | undefined;
+  createdAt?: string | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+};
+
+export interface ActionInput_confluence_updateinlinecomment {
+  /**
+   * The ID of the inline comment to update. Example: "123456"
+   */
+  commentId: string;
+  body?: {  /**
+   * Body representation. Example: "storage"
+   */
+  representation: string;
+  /**
+   * Body value in the given representation.
+   */
+  value: string;} | undefined;
+  /**
+   * Set to true to resolve the comment, false to reopen it.
+   */
+  resolved?: boolean | undefined;
+  /**
+   * Message describing the update.
+   */
+  versionMessage?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updateinlinecomment {
+  id: string;
+  status?: string | undefined;
+  title?: string | undefined;
+  blogPostId?: string | undefined;
+  pageId?: string | undefined;
+  parentCommentId?: string | undefined;
+  version?: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+  body?: {  representation?: string | undefined;
+  value?: string | undefined;};
+  resolutionStatus?: string | undefined;
+  resolutionLastModifierId?: string | undefined;
+  resolutionLastModifiedAt?: string | undefined;
+  webui?: string | undefined;
+};
+
+export interface ActionInput_confluence_updatepageproperty {
+  /**
+   * Page ID. Example: "123456789"
+   */
+  page_id: string;
+  /**
+   * Property ID. Example: "987654321"
+   */
+  property_id: string;
+  /**
+   * Property key. Example: "my-property"
+   */
+  key: string;
+  /**
+   * JSON value to store.
+   */
+  value?: unknown | undefined;
+  /**
+   * Next version number. Must be higher than the current version.
+   */
+  version_number: number;
+  /**
+   * Optional version message.
+   */
+  version_message?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatepageproperty {
+  id: string;
+  key: string;
+  version: {  createdAt?: string | undefined;
+  message?: string | undefined;
+  number: number;
+  minorEdit?: boolean | undefined;
+  authorId?: string | undefined;};
+};
+
+export interface ActionInput_confluence_updatepage {
+  /**
+   * Page ID. Example: "123456"
+   */
+  id: string;
+  /**
+   * Page title
+   */
+  title: string;
+  /**
+   * Page status. Example: "current"
+   */
+  status: string;
+  /**
+   * Page body in storage format
+   */
+  body: string;
+  /**
+   * Version message
+   */
+  versionMessage?: string | undefined;
+};
+
+export interface ActionOutput_confluence_updatepage {
+  id: string;
+  status: string;
+  title: string;
+  spaceId?: string | undefined;
+  versionNumber?: number | undefined;
 };
 
 export type ActionInput_databricks_workspace_listwarehouses = void
@@ -13118,19 +15941,6 @@ export interface Roadmap {
   ownerId?: string | undefined;
   projectIds: string[];
   teamIds: string[];
-};
-
-export interface Team {
-  id: string;
-  name?: string | undefined;
-  key?: string | undefined;
-  description?: string | undefined;
-  color?: string | undefined;
-  icon?: string | undefined;
-  private?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  archivedAt?: string | undefined;
 };
 
 export interface WorkflowState {
