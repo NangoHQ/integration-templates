@@ -1,0 +1,16 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    },
+    "batchSave": {
+      "ProjectVersion": []
+    },
+    "batchDelete": {
+      "ProjectVersion": []
+    }
+  },
+  "api": {}
+}

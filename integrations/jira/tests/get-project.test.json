@@ -1,0 +1,163 @@
+{
+  "input": {
+    "projectIdOrKey": "10000"
+  },
+  "output": {
+    "id": "10000",
+    "key": "KAN",
+    "name": "My Kanban Project",
+    "description": "Your first project",
+    "projectType": "software",
+    "browseUrl": "https://nango-team-test.atlassian.net/browse/KAN",
+    "avatarUrls": {
+      "48x48": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+      "24x24": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+      "16x16": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+      "32x32": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+    },
+    "lead": {
+      "accountId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+      "displayName": "Nango Developer"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000": {
+        "response": {
+          "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+          "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000",
+          "id": "10000",
+          "key": "KAN",
+          "description": "Your first project",
+          "lead": {
+            "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/user?accountId=712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "accountId": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png",
+              "24x24": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png",
+              "16x16": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png",
+              "32x32": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png"
+            },
+            "displayName": "Nango Developer",
+            "active": true
+          },
+          "components": [],
+          "issueTypes": [
+            {
+              "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/issuetype/10001",
+              "id": "10001",
+              "description": "Epics track collections of related bugs, stories, and tasks.",
+              "iconUrl": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/2/universal_avatar/view/type/issuetype/avatar/10307?size=medium",
+              "name": "Epic",
+              "subtask": false,
+              "avatarId": 10307,
+              "hierarchyLevel": 1
+            },
+            {
+              "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/issuetype/10002",
+              "id": "10002",
+              "description": "Subtasks track small pieces of work that are part of a larger task.",
+              "iconUrl": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+              "name": "Subtask",
+              "subtask": true,
+              "avatarId": 10316,
+              "hierarchyLevel": -1
+            },
+            {
+              "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/issuetype/10003",
+              "id": "10003",
+              "description": "Tasks track small, distinct pieces of work.",
+              "iconUrl": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+              "name": "Task",
+              "subtask": false,
+              "avatarId": 10318,
+              "hierarchyLevel": 0
+            },
+            {
+              "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/issuetype/10004",
+              "id": "10004",
+              "description": "Stories track functionality or features expressed as user goals.",
+              "iconUrl": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+              "name": "Story",
+              "subtask": false,
+              "avatarId": 10315,
+              "hierarchyLevel": 0
+            }
+          ],
+          "assigneeType": "UNASSIGNED",
+          "versions": [],
+          "name": "My Kanban Project",
+          "roles": {
+            "atlassian-addons-project-access": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000/role/10007",
+            "Administrator": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000/role/10004",
+            "jira-guest-member": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000/role/10041",
+            "Viewer": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000/role/10006",
+            "Member": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/project/10000/role/10005"
+          },
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+            "24x24": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+          },
+          "projectTypeKey": "software",
+          "simplified": true,
+          "style": "next-gen",
+          "isPrivate": false,
+          "properties": {},
+          "entityId": "cf389cac-62e1-4fe4-a8b8-e4ef1da8b704",
+          "uuid": "cf389cac-62e1-4fe4-a8b8-e4ef1da8b704"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 11:57:00 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "350",
+          "x-ratelimit-remaining": "349",
+          "x-ratelimit-reset": "1777377463",
+          "server": "AtlassianEdge",
+          "timing-allow-origin": "*",
+          "x-arequestid": "8564f9a9a144046cfa06f9002e3a1275",
+          "set-cookie": "atlassian.xsrf.token=c93089367badc76612b7a184941c6fefd1dc4e2f_lin; Path=/; SameSite=None; Secure",
+          "x-aaccountid": "712020%3A7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "cache-control": "no-cache, no-store, no-transform",
+          "vary": "Accept-Encoding",
+          "x-trace-id": "9c098297514b4eecbb86e7990eb5b9c1",
+          "atl-traceid": "9c098297514b4eecbb86e7990eb5b9c1",
+          "atl-request-id": "9c098297-514b-4eec-bb86-e7990eb5b9c1",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 7ad3d6571deff4c3c83d7e4476fcc6d0.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "D2HZKUn4PBlMmgjFWbvgaY5bkFZelMZ7TO9lBzKz63URQN2buPiE2w==",
+          "server-timing": "cdn-cache-miss,cdn-pop;desc=\"HIO52-P4\",cdn-rid;desc=\"D2HZKUn4PBlMmgjFWbvgaY5bkFZelMZ7TO9lBzKz63URQN2buPiE2w==\",cdn-downstream-fbl;dur=378,cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=374,atl-edge;dur=367,atl-edge-internal;dur=4,atl-edge-upstream;dur=365,atl-edge-pop;desc=\"aws-us-west-2\""
+        },
+        "hash": "426f3bb34e5bf8f2fd397a25530348e127290c43",
+        "request": {
+          "headers": {
+            "X-Atlassian-Token": "no-check"
+          }
+        }
+      }
+    }
+  }
+}
