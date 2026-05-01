@@ -343,6 +343,18 @@ export interface SyncMetadata_asana_projects {
   team_ids?: string[] | undefined;
 };
 
+export interface Section {
+  id: string;
+  url: string;
+  category_id: number;
+  name: string;
+  description: string;
+};
+
+export interface SyncMetadata_asana_sections {
+  project_ids: string[];
+};
+
 export interface Subtask {
   id: string;
   parent_task_id: string;
@@ -385,6 +397,19 @@ export interface SyncMetadata_asana_tasks {
   workspace_id?: string | undefined;
   project_id?: string | undefined;
   section_id?: string | undefined;
+};
+
+export interface Team {
+  id: string;
+  name?: string | undefined;
+  key?: string | undefined;
+  description?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  private?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  archivedAt?: string | undefined;
 };
 
 export interface Workspace {
@@ -495,6 +520,38 @@ export interface ActionOutput_asana_createproject {
   start_on?: string | undefined;
   default_view?: string | undefined;
   owner?: string | undefined;
+};
+
+export interface ActionInput_asana_createsection {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * The text to be displayed as the section name. This cannot be an empty string. Example: "Next Actions"
+   */
+  name: string;
+  /**
+   * An existing section within this project before which the added section should be inserted. Cannot be provided together with insert_after.
+   */
+  insert_before?: string | undefined;
+  /**
+   * An existing section within this project after which the added section should be inserted. Cannot be provided together with insert_before.
+   */
+  insert_after?: string | undefined;
+};
+
+export interface ActionOutput_asana_createsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  projects?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
 };
 
 export interface ActionInput_asana_createstoryontask {
@@ -737,6 +794,39 @@ export interface ActionOutput_asana_deleteproject {
   success: boolean;
 };
 
+export interface ActionInput_asana_deletesection {
+  /**
+   * The globally unique identifier for the section. Example: "1234567890"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_deletesection {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletestory {
+  /**
+   * Globally unique identifier for the story. Example: "12345"
+   */
+  story_gid: string;
+};
+
+export interface ActionOutput_asana_deletestory {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletetag {
+  /**
+   * The globally unique identifier for the tag. Example: "11235"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_deletetag {
+  success: boolean;
+};
+
 export interface ActionInput_asana_deletetask {
   /**
    * The globally unique identifier for the task to delete. Example: "1209876543210987"
@@ -753,6 +843,900 @@ export interface ActionOutput_asana_deletetask {
    * Whether the deletion was successful.
    */
   success: boolean;
+};
+
+export interface ActionInput_asana_getproject {
+  /**
+   * The globally unique identifier of the project. Example: "1211440849237745"
+   */
+  project_gid: string;
+  /**
+   * Comma-separated list of optional fields to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_getproject {
+  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_getsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_getsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_asana_gettag {
+  /**
+   * The globally unique identifier of the tag to fetch. Example: "12345"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_gettag {
+  gid: string;
+  resource_type: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  created_at?: string | undefined;
+  followers?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+};
+
+export interface ActionInput_asana_gettask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Optional fields to include in the response.
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_gettask {
+  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  assignee_status?: string | undefined;
+  assignee_section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  due_on?: string | undefined;
+  due_at?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  created_at?: string | undefined;
+  created_by?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  followers?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;})[];
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  type?: string | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;
+  resource_type?: string | undefined;})[];
+  number_value?: number | undefined;
+  text_value?: string | undefined;
+  date_value?: {  date?: string | undefined;
+  date_time?: string | undefined;};
+  display_value?: string | undefined;})[];
+  memberships?: ({  project?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  section?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  likes?: ({  user?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  email?: string | undefined;};})[];
+  liked?: boolean | undefined;
+  approval_status?: string | undefined;
+  start_on?: string | undefined;
+  actual_time_minutes?: number | undefined;
+  num_subtasks?: number | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  dependencies?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  dependents?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+};
+
+export interface ActionInput_asana_getteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+};
+
+export interface ActionOutput_asana_getteam {
+  gid: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  html_description?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  visibility?: string | undefined;
+  edit_team_name_or_description_access_level?: string | undefined;
+  edit_team_visibility_or_trash_team_access_level?: string | undefined;
+  member_invite_management_access_level?: string | undefined;
+  guest_invite_management_access_level?: string | undefined;
+  join_request_management_access_level?: string | undefined;
+  team_member_removal_access_level?: string | undefined;
+  team_content_management_access_level?: string | undefined;
+  endorsed?: boolean | undefined;
+};
+
+export interface ActionInput_asana_getuser {
+  /**
+   * A string identifying a user. This can either be the string "me", an email, or the gid of a user. Example: "12345"
+   */
+  user_gid: string;
+};
+
+export interface ActionOutput_asana_getuser {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: {  image_21x21?: string | undefined;
+  image_27x27?: string | undefined;
+  image_36x36?: string | undefined;
+  image_60x60?: string | undefined;
+  image_128x128?: string | undefined;
+  image_1024x1024?: string | undefined;};
+};
+
+export interface ActionInput_asana_getworkspace {
+  /**
+   * Globally unique identifier for the workspace. Example: "123456789"
+   */
+  workspace_gid: string;
+};
+
+export interface ActionOutput_asana_getworkspace {
+  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;
+};
+
+export interface ActionInput_asana_listattachmentsforobject {
+  /**
+   * Globally unique identifier for the object to list attachments from. Must be a GID for a project, project_brief, or task.
+   */
+  parent: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listattachmentsforobject {
+  attachments: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Results per page. The number of objects to return per page. Value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Offset token for pagination. An offset to the next page returned by the API. Omit for the first page.
+   */
+  offset?: string | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforteam {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listprojectsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. The number of objects to return per page. The value must be between 1 and 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return projects whose archived field takes on the value of this parameter.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_asana_listprojectsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  owner?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  team?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsectionsforproject {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listsectionsforproject {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;})[];
+  next_page_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_liststoriesfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (Asana offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_liststoriesfortask {
+  stories: ({  gid: string;
+  resource_type: string;
+  created_at?: string | undefined;
+  resource_subtype?: string | undefined;
+  text?: string | undefined;
+  html_text?: string | undefined;
+  type?: string | undefined;
+  is_editable?: boolean | undefined;
+  is_edited?: boolean | undefined;
+  is_pinned?: boolean | undefined;
+  sticker_name?: string | undefined;
+  created_by?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  likes?: unknown[] | undefined;
+  hearted?: boolean | undefined;
+  hearts?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsubtasksfortask {
+  /**
+   * The task to operate on. Example: "1200000000000001"
+   */
+  task_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Results per page, between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listsubtasksfortask {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  assignee?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;
+  parent?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  permalink_url?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  projects?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];
+  tags?: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtagsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of objects to return per page. Between 1 and 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listtagsforworkspace {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;
+  workspace?: {  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforproject {
+  /**
+   * Globally unique identifier for the project. Example: "1200000000000001"
+   */
+  project_gid: string;
+  /**
+   * Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword "now".
+   */
+  completed_since?: string | undefined;
+  /**
+   * Results per page. The value must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforproject {
+  tasks: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;
+  resource_type?: string | undefined;};
+  completed?: boolean | undefined;
+  due_on?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  notes?: string | undefined;
+  permalink_url?: string | undefined;})[];
+  /**
+   * Offset token for the next page of results. Omitted if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_asana_listtasksforsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 20.
+   */
+  limit?: number | undefined;
+  /**
+   * Array of field names to include in the response. Example: ["name", "assignee", "due_on"]
+   */
+  opt_fields?: string[] | undefined;
+};
+
+export interface ActionOutput_asana_listtasksforsection {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  resource_subtype?: string | undefined;
+  approval_status?: string | undefined;
+  assignee?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  assignee_status?: string | undefined;
+  completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  completed_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  dependencies?: ({  gid: string;})[] | undefined;
+  dependents?: ({  gid: string;})[] | undefined;
+  due_at?: string | undefined;
+  due_on?: string | undefined;
+  start_at?: string | undefined;
+  start_on?: string | undefined;
+  external?: {  gid?: string | undefined;
+  data?: string | undefined;};
+  hearted?: boolean | undefined;
+  hearts?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  html_notes?: string | undefined;
+  is_rendered_as_separator?: boolean | undefined;
+  liked?: boolean | undefined;
+  likes?: ({  user?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  memberships?: ({  project?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  section?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};})[];
+  modified_by?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  notes?: string | undefined;
+  num_hearts?: number | undefined;
+  num_likes?: number | undefined;
+  num_subtasks?: number | undefined;
+  parent?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  permalink_url?: string | undefined;
+  projects?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  tags?: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;})[];
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
+  custom_fields?: ({  gid: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  text_value?: string | undefined;
+  number_value?: number | undefined;
+  enum_value?: {  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;};
+  multi_enum_values?: ({  gid: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  display_value?: string | undefined;})[];
+  actual_time_minutes?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforuser {
+  /**
+   * User GID, email, or "me". Example: "me"
+   */
+  user_gid: string;
+  /**
+   * Workspace or organization GID to filter teams. Example: "12345"
+   */
+  organization: string;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (1-100). Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforuser {
+  items: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  description?: string | undefined;
+  permalink_url?: string | undefined;
+  organization?: {  gid: string;
+  name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listteamsforworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "12345"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Must be between 1 and 100. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listteamsforworkspace {
+  items: ({  gid: string;
+  name: string;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforteam {
+  /**
+   * Globally unique identifier for the team. Example: "12345"
+   */
+  team_gid: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the Asana offset token.
+   */
+  cursor?: string | undefined;
+  /**
+   * Comma-separated list of optional fields to include in the response. Example: "name,email,photo"
+   */
+  opt_fields?: string | undefined;
+};
+
+export interface ActionOutput_asana_listusersforteam {
+  items: ({  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photo?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listusersforworkspace {
+  /**
+   * The workspace or organization GID. Example: "123456789"
+   */
+  workspace_gid: string;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of items per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_asana_listusersforworkspace {
+  users: ({  gid: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  resource_type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listworkspaces {
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listworkspaces {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  email_domains?: string[] | undefined;
+  is_organization?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_removeprojectfromtask {
+  /**
+   * The globally unique identifier for the task. Example: "123456789"
+   */
+  task_gid: string;
+  /**
+   * The globally unique identifier for the project to remove the task from. Example: "987654321"
+   */
+  project_gid: string;
+};
+
+export interface ActionOutput_asana_removeprojectfromtask {
+};
+
+export interface ActionInput_asana_removetagfromtask {
+  /**
+   * The task to remove the tag from. Example: "12345"
+   */
+  task_gid: string;
+  /**
+   * The tag to remove from the task. Example: "67890"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_removetagfromtask {
+  success: boolean;
+};
+
+export interface ActionInput_asana_searchtasksinworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "1202775892569436"
+   */
+  workspace_gid: string;
+  /**
+   * Comma-separated list of user identifiers, or "me". Example: "me"
+   */
+  assignee?: string | undefined;
+  /**
+   * Comma-separated list of project IDs. Example: "1211440849237745"
+   */
+  project?: string | undefined;
+  /**
+   * Comma-separated list of section or column IDs. Example: "12345"
+   */
+  section?: string | undefined;
+  /**
+   * Filter to completed tasks.
+   */
+  completed?: boolean | undefined;
+  /**
+   * Only return tasks modified since the given ISO 8601 datetime. Example: "2024-01-01T00:00:00.000Z"
+   */
+  modified_since?: string | undefined;
+  /**
+   * Sort field. Defaults to modified_at.
+   */
+  sort_by?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at' | undefined;
+  /**
+   * Sort ascending. Defaults to false.
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Maximum number of tasks to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_searchtasksinworkspace {
+  tasks: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  completed?: boolean | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;};
+  projects?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  sections?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  modified_at?: string | undefined;
+  created_at?: string | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_updateproject {
+  /**
+   * Globally unique identifier for the project. Example: "120987654321"
+   */
+  project_gid: string;
+  /**
+   * Name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * Free-form text notes for the project.
+   */
+  notes?: string | undefined;
+  /**
+   * HTML-formatted notes for the project.
+   */
+  html_notes?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project is due. Example: "2026-12-31".
+   */
+  due_on?: string | undefined;
+  /**
+   * Date (ISO 8601) on which the project starts. Example: "2026-01-01".
+   */
+  start_on?: string | undefined;
+  /**
+   * Color of the project. Example: "light-red".
+   */
+  color?: string | undefined;
+  /**
+   * Whether the project is archived.
+   */
+  archived?: boolean | undefined;
+  /**
+   * Whether the project is public to its workspace members.
+   */
+  public?: boolean | undefined;
+  /**
+   * Whether the project is a template.
+   */
+  is_template?: boolean | undefined;
+  /**
+   * Default view for the project. Example: "list" or "board".
+   */
+  default_view?: string | undefined;
+};
+
+export interface ActionOutput_asana_updateproject {
+  gid: string;
+  name: string;
+  notes?: string | undefined;
+  html_notes?: string | undefined;
+  archived?: boolean | undefined;
+  color?: string | undefined;
+  due_on?: string | undefined;
+  start_on?: string | undefined;
+  public?: boolean | undefined;
+  is_template?: boolean | undefined;
+  default_view?: string | undefined;
+  workspace_gid?: string | undefined;
+  owner_gid?: string | undefined;
+};
+
+export interface ActionInput_asana_updatesection {
+  /**
+   * The globally unique identifier for the section. Example: "1200000000000001"
+   */
+  section_gid: string;
+  /**
+   * The updated name for the section.
+   */
+  name: string;
+};
+
+export interface ActionOutput_asana_updatesection {
+  gid: string;
+  name?: string | undefined;
+  project?: {  gid: string;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_asana_updatetag {
+  /**
+   * Globally unique identifier for the tag. Example: "12345"
+   */
+  tag_gid: string;
+  /**
+   * New name for the tag.
+   */
+  name?: string | undefined;
+  /**
+   * Color of the tag. Set to null to clear.
+   */
+  color?: 'dark-pink' | 'dark-green' | 'dark-blue' | 'dark-red' | 'dark-teal' | 'dark-brown' | 'dark-orange' | 'dark-purple' | 'dark-warm-gray' | 'light-pink' | 'light-green' | 'light-blue' | 'light-red' | 'light-teal' | 'light-brown' | 'light-orange' | 'light-purple' | 'light-warm-gray' | undefined;
+};
+
+export interface ActionOutput_asana_updatetag {
+  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;
+  workspace?: {  gid: string;
+  resource_type?: string | undefined;
+  name?: string | undefined;};
 };
 
 export interface ActionInput_asana_updatetask {
@@ -20222,19 +21206,6 @@ export interface Roadmap {
   teamIds: string[];
 };
 
-export interface Team {
-  id: string;
-  name?: string | undefined;
-  key?: string | undefined;
-  description?: string | undefined;
-  color?: string | undefined;
-  icon?: string | undefined;
-  private?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  archivedAt?: string | undefined;
-};
-
 export interface WorkflowState {
   id: string;
   name: string;
@@ -30934,14 +31905,6 @@ export interface SyncMetadata_zendesk_articles {
 };
 
 export interface SyncMetadata_zendesk_categories {
-};
-
-export interface Section {
-  id: string;
-  url: string;
-  category_id: number;
-  name: string;
-  description: string;
 };
 
 export interface SyncMetadata_zendesk_sections {

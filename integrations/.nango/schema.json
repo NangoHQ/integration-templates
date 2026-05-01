@@ -1780,6 +1780,49 @@
       },
       "additionalProperties": false
     },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "category_id",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_asana_sections": {
+      "type": "object",
+      "properties": {
+        "project_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "project_ids"
+      ],
+      "additionalProperties": false
+    },
     "Subtask": {
       "type": "object",
       "properties": {
@@ -1922,6 +1965,45 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "Team": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "archivedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
     "Workspace": {
@@ -2150,6 +2232,96 @@
       },
       "required": [
         "gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_createsection": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The text to be displayed as the section name. This cannot be an empty string. Example: \"Next Actions\""
+        },
+        "insert_before": {
+          "type": "string",
+          "description": "An existing section within this project before which the added section should be inserted. Cannot be provided together with insert_after."
+        },
+        "insert_after": {
+          "type": "string",
+          "description": "An existing section within this project after which the added section should be inserted. Cannot be provided together with insert_before."
+        }
+      },
+      "required": [
+        "project_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_createsection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
         "name"
       ],
       "additionalProperties": false
@@ -2665,6 +2837,81 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_asana_deletesection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"1234567890\""
+        }
+      },
+      "required": [
+        "section_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletesection": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_deletestory": {
+      "type": "object",
+      "properties": {
+        "story_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the story. Example: \"12345\""
+        }
+      },
+      "required": [
+        "story_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletestory": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_deletetag": {
+      "type": "object",
+      "properties": {
+        "tag_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the tag. Example: \"11235\""
+        }
+      },
+      "required": [
+        "tag_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_deletetag": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_asana_deletetask": {
       "type": "object",
       "properties": {
@@ -2693,6 +2940,2889 @@
       "required": [
         "task_gid",
         "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getproject": {
+      "type": "object",
+      "properties": {
+        "project_gid": {
+          "type": "string",
+          "description": "The globally unique identifier of the project. Example: \"1211440849237745\""
+        },
+        "opt_fields": {
+          "type": "string",
+          "description": "Comma-separated list of optional fields to include in the response."
+        }
+      },
+      "required": [
+        "project_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getproject": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getsection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"12345\""
+        }
+      },
+      "required": [
+        "section_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getsection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_gettag": {
+      "type": "object",
+      "properties": {
+        "tag_gid": {
+          "type": "string",
+          "description": "The globally unique identifier of the tag to fetch. Example: \"12345\""
+        }
+      },
+      "required": [
+        "tag_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_gettag": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "followers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "workspace": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid",
+            "resource_type"
+          ],
+          "additionalProperties": false
+        },
+        "permalink_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_gettask": {
+      "type": "object",
+      "properties": {
+        "task_gid": {
+          "type": "string",
+          "description": "The task to operate on. Example: \"1200000000000001\""
+        },
+        "opt_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional fields to include in the response."
+        }
+      },
+      "required": [
+        "task_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_gettask": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "assignee": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "assignee_status": {
+          "type": "string"
+        },
+        "assignee_section": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "due_on": {
+          "type": "string"
+        },
+        "due_at": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "completed_at": {
+          "type": "string"
+        },
+        "completed_by": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "html_notes": {
+          "type": "string"
+        },
+        "permalink_url": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "workspace": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "followers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "enum_value": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "multi_enum_values": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "number_value": {
+                "type": "number"
+              },
+              "text_value": {
+                "type": "string"
+              },
+              "date_value": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string"
+                  },
+                  "date_time": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "display_value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "memberships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "project": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "section": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "likes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "liked": {
+          "type": "boolean"
+        },
+        "approval_status": {
+          "type": "string"
+        },
+        "start_on": {
+          "type": "string"
+        },
+        "actual_time_minutes": {
+          "type": "number"
+        },
+        "num_subtasks": {
+          "type": "number"
+        },
+        "num_hearts": {
+          "type": "number"
+        },
+        "num_likes": {
+          "type": "number"
+        },
+        "hearted": {
+          "type": "boolean"
+        },
+        "hearts": {
+          "type": "array",
+          "items": {}
+        },
+        "external": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "data": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "dependents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getteam": {
+      "type": "object",
+      "properties": {
+        "team_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the team. Example: \"12345\""
+        }
+      },
+      "required": [
+        "team_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getteam": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "html_description": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        },
+        "permalink_url": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "edit_team_name_or_description_access_level": {
+          "type": "string"
+        },
+        "edit_team_visibility_or_trash_team_access_level": {
+          "type": "string"
+        },
+        "member_invite_management_access_level": {
+          "type": "string"
+        },
+        "guest_invite_management_access_level": {
+          "type": "string"
+        },
+        "join_request_management_access_level": {
+          "type": "string"
+        },
+        "team_member_removal_access_level": {
+          "type": "string"
+        },
+        "team_content_management_access_level": {
+          "type": "string"
+        },
+        "endorsed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getuser": {
+      "type": "object",
+      "properties": {
+        "user_gid": {
+          "type": "string",
+          "description": "A string identifying a user. This can either be the string \"me\", an email, or the gid of a user. Example: \"12345\""
+        }
+      },
+      "required": [
+        "user_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getuser": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "object",
+          "properties": {
+            "image_21x21": {
+              "type": "string"
+            },
+            "image_27x27": {
+              "type": "string"
+            },
+            "image_36x36": {
+              "type": "string"
+            },
+            "image_60x60": {
+              "type": "string"
+            },
+            "image_128x128": {
+              "type": "string"
+            },
+            "image_1024x1024": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_getworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace. Example: \"123456789\""
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_getworkspace": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "is_organization": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gid",
+        "resource_type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listattachmentsforobject": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "string",
+          "description": "Globally unique identifier for the object to list attachments from. Must be a GID for a project, project_brief, or task."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "parent"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listattachmentsforobject": {
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_subtype": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "attachments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listprojectsforteam": {
+      "type": "object",
+      "properties": {
+        "team_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the team. Example: \"12345\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results per page. The number of objects to return per page. Value must be between 1 and 100."
+        },
+        "offset": {
+          "type": "string",
+          "description": "Offset token for pagination. An offset to the next page returned by the API. Omit for the first page."
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Only return projects whose archived field takes on the value of this parameter."
+        },
+        "opt_fields": {
+          "type": "string",
+          "description": "Comma-separated list of properties to include in the response."
+        }
+      },
+      "required": [
+        "team_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listprojectsforteam": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_offset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listprojectsforworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace or organization. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results per page. The number of objects to return per page. The value must be between 1 and 100."
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Only return projects whose archived field takes on the value of this parameter."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listprojectsforworkspace": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "color": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "workspace": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "permalink_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listsectionsforproject": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "project_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listsectionsforproject": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "project": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid",
+                  "resource_type",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid",
+                    "resource_type",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_page_offset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_liststoriesfortask": {
+      "type": "object",
+      "properties": {
+        "task_gid": {
+          "type": "string",
+          "description": "The task to operate on. Example: \"1200000000000001\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (Asana offset) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results per page. Between 1 and 100."
+        }
+      },
+      "required": [
+        "task_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_liststoriesfortask": {
+      "type": "object",
+      "properties": {
+        "stories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "resource_subtype": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "html_text": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "is_editable": {
+                "type": "boolean"
+              },
+              "is_edited": {
+                "type": "boolean"
+              },
+              "is_pinned": {
+                "type": "boolean"
+              },
+              "sticker_name": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid",
+                  "resource_type"
+                ],
+                "additionalProperties": false
+              },
+              "likes": {
+                "type": "array",
+                "items": {}
+              },
+              "hearted": {
+                "type": "boolean"
+              },
+              "hearts": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "stories"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listsubtasksfortask": {
+      "type": "object",
+      "properties": {
+        "task_gid": {
+          "type": "string",
+          "description": "The task to operate on. Example: \"1200000000000001\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results per page, between 1 and 100."
+        }
+      },
+      "required": [
+        "task_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listsubtasksfortask": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "due_on": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "permalink_url": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "workspace": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listtagsforworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace or organization. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of objects to return per page. Between 1 and 100."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listtagsforworkspace": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "permalink_url": {
+                "type": "string"
+              },
+              "workspace": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listtasksforproject": {
+      "type": "object",
+      "properties": {
+        "project_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"1200000000000001\""
+        },
+        "completed_since": {
+          "type": "string",
+          "description": "Only return tasks that are either incomplete or that have been completed since this time. Accepts a date-time string or the keyword \"now\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Results per page. The value must be between 1 and 100. Defaults to 100."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "project_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listtasksforproject": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "due_on": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "permalink_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_offset": {
+          "type": "string",
+          "description": "Offset token for the next page of results. Omitted if there are no more pages."
+        }
+      },
+      "required": [
+        "tasks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listtasksforsection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of results per page (1-100). Defaults to 20."
+        },
+        "opt_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of field names to include in the response. Example: [\"name\", \"assignee\", \"due_on\"]"
+        }
+      },
+      "required": [
+        "section_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listtasksforsection": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_subtype": {
+                "type": "string"
+              },
+              "approval_status": {
+                "type": "string"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "assignee_status": {
+                "type": "string"
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "completed_at": {
+                "type": "string"
+              },
+              "completed_by": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "dependencies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "dependents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "due_at": {
+                "type": "string"
+              },
+              "due_on": {
+                "type": "string"
+              },
+              "start_at": {
+                "type": "string"
+              },
+              "start_on": {
+                "type": "string"
+              },
+              "external": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "hearted": {
+                "type": "boolean"
+              },
+              "hearts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "gid": {
+                          "type": "string"
+                        },
+                        "resource_type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gid"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "html_notes": {
+                "type": "string"
+              },
+              "is_rendered_as_separator": {
+                "type": "boolean"
+              },
+              "liked": {
+                "type": "boolean"
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "gid": {
+                          "type": "string"
+                        },
+                        "resource_type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gid"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "memberships": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "project": {
+                      "type": "object",
+                      "properties": {
+                        "gid": {
+                          "type": "string"
+                        },
+                        "resource_type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gid"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "section": {
+                      "type": "object",
+                      "properties": {
+                        "gid": {
+                          "type": "string"
+                        },
+                        "resource_type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gid"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "modified_by": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "notes": {
+                "type": "string"
+              },
+              "num_hearts": {
+                "type": "number"
+              },
+              "num_likes": {
+                "type": "number"
+              },
+              "num_subtasks": {
+                "type": "number"
+              },
+              "parent": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "permalink_url": {
+                "type": "string"
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "resource_type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "workspace": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              },
+              "custom_fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "text_value": {
+                      "type": "string"
+                    },
+                    "number_value": {
+                      "type": "number"
+                    },
+                    "enum_value": {
+                      "type": "object",
+                      "properties": {
+                        "gid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "gid"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "multi_enum_values": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "gid": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "enabled": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "gid"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "display_value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gid"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "actual_time_minutes": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listteamsforuser": {
+      "type": "object",
+      "properties": {
+        "user_gid": {
+          "type": "string",
+          "description": "User GID, email, or \"me\". Example: \"me\""
+        },
+        "organization": {
+          "type": "string",
+          "description": "Workspace or organization GID to filter teams. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination offset cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of results per page (1-100). Defaults to 100."
+        }
+      },
+      "required": [
+        "user_gid",
+        "organization"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listteamsforuser": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "permalink_url": {
+                "type": "string"
+              },
+              "organization": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listteamsforworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace or organization. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of results per page. Must be between 1 and 100. Defaults to 100."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listteamsforworkspace": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listusersforteam": {
+      "type": "object",
+      "properties": {
+        "team_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the team. Example: \"12345\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Maps to the Asana offset token."
+        },
+        "opt_fields": {
+          "type": "string",
+          "description": "Comma-separated list of optional fields to include in the response. Example: \"name,email,photo\""
+        }
+      },
+      "required": [
+        "team_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listusersforteam": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "photo": {}
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listusersforworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "The workspace or organization GID. Example: \"123456789\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination offset from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The number of items per page. Defaults to 100."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listusersforworkspace": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_listworkspaces": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset token) from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_listworkspaces": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email_domains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "is_organization": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "gid",
+              "resource_type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_removeprojectfromtask": {
+      "type": "object",
+      "properties": {
+        "task_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the task. Example: \"123456789\""
+        },
+        "project_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the project to remove the task from. Example: \"987654321\""
+        }
+      },
+      "required": [
+        "task_gid",
+        "project_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_removeprojectfromtask": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionInput_asana_removetagfromtask": {
+      "type": "object",
+      "properties": {
+        "task_gid": {
+          "type": "string",
+          "description": "The task to remove the tag from. Example: \"12345\""
+        },
+        "tag_gid": {
+          "type": "string",
+          "description": "The tag to remove from the task. Example: \"67890\""
+        }
+      },
+      "required": [
+        "task_gid",
+        "tag_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_removetagfromtask": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_searchtasksinworkspace": {
+      "type": "object",
+      "properties": {
+        "workspace_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the workspace or organization. Example: \"1202775892569436\""
+        },
+        "assignee": {
+          "type": "string",
+          "description": "Comma-separated list of user identifiers, or \"me\". Example: \"me\""
+        },
+        "project": {
+          "type": "string",
+          "description": "Comma-separated list of project IDs. Example: \"1211440849237745\""
+        },
+        "section": {
+          "type": "string",
+          "description": "Comma-separated list of section or column IDs. Example: \"12345\""
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "Filter to completed tasks."
+        },
+        "modified_since": {
+          "type": "string",
+          "description": "Only return tasks modified since the given ISO 8601 datetime. Example: \"2024-01-01T00:00:00.000Z\""
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "due_date",
+            "created_at",
+            "completed_at",
+            "likes",
+            "modified_at"
+          ],
+          "description": "Sort field. Defaults to modified_at."
+        },
+        "sort_ascending": {
+          "type": "boolean",
+          "description": "Sort ascending. Defaults to false."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of tasks to return (max 100)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "workspace_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_searchtasksinworkspace": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resource_type": {
+                "type": "string"
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "assignee": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "gid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "due_on": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gid"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tasks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_updateproject": {
+      "type": "object",
+      "properties": {
+        "project_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the project. Example: \"120987654321\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the project."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-form text notes for the project."
+        },
+        "html_notes": {
+          "type": "string",
+          "description": "HTML-formatted notes for the project."
+        },
+        "due_on": {
+          "type": "string",
+          "description": "Date (ISO 8601) on which the project is due. Example: \"2026-12-31\"."
+        },
+        "start_on": {
+          "type": "string",
+          "description": "Date (ISO 8601) on which the project starts. Example: \"2026-01-01\"."
+        },
+        "color": {
+          "type": "string",
+          "description": "Color of the project. Example: \"light-red\"."
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Whether the project is archived."
+        },
+        "public": {
+          "type": "boolean",
+          "description": "Whether the project is public to its workspace members."
+        },
+        "is_template": {
+          "type": "boolean",
+          "description": "Whether the project is a template."
+        },
+        "default_view": {
+          "type": "string",
+          "description": "Default view for the project. Example: \"list\" or \"board\"."
+        }
+      },
+      "required": [
+        "project_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updateproject": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "html_notes": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "color": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": "string"
+        },
+        "start_on": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "is_template": {
+          "type": "boolean"
+        },
+        "default_view": {
+          "type": "string"
+        },
+        "workspace_gid": {
+          "type": "string"
+        },
+        "owner_gid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "section_gid": {
+          "type": "string",
+          "description": "The globally unique identifier for the section. Example: \"1200000000000001\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The updated name for the section."
+        }
+      },
+      "required": [
+        "section_gid",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updatesection": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_asana_updatetag": {
+      "type": "object",
+      "properties": {
+        "tag_gid": {
+          "type": "string",
+          "description": "Globally unique identifier for the tag. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "New name for the tag."
+        },
+        "color": {
+          "type": "string",
+          "enum": [
+            "dark-pink",
+            "dark-green",
+            "dark-blue",
+            "dark-red",
+            "dark-teal",
+            "dark-brown",
+            "dark-orange",
+            "dark-purple",
+            "dark-warm-gray",
+            "light-pink",
+            "light-green",
+            "light-blue",
+            "light-red",
+            "light-teal",
+            "light-brown",
+            "light-orange",
+            "light-purple",
+            "light-warm-gray"
+          ],
+          "description": "Color of the tag. Set to null to clear."
+        }
+      },
+      "required": [
+        "tag_gid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_asana_updatetag": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "workspace": {
+          "type": "object",
+          "properties": {
+            "gid": {
+              "type": "string"
+            },
+            "resource_type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "gid"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "gid"
       ],
       "additionalProperties": false
     },
@@ -65196,45 +68326,6 @@
       ],
       "additionalProperties": false
     },
-    "Team": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "key": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "color": {
-          "type": "string"
-        },
-        "icon": {
-          "type": "string"
-        },
-        "private": {
-          "type": "boolean"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "archivedAt": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
     "WorkflowState": {
       "type": "object",
       "properties": {
@@ -100625,34 +103716,6 @@
     },
     "SyncMetadata_zendesk_categories": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Section": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "category_id": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "url",
-        "category_id",
-        "name",
-        "description"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_zendesk_sections": {
