@@ -46270,6 +46270,72 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_google_mail_createsendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The email address to appear in the \"From:\" header for mail sent using this alias. Example: \"alias@example.com\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "A name that appears in the \"From:\" header for mail sent using this alias. Example: \"John Doe\""
+        },
+        "replyToAddress": {
+          "type": "string",
+          "description": "An optional email address to use for the reply-to header. Example: \"replies@example.com\""
+        },
+        "signature": {
+          "type": "string",
+          "description": "An optional HTML signature for the alias"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Whether this alias is the default for the user"
+        },
+        "treatAsAlias": {
+          "type": "boolean",
+          "description": "Whether Gmail should treat this address as an alias of the user's primary email address"
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_createsendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "replyToAddress": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "isPrimary": {
+          "type": "boolean"
+        },
+        "treatAsAlias": {
+          "type": "boolean"
+        },
+        "verificationStatus": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_google_mail_deletedraft": {
       "type": "object",
       "properties": {
@@ -46311,6 +46377,32 @@
     },
     "ActionOutput_google_mail_deletefilter": {
       "type": "null"
+    },
+    "ActionInput_google_mail_deleteforwardingaddress": {
+      "type": "object",
+      "properties": {
+        "forwardingEmail": {
+          "type": "string",
+          "description": "The forwarding email address to delete. Example: \"forward@example.com\""
+        }
+      },
+      "required": [
+        "forwardingEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deleteforwardingaddress": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the forwarding address was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
     },
     "ActionInput_google_mail_deletelabel": {
       "type": "object",
@@ -46368,6 +46460,22 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "ActionInput_google_mail_deletesendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The email address of the send-as alias to delete. Example: \"alias@example.com\""
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_deletesendasalias": {
+      "type": "null"
     },
     "ActionInput_google_mail_deletethread": {
       "type": "object",
@@ -46669,6 +46777,43 @@
       },
       "required": [
         "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_getforwardingaddress": {
+      "type": "object",
+      "properties": {
+        "forwardingEmail": {
+          "type": "string",
+          "description": "The forwarding email address to retrieve. Example: \"user@example.com\""
+        }
+      },
+      "required": [
+        "forwardingEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_getforwardingaddress": {
+      "type": "object",
+      "properties": {
+        "forwardingEmail": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "pending",
+            "confirmationCodeSent"
+          ]
+        },
+        "verificationTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "forwardingEmail",
+        "verificationStatus"
       ],
       "additionalProperties": false
     },
@@ -48434,6 +48579,59 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_google_mail_updateautoforwardingsettings": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether all incoming mail is automatically forwarded to another address."
+        },
+        "email_address": {
+          "type": "string",
+          "description": "Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses."
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "dispositionUnspecified",
+            "leaveInInbox",
+            "archive",
+            "trash",
+            "markRead"
+          ],
+          "description": "The state that a message should be left in after it has been forwarded."
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_updateautoforwardingsettings": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "dispositionUnspecified",
+            "leaveInInbox",
+            "archive",
+            "trash",
+            "markRead"
+          ]
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_google_mail_updatedraft": {
       "type": "object",
       "properties": {
@@ -48989,6 +49187,72 @@
       },
       "required": [
         "enableAutoReply"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_google_mail_verifysendasalias": {
+      "type": "object",
+      "properties": {
+        "sendAsEmail": {
+          "type": "string",
+          "description": "The send-as alias email address to verify. Example: \"api+test@nango.dev\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "The user ID. Defaults to \"me\" for the authenticated user."
+        }
+      },
+      "required": [
+        "sendAsEmail"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_verifysendasalias": {
+      "type": "null"
+    },
+    "ActionInput_google_mail_watchmailbox": {
+      "type": "object",
+      "properties": {
+        "topicName": {
+          "type": "string",
+          "description": "The name of the Cloud Pub/Sub topic to use for notifications. Format: projects/{project}/topics/{topic}"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of label IDs to filter on for push notifications. If specified, only changes to messages with these labels will trigger notifications."
+        },
+        "labelFilterBehavior": {
+          "type": "string",
+          "enum": [
+            "include",
+            "exclude"
+          ],
+          "description": "How to treat the labelIds filter. \"include\" means only labels in labelIds will trigger notifications. \"exclude\" means all labels except those in labelIds will trigger notifications."
+        }
+      },
+      "required": [
+        "topicName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_google_mail_watchmailbox": {
+      "type": "object",
+      "properties": {
+        "historyId": {
+          "type": "string",
+          "description": "The ID of the mailbox history record at which the watch was started."
+        },
+        "expiration": {
+          "type": "string",
+          "description": "The expiration time of the watch as a timestamp in milliseconds."
+        }
+      },
+      "required": [
+        "historyId",
+        "expiration"
       ],
       "additionalProperties": false
     },

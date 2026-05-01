@@ -14264,6 +14264,44 @@ export interface ActionOutput_google_mail_createlabel {
   type?: string | undefined;
 };
 
+export interface ActionInput_google_mail_createsendasalias {
+  /**
+   * The email address to appear in the "From:" header for mail sent using this alias. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * A name that appears in the "From:" header for mail sent using this alias. Example: "John Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional email address to use for the reply-to header. Example: "replies@example.com"
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * An optional HTML signature for the alias
+   */
+  signature?: string | undefined;
+  /**
+   * Whether this alias is the default for the user
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether Gmail should treat this address as an alias of the user's primary email address
+   */
+  treatAsAlias?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_createsendasalias {
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isDefault?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  verificationStatus?: string | undefined;
+};
+
 export interface ActionInput_google_mail_deletedraft {
   /**
    * The ID of the draft to delete. Example: "r-1234567890abcdef"
@@ -14286,6 +14324,20 @@ export interface ActionInput_google_mail_deletefilter {
 };
 
 export type ActionOutput_google_mail_deletefilter = null
+
+export interface ActionInput_google_mail_deleteforwardingaddress {
+  /**
+   * The forwarding email address to delete. Example: "forward@example.com"
+   */
+  forwardingEmail: string;
+};
+
+export interface ActionOutput_google_mail_deleteforwardingaddress {
+  /**
+   * Whether the forwarding address was successfully deleted
+   */
+  success: boolean;
+};
 
 export interface ActionInput_google_mail_deletelabel {
   /**
@@ -14318,6 +14370,15 @@ export interface ActionOutput_google_mail_deletemessage {
    */
   id: string;
 };
+
+export interface ActionInput_google_mail_deletesendasalias {
+  /**
+   * The email address of the send-as alias to delete. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+};
+
+export type ActionOutput_google_mail_deletesendasalias = void
 
 export interface ActionInput_google_mail_deletethread {
   /**
@@ -14459,6 +14520,19 @@ export interface ActionOutput_google_mail_getfilter {
    * Email address that the message should be forwarded to
    */
   forward?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getforwardingaddress {
+  /**
+   * The forwarding email address to retrieve. Example: "user@example.com"
+   */
+  forwardingEmail: string;
+};
+
+export interface ActionOutput_google_mail_getforwardingaddress {
+  forwardingEmail: string;
+  verificationStatus: 'accepted' | 'pending' | 'confirmationCodeSent';
+  verificationTime?: string | undefined;
 };
 
 export interface ActionInput_google_mail_getimapsettings {
@@ -15089,6 +15163,27 @@ export interface ActionOutput_google_mail_untrashthread {
   internalDate?: string | undefined;})[];
 };
 
+export interface ActionInput_google_mail_updateautoforwardingsettings {
+  /**
+   * Whether all incoming mail is automatically forwarded to another address.
+   */
+  enabled: boolean;
+  /**
+   * Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses.
+   */
+  email_address?: string | undefined;
+  /**
+   * The state that a message should be left in after it has been forwarded.
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionOutput_google_mail_updateautoforwardingsettings {
+  enabled: boolean;
+  email_address?: string | undefined;
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
 export interface ActionInput_google_mail_updatedraft {
   /**
    * The ID of the draft to update. Example: "r-1234567890"
@@ -15354,6 +15449,45 @@ export interface ActionOutput_google_mail_updatevacationsettings {
   restrictToDomain?: boolean | undefined;
   startTime?: string | undefined;
   endTime?: string | undefined;
+};
+
+export interface ActionInput_google_mail_verifysendasalias {
+  /**
+   * The send-as alias email address to verify. Example: "api+test@nango.dev"
+   */
+  sendAsEmail: string;
+  /**
+   * The user ID. Defaults to "me" for the authenticated user.
+   */
+  userId?: string | undefined;
+};
+
+export type ActionOutput_google_mail_verifysendasalias = void
+
+export interface ActionInput_google_mail_watchmailbox {
+  /**
+   * The name of the Cloud Pub/Sub topic to use for notifications. Format: projects/{project}/topics/{topic}
+   */
+  topicName: string;
+  /**
+   * List of label IDs to filter on for push notifications. If specified, only changes to messages with these labels will trigger notifications.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * How to treat the labelIds filter. "include" means only labels in labelIds will trigger notifications. "exclude" means all labels except those in labelIds will trigger notifications.
+   */
+  labelFilterBehavior?: 'include' | 'exclude' | undefined;
+};
+
+export interface ActionOutput_google_mail_watchmailbox {
+  /**
+   * The ID of the mailbox history record at which the watch was started.
+   */
+  historyId: string;
+  /**
+   * The expiration time of the watch as a timestamp in milliseconds.
+   */
+  expiration: string;
 };
 
 export interface Row {
