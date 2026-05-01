@@ -1,0 +1,640 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Project": [
+        {
+          "id": "1211440849237745",
+          "gid": "1211440849237745",
+          "name": "API Testing Sandbox",
+          "archived": false,
+          "color": "aqua",
+          "created_at": "2025-09-23T14:42:22.670Z",
+          "modified_at": "2026-04-27T13:48:41.071Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "team": {
+            "gid": "1211440849237740",
+            "name": "Nango's first team"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214299875377461",
+          "gid": "1214299875377461",
+          "name": "My Project",
+          "archived": false,
+          "color": "magenta",
+          "created_at": "2026-04-27T13:54:09.168Z",
+          "modified_at": "2026-04-27T14:28:24.495Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214299875377461",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214301857436818",
+          "gid": "1214301857436818",
+          "name": "Nango Get Section Test",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:24:00.178Z",
+          "modified_at": "2026-04-27T14:24:02.058Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301857436818",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "team": {
+            "gid": "1211440849237740",
+            "name": "Nango's first team"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214301997985686",
+          "gid": "1214301997985686",
+          "name": "Test Project from Nango",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:30:47.384Z",
+          "modified_at": "2026-04-27T14:30:48.935Z",
+          "notes": "Created via Nango action dryrun",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301997985686",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "team": {
+            "gid": "1214299875377454",
+            "name": "Engineering"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214301998957080",
+          "gid": "1214301998957080",
+          "name": "Test Project from Nango",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:30:57.364Z",
+          "modified_at": "2026-04-27T14:30:59.297Z",
+          "notes": "Created via Nango action dryrun",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301998957080",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "team": {
+            "gid": "1214299875377454",
+            "name": "Engineering"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214302666345922",
+          "gid": "1214302666345922",
+          "name": "Test Project for Sections",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:34:47.153Z",
+          "modified_at": "2026-04-27T14:34:48.783Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214302666345922",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214314197175944",
+          "gid": "1214314197175944",
+          "name": "Nango List Tasks Section Test",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T19:13:14.374Z",
+          "modified_at": "2026-04-27T19:13:15.877Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214314197175944",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214314428233726",
+          "gid": "1214314428233726",
+          "name": "Test Section Update Project",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T19:10:25.134Z",
+          "modified_at": "2026-04-27T19:10:26.407Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214314428233726",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214321119606819",
+          "gid": "1214321119606819",
+          "name": "Nango Update Section Test 1777300032811",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:27:13.135Z",
+          "modified_at": "2026-04-27T14:27:14.964Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214321119606819",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214321120755350",
+          "gid": "1214321120755350",
+          "name": "Test Project from Nango",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T14:28:35.975Z",
+          "modified_at": "2026-04-27T14:28:37.463Z",
+          "notes": "Test update from nango dryrun v2",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214321120755350",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "team": {
+            "gid": "1214299875377454",
+            "name": "Engineering"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        },
+        {
+          "id": "1214333135415315",
+          "gid": "1214333135415315",
+          "name": "Nango Board Test",
+          "archived": false,
+          "color": "none",
+          "created_at": "2026-04-27T19:13:43.119Z",
+          "modified_at": "2026-04-27T19:13:44.910Z",
+          "notes": "",
+          "public": false,
+          "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214333135415315",
+          "completed": false,
+          "workspace": {
+            "gid": "1202775892569436",
+            "name": "nango.dev"
+          },
+          "owner": {
+            "gid": "1211440844472372",
+            "name": "Nango API"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Project": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/1.0/workspaces": {
+        "response": {
+          "data": [
+            {
+              "gid": "1202775892569436",
+              "resource_type": "workspace",
+              "name": "nango.dev"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 20:23:58 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "84",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1777321492",
+          "etag": "W/\"54-7nT1y93BZi6fG7agRdhZEIjUiAw\""
+        },
+        "hash": "f921ee7886e992e6dc7f9c698a3ef6b95f3521a7",
+        "request": {}
+      },
+      "/api/1.0/workspaces/1202775892569436/projects": {
+        "response": {
+          "data": [
+            {
+              "gid": "1211440849237745",
+              "archived": false,
+              "color": "aqua",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2025-09-23T14:42:22.670Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T13:48:41.071Z",
+              "name": "API Testing Sandbox",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1211440849237745",
+              "public": false,
+              "start_on": null,
+              "team": {
+                "gid": "1211440849237740",
+                "name": "Nango's first team",
+                "resource_type": "team"
+              },
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214299875377461",
+              "archived": false,
+              "color": "magenta",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T13:54:09.168Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:28:24.495Z",
+              "name": "My Project",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214299875377461",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214301857436818",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:24:00.178Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:24:02.058Z",
+              "name": "Nango Get Section Test",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301857436818",
+              "public": false,
+              "start_on": null,
+              "team": {
+                "gid": "1211440849237740",
+                "name": "Nango's first team",
+                "resource_type": "team"
+              },
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214301997985686",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:30:47.384Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:30:48.935Z",
+              "name": "Test Project from Nango",
+              "notes": "Created via Nango action dryrun",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301997985686",
+              "public": false,
+              "start_on": null,
+              "team": {
+                "gid": "1214299875377454",
+                "name": "Engineering",
+                "resource_type": "team"
+              },
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214301998957080",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:30:57.364Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:30:59.297Z",
+              "name": "Test Project from Nango",
+              "notes": "Created via Nango action dryrun",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214301998957080",
+              "public": false,
+              "start_on": null,
+              "team": {
+                "gid": "1214299875377454",
+                "name": "Engineering",
+                "resource_type": "team"
+              },
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214302666345922",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:34:47.153Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:34:48.783Z",
+              "name": "Test Project for Sections",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214302666345922",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214314197175944",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T19:13:14.374Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T19:13:15.877Z",
+              "name": "Nango List Tasks Section Test",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214314197175944",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214314428233726",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T19:10:25.134Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T19:10:26.407Z",
+              "name": "Test Section Update Project",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214314428233726",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214321119606819",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:27:13.135Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:27:14.964Z",
+              "name": "Nango Update Section Test 1777300032811",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214321119606819",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214321120755350",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T14:28:35.975Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T14:28:37.463Z",
+              "name": "Test Project from Nango",
+              "notes": "Test update from nango dryrun v2",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214321120755350",
+              "public": false,
+              "start_on": null,
+              "team": {
+                "gid": "1214299875377454",
+                "name": "Engineering",
+                "resource_type": "team"
+              },
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214333135415315",
+              "archived": false,
+              "color": "none",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2026-04-27T19:13:43.119Z",
+              "due_on": null,
+              "modified_at": "2026-04-27T19:13:44.910Z",
+              "name": "Nango Board Test",
+              "notes": "",
+              "owner": {
+                "gid": "1211440844472372",
+                "name": "Nango API",
+                "resource_type": "user"
+              },
+              "permalink_url": "https://app.asana.com/1/1202775892569436/project/1214333135415315",
+              "public": false,
+              "start_on": null,
+              "team": null,
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            }
+          ],
+          "next_page": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 20:23:59 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "6257",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1777321492",
+          "etag": "W/\"1871-sPFs0METwHmmhGkimrPYHZ04C8k\""
+        },
+        "hash": "39c332f350472efab8999e01b0c60b4fbd114b57",
+        "request": {
+          "params": {
+            "limit": "100",
+            "opt_fields": "gid,name,archived,color,created_at,modified_at,notes,public,permalink_url,completed,completed_at,due_on,start_on,workspace,team,owner"
+          }
+        }
+      }
+    }
+  }
+}

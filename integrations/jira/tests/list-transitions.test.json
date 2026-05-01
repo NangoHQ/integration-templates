@@ -1,0 +1,237 @@
+{
+  "input": {
+    "issueIdOrKey": "10011"
+  },
+  "output": {
+    "transitions": [
+      {
+        "id": "11",
+        "name": "To Do",
+        "to": {
+          "id": "10000",
+          "name": "To Do",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "hasScreen": false,
+        "isConditional": false,
+        "isGlobal": true,
+        "isInitial": false
+      },
+      {
+        "id": "21",
+        "name": "In Progress",
+        "to": {
+          "id": "10001",
+          "name": "In Progress",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "hasScreen": false,
+        "isConditional": false,
+        "isGlobal": true,
+        "isInitial": false
+      },
+      {
+        "id": "31",
+        "name": "In Review",
+        "to": {
+          "id": "10002",
+          "name": "In Review",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "hasScreen": false,
+        "isConditional": false,
+        "isGlobal": true,
+        "isInitial": false
+      },
+      {
+        "id": "41",
+        "name": "Done",
+        "to": {
+          "id": "10003",
+          "name": "Done",
+          "statusCategory": {
+            "id": 3,
+            "key": "done",
+            "colorName": "green",
+            "name": "Done"
+          }
+        },
+        "hasScreen": false,
+        "isConditional": false,
+        "isGlobal": true,
+        "isInitial": false
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "baseUrl": "https://nango-team-test.atlassian.net",
+      "cloudId": "07779958-e747-4285-ad18-0f5252a97bff"
+    }
+  },
+  "api": {
+    "get": {
+      "/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/issue/10011/transitions": {
+        "response": {
+          "expand": "transitions",
+          "transitions": [
+            {
+              "id": "11",
+              "name": "To Do",
+              "to": {
+                "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10000",
+                "description": "",
+                "iconUrl": "https://nango-team-test.atlassian.net/images/icons/statuses/generic.png",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                  "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "To Do"
+                }
+              },
+              "hasScreen": false,
+              "isGlobal": true,
+              "isInitial": false,
+              "isAvailable": true,
+              "isConditional": false,
+              "isLooped": false
+            },
+            {
+              "id": "21",
+              "name": "In Progress",
+              "to": {
+                "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10001",
+                "description": "This work item is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://nango-team-test.atlassian.net/images/icons/statuses/generic.png",
+                "name": "In Progress",
+                "id": "10001",
+                "statusCategory": {
+                  "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuscategory/4",
+                  "id": 4,
+                  "key": "indeterminate",
+                  "colorName": "yellow",
+                  "name": "In Progress"
+                }
+              },
+              "hasScreen": false,
+              "isGlobal": true,
+              "isInitial": false,
+              "isAvailable": true,
+              "isConditional": false,
+              "isLooped": false
+            },
+            {
+              "id": "31",
+              "name": "In Review",
+              "to": {
+                "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://nango-team-test.atlassian.net/images/icons/statuses/generic.png",
+                "name": "In Review",
+                "id": "10002",
+                "statusCategory": {
+                  "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuscategory/4",
+                  "id": 4,
+                  "key": "indeterminate",
+                  "colorName": "yellow",
+                  "name": "In Progress"
+                }
+              },
+              "hasScreen": false,
+              "isGlobal": true,
+              "isInitial": false,
+              "isAvailable": true,
+              "isConditional": false,
+              "isLooped": false
+            },
+            {
+              "id": "41",
+              "name": "Done",
+              "to": {
+                "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/status/10003",
+                "description": "",
+                "iconUrl": "https://nango-team-test.atlassian.net/images/icons/statuses/generic.png",
+                "name": "Done",
+                "id": "10003",
+                "statusCategory": {
+                  "self": "https://api.atlassian.com/ex/jira/07779958-e747-4285-ad18-0f5252a97bff/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Done"
+                }
+              },
+              "hasScreen": false,
+              "isGlobal": true,
+              "isInitial": false,
+              "isAvailable": true,
+              "isConditional": false,
+              "isLooped": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 13:42:12 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SameOrigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "350",
+          "x-ratelimit-remaining": "349",
+          "x-ratelimit-reset": "1777383773",
+          "server": "AtlassianEdge",
+          "timing-allow-origin": "*",
+          "x-arequestid": "d64945543634219c2e0a57b177f5dd3d",
+          "set-cookie": "atlassian.xsrf.token=d202e47106e112e56a15bae057f83515039cffa4_lin; Path=/; SameSite=None; Secure",
+          "x-aaccountid": "712020%3A7bf45758-6986-4e0e-aefc-a3000196d8d2",
+          "cache-control": "no-cache, no-store, no-transform",
+          "vary": "Accept-Encoding",
+          "x-trace-id": "85720e8c9e224cb1a4a1c542d3123d50",
+          "atl-traceid": "85720e8c9e224cb1a4a1c542d3123d50",
+          "atl-request-id": "85720e8c-9e22-4cb1-a4a1-c542d3123d50",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 0a166b53605851fe961f5a2952e5a748.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P1",
+          "x-amz-cf-id": "BT5g63_QjO2rEaymKyIBS84Q5-ZOk9YXCZiVCZ7hR9UqNVdnmGk64g==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=385,atl-edge;dur=377,atl-edge-internal;dur=4,atl-edge-upstream;dur=375,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P1\",cdn-rid;desc=\"BT5g63_QjO2rEaymKyIBS84Q5-ZOk9YXCZiVCZ7hR9UqNVdnmGk64g==\",cdn-downstream-fbl;dur=389"
+        },
+        "hash": "74e7b8f8fce3ae330b991d8ef093b4f9d7755580",
+        "request": {
+          "headers": {
+            "X-Atlassian-Token": "no-check"
+          }
+        }
+      }
+    }
+  }
+}
