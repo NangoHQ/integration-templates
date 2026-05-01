@@ -184,8 +184,48 @@ import './clicksend/actions/fetch-account.js';
 import './clicksend/actions/send-sms.js';
 
 // -- Integration: confluence
+import './confluence/syncs/attachments.js';
+import './confluence/syncs/blog-posts.js';
+import './confluence/syncs/footer-comments.js';
+import './confluence/syncs/inline-comments.js';
 import './confluence/syncs/pages.js';
 import './confluence/syncs/spaces.js';
+import './confluence/actions/create-blog-post.js';
+import './confluence/actions/create-footer-comment.js';
+import './confluence/actions/create-inline-comment.js';
+import './confluence/actions/create-page-property.js';
+import './confluence/actions/create-page.js';
+import './confluence/actions/delete-attachment.js';
+import './confluence/actions/delete-blog-post.js';
+import './confluence/actions/delete-footer-comment.js';
+import './confluence/actions/delete-inline-comment.js';
+import './confluence/actions/delete-page-property.js';
+import './confluence/actions/delete-page.js';
+import './confluence/actions/get-attachment.js';
+import './confluence/actions/get-blog-post.js';
+import './confluence/actions/get-footer-comment.js';
+import './confluence/actions/get-inline-comment.js';
+import './confluence/actions/get-page-property.js';
+import './confluence/actions/get-page.js';
+import './confluence/actions/get-space.js';
+import './confluence/actions/list-attachments.js';
+import './confluence/actions/list-blog-posts-for-label.js';
+import './confluence/actions/list-blog-posts.js';
+import './confluence/actions/list-page-attachments.js';
+import './confluence/actions/list-page-footer-comments.js';
+import './confluence/actions/list-page-inline-comments.js';
+import './confluence/actions/list-page-properties.js';
+import './confluence/actions/list-pages-for-label.js';
+import './confluence/actions/list-pages.js';
+import './confluence/actions/list-space-blog-posts.js';
+import './confluence/actions/list-space-pages.js';
+import './confluence/actions/list-spaces.js';
+import './confluence/actions/search-content.js';
+import './confluence/actions/update-blog-post.js';
+import './confluence/actions/update-footer-comment.js';
+import './confluence/actions/update-inline-comment.js';
+import './confluence/actions/update-page-property.js';
+import './confluence/actions/update-page.js';
 
 // -- Integration: databricks-workspace
 import './databricks-workspace/actions/list-warehouses.js';
