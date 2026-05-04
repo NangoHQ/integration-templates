@@ -38,8 +38,7 @@ interface CommitSummary {
 class MockNango {
     private savedFiles: GithubRepoFile[] = [];
     private deletedFiles: GithubRepoFile[] = [];
-    private currentEndpoint: string = '';
-    public lastSyncDate: Date | null = null;
+    private checkpoint: unknown = null;
     private metadata = {
         owner: 'test-owner',
         repo: 'test-repo',
@@ -50,11 +49,20 @@ class MockNango {
         return this.metadata as unknown as T;
     }
 
-    async *paginate<T>(config: any): AsyncGenerator<T[]> {
-        this.currentEndpoint = config.endpoint;
+    async getCheckpoint(): Promise<unknown> {
+        return this.checkpoint;
+    }
 
+    async saveCheckpoint(data: unknown): Promise<void> {
+        this.checkpoint = data;
+    }
+
+    setCheckpoint(data: unknown): void {
+        this.checkpoint = data;
+    }
+
+    async *paginate<T>(config: any): AsyncGenerator<T[]> {
         if (config.endpoint === '/repos/test-owner/test-repo/git/trees/main') {
-            // Initial sync - Git Trees API
             expect(config.params.recursive).toBe('1');
             expect(config.paginate.response_path).toBe('tree');
             expect(config.paginate.limit).toBe(100);
@@ -81,9 +89,8 @@ class MockNango {
             ];
 
             yield mockFiles as unknown as T[];
-            yield [];
+            yield [] as T[];
         } else if (config.endpoint === '/repos/test-owner/test-repo/commits') {
-            // Incremental sync - List commits
             expect(config.params.since).toBeDefined();
             expect(config.paginate.limit).toBe(100);
 
@@ -99,9 +106,8 @@ class MockNango {
             ];
 
             yield mockCommits as unknown as T[];
-            yield [];
+            yield [] as T[];
         } else if (config.endpoint === '/repos/test-owner/test-repo/commits/commit1_sha') {
-            // Incremental sync - Get commit details
             expect(config.paginate.response_path).toBe('files');
             expect(config.paginate.limit).toBe(100);
 
@@ -127,7 +133,7 @@ class MockNango {
             ];
 
             yield mockCommitFiles as unknown as T[];
-            yield [];
+            yield [] as T[];
         }
     }
 
@@ -143,9 +149,7 @@ class MockNango {
         }
     }
 
-    async log(message: string): Promise<void> {
-        // Mock logging
-    }
+    async log(_message: string): Promise<void> {}
 
     getSavedFiles(): GithubRepoFile[] {
         return this.savedFiles;
@@ -155,12 +159,7 @@ class MockNango {
         return this.deletedFiles;
     }
 
-    getCurrentEndpoint(): string {
-        return this.currentEndpoint;
-    }
-    async deleteRecordsFromPreviousExecutions(model: string): Promise<void> {
-        // Mock deletion logic if needed
-    }
+    async deleteRecordsFromPreviousExecutions(_model: string): Promise<void> {}
 }
 
 describe('GitHub List Files Pagination Tests', () => {
@@ -194,7 +193,7 @@ describe('GitHub List Files Pagination Tests', () => {
     });
 
     it('should handle incremental sync pagination correctly', async () => {
-        nango.lastSyncDate = new Date('2024-03-26T00:00:00Z');
+        nango.setCheckpoint({ synced_at: '2024-03-26T00:00:00Z' });
 
         const fetchData = (await import('../syncs/list-files')).default;
         await fetchData.exec(nango as unknown as NangoSync);
@@ -221,9 +220,8 @@ describe('GitHub List Files Pagination Tests', () => {
     });
 
     it('should handle empty responses at each pagination level', async () => {
-        nango.paginate = async function* <T>(config: any): AsyncGenerator<T[]> {
-            // Return empty results for any endpoint
-            yield [];
+        nango.paginate = async function* <T>(_config: any): AsyncGenerator<T[]> {
+            yield [] as T[];
         };
 
         const fetchData = (await import('../syncs/list-files')).default;

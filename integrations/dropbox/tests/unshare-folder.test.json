@@ -1,0 +1,88 @@
+{
+  "input": {
+    "sharedFolderId": "14230616867"
+  },
+  "output": {
+    "success": true,
+    "message": "Folder unshared successfully"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/sharing/unshare_folder": {
+        "response": {
+          ".tag": "async_job_id",
+          "async_job_id": "dbjid:AAD7wJkkhPlSS56ULb9IcQ1h90VOD-EdEOOva2NbkyyW3Yp-D66Hy1GoGvXQ20pzBbhS0jz-kTdj8ALzGTW0Agta"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:55:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "sameorigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1777409746",
+          "server": "envoy",
+          "cache-control": "no-cache",
+          "pragma": "no-cache",
+          "content-disposition": "attachment",
+          "content-security-policy": "sandbox",
+          "x-webkit-csp": "sandbox",
+          "x-content-security-policy": "sandbox",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "8662b447e805453eb085a48169f11eaa",
+          "x-dropbox-trace-id": "69f11ea9000000005ca01d56eb545dfb"
+        },
+        "hash": "bb9ce26ea73f4d9ef31dc9f60832d84f00a069e8",
+        "request": {
+          "data": {
+            "shared_folder_id": "14230616867",
+            "leave_a_copy": false
+          }
+        }
+      },
+      "/2/sharing/check_job_status": {
+        "response": {
+          ".tag": "complete"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:55:09 GMT",
+          "content-type": "application/json",
+          "content-length": "20",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1777409746",
+          "etag": "W/\"14-saDSbjQUSqsmouUcirMMgk+seyo\""
+        },
+        "hash": "4834998ee2a70a8eda42b9a1b570eb15194d431d",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AAD7wJkkhPlSS56ULb9IcQ1h90VOD-EdEOOva2NbkyyW3Yp-D66Hy1GoGvXQ20pzBbhS0jz-kTdj8ALzGTW0Agta"
+          }
+        }
+      }
+    }
+  }
+}

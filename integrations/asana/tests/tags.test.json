@@ -1,0 +1,440 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Tag": [
+        {
+          "id": "1214301509455300",
+          "name": "TempTagForDelete",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T14:16:32.840Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214301509455300/1214301509455300"
+        },
+        {
+          "id": "1214302309976017",
+          "name": "Nango Test Tag Final",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:33:59.616Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214302309976017/1214302309976017"
+        },
+        {
+          "id": "1214321126624745",
+          "name": "Test Tag Proxy",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:39:26.166Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214321126624745/1214321126624745"
+        },
+        {
+          "id": "1214302668430128",
+          "name": "Test Tag Proxy",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:39:32.285Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214302668430128/1214302668430128"
+        },
+        {
+          "id": "1214302722241274",
+          "name": "Test Tag From Nango",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:41:05.230Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214302722241274/1214302722241274"
+        },
+        {
+          "id": "1214302749294867",
+          "name": "Test Tag From Nango",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:41:16.389Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214302749294867/1214302749294867"
+        },
+        {
+          "id": "1214320217451153",
+          "name": "new",
+          "color": "red",
+          "notes": "",
+          "created_at": "2026-04-27T14:41:52.999Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451153/1214320217451153"
+        },
+        {
+          "id": "1214320217451154",
+          "name": "urgent",
+          "color": "blue",
+          "notes": "",
+          "created_at": "2026-04-27T14:42:07.004Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451154/1214320217451154"
+        },
+        {
+          "id": "1214320217451157",
+          "name": "release",
+          "color": "cool-gray",
+          "notes": "",
+          "created_at": "2026-04-27T14:42:38.637Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451157/1214320217451157"
+        },
+        {
+          "id": "1214320217451158",
+          "name": "public",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T14:43:17.353Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451158/1214320217451158"
+        },
+        {
+          "id": "1214320217451164",
+          "name": "private",
+          "color": "yellow-green",
+          "notes": "",
+          "created_at": "2026-04-27T14:43:47.134Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451164/1214320217451164"
+        },
+        {
+          "id": "1214320217451165",
+          "name": "urget",
+          "color": "purple",
+          "notes": "",
+          "created_at": "2026-04-27T14:43:53.807Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214320217451165/1214320217451165"
+        },
+        {
+          "id": "1214303422449213",
+          "name": "test-delete-tag-12345",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T14:57:01.042Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214303422449213/1214303422449213"
+        },
+        {
+          "id": "1214321136253354",
+          "name": "test-delete-tag-abc",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T14:57:45.176Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214321136253354/1214321136253354"
+        },
+        {
+          "id": "1214314177512769",
+          "name": "delete-tag-test-nango",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T19:11:00.521Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214314177512769/1214314177512769"
+        },
+        {
+          "id": "1214314565734941",
+          "name": "delete-tag-owner-test",
+          "color": "none",
+          "notes": "",
+          "created_at": "2026-04-27T19:14:05.694Z",
+          "workspace_gid": "1202775892569436",
+          "permalink_url": "https://app.asana.com/0/1214314565734941/1214314565734941"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Tag": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/1.0/workspaces": {
+        "response": {
+          "data": [
+            {
+              "gid": "1202775892569436",
+              "name": "nango.dev"
+            }
+          ],
+          "next_page": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 20:24:23 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "73",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1777321492",
+          "etag": "W/\"49-eFLOSSSgNCvjPzC6JPd82Fan9O4\""
+        },
+        "hash": "71b85835c093e37ef35569debb5be17db75b71b7",
+        "request": {
+          "params": {
+            "limit": "100",
+            "opt_fields": "gid,name"
+          }
+        }
+      },
+      "/api/1.0/workspaces/1202775892569436/tags": {
+        "response": {
+          "data": [
+            {
+              "gid": "1214301509455300",
+              "color": "none",
+              "created_at": "2026-04-27T14:16:32.840Z",
+              "name": "TempTagForDelete",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214301509455300/1214301509455300",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214302309976017",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:33:59.616Z",
+              "name": "Nango Test Tag Final",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214302309976017/1214302309976017",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214321126624745",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:39:26.166Z",
+              "name": "Test Tag Proxy",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214321126624745/1214321126624745",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214302668430128",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:39:32.285Z",
+              "name": "Test Tag Proxy",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214302668430128/1214302668430128",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214302722241274",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:41:05.230Z",
+              "name": "Test Tag From Nango",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214302722241274/1214302722241274",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214302749294867",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:41:16.389Z",
+              "name": "Test Tag From Nango",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214302749294867/1214302749294867",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451153",
+              "color": "red",
+              "created_at": "2026-04-27T14:41:52.999Z",
+              "name": "new",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451153/1214320217451153",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451154",
+              "color": "blue",
+              "created_at": "2026-04-27T14:42:07.004Z",
+              "name": "urgent",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451154/1214320217451154",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451157",
+              "color": "cool-gray",
+              "created_at": "2026-04-27T14:42:38.637Z",
+              "name": "release",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451157/1214320217451157",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451158",
+              "color": "none",
+              "created_at": "2026-04-27T14:43:17.353Z",
+              "name": "public",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451158/1214320217451158",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451164",
+              "color": "yellow-green",
+              "created_at": "2026-04-27T14:43:47.134Z",
+              "name": "private",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451164/1214320217451164",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214320217451165",
+              "color": "purple",
+              "created_at": "2026-04-27T14:43:53.807Z",
+              "name": "urget",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214320217451165/1214320217451165",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214303422449213",
+              "color": "none",
+              "created_at": "2026-04-27T14:57:01.042Z",
+              "name": "test-delete-tag-12345",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214303422449213/1214303422449213",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214321136253354",
+              "color": "none",
+              "created_at": "2026-04-27T14:57:45.176Z",
+              "name": "test-delete-tag-abc",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214321136253354/1214321136253354",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214314177512769",
+              "color": "none",
+              "created_at": "2026-04-27T19:11:00.521Z",
+              "name": "delete-tag-test-nango",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214314177512769/1214314177512769",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            },
+            {
+              "gid": "1214314565734941",
+              "color": "none",
+              "created_at": "2026-04-27T19:14:05.694Z",
+              "name": "delete-tag-owner-test",
+              "notes": "",
+              "permalink_url": "https://app.asana.com/0/1214314565734941/1214314565734941",
+              "workspace": {
+                "gid": "1202775892569436",
+                "name": "nango.dev",
+                "resource_type": "workspace"
+              }
+            }
+          ],
+          "next_page": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 27 Apr 2026 20:24:24 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "4539",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1777321492",
+          "etag": "W/\"11bb-LFEomAS5g9Oobx0AiD/P1fNJVxY\""
+        },
+        "hash": "7bc7c37559bf2fda75b423f5329639bc613bb907",
+        "request": {
+          "params": {
+            "limit": "100",
+            "opt_fields": "gid,name,color,notes,created_at,permalink_url,workspace"
+          }
+        }
+      }
+    }
+  }
+}

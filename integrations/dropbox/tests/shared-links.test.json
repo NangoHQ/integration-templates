@@ -1,0 +1,351 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "SharedLink": [
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAJw",
+          "url": "https://www.dropbox.com/scl/fo/5ylycof332d470t4x5k4j/ACyZC6x3JbSnlIftHoeSOQs?rlkey=f6xu95u4vgc5jqvpyocoqwu8l&dl=0",
+          "name": "test-shared-link-folder-2",
+          "path_lower": "/test-shared-link-folder-2",
+          "type": "folder"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAaw",
+          "url": "https://www.dropbox.com/scl/fi/8uqkpvvxmljy62j5uugnf/file.txt?rlkey=yb4rqr767wwwjyjh8v1v2jdio&dl=0",
+          "name": "file.txt",
+          "path_lower": "/file.txt",
+          "type": "file",
+          "client_modified": "2026-04-29T07:19:14Z",
+          "server_modified": "2026-04-29T07:19:15Z"
+        },
+        {
+          "id": "id:MzePHdV-D28AAAAAAAAAEw",
+          "url": "https://www.dropbox.com/scl/fo/qklsmyjuwcwchu22jskbt/AF4mqlTEdiYbdnWf8kwAfJY?rlkey=uyyrsdcnpymng6aj2cjiil8w2&dl=0",
+          "name": "test-shared-link-folder",
+          "path_lower": "/test-shared-link-folder",
+          "type": "folder"
+        }
+      ]
+    },
+    "batchDelete": {
+      "SharedLink": []
+    }
+  },
+  "api": {
+    "post": {
+      "/2/sharing/list_shared_links": {
+        "response": {
+          "links": [
+            {
+              ".tag": "folder",
+              "url": "https://www.dropbox.com/scl/fo/5ylycof332d470t4x5k4j/ACyZC6x3JbSnlIftHoeSOQs?rlkey=f6xu95u4vgc5jqvpyocoqwu8l&dl=0",
+              "id": "id:MzePHdV-D28AAAAAAAAAJw",
+              "name": "test-shared-link-folder-2",
+              "path_lower": "/test-shared-link-folder-2",
+              "link_permissions": {
+                "resolved_visibility": {
+                  ".tag": "public"
+                },
+                "requested_visibility": {
+                  ".tag": "public"
+                },
+                "can_revoke": true,
+                "effective_audience": {
+                  ".tag": "public"
+                },
+                "link_access_level": {
+                  ".tag": "viewer"
+                },
+                "visibility_policies": [
+                  {
+                    "policy": {
+                      ".tag": "public"
+                    },
+                    "resolved_policy": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "policy": {
+                      ".tag": "team_only"
+                    },
+                    "resolved_policy": {
+                      ".tag": "shared_folder_only"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "policy": {
+                      ".tag": "password"
+                    },
+                    "resolved_policy": {
+                      ".tag": "password"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_expiry": false,
+                "can_remove_expiry": true,
+                "allow_download": true,
+                "can_allow_download": true,
+                "can_disallow_download": false,
+                "allow_comments": false,
+                "team_restricts_comments": false,
+                "audience_options": [
+                  {
+                    "audience": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "audience": {
+                      ".tag": "team"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "audience": {
+                      ".tag": "no_one"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_password": false,
+                "can_remove_password": true,
+                "require_password": false,
+                "can_use_extended_sharing_controls": false,
+                "can_sync": false,
+                "can_request_access": false
+              }
+            },
+            {
+              ".tag": "file",
+              "url": "https://www.dropbox.com/scl/fi/8uqkpvvxmljy62j5uugnf/file.txt?rlkey=yb4rqr767wwwjyjh8v1v2jdio&dl=0",
+              "id": "id:MzePHdV-D28AAAAAAAAAaw",
+              "name": "file.txt",
+              "path_lower": "/file.txt",
+              "link_permissions": {
+                "resolved_visibility": {
+                  ".tag": "public"
+                },
+                "requested_visibility": {
+                  ".tag": "public"
+                },
+                "can_revoke": true,
+                "effective_audience": {
+                  ".tag": "public"
+                },
+                "link_access_level": {
+                  ".tag": "viewer"
+                },
+                "visibility_policies": [
+                  {
+                    "policy": {
+                      ".tag": "public"
+                    },
+                    "resolved_policy": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "policy": {
+                      ".tag": "team_only"
+                    },
+                    "resolved_policy": {
+                      ".tag": "shared_folder_only"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "policy": {
+                      ".tag": "password"
+                    },
+                    "resolved_policy": {
+                      ".tag": "password"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_expiry": false,
+                "can_remove_expiry": true,
+                "allow_download": true,
+                "can_allow_download": true,
+                "can_disallow_download": false,
+                "allow_comments": false,
+                "team_restricts_comments": false,
+                "audience_options": [
+                  {
+                    "audience": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "audience": {
+                      ".tag": "team"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "audience": {
+                      ".tag": "no_one"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_password": false,
+                "can_remove_password": true,
+                "require_password": false,
+                "can_use_extended_sharing_controls": false,
+                "can_sync": false,
+                "can_request_access": false
+              },
+              "preview_type": "text",
+              "client_modified": "2026-04-29T07:19:14Z",
+              "server_modified": "2026-04-29T07:19:15Z",
+              "rev": "01650942a4ab1c7000000033c9fd2f3",
+              "size": 43
+            },
+            {
+              ".tag": "folder",
+              "url": "https://www.dropbox.com/scl/fo/qklsmyjuwcwchu22jskbt/AF4mqlTEdiYbdnWf8kwAfJY?rlkey=uyyrsdcnpymng6aj2cjiil8w2&dl=0",
+              "id": "id:MzePHdV-D28AAAAAAAAAEw",
+              "name": "test-shared-link-folder",
+              "path_lower": "/test-shared-link-folder",
+              "link_permissions": {
+                "resolved_visibility": {
+                  ".tag": "public"
+                },
+                "requested_visibility": {
+                  ".tag": "public"
+                },
+                "can_revoke": true,
+                "effective_audience": {
+                  ".tag": "public"
+                },
+                "link_access_level": {
+                  ".tag": "viewer"
+                },
+                "visibility_policies": [
+                  {
+                    "policy": {
+                      ".tag": "public"
+                    },
+                    "resolved_policy": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "policy": {
+                      ".tag": "team_only"
+                    },
+                    "resolved_policy": {
+                      ".tag": "shared_folder_only"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "policy": {
+                      ".tag": "password"
+                    },
+                    "resolved_policy": {
+                      ".tag": "password"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_expiry": false,
+                "can_remove_expiry": true,
+                "allow_download": true,
+                "can_allow_download": true,
+                "can_disallow_download": false,
+                "allow_comments": false,
+                "team_restricts_comments": false,
+                "audience_options": [
+                  {
+                    "audience": {
+                      ".tag": "public"
+                    },
+                    "allowed": true
+                  },
+                  {
+                    "audience": {
+                      ".tag": "team"
+                    },
+                    "allowed": false,
+                    "disallowed_reason": {
+                      ".tag": "user_not_on_team"
+                    }
+                  },
+                  {
+                    "audience": {
+                      ".tag": "no_one"
+                    },
+                    "allowed": true
+                  }
+                ],
+                "can_set_password": false,
+                "can_remove_password": true,
+                "require_password": false,
+                "can_use_extended_sharing_controls": false,
+                "can_sync": false,
+                "can_request_access": false
+              }
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 08:29:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1777451349",
+          "cache-control": "no-cache",
+          "x-server-response-time": "250",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "ec8855001222497a90a3dfe269f1c14e",
+          "x-dropbox-trace-id": "69f1c14d00000000263eff8a53c2ee7d"
+        },
+        "hash": "cd00b9f57fcd3918b29d46ec0040a317f604401b",
+        "request": {
+          "data": {}
+        }
+      }
+    }
+  }
+}

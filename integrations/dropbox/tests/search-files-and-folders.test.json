@@ -1,0 +1,700 @@
+{
+  "input": {
+    "query": "test"
+  },
+  "output": {
+    "matches": [
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
+            "name": "test-share-folder-12345",
+            "path_display": "/test-share-folder-12345",
+            "path_lower": "/test-share-folder-12345",
+            "sharing_info": {
+              "no_access": false,
+              "read_only": false,
+              "shared_folder_id": "14215597891",
+              "traverse_only": false
+            }
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAADQ",
+            "name": "test-folder-action",
+            "path_display": "/test-folder-action",
+            "path_lower": "/test-folder-action"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAACw",
+            "name": "TestFolderB",
+            "path_display": "/TestFolderB",
+            "path_lower": "/testfolderb"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAABQ",
+            "name": "TestFolder1",
+            "path_display": "/TestFolder1",
+            "path_lower": "/testfolder1"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAAHQ",
+            "name": "test-unshare-folder-nango",
+            "path_display": "/test-unshare-folder-nango",
+            "path_lower": "/test-unshare-folder-nango"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAAEw",
+            "name": "test-shared-link-folder",
+            "path_display": "/test-shared-link-folder",
+            "path_lower": "/test-shared-link-folder"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAAKA",
+            "name": "test-unshare-folder-nango-2",
+            "path_display": "/test-unshare-folder-nango-2",
+            "path_lower": "/test-unshare-folder-nango-2"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAAJw",
+            "name": "test-shared-link-folder-2",
+            "path_display": "/test-shared-link-folder-2",
+            "path_lower": "/test-shared-link-folder-2"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAADg",
+            "name": "test-folder-action-save",
+            "path_display": "/test-folder-action-save",
+            "path_lower": "/test-folder-action-save"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAAEQ",
+            "name": "test-folder-for-zip-download",
+            "path_display": "/test-folder-for-zip-download",
+            "path_lower": "/test-folder-for-zip-download"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAABw",
+            "name": "TestFolder2 (1)",
+            "path_display": "/TestFolder1/TestFolder2 (1)",
+            "path_lower": "/testfolder1/testfolder2 (1)"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAACQ",
+            "name": "TestFolder4",
+            "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4",
+            "path_lower": "/testfolder1/testfolder2 (1)/testfolder4"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAACA",
+            "name": "TestFolder3",
+            "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder3",
+            "path_lower": "/testfolder1/testfolder2 (1)/testfolder3"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAACg",
+            "name": "TestFolder5",
+            "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4/TestFolder5",
+            "path_lower": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "folder",
+            "file_owner_team_encrypted_id": "",
+            "id": "id:MzePHdV-D28AAAAAAAAABg",
+            "name": "Projects",
+            "path_display": "/TestFolder1/Projects",
+            "path_lower": "/testfolder1/projects"
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "file",
+            "client_modified": "2026-04-28T20:47:46Z",
+            "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802",
+            "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+            "id": "id:MzePHdV-D28AAAAAAAAAEA",
+            "is_downloadable": true,
+            "name": "test-upload.txt",
+            "path_display": "/test-upload.txt",
+            "path_lower": "/test-upload.txt",
+            "rev": "016508b57f2b6f1000000033c9fd2f3",
+            "server_modified": "2026-04-28T20:47:46Z",
+            "size": 22
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "file",
+            "client_modified": "2026-04-28T20:50:53Z",
+            "content_hash": "90506be3e9ff65ac8d5d7ee9bafba0b777c96ba9b2c1d7af73381c335ec2bf28",
+            "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+            "id": "id:MzePHdV-D28AAAAAAAAAHw",
+            "is_downloadable": true,
+            "name": "test-restore-file.txt",
+            "path_display": "/test-restore-file.txt",
+            "path_lower": "/test-restore-file.txt",
+            "rev": "016508b6316585f000000033c9fd2f3",
+            "server_modified": "2026-04-28T20:50:53Z",
+            "size": 45
+          }
+        }
+      },
+      {
+        "match_type": {
+          ".tag": "filename"
+        },
+        "metadata": {
+          ".tag": "metadata",
+          "metadata": {
+            ".tag": "file",
+            "client_modified": "2026-04-28T20:50:48Z",
+            "content_hash": "e602d667102bcba4c432e0ed678a00e054438df297b524bf186d50cfc5246b8a",
+            "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+            "id": "id:MzePHdV-D28AAAAAAAAAIg",
+            "is_downloadable": true,
+            "name": "test-file-temporary-link.txt",
+            "path_display": "/test-file-temporary-link.txt",
+            "path_lower": "/test-file-temporary-link.txt",
+            "rev": "016508b62c92e1b000000033c9fd2f3",
+            "server_modified": "2026-04-28T20:50:48Z",
+            "size": 53
+          }
+        }
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/search_v2": {
+        "response": {
+          "has_more": false,
+          "matches": [
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:3KQwZkpWiwgAAAAAAAAAAQ",
+                  "name": "test-share-folder-12345",
+                  "path_display": "/test-share-folder-12345",
+                  "path_lower": "/test-share-folder-12345",
+                  "sharing_info": {
+                    "no_access": false,
+                    "read_only": false,
+                    "shared_folder_id": "14215597891",
+                    "traverse_only": false
+                  }
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAADQ",
+                  "name": "test-folder-action",
+                  "path_display": "/test-folder-action",
+                  "path_lower": "/test-folder-action"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAACw",
+                  "name": "TestFolderB",
+                  "path_display": "/TestFolderB",
+                  "path_lower": "/testfolderb"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAABQ",
+                  "name": "TestFolder1",
+                  "path_display": "/TestFolder1",
+                  "path_lower": "/testfolder1"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAAHQ",
+                  "name": "test-unshare-folder-nango",
+                  "path_display": "/test-unshare-folder-nango",
+                  "path_lower": "/test-unshare-folder-nango"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAAEw",
+                  "name": "test-shared-link-folder",
+                  "path_display": "/test-shared-link-folder",
+                  "path_lower": "/test-shared-link-folder"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAAKA",
+                  "name": "test-unshare-folder-nango-2",
+                  "path_display": "/test-unshare-folder-nango-2",
+                  "path_lower": "/test-unshare-folder-nango-2"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAAJw",
+                  "name": "test-shared-link-folder-2",
+                  "path_display": "/test-shared-link-folder-2",
+                  "path_lower": "/test-shared-link-folder-2"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAADg",
+                  "name": "test-folder-action-save",
+                  "path_display": "/test-folder-action-save",
+                  "path_lower": "/test-folder-action-save"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAAEQ",
+                  "name": "test-folder-for-zip-download",
+                  "path_display": "/test-folder-for-zip-download",
+                  "path_lower": "/test-folder-for-zip-download"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAABw",
+                  "name": "TestFolder2 (1)",
+                  "path_display": "/TestFolder1/TestFolder2 (1)",
+                  "path_lower": "/testfolder1/testfolder2 (1)"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAACQ",
+                  "name": "TestFolder4",
+                  "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4",
+                  "path_lower": "/testfolder1/testfolder2 (1)/testfolder4"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAACA",
+                  "name": "TestFolder3",
+                  "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder3",
+                  "path_lower": "/testfolder1/testfolder2 (1)/testfolder3"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAACg",
+                  "name": "TestFolder5",
+                  "path_display": "/TestFolder1/TestFolder2 (1)/TestFolder4/TestFolder5",
+                  "path_lower": "/testfolder1/testfolder2 (1)/testfolder4/testfolder5"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "folder",
+                  "file_owner_team_encrypted_id": "",
+                  "id": "id:MzePHdV-D28AAAAAAAAABg",
+                  "name": "Projects",
+                  "path_display": "/TestFolder1/Projects",
+                  "path_lower": "/testfolder1/projects"
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "file",
+                  "client_modified": "2026-04-28T20:47:46Z",
+                  "content_hash": "66dabfcd25a3a132b532c69b4c3f90514f6f8cb859676511aecf5af88f12e802",
+                  "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+                  "id": "id:MzePHdV-D28AAAAAAAAAEA",
+                  "is_downloadable": true,
+                  "name": "test-upload.txt",
+                  "path_display": "/test-upload.txt",
+                  "path_lower": "/test-upload.txt",
+                  "rev": "016508b57f2b6f1000000033c9fd2f3",
+                  "server_modified": "2026-04-28T20:47:46Z",
+                  "size": 22
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "file",
+                  "client_modified": "2026-04-28T20:50:53Z",
+                  "content_hash": "90506be3e9ff65ac8d5d7ee9bafba0b777c96ba9b2c1d7af73381c335ec2bf28",
+                  "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+                  "id": "id:MzePHdV-D28AAAAAAAAAHw",
+                  "is_downloadable": true,
+                  "name": "test-restore-file.txt",
+                  "path_display": "/test-restore-file.txt",
+                  "path_lower": "/test-restore-file.txt",
+                  "rev": "016508b6316585f000000033c9fd2f3",
+                  "server_modified": "2026-04-28T20:50:53Z",
+                  "size": 45
+                }
+              }
+            },
+            {
+              "highlight_spans": [],
+              "match_type": {
+                ".tag": "filename"
+              },
+              "metadata": {
+                ".tag": "metadata",
+                "metadata": {
+                  ".tag": "file",
+                  "client_modified": "2026-04-28T20:50:48Z",
+                  "content_hash": "e602d667102bcba4c432e0ed678a00e054438df297b524bf186d50cfc5246b8a",
+                  "file_owner_team_encrypted_id": "dbtid:AACTXQ5GJ7RKGE8LuYfXTqseLqXRSMszmK4",
+                  "id": "id:MzePHdV-D28AAAAAAAAAIg",
+                  "is_downloadable": true,
+                  "name": "test-file-temporary-link.txt",
+                  "path_display": "/test-file-temporary-link.txt",
+                  "path_lower": "/test-file-temporary-link.txt",
+                  "rev": "016508b62c92e1b000000033c9fd2f3",
+                  "server_modified": "2026-04-28T20:50:48Z",
+                  "size": 53
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:51:08 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "sameorigin",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4911",
+          "x-ratelimit-reset": "1777409492",
+          "cache-control": "no-cache",
+          "pragma": "no-cache",
+          "content-disposition": "attachment",
+          "content-security-policy": "sandbox",
+          "x-webkit-csp": "sandbox",
+          "x-content-security-policy": "sandbox",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "29b6f13af22d4bb68d40c2a969f11dbc",
+          "x-dropbox-trace-id": "69f11dbc000000005bed97e992e9551f"
+        },
+        "hash": "a07c84ab20d973c947fbb85113d09ceaea1c014c",
+        "request": {
+          "data": {
+            "query": "test"
+          }
+        }
+      }
+    }
+  }
+}

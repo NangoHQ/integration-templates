@@ -1,0 +1,68 @@
+{
+  "input": {
+    "async_job_id": "dbjid:AAA-WvMldtkW7M-XFUA71StN65Ppn2jjbOMpU4mA_FOyPNruRbvbsta0vk4ErZKX0p0qnWyh2bo9IZObifZF-zID"
+  },
+  "output": {
+    "status": "complete",
+    "entries": [
+      {
+        ".tag": "failure",
+        "failure": {
+          ".tag": "path_lookup",
+          "path_lookup": {
+            ".tag": "not_found"
+          }
+        }
+      },
+      {
+        ".tag": "failure",
+        "failure": {
+          ".tag": "path_lookup",
+          "path_lookup": {
+            ".tag": "not_found"
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/delete_batch/check": {
+        "response": {
+          ".tag": "complete",
+          "entries": [
+            {
+              ".tag": "failure",
+              "failure": {
+                ".tag": "path_lookup",
+                "path_lookup": {
+                  ".tag": "not_found"
+                }
+              }
+            },
+            {
+              ".tag": "failure",
+              "failure": {
+                ".tag": "path_lookup",
+                "path_lookup": {
+                  ".tag": "not_found"
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "a0afb16fb5f93d9a06c86bea126bffc70fe3b523",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AAA-WvMldtkW7M-XFUA71StN65Ppn2jjbOMpU4mA_FOyPNruRbvbsta0vk4ErZKX0p0qnWyh2bo9IZObifZF-zID"
+          }
+        }
+      }
+    }
+  }
+}

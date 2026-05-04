@@ -1,0 +1,547 @@
+{
+  "nango": {
+    "getMetadata": {
+      "owner": "viictoo",
+      "repo": "api-playground2",
+      "branch": "main"
+    },
+    "batchSave": {
+      "FileMetadata": [
+        {
+          "id": "viictoo/api-playground2/main:.github/ISSUE_TEMPLATE/bug_report.md",
+          "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+          "sha": "5973fc03e8718710c82b730da4f75e9e99c8d5a0",
+          "type": "blob",
+          "mode": "100644",
+          "size": 147
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/PULL_REQUEST_TEMPLATE.md",
+          "path": ".github/PULL_REQUEST_TEMPLATE.md",
+          "sha": "74631ec97d0c784a90aa5002e8bfee0eefa08e70",
+          "type": "blob",
+          "mode": "100644",
+          "size": 80
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/workflows/ci.yml",
+          "path": ".github/workflows/ci.yml",
+          "sha": "2719d6624db77e5e67982b35f08daf57cb715e10",
+          "type": "blob",
+          "mode": "100644",
+          "size": 372
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/workflows/manual.yml",
+          "path": ".github/workflows/manual.yml",
+          "sha": "24c811c81dd675ce66ccfa38797b112a7bda1412",
+          "type": "blob",
+          "mode": "100644",
+          "size": 282
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/workflows/release.yml",
+          "path": ".github/workflows/release.yml",
+          "sha": "4a9535c3e77756df5ea67f386f0629f7a6e5360b",
+          "type": "blob",
+          "mode": "100644",
+          "size": 573
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/workflows/simple-dispatch.yml",
+          "path": ".github/workflows/simple-dispatch.yml",
+          "sha": "722006a028f4a91ae21f7464dd1ea3734aae1681",
+          "type": "blob",
+          "mode": "100644",
+          "size": 265
+        },
+        {
+          "id": "viictoo/api-playground2/main:.github/workflows/test-dispatch.yml",
+          "path": ".github/workflows/test-dispatch.yml",
+          "sha": "6ac9829dd26972d1e44d5d843f41c16da6577bc3",
+          "type": "blob",
+          "mode": "100644",
+          "size": 248
+        },
+        {
+          "id": "viictoo/api-playground2/main:.gitignore",
+          "path": ".gitignore",
+          "sha": "86268bf280a3d359cd325e9d55349ddae12c2fda",
+          "type": "blob",
+          "mode": "100644",
+          "size": 82
+        },
+        {
+          "id": "viictoo/api-playground2/main:CHANGELOG.md",
+          "path": "CHANGELOG.md",
+          "sha": "16ec83c2ac8da12c7245fe6c016b043d1def38a2",
+          "type": "blob",
+          "mode": "100644",
+          "size": 20
+        },
+        {
+          "id": "viictoo/api-playground2/main:LICENSE",
+          "path": "LICENSE",
+          "sha": "19b3aac02779012ff7b72bd236e610cd99fa5fbd",
+          "type": "blob",
+          "mode": "100644",
+          "size": 694
+        },
+        {
+          "id": "viictoo/api-playground2/main:README.md",
+          "path": "README.md",
+          "sha": "7ccf533c789a22f41ff602d951002e785584089f",
+          "type": "blob",
+          "mode": "100644",
+          "size": 659
+        },
+        {
+          "id": "viictoo/api-playground2/main:docs/architecture.md",
+          "path": "docs/architecture.md",
+          "sha": "53d4d9b9078b79fa22ca45fcec506e3b50672ea7",
+          "type": "blob",
+          "mode": "100644",
+          "size": 619
+        },
+        {
+          "id": "viictoo/api-playground2/main:docs/scratch.md",
+          "path": "docs/scratch.md",
+          "sha": "9e265e01f7a31e042ddaef9b4f378639194e166c",
+          "type": "blob",
+          "mode": "100644",
+          "size": 134
+        },
+        {
+          "id": "viictoo/api-playground2/main:src/__init__.py",
+          "path": "src/__init__.py",
+          "sha": "d1b21bf51078f9ef463c86a397c6960d84c44fb9",
+          "type": "blob",
+          "mode": "100644",
+          "size": 53
+        },
+        {
+          "id": "viictoo/api-playground2/main:src/greetings.py",
+          "path": "src/greetings.py",
+          "sha": "e2659cb2d3ee3afd704ab2f14e5a93feb3688f87",
+          "type": "blob",
+          "mode": "100644",
+          "size": 44
+        },
+        {
+          "id": "viictoo/api-playground2/main:src/main.py",
+          "path": "src/main.py",
+          "sha": "929760ade89f404c6d64aca3afae513fa493a3f8",
+          "type": "blob",
+          "mode": "100644",
+          "size": 159
+        },
+        {
+          "id": "viictoo/api-playground2/main:src/utils.py",
+          "path": "src/utils.py",
+          "sha": "b91ddea6823be865074c31dad03290741d390945",
+          "type": "blob",
+          "mode": "100644",
+          "size": 263
+        },
+        {
+          "id": "viictoo/api-playground2/main:test-file-to-delete.txt",
+          "path": "test-file-to-delete.txt",
+          "sha": "d7fc7f10a963898611d9454b4c5693069ad74427",
+          "type": "blob",
+          "mode": "100644",
+          "size": 25
+        },
+        {
+          "id": "viictoo/api-playground2/main:test-nango-file.txt",
+          "path": "test-nango-file.txt",
+          "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+          "type": "blob",
+          "mode": "100644",
+          "size": 84
+        },
+        {
+          "id": "viictoo/api-playground2/main:tests/test_main.py",
+          "path": "tests/test_main.py",
+          "sha": "02b7bb667968e3e70617fd1a66c2e6c515df4084",
+          "type": "blob",
+          "mode": "100644",
+          "size": 193
+        }
+      ]
+    },
+    "batchDelete": {
+      "FileMetadata": []
+    }
+  },
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/git/ref/heads/main": {
+        "response": {
+          "ref": "refs/heads/main",
+          "node_id": "REF_kwDOSPtvHK9yZWZzL2hlYWRzL21haW4",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/refs/heads/main",
+          "object": {
+            "sha": "88d30e3bea7b0e0617e50884f5fb083eb6a726e8",
+            "type": "commit",
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/88d30e3bea7b0e0617e50884f5fb083eb6a726e8"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:26:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4824",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"c320e2ae4d20192fadb728805988e3ee142e5a37630709e57998bd0f33f700b2\"",
+          "last-modified": "Wed, 29 Apr 2026 10:24:24 GMT",
+          "x-poll-interval": "300",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "176",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "9963:35326B:14F3905B:1538C298:69F1DCBC"
+        },
+        "hash": "d0813ae7c478e05cff876b07e100cd44e4d15572",
+        "request": {}
+      },
+      "/repos/viictoo/api-playground2/git/commits/88d30e3bea7b0e0617e50884f5fb083eb6a726e8": {
+        "response": {
+          "sha": "88d30e3bea7b0e0617e50884f5fb083eb6a726e8",
+          "node_id": "C_kwDOSPtvHNoAKDg4ZDMwZTNiZWE3YjBlMDYxN2U1MDg4NGY1ZmIwODNlYjZhNzI2ZTg",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/88d30e3bea7b0e0617e50884f5fb083eb6a726e8",
+          "html_url": "https://github.com/viictoo/api-playground2/commit/88d30e3bea7b0e0617e50884f5fb083eb6a726e8",
+          "author": {
+            "name": "Victor Lang'at",
+            "email": "125632594+viictoo@users.noreply.github.com",
+            "date": "2026-04-29T10:24:19Z"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-04-29T10:24:19Z"
+          },
+          "tree": {
+            "sha": "a8bf06e4d6e95c14ed577ff091958ef951c0be4f",
+            "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/a8bf06e4d6e95c14ed577ff091958ef951c0be4f"
+          },
+          "message": "feat: add greetings list (#7)\n\nCo-authored-by: seed-bot <seed@example.com>",
+          "parents": [
+            {
+              "sha": "11d2f442569038e68488b608fd91e0d4f8b38201",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/commits/11d2f442569038e68488b608fd91e0d4f8b38201",
+              "html_url": "https://github.com/viictoo/api-playground2/commit/11d2f442569038e68488b608fd91e0d4f8b38201"
+            }
+          ],
+          "verification": {
+            "verified": true,
+            "reason": "valid",
+            "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJp8dxTCRC1aQ7uu5UhlAAADAAQAB+rqXzhN2UMKPqdmKuUYBtu\nqxvvnqpOg3T3i6CpjdJxooILwbJNvYtn5FnIDlRB5HjcBhHVrlBQS5S9xgPdbJf6\n5lDG+EtpghhIJy0Nijg4J8CnH/pcWhtC8FzTYXofuRHjK+0xHU7dnvFoBtzusVGH\ncWPtFuNDGxk5PAAkGlurCIIglWBmeKgHfmWGCugj7VSG/8Ly525cJ02osRtpLnCP\nsyRmPOn3/IehYGI2xVvMjxFtb6MunGd+fCgDtAN65DNNaQa8pmU54SSyRutdaLwx\n5wuA0/MnjM2l15y/MjoYosFj+jrdeeO/TRqJ2s8I1Dv4p9WT0WwDt1SL/ciDzRZA\nvn5I9vnPxQ/Nf2Cuaof8m55p22kjOP9ELcQ+4MC820CwEtbhagJaGl95OXYUk3JP\nzwkp7ywUGQ2db3eI43ZnTTCBlVXh20NrWfktv+YZVkejccL/iWtXuPi6huIVFr9/\nlVzQFg2XXh1TXI3pZTbp9twJudtDkcbqDThr96/JFwjfAg8CK+5flrg71gwGj+Am\naRZEC/jHULB6jp2GaVIa0aeDtIGch7culPGova01PSBvYwRvfwe+7u9eKhePKdj7\nnk1ELuC8diWLLGec2jEfoBHenrZDVGVMQYMsCctjD6a9J85czb31sKfD89RkuvPY\nUlYENI2wX4yJYsmqgQZx\n=DO4R\n-----END PGP SIGNATURE-----\n",
+            "payload": "tree a8bf06e4d6e95c14ed577ff091958ef951c0be4f\nparent 11d2f442569038e68488b608fd91e0d4f8b38201\nauthor Victor Lang'at <125632594+viictoo@users.noreply.github.com> 1777458259 +0300\ncommitter GitHub <noreply@github.com> 1777458259 +0000\n\nfeat: add greetings list (#7)\n\nCo-authored-by: seed-bot <seed@example.com>",
+            "verified_at": "2026-04-29T10:24:20Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:26:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4823",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"e1660fa8564ec6a1d173a0f5f1032c5d991c89839c0765401489984fe4abd273\"",
+          "last-modified": "Wed, 29 Apr 2026 10:24:19 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "177",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "CF22:19C0E1:14A00CAF:14E55B1E:69F1DCBD"
+        },
+        "hash": "87996702222cd10971fa02856dda66350e0f0d15",
+        "request": {}
+      },
+      "/repos/viictoo/api-playground2/git/trees/a8bf06e4d6e95c14ed577ff091958ef951c0be4f": {
+        "response": {
+          "sha": "a8bf06e4d6e95c14ed577ff091958ef951c0be4f",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/a8bf06e4d6e95c14ed577ff091958ef951c0be4f",
+          "tree": [
+            {
+              "path": ".github",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "666058240b3566988ba9bf10552f3bebff46259c",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/666058240b3566988ba9bf10552f3bebff46259c"
+            },
+            {
+              "path": ".github/ISSUE_TEMPLATE",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "6ed67649ab1fe6b5e2dec5b261f02c264674d974",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/6ed67649ab1fe6b5e2dec5b261f02c264674d974"
+            },
+            {
+              "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "5973fc03e8718710c82b730da4f75e9e99c8d5a0",
+              "size": 147,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/5973fc03e8718710c82b730da4f75e9e99c8d5a0"
+            },
+            {
+              "path": ".github/PULL_REQUEST_TEMPLATE.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "74631ec97d0c784a90aa5002e8bfee0eefa08e70",
+              "size": 80,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/74631ec97d0c784a90aa5002e8bfee0eefa08e70"
+            },
+            {
+              "path": ".github/workflows",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "042374b2d0879b67454f8383e4f58c4a70099cee",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/042374b2d0879b67454f8383e4f58c4a70099cee"
+            },
+            {
+              "path": ".github/workflows/ci.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "2719d6624db77e5e67982b35f08daf57cb715e10",
+              "size": 372,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/2719d6624db77e5e67982b35f08daf57cb715e10"
+            },
+            {
+              "path": ".github/workflows/manual.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "24c811c81dd675ce66ccfa38797b112a7bda1412",
+              "size": 282,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/24c811c81dd675ce66ccfa38797b112a7bda1412"
+            },
+            {
+              "path": ".github/workflows/release.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4a9535c3e77756df5ea67f386f0629f7a6e5360b",
+              "size": 573,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/4a9535c3e77756df5ea67f386f0629f7a6e5360b"
+            },
+            {
+              "path": ".github/workflows/simple-dispatch.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "722006a028f4a91ae21f7464dd1ea3734aae1681",
+              "size": 265,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/722006a028f4a91ae21f7464dd1ea3734aae1681"
+            },
+            {
+              "path": ".github/workflows/test-dispatch.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6ac9829dd26972d1e44d5d843f41c16da6577bc3",
+              "size": 248,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/6ac9829dd26972d1e44d5d843f41c16da6577bc3"
+            },
+            {
+              "path": ".gitignore",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "86268bf280a3d359cd325e9d55349ddae12c2fda",
+              "size": 82,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/86268bf280a3d359cd325e9d55349ddae12c2fda"
+            },
+            {
+              "path": "CHANGELOG.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "16ec83c2ac8da12c7245fe6c016b043d1def38a2",
+              "size": 20,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/16ec83c2ac8da12c7245fe6c016b043d1def38a2"
+            },
+            {
+              "path": "LICENSE",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "19b3aac02779012ff7b72bd236e610cd99fa5fbd",
+              "size": 694,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/19b3aac02779012ff7b72bd236e610cd99fa5fbd"
+            },
+            {
+              "path": "README.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "7ccf533c789a22f41ff602d951002e785584089f",
+              "size": 659,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/7ccf533c789a22f41ff602d951002e785584089f"
+            },
+            {
+              "path": "docs",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "f43a75542e30b5feb6044bcad106bde19938c156",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/f43a75542e30b5feb6044bcad106bde19938c156"
+            },
+            {
+              "path": "docs/architecture.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "53d4d9b9078b79fa22ca45fcec506e3b50672ea7",
+              "size": 619,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/53d4d9b9078b79fa22ca45fcec506e3b50672ea7"
+            },
+            {
+              "path": "docs/scratch.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "9e265e01f7a31e042ddaef9b4f378639194e166c",
+              "size": 134,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/9e265e01f7a31e042ddaef9b4f378639194e166c"
+            },
+            {
+              "path": "src",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "d9fdc95cccd36dd75ae3ea96910b7f311fb8af1f",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/d9fdc95cccd36dd75ae3ea96910b7f311fb8af1f"
+            },
+            {
+              "path": "src/__init__.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d1b21bf51078f9ef463c86a397c6960d84c44fb9",
+              "size": 53,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/d1b21bf51078f9ef463c86a397c6960d84c44fb9"
+            },
+            {
+              "path": "src/greetings.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e2659cb2d3ee3afd704ab2f14e5a93feb3688f87",
+              "size": 44,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/e2659cb2d3ee3afd704ab2f14e5a93feb3688f87"
+            },
+            {
+              "path": "src/main.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "929760ade89f404c6d64aca3afae513fa493a3f8",
+              "size": 159,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/929760ade89f404c6d64aca3afae513fa493a3f8"
+            },
+            {
+              "path": "src/utils.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "b91ddea6823be865074c31dad03290741d390945",
+              "size": 263,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b91ddea6823be865074c31dad03290741d390945"
+            },
+            {
+              "path": "test-file-to-delete.txt",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d7fc7f10a963898611d9454b4c5693069ad74427",
+              "size": 25,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/d7fc7f10a963898611d9454b4c5693069ad74427"
+            },
+            {
+              "path": "test-nango-file.txt",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "b0cf4d9f17266bf9f8fb1474da9c7ee68337290c",
+              "size": 84,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/b0cf4d9f17266bf9f8fb1474da9c7ee68337290c"
+            },
+            {
+              "path": "tests",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "5e8c1f8e722323a72a9d4d4e10eff1301230dfa4",
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/trees/5e8c1f8e722323a72a9d4d4e10eff1301230dfa4"
+            },
+            {
+              "path": "tests/test_main.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "02b7bb667968e3e70617fd1a66c2e6c515df4084",
+              "size": 193,
+              "url": "https://api.github.com/repos/viictoo/api-playground2/git/blobs/02b7bb667968e3e70617fd1a66c2e6c515df4084"
+            }
+          ],
+          "truncated": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:26:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4822",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=86400, s-maxage=86400",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"9dfffc09646cf7356bd62d230b903f7df2739001e74c57cf50be3ecff517240f\"",
+          "last-modified": "Wed, 29 Apr 2026 10:24:24 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "178",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "3CBF:35326B:14F39491:1538C6C3:69F1DCBD"
+        },
+        "hash": "19d011fcf61fe843f01123fea1f218d78130cb2e",
+        "request": {
+          "params": {
+            "recursive": "1"
+          }
+        }
+      }
+    }
+  }
+}

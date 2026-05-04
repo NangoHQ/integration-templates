@@ -1,60 +1,89 @@
 import { createSync } from 'nango';
-import type { GoogleMailLabel } from '../types.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { GmailLabel } from '../models.js';
 import { z } from 'zod';
 
-const sync = createSync({
-    description: 'Fetches a list of labels from gmail.',
-    version: '2.0.0',
-    frequency: 'every 6 hours',
-    autoStart: true,
-    syncType: 'full',
+// https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.labels#Label
+const ProviderLabelSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    messageListVisibility: z.enum(['hide', 'show']).optional(),
+    labelListVisibility: z.enum(['labelHide', 'labelShow', 'labelShowIfUnread']).optional(),
+    type: z.enum(['system', 'user']).optional(),
+    messagesTotal: z.number().int().optional(),
+    messagesUnread: z.number().int().optional(),
+    threadsTotal: z.number().int().optional(),
+    threadsUnread: z.number().int().optional()
+});
 
+const LabelSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    messageListVisibility: z.enum(['hide', 'show']).optional(),
+    labelListVisibility: z.enum(['labelHide', 'labelShow', 'labelShowIfUnread']).optional(),
+    type: z.enum(['system', 'user']).optional(),
+    messagesTotal: z.number().int().optional(),
+    messagesUnread: z.number().int().optional(),
+    threadsTotal: z.number().int().optional(),
+    threadsUnread: z.number().int().optional()
+});
+
+const sync = createSync({
+    description: 'Sync built-in and user-created Gmail labels.',
+    version: '3.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    models: {
+        Label: LabelSchema
+    },
     endpoints: [
         {
-            method: 'GET',
-            path: '/labels',
-            group: 'Labels'
+            path: '/syncs/labels',
+            method: 'GET'
         }
     ],
 
-    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
-
-    models: {
-        GmailLabel: GmailLabel
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/gmail/api/reference/rest/v1/users.labels/list
-            endpoint: `/gmail/v1/users/me/labels`,
-            method: 'get',
-            retries: 10
-        };
+        // Blocker: The Gmail Labels API doesn't support incremental filtering.
+        // The labels.list endpoint returns all labels without a modified_since
+        // or updated_after parameter. Full refresh is required.
 
-        const response = await nango.proxy(config);
-
-        const labels: GmailLabel[] = response.data.labels.map((label: GoogleMailLabel) => {
-            return {
-                id: label.id,
-                name: label.name,
-                messageListVisibility: label.messageListVisibility,
-                labelListVisibility: label.labelListVisibility,
-                type: label.type,
-                messagesTotal: label.messagesTotal,
-                messagesUnread: label.messagesUnread,
-                threadsTotal: label.threadsTotal,
-                threadsUnread: label.threadsUnread,
-                color: label.color ?? null
-            };
+        // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.labels/list
+        const response = await nango.get({
+            endpoint: '/gmail/v1/users/me/labels',
+            retries: 3
         });
 
-        await nango.batchSave(labels, 'GmailLabel');
-        await nango.deleteRecordsFromPreviousExecutions('GmailLabel');
+        const parsed = z
+            .object({
+                labels: z.array(ProviderLabelSchema).optional()
+            })
+            .safeParse(response.data);
+
+        if (!parsed.success) {
+            throw new Error(`Invalid response from Gmail API: ${parsed.error.message}`);
+        }
+
+        const labels = parsed.data.labels ?? [];
+
+        const mappedLabels = labels.map((label) => ({
+            id: label.id,
+            name: label.name,
+            ...(label.messageListVisibility && { messageListVisibility: label.messageListVisibility }),
+            ...(label.labelListVisibility && { labelListVisibility: label.labelListVisibility }),
+            ...(label.type && { type: label.type }),
+            ...(label.messagesTotal !== undefined && { messagesTotal: label.messagesTotal }),
+            ...(label.messagesUnread !== undefined && { messagesUnread: label.messagesUnread }),
+            ...(label.threadsTotal !== undefined && { threadsTotal: label.threadsTotal }),
+            ...(label.threadsUnread !== undefined && { threadsUnread: label.threadsUnread })
+        }));
+
+        await nango.trackDeletesStart('Label');
+        try {
+            if (mappedLabels.length > 0) {
+                await nango.batchSave(mappedLabels, 'Label');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Label');
+        }
     }
 });
 

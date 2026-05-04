@@ -1,0 +1,123 @@
+{
+  "input": {
+    "entries": [
+      {
+        "path": "/test-file-1.txt"
+      },
+      {
+        "path": "/test-file-2.txt"
+      }
+    ]
+  },
+  "output": {
+    "status": "in_progress",
+    "async_job_id": "dbjid:AAA-WvMldtkW7M-XFUA71StN65Ppn2jjbOMpU4mA_FOyPNruRbvbsta0vk4ErZKX0p0qnWyh2bo9IZObifZF-zID"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/delete_batch": {
+        "response": {
+          ".tag": "async_job_id",
+          "async_job_id": "dbjid:AAA-WvMldtkW7M-XFUA71StN65Ppn2jjbOMpU4mA_FOyPNruRbvbsta0vk4ErZKX0p0qnWyh2bo9IZObifZF-zID"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:50:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1777409492",
+          "cache-control": "no-cache",
+          "x-server-response-time": "92",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "e5303621379044ecafa55c3e69f11db3",
+          "x-dropbox-trace-id": "69f11db3000000000cd73436e6a3363a"
+        },
+        "hash": "2853e73648e0a4eda9565278182fcba9ffa4431e",
+        "request": {
+          "data": {
+            "entries": [
+              {
+                "path": "/test-file-1.txt"
+              },
+              {
+                "path": "/test-file-2.txt"
+              }
+            ]
+          }
+        }
+      },
+      "/2/files/delete_batch/check": {
+        "response": {
+          ".tag": "complete",
+          "entries": [
+            {
+              ".tag": "failure",
+              "failure": {
+                ".tag": "path_lookup",
+                "path_lookup": {
+                  ".tag": "not_found"
+                }
+              }
+            },
+            {
+              ".tag": "failure",
+              "failure": {
+                ".tag": "path_lookup",
+                "path_lookup": {
+                  ".tag": "not_found"
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:51:00 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1777409492",
+          "cache-control": "no-cache",
+          "x-server-response-time": "45",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "0ab6e3bd758f4147a7016cb469f11db4",
+          "x-dropbox-trace-id": "69f11db30000000035cdc116a4249631"
+        },
+        "hash": "a0afb16fb5f93d9a06c86bea126bffc70fe3b523",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AAA-WvMldtkW7M-XFUA71StN65Ppn2jjbOMpU4mA_FOyPNruRbvbsta0vk4ErZKX0p0qnWyh2bo9IZObifZF-zID"
+          }
+        }
+      }
+    }
+  }
+}
